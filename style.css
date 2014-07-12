@@ -1,8 +1,8 @@
    h3 { text-align: center}
    h4 { text-align: center}
    div {border-width: 1px; padding: 10px;
-   		border: groove; margin-left:auto;margin-right:auto; width:480px}
+   		border: groove; margin-left:auto;margin-right:auto; width:480pt}
    li { text-align:justify;"}
-   img { width:240px }
+   img { width:auto; height:auto; max-width: 66%;}
    p.img {text-align: center}
 
