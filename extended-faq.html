@@ -1,0 +1,25 @@
+<!-- THIS IS not ready page and it is considered to be available only on website but not on the mobile app -->
+<h3 class="help" id="">How to extract *.zip-1, *.zip-2, *.zip-3 files </h3>
+
+The zip-1, zip-2,.. zip-n files are splits of one binary zip file. Splitting is necessary due to the max file size limit on googlecode. To extract the file: 
+ # FIRST concatenate the files together, 
+ # THEN unzip them. 
+TotalCommander can combine files under Windows. Under Linux and Mac OS X you can use cat >> notation, Hjsplit, or any other merge utility. If you use cat to combine the zip files, you need to fix the merged zip file first. The fixed merged file can be unzipped as a usual zip file.<br>
+Example (Gb_england consists of three partial zip files):
+{{{
+cat Gb_england_europe_2.obf.zip-* > Gb_england_europe_2.obf.zip
+zip -FF Gb_england_europe_2.obf.zip --out Gb_england_europe_2.obf-full.zip
+unzip -o Gb_england_europe_2.obf-full.zip
+}}}
+
+<h3 class="help" id="">When will the OsmAnd version published on FDroid be updated? </h3>
+
+F-droid is responsible for their repositories (as is Ubuntu for the Ubuntu repos, Debian for Debian repos, ...)
+
+So you should ask this question to the f-droid maintainers. Probably on their forums: http://f-droid.org/forums/
+
+<h3 class="help" id="">I've got NaN in my google docs using the Live tracking feature </h3>
+
+Make sure the url in live tracking has the correct format, having {0} as parameters and not encoded {,} with percentages. This can happen when you copy/paste the url.
+
+Previously there used to be an issue with regional settings, this was, however, fixed  using the parseFloat method. To debug the problem, remove parseFloat() method from script so that you will see what OsmAnd sends in this parameter. This should give you a clue what is wrong, if it is in the script, the url in OsmAnd, or OsmAnd itself.

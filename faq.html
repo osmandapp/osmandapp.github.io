@@ -1,273 +1,229 @@
+<link href="style.css" rel="stylesheet" type="text/css">
+<div class="main">
+<h3 class="help">Frequently asked questions</h3>
 
-<h3 class="help">Answers for frequently asked questions</h3>
-
-<b><a href="#question">Ques</a></b>
-<b><a href="#intents">What intents does `OsmAnd` listen to? </a>
-
-
-<h3 id="intents">What intents does `OsmAnd` listen to?</h3>
 <ul>
-http://developer.android.com/guide/appendix/g-app-intents.html
+<li><a href="#permission"> Why does OsmAnd require permission X</a></li>
+<li><a href="#buy_app">I want to buy/support OsmAnd </h3>
+<li><a href="#long_route"> How to build a route for a distance more than 250km?</a></li>
+<li><a href="#failed_to_use_sdcard_on_4_4">Cannot use my SD Card with OsmAnd anymore? (4.4+)</a></li>
+<li><a href="#intents">What intents does OsmAnd listen to? </a></li>
+<li><a href="#routing_slow">Route calculation is slow</a></li>
+<li><a href="#routing_wrong">Routing in Osmand from start to destination point is wrong </a></li>
+<li><a href="#speed_cameras"> Osmand shows only some speed camera traps</a></li>
+<li><a href="#tts_vs_recorded">What is the difference between tts (text to speech) and recorded voices?</a></li>
+<li><a href="#change_maps_dir">How to move OsmAnd home (maps) folder to external sd card? </a></li>
+<li><a href="#search_by_postcode">How to search address by a postcode </a></li>
+<li><a href="#house_numbers_missing">House numbers are missing </a></li>
+<li><a href="#drain_too_much_power">OsmAnd seems to drain too much battery power </a></li>
+<li><a href="#gpx_routing_params">What do the 'Use current destination' and 'Pass along entire track' options mean when navigating using predefined GPX routes? </a></li>
+<li><a href="#contour_lines_not_visible">Contour lines are not showing up? </a></li>
+<li><a href="#countour_lines_feet">Is there a way to have the Contour Lines display in feet also, instead of meters? </a></li>
+<li><a href="#tts_not_working">TTS doesn't function properly (i.e. Dutch).</a></li>
+<li><a href="#importing_gpx">I have a GPX file, how do I get it into OsmAnd? </a></li>
+<li><a href="#offline_search_not_complete">Offline search by address does not show all streets numbers </a></li>
+<li><a href="#map_creator">Creating own maps and OsmAndMapCreator</a></li>
+<li><a href="#development">Development</a></li>
+<li><a href="#beta_testing">Beta Testing </a></li>
+<li>I can't find answer to my question.<br/>
+Please search on <a href="http://www.osmand.net">website </a> or post your question to <a href="http://groups.google.com/forum/?fromgroups#!forum/osmand?">Google Groups</a>.
+</li>
+</ul>
+
+<h3 class="help" id="permission">Why does OsmAnd require permission X </h3>
+<ul>
+  <li> Camera/Voice Recording - this is only used by the Audio/Video notes plugin. This feature is optional and by default disabled (can be enabled in the Plugin Manager). It allows to quickly create location-related audio/video notes during a trip.</li>
+  <li> Read address book  - is required by the app in order to use addresses that are defined in your address book.</li>
+  <li> GPS/Network access/SD card are natural requirements for this application.</li>
+</ul>
+
+
+
+<h3 class="help" id="buy_app">I want to buy/support an application </h3>
+There are several possibilities to do that : 
+<ul>
+  <li><a href="https://play.google.com/store/apps/details?id=net.osmand.plus">Google Play</a></li>
+  <li><a href="http://www.androidpit.de/de/android/market/apps/app/net.osmand.plus/OsmAnd-Karten-Navigation"> AndroidPit</a></li>
+  <li><a href="http://www.amazon.com/OsmAnd-Maps-Navigation/dp/B00D0SEGMC">Amazon Market (depends on the country)</a></li>
+  <li><a href="http://tip4commit.com/projects/33">Bitcoin</a></li>
+</ul>
+<h3 class="help" id="long_route">How to build a route for a distance more than 250km?</h3>
+  Many long routes (> 200-250km) could not be built in OsmAnd today. If the app doesn't build it for 7-8 minutes, it is worth to consider puting waypoints in the middle of motorway. 3-4 waypoints will be enough to calculate even 1000km route.
+<h3 class="help" id="failed_to_use_sdcard_on_4_4">Cannot use my SD Card with OsmAnd anymore? (4.4+)</h3>
+If you updated your Android to version 4.4.2, then you are experiencing a known Android issue with WRITE_EXTERNAL_STORAGE permission.  Android has changed regulation and now no applications could write to external card.
+Though if you have application running, it will continue working, but you won't be able to update any maps.
+Solution : 
+<ul>
+  <li>Move data to internal storage. Drawback: usually internal storage is very limited .</li>
+  <li>Move data to special folder on sd for OsmAnd+ - /storage/extSdCard/Android/data/net.osmand.plus and for OsmAnd /storage/extSdCard/Android/data/net.osmand/.<br/> <b>Drawback</b>: once you uninstall application all your data will be erased!
+</ul>
+<a href="#change_maps_dir"> How to Move data</a>
+<h3 class="help" id="intents">What intents does OsmAnd listen to?</h3>
+<a href="http://developer.android.com/guide/appendix/g-app-intents.html">Google geo intents</a>
+<ul>
+  
   <li> geo:latitude,longitude </li>
   <li> geo:latitude,longitude?z=zoom </li>
   <li> geo:0,0?q=my+street+address </li>
   <li> geo:0,0?q=business+near+city</li>
+</ul>
+And OsmAnd specific intents:
+<ul>
+  <li> http://download.osmand.net/go?lat=&amp;lon=&amp;z=</li>
+</ul>
 
-And `OsmAnd` specific intents:
-  <li> http://download.osmand.net/go?lat=&lon=&z=</li>
+<h3  class="help" id="routing_slow">Route calculation is slow</h3>
+Importantly, there are 2 route engines in the app: a Java based approach and a "Native" (C++) routing. The Java based approach is used in 'Safe Mode', it is 10x slower than native mode and it has strict memory limitations. If you experience it and you see messages 'Not enough memory to compute', please go to Settings → 'General' → 'Safe mode' and check the option is disabled.
+<br/>
+<br/>
+For native routing there are different limitations for different phones, depending on memory &amp; processor. In general, native routing should handle &lt; 300 km route nicely. The route calculation should take from 15 sec till 4 minutes. It is not wise to wait longer 4 minutes, because most likely the program will crash. 
+<br/>
+<br/>
+The only known workaround to compute long routes is to put waypoints. 2 additional way points should be enough.
+
+
+<h3 class="help" id="routing_wrong">Routing in Osmand from start to destination point is wrong </h3>
+
+In order to track down any routing issue that appears in Osmand, please open a new posting in <a href="https://groups.google.com/forum/#!forum/osmand"> Osmand googlegroup</a> and tell us as detailed as possible these points:
+<ul>
+  <li> What version of Osmand are you using, on what device?</li>
+  <li> Do you use online maps (tile graphics) or offline maps offered within Osmand app for download?</li>
+  <li> If you use offline maps, tell us the exact name of the map file where the routing issue occurs, and its edition date.</li>
+  <li> Tell us whether you have used Osmand's in-app offline routing, or any online routing provider like YOURS, OpenRouteService or OSRM.</li>
+  <li> What routing profile is choosen in Osmand app? (car, bike, foot)</li>
+  <li> How can we easily find start and end point within Osmand? If possible, tell us city name and street name for each. Also a <a href="http://wiki.openstreetmap.org/wiki/Permalink">Permalink</a> from openstreetmap.org can be helpful.</li>
+  <li> Tell us your expected routing, and what Osmand is routing.</li>
+  <li> Try some other OSM based routing provider listed in the OSM wiki about [http://wiki.openstreetmap.org/wiki/Routing Routing] and investigate whether they fail also. Some online routing services offer a permalink, please post it also.</li>
 </ul>
 
 
-Read [HowToArticles], search in Google Groups, and in Google, and only after that post your question at Google Groups.
-----
-----
-= App-Related =
-
-== How to build a route for a distance more than 150km ==
-`OsmAnd` supports only routes up to 150km. 
-
-If you need to build a route longer than 150km consider using waypoints.
-
-== Routing in Osmand from start to destination point is wrong ==
-
-In order to track down any routing issue that appears in Osmand, please open a new posting in [https://groups.google.com/forum/#!forum/osmand Osmand googlegroup] and tell us as detailed as possible these points:
-  # What version of Osmand are you using, on what device?
-  # Do you use online maps (tile graphics) or offline maps offered within Osmand app for download?
-  # If you use offline maps, tell us the exact name of the map file where the routing issue occurs, and its edition date.
-  # Tell us whether you have used Osmand's in-app offline routing, or any online routing provider like YOURS, OpenRouteService (outdated routing database!) or OSRM.
-  # What routing profile is choosen in Osmand app? (car, bike, foot)
-  # How can we easily find start and end point within Osmand? If possible, tell us city name and street name for each. Also a [http://wiki.openstreetmap.org/wiki/Permalink Permalink] from openstreetmap.org can be helpful.
-  # Tell us your expected routing, and what Osmand is routing.
-  # Try some other OSM based routing provider listed in the OSM wiki about [http://wiki.openstreetmap.org/wiki/Routing Routing] and investigate whether they fail also. Some online routing services offer a permalink, please post it also.
-
-== Route calculation is very slow ==
-First of all there are 2 route engines in the program: a Java based approach and a "Native" (C++) routing. The Java based approach is used in 'Safe Mode' and in 'Precise routing (alpha)' and is 10x slower than native mode and it has strict memory limitations. If you experience it and you see messages 'Not enough memory to compute', please go to Settings -> 'General' -> 'Safe mode' and validate it is disabled.
-
-For native routing there are different limitations for different phones, depending on memory & processor. In general, native routing should handle < 300 km route nicely. The route calculation should take from 15 sec till 4 minutes. It is not wise to wait longer 4 minutes, because most likely the program will crash. 
-
-The only known workaround to compute long routes is to put waypoints. 2 additional way points should be enough.
-
-== Osmand does not show all speed camera traps, only some of them ==
+<h3 class="help" id="speed_cameras"> Osmand shows only some speed camera traps</h3>
 
 Due to the geodata taken from the OpenStreetMap project there are by now two methods how speed camera traps are integrated in the raw OSM data:
+<ul>
+<li>
+  One certain point (called "node" in OSM terminology) of a way is tagged with "highway=speed_camera") see OSM wiki about <a href="http://wiki.openstreetmap.org/wiki/Tag%3Ahighway%3Dspeed_camera">highway=speed_camera</a>
+  </li>
+<li>
+  a group of OSM data elements are joined together in a so called "relation" that contains more elements than a single node to describe the direction that is covered by the speed trap ... see <a href="http://wiki.openstreetmap
+  .org/wiki/Relation:enforcement">Relation:enforcement</a></li>
 
- * One certain point (called "node" in OSM terminology) of a way is tagged with "highway=speed_camera" ... see OSM wiki about [http://wiki.openstreetmap.org/wiki/Tag%3Ahighway%3Dspeed_camera highway=speed_camera]
-or
- * a group of OSM data elements are joined together in a so called "relation" that contains more elements than a single node to describe the direction that is covered by the speed trap ... see [http://wiki.openstreetmap.org/wiki/Relation:enforcement Relation:enforcement]
+Currently, OsmAnd can only make use of the elements that consists of a single node. Analyzing of relations is to come in future releases.
 
-Currently, `OsmAnd` can only make use of the elements that consists of a single node. Analyzing of relations is to come in future releases.
-
-== Voice navigation does not work with the display is off ==
-
-Most of the time, the problem is that people don't know they have to turn on `OsmAnd's 'Sleep mode functionality' to allow the phone to process events in the background. Without this, `OsmAnd loses the GPS fix and cannot give you accurate instructions. For the best results, set the Wake-up interval to 0 seconds (continuous mode). If this still does not work for you, please search googlecode and our forum  for similar bugs, then ask on our forum.
-
-
-==What is the difference between tts (text to speech) and recorded voices?==
-
+<h3 class="help" id="tts_vs_recorded">What is the difference between tts (text to speech) and recorded voices?</h3>
 TTS (text to speech) synthesizes a voice prompt from a specified text at the time it sounds, while recorded voices need to have every command snippet pre-recorded from a human voice.
-
+<br/>
 While tts prompts may sound a bit more "robotic" and the language selection may be limited (both depends on the tts-engine installed on your device), many 'recorded' voices have various shortcomings (missing phrases, gaps) and cannot be easily maintained because you need access to the original speakers.
+<br/><br/>
+It is suggested to use a synthesized (tts) voice like en-tts. They are much more flexible, better maintained by the project developers. They are able to announce street names or highway numbers (version 1.5.1 and newer), etc., which recorded voices will likely never do.
+<br/><br/>
+The output quality of tts voices strictly depends on the tts engine you select (or install) in your Android device settings (built-in or 3rd party, try a few). I suggest that recorded voices should only be a fallback if you <u>really</u> like a particular voice, or if you cannot find a tts-engine supporting your language.
 
-I suggest you use a synthesized (tts) voice like en-tts. They are much more flexible, better maintained by the project developers. They are able to announce street names or highway numbers (version 1.5.1 and newer), etc., which recorded voices will likely never do.
+<h3 class="help" id="google_maps">Why does OsmAnd not offer access to google maps? </h3>
+ Firstly, OsmAnd is meant to support the OSM project and tries to g that path as far as possible. Secondly, there are licensing issues. OsmAnd cannot be distributed with google map sources, however, you can add the tile source manually, if you know tile source url.
 
-The output quality of tts voices strictly depends on the tts engine you select (or install) in your Android device settings (built-in or 3rd party, try a few). I suggest that recorded voices should only be a fallback if you REALLY like a particular voice, or if you cannot find a tts-engine supporting your language.
-
-== Why does `OsmAnd` not offer access to google maps? ==
-
-Basically, there are two reasons. Firstly, `OsmAnd` is meant to support the OSM project and tries to take that path as far as possible. Secondly, licensing issues. `OsmAnd` cannot be distributed with google map sources, however, you can add the tile source manually with this code:
-
-{{{
-   <tile_source rule="beanshell" name="GoogleMaps Satellite" ext=".jpg" min_zoom="7" max_zoom="20" tile_size="256" img_density="32" avg_img_size="18000" url_template='String getTileUrl(int z, int x, int y) { return "http://khm"+((int)(Math.random()*3.999))+".google.com/kh/v=108&src=app&x="+x+"&y="+y+"&z="+z+"&s="+"Galileo".substring(0,1+(int)(Math.random()*6.999));}'/>
-}}}
-
-== How can I add add/contribute new online tile map sources so the can be accessed from `OsmAnd`? ==
-
-Create a pull request for this file:
-https://github.com/osmandapp/OsmAnd-misc/blob/master/site/tile_sources.xml
-
-== `OsmAnd+` installation on the USB memory or SD card failed==
-This happens only for `OsmAnd+` paid version and it is known Google Play issue (this is reproducible for other paid applications copied to SD-card). 
-
-Symptoms :
-  * Application was installed on SD-card and update fails
-
+<!--
+   tile_source rule="beanshell" name="GoogleMaps Satellite" ext=".jpg" min_zoom="7" max_zoom="20" tile_size="256" img_density="32" avg_img_size="18000" url_template='String getTileUrl(int z, int x, int y) { return "http://khm"+((int)(Math.random()*3.999))+".google.com/kh/v=108&amp;src=app&amp;x="+x+"&amp; y="+y+"&amp; z="+z+"&amp;s="+"Galileo".substring(0,1+(int)(Math.random()*6.999));}'
+-->
+<h3 class="help" id="osmand_installation_failed">OsmAnd+ installation on the SD card failed</h3>
+This happens only for OsmAnd+ paid version and it is known Google Play issue (this is reproducible for other paid applications copied to SD-card). 
+<br/><br/>
+Symptoms:<u>Application was installed on SD-card and update fails</u>
+<br/><br/>
 Possible solution:
-  * Check this http://www.newbiehelper.net/solve-couldnt-install-on-usb-storage-or-sd-card-error-in-android-2-2/
-  * If you have running application, please make backup
-  * Uninstall application completely (export favorites)
-  * Clear cache of Google Play app and unmount SD
-  * Install it again
-
-Because crash happens before application started nothing could be fixed on `OsmAnd` side. Please press Google Play -> Help -> Contact Us and write the problem, probably Google will fix it (it happens only for some devices but with different Android version). 
-
-== Cannot use my SD Card with `OsmAnd` anymore? ==
-
-If you updated your Android to version 4.4.2, then you are experiencing a known Android issue with WRITE_EXTERNAL_STORAGE permission. 
-
-However, there is a workaround for this: 
-
-If you want to use SD card with `OsmAnd`, you have to move your current /osmand folder to your SD card. Please note that you need to create the location manually or create a new folder (with your system file manager, because it has full write access to  SD card). After that you have to set the full path (inside the `OsmAnd`app) to the folder: Settings > General > Storage directory > Other
-
-For example for Samsung KitKat devices, the full path should either be: _/storage/extSdCard/Android/data/net.osmand.plus_   or   _/storage/extSdCard/osmand
-
-Hence, for `OsmAnd`Free, the location is either: _Android/data/net.osmand_   or   _/storage/extSdCard/osmand
-
-Respectively for `OsmAnd`+: _Android/data/net.osmand.plus_   or   _/storage/extSdCard/osmand
-
-For example, the steps to use a MicroSD card in a Galaxy S4 are as follows:
-  # take the MicroSD card out of the phone
-  # mount the MicroSD card on a PC
-  # create a directory /Android/data/net.osmand on the MicroSD card
-  # if you had an existing osmand directory on the MicroSD card, move the old osmand directory wholy into the newly created net.osmand directory
-  # unmount the MicroSD card, and put it back into your phone
-  # In Osmand General settings, define your data path as "/storage/extSdCard/Android/data/net.osmand"    or   _/storage/extSdCard/osmand (without the quotes).
+<ul>
+  <li> Check this http://www.newbiehelper.net/solve-couldnt-install-on-usb-storage-or-sd-card-error-in-android-2-2/</li>
+  <li> If you have running application, please make backup</li>
+  <li> Uninstall application completely (export favorites)</li>
+  <li> Clear cache of Google Play app and unmount SD</li>
+  <li> Install it again</li>
+</ul>
+<br/>
+Because crash happens before application started nothing could be fixed on OsmAnd side. Please press Google Play → Help → Contact Us and write the problem, probably Google will fix it (it happens only for some devices but with different Android version). 
 
 
-== How to move `OsmAnd` home folder to external sd card? ==
+<h3 class="help" id="change_maps_dir">How to move OsmAnd home (maps) folder to external sd card? </h3>
+In order to move OsmAnd home folder to an external sd card:
+<ul>
+<li> Go to Settings (on the start screen) → General → Storage directory. </li>
+<li> Change the value to /storage/extSdCard</li>
+<li> Move the OsmAnd folder to the external cd card using connection to the computer as an external drive or using file manager, like Astro or any other. </li>
 
-In order to move `OsmAnd` home folder to an external cd card:
- # Go to Settings (on the start screen) -> General -> Storage directory. 
- # Change the value to /storage/extSdCard
- # Move the `OsmAnd` folder to the external cd card using connection to the computer as an external drive or using file manager, like Astro or any other. 
-
-== How to search address by a postcode ==
-
+<h3 class="help" id="search_by_postcode">How to search address by a postcode </h3>
 In order to find an address by a postcode:
- # Go to Search (on the start screen)
- # Move to the second tab on top (search by address)
- # Choose a Region
- # Click on the City button
- # Instead the city name fill in the postcode
- # Choose a Street
- # Choose a Building (not required)
+<ul>
+ <li> Go to Search (on the start screen)</li>
+ <li> Move to the second tab on top (search by address)</li>
+ <li> Choose a Region</li>
+ <li> Click on the City button</li>
+ <li> Instead the city name fill in the postcode</li>
+ <li> Choose a Street</li>
+ <li> Choose a Building (not required)</li>
+</ul>
 
-Please keep in mind that `OsmAnd` data is based on the data from Open Street Map. This map is built by the Internet users. Sometimes in can be not complete. If you can't find the postcode you need, it does not always mean that the postcode is wrong. Maybe just nobody added it to the map. You can make this map better by adding the missing data. You can find more info about it here: http://www.openstreetmap.org
+Please keep in mind that OsmAnd data is based on the data from Open Street Map. This map is built by the Internet users. Sometimes in can be not complete. If you can't find the postcode you need, it does not always mean that the postcode is wrong. Maybe just nobody added it to the map. You can make this map better by adding the missing data. You can find more info about it here: <a href="http://www.openstreetmap.org">OpenStreetMaps</a>
 
-== House numbers are missing ==
-`OsmAnd` uses Open Street Map (OSM) as a source of data. 
-
+<h3 class="help" id="house_numbers_missing">House numbers are missing </h3>
+OsmAnd uses Open Street Map (OSM) as a source of data. 
+<br/><br/>
 This map is built by the Internet users. There are some advantages of such approach, like changes to the roads or POI appear very quickly, but there are also disadvantages, like missing data (house numbers as an example).  
+<br/><br/>
+You can make this map better by adding the missing data. You can find more info about OSM and how to change it <a href="http://www.openstreetmap.org"> OpenStreetMaps</a> and <a href="http://wiki.openstreetmap.org/wiki/Beginners_Guide_1.3">Guide</a>
 
-You can make this map better by adding the missing data. You can find more info about OSM and how to change it [http://www.openstreetmap.org here] and [http://wiki.openstreetmap.org/wiki/Beginners_Guide_1.3 here]
+<h3 class="help" id="drain_too_much_power">OsmAnd seems to drain too much battery power </h3>
 
-*Note for users of the Netherlands map: * You can find a full address (city/street/house number) map on [http://harryvanderwolf.dyndns.org/index.php?lang=nl&subject=OsmAnd&texttag=AdditionalMaps this] site.
+There hav on and off been user reports about this. We made lots of measurements and could never really reproduce it, even though sometimes OsmAnd is reported of causing 90% of the battery usage. First of all OsmAnd doesn't run anything in background except Sleep mode but you need to enable it and you will always see the sleep mode icon in the status bar. So unless the sleep mode is active, if you exit the app (go to home screen or press close button), OsmAnd will stop working and will not cause any power consumption.
+<br/><br/>
+Power usage issues were reported with Android 2.3 and Android 4.0. In Android 4.0 you can double-check details of what causes how much battery use. If you check CPU time / screen time / GPS time consumed by OsmAnd (in android's standard power manager) you will see that the numbers don't add up correctly. For example, 2 min GPS, 2 min CPU, 1 min Screen causes 30% consumption. If you have some better good evidence, please contact to us.
+<br/><br/>
+PS: If you use OsmAnd for hiking or otherwise carry your device in a lose pocket where accidental pressing of the device's power switch may occur, it is also advisable to put OsmAnd to the background (by hitting the device's Home button), before putting the device to sleep. Reason: If OsmAnd's map screen is the foreground application, any accidental (unnoticed) push on the power button will not only activate the screen briefly (this is unavoidable), but will then <u>also</u> briefly activate GPS, which is quite a battery eater.
 
-== `OsmAnd` seems to drain too much battery power ==
-
-There hav on and off been user reports about this. We made lots of measurements and could never really reproduce it, even though sometimes `OsmAnd` is reported of causing 90% of the battery usage. First of all `OsmAnd` doesn't run anything in background except Sleep mode but you need to enable it and you will always see the sleep mode icon in the status bar. So unless the sleep mode is active, if you exit the app (go to home screen or press close button), `OsmAnd` will stop working and will not cause any power consumption.
-
-Power usage issues were reported with Android 2.3 and Android 4.0. In Android 4.0 you can double-check details of what causes how much battery use. If you check CPU time / screen time / GPS time consumed by `OsmAnd` (in android's standard power manager) you will see that the numbers don't add up correctly. For example, 2 min GPS, 2 min CPU, 1 min Screen causes 30% consumption. If you have some better good evidence, please contact to us.
-
-PS: If you use `OsmAnd` for hiking or otherwise carry your device in a lose pocket where accidental pressing of the device's power switch may occur, it is also advisable to put `OsmAnd` to the background (by hitting the device's Home button), before putting the device to sleep. Reason: If `OsmAnd's` map screen is the foreground application, any accidental (unnoticed) push on the power button will not only activate the screen briefly (this is unavoidable), but will then _also_ briefly activate GPS, which is quite a battery eater.
-
-
-== Why does `OsmAnd` require permission X ==
-
-  * Camera/Voice Recording - this is only used by the Audio/Video notes plugin. This feature is optional and by default disabled (can be enabled in the Plugin Manager). It allows to quickly create location-related audio/video notes during a trip.
-  * Read address book  - is required by the app in order to use addresses that are defined in your address book
-  * GPS/Network access/SD card are natural requirements for this application
-
-== What do the 'Use current destination' and 'Pass along entire track' options mean when navigating using predefined GPX routes? ==
-
+<h3 class="help" id="gpx_routing_params">What do the 'Use current destination' and 'Pass along entire track' options mean when navigating using predefined GPX routes? </h3>
 - "Use current destination": Guides you via the specified GPX-track, but to your currently selected "Destination", so the GPX route can be extended or shortened.
+<br/><br/>
+- "Pass along entire track": Forces the OsmAnd navigation algorithm to, as much as possible, traverse the entire GPX track, even if shortcuts are possible or you are already near its end when you start, or already rather close to your destination before traversing the entire GPX track.
 
-- "Pass along entire track": Forces the `OsmAnd` navigation algorithm to, as much as possible, traverse the entire GPX track, even if shortcuts are possible or you are already near its end when you start, or already rather close to your destination before traversing the entire GPX track.
-
-
-== I've got NaN in my google docs using the Live tracking feature ==
-
-Make sure the url in live tracking has the correct format, having {0} as parameters and not encoded {,} with percentages. This can happen when you copy/paste the url.
-
-Previously there used to be an issue with regional settings, this was, however, fixed  using the parseFloat method. To debug the problem, remove parseFloat() method from script so that you will see what `OsmAnd` sends in this parameter. This should give you a clue what is wrong, if it is in the script, the url in `OsmAnd`, or `OsmAnd` itself.
-
-
-== I want to buy/support an application ==
-There are several possibilities to do that : 
-  * Google Play https://play.google.com/store/apps/details?id=net.osmand.plus
-  * AndroidPit http://www.androidpit.de/de/android/market/apps/app/net.osmand.plus/OsmAnd-Karten-Navigation  
-  * Amazon Market (depends on the country) : http://www.amazon.com/OsmAnd-Maps-Navigation/dp/B00D0SEGMC
-  * Bitcoin : http://tip4commit.com/projects/33
-
-
-== When will the `OsmAnd` version published on FDroid be updated? ==
-
-F-droid is responsible for their repositories (as is Ubuntu for the Ubuntu repos, Debian for Debian repos, ...)
-
-So you should ask this question to the f-droid maintainers. Probably on their forums: http://f-droid.org/forums/
-
-== Is there a way to have the Contour Lines display in feet also, instead of meters? ==
-
-Unfortunately no. We have no possibility and time to do it now. We need to generate completely new maps and it will even change the lines itself.
-
-== Contour lines are not showing up? ==
-
+<h3 class="help" id="contour_lines_not_visible">Contour lines are not showing up? </h3>
 Please follow these steps: 
- # Check if the Contour Maps plugin you bought is enabled under Settings → Plugins → checkmark Contour Lines Plugin. 
- # You need to download the contour maps from the menu in Settings → Data Management → Click Here To Download or Update Offline Data → tap the little triangle where it says "Regular Maps". 
- # Make sure they are enabled in Menu → Map Layers → Hillshade Layer. 
- # Check at what zoom level they appear in Menu → Configure Screen → Show contour lines. 
+<ul>
+ <li> Check if the Contour Maps plugin you bought is enabled under Settings → Plugins → checkmark Contour Lines Plugin. </li>
+ <li>You need to download the contour maps from the menu in Settings → Data Management → Click Here To Download or Update Offline Data → tap the little triangle where it says "Regular Maps". </li>
+ <li> Make sure they are enabled in Menu → Map Layers → Hillshade Layer. </li>
+ <li> Check at what zoom level they appear in Menu → Configure Screen → Show contour lines. </li>
+ </ul>
 
-== tts-nl (Dutch voice) doesn't load? ==
+<h3 class="help" id="countour_lines_feet">Is there a way to have the Contour Lines display in feet also, instead of meters? </h3>
+Unfortunately, no. We need to generate completely new maps with different geometry and labels.
 
+<h3 class="help" id="tts_not_working">TTS doesn't function properly (i.e. Dutch).</h3>
 If you are having issues with the TTS file, then please check if you have a compatible TTS engine installed on your Android device. It is a known issue that Android's default TTS engine (Pico) does not support Dutch. You can try to use something like SVOX or Espeak.
 
-
-= Data-Related =
-
-== I have a GPX file, how do I get it into `OsmAnd`? ==
-
-There is no way in the app to import the file, you have to 
-put the file in the `OsmAnd` directory on your sd card: 
-
-{{{
-osmand/tracks/your_file.gpx
-}}}
-
-Then start `OsmAnd` and it should be there, if not, quit
-the `OsmAnd` app and restart it again.
+<h3 class="help" id="importing_gpx">I have a GPX file, how do I get it into OsmAnd? </h3>
+<ul>
+  <li>You can download and open it via File Browser or Dropbox and select OsmAnd as a target application</li>
+  <li>You can put it in OsmAnd home folder : osmand/tracks/your_file.gpx</li>
+</ul>
 
 
-== How to extract `*`.zip-1, `*`.zip-2, `*`.zip-3 files ==
+<h3 class="help" id="offline_search_not_complete">Offline search by address does not show all streets numbers </h3>
+Most of these issues are map data issues and could be addressed via <a href="http://www.openstreetmap.org/">OpenStreetMaps</a>. If you can see that data is present there (note that it takes some time for OSM new data to appear in OsmAnd maps), then problem is in OsmAnd algorithms or how that data is structured.
+<br/><br/>
+The most common issue is that streets exist but are not found in a city, and this is due to missing evidence in the OSM data  to what town/city the street belongs. In OsmAnd search you can use feature "Search in neighboor cities" if you see that street is not found.
+<br/><br/>
+To investigate this problem you can use the BinaryInspector tool from <a href="http://www.osmand.net">OsmAndMapCreator</a> installation which shows you exact information on what is in the obf file. Most probably you will find your street in a neighboring town. If you consider to open an issue, please specify all relevant information in its description.
+<br/><br/>
+If you want to see more deail about why these issues occur in OsmAnd's algorithms, please read <a href="http://code.google.com/p/osmand/wiki/MapAddressDataStructure">Wiki</a>
 
-The zip-1, zip-2,.. zip-n files are splits of one binary zip file. Splitting is necessary due to the max file size limit on googlecode. To extract the file: 
- # FIRST concatenate the files together, 
- # THEN unzip them. 
-TotalCommander can combine files under Windows. Under Linux and Mac OS X you can use cat >> notation, Hjsplit, or any other merge utility. If you use `cat` to combine the zip files, you need to fix the merged zip file first. The fixed merged file can be unzipped as a usual zip file.<br>
-Example (Gb_england consists of three partial zip files):
-{{{
-cat Gb_england_europe_2.obf.zip-* > Gb_england_europe_2.obf.zip
-zip -FF Gb_england_europe_2.obf.zip --out Gb_england_europe_2.obf-full.zip
-unzip -o Gb_england_europe_2.obf-full.zip
-}}}
+<hr/>
+<h3 class="help" id="map_creator">Creating own maps and OsmAndMapCreator</h3>
+<h4 class="help" id="">OsmAndMapCreator fails with message: OutOfMemoryError </h4>
 
-== Offline search by address does not show all streets/house numbers ==
-
-Most of these issues are map data issues and could be addressed via http://www.openstreetmap.org/. If you can see that data is present there (note that it takes some time for OSM new data to appear in `OsmAnd` maps), then problem is in `OsmAnd` algorithms or how that data is structured.
-
-The most common issue is that streets exist but are not found in a city, and this is due to missing evidence in the OSM data  to what town/city the street belongs.
-
-To investigate this problem you can use the `BinaryInspector` tool which shows you exact information on what is in the obf file, see [http://code.google.com/p/osmand/wiki/HowToInspectAnObfBinaryFile]. Most probably you will find your street in a neighboring town. If you consider to open an issue, please open it in the right place and specify all relevant information in its description.
-
-If you want to see more deail about why these issues occur in `OsmAnd's` algorithms, please read [http://code.google.com/p/osmand/wiki/MapAddressDataStructure].
+The file you try to process with OsmAndMapCreator is big. Either, try to process a smaller file, or increase the memory for OsmAndMapCreator in the .sh or .bat file. The -Xmx parameter specifies how much memory the program can consume. Settings can be different for 64bit (more than 1.5GB) and 32bit (max around 1.5GB) machines.
 
 
-== I installed `OsmAnd` Version 0.8.x, and some vector maps report they are not supported by this version of `OsmAnd` ==
+<h4 class="help" id="">After converting an .osm to .obf with only a POI index, the .obf is empty, although original .osm file did contain POIs. What is wrong? </h4>
 
-   How did you install the map? The 0.8+ version needs new maps denoted with `_2` in their original file names. `OsmAnd` should find the correct map when downloading from within the app. Please consider upgrading he app to the latest version, anyway.
-
-
-
-= `OsmAndMapCreator`-Related =
-
-
-== `OsmAndMapCreator` fails with message: `OutOfMemoryError` ==
-
-The file you try to process with `OsmAndMapCreator` is big. Either, try to process a smaller file, or increase the memory for `OsmAndMapCreator` in the .sh or .bat file. The -Xmx parameter specifies how much memory the program can consume. Settings can be different for 64bit (more than 1.5GB) and 32bit (max around 1.5GB) machines.
-
-
-== After converting an .osm to .obf with only a POI index, the .obf is empty, although the original .osm file did contain POIs. What is wrong? ==
-
-Could be that a crucial tag was missing for `OsmAndMapCreator` to recognize a POI when you converted the osm from another source, like Garmin. If in the OSM file a point looks like this:
+Could be that a crucial tag was missing for OsmAndMapCreator to recognize a POI when you converted the osm from another source, like Garmin. If in the OSM file a point looks like this:
 {{{
  <node id='-24' visible='true' lat='1.3094000' lon='103.7784000'>
     <tag k='created_by' v='GPSBabel-1.4.2'/>
@@ -282,14 +238,14 @@ change it to contain an additional 'amenity' tag, like:
     <tag k='amenity' v='point' />
   </node>
 }}}
-Than convert the file using `OsmAndMapCreator`. You can look to the OSM site what tags are good ones to use, or you can just use this one.
+Than convert the file using OsmAndMapCreator. You can look to the OSM site what tags are good ones to use, or you can just use this one.
 
 
-== How can I specify internet access proxy settings for `OsmAndMapCreator`? ==
+<h4 class="help" id="">How can I specify internet access proxy settings for OsmAndMapCreator? </h4>
 
 http://stackoverflow.com/questions/120797/how-do-i-set-the-proxy-to-be-used-by-the-jvm
 
-Use `OsmAndMapCreator.bat` or `OsmAndMapCreator.sh` to start `OsmAndMapCreator` based on your operating system. Both of them invoke java, so you just need to add the -D... -D.. params to the invokation.
+Use OsmAndMapCreator.bat or OsmAndMapCreator.sh to start OsmAndMapCreator based on your operating system. Both of them invoke java, so you just need to add the -D... -D.. params to the invokation.
 
 like:
 {{{
@@ -301,62 +257,66 @@ javaw.exe -Dhttp.proxyHost=10.0.0.100 -Dhttp.proxyPort=8080 -Djava.util.logging.
 }}}
 
 
-== I want to put some custom details on a vector map (create own rendering style with own data) ==
+<h4 class="help" id="">I want to put some custom details on a vector map (create own rendering style with own data</h4>
 
-`OsmAndMapCreator` can process only OSM files (osm-xml, bz2, pbf). However the set of tags can be custom. To specify what tags/values need to be indexed by Creator please download and change this 
+OsmAndMapCreator can process only OSM files (osm-xml, bz2, pbf). However the set of tags can be custom. To specify what tags/values need to be indexed by Creator please download and change this 
 file https://github.com/osmandapp/OsmAnd-core/blob/master/OsmAnd-java/src/net/osmand/osm/rendering_types.xml. 
-`OsmAndMapCreator` has an option to use custom rendering_types.xml in the settings. Once file is created you can double check that data is present by utility `binaryInspector` with '-vmap' argument. This utility is packaged with `OsmAndMapCreator`. 
-
+OsmAndMapCreator has an option to use custom rendering_types.xml in the settings. Once file is created you can double check that data is present by utility binaryInspector with '-vmap' argument. This utility is packaged with OsmAndMapCreator. 
+<br/><br/>
 Once the .obf file is ready you can create custom rendering file to display missing attributes. There is a default rendering style which contains all information about rendering https://github.com/osmandapp/OsmAnd-resources/blob/master/rendering_styles/default.render.xml. It is good to have a look at it but it is very hard to open/edit it and understand. More convenient way to create your own rendering style is to create style that depends (inherits) default style.  A good example of custom rendering style is a https://github.com/osmandapp/OsmAnd-resources/blob/master/rendering_styles/Winter-and-ski.render.xml. See also [http://code.google.com/p/osmand/wiki/CustomizeOBFFileContent How to produce customized vector data].
-
-Currently `OsmAndMapCreator` doesn't support relation tagging. So you need to manually copy all tags from relations (like route color) to way tags by script.
-
-= Development-Related =
-
-
-== Unable to execute dex: Java heap space ==
-
-Increase the memory for eclipse, around 1GB or more should be ok.
-
-
-== How can I contribute a new language TTS voice file? ==
-
-The TTS voice files stored here  https://github.com/osmandapp/OsmAnd-resources/tree/master/voice. You can fork a repository and then create pull request with your file.
-* Please do not use an underscore _ at the beginning of your file name.
-* Do not change version in the ttsconfig.p, use the one that is in the others. This does not denote a file version, but rather an API version that the tts uses.
-
-Please refer to our English en-tts file for basic reference and as template, and consider to look at grammatically more complex languages like German (de-tts), Czech (cz-tts) or Slovak (sk-tts) to cover more complex statements. There should be a way to correctly produce what needs to be done - the PROLOG used in the tts-config.p files is a powerful programming language.
-
-Regarding distribution: In the latest versions the tts voices are distributed within the app (apk) and need not / cannot be downloaded any more via the download server on the web. (Don't be confused, they still appear like downloads in the app's Offline Data Manager, but they are listed there only and contained locally). However, until the next release of `OsmAnd` we could put new tts-voices on our googlecode Download for manual download. The basic idea is that tts files will not be updated too frequently, so in general it is sufficient to have them distributed with each release, within the application.
+<br/><br/>
+Currently OsmAndMapCreator doesn't support relation tagging. So you need to manually copy all tags from relations (like route color) to way tags by script.
 
 
 
-= Beta Testing =
+<hr/>
+<h3 class="help" id="beta_testing">Beta Testing</h3>
 The Google Play Store has a possibility to test beta versions of apps, which enables you to (temporary) download and use the test version from the Google Play Store instead of the standard available version(s).
-For `OsmAnd` this means that you can participate in testing the new `OsmAnd` free or the new `OsmAnd+` paid versions. This enables you to use and test exciting new features. Using a beta version also means that you might encounter bugs or app crashes.
+For OsmAnd this means that you can participate in testing the new OsmAnd free or the new OsmAnd+ paid versions. This enables you to use and test exciting new features. Using a beta version also means that you might encounter bugs or app crashes.
 
 The Google Play Store mechanism also supports the easy return to the standard version from the Google Play Store.
 
-== Activating the test version ==
-Register as tester for the `OsmAnd` free test version via the following Google Group:
+<h4 class="help" id="">Activating the test version </h3>
+Register as tester for the OsmAnd free test version via the following Google Group:
 https://play.google.com/apps/testing/net.osmand
-Register for the `Osmand+` paid test version via the following Google Group:
-https://play.google.com/apps/testing/net.osmand.plus/testing
-<br>(note: this is only possible if you are a registered user for the paid version)
-
-  * When you click the link and you register yourself, you see a big blue or green panel mentioning "Be a test user" (in your defined language).
-  * After having clicked the "button" you will see a message "You are now a tester" with a green check-mark in front of it (and on repetitive actions it will show "You are a tester").
-  * Give Google some time to synchronize which can be anywhere between 10 seconds or 60 minutes.
-  * Now you can download the test version, either directly from the Google Play Store, or via your phone/tablet.
-
-== Returning to the standard Google Play Store `OsmAnd` version ==
+Register for the Osmand+ paid test version via the following Google Group:
+<a href="https://play.google.com/apps/testing/net.osmand.plus/testing">Testing</a>
+(note: this is only possible if you are a registered user for the paid version)
+<br/><br/>
+<ul>
+  <li>When you click the link and you register yourself, you see a big blue or green panel mentioning "Be a test user" (in your defined language).</li>
+  <li> After having clicked the "button" you will see a message "You are now a tester" with a green check-mark in front of it (and on repetitive actions it will show "You are a tester").</li>
+  <li> Give Google some time to synchronize which can be anywhere between 10 seconds or 60 minutes.</li>
+  <li> Now you can download the test version, either directly from the Google Play Store, or via your phone/tablet.</li>
+</ul>
+<h4 class="help" id="">Returning to the standard Google Play Store OsmAnd version </h3>
 Note that the same registration screen, after having registered, also has a link "Leave the test version". 
 If, after some time, you want to use the current standard version from the Google Play Store again instead of the test version, you do the following:
-  * Use the relevant link above again (so you better make this a bookmark/favorite in your browser). That page will still mention "You are a tester".
-  * That page also contains the link "Leave the test version".
-  * Click that link and Google will mention "You have left the test version"
-  * Manually uninstall the test version, either via the Google Play Store or on your phone/tablet.
-  * Manually (re)install the current version, either via the Google Play Store or on your phone/tablet.
+<ul>
+  <li> Use the relevant link above again (so you better make this a bookmark/favorite in your browser). That page will still mention "You are a tester"</li>
+  <li> That page also contains the link "Leave the test version".</li>
+  <li> Click that link and Google will mention "You have left the test version"</li>
+  <li> Manually uninstall the test version, either via the Google Play Store or on your phone/tablet.</li>
+  <li> Manually (re)install the current version, either via the Google Play Store or on your phone/tablet.</li>
+</ul>
 
 
-_Note:_ Make an export of your `OsmAnd` favorites. The new testversion should simply continue using the favorites but as it is a beta version for testing, you never know. 
+<b>Note</b>: Make an export of your OsmAnd favorites. The new testversion should simply continue using the favorites but as it is a beta version for testing, you never know. 
+
+
+<hr/>
+<h3 class="help" id="development">OsmAnd Development</h3>
+
+<h4 class="help">How can I contribute a new language TTS voice file? </h3>
+
+The TTS voice files stored here  <a href="https://github.com/osmandapp/OsmAnd-resources/tree/master/voice">Github voice</a>. You can fork a repository and then create pull request with your file.
+<ul>
+<li> Please do not use an underscore _ at the beginning of your file name.</li> 
+<li> Do not change version in the ttsconfig.p, use the one that is in the others. This does not denote a file version, but rather an API version that the tts uses.</li>
+</ul>
+<br/><br/>
+Please refer to our English en-tts file for basic reference and as template, and consider to look at grammatically more complex languages like German (de-tts), Czech (cz-tts) or Slovak (sk-tts) to cover more complex statements. There should be a way to correctly produce what needs to be done - the PROLOG used in the tts-config.p files is a powerful programming language.
+<br/><br/>
+Regarding distribution: In the latest versions the tts voices are distributed within the app (apk) and need not / cannot be downloaded any more via the download server on the web. (Don't be confused, they still appear like downloads in the app's Offline Data Manager, but they are listed there only and contained locally). However, until the next release of OsmAnd we could put new tts-voices on our googlecode Download for manual download. The basic idea is that tts files will not be updated too frequently, so in general it is sufficient to have them distributed with each release, within the application.
+
+</div>
