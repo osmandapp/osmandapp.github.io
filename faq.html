@@ -1,6 +1,6 @@
 ﻿<link href="style.css" rel="stylesheet" type="text/css">
 <div class="main">
-<h3 class="help">Frequently asked questions</h3>
+<h3 class="help">Frequently Asked Questions</h3>
 
 
 <h4>Purchase and Setup:</h4>
@@ -20,7 +20,7 @@
 <li><a href="#routing_slow">Route calculation is slow</a></li>
 <li><a href="#long_route">How to calculate routes longer than 250km?</a></li>
 <li><a href="#tts_vs_recorded">What is the difference between tts (text to speech) and recorded voices?</a></li>
-<li><a href="#tts_not_working">TTS doesn't function properly (i.e. Dutch)</a></li>
+<li><a href="#tts_not_working">TTS does not function properly (i.e. Dutch)</a></li>
 <li><a href="#gpx_routing_params">What do the 'Use current destination' and 'Pass along entire track' options mean when navigating using predefined GPX routes? </a></li>
 </ul>
 <h4>Using OsmAnd's Search:</h4>
@@ -275,34 +275,34 @@ The file you try to process with OsmAndMapCreator is too large. Either try to pr
 
 <h4 class="help" id="">After converting an .osm to .obf with only a POI index, the .obf is empty, although original .osm file did contain POIs. What is wrong? </h4>
 It could be that a crucial tag was missing for OsmAndMapCreator to recognize a POI when you converted the osm from another source, like Garmin. If a point in the OSM file looks like this:
-{{{
+<xmp>
  <node id='-24' visible='true' lat='1.3094000' lon='103.7784000'>
     <tag k='created_by' v='GPSBabel-1.4.2'/>
     <tag k='name' v='Street-Soccer Court'/>
   </node>
-}}}
+</xmp>
 change it to contain an additional 'amenity' tag, like:
-{{{
+<xmp>
  <node id='-24' visible='true' lat='1.3094000' lon='103.7784000'>
     <tag k='created_by' v='GPSBabel-1.4.2'/>
     <tag k='name' v='Street-Soccer Court'/>
     <tag k='amenity' v='point' />
   </node>
-}}}
+</xmp>
 Then convert the file using OsmAndMapCreator. You can check on the OSM site what tags are good ones to use, or you can just use this amenity.
 
 
 <h4 class="help" id="">How can I specify internet access proxy settings for OsmAndMapCreator?</h4>
-http://stackoverflow.com/questions/120797/how-do-i-set-the-proxy-to-be-used-by-the-jvm
+See <a href="http://stackoverflow.com/questions/120797/how-do-i-set-the-proxy-to-be-used-by-the-jvm">http://stackoverflow.com/questions/120797/how-do-i-set-the-proxy-to-be-used-by-the-jvm</a>
 Use OsmAndMapCreator.bat or OsmAndMapCreator.sh to start OsmAndMapCreator based on your operating system. Both of them invoke java, so you just need to add the -D... -D.. params to the invokation.
 like:
-{{{
+<xmp>
 javaw.exe -Djava.util.logging.config.file=logging.properties -Xms64M -Xmx720M -cp "./OsmAndMapCreator.jar;./lib/*.jar" net.osmand.swing.OsmExtractionUI
-}}}
+</xmp>
 after:
-{{{
+<xmp>
 javaw.exe -Dhttp.proxyHost=10.0.0.100 -Dhttp.proxyPort=8080 -Djava.util.logging.config.file=logging.properties -Xms64M -Xmx720M -cp "./OsmAndMapCreator.jar;./lib/*.jar" net.osmand.swing.OsmExtractionUI
-}}}
+</xmp>
 
 
 <h4 class="help" id="">I want to put some custom details on a vector map (render own custom data)</h4>
