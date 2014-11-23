@@ -8,7 +8,7 @@
 <li><a href="#buy_app">I want to buy/support OsmAnd</h3>
 <li><a href="#permission">Why does OsmAnd require permission X</a></li>
 <li><a href="#change_maps_dir">How to move OsmAnd's home (maps) folder to the external SD card?</a></li>
-<li><a href="#failed_to_use_sdcard_on_4_4">I cannot use my SD Card with OsmAnd anymore? (Android 4.4+)</a></li>
+<li><a href="#failed_to_use_sdcard_on_4_4">How do I use my SD Card with OsmAnd under Android 4.4+ ?</a></li>
 <li><a href="#osmand_installation_failed">OsmAnd+ installation on the SD card fails</a></li>
 <li><a href="#importing_gpx">I have a GPX file, how do I get it into OsmAnd?</a></li>
 <li><a href="#contour_lines_not_visible">Contour lines are not showing up</a></li>
@@ -78,13 +78,17 @@ In order to move the OsmAnd home (maps) folder to an external SD card:
 </ul>
 
 
-<h3 class="help" id="failed_to_use_sdcard_on_4_4">I cannot use my SD Card with OsmAnd anymore? (Android 4.4+)</h3>
-If you updated your Android to version 4.4.2, you are experiencing a known Android issue with the WRITE_EXTERNAL_STORAGE permission.  Android has changed the rules and now no application can write to the external card.
-(Although if you have the application running, it will continue working, you just won't be able to update any maps files.)
-<br>Solutions :
+<h3 class="help" id="failed_to_use_sdcard_on_4_4">How do I use my SD Card with OsmAnd under Android 4.4+ ?</h3>
+If you update your Android to version 4.4.2, you will experience a known Android issue with the WRITE_EXTERNAL_STORAGE permission: Android has changed the rules so that from now on no application can write to the external SD card anywhere outside its new standard folder: Android/data/PACKAGE-NAME. If OsmAnd was installed prior to updating your device to Android 4.4.x, it will continue to work (read-only) with the old, non-standard folder, just won't be able to update any map and other files.
+<br/><br/>
+Solutions:
 <ul>
-  <li>Move OsmAnd's data to the internal storage. <b>Drawback:</b> Usually internal storage is very limited .</li>
-  <li>Move OsmAnd's data to a special folder on sd for OsmAnd+ - /storage/extSdCard/Android/data/net.osmand.plus and for OsmAnd /storage/extSdCard/Android/data/net.osmand/.<br/> <b>Drawback:</b> Once you uninstall application all your data will be erased!
+  <li><u>Move OsmAnd's data to the internal storage.</u>
+     <br/> <b>Drawback:</b> Usually internal storage is very limited .</li>
+  <li><u>Move OsmAnd's data to its standard SD folder</u>,
+     <br/>for OsmAnd+ : <code>/storage/(extSdCard)/Android/data/net.osmand.plus/</code>
+     <br/>for OsmAnd :      <code>/storage/(extSdCard)/Android/data/net.osmand/</code>.
+     <br/> <b>Caution:</b> Whenever you uninstall OsmAnd, all your data will be erased as well! (Unless you unmount your SD-Card before de-installation.)
 </ul>
 
 
