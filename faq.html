@@ -79,18 +79,19 @@ In order to move the OsmAnd home (maps) folder to an external SD card:
 
 
 <h3 class="help" id="failed_to_use_sdcard_on_4_4">How do I use my SD Card with OsmAnd under Android 4.4+ ?</h3>
-If you update your Android to version 4.4.2, you will experience a known Android issue with the WRITE_EXTERNAL_STORAGE permission: Android has changed the rules so that from now on no application can write to the external SD card anywhere outside its new standard folder <code>Android/data/[PACKAGE-NAME]</code>. If OsmAnd was installed prior to updating your device to Android 4.4.x, it will continue to work (read-only) with the old, non-standard folder, just won't be able to update any map and other files.
+If you update your Android to version 4.4.2, you will experience a known Android issue with the WRITE_EXTERNAL_STORAGE permission: Android has changed the rules so that from now on no application can write to the external SD card anywhere outside its new standard folder <code>Android/data/[PACKAGE-NAME]</code>. If OsmAnd was installed prior to updating your device to Android 4.4.x, it will continue to work (read-only) with the old, non-standard <code>osmand</code> folder, just won't be able to update any map and other files there.
 <br/><br/>
 Solutions:
 <ul>
-  <li><u>Move OsmAnd's data to the internal storage.</u>
+  <li><u>Move OsmAnd's data folder <code>osmand</code> to the internal storage.</u>
      <br/> <b>Drawback:</b> Usually internal storage is very limited.</li>
-  <li><u>Move OsmAnd's data to its standard SD folder</u>,
-     <br/>for OsmAnd+ : <code>/storage/(extSdCard)/Android/data/net.osmand.plus</code>
-     <br/>for OsmAnd :      <code>/storage/(extSdCard)/Android/data/net.osmand</code>.
+  <li><u>Move OsmAnd's data folder <code>osmand</code> into its standard SD folder</u>,
+     <br/>for OsmAnd+ : <code>/storage/(extSdCard)/Android/data/net.osmand.plus/files</code>
+     <br/>for OsmAnd : <code>/storage/(extSdCard)/Android/data/net.osmand/files</code>.
      <br/> <b>Caution:</b> Whenever you uninstall OsmAnd, all your data will be erased as well! (Unless you unmount your SD-Card before de-installation.)
 </ul>
-
+If you manually want to perform necessary copies/moves, either use a PC to perform this action, or on the device itself use a file manager tool <b>which came pre-installed with your Adnroid</b>, (only these methods will have the necessary write permission).
+Copies can also be invoked in OsmAnd itself via Menu/Settings/General/Data storage folder but the copy operations may take a long time or result in errors (e.g. if the SD-card is too full).
 
 <h3 class="help" id="osmand_installation_failed">OsmAnd+ installation on the SD card fails</h3>
 This happens only for the OsmAnd+ paid version and it is a known Google Play issue (this is reproducible for other paid applications copied to SD-card). 
