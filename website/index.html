@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>OsmAnd - Global Mobile Maps and Navigation
+</title>
+<link rel="stylesheet" type="text/css" href="site.css"/>
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="scripts/slider.js"></script>
+</head>
+<body>
+<div class="maincontainer">
+  <div class="main">
+    <div class="header">
+	  <img src="images/header_image.jpg" class="headerimage"/>
+	  <img src="images/logo.png" class="headerlogo"/>
+	  <div class="headertext">GLOBAL MOBILE<br/> MAPS &amp; NAVIGATION</div>
+	  <ul class="menu">
+	  <li><a href="#">HOME</a></li>
+	  <li><a href="#">PLUGINS</a></li>
+	  <li><a href="#">BLOG</a></li>
+	  <li><a href="#">HELP</a></li>
+		
+	  </ul>
+	  <ul class="badges">
+		<li><a href="https://play.google.com/store/apps/details?id=net.osmand.plus">
+          <img alt="Get it on Google Play"
+          src="https://developer.android.com/images/brand/en_generic_rgb_wo_45.png" />
+          </a></li>
+		  <li><a href="http://www.amazon.com/gp/product/B00D0SEGMC/ref=mas_pm_OsmAnd-Maps-Navigation">
+          <img alt="Get it on Amazon"
+          src="images/amazon-apps-store.png" />
+		  
+          </a></li>
+	  </ul>
+    </div>
+	<div class="features">
+	  <ul class="categories">
+	    <li class="featurestitle"><h1>APP FEATURES</h1><small>Global Mobile Map Viewing and Navigation for Online and Offline OSM Maps</small></li>
+		<li><div class="itemcontainer"><div class="imagecolumn"><img src="images/ic_navigation.png"/></div>
+		<div class="textcolumn">
+		<h1>NAVIGATION</h1>
+		<ul class="categorydescription">
+		  <li>Works online (fast) or offline (no roaming charges when you are abroad)</li>
+		  <li>Turn-by-turn voice guidance (recorded and synthesized voices)	</li>
+		  <li>Optional lane guidance, street name display, and estimated time of arrival</li>
+		  <li>Supports intermediate points on your itinerary</li>
+		  <li>Automatic re-routing whenever you deviate from the route</li>
+		  <li>Search for places by address, by type (e.g.: restaurant, hotel, gas station, museum), or by geographical coordinates</li>
+		</ul>
+		</div>
+		</div>
+		</li>
+		<li><div class="itemcontainer">			
+				<div class="textcolumn">
+					<h1>MAP VIEWING</h1>
+					<ul class="categorydescription">
+						<li>Display your position and orientation on the map</li>
+						<li>Optionally align the map according to compass or your direction of motion	</li>
+						<li>Save your most important places as Favorites</li>
+						<li>Display POIs (point of interests) around you</li>
+						<li>Can display specialized online tile maps</li>
+						<li>Can display satellite view (from Bing)</li>
+						<li>Can display different overlays like touring/navigation GPX tracks and additional maps with customizable transparency</li>
+						<li>Optionally display place names in English, local, or phonetic spelling</li>
+					</ul>
+				</div>
+				<div class="imagecolumn"><img src="images/ic_map_viewing.png"/></div>
+			</div>
+		</li>
+		<li><div class="itemcontainer">
+				<div class="imagecolumn"><img src="images/ic_bicycle.png"/></div>			
+				<div class="textcolumn">
+					<h1>BICYCLE AND PEDESTRIAN FEATURES</h1>
+					<ul class="categorydescription">
+						<li>The maps include foot, hiking, and bike paths, great for outdoor activities</li>
+						<li>Special routing and display modes for bike and pedestrian</li>
+						<li>Optional public transport stops (bus, tram, train) including line names</li>
+						<li>Optional trip recording to local GPX file or online service</li>
+						<li>Optional speed and altitude display</li>
+						<li>Display of contour lines and hill-shading (via additional plugin)</li>					
+					</ul>
+				</div>
+				
+			</div>
+		</li>
+		<li class="last"><div class="itemcontainer">							
+				<div class="textcolumn">
+					<h1>OPEN STREET MAP AND WIKIPEDIA DATA</h1>
+					<ul class="categorydescription">
+						<li>High quality information from the best collaborative projects of the world</li>
+						<li>Global maps from OpenStreetMap, available per country or region</li>
+						<li>Wikipedia POIs, great for sightseeing (not available in free version)</li>
+						<li>Unlimited free download, directly from the app (download limit 10 map files in free version)</li>
+						<li>Always up-to-date maps (updated at least once a month)</li>
+						<li>Compact offline vector maps</li>	
+						<li>Select between complete map data and just road network (Example: All of Japan is 700 MB, or 200 MB for the road network only)</li>						
+						<li>Also supports online or cached tile maps</li>
+					</ul>
+				</div>
+				<div class="imagecolumn"><img src="images/ic_wiki.png"/></div>
+			</div>
+		</li>
+	  </ul>
+	</div>
+	<div class="screeshots">
+	  <h1>SCREENSHOTS</h1>
+	  <div class="slider">
+	  <img class="left arrow" src="images/left_arrow_orange.png"/>
+	  <div class="screenshotcontaner">  
+	  
+	  <ul>
+	    <li><img id="screenshot1" src="images/screenshot1.png"/></li>
+		<li><img id="screenshot2" src="images/screenshot1.png"/></li>
+		<li><img id="screenshot3" src="images/screenshot1.png"/></li>
+		
+	  </ul>
+	 
+	  </div>
+	   <img class="right arrow" src="images/right_arrow_orange.png"/>
+	  </div>
+	</div>
+	<div class="mapexample">
+	<h1>MAP EXAMPLE</h1>
+	<div class="mapcontainer">
+	<img src="images/map1.png"/>
+	<div class="selectbox">
+		<div class="selecttitle first">MAP STYLE </div>
+		<ul>
+			<li><input type="radio" name="style" value="default"/>Default</li>
+			<li><input type="radio" name="style" value="defaultnight"/>Default-night</li>			
+		</ul>
+		
+		<div class="selecttitle">SHOW</div>
+		<ul>
+			<li><input type="radio" name="show" value="subway"/>Subway lines</li>
+			<li><input type="radio" name="show" value="bus"/>Bus stops</li>
+			<li><input type="radio" name="show" value="cycling"/>Cycling routes</li>
+			<li><input type="radio" name="show" value="hiking"/>Hiking</li>
+		</ul>
+		
+	</div>
+	</div>
+	</div>
+	<div class="footer">
+	  <div class="halvecolumn">
+	    <img src="images/logo.png" class="footerlogo"/>	
+		<div>b</div>
+	  </div>
+	  <div class="halvecolumn">
+	    <div class="thirdcolumn title">
+		  <div class="footerlinkstitle">LINKS</div>
+		    <ul>
+		    <li><a href="#">Home</a></li>
+			<li><a href="#">Plugins</a></li>
+			<li><a href="#">Blog</a></li>
+			<li><a href="#">Help</a></li>		
+		    </ul>
+	    </div>
+	    <div class="thirdcolumn">
+		  <ul>
+		    <li><a href="#">OsmAnd release builds</a></li>
+			<li><a href="#">OsmAnd map creator</a></li>
+			<li><a href="#">OSM</a></li>
+			<li><a href="#">Google group (forum)</a></li>			
+		  </ul>
+	    </div>
+	    <div class="thirdcolumn">
+		 <ul>
+		    <li><a href="#">Source code (github)</a></li>
+			<li><a href="#">OsmAnd nightly build</a></li>
+			<li><a href="#">OsmAnd CZ</a></li>
+		
+		  </ul>
+	    </div>
+	  </div>
+	</div>
+  </div>
+</div>
+<script type="text/javascript">
+var sl;
+$( document ).ready(function() {
+ sl = new slider($(".slider"));
+});
+</script>
+</body>
+
+</html>
