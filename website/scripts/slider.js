@@ -1,14 +1,14 @@
 var images=[
-"promo-1.png",
-"promo-2.png",
-"promo-3.png",
-"promo-4.png",
-"promo-5.png",
-"promo-6.png",
-"promo-7.png",
-"promo-8.png",
-"promo-9.png",
-"promo-10.png"
+"promo-1s.png",
+"promo-2s.png",
+"promo-3s.png",
+"promo-4s.png",
+"promo-5s.png",
+"promo-6s.png",
+"promo-7s.png",
+"promo-8s.png",
+"promo-9s.png",
+"promo-10s.png"
 ];
 
 function slider(container){

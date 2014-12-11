@@ -7,23 +7,19 @@
 <link rel="stylesheet" type="text/css" href="site.css"/>
 <script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="scripts/slider.js"></script>
+<script type="text/javascript" src="scripts/mapselector.js"></script>
 </head>
 <body>
 <div class="maincontainer">
   <div class="main">
     <div class="header">
-	  <img src="images/header_image.jpg" class="headerimage"/>
+	 <!--	 <img src="images/header_image.jpg" class="headerimage"/>-->
+	 
 	  <img src="images/logo.png" class="headerlogo"/>
 	  <div class="headertext">GLOBAL MOBILE<br/> MAPS &amp; NAVIGATION</div>
-	  <ul class="menu">
-	  <li><a href="#">HOME</a></li>
-	  <li><a href="#">PLUGINS</a></li>
-	  <li><a href="#">BLOG</a></li>
-	  <li><a href="#">HELP</a></li>
-		
-	  </ul>
+	  
 	  <ul class="badges">
-		<li><a href="https://play.google.com/store/apps/details?id=net.osmand.plus">
+		<li class="first"><a href="https://play.google.com/store/apps/details?id=net.osmand.plus">
           <img alt="Get it on Google Play"
           src="https://developer.android.com/images/brand/en_generic_rgb_wo_45.png" />
           </a></li>
@@ -33,10 +29,18 @@
 		  
           </a></li>
 	  </ul>
+	
+	  <ul class="menu">
+	  <li><a href="#">HOME</a></li>
+	  <li><a href="#">PLUGINS</a></li>
+	  <li><a href="#">BLOG</a></li>
+	  <li><a href="#">HELP</a></li>
+		
+	  </ul>
     </div>
 	<div class="features">
 	  <ul class="categories">
-	    <li class="featurestitle"><h1>APP FEATURES</h1><small>Global Mobile Map Viewing and Navigation for Online and Offline OSM Maps</small></li>
+	    <li class="featurestitle"><h1>APP FEATURES</h1><p>Global Mobile Map Viewing and Navigation for Online and Offline OSM Maps</p></li>
 		<li><div class="itemcontainer"><div class="imagecolumn"><img src="images/ic_navigation.png"/></div>
 		<div class="textcolumn">
 		<h1>NAVIGATION</h1>
@@ -123,20 +127,22 @@
 	<div class="mapexample">
 	<h1>MAP EXAMPLE</h1>
 	<div class="mapcontainer">
-	<img src="images/map1.png"/>
+	<!--<img src="images/map1.png"/>-->
 	<div class="selectbox">
 		<div class="selecttitle first">MAP STYLE </div>
 		<ul>
-			<li><input type="radio" name="style" value="default"/>Default</li>
-			<li><input type="radio" name="style" value="defaultnight"/>Default-night</li>			
+			<li><label><input type="radio" name="style" value="default" checked="true"/>Default</label></li>
+			<li><label><input type="radio" name="style" value="night"/>Night</label></li>			
 		</ul>
 		
 		<div class="selecttitle">SHOW</div>
 		<ul>
-			<li><input type="radio" name="show" value="subway"/>Subway lines</li>
-			<li><input type="radio" name="show" value="bus"/>Bus stops</li>
-			<li><input type="radio" name="show" value="cycling"/>Cycling routes</li>
-			<li><input type="radio" name="show" value="hiking"/>Hiking</li>
+			<li><label><input type="radio" name="show" value="subway" checked="true"/>Public transport</label></li>
+			<li><label><input type="radio" name="show" value="cycling"/>Cycling routes</label></li>
+			<li><label><input type="radio" name="show" value="hiking"/>Hiking</label></li>
+			<li><label><input type="radio" name="show" value="citymap"/>City map</label></li>
+			<li><label><input type="radio" name="show" value="detailedmap"/>Detailed map</label></li>
+			<li><label><input type="radio" name="show" value="roadsurface"/>Road surface</label></li>
 		</ul>
 		
 	</div>
@@ -145,7 +151,7 @@
 	<div class="footer">
 	  <div class="halvecolumn">
 	    <img src="images/logo.png" class="footerlogo"/>	
-		<div>b</div>
+		<div>&nbsp;</div>
 	  </div>
 	  <div class="halvecolumn">
 	    <div class="thirdcolumn title">
@@ -179,8 +185,10 @@
 </div>
 <script type="text/javascript">
 var sl;
+var mapsel;
 $( document ).ready(function() {
  sl = new slider($(".slider"));
+ mapsel = new mapselector($(".mapcontainer"));
 });
 </script>
 </body>
