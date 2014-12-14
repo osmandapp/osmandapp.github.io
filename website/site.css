@@ -45,7 +45,7 @@ h1{font-weight:normal; font-size:30px;}
 
 .mapexample img{width:1200px; }
 .mapexample{background:#fff; position:relative;padding-top:20px; padding-bottom:20px;}
-.mapcontainer{position:relative; background: url("images/cycling-default.png") center center no-repeat; height: 300px; background-size:cover; margin:0 auto; border: 2px solid #CFCFCF; margin-bottom:40px;}
+.mapcontainer{position:relative; background: url("images/cycling-default.png") center center no-repeat; height: 300px; background-size:cover; margin:0 auto; margin-bottom:40px;}
 .selectbox{ width:157px; position:absolute; top:20px; right:15%; background-color:#fff; padding:15px;-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;}
 .mapexample h1{ padding-left:265px;}
 .selectbox .selecttitle{padding: 19px 5px 6px 5px;color:#2196F3; font-weight:bold; font-size:14px;}
