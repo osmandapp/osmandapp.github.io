@@ -16,24 +16,25 @@ var $cnt = $(container);
 var $img1 = $cnt.find("#screenshot1");
 var $img2 =$cnt.find("#screenshot2");
 var $img3 = $cnt.find("#screenshot3");
+var $img4 = $cnt.find("#screenshot4");
 var $leftarrow =  $cnt.find(".arrow.left");
 var $rightarrow =  $cnt.find(".arrow.right");
 var currentPosition =0;
-
+var count =4;
 
 var init = function(){
 	updatePictures();
 	updateArrows();	
 	$leftarrow.on('click', function(){
 		if (currentPosition > 0){
-			currentPosition-=3;
+			currentPosition-=count;
 			updatePictures();
 			updateArrows();	
 		}
 	});
 	$rightarrow.on('click', function(){
-		if (currentPosition + 3 < images.length){
-			currentPosition+=3;
+		if (currentPosition + count < images.length){
+			currentPosition+=count;
 			updatePictures();
 			updateArrows();	
 		}
@@ -51,9 +52,10 @@ var updatePictures = function(){
 	changePicture( $img1, currentPosition);
 	changePicture( $img2, currentPosition+1);
 	changePicture( $img3, currentPosition+2);
+	changePicture( $img4, currentPosition+3);
 }
 var updateArrows = function(){
-	if (currentPosition + 3 < images.length){
+	if (currentPosition + count < images.length){
 		enableRightArrow();	
 	}else{
 		disableRightArrow();
