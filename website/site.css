@@ -1,7 +1,7 @@
-body{margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; font-size:15px;}
+body{margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; font-size:18px;}
 ul{list-style-type: none; margin:0; padding:0;}
 ul li{padding:0; margin:0;}
-h1{font-weight:normal; font-size:50px; letter-spacing: 0.06em;}
+h1{font-weight:normal; font-size:50px; /*letter-spacing: 0.03em;*/}
 
 .maincontainer{width:100%; height:auto; overflow:hidden; background-color:#CFCFCF;}
 .main {position:relative; max-width:1900px;}
@@ -33,9 +33,9 @@ h1{font-weight:normal; font-size:50px; letter-spacing: 0.06em;}
 .features img{width:250px;}
 .features ul li {border-bottom: 1px solid #EFEFEF;}
 .features ul li.last{border-bottom: none;}
-.features .imagecolumn{float:left; width:300px; text-align:center;}
-.features .textcolumn{float:left; width:800px;}
-.featurestitle{text-align:center; padding: 50px 0;}
+.features .imagecolumn{float:left; width:400px; text-align:center;}
+.features .textcolumn{float:left; width:700px;}
+.featurestitle{text-align:center; padding: 25px 0;}
 .featurestitle p{color:#C2C2C2;}
 .itemcontainer{position:relative; width:1100px; margin:50px auto; overflow:hidden;}
 .features .categorydescription{list-style-type:disc; padding-right:40px; padding-left:20px;}
@@ -66,7 +66,7 @@ h1{font-weight:normal; font-size:50px; letter-spacing: 0.06em;}
 
 .blogcontainerwrap{background:#fff;}
 .blogcontainer {width:1100px; overflow:hidden; margin:0 auto; }
-.blogcontainer .leftcolumn{float:left; width:600px;}
+.blogcontainer .leftcolumn{float:left; width:500px;}
 .blogitem h3 {font-size:21px; color:#76B6F6; font-weight:normal; margin:0;}
 .blogitem p{margin-top:5px;}
 .blogitem .readmore {text-align:left; display:inline-block; margin-bottom:40px;}
