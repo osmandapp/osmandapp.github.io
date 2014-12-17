@@ -1,7 +1,12 @@
+/*cleaning up*/
 body{margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; font-size:15px;}
 ul{list-style-type: none; margin:0; padding:0;}
 ul li{padding:0; margin:0;}
-h1{font-weight:normal; font-size:50px; letter-spacing: 0.06em;}
+h1 { -webkit-margin-before:0; -webkit-margin-after:0;}
+
+/*default styles*/
+h1{font-weight:normal; font-size:50px; letter-spacing: 0.06em; padding-top:25px; padding-bottom:25px;}
+
 
 .maincontainer{width:100%; height:auto; overflow:hidden; background-color:#CFCFCF;}
 .main {position:relative; max-width:1900px;}
@@ -23,28 +28,27 @@ h1{font-weight:normal; font-size:50px; letter-spacing: 0.06em;}
 .thirdcolumn{width:30%; float:left;}
 .footerlogo{position:absolute; top:30px; left:21%; width:200px;}
 .footerlinkstitle{color: #698C8E; margin-top:18px;}
-.footer ul{list-style-type: none;  font-size:15px; padding-left:0; padding-top:37px;}
+.footer ul{list-style-type: none;  font-size:15px; padding-left:0; padding-top:25px;}
 .footer ul li {line-height:31px;}
 .footer ul a{color:#fff; text-decoration:none;}
-.footer .title ul{ padding-top:0; }
 
 /************* features*****************************/
 .features{position:relative; overflow:hidden;background:#fff;}
 .features img{width:250px;}
 .features ul li {border-bottom: 1px solid #EFEFEF;}
 .features ul li.last{border-bottom: none;}
-.features .imagecolumn{float:left; width:300px; text-align:center;}
-.features .textcolumn{float:left; width:800px;}
+.features .imagecolumn{float:left; width:300px; text-align:center; padding-right:40px;}
+.features .textcolumn{float:left; width:650px;}
 .featurestitle{text-align:center; padding: 50px 0;}
-.featurestitle p{color:#C2C2C2;}
+.featurestitle p{color:#C2C2C2; font-size:21px;}
 .itemcontainer{position:relative; width:1100px; margin:50px auto; overflow:hidden;}
 .features .categorydescription{list-style-type:disc; padding-right:40px; padding-left:20px;}
-.features  .categorydescription li{border-bottom:none; padding-bottom:5px;}
+.features  .categorydescription li{border-bottom:none; padding-bottom:5px; padding-left:5px;}
 
 .mapexample img{width:1200px; }
 .mapexample{background:#fff; position:relative;padding-top:20px; padding-bottom:20px;}
 .mapexampleheader{width:1100px; margin:0 auto;}
-.mapcontainer{position:relative; background: url("images/cycling-default.png") center center no-repeat; height: 300px; background-size:cover; margin:0 auto; margin-bottom:40px;}
+.mapcontainer{position:relative; background: url("images/cycling-default.png") center center no-repeat; height: 450px; background-size:cover; margin:0 auto; margin-bottom:40px;}
 .selectbox{ width:157px; position:absolute; top:20px; right:15%; background-color:#fff; padding:15px;-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;}
 .selectbox .selecttitle{padding: 19px 5px 6px 5px;color:#2196F3; font-weight:bold; font-size:14px;}
 .selectbox .selecttitle.first{padding-top: 2px;}
@@ -54,11 +58,10 @@ h1{font-weight:normal; font-size:50px; letter-spacing: 0.06em;}
 
 .screenshots{background:#EDEDED; position:relative; padding:20px; overflow:hidden;}
 .slider{position:relative;width:1100px; margin:0 auto;}
-.arrow{padding-top:200px; cursor:pointer;}
-.left{float:left; margin-left:-80px;}
-.right{float:right; margin-left:40px; padding-right:27px;}
-/*.screenshots h1{ padding-left:235px; }*/
-.screenshots ul {padding:0; height:416px; overflow:hidden; float:left;}
+.arrow{cursor:pointer;padding-bottom: 207px;}
+.left{ margin-left: -86px; padding-right: 40px;}
+.right{padding-left: 40px; }
+.screenshots ul {padding:0; height:416px; overflow:hidden; display: inline-block;}
 .screenshots ul li{float:left; padding-left:20px;}
 .screenshots ul li.first{padding-left:0;}
 .screenshots ul img {max-width:235px; max-height:415px;}
