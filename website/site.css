@@ -1,5 +1,5 @@
 /*cleaning up*/
-body{margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; font-size:18px;}
+body{margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; font-size:1.1em;}
 ul{list-style-type: none; margin:0; padding:0;}
 ul li{padding:0; margin:0;}
 h1 { -webkit-margin-before:0; -webkit-margin-after:0;}
@@ -8,14 +8,14 @@ h1 { -webkit-margin-before:0; -webkit-margin-after:0;}
 h1{font-weight:normal; font-size:50px; letter-spacing: 0.06em; padding-top:25px; padding-bottom:25px;}
 
 
-.maincontainer{width:100%; height:auto; overflow:hidden; background-color:#CFCFCF;}
-.main {position:relative; max-width:1900px;}
-.header {position:relative; color:#fff; height:456px; background: url("images/header_image.jpg") center top no-repeat; background-size:cover;}
+.maincontainer{ width:100%;  height:auto; overflow:hidden; background-color:#CFCFCF; min-width:1280px;}
+.main {position:relative; max-width:1900px; margin:0 auto;}
+.header {position:relative; color:#fff; height:950px; background: url("images/ny_header.jpg") center top no-repeat; background-size:cover;}
 
 .headerimage {position:absolute; top:0; left:0; width:100%;}
-.headerlogo{position:absolute; top:10px; left:21%; width:200px;}
-.headertext {position:absolute; top:35%; left: 21%; font-size:50px; letter-spacing:0.06em;}
-.menu{position: relative; float: right; list-style-type: none;  font-size:14px; font-family:Verdana, Arial; font-weight:bold; padding-right:10%; padding-top:50px; letter-spacing:0.06em;}
+.headerlogo{position:absolute; top:55px; left:21%; width:200px;}
+.headertext {position:absolute; top:35%; left: 21%; font-size:50px; letter-spacing:0.06em; line-height:1.6em;}
+.menu{position: relative; float: right; list-style-type: none;  font-family:Verdana, Arial; font-weight:bold; padding-right:10%; padding-top:100px; letter-spacing:0.06em;}
 .menu li{float:left; padding-right:55px;}
 .menu a{color:#fff; text-decoration:none;}
 .badges{position:absolute; top:75%; left:21%;}
@@ -23,19 +23,12 @@ h1{font-weight:normal; font-size:50px; letter-spacing: 0.06em; padding-top:25px;
 .badges li.first {padding-left:0;}
 .badges li img{height:40px; border:none;}
 
-.footer{position:relative; background-color:#43464D; height:171px; }
-.halvecolumn{width:50%; float:left;}
-.thirdcolumn{width:30%; float:left;}
-.footerlogo{position:absolute; top:30px; left:21%; width:200px;}
-.footerlinkstitle{color: #698C8E; margin-top:18px;}
-.footer ul{list-style-type: none;  font-size:15px; padding-left:0; padding-top:25px;}
-.footer ul li {line-height:31px;}
-.footer ul a{color:#fff; text-decoration:none;}
+
 
 /************* features*****************************/
 .features{position:relative; overflow:hidden;background:#fff;}
 .features img{width:250px;}
-.features ul li {border-bottom: 1px solid #EFEFEF;}
+.features ul li {border-bottom: 1px solid #EFEFEF; }
 .features ul li.last{border-bottom: none;}
 .features .imagecolumn{float:left; width:400px; text-align:center;}
 .features .textcolumn{float:left; width:700px;}
@@ -45,7 +38,7 @@ h1{font-weight:normal; font-size:50px; letter-spacing: 0.06em; padding-top:25px;
 .features .categorydescription{list-style-type:disc; padding-right:40px; padding-left:20px;}
 .features  .categorydescription li{border-bottom:none; padding-bottom:5px; padding-left:5px;}
 
-.mapexample img{width:1200px; }
+/*.mapexample img{width:1200px; }*/
 .mapexample{background:#fff; position:relative;padding-top:20px; padding-bottom:20px;}
 .mapexampleheader{width:1100px; margin:0 auto;}
 .mapcontainer{position:relative; background: url("images/cycling-default.png") center center no-repeat; height: 450px; background-size:cover; margin:0 auto; margin-bottom:40px;}
@@ -59,10 +52,10 @@ h1{font-weight:normal; font-size:50px; letter-spacing: 0.06em; padding-top:25px;
 .screenshots{background:#EDEDED; position:relative; padding:20px; overflow:hidden;}
 .slider{position:relative;width:1100px; margin:0 auto;}
 .arrow{cursor:pointer;padding-bottom: 207px;}
-.left{ margin-left: -86px; padding-right: 40px;}
-.right{padding-left: 40px; }
+.left{ margin-left: -76px; padding-right: 30px;}
+.right{padding-left: 30px; }
 .screenshots ul {padding:0; height:416px; overflow:hidden; display: inline-block;}
-.screenshots ul li{float:left; padding-left:20px;}
+.screenshots ul li{float:left; padding-left:30px;}
 .screenshots ul li.first{padding-left:0;}
 .screenshots ul img {max-width:235px; max-height:415px;}
 .disabled {cursor:default;}
@@ -75,4 +68,15 @@ h1{font-weight:normal; font-size:50px; letter-spacing: 0.06em; padding-top:25px;
 .blogitem .readmore {text-align:left; display:inline-block; margin-bottom:40px;}
 .blogitem .readmore a{color:#9A9A9A;}
 .blogitem .date {float:right; color:#9A9A9A;}
+
+.footer{position:relative; background-color:#43464D; height:220px; }
+.halvecolumn{width:50%; float:left;}
+.thirdcolumn{width:30%; float:left;}
+.footer .narrow{width:20%;  float:left;}
+.footer .wide{width:40%;  float:left;}
+.footerlogo{position:absolute; top:30px; left:21%; width:200px;}
+.footerlinkstitle{color: #698C8E; margin-top:18px; margin-bottom:10px;}
+.footer ul{list-style-type: none;  font-size:0.8em; padding-left:0; padding-top:25px;}
+.footer ul li {line-height:31px;}
+.footer ul a{color:#fff; text-decoration:none;}
 
