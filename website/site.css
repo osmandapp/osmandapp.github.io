@@ -10,7 +10,7 @@ h1{font-weight:normal; font-size:50px; letter-spacing: 0.06em; padding-top:25px;
 
 .maincontainer{ width:100%;  height:auto; overflow:hidden; background-color:#CFCFCF; min-width:1280px;}
 .main {position:relative; max-width:1900px; margin:0 auto;}
-.header {position:relative; color:#fff; height:950px; background: url("images/ny_header.jpg") center top no-repeat; background-size:cover;}
+.header {position:relative; color:#fff; height:950px; background: url("images/NY_Header.jpg") center top no-repeat; background-size:cover;}
 
 .headerimage {position:absolute; top:0; left:0; width:100%;}
 .headerlogo{position:absolute; top:55px; left:21%; width:200px;}
