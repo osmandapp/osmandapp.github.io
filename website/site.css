@@ -11,7 +11,7 @@ h1{font-weight:normal; font-size:40px; letter-spacing: 0.06em; padding-top:25px;
 .maincontainer{ width:100%;  height:auto; overflow:hidden; background-color:#CFCFCF; min-width:1280px;}
 .main {position:relative; max-width:1900px; margin:0 auto;}
 .header {position:relative; color:#fff; height: 0;
-    padding-top: 48%; background: url("images/NY_Header.jpg") center top no-repeat; background-size:contain;}
+    padding-top: 49.47%; background: url("images/NY_Header.jpg") center top no-repeat; background-size:contain;}
 
 .headerimage {position:absolute; top:0; left:0; width:100%;}
 .headertitle {position:absolute; bottom:-15px; left:20%; right:20%; background: #fff; border: 2px solid;
@@ -19,7 +19,7 @@ h1{font-weight:normal; font-size:40px; letter-spacing: 0.06em; padding-top:25px;
 .headertitletext {text-align:center; padding: 3px 0;color:#000; line-height:1.6em;}
 .headerlogo{position:absolute; top:55px; left:21%; width:200px;}
 .headertext {position:absolute; top:35%; left: 21%; font-size:50px; letter-spacing:0.06em; line-height:1.6em;}
-.menu{position: relative; float: right; list-style-type: none;  font-family:Verdana, Arial; font-weight:bold; padding-right:10%; padding-top:100px; letter-spacing:0.06em;}
+.menu{position: absolute; float: right; list-style-type: none;  font-family:Verdana, Arial; font-weight:bold; padding-right:10%; padding-top:100px; letter-spacing:0.06em;}
 .menu li{float:left; padding-right:55px;}
 .menu a{color:#fff; text-decoration:none;}
 .badges{position:absolute; top:70%; left:21%;}
