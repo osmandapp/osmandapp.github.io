@@ -9,7 +9,7 @@ h1{font-weight:normal; font-size:40px; letter-spacing: 0.06em; padding-top:25px;
 
 
 .maincontainer{ width:100%;  height:auto; overflow:hidden; background-color:#CFCFCF; min-width:1280px;}
-.main {position:relative; max-width:1900px; margin:0 auto;}
+.main {position:relative; max-width:1920px; margin:0 auto;}
 .header {position:relative; color:#fff; height: 0;
     padding-top: 50%; background: url("images/NY_Header.jpg") center top no-repeat; background-size:contain;}
 
