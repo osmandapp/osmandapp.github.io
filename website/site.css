@@ -5,25 +5,29 @@ ul li{padding:0; margin:0;}
 h1 { -webkit-margin-before:0; -webkit-margin-after:0;}
 
 /*default styles*/
-h1{font-weight:normal; font-size:50px; letter-spacing: 0.06em; padding-top:25px; padding-bottom:25px;}
+h1{font-weight:normal; font-size:40px; letter-spacing: 0.06em; padding-top:25px; padding-bottom:25px;}
 
 
 .maincontainer{ width:100%;  height:auto; overflow:hidden; background-color:#CFCFCF; min-width:1280px;}
 .main {position:relative; max-width:1900px; margin:0 auto;}
-.header {position:relative; color:#fff; height:950px; background: url("images/NY_Header.jpg") center top no-repeat; background-size:cover;}
+.header {position:relative; color:#fff; height:620px; background: url("images/NY_Header.jpg") center top no-repeat; background-size:cover;}
 
 .headerimage {position:absolute; top:0; left:0; width:100%;}
+.headertitle {position:absolute; bottom:-15px; left:20%; right:20%; background: #fff; border: 2px solid;
+    border-radius: 15px;}
+.headertitletext {text-align:center; padding: 3px 0;color:#000; line-height:1.6em;}
 .headerlogo{position:absolute; top:55px; left:21%; width:200px;}
 .headertext {position:absolute; top:35%; left: 21%; font-size:50px; letter-spacing:0.06em; line-height:1.6em;}
 .menu{position: relative; float: right; list-style-type: none;  font-family:Verdana, Arial; font-weight:bold; padding-right:10%; padding-top:100px; letter-spacing:0.06em;}
 .menu li{float:left; padding-right:55px;}
 .menu a{color:#fff; text-decoration:none;}
-.badges{position:absolute; top:75%; left:21%;}
+.badges{position:absolute; top:400px; left:21%;}
 .badges li{float:left; padding-left:15px;}
 .badges li.first {padding-left:0;}
 .badges li img{height:40px; border:none;}
 
-
+.specialeventtext {position:relative; font-size:14px; left:25%; right:25%; top:15px; float:left; line-height:1.6em;}
+.specialevent {position:relative; overflow:hidden;background:#fff; }
 
 /************* features*****************************/
 .features{position:relative; overflow:hidden;background:#fff;}
@@ -32,7 +36,7 @@ h1{font-weight:normal; font-size:50px; letter-spacing: 0.06em; padding-top:25px;
 .features ul li.last{border-bottom: none;}
 .features .imagecolumn{float:left; width:400px; text-align:center;}
 .features .textcolumn{float:left; width:700px;}
-.featurestitle{text-align:center; padding: 25px 0;}
+.featurestitle{text-align:center; padding: 25px 0;color:#000;}
 .featurestitle p{color:#C2C2C2; font-size:21px;}
 .itemcontainer{position:relative; width:1100px; margin:50px auto; overflow:hidden;}
 .features .categorydescription{list-style-type:disc; padding-right:40px; padding-left:20px;}
