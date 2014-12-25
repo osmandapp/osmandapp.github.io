@@ -68,6 +68,7 @@ h1{font-weight:normal; font-size:40px; letter-spacing: 0.06em; padding-top:25px;
 .blogcontainerwrap{background:#fff;}
 .blogcontainer {width:1100px; overflow:hidden; margin:0 auto; }
 .blogcontainer .leftcolumn{float:left; width:500px;}
+.blogcontainer .rightcolumn{float:right; width:400px; padding-bottom: 10px}
 .blogitem h3 {font-size:21px; color:#76B6F6; font-weight:normal; margin:0;}
 .blogitem p{margin-top:5px;}
 .blogitem .readmore {text-align:left; display:inline-block; margin-bottom:40px;}
