@@ -19,7 +19,7 @@ h1{font-weight:normal; font-size:40px; letter-spacing: 0.06em; padding-top:25px;
 .headertitletext {text-align:center; padding: 3px 0;color:#000; line-height:1.6em;}
 .headerlogo{position:absolute; top:55px; left:21%; width:200px;}
 .headertext {position:absolute; top:35%; left: 21%; font-size:50px; letter-spacing:0.06em; line-height:1.6em;}
-.menu{position: absolute; top:10%; right:20%; list-style-type: none;  font-family:Verdana, Arial; font-weight:bold; letter-spacing:0.06em;}
+.menu{position: absolute; top:78px; right:10%; list-style-type: none;  font-family:Verdana, Arial; font-weight:bold; letter-spacing:0.06em;}
 .menu li{float:left; padding-right:55px;}
 .menu a{color:#fff; text-decoration:none;}
 .badges{position:absolute; top:70%; left:21%;}
@@ -27,9 +27,15 @@ h1{font-weight:normal; font-size:40px; letter-spacing: 0.06em; padding-top:25px;
 .badges li.first {padding-left:0;}
 .badges li img{height:40px; border:none;}
 
-.specialeventtext {position:relative; font-size:14px; left:25%; right:25%; top:15px; float:left; line-height:1.6em;}
-.specialevent {position:relative; overflow:hidden;background:#fff; }
 
+.specialevent {position:relative; background:#fff; height:650px;}
+.specialeventwrap{width:900px;  position:absolute; left:50%; margin-top:-60px;}
+.specialeventcontent{position:relative; left:-50%; border-radius: 15px; background:#fff; }
+.specialeventtext{width:85%; margin:0 auto; overflow:hidden; line-height: 1.6em; font-size:14px; }
+.specialeventtext p, .specialeventtext ul{padding-bottom:15px;}
+.specialeventtext .beforelist{padding-bottom:0; margin-bottom:5px;}
+.specialeventtext .signature{font-weight:bold;}
+.specialeventtext.hidden {color:#fff; padding-bottom:60px; width:900px;}
 /************* features*****************************/
 .features{position:relative; overflow:hidden;background:#fff;}
 .features img{width:250px;}
@@ -74,6 +80,7 @@ h1{font-weight:normal; font-size:40px; letter-spacing: 0.06em; padding-top:25px;
 .blogitem .readmore {text-align:left; display:inline-block; margin-bottom:40px;}
 .blogitem .readmore a{color:#9A9A9A;}
 .blogitem .date {float:right; color:#9A9A9A;}
+.pds-box.osmand{border-radius:0;}
 
 .footer{position:relative; background-color:#43464D; height:220px; }
 .halvecolumn{width:50%; float:left;}
