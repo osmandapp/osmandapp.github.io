@@ -11,7 +11,7 @@ h1{font-weight:normal; font-size:40px; letter-spacing: 0.06em; padding-top:25px;
 .maincontainer{ width:100%;  height:auto; overflow:hidden; background-color:#CFCFCF; min-width:1280px;}
 .main {position:relative; max-width:1920px; margin:0 auto;}
 .header {position:relative; color:#fff; height: 0;
-    padding-top: 50%; background: url("images/NY_Header.jpg") center top no-repeat; background-size:contain;}
+    padding-top: 50%; background: url("images/header_image.jpg") center top no-repeat; background-size:contain;}
 
 .headerimage {position:absolute; top:0; left:0; width:100%;}
 .headertitle {position:absolute; bottom:-15px; left:20%; right:20%; background: #fff; border: 2px solid;

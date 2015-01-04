@@ -38,42 +38,7 @@
 		
 	  </ul>
     </div>
-    <div class="specialevent">	 
-	  <div class="specialeventwrap">
-	    <div class="specialeventcontent">
-          <h1 class="headertitletext">NEW YEAR RESOLUTIONS 2015</h1>
-	      <div class="specialeventtext">
-    	    <p>Merry Christmas!</p>
-    	    <p>We would like to thank you all for support in 2014! We carefully collect all
-    	       your feedback from forums and reviews on the markets and it helps us to develop
-    	       the best product. Your voice is valuable for us.</p>
-	        <p class="beforelist">This passing year we began with version 1.6 and we advanced to 1.9. <br/>
-	           Here are our biggest achievements:</p>
-	        <ul>
-	           <li>- Better Navigation experience (turn lanes, more voice prompts, 
-						precise route calculation, search along the route )</li>
-	           <li>- Improved maps with options to display more details and public transport </li>
-	           <li>- OsMo Plugin (completely new product capability for online monitoring )</li>
-	           <li>- Better track recording and more track analysis capabilities (time/distance split)</li>
-	           <li>- Other small, but useful features (over 1000 this year)</li>
-            </ul>
-	        <p class="beforelist">Of course, we have no lans to slow down and will try to fulfil 
-	            even more of your wishes in 2015. So here is our 2015 New Year Resolutions list:
-	        <ul>
-	          <li>- Simplify the product and make it more intuitive also for new users</li>
-	          <li>- Modernize the app design to follow the latest trends</li>
-	          <li>- Make the product more discoverable, so it becomes easier to use sophisticated features</li>
-	          <li>- Improve third party map presentation (Wikipedia and contour lines)</li>
-	          <li>- Implement a 3D view for navigation</li>
-	          <li>- Create a safe backup of all your data (favorites, tracks)</li>
-	          <li>- Of course, make routing and rendering faster</li>
-	        </ul>
-	        <p class="signature">Merry Christmas and Happy 2015!<br>OsmAnd Team	</p>
-		  </div>
-		  
-		</div>
-	  </div>	 
-	</div>
+  
 	<div class="features">
 	  <ul class="categories">
 	    <li class="featurestitle"><h1>APP FEATURES</h1><p>Global Mobile Map Viewing and Navigation for Online and Offline OSM Maps</p></li>
@@ -264,10 +229,7 @@ var timeout = 50;
 $( document ).ready(function() {
  sl = new slider($(".slider"));
  mapsel = new mapselector($(".mapcontainer"));
-$(".specialevent").height($(".specialeventcontent").height());
- $(window).on('resize', function(){
-	$(".specialevent").height($(".specialeventcontent").height());
- });
+
  setTimeout(applyPolStyles, timeout);
 
 });
