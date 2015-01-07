@@ -13,7 +13,7 @@ h1{font-weight:normal; font-size:40px; letter-spacing: 0.06em; padding-top:25px;
 .header {position:relative; color:#fff; height: 0;
     padding-top: 40%; background: url("images/header_image.jpg") center top no-repeat; background-size:contain;}
 
-.headerimage {position:absolute; top:0; left:0; width:100%;}
+/*.headerimage {position:absolute; top:0; left:0; width:100%;}*/
 .headertitle {position:absolute; bottom:-15px; left:20%; right:20%; background: #fff; border: 2px solid;
     border-radius: 15px;}
 .headertitletext {text-align:center; padding: 3px 0;color:#000; line-height:1.6em;}
@@ -27,6 +27,12 @@ h1{font-weight:normal; font-size:40px; letter-spacing: 0.06em; padding-top:25px;
 .badges li.first {padding-left:0;}
 .badges li img{height:40px; border:none;}
 
+.simpleheader{height:100px; background:#fff; border-bottom:2px solid #9A9A9A;}
+.simpleheader .headerlogo{top:10px;}
+.simpleheader .menu{top:42px;}
+.simpleheader .menu a{ color:#9A9A9A;}
+.simpleheader a.active{ color:#76B6F6;}
+.activemarker{width:100%; border:1px solid #9A9A9A;}
 
 .specialevent {position:relative; background:#fff; height:650px;}
 .specialeventwrap{width:900px;  position:absolute; left:50%; margin-top:-60px;}
@@ -93,3 +99,16 @@ h1{font-weight:normal; font-size:40px; letter-spacing: 0.06em; padding-top:25px;
 .footer ul li {line-height:31px;}
 .footer ul a{color:#fff; text-decoration:none;}
 
+.articles{position:relative; overflow:hidden;background:#fff;}
+.articles .date{color:#9A9A9A;}
+.articlescontainer{position:relative; overflow:hidden; width:1100px; margin:0 auto;}
+.articlelist {float:left; width:750px;}
+.acticlestitles {float:right; width:300px; margin-bottom:25px; margin-left:50px;} 
+.acticlestitles h1{color:#9A9A9A; font-weight:bold; font-family:Verdana, Arial; font-size:1.1em; padding-bottom:5px;}
+.acticlestitles .delimiter {border:2px solid #FF8601; width:100%; margin-bottom:15px;}
+.acticlestitles ul a{text-decoration:none; color:#76B6F6;}
+.acticlestitles ul  li{padding-bottom:10px;}
+.textlist {list-style-type: disc; padding-left:20px;}
+.textlist li {padding-top:10px;}
+.article {margin-bottom:25px;}
+.article h1{font-size:34px;}
