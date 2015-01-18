@@ -17,9 +17,9 @@ h1{font-weight:normal; font-size:40px; letter-spacing: 0.06em; padding-top:25px;
 .headertitle {position:absolute; bottom:-15px; left:20%; right:20%; background: #fff; border: 2px solid;
     border-radius: 15px;}
 .headertitletext {text-align:center; padding: 3px 0;color:#000; line-height:1.6em;}
-.headerlogo{position:absolute; top:55px; left:21%; width:200px;}
+.headerlogo{position:absolute; top:5px; left:21%; width:200px;}
 .headertext {position:absolute; top:35%; left: 21%; font-size:50px; letter-spacing:0.06em; line-height:1.6em;}
-.menu{position: absolute; top:78px; right:10%; list-style-type: none;  font-family:Verdana, Arial; font-weight:bold; letter-spacing:0.06em;}
+.menu{position: absolute; top:28px; right:10%; list-style-type: none;  font-family:Verdana, Arial; font-weight:bold; letter-spacing:0.06em;}
 .menu li{float:left; padding-right:55px;}
 .menu a{color:#fff; text-decoration:none;}
 .badges{position:absolute; top:70%; left:21%;}
