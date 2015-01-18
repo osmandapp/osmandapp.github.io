@@ -10,6 +10,9 @@
 <script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="scripts/slider.js"></script>
 <script type="text/javascript" src="scripts/mapselector.js"></script>
+<script type="text/javascript" src="scripts/poll.js"></script>
+<script type="text/javascript" src="scripts/ga-init.js"></script>
+<script type="text/javascript" src="scripts/ga-home.js"></script>
 </head>
 <body>
 <div class="maincontainer">
@@ -19,23 +22,21 @@
 	  <div class="headertext">OFFLINE MOBILE<br/> MAPS &amp; NAVIGATION</div>
 	 
 	  <ul class="badges">
-		<li class="first"><a href="https://play.google.com/store/apps/details?id=net.osmand.plus">
+		<li class="first"><a data-gatag="googleplay" href="https://play.google.com/store/apps/details?id=net.osmand.plus">
           <img alt="Get it on Google Play"
           src="https://developer.android.com/images/brand/en_generic_rgb_wo_45.png" />
           </a></li>
-		  <li><a href="http://www.amazon.com/gp/product/B00D0SEGMC/ref=mas_pm_OsmAnd-Maps-Navigation">
+		  <li><a data-gatag="amazon" href="http://www.amazon.com/gp/product/B00D0SEGMC/ref=mas_pm_OsmAnd-Maps-Navigation">
           <img alt="Get it on Amazon"
           src="images/amazon-apps-store.png" />
 		  
           </a></li>
 	  </ul>
 	  <ul class="menu">
-	  <li><a href="http://www.osmand.net">HOME</a></li>
-	  <li><a href="http://blog.osmand.net/en/plugins.html">PLUGINS</a></li>
-	  <li><a href="http://blog.osmand.net/en/blog.html">BLOG</a></li>
-	  <li><a href="http://osmandapp.github.io/">HELP</a></li>
-
-		
+	  <li><a data-gatag="header_home" href="http://www.osmand.net">HOME</a></li>
+	  <li><a data-gatag="header_plugins" href="http://blog.osmand.net/en/plugins.html">PLUGINS</a></li>
+	  <li><a data-gatag="header_blog" href="http://blog.osmand.net/en/blog.html">BLOG</a></li>
+	  <li><a data-gatag="header_help" href="http://osmandapp.github.io/">HELP</a></li>		
 	  </ul>
     </div>
   
@@ -115,14 +116,14 @@
 	   <div class="slider">
 	   <h1>SCREENSHOTS</h1>
 	  
-	   <img class="left arrow" src="images/left_arrow_orange.png"/>
+	   <img class="left arrow" data-gatag="left_arrow" src="images/left_arrow_orange.png"/>
 	  <ul>
 	    <li class="first"><img id="screenshot1"  src="images/promo-1s.png"/></li>
 		<li><img id="screenshot2" src="images/promo-2s.png"/></li>
 		<li><img id="screenshot3" src="images/promo-3s.png"/></li>
 		<li><img id="screenshot4" src="images/promo-4s.png"/></li>		
 	  </ul>
-	  <img class="right arrow" src="images/right_arrow_orange.png"/>
+	  <img class="right arrow" data-gatag="right_arrow" src="images/right_arrow_orange.png"/>
 		  
 	  </div>	
 	</div>
@@ -135,18 +136,18 @@
 	<div class="selectbox">
 		<div class="selecttitle first">MAP STYLE </div>
 		<ul>
-			<li><label><input type="radio" name="style" value="default" checked="true"/>OsmAnd</label></li>
-			<li><label><input type="radio" name="style" value="night"/>OsmAnd-Night</label></li>			
+			<li><label><input data-gatag="osmand" type="radio" name="style" value="default" checked="true"/>OsmAnd</label></li>
+			<li><label><input data-gatag="osmand_night" type="radio" name="style" value="night"/>OsmAnd-Night</label></li>			
 		</ul>
 		
 		<div class="selecttitle">SHOW</div>
 		<ul>
-			<li><label><input type="radio" name="show" value="citymap" checked="true"/>City map</label></li>
-			<li><label><input type="radio" name="show" value="cycling"/>Cycling routes</label></li>
-			<li><label><input type="radio" name="show" value="detailedmap"/>Detailed map</label></li>
-			<li><label><input type="radio" name="show" value="hiking"/>Hiking</label></li>
-			<li><label><input type="radio" name="show" value="subway" />Public transport</label></li>
-			<li><label><input type="radio" name="show" value="roadsurface"/>Road surface</label></li>
+			<li><label><input data-gatag="city_map" type="radio" name="show" value="citymap" checked="true"/>City map</label></li>
+			<li><label><input data-gatag="cycling_routes" type="radio" name="show" value="cycling"/>Cycling routes</label></li>
+			<li><label><input data-gatag="detailed_map" type="radio" name="show" value="detailedmap"/>Detailed map</label></li>
+			<li><label><input data-gatag="hiking" type="radio" name="show" value="hiking"/>Hiking</label></li>
+			<li><label><input data-gatag="public_transport" type="radio" name="show" value="subway" />Public transport</label></li>
+			<li><label><input data-gatag="road_surface" type="radio" name="show" value="roadsurface"/>Road surface</label></li>
 		</ul>
 		
 	
@@ -161,7 +162,7 @@
 	     <h3>OsmAnd 1.9 Released</h3>
 		 <p>The biggest changes in this release were made to navigation, map rendering, OsMo plugin and user interface.</p>
 		 <div class="blogitemfooter">
-		   <div class="readmore"><a href="http://blog.osmand.net/en/blog/96-osmand-19-released.html">Read more</a></div>
+		   <div class="readmore"><a data-gatag="osmand_1_9_released" href="http://blog.osmand.net/en/blog/96-osmand-19-released.html">Read more</a></div>
 		   <div class="date"> 04 November 2014 </div>
 		 </div>
 	   </div>
@@ -169,7 +170,7 @@
 	     <h3>OsmAnd 1.8 Released</h3>
 		 <p>This release was focused primarily on improvements for OsMo plugin, GPX (My Places), favorites (My Places) and navigation.</p>
 		 <div class="blogitemfooter">
-		   <div class="readmore"><a href="http://blog.osmand.net/en/blog/94-osmand-18-released.html">Read more</a></div>
+		   <div class="readmore"><a data-gatag="osmand_1_8_released" href="http://blog.osmand.net/en/blog/94-osmand-18-released.html">Read more</a></div>
 		   <div class="date"> 20 August 2014 </div>
 		 </div>
 	   </div>
@@ -193,10 +194,10 @@
 		  
 		    <ul>
 		    <div class="footerlinkstitle">WEBSITE</div>
-		    <li><a href="http://www.osmand.net">Home</a></li>
-			<li><a href="http://blog.osmand.net/en/plugins.html">Plugins</a></li>
-			<li><a href="http://blog.osmand.net/en/blog.html">Blog</a></li>
-			<li><a href="http://osmandapp.github.io/">Help</a></li>		
+		    <li><a data-gatag="home" href="http://www.osmand.net">Home</a></li>
+			<li><a data-gatag="plugins" href="http://blog.osmand.net/en/plugins.html">Plugins</a></li>
+			<li><a data-gatag="blog" href="http://blog.osmand.net/en/blog.html">Blog</a></li>
+			<li><a data-gatag="help" href="http://osmandapp.github.io/">Help</a></li>		
 		    </ul>
 	    </div>
 	    
@@ -204,18 +205,18 @@
 	    
 		  <ul>
 		  <div class="footerlinkstitle">VERSIONS</div>  
-		    <li><a href="http://download.osmand.net/releases/">OsmAnd Releases</a></li>
-			<li><a href="http://download.osmand.net/latest-night-build/OsmAndMapCreator-main.zip">OsmAnd Map Creator</a></li>
-			<li><a href="http://download.osmand.net/latest-night-build/OsmAnd-default.apk">OsmAnd Nightly Build</a></li>
+		    <li><a data-gatag="releases" href="http://download.osmand.net/releases/">OsmAnd Releases</a></li>
+			<li><a data-gatag="map_creator" href="http://download.osmand.net/latest-night-build/OsmAndMapCreator-main.zip">OsmAnd Map Creator</a></li>
+			<li><a data-gatag="nightly_build" href="http://download.osmand.net/latest-night-build/OsmAnd-default.apk">OsmAnd Nightly Build</a></li>
 		  </ul>
 	    </div>
 	    <div class="wide">
 		 <ul>
 		    <div class="footerlinkstitle">EXTERNAL LINKS</div>
-		 	<li><a href="http://www.openstreetmap.org/">Open Street Map</a></li>
-		    <li><a href="https://github.com/osmandapp/Osmand">Source code (github)</a></li>
-			<li><a href="https://groups.google.com/forum/#!forum/osmand">Google groups (forum)</a></li>			
-			<li><a href="https://osmand.cz/">OsmAnd CZ Manuals</a></li>
+		 	<li><a data-gatag="osm" href="http://www.openstreetmap.org/">Open Street Map</a></li>
+		    <li><a data-gatag="source_code" href="https://github.com/osmandapp/Osmand">Source code (github)</a></li>
+			<li><a data-gatag="google_groups" href="https://groups.google.com/forum/#!forum/osmand">Google groups (forum)</a></li>			
+			<li><a data-gatag="osmand_cz" href="https://osmand.cz/">OsmAnd CZ Manuals</a></li>
 		  </ul>
 	    </div>
 	  </div>
@@ -233,42 +234,7 @@ $( document ).ready(function() {
  setTimeout(applyPolStyles, timeout);
 
 });
-
- function applyPolStyles(){
-
- if ($('.pds-box').length > 0){
-	$('.pds-box').css('border', 'none');
-	$('.pds-vote-button').css('float', 'left');
-	$('.pds-vote-button').css('background', 'none');
-	$('.pds-vote-button').css('background-color', '#FF8F00');
-	$('.pds-vote-button').css('color', '#fff');
-	$('.pds-vote-button').css('border', 'none');
-	$('.pds-vote-button').css('border-radius', '5px');
-	$('.pds-box-outer').css('padding', '0');
-	$('.pds-view-results').on('click', function(){
-		subscribeToReturnToPoll();		
-	});
-	}else{
-	   setTimeout(applyPolStyles, timeout);
-	}
- }
  
- function subscribeToReturnToPoll(){
- if ($('.pds-return-poll').length > 0){
-	$('.pds-return-poll').on('click', function(){applyStyleOnBackToPoll();});
-	applyPolStyles();
- }else{
-	setTimeout(subscribeToReturnToPoll, timeout);
- }
- }
- 
- function applyStyleOnBackToPoll(){
-  if ($('.pds-view-results').length >0){	
-	applyPolStyles();
- }else{
-	setTimeout(applyStyleOnBackToPoll, timeout);
- }
- }
 </script>
 </body>
 
