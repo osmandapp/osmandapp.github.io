@@ -2,27 +2,27 @@ $(function() {
 
      ga('set', 'page', '/home');
 	 
-	 function sendEvent(category, element){
-		var text= $(element).attr('data-gatag');		
-		ga('send', 'event', category, text);
+	 function sendEvent(category, action, element){
+		var label= $(element).attr('data-gatag');		
+		ga('send', 'event', category, action, label);
 	 }
 	 $('ul.menu a').on('click', function(){
-		sendEvent('topmenu', this);		
+		sendEvent('topmenu', 'goto', this);		
 	 });
      $('ul.badges a').on('click', function(){		
-		sendEvent('badges', this);				
+		sendEvent('badges', 'goto', this);				
 	 });
 	 $('.screenshots .arrow').on('click', function(){
-	    sendEvent('screenshots', this);		
+	    sendEvent('screenshots', 'viewmore', this);		
 	 });
 	 $('.blogitem a').on('click', function(){
-	    sendEvent('blogitem', this);		
+	    sendEvent('blogitem', 'readmore', this);		
 	 });
 	  $('.footer a').on('click', function(){
-	    sendEvent('footer', this);		
+	    sendEvent('footer', 'goto', this);		
 	 });
 	 $('.selectbox input').on('click', function(){
-	    sendEvent('footer', this);		
+	    sendEvent('mapexample', 'choose', this);		
 	 }); 
 	 
 });
