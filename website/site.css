@@ -113,18 +113,17 @@ h1{font-weight:normal; font-size:40px; letter-spacing: 0.06em; padding-top:25px;
 .acticlestitles .delimiter {border:2px solid #FF8601; width:100%; margin-bottom:15px;}
 .acticlestitles ul a{text-decoration:none; color:#76B6F6;}
 .acticlestitles ul  li{padding-bottom:10px;}
-.textlist {list-style-type: disc; padding-left:20px;}
+.textlist {list-style-type: disc; padding-left:25px;}
 .textlist li {padding-top:10px;}
 .article {margin-bottom:25px;}
 .article h1{font-size:34px;}
 
 .share_buttons li{float:right; line-height:30px; }
-.share_buttons {margin-bottom:30px; overflow:hidden;}
+.share_buttons {margin-bottom:21px; overflow:hidden;}
 .fb{padding:2px;}
 
 .fb-like { 
     width: 80px; 
-	 /*height: 27px;*/
 }
 .fb-like span, 
 .fb-like iframe {
