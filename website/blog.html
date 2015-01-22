@@ -8,10 +8,29 @@
 
 <link rel="stylesheet" type="text/css" href="site.css"/>
 <script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="scripts/slider.js"></script>
-<script type="text/javascript" src="scripts/mapselector.js"></script>
+<script type="text/javascript" src="scripts/blog.js"></script>
+ <link rel="canonical" href="http://osmand.net/blog.html" />
+<script src="https://apis.google.com/js/platform.js" async defer>
+</script>
 </head>
 <body>
+<div id="fb-root"></div>
+<script>
+window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '910511258982777',
+      xfbml      : true,
+      version    : 'v2.2'
+    });
+  };
+(function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "http://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
 <div class="maincontainer">
   <div class="main">
     <div class="simpleheader">
@@ -30,61 +49,71 @@
 	      <li>
 		    <div class="article">
 		      <h1>OsmAnd 1.9</h1>
-		      <div class="date">04 november 2014</div>
-			  <h3>NAVIGATION AND ROUTING</h3>
+		      <div class="date">November 4, 2014</div>
+			  <h3>Navigation and routing</h3>
 			  <ul class="textlist">
-			    <li>Search POI along the route</li>
-				<li>Get visual and audio notification by approaching to waypoint</li>				
-				<li>Mark road as impassable per session</li>
-				<li>Support of turn lanes</li>
+			    <li>Search POI along the route
+					<div class="imageholder"><img src="http://blog.osmand.net/blog/images/1.9/waypoints-1.9.png" alt="poi along the route" /></div>
+				</li>
+				<li>Get visual and audio notification by approaching to waypoint
+					<div class="imageholder"><img src="http://blog.osmand.net/blog/images/1.9/waypoint-1.9.png" alt="visual notification for a waypoint"/></div>
+				</li>				
+				<li>Mark road as impossible per session
+					<div class="imageholder"><img src="http://blog.osmand.net/blog/images/1.9/avoid_road-1.9.png" alt="avoid road"/></div>
+				</li>
+				<li>Support of turn lanes
+					<div class="imageholder"><img src="http://blog.osmand.net/blog/images/1.9/turn_lanes-1.9.png" alt="support of turn lanes"/></div>
+				</li>
 				<li>Longer route calculation up to 500km</li>
 				<li>Special audio notifications in case you are back on the route</li>
 				<li>Navigation takes into account traffic signals</li>
 				<li>Traffic warnings can now be announced by type, like stop signs or speed bumps (TTS voices only).</li>
 			  </ul>
-			  <h3>MAPS</h3>
+			  <h3>Maps</h3>
 			  <ul class="textlist">
-			    <li>Public transport map and Subway map</li>				
+			    <li>Public transport map and Subway map
+					<div class="imageholder"><img src="http://blog.osmand.net/blog/images/1.9/subway-1.9.png" alt="subway map"/></div>
+				</li>				
 				<li>New options like showing road access restrictions, the road surfaces, the road surface quality etc. have been implemented in many map styles.</li>
 				<li>Increase map details level independently from map text size</li>				
 			  </ul>
-			  <h3>OSMO PLUGIN</h3>
+			  <h3>OsMo plugin</h3>
 			  <ul class="textlist">
 			    <li>Login/Logoff functionality</li>
 				<li>Automatically download groups and devices for registered users</li>
 				<li>Better error handling</li>
 			  </ul>
-			  <h3>SIMPLIFICATION OF BACKGROUND TRIP RECORDING AND BACKGROUND NAVIGATION</h3>
+			  <h3>Simplification of background trip recording and background navigation</h3>
 			  <ul class="textlist">
-			    <li>OsmAnd now automatically enables the GPS sleep mode service if navigation or trip recording has been activated, so that this continues to function while the device screen is off. Only if desired, the GPS sleep mode service can still be manually interrupted or configured via tapping the "GPS status" widget.</li>
+			    <li>OsmAnd now automatically enables the GPS sleep mode service if navigation or trip recording has been activated, so that this continues to function while the device screen is off. Only if desired, the GPS sleep mode service can still be manually interrupted or configured via tapping the "GPS status" widget.
+					<div class="imageholder"><img src="http://blog.osmand.net/blog/images/1.9/sleep_mode-1.9.png" alt="GPS wake up interval"/></div>
+				</li>
 			  </ul>
-			  <h3>USER INTERFACE AND OTHERS FEATURES</h3>
+			  <h3>User interface and other features</h3>
 			  <ul class="textlist">
 				<li>Easier to download and update maps</li>
 				<li>Support Android Wear</li>
 				<li>Print itinerary and turn information</li>
 			  </ul>
 		    </div>
+			<ul class="share_buttons">		       
+		       <li class="fb"><div class="fb-like" data-href="http://osmand.net/blog.html" data-width="75" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div></li> 
+			   <li><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://osmand.net/blog.html">Tweet</a></li>
+			   <li><div class="g-plusone" data-size="medium"></div></li>
+			</ul>
 		  </li>
+		  
 	    </ul>
 		<div class="acticlestitles">
 		  <h1>LATEST ARTICLES</h1>
 		  <div class="delimiter"></div>
-		  <ul>
+		  <ul class="articlelinklist">
 		    <li><a href="#">OsmAnd 1.9</a></li>
 			<li><a href="#">OsmAnd 1.8</a></li>
 			<li><a href="#">OsmAnd 1.7</a></li>
 			<li><a href="#">OsmAnd Seamarks & Bitcoin maps</a></li>
 			<li><a href="#">OsmAnd 1.6 Released</a></li>
-			<li><a href="#">OsmAnd 1.5 Released</a></li>
-			<li><a href="#">OsmAnd 1.3.1 Released</a></li>
-			<li><a href="#">OsmAnd 1.4.1 Released</a></li>
-			<li><a href="#">OsmAnd 1.1 release - Plugin Evolution</a></li>
-			<li><a href="#">OsmAnd al Dia de la Llibertat del Programari 2012</a></li>
-			<li><a href="#">OsmAnd in Software Freedom Day 2012</a></li>
-			<li><a href="#">OsmAnd 1.0 released</a></li>
-			<li><a href="#">Parking Reminder Plugin</a></li>
-			<li><a href="#">Osmand+ (Paypal , Click & Buy)</a></li>
+			<li><a href="#">OsmAnd 1.5 Released</a></li>			
 		  </ul>
 		</div>
 	  </div>
@@ -129,8 +158,17 @@
   </div>
 </div>
 <script type="text/javascript">
-
+var blogObj;
+function fixTwitter(){
+ 
+	$('#___plusone_0 iframe').css('height', '21px');
+}
+$(function() {
+	blogObj= new blog($('.articlelinklist'));
+	setTimeout(fixTwitter, 1000);
+});
 </script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></div>
 </body>
 
 </html>
