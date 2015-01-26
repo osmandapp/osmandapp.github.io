@@ -27,7 +27,7 @@ var init = function(){
 		container.append('<li><a data-index="' + link.index+ '" href="' + link.url + '">' + link.title + '</a></li>');
 	}
 	
-	var articleid = $.urlParam(this.href, 'id');
+	var articleid = $.urlParam(window.location.href, 'id');
 	if (!articleid || articleid == null){
 		articleid = $.urlParam(blogArticles[0].url, 'id');
 	}
