@@ -1,6 +1,6 @@
 var blogArticles = [
 	{title:'OsmAnd 1.9', url:'blog.html?id=osmand-1-9-released', index: 0},
-	{title:'OsmAnd 1.8', url:'#', index: 1},
+	{title:'OsmAnd 1.8', url:'blog.html?osmand-1-8-released', index: 1},
 	{title:'OsmAnd 1.7', url:'blog.html?id=osmand-1-7-released', index: 2},
 	{title:'OsmAnd Seamarks &amp; Bitcoin maps', url:'blog.html?id=osmand-seamarks-and-bitcoin-maps', index: 3},
 	{title:'OsmAnd 1.6 Released', url:'blog.html?id=osmand-1-6-released', index: 4},
