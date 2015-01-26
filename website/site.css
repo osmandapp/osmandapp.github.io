@@ -28,7 +28,7 @@ h1{font-weight:normal; font-size:40px; letter-spacing: 0.06em; padding-top:25px;
 .badges li img{height:45px; border:none;}
 
 .simpleheader{height:250px; color:#fff; background: url("images/header_image.jpg") center top no-repeat; }
-.simpleheader .headertext{top:5%; }
+.simpleheader .headertext{top:155px; }
 
 .specialevent {position:relative; background:#fff; height:650px;}
 .specialeventwrap{width:900px;  position:absolute; left:50%; margin-top:-60px;}
