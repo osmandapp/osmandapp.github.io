@@ -27,13 +27,8 @@ h1{font-weight:normal; font-size:40px; letter-spacing: 0.06em; padding-top:25px;
 .badges li.first {padding-left:0;}
 .badges li img{height:45px; border:none;}
 
-.simpleheader{height:250px; color:#fff; width:100%; background: url("images/header_image.jpg") center top no-repeat; /*background-size:contain;*/}
+.simpleheader{height:250px; color:#fff; background: url("images/header_image.jpg") center top no-repeat; }
 .simpleheader .headertext{top:5%; }
-/*.simpleheader .headerlogo{top:10px;}
-.simpleheader .menu{top:42px;}
-.simpleheader .menu a{ color:#9A9A9A;}
-.simpleheader a.active{ color:#76B6F6;}
-.activemarker{width:100%; border:1px solid #9A9A9A;}*/
 
 .specialevent {position:relative; background:#fff; height:650px;}
 .specialeventwrap{width:900px;  position:absolute; left:50%; margin-top:-60px;}
