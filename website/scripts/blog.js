@@ -7,19 +7,6 @@ var blogArticles = [
 	{title:'OsmAnd 1.5 Released', url:'#', index: 5}
 ];
 
-function getUrlParameter(url, sParam)
-{
-    var sPageURL = url.search.substring(1);
-    var sURLVariables = sPageURL.split('&');
-    for (var i = 0; i < sURLVariables.length; i++) 
-    {
-        var sParameterName = sURLVariables[i].split('=');
-        if (sParameterName[0] == sParam) 
-        {
-            return sParameterName[1];
-        }
-    }
-}   
 
 $.urlParam = function(url, name){
     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(url);
@@ -42,18 +29,8 @@ var init = function(){
 	}
 	container.find('a').on('click', function(event){
 		event.preventDefault();
-		var url = $.urlParam(this.href, 'id') + ".html";
-	    var link =$(this);
-		//var index =link.attr('data-index').val();
-		//var article = blogArticles[index];
-		$( ".article" ).load(url);
-	    /*$.get( url, function( data ) {
-			var articleContainer = $( ".article" );
-			articleContainer.empty();
-			articleContainer.html( data );
-			
-		});*/
-		
+		var url = 'blog_articles' + '\\' + $.urlParam(this.href, 'id') + ".html";
+		$( ".article" ).load(url);		
 	 });
 }
 
