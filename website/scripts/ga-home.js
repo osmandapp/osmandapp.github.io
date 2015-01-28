@@ -1,28 +1,24 @@
 $(function() {
 
-     ga('set', 'page', '/home');
-	 
-	 function sendEvent(category, element){
-		var action= $(element).attr('data-gatag');		
-		ga('send', 'event', category, action);
-	 }
+     ga('set', 'page', '/home');	 
+	
 	 $('ul.menu a').on('click', function(){
-		sendEvent('topmenu', this);		
+		sendGAEvent('topmenu', this);		
 	 });
      $('ul.badges a').on('click', function(){		
-		sendEvent('badges', this);				
+		sendGAEvent('badges', this);				
 	 });
 	 $('.screenshots .arrow').on('click', function(){
-	    sendEvent('screenshots', this);		
+	    sendGAEvent('screenshots', this);		
 	 });
 	 $('.blogitem a').on('click', function(){
-	    sendEvent('blogitem', this);		
+	    sendGAEvent('blogitem', this);		
 	 });
 	  $('.footer a').on('click', function(){
-	    sendEvent('footer', this);		
+	    sendGAEvent('footer', this);		
 	 });
 	 $('.selectbox input').on('click', function(){
-	    sendEvent('mapexample', this);		
+	    sendGAEvent('mapexample', this);		
 	 }); 
 	 
 });

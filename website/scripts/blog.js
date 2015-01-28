@@ -1,10 +1,10 @@
 var blogArticles = [
-	{title:'OsmAnd 1.9', url:'blog.html?id=osmand-1-9-released', id:'osmand-1-9-released', index: 0},
-	{title:'OsmAnd 1.8', url:'blog.html?id=osmand-1-8-released', id:'osmand-1-8-released', index: 1},
-	{title:'OsmAnd 1.7', url:'blog.html?id=osmand-1-7-released', id:'osmand-1-7-released', index: 2},
-	{title:'OsmAnd Seamarks &amp; Bitcoin maps', url:'blog.html?id=osmand-seamarks-and-bitcoin-maps', id:'osmand-seamarks-and-bitcoin-maps', index: 3},
-	{title:'OsmAnd 1.6 Released', url:'blog.html?id=osmand-1-6-released', id:'osmand-1-6-released', index: 4},
-	{title:'OsmAnd 1.5 Released', url:'blog.html?id=osmand-1-5-released', id:'osmand-1-5-released', index: 5}
+	{title:'OsmAnd 1.9', url:'blog.html?id=osmand-1-9-released', id:'osmand-1-9-released', gatag:'osmand_1_9'},
+	{title:'OsmAnd 1.8', url:'blog.html?id=osmand-1-8-released', id:'osmand-1-8-released', gatag:'osmand_1_8'},
+	{title:'OsmAnd 1.7', url:'blog.html?id=osmand-1-7-released', id:'osmand-1-7-released', gatag:'osmand_1_7'},
+	{title:'OsmAnd Seamarks &amp; Bitcoin maps', url:'blog.html?id=osmand-seamarks-and-bitcoin-maps', id:'osmand-seamarks-and-bitcoin-maps', gatag:'seamarks_bitcoin'},
+	{title:'OsmAnd 1.6 Released', url:'blog.html?id=osmand-1-6-released', id:'osmand-1-6-released', gatag:'osmand_1_6'},
+	{title:'OsmAnd 1.5 Released', url:'blog.html?id=osmand-1-5-released', id:'osmand-1-5-released', gatag:'osmand_1_5'}
 ];
 
 var webSiteUrl = "http://osmand.net";
@@ -56,7 +56,7 @@ var init = function(){
 	container.empty();
 	
 	for (var link of blogArticles){
-		container.append('<li><a data-index="' + link.index+ '" href="' + link.url + '">' + link.title + '</a></li>');
+		container.append('<li><a data-gatag="' +link.gatag+ '" data-index="' + link.index+ '" href="' + link.url + '">' + link.title + '</a></li>');
 	}
 	
 	var articleid = $.urlParam(window.location.href, 'id');

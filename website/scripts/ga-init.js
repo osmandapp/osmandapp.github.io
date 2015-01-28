@@ -6,3 +6,8 @@
 
   ga('create', 'UA-28342846-4', 'auto');
   ga('send', 'pageview');
+  
+   function sendGAEvent(category, element){
+		var action= $(element).attr('data-gatag');		
+		ga('send', 'event', category, action);
+	 }
