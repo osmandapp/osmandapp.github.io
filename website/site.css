@@ -18,7 +18,7 @@ h1{font-weight:normal; font-size:40px; letter-spacing: 0.06em; padding-top:25px;
 .headertitletext {text-align:center; padding: 3px 0;color:#000; line-height:1.6em;}
 .headerlogo{position:absolute; top:5px; left:21%; width:200px; height:77px; background: url("images/logo.png") center top no-repeat; background-size:contain;}
 .headertext {position:absolute; top:35%; left: 21%; font-size:50px; letter-spacing:0.06em; line-height:1.6em;}
-.menu{position: absolute; top:28px; right:10%; list-style-type: none;  font-family:Verdana, Arial; font-weight:bold; letter-spacing:0.06em;}
+.menu{position: absolute; top:38px; right:10%; list-style-type: none;  font-family:Verdana, Arial; font-weight:bold; letter-spacing:0.06em;}
 .menu li{float:left; padding-right:55px;}
 .menu a{color:#fff; text-decoration:none;}
 .menu .activeitem a{color:rgb(255, 143, 0);} 
