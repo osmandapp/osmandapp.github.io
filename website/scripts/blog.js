@@ -67,7 +67,7 @@ var init = function(){
 	updateMetaTags(getArticleById(articleid));
 		
 	
-	setTimeout(fixTwitter, 2000);
+	setTimeout(fixTwitter, 5000);
 }
 
 init();
