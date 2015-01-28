@@ -62,7 +62,7 @@ var init = function(){
 	}
 	
 	var url = 'blog_articles' + '\\' + articleid + ".html";
-	//$( ".article" ).load(url);
+	$( ".article" ).load(url);
 	
 	updateMetaTags(getArticleById(articleid));
 		
