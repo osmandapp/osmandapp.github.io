@@ -37,6 +37,9 @@ var updateMetaTags = function(articleObj){
 		$('meta[property="og:description"]').attr('content', articleObj.title);
 		
 		$('link[rel="canonical"]').attr('href', articleFullUrl);
+		
+		$('div.fb-like').attr('data-href', articleFullUrl);
+		$('.twitter-share-button').attr('data-url', articleFullUrl);
 	}
 }
 
