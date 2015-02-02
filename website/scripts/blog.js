@@ -63,14 +63,17 @@ var init = function(){
 	if (!articleid || articleid == null){
 		articleid = blogArticles[0].id;
 	}
-	
+	//hide share buttons
+	$('.share_buttons').css('display', 'none');
 	var url = 'blog_articles' + '\\' + articleid + ".html";
-	$( ".article" ).load(url);
+	$( ".article" ).load(url, function( response, status, xhr) {
+		if ( status != "error" ) {
+			$('.share_buttons').css('display', 'block');
+			updateMetaTags(getArticleById(articleid));
+			setTimeout(fixTwitter, 5000);
+		}
+	});
 	
-	updateMetaTags(getArticleById(articleid));
-		
-	
-	setTimeout(fixTwitter, 5000);
 }
 
 init();
