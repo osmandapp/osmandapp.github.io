@@ -1,0 +1,175 @@
+/*cleaning up*/
+body{margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; font-size:1.1em;}
+ul{list-style-type: none; margin:0; padding:0;}
+ul li{padding:0; margin:0;}
+h1 { -webkit-margin-before:0; -webkit-margin-after:0;}
+
+/*default styles*/
+h1{font-weight:normal; font-size:40px; letter-spacing: 0.06em; padding-top:25px; padding-bottom:25px;}
+
+.bold {font-weight:bold;}
+
+.maincontainer{ width:100%; height:auto; overflow:hidden; background-color:#CFCFCF; min-width:1280px;}
+.main {position:relative; max-width:1920px; margin:0 auto;}
+
+.header {position:relative; color:#fff; height: 0;
+    padding-top: 40%; background: url("images/header_image.jpg") center top no-repeat; background-size:contain;}
+.shadowline{position:relative; margin-top:-40%; height:100px; width:100%; background: url("images/head_shadow.png") repeat-x; background-size:contain;}
+.headerlogo{position:relative; /*margin-top:5px;*/ margin-left:21%; width:200px; height:77px; background: url("images/logo.png") center top no-repeat; background-size:contain;}
+.menu{position: relative; margin-top:-38px; right:10%; float:right; list-style-type: none;  font-family:Verdana, Arial; font-weight:bold; letter-spacing:0.06em;}
+.menu li{float:left; padding-right:55px;}
+.menu a{color:#fff; text-decoration:none;}
+.menu .activeitem a{color:rgb(255, 143, 0);} 
+
+/*.headerimage {position:absolute; top:0; left:0; width:100%;}*/
+.headertextwrapper{position:relative; margin-left:50%; width:232px; margin-top:7%; text-align:center;}
+.headertextblock{ margin-left:-232px; line-height:1.6em;}
+.headertitle {line-height:1.6em; font-size:3em;}
+.headertitletext {line-height:1.6em; font-size:1.3em;}
+.dvrlogo{background:url("images/osmand-dvr-logo.png") left top no-repeat; background-size:contain; display:inline-block; width:100px; height:100px; }
+
+/*.headertext {position:absolute; top:35%; left: 21%; font-size:50px; letter-spacing:0.06em; line-height:1.6em;}*/
+
+.appstorebadge img{width:100px; margin-top:30px;}
+
+.simpleheader{height:250px; color:#fff; background: url("images/header_image.jpg") center top no-repeat; }
+.simpleheader .headertext{top:155px; }
+
+.specialevent {position:relative; background:#fff; height:650px;}
+.specialeventwrap{width:900px;  position:absolute; left:50%; margin-top:-60px;}
+.specialeventcontent{position:relative; left:-50%; border-radius: 15px; background:#fff; }
+.specialeventtext{width:85%; margin:0 auto; overflow:hidden; line-height: 1.6em; font-size:14px; }
+.specialeventtext p, .specialeventtext ul{padding-bottom:15px;}
+.specialeventtext .beforelist{padding-bottom:0; margin-bottom:5px;}
+.specialeventtext .signature{font-weight:bold;}
+.specialeventtext.hidden {color:#fff; padding-bottom:60px; width:900px;}
+/************* features*****************************/
+.features{position:relative; overflow:hidden;background:#fff;}
+.features h1{text-align:center; color:rgb(255, 143, 0)}
+.featurescontent{width:1100px; margin:0 auto;}
+.features .column{width:500px; }
+.features .left{float:left;}
+.features .right{float:right;}
+.features ul li {border-bottom: 1px solid #EFEFEF; padding-top:20px; padding-bottom:20px; }
+.features ul li img{width:30px; margin: auto 10px;}
+.features ul li div{ margin: auto 10px; display:inline-block;}
+.features ul li.last{border-bottom: none;}
+
+.features .icon{ width:30px; height:30px; background-size:contain; display:inline-block;}
+.features .ipad-supported{background-image:url("images/ic_ipad_supported.png");}
+.features .webserver{background-image:url("images/ic_web_server.png");}
+.features .carmode{background-image:url("images/ic_carmode.png");}
+.features .portrait-landscape{background-image:url("images/ic_portrait_landscape.png");}
+.features .gpx{background-image:url("images/ic_gpx.png");}
+.features .help{background-image:url("images/ic_help.png");}
+.features .videogallery{background-image:url("images/ic_video_gallery.png");}
+.features .favorites{background-image:url("images/ic_Favorites.png");}
+.features .photo{background-image:url("images/ic_photo.png");}
+.features .ios7{background-image:url("images/ic_ios7.png");}
+.features .location-reading{background-image:url("images/ic_location_Reading.png");}
+.features .password-protection{background-image:url("images/ic_Password_protection.png");}
+.features .power-saving{background-image:url("images/ic_power_saving.png");}
+.features .recover-video-recording{background-image:url("images/ic_Recover_video_recording.png");}
+.features .simple-interface{background-image:url("images/ic_Simple_interface.png");}
+.features .subtitles{background-image:url("images/ic_subtitles.png");}
+.features .speedlimit{background-image:url("images/ic_speed_limit.png");}
+.features .map-providers{background-image:url("images/ic_map_providers.png");}
+
+.features img{width:250px;}
+.features ul li {border-bottom: 1px solid #EFEFEF; }
+.features ul li.last{border-bottom: none;}
+.features .imagecolumn{float:left; width:400px; text-align:center;}
+.features .textcolumn{float:left; width:700px;}
+.featurestitle{text-align:center; padding: 25px 0;color:#000;}
+.featurestitle p{color:#9A9A9A; font-size:1.2em;}
+.itemcontainer{position:relative; width:1100px; margin:50px auto; overflow:hidden;}
+.features .categorydescription{list-style-type:disc; padding-right:40px; padding-left:25px;}
+.features  .categorydescription li{border-bottom:none; padding-bottom:5px; padding-left:5px;}
+
+/*.mapexample img{width:1200px; }*/
+.mapexample{background:#fff; position:relative;padding-top:20px; padding-bottom:20px;}
+.mapexampleheader{width:1100px; margin:0 auto;}
+.mapcontainer{position:relative; background: url("images/cycling-default.png") center center no-repeat; height: 450px; background-size:cover; margin:0 auto; margin-bottom:40px;}
+.selectbox{ width:157px; position:absolute; top:20px; right:15%; background-color:#fff; padding:15px;-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;}
+.selectbox .selecttitle{padding: 19px 5px 6px 5px;color:#2196F3; font-weight:bold; font-size:14px;}
+.selectbox .selecttitle.first{padding-top: 2px;}
+.selectbox ul {margin:0;padding-left:0;}
+.selectbox ul li {line-height: 15px; font-size:11px;}
+.selectbox input{padding-top:5px;}
+
+.screenshots{background:#EDEDED; position:relative; padding:20px; overflow:hidden;}
+.slider{position:relative;width:1100px; margin:0 auto;}
+.arrow{cursor:pointer;padding-bottom: 207px;}
+.screenshots .left{ margin-left: -73px; padding-right: 27px;}
+.screenshots .right{padding-left: 27px; }
+.screenshots ul {padding:0; height:416px; overflow:hidden; display: inline-block;}
+.screenshots ul li{float:left; padding-left:30px;}
+.screenshots ul li.first{padding-left:0;}
+.screenshots ul img {max-width:235px; max-height:415px;}
+.disabled {cursor:default;}
+
+.blogcontainerwrap{background:#fff;}
+.blogcontainer {width:1100px; overflow:hidden; margin:0 auto; }
+.blogcontainer .leftcolumn{float:left; width:500px;}
+.blogcontainer .rightcolumn{float:right; width:400px; padding-bottom: 10px}
+.blogitem h3 {font-size:1.2em; color:#76B6F6; font-weight:normal; margin:0;}
+.blogitem p{margin-top:5px;}
+.blogitem .readmore {text-align:left; display:inline-block; margin-bottom:40px;}
+.blogitem .readmore a{color:#9A9A9A;}
+.blogitem .date {float:right; color:#9A9A9A;}
+.imageholder {text-align:center; margin:10px;}
+.imageholder img{padding:10px; border:1px solid #ddd; max-width:300px;}
+.articles .textlist{margin-bottom:50px;}
+.pds-box.osmand{border-radius:0;}
+
+
+.footer{position:relative;  background-color:#43464D; height:220px; }
+.halvecolumn{width:50%; float:left;}
+.thirdcolumn{width:30%; float:left;}
+.footer .narrow{width:20%;  float:left;}
+.footer .wide{width:40%;  float:left;}
+.footerlogo{position:absolute; top:60px; left:21%; width:200px;}
+.footerlinkstitle{color: #698C8E; margin-top:18px; margin-bottom:10px;}
+.footer ul{list-style-type: none;  font-size:0.8em; padding-left:0; padding-top:50px;}
+.footer ul li {line-height:31px;}
+.footer ul a{color:#fff; text-decoration:none;}
+.footer .left{float:left; width:50%;}
+.footer .right{float:right; width:50%;}
+.footer .footerdvrlogo{margin-top: 60px; background:url("images/osmand-dvr-logo.png") left top no-repeat; background-size:contain; display:inline-block; width:100px; height:100px;}
+
+/**********BLOG PAGE ********************/
+.articles{position:relative; overflow:hidden;background:#fff;}
+.articles .date{color:#9A9A9A;}
+.articlescontainer{position:relative; overflow:hidden; width:1100px; margin:0 auto;}
+.articlelist {float:left; width:750px;}
+.acticlestitles {float:right; width:300px; margin-bottom:25px; margin-left:50px;} 
+.acticlestitles h1{color:#9A9A9A; font-weight:bold; font-family:Verdana, Arial; font-size:1.1em; padding-bottom:5px;}
+.acticlestitles .delimiter {border:2px solid #FF8601; width:100%; margin-bottom:15px;}
+.acticlestitles ul a{text-decoration:none; color:#76B6F6;}
+.acticlestitles ul  li{padding-bottom:10px;}
+.textlist {list-style-type: disc; padding-left:30px;}
+.textlist li {padding-top:10px;}
+.article {margin-bottom:25px;}
+.article h1{font-size:34px;}
+
+.share_buttons li{float:right; line-height:21px; }
+.share_buttons {margin-bottom:21px; overflow:hidden;}
+.fb{padding:2px;}
+
+.fb-like { 
+    width: 80px; 
+}
+.fb-like span, 
+.fb-like iframe {
+    width: 80px !important;
+    height: 21px !important;
+}
+
+/********discount********/
+.discount{background:url("images/discount-badge.png") center top no-repeat; background-size:contain; position:absolute; top:35%; right:15%; width:200px; height:200px; }
+
+
+
+/******temp**************/
+
+.nearlogotext{vertical-align:top; display:inline-block; padding:15px;}

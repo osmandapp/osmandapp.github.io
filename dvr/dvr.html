@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<title>OsmAnd - Offline Mobile Maps and Navigation
+</title>
+
+<link rel="stylesheet" type="text/css" href="site.css"/>
+</head>
+<body>
+<div class="maincontainer">
+  <div class="main">
+    <div class="header">
+	<div class="shadowline">
+	 <div class="headerlogo"></div>
+	  <ul class="menu">
+	  <li class="activeitem"><a data-gatag="header_home" href="http://www.osmand.net">HOME</a></li>
+	  <li><a data-gatag="header_plugins" href="http://osmand.net">OSMAND</a></li>		
+	  </ul>
+	</div>
+	 <div class="headertextwrapper">
+		<div class="headertextblock">
+	       <div class="dvrlogo"></div>
+	       <div class="headertitle">OsmAnd <span class="bold">DVR</span></div>
+		   <div class="headertitletext">Car Video Recorder + Maps</div>
+		   <a class="appstorebadge" href="http://itunes.apple.com/us/app/id781721959"><img src="images/app-store-badge.png"></a>
+		 </div>
+	 </div>
+	 
+	
+	 
+    </div>
+  
+	<div class="features">
+	  <div class="featurescontent">
+	  <h1>FEATURES</h1>
+	  <ul class="column left">
+	    <li><div class="icon recover-video-recording"></div>Non-stop video recording</li>
+		<li><div class="icon recover-video-recording"></div>Recover video recording after returning from the background mode or after incoming call</li>
+		<li><div class="icon password-protection"></div>Password protection</li>
+		<li><div class="icon simple-interface"></div>Simple user interface</li>
+		<li><div class="icon location-reading"></div>Location, speed and altitude reading</li>
+		<li><div class="icon subtitles"></div>Customizable subtitles in SRT format + Export to Camera Roll with built in subtitles</li>
+		<li><div class="icon power-saving"></div>Power saving mode + Black screen mode</li>
+		<li><div class="icon speedlimit"></div>Speed limit feature</li>
+		<li><div class="icon map-providers"></div>Four Map providers, layer switching, traffic layer</li>
+		<li><div class="icon ios7"></div></img>iOS 7 supported</li>	
+	  </ul>
+	  <ul class="column right">
+	    <li><div class="icon photo"></div>Still photos while recording the video</li>
+		<li><div class="icon favorites"></div>Favorites</li>
+		<li><div class="icon videogallery"></div>Built-in video/photo gallery</li>
+		<li><div class="icon help"></div>Built-in Help</li>
+		<li><div class="icon gpx"></div>GPX track writing</li>
+		<li><div class="icon portrait-landscape"></div>Portrait and landscape modes</li>
+		<li><div class="icon carmode"></div>Car mode</li>
+		<li><div class="icon webserver"></div>Web server</li>
+		<li><div class="icon ipad-supported"></div>iPad supported</li>	
+	  </ul>
+	  </div>
+	
+	</div>
+
+	
+
+	<div class="footer">
+	  <div class="halvecolumn">
+	    <img src="images/logo.png" class="footerlogo"/>	
+		<div>&nbsp;</div>
+	  </div>
+	  <div class="halvecolumn">
+	  <div class="left">
+		  	 <div class="footerdvrlogo"></div>
+		    
+	    </div>
+	    <div class="right">
+		  
+		    <ul>
+		    <div class="footerlinkstitle">WEBSITE</div>
+		    <li><a data-gatag="home" href="http://www.osmand.net">Home</a></li>
+			<li><a data-gatag="osmand" href="http://blog.osmand.net/en/plugins.html">OsmAnd</a></li>			
+		    </ul>
+	    </div>
+	    
+	  
+	  </div>
+	</div>
+  </div>
+</div>
+<script type="text/javascript">
+var sl;
+var mapsel;
+var timeout = 50;
+$( document ).ready(function() {
+ sl = new slider($(".slider"));
+ mapsel = new mapselector($(".mapcontainer"));
+
+ setTimeout(applyPolStyles, timeout);
+
+});
+ 
+</script>
+</body>
+
+</html>
