@@ -7,6 +7,8 @@
 </title>
 
 <link rel="stylesheet" type="text/css" href="site.css"/>
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="scripts/slider.js"></script>
 </head>
 <body>
 <div class="maincontainer">
@@ -15,8 +17,8 @@
 	<div class="shadowline">
 	 <div class="headerlogo"></div>
 	  <ul class="menu">
-	  <li class="activeitem"><a data-gatag="header_home" href="http://www.osmand.net">HOME</a></li>
-	  <li><a data-gatag="header_plugins" href="http://osmand.net">OSMAND</a></li>		
+	  <li class="activeitem"><a data-gatag="header_home" href="http://dvr.osmand.net">HOME</a></li>
+	  <li><a data-gatag="header_plugins" href="http://www.osmand.net">OSMAND</a></li>		
 	  </ul>
 	</div>
 	 <div class="headertextwrapper">
@@ -26,37 +28,68 @@
 		   <div class="headertitletext">Car Video Recorder + Maps</div>
 		   <a class="appstorebadge" href="http://itunes.apple.com/us/app/id781721959"><img src="images/app-store-badge.png"></a>
 		 </div>
-	 </div>
-	 
-	
-	 
+	 </div>	 
     </div>
-  
+	<div class="slideswrapper">
+	  <center>
+        <div class="slides">
+          <div class="slides-container">
+	         <div class="slides-control">
+		        <div class="slide" style="display:block;">
+  			      <img src="images/1p-en.png"/>
+			    </div>
+			    <div class="slide" style="display:none;">
+			      <img src="images/2p-en.png"/>
+			    </div>
+			    <div class="slide" style="display:none;">
+			      <img src="images/3p-en.png"/>
+			    </div>
+			    <div class="slide" style="display:none;">
+   			      <img src="images/4p-en.png"/>
+			    </div>
+			    <div class="slide" style="display:none;">
+			      <img src="images/5p-en.png"/>
+			    </div>
+		    </div>
+	    </div>
+	 <div class="wrapper-image">
+	    <img src="images/5s-body.png"/>
+	 </div>
+	 <ul class="pagination">
+	   <li class="current"><a href="#" data-index="1"></a></li>
+	   <li><a href="#" data-index="2"></a></li>
+	   <li><a href="#" data-index="3"></a></li>
+	   <li><a href="#" data-index="4"></a></li>
+	   <li><a href="#" data-index="5"></a></li>
+	 </ul>
+   </div>
+   </center>
+   </div>
 	<div class="features">
 	  <div class="featurescontent">
 	  <h1>FEATURES</h1>
 	  <ul class="column left">
-	    <li><div class="icon recover-video-recording"></div>Non-stop video recording</li>
-		<li><div class="icon recover-video-recording"></div>Recover video recording after returning from the background mode or after incoming call</li>
-		<li><div class="icon password-protection"></div>Password protection</li>
-		<li><div class="icon simple-interface"></div>Simple user interface</li>
-		<li><div class="icon location-reading"></div>Location, speed and altitude reading</li>
-		<li><div class="icon subtitles"></div>Customizable subtitles in SRT format + Export to Camera Roll with built in subtitles</li>
-		<li><div class="icon power-saving"></div>Power saving mode + Black screen mode</li>
-		<li><div class="icon speedlimit"></div>Speed limit feature</li>
-		<li><div class="icon map-providers"></div>Four Map providers, layer switching, traffic layer</li>
-		<li><div class="icon ios7"></div></img>iOS 7 supported</li>	
+	    <li><div class="iconcontainer"><div class="icon recover-video-recording"></div></div><div class="textcontainer"><span>Non-stop video recording</span></div></li>
+		<li><div class="iconcontainer"><div class="icon recover-video-recording"></div></div><div class="textcontainer"><span>Recover video recording after returning from the background mode or after incoming call</span></div></li>
+		<li><div class="iconcontainer"><div class="icon password-protection"></div></div><div class="textcontainer"><span>Password protection</span></div></li>
+		<li><div class="iconcontainer"><div class="icon simple-interface"></div></div><div class="textcontainer"><span>Simple user interface</span></div></li>
+		<li><div class="iconcontainer"><div class="icon location-reading"></div></div><div class="textcontainer"><span>Location, speed and altitude reading</span></div></li>
+		<li><div class="iconcontainer"><div class="icon subtitles"></div></div><div class="textcontainer"><span>Customizable subtitles in SRT format + Export to Camera Roll with built in subtitles</span></div></li>
+		<li><div class="iconcontainer"><div class="icon power-saving"></div></div><div class="textcontainer"><span>Power saving mode + Black screen mode</span></div></li>
+		<li><div class="iconcontainer"><div class="icon speedlimit"></div></div><div class="textcontainer"><span>Speed limit feature</span></div></li>
+		<li><div class="iconcontainer"><div class="icon map-providers"></div></div><div class="textcontainer"><span>Four Map providers, layer switching, traffic layer</span></div></li>
+		<li><div class="iconcontainer"><div class="icon ios7"></div></div><div class="textcontainer"><span>iOS 7 supported</span></div></li>	
 	  </ul>
 	  <ul class="column right">
-	    <li><div class="icon photo"></div>Still photos while recording the video</li>
-		<li><div class="icon favorites"></div>Favorites</li>
-		<li><div class="icon videogallery"></div>Built-in video/photo gallery</li>
-		<li><div class="icon help"></div>Built-in Help</li>
-		<li><div class="icon gpx"></div>GPX track writing</li>
-		<li><div class="icon portrait-landscape"></div>Portrait and landscape modes</li>
-		<li><div class="icon carmode"></div>Car mode</li>
-		<li><div class="icon webserver"></div>Web server</li>
-		<li><div class="icon ipad-supported"></div>iPad supported</li>	
+	    <li><div class="iconcontainer"><div class="icon photo"></div></div><div class="textcontainer"><span>Still photos while recording the video</span></div></li>
+		<li><div class="iconcontainer"><div class="icon favorites"></div></div><div class="textcontainer"><span>Favorites</span></div></li>
+		<li><div class="iconcontainer"><div class="icon videogallery"></div></div><div class="textcontainer"><span>Built-in video/photo gallery</span></div></li>
+		<li><div class="iconcontainer"><div class="icon help"></div></div><div class="textcontainer"><span>Built-in Help</span></div></li>
+		<li><div class="iconcontainer"><div class="icon gpx"></div></div><div class="textcontainer"><span>GPX track writing</span></div></li>
+		<li><div class="iconcontainer"><div class="icon portrait-landscape"></div></div><div class="textcontainer"><span>Portrait and landscape modes</span></div></li>
+		<li><div class="iconcontainer"><div class="icon carmode"></div></div><div class="textcontainer"><span>Car mode</span></div></li>
+		<li><div class="iconcontainer"><div class="icon webserver"></div></div><div class="textcontainer"><span>Web server</span></div></li>
+		<li><div class="iconcontainer"><div class="icon ipad-supported"></div></div><div class="textcontainer"><span>iPad supported</span></div></li>	
 	  </ul>
 	  </div>
 	
@@ -78,8 +111,8 @@
 		  
 		    <ul>
 		    <div class="footerlinkstitle">WEBSITE</div>
-		    <li><a data-gatag="home" href="http://www.osmand.net">Home</a></li>
-			<li><a data-gatag="osmand" href="http://blog.osmand.net/en/plugins.html">OsmAnd</a></li>			
+		    <li><a data-gatag="home" href="http://dvr.osmand.net">Home</a></li>
+			<li><a data-gatag="osmand" href="http://www.osmand.net">OsmAnd</a></li>			
 		    </ul>
 	    </div>
 	    
@@ -90,14 +123,9 @@
 </div>
 <script type="text/javascript">
 var sl;
-var mapsel;
-var timeout = 50;
+
 $( document ).ready(function() {
- sl = new slider($(".slider"));
- mapsel = new mapselector($(".mapcontainer"));
-
- setTimeout(applyPolStyles, timeout);
-
+ sl = new slider($(".slides"));
 });
  
 </script>

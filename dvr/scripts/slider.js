@@ -1,91 +1,58 @@
-var images=[
-"promo-1s.png",
-"promo-2s.png",
-"promo-3s.png",
-"promo-4s.png",
-"promo-5s.png",
-"promo-6s.png",
-"promo-7s.png",
-"promo-8s.png",
-"promo-9s.png",
-"promo-10s.png"
-];
-
-function slider(container){
-var $cnt = $(container);
-var $img1 = $cnt.find("#screenshot1");
-var $img2 =$cnt.find("#screenshot2");
-var $img3 = $cnt.find("#screenshot3");
-var $img4 = $cnt.find("#screenshot4");
-var $leftarrow =  $cnt.find(".arrow.left");
-var $rightarrow =  $cnt.find(".arrow.right");
-var currentPosition =0;
-var count =4;
-
-var init = function(){
-	updatePictures();
-	updateArrows();	
-	$leftarrow.on('click', function(){
-		if (currentPosition > 0){
-			currentPosition-=count;
-			updatePictures();
-			updateArrows();	
-		}
-	});
-	$rightarrow.on('click', function(){
-		if (currentPosition + count < images.length){
-			currentPosition+=count;
-			updatePictures();
-			updateArrows();	
-		}
-	});
-}
-
-var changePicture = function(img, index){
-	if (index < images.length){
-		img.attr("src", "images/" + images[index]);
-	}else{
-		img.attr("src", "");
-	}
-}
-var updatePictures = function(){
-	changePicture( $img1, currentPosition);
-	changePicture( $img2, currentPosition+1);
-	changePicture( $img3, currentPosition+2);
-	changePicture( $img4, currentPosition+3);
-}
-var updateArrows = function(){
-	if (currentPosition + count < images.length){
-		enableRightArrow();	
-	}else{
-		disableRightArrow();
-	}
-	if (currentPosition== 0 ){
-		disableLeftArrow();	
-	}else{
-		enableLeftArrow();
-	}
-}
-var enableLeftArrow = function(){
-	$leftarrow.attr("src", "images/left_arrow_orange.png");
-	while ($leftarrow.hasClass("disabled")){	
-		$leftarrow.removeClass("disabled");
-	}
-}
-var disableLeftArrow = function(){
-	$leftarrow.attr("src", "images/left_arrow_grey.png");
-	$leftarrow.addClass("disabled");
-}
-var enableRightArrow = function(){
-	$rightarrow.attr("src", "images/right_arrow_orange.png");
-	while ($rightarrow.hasClass("disabled")){	
-		$rightarrow.removeClass("disabled");
-	}
-}
-var disableRightArrow = function(){
-	$rightarrow.attr("src", "images/right_arrow_grey.png");
-	$rightarrow.addClass("disabled");
-}
-init();
-
+function slider(container)
+{
+   var currentIndex=0;
+   var timerInMs = 3000;
+   var currentOffset = -442;
+   var initialOffset = -442;
+   var minOffset = -884;
+   var offsetStep = 100;
+   var slideTimerInMs = 50;
+   var slidesContainer = container.find('.slides-control');
+   var currentSlide;
+   var nextSlide;
+   var currentPaginator;
+   var nextPaginator;
+   var nextSlideOffset = 884;
+   var currentSlideOffset = 442;
+   
+   var init = function(){
+		setTimeout(changeSlide, timerInMs);
+   }
+   
+   var changeSlide = function(){
+		var nextIndex = currentIndex + 1;
+       var slides = container.find('.slide');
+       if (currentIndex == slides.length - 1){
+				nextIndex = 0;
+	   }
+	   currentSlide =$(slides[currentIndex]);
+	   nextSlide =$(slides[nextIndex]);	   
+	   var paginators = container.find('.pagination li');
+	   currentPaginator = $(paginators[currentIndex]);
+	   nextPaginator =  $(paginators[nextIndex]);
+	   currentIndex =nextIndex;
+	   moveSlide();
+   }
+   
+   var moveSlide = function(){
+	   if(currentOffset == initialOffset){
+			nextSlide.css('display', 'block');
+			nextSlide.css('left', nextSlideOffset + 'px');
+	   }
+	   currentOffset = currentOffset - offsetStep;
+	   if (currentOffset > minOffset){			
+			slidesContainer.css('left', currentOffset + 'px');
+			setTimeout(moveSlide, slideTimerInMs);
+	   }else {
+			currentSlide.css('display', 'none');
+			currentPaginator.removeClass('current');
+			nextPaginator.addClass('current');			
+			currentOffset = initialOffset;
+			slidesContainer.css('left', currentOffset + 'px');
+			nextSlide.css('left', currentSlideOffset + 'px');
+			setTimeout(changeSlide, timerInMs);
+	   }
+   }
+   
+   init();
 }
