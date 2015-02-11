@@ -38,6 +38,7 @@ h1{font-weight:normal; font-size:40px; letter-spacing: 0.06em; padding-top:25px;
 .specialeventtext .beforelist{padding-bottom:0; margin-bottom:5px;}
 .specialeventtext .signature{font-weight:bold;}
 .specialeventtext.hidden {color:#fff; padding-bottom:60px; width:900px;}
+.specialevent .headertitletext{letter-spacing:0;}
 /************* features*****************************/
 .features{position:relative; overflow:hidden;background:#fff;}
 .features img{width:250px;}
@@ -133,6 +134,6 @@ h1{font-weight:normal; font-size:40px; letter-spacing: 0.06em; padding-top:25px;
 
 
 /******temp**************/
-.dvrlogo{background:url("images/osmand-dvr-logo.png") left top no-repeat; background-size:contain; display:inline-block; width:50px; height:50px; }
+.dvrlogo{background:url("images/ic_dvr_mainicon.png") left top no-repeat; background-size:contain; margin:0 auto; width:80px; height:80px;}
 .nearlogotext{vertical-align:top; display:inline-block; padding:15px;}
-.appstorebadge img{width:100px;}
+.appstorebadge img{width:100px; display:block; margin:0 auto;}
