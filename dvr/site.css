@@ -31,7 +31,7 @@ h1{font-weight:normal; font-size:40px; letter-spacing: 0.06em; padding-top:25px;
 .appstorebadge img{width:100px; margin-top:30px;}
 
 /************* features*****************************/
-.features{position:relative; overflow:hidden;background:#fff; padding-bottom:30px; padding-top:40px;}
+.features{position:relative; overflow:hidden;background:#fff; padding-bottom:80px; padding-top:40px;}
 .features h1{text-align:center; color:rgb(255, 143, 0)}
 .featurescontent{width:1100px; margin:0 auto;}
 .features .column{width:500px; }
