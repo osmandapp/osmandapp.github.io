@@ -89,11 +89,11 @@ h1{font-weight:normal; font-size:40px; letter-spacing: 0.06em; padding-top:25px;
 .pds-box.osmand{border-radius:0;}
 
 
-.footer{position:relative;  background-color:#43464D; height:260px; }
+.footer{position:relative;  background-color:#43464D; height:220px; }
 .halvecolumn{width:50%; float:left;}
 .thirdcolumn{width:30%; float:left;}
 .footer .narrow{width:20%;  float:left;}
-.footer .wide{width:40%;  float:left;}
+.footer .wide{width:30%;  float:left;}
 .footerlogo{position:absolute; top:30px; left:21%; width:200px;}
 .footerlinkstitle{color: #698C8E; margin-top:18px; margin-bottom:10px;}
 .footer ul{list-style-type: none;  font-size:0.8em; padding-left:0; padding-top:25px;}
