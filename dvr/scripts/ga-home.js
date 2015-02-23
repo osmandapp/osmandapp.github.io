@@ -3,23 +3,14 @@ $(function() {
      ga('set', 'page', '/home');	 
 	
 	 $('ul.menu a').on('click', function(){
-		sendGAEvent('topmenu', this);		
+		sendGAEvent('header', this);		
 	 });
-     $('ul.badges a').on('click', function(){		
-		sendGAEvent('badges', this);				
-	 });
-	 $('.screenshots .arrow').on('click', function(){
-	    sendGAEvent('screenshots', this);		
-	 });
-	 $('.blogitem a').on('click', function(){
-	    sendGAEvent('blogitem', this);		
-	 });
+     $('.appstorebadge').on('click', function(){		
+		sendGAEvent('badge', this);				
+	 });	
 	  $('.footer a').on('click', function(){
 	    sendGAEvent('footer', this);		
 	 });
-	 $('.selectbox input').on('click', function(){
-	    sendGAEvent('mapexample', this);		
-	 }); 
 	 
 });
 
