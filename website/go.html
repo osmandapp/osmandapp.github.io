@@ -35,7 +35,7 @@ $( document ).ready(function() {
 	}
 	map = L.map('map').setView([lat, lon], z);
 	L.tileLayer('http://tile.osmand.net/hd/{z}/{x}/{y}.png', {
-		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+		attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
 		maxZoom: 18
 	}).addTo(map);
 	if (pointDefined == true){
