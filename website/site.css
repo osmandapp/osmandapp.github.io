@@ -29,6 +29,7 @@ h1{font-weight:normal; font-size:40px; letter-spacing: 0.06em; padding-top:25px;
 
 .simpleheader{height:250px; color:#fff; background: url("images/header_image.jpg") center top no-repeat; }
 .simpleheader .headertext{top:155px; }
+.simpleheader .badges{top:170px; left:73%;}
 
 .specialevent {position:relative; background:#fff; height:650px;}
 .specialeventwrap{width:900px;  position:absolute; left:50%; margin-top:-60px;}
@@ -137,3 +138,8 @@ h1{font-weight:normal; font-size:40px; letter-spacing: 0.06em; padding-top:25px;
 .dvrlogo{background:url("images/ic_dvr_mainicon.png") left top no-repeat; background-size:contain; margin:0 auto; width:80px; height:80px;}
 .nearlogotext{vertical-align:top; display:inline-block; padding:15px;}
 .appstorebadge img{width:100px; display:block; margin:0 auto;}
+
+/*****************map***********************/
+.mapwrapper{background-color:#fff; padding-top:40px; padding-bottom:40px;}
+.mapinnerwrapper{padding:5px; border:1px solid #ccc; width:800px;  margin:0 auto;}
+#map{height:500px; width:800px; }
