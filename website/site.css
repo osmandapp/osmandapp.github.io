@@ -1,5 +1,5 @@
 /*cleaning up*/
-body{margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; font-size:1.1em;}
+body{margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; height:100%;}
 ul{list-style-type: none; margin:0; padding:0;}
 ul li{padding:0; margin:0;}
 h1 { -webkit-margin-before:0; -webkit-margin-after:0;}
@@ -9,7 +9,7 @@ h1{font-weight:normal; font-size:40px; letter-spacing: 0.06em; padding-top:25px;
 
 
 .maincontainer{ width:100%; height:auto; overflow:hidden; background-color:#CFCFCF; min-width:1280px;}
-.main {position:relative; max-width:1920px; margin:0 auto;}
+.main {position:relative; max-width:1920px; margin:0 auto; min-height:100%;}
 .header {position:relative; color:#fff; height: 0;
     padding-top: 40%; background: url("images/header_image.jpg") center top no-repeat; background-size:contain;}
 .shadowline{position:absolute; top:0; height:100px; width:100%; background: url("images/head_shadow.png") repeat-x; background-size:contain;}
@@ -140,6 +140,8 @@ h1{font-weight:normal; font-size:40px; letter-spacing: 0.06em; padding-top:25px;
 .appstorebadge img{width:100px; display:block; margin:0 auto;}
 
 /*****************map***********************/
-.mapwrapper{background-color:#fff; padding-top:40px; padding-bottom:40px;}
-.mapinnerwrapper{padding:5px; border:1px solid #ccc; width:800px;  margin:0 auto;}
-#map{height:500px; width:800px; }
+.mapwrapper{background-color:#fff; padding-top:40px; padding-bottom:260px;}
+.mapinnerwrapper{padding:5px; border:1px solid #ccc; width:1200px;  margin:0 auto;}
+#map{height:800px; width:1200px; }
+
+.location .footer{position:absolute; bottom:0; width:100%;}
