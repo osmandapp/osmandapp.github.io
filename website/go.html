@@ -3,6 +3,7 @@
 
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>OsmAnd - Offline Mobile Maps and Navigation
 
 </title>
@@ -14,87 +15,15 @@
 
 </head>
 <body>
-<div class="maincontainer location">
- <div class="main">
- <div class="simpleheader">
-	<div class="shadowline"></div>	  
-	  <div class="headerlogo"></div>
-	  <ul class="menu">
-	  <li><a data-gatag="header_home" href="http://www.osmand.net">HOME</a></li>
-	  <li><a data-gatag="header_plugins" href="http://blog.osmand.net/en/plugins.html">PLUGINS</a></li>
-	  <li><a data-gatag="header_blog" href="http://osmand.net/blog.html">BLOG</a></li>
-	  <li><a data-gatag="header_help" href="http://osmandapp.github.io/">HELP</a></li>	
-	  <li><a data-gatag="header_dvr" href="http://dvr.osmand.net">DVR</a></li>	  
-	  </ul>
-	  <div class="headertext">LOCATION</div>
-	   <ul class="badges">
-		<li class="first"><a data-gatag="googleplay" href="https://play.google.com/store/apps/details?id=net.osmand.plus">
-          <img alt="Get it on Google Play"
-          src="https://developer.android.com/images/brand/en_generic_rgb_wo_45.png" />
-          </a></li>
-		  <li><a data-gatag="amazon" href="http://www.amazon.com/gp/product/B00D0SEGMC/ref=mas_pm_OsmAnd-Maps-Navigation">
-          <img alt="Get it on Amazon"
-          src="images/amazon-apps-store.png" />
-		  
-          </a></li>
-	  </ul>
-    </div> 
 	
-
-<div class="mapwrapper">
-<div class="mapinnerwrapper">	
  <div id="map"></div>
  </div>
- </div>
- <div class="footer">
-	  <div class="halvecolumn">
-	    <img src="images/logo.png" class="footerlogo"/>	
-		<div>&nbsp;</div>
-	  </div>
-	  <div class="halvecolumn">
-	    <div class="narrow">
-		  
-		    <ul>
-		    <div class="footerlinkstitle">WEBSITE</div>
-		    <li><a data-gatag="home" href="http://www.osmand.net">Home</a></li>
-			<li><a data-gatag="plugins" href="http://blog.osmand.net/en/plugins.html">Plugins</a></li>
-			<li><a data-gatag="blog" href="http://osmand.net/blog.html">Blog</a></li>							
-		    </ul>
-	    </div>
-		
-		 <div class="narrow">
-		  
-		    <ul>
-		    <div class="footerlinkstitle">&nbsp;</div>		   
-			<li><a data-gatag="help" href="http://osmandapp.github.io/">Help</a></li>	
-			<li><a data-gatag="dvr" href="http://dvr.osmand.net">DVR</a></li>					
-		    </ul>
-	    </div>
-	    
-	    <div class="wide">
-	    
-		  <ul>
-		  <div class="footerlinkstitle">VERSIONS</div>  
-		    <li><a data-gatag="releases" href="http://download.osmand.net/releases/">OsmAnd Releases</a></li>
-			<li><a data-gatag="map_creator" href="http://download.osmand.net/latest-night-build/OsmAndMapCreator-main.zip">OsmAnd Map Creator</a></li>
-			<li><a data-gatag="nightly_build" href="http://download.osmand.net/latest-night-build/OsmAnd-default.apk">OsmAnd Nightly Build</a></li>
-		  </ul>
-	    </div>
-	    <div class="wide">
-		 <ul>
-		    <div class="footerlinkstitle">EXTERNAL LINKS</div>
-		 	<li><a data-gatag="osm" href="http://www.openstreetmap.org/">Open Street Map</a></li>
-		    <li><a data-gatag="source_code" href="https://github.com/osmandapp/Osmand">Source code (github)</a></li>
-			<li><a data-gatag="google_groups" href="https://groups.google.com/forum/#!forum/osmand">Google groups (forum)</a></li>			
-			<li><a data-gatag="osmand_cz" href="https://osmand.cz/">OsmAnd CZ Manuals</a></li>			
-		  </ul>
-	    </div>
-	  </div>
- </div>
- </div>
+
  <script type="text/javascript">
   var map =null;
 $( document ).ready(function() {
+	$('#map').height($(document).height());
+	$('#map').width($(document).width());
 	var lat = (location.search.split('lat=')[1]||'').split('&')[0];
 	var pointDefined = true;
 	if (!lat){

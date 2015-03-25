@@ -142,6 +142,4 @@ h1{font-weight:normal; font-size:40px; letter-spacing: 0.06em; padding-top:25px;
 /*****************map***********************/
 .mapwrapper{background-color:#fff; padding-top:40px; padding-bottom:260px;}
 .mapinnerwrapper{padding:5px; border:1px solid #ccc; width:1200px;  margin:0 auto;}
-#map{height:1024px; width:1200px; }
-
-.location .footer{position:absolute; bottom:0; width:100%;}
+/*#map{height:800px; width:480px; }*/
