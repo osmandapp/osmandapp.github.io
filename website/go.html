@@ -15,15 +15,27 @@
 
 </head>
 <body>
-	
- <div id="map"></div>
+
+
+ <div id="map">
+ <div class="maplinks">
+ <a href="http://www.osmand.net">OsmAnd</a>
+ <a href="https://play.google.com/store/apps/details?id=net.osmand.plus">Get it on Google Play</a>
+ <a href="http://www.amazon.com/gp/product/B00D0SEGMC/ref=mas_pm_OsmAnd-Maps-Navigation">Get it on Amazon</a>
+ <div style="clear:both;"/>
+</div>
  </div>
+
 
  <script type="text/javascript">
   var map =null;
 $( document ).ready(function() {
 	$('#map').height($(document).height());
-	$('#map').width($(document).width());
+	var newWidth = $(document).width();
+	//if (newWidth > 1280){
+	//	newWidth = 1280;
+	//}
+	$('#map').width(newWidth);
 	var lat = (location.search.split('lat=')[1]||'').split('&')[0];
 	var pointDefined = true;
 	if (!lat){
