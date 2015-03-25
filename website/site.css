@@ -144,5 +144,5 @@ h1{font-weight:normal; font-size:40px; letter-spacing: 0.06em; padding-top:25px;
 .mapinnerwrapper{padding:5px; border:1px solid #ccc; width:1200px;  margin:0 auto;}
 /*#map{height:800px; width:480px; }*/
 #map{position:relative;}
-.maplinks {position:absolute; right:0; background:#fff; z-index:1000;}
+.maplinks {position:absolute; right:0; background:#fff; z-index:1010;}
 .maplinks a{float:left; padding-left:10px; padding-right:10px; }
