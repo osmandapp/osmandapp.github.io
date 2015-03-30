@@ -3,8 +3,7 @@ var blogArticles = [
 	{title:'OsmAnd DVR goes live', url:'blog.html?id=osmand-dvr-goes-live', id:'osmand-dvr-goes-live', gatag:'osmand_dvr_goes_live'},	
 	{title:'OsmAnd 1.9', url:'blog.html?id=osmand-1-9-released', id:'osmand-1-9-released', gatag:'osmand_1_9'},
 	{title:'OsmAnd 1.8', url:'blog.html?id=osmand-1-8-released', id:'osmand-1-8-released', gatag:'osmand_1_8'},
-	{title:'OsmAnd 1.7', url:'blog.html?id=osmand-1-7-released', id:'osmand-1-7-released', gatag:'osmand_1_7'},
-	{title:'OsmAnd Seamarks &amp; Bitcoin maps', url:'blog.html?id=osmand-seamarks-and-bitcoin-maps', id:'osmand-seamarks-and-bitcoin-maps', gatag:'seamarks_bitcoin'},
+	{title:'OsmAnd 1.7', url:'blog.html?id=osmand-1-7-released', id:'osmand-1-7-released', gatag:'osmand_1_7'},	
 	{title:'OsmAnd 1.6 Released', url:'blog.html?id=osmand-1-6-released', id:'osmand-1-6-released', gatag:'osmand_1_6'},
 	{title:'OsmAnd 1.5 Released', url:'blog.html?id=osmand-1-5-released', id:'osmand-1-5-released', gatag:'osmand_1_5'}
 ];
