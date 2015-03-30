@@ -115,6 +115,10 @@ h1{font-weight:normal; font-size:40px; letter-spacing: 0.06em; padding-top:25px;
 .textlist li {padding-top:10px;}
 .article {margin-bottom:25px;}
 .article h1{font-size:34px;}
+.article .textandimagecontainer{position:relative;}
+.article .rightimage{float:right; width:450px;}
+.acticle h2{margin-bottom:0;}
+
 
 .share_buttons li{float:right; line-height:21px; }
 .share_buttons {margin-bottom:21px; overflow:hidden;}
@@ -145,4 +149,4 @@ h1{font-weight:normal; font-size:40px; letter-spacing: 0.06em; padding-top:25px;
 /*#map{height:800px; width:480px; }*/
 #map{position:relative;}
 .maplinks {position:absolute; right:0; background:#fff; z-index:1010;}
-.maplinks a{float:left; padding-left:10px; padding-right:10px; }
+.maplinks a{position:relative; float:left; padding-left:10px; padding-right:10px; }

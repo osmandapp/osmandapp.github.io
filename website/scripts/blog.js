@@ -1,4 +1,5 @@
 var blogArticles = [
+    {title:'Nautical charts', url:'blog.html?id=nautical-charts', id:'nautical-charts', gatag:'nautical_charts'},
 	{title:'OsmAnd DVR goes live', url:'blog.html?id=osmand-dvr-goes-live', id:'osmand-dvr-goes-live', gatag:'osmand_dvr_goes_live'},	
 	{title:'OsmAnd 1.9', url:'blog.html?id=osmand-1-9-released', id:'osmand-1-9-released', gatag:'osmand_1_9'},
 	{title:'OsmAnd 1.8', url:'blog.html?id=osmand-1-8-released', id:'osmand-1-8-released', gatag:'osmand_1_8'},
