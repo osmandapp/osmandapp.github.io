@@ -80,6 +80,8 @@ h1{font-weight:normal; font-size:40px; letter-spacing: 0.06em; padding-top:25px;
 .blogcontainer .leftcolumn{float:left; width:500px;}
 .blogcontainer .rightcolumn{float:right; width:400px; padding-bottom: 10px}
 .blogitem h3 {font-size:1.2em; color:#76B6F6; font-weight:normal; margin:0;}
+.blogitem h3 a{color: #76B6F6; text-decoration:none;}
+.blogitem h3 a:visited{color: #76B6F6; text-decoration:none;}
 .blogitem p{margin-top:5px;}
 .blogitem .readmore {text-align:left; display:inline-block; margin-bottom:40px;}
 .blogitem .readmore a{color:#9A9A9A;}
