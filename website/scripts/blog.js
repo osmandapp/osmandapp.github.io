@@ -57,7 +57,8 @@ var getArticleById = function(articleid){
 var init = function(){
 	container.empty();
 	
-	for (var link of blogArticles){
+	for(var i=0; i < blogArticles.length; ++i){
+		var link = blogArticles[i];	
 		container.append('<li><a data-gatag="' +link.gatag+ '" data-index="' + link.index+ '" href="' + link.url + '">' + link.title + '</a></li>');
 	}
 	
