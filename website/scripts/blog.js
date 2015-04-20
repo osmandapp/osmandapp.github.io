@@ -67,7 +67,7 @@ var init = function(){
 	//hide share buttons
 	$('.share_buttons').css('display', 'none');
 	updateMetaTags(getArticleById(articleid));
-	var url = 'blog_articles' + '\\' + articleid + ".html";
+	var url = 'blog_articles' + '/' + articleid + ".html";
 	$( ".article" ).load(url, function( response, status, xhr) {
 		if ( status != "error" ) {
 			
