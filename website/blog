@@ -59,7 +59,10 @@ window.fbAsyncInit = function() {
 	    <ul class="articlelist">
 	      <li>
 		    <div class="article">
-		    
+		    <?php
+				echo  $_GET['id']; 
+			?>
+			
 		    </div>
 			<ul class="share_buttons">		       
 		       <li class="fb"><div class="fb-like" data-href="http://osmand.net/blog.html" data-width="75" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div></li> 
@@ -103,6 +106,10 @@ window.fbAsyncInit = function() {
 			<li><a data-gatag="map_creator" href="http://download.osmand.net/latest-night-build/OsmAndMapCreator-main.zip">OsmAnd Map Creator</a></li>
 			<li><a data-gatag="nightly_build" href="http://download.osmand.net/latest-night-build/OsmAnd-default.apk">OsmAnd Nightly Build
 			</a></li>
+			<?php
+				echo "TEST PHP"; 
+			?>
+			
 		  </ul>
 	    </div>
 	    <div class="wide">
