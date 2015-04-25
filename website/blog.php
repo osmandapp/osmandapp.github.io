@@ -13,7 +13,9 @@
 
 <link rel="stylesheet" type="text/css" href="site.css"/>
 <script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
+<!--
 <script type="text/javascript" src="scripts/blog.js"></script>
+-->
 <!-- for google+-->
  <link rel="canonical" href="http://osmand.net/blog.html" />
 <script src="https://apis.google.com/js/platform.js" async defer>
