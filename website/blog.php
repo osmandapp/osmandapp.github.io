@@ -60,7 +60,13 @@ window.fbAsyncInit = function() {
 	      <li>
 		    <div class="article">
 		    <?php
-				echo  $_GET['id']; 
+				if (empty($_GET['id'])) {
+		    		echo file_get_contents("blog_articles/osmand-ios.html");
+		    	} else {
+		    		echo file_get_contents("blog_articles/".$_GET['id']."html");
+		    	}
+
+				
 			?>
 			
 		    </div>
@@ -76,7 +82,14 @@ window.fbAsyncInit = function() {
 		  <h1>LATEST ARTICLES</h1>
 		  <div class="delimiter"></div>
 		  <ul class="articlelinklist">
-			
+		  	<li><a data-gatag='osmand_ios' href="http://osmand.net/blog.php?id=osmand-ios" >OsmAnd for iPhone is released</a></li>
+			<li><a data-gatag='nautical_charts' href="http://osmand.net/blog.php?id=nautical-charts" >Nautical charts</a></li>
+			<li><a data-gatag='osmand_dvr_goes_live' href="http://osmand.net/blog.php?id=osmand-dvr-goes-live">OsmAnd DVR goes live</a></li>
+			<li><a data-gatag='osmand_1_9' href="http://osmand.net/blog.php?id=osmand-1-9-released" >OsmAnd 1.9</a></li>
+			<li><a data-gatag='osmand_1_8' href="http://osmand.net/blog.php?id=osmand-1-8-released" >OsmAnd 1.8</a></li>
+			<li><a data-gatag='osmand_1_7' href="http://osmand.net/blog.php?id=osmand-1-7-released" >OsmAnd 1.7</a></li>
+			<li><a data-gatag='osmand_1_6' href="http://osmand.net/blog.php?id=osmand-1-6-released" >OsmAnd 1.6</a></li>
+			<li><a data-gatag='osmand_1_5' href="http://osmand.net/blog.php?id=osmand-1-5-released" >OsmAnd 1.5</a></li>
 		  </ul>
 		</div>
 	  </div>
@@ -106,10 +119,6 @@ window.fbAsyncInit = function() {
 			<li><a data-gatag="map_creator" href="http://download.osmand.net/latest-night-build/OsmAndMapCreator-main.zip">OsmAnd Map Creator</a></li>
 			<li><a data-gatag="nightly_build" href="http://download.osmand.net/latest-night-build/OsmAnd-default.apk">OsmAnd Nightly Build
 			</a></li>
-			<?php
-				echo "TEST PHP"; 
-			?>
-			
 		  </ul>
 	    </div>
 	    <div class="wide">
@@ -125,12 +134,13 @@ window.fbAsyncInit = function() {
 	</div>
   </div>
 </div>
+<!--
 <script type="text/javascript">
 var blogObj;
 $(function() {
 	blogObj= new blog($('.articlelinklist'));	
 });
-</script>
+</script> -->
 <!-- for twitter-->
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></div>
 </body>
