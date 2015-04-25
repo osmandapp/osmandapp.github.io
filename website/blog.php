@@ -3,11 +3,12 @@
 
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<!--
 <meta property="og:title" content="OsmAnd 1.9" />
 <meta property="og:url" content="http://osmand.net/blog.html" />
 <meta property="og:site_name" content="OsmAnd - Offline Mobile Maps and Navigation" />
 <meta property="og:description" content="OsmAnd 1.9" />
-
+-->
 <title>OsmAnd - Offline Mobile Maps and Navigation
 </title>
 
@@ -25,6 +26,7 @@
 <script type="text/javascript" src="scripts/ga-blog.js"></script>
 </head>
 <body>
+
 <!-- for FB-->
 <div id="fb-root"></div>
 <script>
@@ -42,7 +44,7 @@ window.fbAsyncInit = function() {
      js.src = "http://connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
-</script>
+</script> 
 <div class="maincontainer">
   <div class="main">
     <div class="simpleheader">
@@ -65,10 +67,8 @@ window.fbAsyncInit = function() {
 				if (empty($_GET['id'])) {
 		    		echo file_get_contents("blog_articles/osmand-ios.html");
 		    	} else {
-		    		echo file_get_contents("blog_articles/".$_GET['id']."html");
-		    	}
-
-				
+		    		echo file_get_contents("blog_articles/".$_GET['id'].".html");
+		    	}	
 			?>
 			
 		    </div>
