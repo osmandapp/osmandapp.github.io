@@ -1,14 +1,13 @@
+<?php
+				if (empty($_GET['id'])) {
+					$_GET['id'] ="osmand-ios";
+		    	}	
+		    	?>
 <!DOCTYPE html>
 <html>
 
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<!--
-<meta property="og:title" content="OsmAnd 1.9" />
-<meta property="og:url" content="http://osmand.net/blog.html" />
-<meta property="og:site_name" content="OsmAnd - Offline Mobile Maps and Navigation" />
-<meta property="og:description" content="OsmAnd 1.9" />
--->
 <title>OsmAnd - Offline Mobile Maps and Navigation
 </title>
 
@@ -18,7 +17,9 @@
 <script type="text/javascript" src="scripts/blog.js"></script>
 -->
 <!-- for google+-->
- <link rel="canonical" href="http://osmand.net/blog.html" />
+ <link rel="canonical"
+ 	<?php	echo 'href="http://osmand.net/blog.html?id='.$_GET['id'].'.html"'  ?>
+ 	/>
 <script src="https://apis.google.com/js/platform.js" async defer>
 </script>
 
@@ -29,22 +30,14 @@
 
 <!-- for FB-->
 <div id="fb-root"></div>
-<script>
-window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '910511258982777',
-      xfbml      : true,
-      version    : 'v2.2'
-    });
-  };
-(function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "http://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script> 
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <div class="maincontainer">
   <div class="main">
     <div class="simpleheader">
@@ -64,17 +57,20 @@ window.fbAsyncInit = function() {
 	      <li>
 		    <div class="article">
 		    <?php
-				if (empty($_GET['id'])) {
-		    		echo file_get_contents("blog_articles/osmand-ios.html");
-		    	} else {
-		    		echo file_get_contents("blog_articles/".$_GET['id'].".html");
-		    	}	
+		    	echo file_get_contents("blog_articles/".$_GET['id'].".html");
 			?>
 			
 		    </div>
 			<ul class="share_buttons">		       
-		       <li class="fb"><div class="fb-like" data-href="http://osmand.net/blog.html" data-width="75" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div></li> 
-			   <li><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://osmand.net/blog.html">Tweet</a></li>
+		       <li class="fb">
+		       	<div class="fb-like" 
+		       	<?php	echo 'data-href="http://osmand.net/blog.html?id='.$_GET['id'].'.html"'  ?>
+		       	data-width="75" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false">
+		       </div></li> 
+			   <li><a href="https://twitter.com/share" class="twitter-share-button" 
+			   			<?php	echo 'data-url="http://osmand.net/blog.html?id='.$_GET['id'].'.html"'  ?>
+			   	>Tweet</a></li>
+
 			   <li><div class="g-plusone" data-size="medium"></div></li>
 			</ul>
 		  </li>
@@ -136,13 +132,7 @@ window.fbAsyncInit = function() {
 	</div>
   </div>
 </div>
-<!--
-<script type="text/javascript">
-var blogObj;
-$(function() {
-	blogObj= new blog($('.articlelinklist'));	
-});
-</script> -->
+
 <!-- for twitter-->
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></div>
 </body>
