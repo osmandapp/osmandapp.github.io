@@ -13,12 +13,10 @@
 
 <link rel="stylesheet" type="text/css" href="site.css"/>
 <script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
-<!--
-<script type="text/javascript" src="scripts/blog.js"></script>
--->
+
 <!-- for google+-->
  <link rel="canonical"
- 	<?php	echo 'href="http://osmand.net/blog.html?id='.$_GET['id'].'.html"'  ?>
+ 	<?php	echo 'href="http://osmand.net/blog?id='.$_GET['id'].'.html"'  ?>
  	/>
 <script src="https://apis.google.com/js/platform.js" async defer>
 </script>
@@ -45,7 +43,7 @@
 	  <div class="headerlogo"></div>
 	  <ul class="menu">
 	  <li><a data-gatag="header_home" href="http://www.osmand.net">HOME</a></li>
-	  <li class="activeitem"><a data-gatag="header_blog" href="http://osmand.net/blog.html">BLOG</a></li>
+	  <li class="activeitem"><a data-gatag="header_blog" href="http://osmand.net/blog">BLOG</a></li>
 	  <li><a data-gatag="header_help" href="http://osmand.net/help/">HELP</a></li>		
 	  <li><a data-gatag="header_dvr" href="http://dvr.osmand.net">DVR</a></li>	  
 	  </ul>
@@ -64,11 +62,11 @@
 			<ul class="share_buttons">		       
 		       <li class="fb">
 		       	<div class="fb-like" 
-		       	<?php	echo 'data-href="http://osmand.net/blog.html?id='.$_GET['id'].'.html"'  ?>
+		       	<?php	echo 'data-href="http://osmand.net/blog?id='.$_GET['id'].'.html"'  ?>
 		       	data-width="75" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false">
 		       </div></li> 
 			   <li><a href="https://twitter.com/share" class="twitter-share-button" 
-			   			<?php	echo 'data-url="http://osmand.net/blog.html?id='.$_GET['id'].'.html"'  ?>
+			   			<?php	echo 'data-url="http://osmand.net/blog?id='.$_GET['id'].'.html"'  ?>
 			   	>Tweet</a></li>
 
 			   <li><div class="g-plusone" data-size="medium"></div></li>
@@ -80,14 +78,14 @@
 		  <h1>LATEST ARTICLES</h1>
 		  <div class="delimiter"></div>
 		  <ul class="articlelinklist">
-		  	<li><a data-gatag='osmand_ios' href="http://osmand.net/blog.php?id=osmand-ios" >OsmAnd for iPhone is released</a></li>
-			<li><a data-gatag='nautical_charts' href="http://osmand.net/blog.php?id=nautical-charts" >Nautical charts</a></li>
-			<li><a data-gatag='osmand_dvr_goes_live' href="http://osmand.net/blog.php?id=osmand-dvr-goes-live">OsmAnd DVR goes live</a></li>
-			<li><a data-gatag='osmand_1_9' href="http://osmand.net/blog.php?id=osmand-1-9-released" >OsmAnd 1.9</a></li>
-			<li><a data-gatag='osmand_1_8' href="http://osmand.net/blog.php?id=osmand-1-8-released" >OsmAnd 1.8</a></li>
-			<li><a data-gatag='osmand_1_7' href="http://osmand.net/blog.php?id=osmand-1-7-released" >OsmAnd 1.7</a></li>
-			<li><a data-gatag='osmand_1_6' href="http://osmand.net/blog.php?id=osmand-1-6-released" >OsmAnd 1.6</a></li>
-			<li><a data-gatag='osmand_1_5' href="http://osmand.net/blog.php?id=osmand-1-5-released" >OsmAnd 1.5</a></li>
+		  	<li><a data-gatag='osmand_ios' href="http://osmand.net/blog?id=osmand-ios" >OsmAnd for iPhone is released</a></li>
+			<li><a data-gatag='nautical_charts' href="http://osmand.net/blog?id=nautical-charts" >Nautical charts</a></li>
+			<li><a data-gatag='osmand_dvr_goes_live' href="http://osmand.net/blog?id=osmand-dvr-goes-live">OsmAnd DVR goes live</a></li>
+			<li><a data-gatag='osmand_1_9' href="http://osmand.net/blog?id=osmand-1-9-released" >OsmAnd 1.9</a></li>
+			<li><a data-gatag='osmand_1_8' href="http://osmand.net/blog?id=osmand-1-8-released" >OsmAnd 1.8</a></li>
+			<li><a data-gatag='osmand_1_7' href="http://osmand.net/blog?id=osmand-1-7-released" >OsmAnd 1.7</a></li>
+			<li><a data-gatag='osmand_1_6' href="http://osmand.net/blog?id=osmand-1-6-released" >OsmAnd 1.6</a></li>
+			<li><a data-gatag='osmand_1_5' href="http://osmand.net/blog?id=osmand-1-5-released" >OsmAnd 1.5</a></li>
 		  </ul>
 		</div>
 	  </div>
@@ -103,7 +101,7 @@
 		    <ul>
 		    <div class="footerlinkstitle">WEBSITE</div>
 		    <li><a data-gatag="home" href="http://www.osmand.net">Home</a></li>			
-			<li><a data-gatag="blog" href="http://osmand.net/blog.html">Blog</a></li>							
+			<li><a data-gatag="blog" href="http://osmand.net/blog">Blog</a></li>							
 			<li><a data-gatag="help" href="http://osmand.net/help/">Help</a></li>							
 			<li><a data-gatag="dvr" href="http://dvr.osmand.net">DVR</a></li>					
 		    </ul>
