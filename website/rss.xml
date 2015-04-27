@@ -1,0 +1,48 @@
+<rss version="2.0">
+<channel>
+<title>OsmAnd blog</title>
+<link>http://osmand.net/blog</link>
+<description/>
+<generator></generator>
+
+<item>
+<title>Nepal HOT OSM</title>
+<guid isPermaLink="false">http://osmand.net?special=nepal-hot-osm</guid>
+<link>http://osmand.net?special=nepal-hot-osm</link>
+<description>
+<p>We are following the initiative of HOT OSM to provide quick maps in order to give another tools for rescue services. We udpate Nepal at least once an hour and try to do it quicker. Here is a direct link <a href="http://download.osmand.net/download.php?standard=yes&amp;file=Nepal_asia_2.obf.zip">Nepal map<a/>. Android clients are setup to have 1 map update per day, so the maps could look green, though redownloading the map will update it on the device. </p>
+<p> You can download the maps using browser and put it on the device. In order to have unlimited updates please use the nightly OsmAnd version or the paid one.</p>
+</description>
+<pubDate>Mon, 27 Apr 2015 13:30:40 +0100</pubDate>
+</item>
+
+
+<item>
+<title>OsmAnd for iPhone</title>
+<guid isPermaLink="true">http://osmand.net/blog?id=osmand-ios</guid>
+<link>http://osmand.net/blog?id=osmand-ios</link>
+<description>
+<p>We are glad to announce that iPhone version of OsmAnd is released.</p>
+<p>This version contains the most used functionality of Android version together with significantly improved user interface, which we believe is a good combination.</p>
+			
+</description>
+<pubDate>Sun, 19 Apr 2015 12:30:40 +0100</pubDate>
+</item>
+
+
+<item>
+<title>Nautical charts</title>
+<guid isPermaLink="true">http://osmand.net/blog?id=nautical-charts</guid>
+<link>http://osmand.net/blog?id=nautical-charts</link>
+<description>
+<p>OsmAnd 2.0 is coming soon. One of the new features of the version will be Nautical Charts plugin.</p>
+<p>Nautical Chart is a detailed graphical representation of oceans, seas, coastal areas and rivers.</p>
+<p>Nautical Charts are made for people who drive any kind of vehicle on water: from professional sailors to people who rented a boat to make a tour over city canals. The charts can contain various information like sailing routes, navigation lights, dangerous areas, areas where it&apos;s allowed or not allowed to sail or dock, etc.</p>
+<p>All the professional sailors are obliged to have official nautical charts on their ships. These charts are published by authorized agencies and cost quite some money. Agencies are investing a lot in keeping the charts up to date. They release updates for the charts on regular basis, but because of the fact that reviewing the information and processing the updates takes quite some time the nautical charts are never completely up-to-date. </p>
+ <a href="http://osmand.net/blog?id=nautical-charts">Read more</a>
+</description>
+<pubDate>Fri, 20 Mar 2015 18:30:40 +0100</pubDate>
+</item>
+
+</channel>
+</rss>

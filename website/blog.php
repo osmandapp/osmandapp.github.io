@@ -86,6 +86,8 @@
 			<li><a data-gatag='osmand_1_7' href="http://osmand.net/blog?id=osmand-1-7-released" >OsmAnd 1.7</a></li>
 			<li><a data-gatag='osmand_1_6' href="http://osmand.net/blog?id=osmand-1-6-released" >OsmAnd 1.6</a></li>
 			<li><a data-gatag='osmand_1_5' href="http://osmand.net/blog?id=osmand-1-5-released" >OsmAnd 1.5</a></li>
+
+			<li><a data-gatag='osmand_ios' href="http://osmand.net/rss.xml" >RSS</a></li>
 		  </ul>
 		</div>
 	  </div>
