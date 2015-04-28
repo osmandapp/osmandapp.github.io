@@ -1,8 +1,8 @@
 <?php
 				if (empty($_GET['id'])) {
-					$_GET['id'] ="osmand-ios";
+					$_GET['id'] ="osmand-2-0-released";
 		    	}	
-		    	?>
+		    	?>		    	
 <!DOCTYPE html>
 <html>
 
@@ -78,6 +78,7 @@
 		  <h1>LATEST ARTICLES</h1>
 		  <div class="delimiter"></div>
 		  <ul class="articlelinklist">
+		  	<li><a data-gatag='osmand_2_0' href="http://osmand.net/blog?id=osmand-2-0-released" >OsmAnd 2.0</a></li>
 		  	<li><a data-gatag='osmand_ios' href="http://osmand.net/blog?id=osmand-ios" >OsmAnd for iPhone is released</a></li>
 			<li><a data-gatag='nautical_charts' href="http://osmand.net/blog?id=nautical-charts" >Nautical charts</a></li>
 			<li><a data-gatag='osmand_dvr_goes_live' href="http://osmand.net/blog?id=osmand-dvr-goes-live">OsmAnd DVR goes live</a></li>
@@ -87,7 +88,7 @@
 			<li><a data-gatag='osmand_1_6' href="http://osmand.net/blog?id=osmand-1-6-released" >OsmAnd 1.6</a></li>
 			<li><a data-gatag='osmand_1_5' href="http://osmand.net/blog?id=osmand-1-5-released" >OsmAnd 1.5</a></li>
 
-			<li><a data-gatag='osmand_ios' href="http://osmand.net/rss.xml" >RSS</a></li>
+			<li><a data-gatag='osmand_rss' href="http://osmand.net/rss.xml" >RSS</a></li>
 		  </ul>
 		</div>
 	  </div>
