@@ -28,6 +28,22 @@
 
 
  <script type="text/javascript">
+ 
+ var iOS = /(iPad|iPhone|iPod)/g.test( navigator.userAgent );
+ 
+ if (iOS) {
+ 	document.location = 'osmandmaps://' + document.location.search;
+
+    	var time = (new Date()).getTime();
+    	setTimeout(function() {
+        	var now = (new Date()).getTime();
+               
+        	if ((now - time) < 2000) {
+               		document.location = 'https://itunes.apple.com/app/id934850257';
+               	}
+        }, 300);
+ }
+ 
   var map =null;
 $( document ).ready(function() {
 	$('#map').height($(document).height());
