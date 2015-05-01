@@ -1,70 +1,95 @@
+<html>
+<head>
+<title>OsmAnd Help Pages</title>
 <link href="style.css" rel="stylesheet" type="text/css">
-
+</head>
+<body>
 <div class="main">
-<h3>Version 1.8</h3>
+<h1>Version 1.8</h1>
 
-
-<h4 class="help"><a href="osmo-plugin.html">OsMo plugin</a></h4>
-<ul>
-<li class="help">OSM Advanced Live Monitoring plugin provides variety of features. It could be compared with Google Latitude or with other live services. It helps to share your location with friends.</li>
-<p class="img"><img class="help" src="images/osmo/track-user.png" /></p>
-<h4 class="help">Favorites (My Places)</h4>
-<li class="help"> New Favorites actions (search, intermediates, share) </li>
-<p class="img"><img class="help" src="images/1.8/fav-1.8.png" /></p>
-<li class="help"> Assign color and visibility per Favorite group</li>
-<p class="img"><img class="help" src="images/1.8/fav-group-1.8.png" /></p>
-<li class="help"> Names of Favorites on the map </li>
-<li class="help"> Smart merge of "Favorites.gpx" file (no export/import is needed favorites are always in sync)</li>
-<li class="help"> New update Favorite dialog</li>
-<p class="img"><img class="help" src="images/1.8/replace-favorites-1.8.png" /></p>
-</ul>
-
-<h4 class="help">Maps</h4>
-<ul>
-<li class="help">Improved labels readability in night view</li>
-<p class="img"><img class="help" src="images/1.8/map-night-1.8.png" /></p>
-<li class="help">New innovative and detailed rendering style UniRS + LightRS</li>
-<p class="img"><img class="help" src="images/1.8/unirs-1.8.png" /></p>
-<li class="help">Track smoothness rendering in UniRS</li>
-<p class="img"><img class="help" src="images/1.8/unirs-style2-1.8.png" /></p>
-<h4 class="help">GPX (My Places)</h4>
-<li class="help"> Detailed stats for GPX track altitude difference/speed</li>
-<p class="img"><img class="help" src="images/1.8/tracks-1.8.png" /></p>
-<li class="help"> Split GPX route by km or by minute and check all stats</li>
-<p class="img"><img class="help" src="images/1.8/track-split-1.8.png" /></p>
-<p class="img"><img class="help" src="images/1.8/track-split-map-1.8.png" /></p>
-<li class="help"> Supports GPX/KML import (convert from KML to GPX)</li>
-</ul>
-</br>
-
-<h4 class="help">Navigation</h4>
-<ul>
-<li class="help"> Special routing <b>by straight line</b> </li>
-<li class="help"> Calculate route between route points of GPX track (rtept)</li>
-<p class="img"><img class="help" src="images/1.8/rtept-1.8.png" /></p>
-<li class="help"> Start navigation immediately (click on top of bottom-right button - navigate )</li>
-<p class="img"><img class="help" src="images/1.8/auto-start-1.8.png" /></p>
-<p class="img"><img class="help" src="images/1.8/auto-start-1.8.2.png" /></p>
-<li class="help"> Additional settings for navigation screen</li>
-<p class="img"><img class="help" src="images/1.8/route-settings-1.8.png" /></p>
-</ul>
-</br>
-
-<h4 class="help">Usability</h4>
-<ul>
-<li class="help"> Download maps: translated country names, search by local names</li>
-<li class="help">"Configure" option is added to "Map Layers selection" for POI and GPX layer</li>
-<li class="help"> Zoom buttons on planning screen </li>
-<li class="help"> Errorenous button "Download" on the map is fixed </li>
-</ul>
-
-<h4 class="help">Monitoring (UX changes)</h4>
-<ul>
-	<li class="help">The 'Logging Services' top widget was deleted. The functionality is now available via the 'GPX recording' widget, which is visible by default in all application modes when the Logging services plugin is enabled.</li>
-	<li class="help">The 'GPX recording' widget now includes the following actions: 'Start/Stop GPX recording', 'Start new GPX segment', 'Save current GPX track' (does not stop recording), and 'Enable/Disable online tracking' (only if online tracking is configured).</li> 
-	<li class="help">The 'GPX recording' <b>widget</b> controls the track recording independent of the use profile (and independent of the 'Logging services' settings), starts/stops the background service (sleep mode) as needed, and restores the state after an application restart.</li>
-	<li class="help">The 'Logging services' <b>settings</b> control track recording for the specific profiles and can not be changed via the 'GPX recording' widget (i.e. where track recording is specifically enabled in the settings, it will still be recorded even if not globally enabled via the widget).</li>
-	<li class="help">The app actions 'Navigation' and 'Start GPX recording' automatically start the 'Sleep mode functionality' (a background service which keeps GPS on while OsmAnd is running in background or while the screen is off). This 'Sleep mode functionality' is also available manually in the 'Logging services' settings.</li>
-	<li class="help">Online tracking now works only while GPX recording is enabled.</li>
+<div class="subtitle"><a href="osmo-plugin.html">OsMo plugin</a></div>
+<div class="content">
+<ul class="list">
+<li>OSM Advanced Live Monitoring plugin provides variety of features. It could be compared with Google Latitude or with other live services. It helps to share your location with friends.
+<div class="imgcontainer"><img class="screenshot" src="images/osmo/track-user.png" /></div></li>
 </ul>
 </div>
+
+<div class="subtitle">Favorites (My Places)</div>
+<div class="content">
+<ul  class="list">
+<li> New Favorites actions (search, intermediates, share) 
+<div class="imgcontainer"><img class="screenshot" src="images/1.8/fav-1.8.png" /></div></li>
+<li> Assign color and visibility per Favorite group
+<div class="imgcontainer"><img class="screenshot" src="images/1.8/fav-group-1.8.png" /></div></li>
+<li> Names of Favorites on the map </li>
+<li> Smart merge of "Favorites.gpx" file (no export/import is needed favorites are always in sync)</li>
+<li> New update Favorite dialog
+<div class="imgcontainer"><img class="screenshot" src="images/1.8/replace-favorites-1.8.png" /></div></li>
+</ul>
+</div>
+
+<div class="subtitle">Maps</div>
+<div class="content">
+<ul class="list">
+<li>Improved labels readability in night view
+<div class="imgcontainer"><img class="screenshot" src="images/1.8/map-night-1.8.png" /></div></li>
+<li>New innovative and detailed rendering style UniRS + LightRS
+<div class="imgcontainer"><img class="screenshot" src="images/1.8/unirs-1.8.png" /></div></li>
+<li>Track smoothness rendering in UniRS
+<div class="imgcontainer"><img class="screenshot" src="images/1.8/unirs-style2-1.8.png" /></div></li>
+</ul>
+</div>
+
+<div class="subtitle">GPX (My Places)</div>
+<div class="content">
+<ul class="list">
+<li> Detailed stats for GPX track altitude difference/speed
+<div class="imgcontainer"><img class="screenshot" src="images/1.8/tracks-1.8.png" /></div></li>
+<li> Split GPX route by km or by minute and check all stats
+<div class="imgcontainer"><img class="screenshot" src="images/1.8/track-split-1.8.png" /></div>
+<div class="imgcontainer"><img class="screenshot" src="images/1.8/track-split-map-1.8.png" /></div></li>
+<li> Supports GPX/KML import (convert from KML to GPX)</li>
+</ul>
+</div>
+
+<div class="subtitle">Navigation</div>
+<div class="content">
+<ul class="list">
+<li> Special routing <b>by straight line</b> </li>
+<li> Calculate route between route points of GPX track (rtept)
+<div class="imgcontainer"><img class="screenshot" src="images/1.8/rtept-1.8.png" /></div></li>
+<li> Start navigation immediately (click on top of bottom-right button - navigate )
+<div class="imgcontainer"><img class="screenshot" src="images/1.8/auto-start-1.8.png" /></div>
+<div class="imgcontainer"><img class="screenshot" src="images/1.8/auto-start-1.8.2.png" /></div></li>
+<li> Additional settings for navigation screen
+<div class="imgcontainer"><img class="screenshot" src="images/1.8/route-settings-1.8.png" /></div></li>
+</ul>
+</div>
+
+
+<div class="subtitle">Usability</div>
+<div class="content">
+<ul class="list">
+<li> Download maps: translated country names, search by local names</li>
+<li>"Configure" option is added to "Map Layers selection" for POI and GPX layer</li>
+<li> Zoom buttons on planning screen </li>
+<li> Errorenous button "Download" on the map is fixed </li>
+</ul>
+</div>
+
+
+<div class="subtitle">Monitoring (UX changes)</div>
+<div class="content">
+<ul class="list">
+	<li>The 'Logging Services' top widget was deleted. The functionality is now available via the 'GPX recording' widget, which is visible by default in all application modes when the Logging services plugin is enabled.</li>
+	<li>The 'GPX recording' widget now includes the following actions: 'Start/Stop GPX recording', 'Start new GPX segment', 'Save current GPX track' (does not stop recording), and 'Enable/Disable online tracking' (only if online tracking is configured).</li> 
+	<li>The 'GPX recording' <b>widget</b> controls the track recording independent of the use profile (and independent of the 'Logging services' settings), starts/stops the background service (sleep mode) as needed, and restores the state after an application restart.</li>
+	<li>The 'Logging services' <b>settings</b> control track recording for the specific profiles and can not be changed via the 'GPX recording' widget (i.e. where track recording is specifically enabled in the settings, it will still be recorded even if not globally enabled via the widget).</li>
+	<li>The app actions 'Navigation' and 'Start GPX recording' automatically start the 'Sleep mode functionality' (a background service which keeps GPS on while OsmAnd is running in background or while the screen is off). This 'Sleep mode functionality' is also available manually in the 'Logging services' settings.</li>
+	<li>Online tracking now works only while GPX recording is enabled.</li>
+</ul>
+</div>
+</div>
+</body>
+</html>
