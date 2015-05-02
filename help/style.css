@@ -1,14 +1,17 @@
    
    body{padding:0; margin:0; }
    a {color:#536DFE;}
+   xmp{overflow-x:scroll;}
    .main{ margin:0 auto; font-family:arial; font-size:11pt;}
    @media(max-device-width: 799px)
    {
 		.main{width:100%;}
+		xmp{max-width:100%;}
    }
    @media(min-width: 800px)
    {
 		.main{width:800px;}
+		xmp{max-width:800px;}
    }
    
    .list li{padding-bottom:10px; color:#000; }
