@@ -5,8 +5,8 @@
    .main{ margin:0 auto; font-family:arial; font-size:11pt;}
    @media(max-device-width: 799px)
    {
-		.main{width:100%;}
-		xmp{max-width:100%;}
+		.main{width:95%;}
+		xmp{max-width:95%;}
    }
    @media(min-width: 800px)
    {
@@ -36,7 +36,7 @@
    .toc .list li{color:#D2D2D2;}
    .toc .subtitle{font-weight:normal;}  
   
-  .screenshot{max-width:100%; max-height:100%; padding:7px; border:1px solid #ddd;}
+  .screenshot{max-width:95%; max-height:100%; padding:7px; border:1px solid #ddd;}
   .imgcontainer{margin:20px 30px;}
    /*div {border-width: 1px; padding: 10px;
    		border: groove; margin-left:auto;margin-right:auto; width:480pt}
