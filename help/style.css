@@ -20,6 +20,7 @@
    .list li a{ text-decoration:none;} 
    .subtitle{border-bottom:1px solid #F3F3F3; font-size:13pt; margin-top:10px; font-weight:bold;}
    .blocksubtitle{font-weight:bold; margin-top:10px;}
+   .blocksubsubtitle{font-weight:bold; margin-top:10px; font-size:9pt;}
     h1{background-color:#FF8F00; font-size:15pt; color:#fff; padding-left:15px; padding-top:30px; padding-bottom:15px; font-weight:bold; 
    -webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px; margin-top:-5px;}
    .content{padding:15px; padding-top:5px;}
