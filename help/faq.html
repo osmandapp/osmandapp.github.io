@@ -94,8 +94,8 @@
   <li><u>Move OsmAnd's data folder <span class="code">osmand</span> to the internal storage.</u>
      <br/> <b>Drawback:</b> Internal storage can be rather small.</li>
   <li><u>Move OsmAnd's data folder <span class="code">osmand</span> into its standard SD folder</u>,
-     <br/>for OsmAnd+ : <span class="code">/storage/(extSdCard)/Android/data/net.osmand.plus/files</span>
-     <br/>for OsmAnd : <span class="code">/storage/(extSdCard)/Android/data/net.osmand/files</span>
+     <br/>for OsmAnd+ : <span class="code">(extSdCard)/Android/data/net.osmand.plus/files</span>
+     <br/>for OsmAnd : <span class="code">(extSdCard)/Android/data/net.osmand/files</span>
      <br/> <b>Caution:</b> Whenever you uninstall OsmAnd now, all your data will be erased as well! (Unless you unmount your SD-Card, or rename the <span class="code">net.osmand(.plus)</span> folder before de-installation.)
 </ul>
 If you manually want to perform the necessary copies/moves, either use a PC to perform this action on he SD card, or via the device itself use a file manager tool <b>which came pre-installed with your Android</b>, (only these methods will have the necessary write permission).
@@ -168,7 +168,6 @@ To unfreeze, repeat the same procedure. Unfortunately "App Master" does not do f
   <li> What routing profile is choosen in OsmAnd app? (car, bike, pedestrian)</li>
   <li> Please specify as exactly as possible the start and end point of your route. If possible, tell us city name and street name for each. Also a <a href="http://wiki.openstreetmap.org/wiki/Permalink">Permalink</a> from openstreetmap.org can be helpful.</li>
   <li> Tell us your expected routing, and how OsmAnd routes.</li>
-  <li> Try some other OSM based routing provider listed in the OSM wiki at [http://wiki.openstreetmap.org/wiki/Routing Routing] and investigate whether they fail also. Some online routing services offer a permalink, please post it also.</li>
 </ul>
 </div>
 </div>
@@ -358,14 +357,14 @@ Then convert the file using OsmAndMapCreator. You can check on the OSM site what
 
 <h4 class="help" id="">How can I specify internet access proxy settings for OsmAndMapCreator?</h4>
 See <a href="http://stackoverflow.com/questions/120797/how-do-i-set-the-proxy-to-be-used-by-the-jvm">http://stackoverflow.com/questions/120797/how-do-i-set-the-proxy-to-be-used-by-the-jvm</a>
-Use OsmAndMapCreator.bat or OsmAndMapCreator.sh to start OsmAndMapCreator based on your operating system. Both of them invoke java, so you just need to add the -D... -D.. params to the invokation.
+Use OsmAndMapCreator.bat or OsmAndMapCreator.sh to start OsmAndMapCreator based on your operating system. Both of them invoke java, so you just need to add the -D... -D.. (i .e. -Djava.util.logging.config.file = logging.properties) params to the invokation.
 like:
 <xmp>
-javaw.exe -Djava.util.logging.config.file=logging.properties -Xms64M -Xmx720M -cp "./OsmAndMapCreator.jar;./lib/*.jar" net.osmand.swing.OsmExtractionUI
+javaw.exe -Xms64M -Xmx720M -cp "./OsmAndMapCreator.jar;./lib/*.jar" net.osmand.swing.OsmExtractionUI
 </xmp>
 after:
 <xmp>
-javaw.exe -Dhttp.proxyHost=10.0.0.100 -Dhttp.proxyPort=8080 -Djava.util.logging.config.file=logging.properties -Xms64M -Xmx720M -cp "./OsmAndMapCreator.jar;./lib/*.jar" net.osmand.swing.OsmExtractionUI
+javaw.exe -Dhttp.proxyHost=10.0.0.100 -Dhttp.proxyPort=8080 -Xms64M -Xmx720M -cp "./OsmAndMapCreator.jar;./lib/*.jar" net.osmand.swing.OsmExtractionUI
 </xmp>
 
 
@@ -374,7 +373,7 @@ OsmAndMapCreator can process only OSM files (osm-xml, bz2, pbf). However the set
 file https://github.com/osmandapp/OsmAnd-core/blob/master/OsmAnd-java/src/net/osmand/osm/rendering_types.xml. 
 OsmAndMapCreator has an option to use custom rendering_types.xml in the settings. Once the map file is created you can double check that data is present via the binaryInspector utility with the '-vmap' argument. This utility is packaged with OsmAndMapCreator. 
 <br/><br/>
-Once the .obf file is ready you can create a custom rendering file to display your custom missing attributes. There is a default rendering style which contains all information about rendering https://github.com/osmandapp/OsmAnd-resources/blob/master/rendering_styles/default.render.xml. It is good to have a look at it but it is rather hard to understand, open, and edit it. A more convenient way to create your own rendering style is to create a style that depends on (inherits from) the default style.  A good example of a custom 'depends' rendering style is https://github.com/osmandapp/OsmAnd-resources/blob/master/rendering_styles/Winter-and-ski.render.xml. See also [http://code.google.com/p/osmand/wiki/CustomizeOBFFileContent How to produce customized vector data].
+Once the .obf file is ready you can create a custom rendering file to display your custom missing attributes. There is a default rendering style which contains all information about rendering https://github.com/osmandapp/OsmAnd-resources/blob/master/rendering_styles/default.render.xml. It is good to have a look at it but it is rather hard to understand, open, and edit it. A more convenient way to create your own rendering style is to create a style that depends on (inherits from) the default style.  A good example of a custom 'depends' rendering style is https://github.com/osmandapp/OsmAnd-resources/blob/master/rendering_styles/Winter-and-ski.render.xml.
 <br/><br/>
 Currently OsmAndMapCreator doesn't support relation tagging. So you need to manually copy all tags from relations (like route color) to way tags by script.
 </div>
