@@ -158,10 +158,7 @@
   <li> Hillshade overlays _(Uses "shaded relief" to display a.o. hills and elevations on the map)_
   </ul>
 
-<p>For Hillshade overlays see also [http://code.google.com/p/osmand/wiki/DisplayContourLinesAndHillshades How To Display Contour Lines and Hillshades].</p>
 <p>Note that you need the Contour Lines (SRTM) plugin from the Google Play Store to display contour lines and hillshades.</p>
-
-<p>See also [HowToArticles#How_To_Prepare_own_data_to_use_offline How To Prepare own data to use offline].</p>
 </div>
 
 <div class="subtitle" id="How_To_Customize_the_Map_Appearance">How to customize map appearance</div>
@@ -197,12 +194,12 @@
 
 <p>In the Search option, there are six tabs (from left to right): </p>
   <ul class="list">
-  <li> POI (Point Of Interest) search – used for finding specific places of your interest (museums, landmarks, etc)
-  <li> Address search – consists of four options (Region, City, Street and Building)
-  <li> Coordinates – used for finding a place via its coordinates
-  <li> Favorites search – used for searching your favorite places
-  <li> Search history – self-explanatory
-  <li> Transportation search – self-explanatory
+  <li> POI (Point Of Interest) search Â– used for finding specific places of your interest (museums, landmarks, etc)
+  <li> Address search Â– consists of four options (Region, City, Street and Building)
+  <li> Coordinates Â– used for finding a place via its coordinates
+  <li> Favorites search Â– used for searching your favorite places
+  <li> Search history Â– self-explanatory
+  <li> Transportation search Â– self-explanatory
   </ul>
 
 <p><b>Find your own position:</b></p>
@@ -413,13 +410,13 @@ If you click the &#34;google maps&#34; icon, contacts will ask you for the appli
  // insert new row
  sp.insertRowBefore(1);
  if(e) {
-   var d = new Date(Date(e.parameter.timestamp))
-   sp.getRange("A1").setValue(parseFloat(e.parameter.lat));
-   sp.getRange("B1").setValue(parseFloat(e.parameter.lon));
-   sp.getRange("F1").setValue(Math.round((parseFloat(e.parameter.speed/1000*60*60))) + " km/h");
-   sp.getRange("D1").setValue(parseFloat(e.parameter.altitude));
-   sp.getRange("E1").setValue(parseFloat(e.parameter.hdop));
-   sp.getRange("C1").setValue(d);
+   var d = new Date( Date( e.parameter.timestamp))
+   sp.getRange( "A1").setValue( parseFloat( e.parameter.lat));
+   sp.getRange( "B1").setValue( parseFloat( e.parameter.lon));
+   sp.getRange( "F1").setValue( Math.round(( parseFloat( e.parameter.speed / 1000 * 60 *60))) + " km/h");
+   sp.getRange( "D1").setValue( parseFloat( e.parameter.altitude));
+   sp.getRange( "E1").setValue( parseFloat( e.parameter.hdop));
+   sp.getRange( "C1").setValue( d);
  }
  return app;
  } 
@@ -429,7 +426,7 @@ If you click the &#34;google maps&#34; icon, contacts will ask you for the appli
 <p>Deprecated! After that you can go back to your spreadsheet and add new Widget (&#39;Google Maps&#39;).   Select columns *A:B* (lat/lon) and see how the points are visualized in map.   You can select columns *A:C* and check *Last column as tooltips* to get date and time as tooltip for position markers in the map.</p>
 
 <ul class="list">
-<li>Setup own server* : because Google deprecates lots of stuff please think of own server <a class="externallink" href="http://www.heise.de/ct/projekte/machmit/mylieu/browser/Server," rel="nofollow" title="http://www.heise.de/ct/projekte/machmit/mylieu/browser/Server,">http://www.heise.de/ct/projekte/machmit/mylieu/browser/Server,</a> <a class="externallink" href="http://ksmapper.blogspot.co.at/2012/06/making-location-badge-using-osmand-and.html" rel="nofollow" title="http://ksmapper.blogspot.co.at/2012/06/making-location-badge-using-osmand-and.html">http://ksmapper.blogspot.co.at/2012/06/making-location-badge-using-osmand-and.html</a> or end to end solution like <a class="externallink" href="http://osmodroid.ru/" rel="nofollow" title="http://osmodroid.ru/">http://osmodroid.ru/</a></li></ul>
+<li>Setup own server* : because Google deprecates lots of stuff please think of own server <a class="externallink" href="http://www.heise.de/ct/projekte/machmit/mylieu/browser/Server," rel="nofollow" title="machmit/mylieu/browser/Server">machmit/mylieu/browser/Server</a> <a class="externallink" href="http://ksmapper.blogspot.co.at/2012/06/making-location-badge-using-osmand-and.html" rel="nofollow" title="http://ksmapper.blogspot.co.at/2012/06/making-location-badge-using-osmand-and.html">ksmapper.blogspot.co.at</a> or end to end solution like <a class="externallink" href="http://osmodroid.ru/" rel="nofollow" title="http://osmodroid.ru/">http://osmodroid.ru/</a></li></ul>
 </div>
 
 <div class="subtitle" id="How_To_Find_Public_Transport">How to find public transport</div>
@@ -462,7 +459,7 @@ Now you can select your own custom filter and only these POIs will be displayed,
 
 <div class="subtitle" id="How_To_Use_Your_Own_POI_Database">How to use your own POI database</div>
 <div class="content">
-<p>OsmAnd can display POI icons on top of orange disks, but only icons “wired” into the program. </p>
+<p>OsmAnd can display POI icons on top of orange disks, but only icons Â“wiredÂ” into the program. </p>
 <p>I suggest you use only this subset of icons, so you&#39;ll see the corresponding image onto the orange circle representing the poi or example you may use these couples of poi_category,poi_type: </p>
 <xmp>
  * tourism, hotel
@@ -523,7 +520,7 @@ Now you can select your own custom filter and only these POIs will be displayed,
 
 <div class="blocksubtitle">Display zoom function</div>
 
-<p>This is particularly useful when using a high resolution display with raster maps (e.g. Google maps) that can have text that is too small to read easily (e.g. when driving), as they were designed for use on larger computer displays. Display zooming is different to map zooming, which determines how much of the world’s surface is displayed on the unmagnified map. As more area is included in the map, the amount of detail is reduced to keep the map legible. Display zooming is like using a magnifying glass: it merely magnifies what is on the map but it does not change the area covered or the amount of detail included. Display zooming works for all map types.</p>
+<p>This is particularly useful when using a high resolution display with raster maps (e.g. Google maps) that can have text that is too small to read easily (e.g. when driving), as they were designed for use on larger computer displays. Display zooming is different to map zooming, which determines how much of the worldÂ’s surface is displayed on the unmagnified map. As more area is included in the map, the amount of detail is reduced to keep the map legible. Display zooming is like using a magnifying glass: it merely magnifies what is on the map but it does not change the area covered or the amount of detail included. Display zooming works for all map types.</p>
 
 <div class="blocksubtitle">Basic operation</div>
   <ul class="list">
