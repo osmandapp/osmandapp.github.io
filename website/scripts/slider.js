@@ -8,7 +8,9 @@ var images=[
 "promo-7s.png",
 "promo-8s.png",
 "promo-9s.png",
-"promo-10s.png"
+"promo-10s.png",
+"promo-11s.png",
+"promo-12s.png"
 ];
 
 function slider(container){
