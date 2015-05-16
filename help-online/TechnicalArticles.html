@@ -7,8 +7,8 @@
 </head>
 <body>
 <div class="main">
-<h1>Technical articles</h1>
-<div class="toc">
+<h1 id="top">Technical articles</h1>
+<div class="toc" >
 
 <ul class="list">
 <li><a href="#Creating_a_Consistent_User_Experience">Creating a consistent user experience</a>
@@ -75,6 +75,7 @@
 </ul>
 
 <p><b>(3)</b> A note about rendering: The appearance our default renderer creates has been tested at a multitude of map locations, with many devices, and under very different light conditions. &#34;Spontaneous improvements&#34; to the renderer are almost always questionable, may at least require more investigation and testing than you may think ... :-)</p>
+<p class="back_to_top"><a href="#top">Back to top</a></p>
 </div>
 
 <div class="subtitle" id="How_to_Translate_.60OsmAnd.60_-_We_Need_Your_Assistance.21">How to translate OsmAnd - we need your assistance!</div>
@@ -108,6 +109,7 @@ Translate only the right part &#39;Indexing cities...&#39;</p>
 
 <p>Q: How should I check what has changed in the _english strings.xml_ ?*<p>
 <p>A: New strings are added always on the top of the file. You can download the english file, your file and use some utility like pspad, or vim, or whatever you like to compare them for the new keys. You can also *<a href="https://github.com/osmandapp/Osmand/blame/master/OsmAnd/res/values/strings.xml">blame</a>* the english file to see the last line modifications </p>
+<p class="back_to_top"><a href="#top">Back to top</a></p>
 </div>
 
 <div class="subtitle" id="Documentation_of_.60OsmAnd.60_Settings_Development">Documentation of OsmAnd Settings Development</div>
@@ -127,6 +129,7 @@ Translate only the right part &#39;Indexing cities...&#39;</p>
   <li> <a href="http://code.google.com/p/osmand/issues/detail?id=1356#c2">Status 2012-09-05</a></li>
   <li> <a href="http://code.google.com/p/osmand/issues/detail?id=1356#c4">Latest document 2013-05-22</a></li>
 </ul>
+<p class="back_to_top"><a href="#top">Back to top</a></p>
 </div>
 
 <div class="subtitle" id="Install_Development_Environment">How to install the development environment</div>
@@ -207,6 +210,7 @@ To compile the apk finally do:
 cd android/OsmAnd
 ant -file build.xml -Dsdk.dir=$ANDROID_SDK -Dndk.dir=$ANDROID_NDK -Dnativeoff=false -Dmanifest="/opt/software/osmandapp/&#8203;android/OsmAnd/&#8203;AndroidManifest.xml" clean debug
 </pre>
+<p class="back_to_top"><a href="#top">Back to top</a></p>
 </div>
 
 <div class="subtitle" id="Voice_Routing_-_Current_Status_.28by_Hardy.29">Voice routing - current status (by Hardy)</div>
@@ -274,6 +278,7 @@ ant -file build.xml -Dsdk.dir=$ANDROID_SDK -Dndk.dir=$ANDROID_NDK -Dnativeoff=fa
 <p>,,(Corrected values for bike and ped from forum feedback June 2013.),,</p></li>
 </ol>
 </ol>
+<p class="back_to_top"><a href="#top">Back to top</a></p>
 </div>
 
 <div class="subtitle" id="Installation_of_Different_Builds">Installation of different builds</div>
@@ -289,6 +294,7 @@ ant -file build.xml -Dsdk.dir=$ANDROID_SDK -Dndk.dir=$ANDROID_NDK -Dnativeoff=fa
  <li> re-import your Favorites again (Menu/Import)</li>
 </ul>
 <p>All maps/tracks etc. are kept in place unchanged during this procedure.</p>
+<p class="back_to_top"><a href="#top">Back to top</a></p>
 </div>
 
 <div class="subtitle" id="Map_Generation_Process">The map generation process</div>
@@ -344,6 +350,7 @@ ant -file build.xml -Dsdk.dir=$ANDROID_SDK -Dndk.dir=$ANDROID_NDK -Dnativeoff=fa
  java -cp "DataExtractionOSM&#8203;/OsmAndMapCreator.jar&#8203;:DataExtractionOSM&#8203;/lib/*.jar" net.osmand.data&#8203;.index.IndexUploader /home/.../indexes /home/.../indexes/uploaded -ssh --url=ssh://... --user=jenkins --privKey=/home/.../.ssh/id_rsa --path=/var/lib/jenkins/indexes/
 </pre>
 <p>The 1st argument is where the indexes to upload are laid, 2nd argument if the upload success where the files will be moved. Specify private key to authorize through ssh --privKey.</p>
+<p class="back_to_top"><a href="#top">Back to top</a></p>
 </div>
 
 <div class="subtitle" id="Create_offline_maps_for_yourself">Create offline maps for yourself</div>
@@ -451,6 +458,7 @@ Note that smaller maps will be around the 15x factor whereas big maps (&#62;350M
 <p>So in effect you really need a 64bit Operating system to really benefit from &#34;in memory&#34; processing.</p>
 <p>Note also that your -Xmx value should not be that big that your operating system starts swapping to disk. This will even decrease your performance below that of normal &#34;on disk&#34; processing.</p>
 <p>Finally: your source .osm.pbf file can be no larger then 600MB as this would require up to 20GB working memory. If your source file exceeds 600MB, OsmAndMapCreator will switch back to normal &#34;on disk&#34; processing. You will be notified early in the process with a warning &#34;Switching SQLITE in memory dialect to SQLITE&#34;</p>
+<p class="back_to_top"><a href="#top">Back to top</a></p>
 </div>
 
 <div class="subtitle" id="Country_Polygon_Creation">Creating a country polygon</div>
@@ -550,6 +558,7 @@ Note that smaller maps will be around the 15x factor whereas big maps (&#62;350M
  <li> Download the OsmAndMapCreator application from <a class="externallink" href="http://code.google.com/p/osmand" rel="nofollow" title="http://code.google.com/p/osmand">code.google.com/p/osmand</a></li>
  <li> create your OsmAnd obf map from the Paris.osm.pbf data map using OsmAndMapCreator.</li>
 </ul>
+<p class="back_to_top"><a href="#top">Back to top</a></p>
 </div>
 
 
@@ -732,6 +741,7 @@ TODO More details should be here (about districts of the city ...) ...</p>
 </pre>
 </ol>
 <p>TODO</p>
+<p class="back_to_top"><a href="#top">Back to top</a></p>
 </div>
 
 <div class="subtitle" id="How_To_Inspect_an_obf_Binary_File">How to inspect an obf binary file</div>
@@ -750,6 +760,7 @@ TODO More details should be here (about districts of the city ...) ...</p>
  <li> try to load that (eventually very big) CSV text file into any editor or program that can load very big files, like Notepad++ ... or try an import into any spreadsheet programm like Excel or LibreOffice calc (choose TAB as field separator)</li>
  <li> use any search feature to find place names or street names</li>
 </ul>
+<p class="back_to_top"><a href="#top">Back to top</a></p>
 </div>
 
 
@@ -776,6 +787,7 @@ TODO More details should be here (about districts of the city ...) ...</p>
  <li> If you have zoomed to your area, do a right-click with the mouse on the map and choose &#34;show address&#34; from the popup-menu.</li>
  <li> Normally, now all the street names should be displayed from the obf file, and the place name to where each street is associated in Osmand&#39;s offline search.</li>
 </ul>
+<p class="back_to_top"><a href="#top">Back to top</a></p>
 </div>
 
 
@@ -1050,6 +1062,7 @@ lftp -u ***,**** ****.your-backup.de
 <p>To restore the version from 4 days ago of a file from my “offsite” backup to /tmp I’d use this command:</p>
 <pre>duply offsite fetch etc/myfile /tmp/restore 4D</pre>
 <p>The combination of Duplicity and Duply is a very powerful solution for backups on non-trusted spaces. The setup is a piece of cake compared to other Linux based backup solutions.</p>
+<p class="back_to_top"><a href="#top">Back to top</a></p>
 </div>
 
 
@@ -1089,6 +1102,7 @@ When you have a different format you can use QGIS or other opensource software t
 </ul>
 <p>If all is right you&#39;ll find My_places.obf into your workdir folder. Simply upload this file into your OsmAnd phone folder and you have done. </p>
 <p>Good luck!!!</p>
+<p class="back_to_top"><a href="#top">Back to top</a></p>
 </div>
 
 
