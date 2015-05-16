@@ -328,7 +328,7 @@ ant -file build.xml -Dsdk.dir=$ANDROID_SDK -Dndk.dir=$ANDROID_NDK -Dnativeoff=fa
 
  if [ -z $INDEXES_FILE ]; then INDEXES_FILE="build-scripts/regions/indexes.xml"; echo "$INDEXES_FILE"; fi
 
- java -XX:+UseParallelGC -Xmx2048M -Xmn256M -Djava.util.logging.config.file=build-scripts/batch-logging.properties -cp "DataExtractionOSM/OsmAndMapCreator.jar:DataExtractionOSM/lib/*.jar" net.osmand.data.index.IndexBatchCreator build-scripts/indexes-batch-generate.xml "$INDEXES_FILE" </xmp></li>
+ java -XX:+UseParallelGC -Xmx2048M -Xmn256M -Djava.util.logging.config.file=build-scripts/batch-logging.properties -cp "DataExtractionOSM /OsmAndMapCreator.jar :DataExtractionOSM /lib/*.jar" net.osmand.data. index.IndexBatchCreator build-scripts/indexes-batch-generate.xml "$INDEXES_FILE" </xmp></li>
 </ul>
 <p>You can point $INDEXES_FILE to any indexes.xml and leave only regions you want to generate. Please also copy build-scripts/indexes-batch-generate.xml and update it to your local settings and replace _java_ program parameter to your local file.</p>
 
@@ -341,7 +341,7 @@ ant -file build.xml -Dsdk.dir=$ANDROID_SDK -Dndk.dir=$ANDROID_NDK -Dnativeoff=fa
  ant *compile jar*. Advanced DataExtractionOSM/build.xml.
  </xmp>
  <xmp>
- java -cp "DataExtractionOSM/OsmAndMapCreator.jar:DataExtractionOSM/lib/*.jar" net.osmand.data.index.IndexUploader /home/.../indexes /home/.../indexes/uploaded -ssh --url=ssh://... --user=jenkins --privKey=/home/.../.ssh/id_rsa --path=/var/lib/jenkins/indexes/
+ java -cp "DataExtractionOSM /OsmAndMapCreator.jar :DataExtractionOSM /lib/*.jar" net.osmand.data .index.IndexUploader /home/.../indexes /home/.../indexes/uploaded -ssh --url=ssh://... --user=jenkins --privKey=/home/.../.ssh/id_rsa --path=/var/lib/jenkins/indexes/
 </xmp>
 <p>The 1st argument is where the indexes to upload are laid, 2nd argument if the upload success where the files will be moved. Specify private key to authorize through ssh --privKey.</p>
 </div>
@@ -358,16 +358,16 @@ WORK_FOLDER="/opt/OpenStreetMap"
 cd "$WORK_FOLDER/osm_files"
 echo "Now in pwd\n"
 rm *
-wget -v -O Netherlands_europe.osm.pbf "http://download.geofabrik.de/europe/netherlands-latest.osm.pbf"
-#wget -v -O Luxembourg_europe.osm.pbf "http://download.geofabrik.de/europe/luxembourg-latest.osm.pbf"
-#wget -v -O Belgium_europe.osm.pbf "http://download.geofabrik.de/europe/belgium-latest.osm.pbf"
+wget -v -O Netherlands_europe.osm.pbf "http://download.geofabrik.de /europe/netherlands-latest.osm.pbf"
+#wget -v -O Luxembourg_europe.osm.pbf "http://download.geofabrik.de /europe/luxembourg-latest.osm.pbf"
+#wget -v -O Belgium_europe.osm.pbf "http://download.geofabrik.de /europe/belgium-latest.osm.pbf"
 
 cd $WORK_FOLDER
 echo date > starttime.txt
 echo "Now converting from osm.pbf to osmand obf\n"
 cd "$WORK_FOLDER/OsmAndMapCreator"
 
-java -Djava.util.logging.config.file=logging.properties -Xms256M -Xmx2560M -cp "./OsmAndMapCreator.jar:./lib/OsmAnd-core.jar:./lib/*.jar" net.osmand.data.index.IndexBatchCreator ./batch.xml
+java -Djava.util.logging.config.file= logging.properties -Xms256M -Xmx2560M -cp "./OsmAndMapCreator.jar:./lib/OsmAnd-core.jar:./lib/*.jar" net.osmand.data.index.IndexBatchCreator ./batch.xml
 
 cd $WORK_FOLDER
 echo date > endtime.txt
@@ -381,7 +381,7 @@ mv index_files/*.obf osmandmaps/
 <p>We move into the folder _OsmAndMapCreator_ where we installed/copied the OsmAndMapCreator program. It is best to really use the program from this folder, otherwise you have to set all kind of environment variables.
 The line:
 <xmp>
-_java -Djava.util.logging.config.file=logging.properties -Xms256M -Xmx2560M -cp "./OsmAndMapCreator.jar:./lib/OsmAnd-core.jar:./lib/*.jar" net.osmand.data.index.IndexBatchCreator ./batch.xml_
+_java -Djava.util.logging.config.file= logging.properties -Xms256M -Xmx2560M -cp "./OsmAndMapCreator.jar:./lib/OsmAnd-core.jar:./lib/*.jar" net.osmand.data.index.IndexBatchCreator ./batch.xml_
 </xmp>
  runs OsmAndMapcreator on our downloaded maps. OsmAndMapCreator will process all maps it will find in the download map. this also means that it will process older maps if you still had them there.</p>
 <p>We will log the process to file (-Djava.util.logging.config.file=logging.properties), give OsmAndMapCreator a minimum amount of 256MB and a maximum amount of 2560MB (preferably more then 1024MB), and we use the setup as specified in _batch.xml_.<br/>
@@ -390,7 +390,7 @@ Note: a 32bit Operating system can address up to approximately 1.5GB. This means
 <p>The _batch.xml_ file can be found in the OsmAndMapCreator folder, together with the program, and contains settings for running the program.
 The line:
 <xmp>
- _<process directory_for_osm_files="/opt/OpenStreetMap/osm_files" directory_for_index_files="/opt/OpenStreetMap/index_files" directory_for_generation="/opt/OpenStreetMap/gen_files"_
+ _<process directory_for_osm_files= "/opt/OpenStreetMap/osm_files" directory_for_index_files= "/opt/OpenStreetMap/index_files" directory_for_generation= "/opt/OpenStreetMap/gen_files"_
 </xmp> specifies our working folders.</p>
 The next line:
 <xmp>
@@ -413,7 +413,7 @@ are not really neccessary but simply display how long the process takes.</p>
 <div class="blocksubtitle">Scheduling</div>
 <p>The shell script can be scheduled as well. You have to take notice of the Geofabrik schedule for the maps creations (calculate for your own time zone).</p>
 <p>If you want to create a new map every night, you could add a crontab line like:</p>
-<xmp>_01 03 * * 7 /opt/OpenStreetMap/osm.pbf_to_obf_convert.sh > /dev/null 2>&1_</xmp>
+<xmp>_01 03 * * 7 /opt/OpenStreetMap/ osm.pbf_to_obf_convert.sh > /dev/null 2>&1_</xmp>
 <p>This will start the creation of the map at 03:01 in the morning which is currently after the Geofabrik netherlands osm.pbf map has been generated (local time zone).</p>
 
 <div class="blocksubtitle">Performance and tuning</div>
@@ -623,7 +623,7 @@ TODO More details should be here (about districts of the city ...) ...</p>
 </ul></li>
 <li>If the city doesn&#39;t have any assigned boundary then all boundaries that doesn&#39;t have center cities  and contain that city will be checked and the boundary with admin_level &#62;=7 will be assigned.</li>
 <li>for each boundary, make a list of cities that are in it.</li>
-<li><p>iterate all RELATIONS and find addresses (<a href="http://wiki.openstreetmap.org/wiki/Relations/Proposed/Postal_Addresses">wiki.openstreetmap.org/wiki/Relations/Proposed/Postal_Addresses</a>)</p>
+<li><p>iterate all RELATIONS and find addresses (<a href="http://wiki.openstreetmap.org/wiki/Relations/Proposed/Postal_Addresses">Postal_Addresses</a>)</p>
 <ul>
  <li> relation with &#34;address&#34; tag type, and is &#34;house&#34; or &#34;a6&#34; address_type</li>
  <li> search for associatedStreet relation and house members</li>
@@ -688,7 +688,7 @@ TODO More details should be here (about districts of the city ...) ...</p>
    <li> findOrRegister streets for the street</li>
    <li> find the house number</li>
    <li> if housenumber contains &#39;-&#39;, try to create interpolated house number (missing latlon2?)</li>
-   <li> <p>if housenumber contains &#39;/&#39;, try to lookup second street addr:street2 --&#62; seems only for RU osm: <a class="externallink" href="http://wiki.openstreetmap.org/wiki/RU:Key:addr" rel="nofollow" title="http://wiki.openstreetmap.org/wiki/RU:Key:addr">http://wiki.openstreetmap.org/wiki/RU:Key:addr</a></p>
+   <li> <p>if housenumber contains &#39;/&#39;, try to lookup second street addr:street2 --&#62; seems only for  <a href="http://wiki.openstreetmap.org/wiki/RU:Key:addr">RU osm</a>:</p>
    <p> TODO: there are more variations for this: adr:housenumber2, addr2:street, addr2:housenumber etc....</p></li>
    <li> for each street, store the existing house</p>
   </ul>
@@ -794,7 +794,7 @@ apt-get purge sendmail-bin
 apt-get install postfix
 apt-get install mailutils
 </xmp>
-<p>Postfix setup: <a href="https://help.ubuntu.com/community/PostfixBasicSetupHowto">https://help.ubuntu.com/community/PostfixBasicSetupHowto</a>
+<p>Postfix setup: <a href="https://help.ubuntu.com/community/PostfixBasicSetupHowto">PostfixBasicSetupHowto</a>
 or
 dpkg-reconfigure postix
 and setup the mail</p>
@@ -883,7 +883,7 @@ copy /var/www/www-download completely to the new server (note, this location is 
  copy /var/www/www-joomla completely to the new server
  (todo)
 </xmp>
-<p><a href="http://docs.joomla.org/Copying_a_Joomla_website">http://docs.joomla.org/Copying_a_Joomla_website</a></p>
+<p><a href="http://docs.joomla.org/Copying_a_Joomla_website">Copying a Joomla website</a></p>
 <xmp>
  tar cvfz joomlabackup.tar.gz /path-to-joomla
  scp joomlaback.tar.gz someuser@remote.machine.etc
@@ -908,7 +908,7 @@ copy /var/www/www-download completely to the new server (note, this location is 
  copy /etc/awstats/* or get it from git
  copy /var/lib/awstats/* to new server to preserve data
  cd /etc/apache2/conf.d/
- cp /usr/share/doc/awstats/examples/apache.conf awstats.conf
+ cp /usr/share/doc/awstats/examples/ apache.conf awstats.conf
 </xmp>
 <p> read also: <a href="http://www.debianhelp.co.uk/awstats.htm">http://www.debianhelp.co.uk/awstats.htm</a></p>
 <p> !change permissions of apache logs so that awstats can read them!</p>
@@ -940,7 +940,7 @@ copy /var/www/www-download completely to the new server (note, this location is 
  <li> edit uiman&#39;s crontab</li>
  <li> crontab:
 <xmp>
-MAILTO=pavol.zibrita+uiman@gmail.com,victor.shcherb+uiman@gmail.com
+MAILTO=pavol.zibrita+uiman@gmail.com, victor.shcherb+uiman@gmail.com
 /1 * * * * /home/uiman/uiChanges.sh
 </xmp></li>
 <li><xmp>cd /home/uiman; ln -s uiChanges-git/OsmAnd/ repository</xmp> </li>
@@ -961,7 +961,7 @@ MAILTO=pavol.zibrita+uiman@gmail.com,victor.shcherb+uiman@gmail.com
 ...
 ADMINS = (
    ('Pavol Zibrita', 'pavol.zibrita+weblate@gmail.com'),
-) ... 'ENGINE': 'django.db.backends.mysql' ... SERVER_EMAIL = 'pavol.zibrita+weblateadmin@gmail.com' ... DEFAULT_FROM_EMAIL = 'pavol.zibrita+weblateadmin@gmail.com' ...
+) ... 'ENGINE': 'django.db.backends.mysql' ... SERVER_EMAIL = 'pavol.zibrita+weblateadmin@gmail. com' ... DEFAULT_FROM_EMAIL = 'pavol.zibrita+weblateadmin@gmail. com' ...
 </xmp></li>
 <li> git commit (currently the changes are commited, doing rebase for new releases)</li>
 <li> install, what is needed in INSTALL</li>
