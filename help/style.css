@@ -6,12 +6,12 @@
    @media(max-device-width: 799px)
    {
 		.main{width:95%;}
-		xmp{max-width:95%;}
+		xmp, pre{max-width:95%;}
    }
    @media(min-width: 800px)
    {
 		.main{width:800px;}
-		xmp{max-width:800px;}
+		xmp, pre{max-width:800px;}
    }
    
    .code{font-style:italic;}
