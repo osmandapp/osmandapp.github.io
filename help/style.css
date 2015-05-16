@@ -1,7 +1,7 @@
    
    body{padding:0; margin:0; }
    a {color:#536DFE;}
-   xmp{white-space: pre-wrap;}
+   xmp, pre{white-space: pre-wrap;}
    .main{ margin:0 auto; font-family:arial; font-size:11pt;}
    @media(max-device-width: 799px)
    {

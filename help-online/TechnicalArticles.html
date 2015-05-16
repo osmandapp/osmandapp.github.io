@@ -94,11 +94,11 @@
 
 <p>Q: Which strings should I translate?*</p>
 <p>A: In the strings.xml the strings look like:
-<xmp>
+<pre>
 <string name="shared_string_save_as_gpx">Save as GPX track</string>
-</xmp>
+</pre>
 Translate only the &#39;Save route as GPX track&#39; part. In the swing_messages.properties the strings looks like: 
-<xmp>IndexCreator.INDEX_CITIES=Indexing cities...</xmp>
+<pre>IndexCreator.INDEX_CITIES=Indexing cities...</pre>
 Translate only the right part &#39;Indexing cities...&#39;</p>
 <br/>
 
@@ -155,15 +155,15 @@ Translate only the right part &#39;Indexing cities...&#39;</p>
     <li>  You also can use Internet : both swing application &#38; android application can download tiles by itself from Internet.</li>
 </ul>
 <p> Install repo utility:</p>
-<xmp>
+<pre>
  $ curl http://commondatastorage.googleapis.com/git-repo-downloads/repo &#62; ~/bin/repo
  $ chmod a+x ~/bin/repo
-</xmp>
+</pre>
 <p> Check out the project from repository:</p>
-<xmp> 
+<pre> 
    $ repo init -u git://github.com/osmandapp/OsmAnd-manifest.git
    $ repo sync
-</xmp>
+</pre>
 <p> You can make your <a href="https://help.github.com/articles/fork-a-repo">fork</a> on github and work with it and do <a href="https://help.github.com/articles/using-pull-requests">pull-requests</a> to publish your work in OsmAnd&#39;s repository.</p>
 <p>  Import OsmAnd (from /platforms/android) and OsmAndMapCreator (from /tools/) and OsmAnd-java (from /core/) projects from  into eclipse (do not copy them to workspace). See plugins directory, where can be some plugin projects you can contribute to.</p>
 <p>  Make sure that Eclipse Android plugin refers to android sdk path (Preferences -&#62; Android -&#62; SDK)</p>
@@ -173,7 +173,7 @@ Translate only the right part &#39;Indexing cities...&#39;</p>
 
 <div class="blocksubtitle">Config Application</div>
 <p> You can run OsmExtractionUI.class and it is OsmAndMapCreator</p>
-<p> If you want to enable logging - do not forget to put Java VM arg<xmp> -Djava.util.logging.config.file=logging.properties</xmp></p>
+<p> If you want to enable logging - do not forget to put Java VM arg<pre> -Djava.util.logging.config.file=logging.properties</pre></p>
 <p>After that you can try to run Swing (standalone) application to see whatever result.</p>
 <p>After that you should have installed the development environment on your machine.</p>
 
@@ -181,38 +181,38 @@ Translate only the right part &#39;Indexing cities...&#39;</p>
 <p>This might work as well on windows with slightly different commands. It does not use Eclipse or any other IDE.
 Download and install the Android SDK and NDK.
 The commands between () are only needed on the initial setup/compilation.</p>
-<xmp>
+<pre>
 cd /opt/software
 (mkdir osmandapp)
 cd osmandapp
 (repo init -u https://github.com/osmandapp/OsmAnd-manifest.git)
 repo sync -d
-</xmp>
-<xmp>
+</pre>
+<pre>
 export ANDROID_SDK=/opt/software/android-sdk-linux
 export ANDROID_NDK=/opt/software/android-ndk-r8e
-</xmp>
-<xmp>
+</pre>
+<pre>
 ./android/OsmAnd/old-ndk-build.sh
-</xmp>
+</pre>
 <p>This will build all the basic stuff, the dependencies and the native library</p>
 
 <p>The above command(s)  will build the dependencies for an arm, x86 and mips combined apk, but it will not build the apk itself yet.</p>
 <p>Make sure that the last line of your &#34;./android/OsmAnd/old-ndk-build.sh&#34; command compilation run ends with:
-<xmp>
+<pre>
 Install        : libgnustl_shared.so =&#62; libs/armeabi/libgnustl_shared.so
-</xmp>
+</pre>
 To compile the apk finally do:
-<xmp>
+<pre>
 cd android/OsmAnd
 ant -file build.xml -Dsdk.dir=$ANDROID_SDK -Dndk.dir=$ANDROID_NDK -Dnativeoff=false -Dmanifest="/opt/software/osmandapp/android/OsmAnd/AndroidManifest.xml" clean debug
-</xmp>
+</pre>
 </div>
 
 <div class="subtitle" id="Voice_Routing_-_Current_Status_.28by_Hardy.29">Voice routing - current status (by Hardy)</div>
 <div class="content">
 <p>The current feature set is documented in each (new, v1.5-style) tts-config.p file in this comment block in the file header:</p>
-<xmp>
+<pre>
 % IMPLEMENTED (X) or MISSING ( ) FEATURES:
 % (X) new Version 1.5 format
 % (X) route calculated prompts, left/right, u-turns, roundabouts, straight/follow
@@ -226,7 +226,7 @@ ant -file build.xml -Dsdk.dir=$ANDROID_SDK -Dndk.dir=$ANDROID_NDK -Dnativeoff=fa
 % (X) Name announcement for destination / intermediate / GPX waypoint arrival
 % ( ) Time announcement for new and recalculated route (for recalculated suppress in appMode=car)
 % ( ) word order checked (hint for translators)
-</xmp>
+</pre>
 <p>The file&#39;s string contents are sorted accordingly, in this fashion we can easily check which file already supports which feature.</p>
 <div class="blocksubtitle">Prompts</div>
 <p>Let me quickly document here which prompt is played when in our voice router module:</p>
@@ -321,14 +321,14 @@ ant -file build.xml -Dsdk.dir=$ANDROID_SDK -Dndk.dir=$ANDROID_NDK -Dnativeoff=fa
 <ul class="list">
  <li> ant *clean compile jar* . Advanced DataExtractionOSM/build.xml. </li>
  <li> Shell script
- <xmp>
+ <pre>
  mkdir ~/indexes && mkdir ~/indexes/uploaded
 
  rm -rf .work && mkdir .work &&  mkdir .work/osm
 
  if [ -z $INDEXES_FILE ]; then INDEXES_FILE="build-scripts/regions/indexes.xml"; echo "$INDEXES_FILE"; fi
 
- java -XX:+UseParallelGC -Xmx2048M -Xmn256M -Djava.util.logging.config.file=build-scripts/batch-logging.properties -cp "DataExtractionOSM&#8203;/OsmAndMapCreator.jar&#8203;:DataExtractionOSM&#8203;/lib/*.jar" net.osmand.data.&#8203;index.IndexBatchCreator build-scripts/indexes-batch-generate.xml "$INDEXES_FILE" </xmp></li>
+ java -XX:+UseParallelGC -Xmx2048M -Xmn256M -Djava.util.logging.config.file=build-scripts/batch-logging.properties -cp "DataExtractionOSM&#8203;/OsmAndMapCreator.jar&#8203;:DataExtractionOSM&#8203;/lib/*.jar" net.osmand.data.&#8203;index.IndexBatchCreator build-scripts/indexes-batch-generate.xml "$INDEXES_FILE" </pre></li>
 </ul>
 <p>You can point $INDEXES_FILE to any indexes.xml and leave only regions you want to generate. Please also copy build-scripts/indexes-batch-generate.xml and update it to your local settings and replace _java_ program parameter to your local file.</p>
 
@@ -337,12 +337,12 @@ ant -file build.xml -Dsdk.dir=$ANDROID_SDK -Dndk.dir=$ANDROID_NDK -Dnativeoff=fa
 <p>Schedule : every 15 minutes to monitor indexes folder constantly for changes */15 * * * *.</p>
 <p>SCM (source control) : _git://github.com/osmandapp/Osmand.git_ and Branch Specifier _origin/master_.</p>
 <p>Steps :</p>
-<xmp>
+<pre>
  ant *compile jar*. Advanced DataExtractionOSM/build.xml.
- </xmp>
- <xmp>
+ </pre>
+ <pre>
  java -cp "DataExtractionOSM&#8203;/OsmAndMapCreator.jar&#8203;:DataExtractionOSM&#8203;/lib/*.jar" net.osmand.data&#8203;.index.IndexUploader /home/.../indexes /home/.../indexes/uploaded -ssh --url=ssh://... --user=jenkins --privKey=/home/.../.ssh/id_rsa --path=/var/lib/jenkins/indexes/
-</xmp>
+</pre>
 <p>The 1st argument is where the indexes to upload are laid, 2nd argument if the upload success where the files will be moved. Specify private key to authorize through ssh --privKey.</p>
 </div>
 
@@ -351,7 +351,7 @@ ant -file build.xml -Dsdk.dir=$ANDROID_SDK -Dndk.dir=$ANDROID_NDK -Dnativeoff=fa
 <p>OsmAndMapCreator can also be used to create maps for yourself if you want maps that are more up-to-date then the ones you can download from OsmAnd.
 We will explain this via a Un*x/Linux/OS X like shell script and we will use the nightly generated maps from <a href="http://download.geofabrik.de/">Geofabrik</a>, a German company that sells OpenstreetMap based maps and appliances.</p>
 <div class="blocksubtitle">Shell script</div>
-<xmp>
+<pre>
 #!/bin/sh
 WORK_FOLDER="/opt/OpenStreetMap"
 # First download all the data
@@ -374,46 +374,46 @@ echo date > endtime.txt
 
 echo "And finally moving the obf files from the index folder to the osmandmaps folder\n"
 mv index_files/*.obf osmandmaps/
-</xmp>
+</pre>
 <div class="blocksubtitle">Explanation</div>
 <p>The line _WORK_FOLDER=&#34;/opt/OpenStreetMap&#34;_ is a variable to set our working folder. Inside this folder we have the maps _osm_files_, _OsmAndMapCreator_, _index_files_ and _gen_files_.</p>
 <p>We move into our download folder _osm_files_ and we use the command _wget_ to download our map(s). The wget command is used with the parameter _-O &#60;name&#62;_ as we will download the latest nightly map from Geofabrik, but we will save it immediately in the nameformat OsmAnd prefers.</p>
 <p>We move into the folder _OsmAndMapCreator_ where we installed/copied the OsmAndMapCreator program. It is best to really use the program from this folder, otherwise you have to set all kind of environment variables.
 The line:
-<xmp>
+<pre>
 _java -Djava.util.logging.config.file=&#8203;logging.properties -Xms256M -Xmx2560M -cp "./OsmAndMapCreator.jar:./lib/OsmAnd-core.jar:./lib/*.jar" net.osmand.data.index.IndexBatchCreator ./batch.xml_
-</xmp>
+</pre>
  runs OsmAndMapcreator on our downloaded maps. OsmAndMapCreator will process all maps it will find in the download map. this also means that it will process older maps if you still had them there.</p>
 <p>We will log the process to file (-Djava.util.logging.config.file=logging.properties), give OsmAndMapCreator a minimum amount of 256MB and a maximum amount of 2560MB (preferably more then 1024MB), and we use the setup as specified in _batch.xml_.<br/>
 Note: a 32bit Operating system can address up to approximately 1.5GB. This means that your -Xmx value can no larger be then -Xmx1720M. A larger specification is accepted without errors, but not used.</p>
 
 <p>The _batch.xml_ file can be found in the OsmAndMapCreator folder, together with the program, and contains settings for running the program.
 The line:
-<xmp>
- _<process directory_for_osm_files=&#8203;"/opt/OpenStreetMap/osm_files" directory_for_index_files=&#8203;"/opt/OpenStreetMap/index_files" directory_for_generation=&#8203;"/opt/OpenStreetMap/gen_files"_
-</xmp> specifies our working folders.</p>
+<pre>
+ _process directory_for_osm_files=&#8203;"/opt/OpenStreetMap/osm_files" directory_for_index_files=&#8203;"/opt/OpenStreetMap/index_files" directory_for_generation=&#8203;"/opt/OpenStreetMap/gen_files"_
+</pre> specifies our working folders.</p>
 The next line:
-<xmp>
+<pre>
 _skipExistingIndexesAt="/..." indexPOI="true" indexRouting="true" indexMap="true"        indexTransport="true" indexAddress="true">_ 
-</xmp>
+</pre>
 gives you options to modify parts of your map. If you don&#39;t need routing and/or addresses, you can simply skip these by setting the parameters to &#34;false&#34;. </p>
 <p>You can also use multiple batch.xml files for different purposes.</p>
 <p>The last two lines in the script move the created maps to the osmandmaps folder where we store our maps (in this case).</p>
 <p>
 The lines 
-<xmp>
+<pre>
 _echo date > starttime.txt_ 
 
 and 
 
 _echo date > endtime.txt_ 
-</xmp>
+</pre>
 are not really neccessary but simply display how long the process takes.</p>
 
 <div class="blocksubtitle">Scheduling</div>
 <p>The shell script can be scheduled as well. You have to take notice of the Geofabrik schedule for the maps creations (calculate for your own time zone).</p>
 <p>If you want to create a new map every night, you could add a crontab line like:</p>
-<xmp>_01 03 * * 7 /opt/OpenStreetMap/&#8203;osm.pbf_to_obf_convert.sh > /dev/null 2>&1_</xmp>
+<pre>_01 03 * * 7 /opt/OpenStreetMap/&#8203;osm.pbf_to_obf_convert.sh > /dev/null 2>&1_</pre>
 <p>This will start the creation of the map at 03:01 in the morning which is currently after the Geofabrik netherlands osm.pbf map has been generated (local time zone).</p>
 
 <div class="blocksubtitle">Performance and tuning</div>
@@ -434,9 +434,9 @@ are not really neccessary but simply display how long the process takes.</p>
 
 <div class="blocksubsubtitle">In memory processing</div>
 <p>You can do a great deal of the map creation not on disk but in memory. In your batch.xml one of the top lines contains:</p>
-<xmp>
+<pre>
 <process_attributes mapZooms="" renderingTypesFile="" zoomWaySmoothness="" osmDbDialect="sqlite" mapDbDialect="sqlite"/>
-</xmp>
+</pre>
 <p>The <span class="code">osmDbDialect=&#34;sqlite&#34; mapDbDialect=&#34;sqlite&#34;</span> determines where your map generation process will take place.</p>
 <p>The line <span class="code">osmDbDialect=&#34;sqlite&#34; mapDbDialect=&#34;sqlite&#34;</span> means that it will take place on disk.</p>
 <p>If you change this to <span class="code">osmDbDialect=&#34;sqlite_in_memory&#34; mapDbDialect=&#34;sqlite_in_memory&#34; </span>the process will take place in memory.</p>
@@ -546,7 +546,7 @@ Note that smaller maps will be around the 15x factor whereas big maps (&#62;350M
  <li> download or compile <a href="http://wiki.openstreetmap.org/wiki/Osmconvert">osmconvert</a></li>
  <li> download &#34;raw data&#34; map of ile-de-france from geofabrik.de</li>
  <li> create raw data map of Paris from the ile-de-france map and the Paris poly like
-<xmp> $ osmconvert ile-de-france.osm.pbf -B=paris.poly --out-pbf > Paris.osm.pbf</xmp></li>
+<pre> $ osmconvert ile-de-france.osm.pbf -B=paris.poly --out-pbf > Paris.osm.pbf</pre></li>
  <li> Download the OsmAndMapCreator application from <a class="externallink" href="http://code.google.com/p/osmand" rel="nofollow" title="http://code.google.com/p/osmand">code.google.com/p/osmand</a></li>
  <li> create your OsmAnd obf map from the Paris.osm.pbf data map using OsmAndMapCreator.</li>
 </ul>
@@ -781,28 +781,28 @@ TODO More details should be here (about districts of the city ...) ...</p>
 
 
 
-<div class="subtitle" id="OBF_routing_debugging_on_a_PC_with_OSM_map_display">OsmAnd Server Configuration</div>
+<div class="subtitle" id="OsmAnd_Server_Configuration">OsmAnd Server Configuration</div>
 <div class="content">
 <div class="blocksubtitle">Introduction</div>
 <p>This document describes the steps needed to fully setup OsmAnd server for services needed by osmand and relateds stuff to it.</p>
 <div class="blocksubtitle">Mail</div>
-<xmp>
+<pre>
 #Optionally remove the sendmail if present
 apt-get purge sendmail-base
 apt-get purge sendmail-bin
 #Install the postfix and utilities
 apt-get install postfix
 apt-get install mailutils
-</xmp>
+</pre>
 <p>Postfix setup: <a href="https://help.ubuntu.com/community/PostfixBasicSetupHowto">PostfixBasicSetupHowto</a>
 or
 dpkg-reconfigure postix
 and setup the mail</p>
 <div class="blocksubtitle">jenkins.osmand.net: Jenkins - builds and indexes</div>
-<xmp>
+<pre>
 apt-get install jenkins
 apt-get install openjdk6
-</xmp>
+</pre>
 <p>Plugins needed in jenkins: (todo list)</p>
 <p>/var/lib/jenkins</p>
 <p>In case of existing jenkins site, complete jenkins configuration can be copied: (link on jenkins wiki)</p>
@@ -813,7 +813,7 @@ apt-get install openjdk6
 <p>add jenkins to group www-data</p>
 
 <div class="blocksubtitle">Apache</div>
-<xmp>
+<pre>
  apt-get install libapache2-mod-php5
  apt-get install php5-mysql
  cd /etc/apache2/mods-enabled
@@ -826,7 +826,7 @@ apt-get install openjdk6
  cd /etc/apache2/sites-enabled
  ln -s ../sites-available/*
  service apache2 restart
-</xmp>
+</pre>
 <p>! apache configuration is not yet in git, should be there !</p>
 <p>For putting jenkins under ssl:</p>
 <ul class="list">
@@ -834,18 +834,18 @@ apt-get install openjdk6
  <li> a2enmod headers</li>
  <li> a2enmod proxy_http</li>
  <li> create self signed cert: 
- <xmp>make-ssl-cert /usr/share/ssl-cert/ssleay.cnf /etc/ssl/private/jenkins.crt</xmp></li>
+ <pre>make-ssl-cert /usr/share/ssl-cert/ssleay.cnf /etc/ssl/private/jenkins.crt</pre></li>
  <li> the ssl virtual host can server as jenkins.osmand.net</li>
  <li> change the ssl file in the ssl virtual host conf:
-<xmp>
+<pre>
        #SSLCertificateFile    /etc/ssl/certs/ssl-cert-snakeoil.pem
        #SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key
        SSLCertificateFile /etc/ssl/private/jenkins.crt
-</xmp></li>
+</pre></li>
 
  <li> see <a href="https://wiki.jenkins-ci.org/display/JENKINS/Running+Jenkins+behind+Apache">this</a> to bind apache to jenkins</li>
  <li> add this to ssl site config:
-<xmp>
+<pre>
        ProxyRequests     Off
        ProxyPreserveHost On
 
@@ -857,41 +857,41 @@ apt-get install openjdk6
        ProxyPass         /  http://localhost:8080/
        ProxyPassReverse  /  http://localhost:8080/
        ProxyPassReverse  /  http://jenkins.osmand.net/
-</xmp></li>
+</pre></li>
 
   <li> the default site can have ServerAlias on jenkins.osmand.net and rewrite rule:
-<xmp>
+<pre>
        RewriteEngine On
        RewriteCond %{HTTPS} off
        RewriteCond %{HTTP_HOST} jenkins.osmand.net
        RewriteRule (.*) https://jenkins.osmand.net%{REQUEST_URI}
-</xmp></li>
+</pre></li>
 </ul>
 
 <div class="blocksubtitle">download.osmand.net</div>
 <p>If migrating from existing server:</p>
-<xmp>
+<pre>
 copy /var/www/www-download completely to the new server (note, this location is used by scripts, do not change!)
-</xmp>
+</pre>
 <p>Or, create from scratch:</p>
-<xmp>
+<pre>
  copy from git config/site to /var/www/www-download
-</xmp>
+</pre>
 
 <div class="blocksubtitle">www.osmand.net (joomla)</div>
-<xmp>
+<pre>
  copy /var/www/www-joomla completely to the new server
  (todo)
-</xmp>
+</pre>
 <p><a href="http://docs.joomla.org/Copying_a_Joomla_website">Copying a Joomla website</a></p>
-<xmp>
+<pre>
  tar cvfz joomlabackup.tar.gz /path-to-joomla
  scp joomlaback.tar.gz someuser@remote.machine.etc
  mysqldump -u joomla -p joomla > joomladb.out
  scp joomladb.out someuser@remote.machine.etc
-</xmp>
+</pre>
 <p>On remote machine:</p>
-<xmp>
+<pre>
  apt-get install mysql-server mysql-client //don't forget the password for mysql root user
  mysqladmin -u root -p create joomla
  mysql -u root -p mysql //we are going to create joomla user
@@ -900,37 +900,37 @@ copy /var/www/www-download completely to the new server (note, this location is 
  mysql -u joommla -p joomla < joomladb.out
  cd /var/www-joomla/
  tar xvfz joomlabackup.tar.gz
-</xmp>
+</pre>
 
 <div class="blocksubtitle">Awstats</div>
-<xmp>
+<pre>
  apt-get install awstats
  copy /etc/awstats/* or get it from git
  copy /var/lib/awstats/* to new server to preserve data
  cd /etc/apache2/conf.d/
  cp /usr/share/doc/awstats/examples/&#8203;apache.conf awstats.conf
-</xmp>
+</pre>
 <p> read also: <a href="http://www.debianhelp.co.uk/awstats.htm">http://www.debianhelp.co.uk/awstats.htm</a></p>
 <p> !change permissions of apache logs so that awstats can read them!</p>
 <p> put a prerotate script to apache2 in /etc/logrotate.d/</p>
-<xmp>
+<pre>
        prerotate
        if [ -x /usr/share/awstats/tools/update.sh ]; then
          su - -c /usr/share/awstats/tools/update.sh www-data
        fi
        endscript
-</xmp>
+</pre>
 
-<xmp>
+<pre>
  service apache2 restart
-</xmp>
+</pre>
 
 <div class="blocksubtitle">Geo::IP instalation for awstats</div>
 <p> overview: <a href="http://www.maxmind.com/app/installation">http://www.maxmind.com/app/installation</a></p>
-<xmp>
+<pre>
  apt-get install geoip-database
  apt-get install libgeo-ip-perl
-</xmp>
+</pre>
 <p>Now see: <a href="http://the.new.site/cgi-bin/awstats.pl">http://the.new.site/cgi-bin/awstats.pl</a></p>
 
 <div class="blocksubtitle">uiman</div>
@@ -939,11 +939,11 @@ copy /var/www/www-download completely to the new server (note, this location is 
  <li> copy /home/uiman/* to new server</li>
  <li> edit uiman&#39;s crontab</li>
  <li> crontab:
-<xmp>
+<pre>
 MAILTO=pavol.zibrita+uiman@gmail.com,&#8203;victor.shcherb+uiman@gmail.com
 /1 * * * * /home/uiman/uiChanges.sh
-</xmp></li>
-<li><xmp>cd /home/uiman; ln -s uiChanges-git/OsmAnd/ repository</xmp> </li>
+</pre></li>
+<li><pre>cd /home/uiman; ln -s uiChanges-git/OsmAnd/ repository</pre> </li>
 </ul>
 
 <div class="blocksubtitle">DNS</div>
@@ -957,12 +957,12 @@ MAILTO=pavol.zibrita+uiman@gmail.com,&#8203;victor.shcherb+uiman@gmail.com
  <li>ln -s weblate weblate-git</li>
  <li>cd weblate</li>
  <li>vim weblate/settings.py
- <xmp>
+ <pre>
 ...
 ADMINS = (
    ('Pavol Zibrita', 'pavol.zibrita+weblate@gmail.com'),
 ) ... 'ENGINE': 'django.db.backends.mysql' ... SERVER_EMAIL = 'pavol.zibrita+&#8203;weblateadmin@gmail.com' ... DEFAULT_FROM_EMAIL = 'pavol.zibrita+&#8203;weblateadmin@gmail.com' ...
-</xmp></li>
+</pre></li>
 <li> git commit (currently the changes are commited, doing rebase for new releases)</li>
 <li> install, what is needed in INSTALL</li>
 <li> ./manage.py syncdb</li>
@@ -975,9 +975,9 @@ ADMINS = (
 <div class="blocksubtitle">Backup</div>
 <p><a href="http://duply.net/?title=Main_Page">http://duply.net/?title=Main_Page</a></p>
 <p><a href="http://trick77.com/2010/01/01/how-to-ftp-backup-a-linux-server-duply/">http://trick77.com/2010/01/01/how-to-ftp-backup-a-linux-server-duply/</a></p>
-<xmp> apt-get install duplicity gpg ncftp</xmp>
+<pre> apt-get install duplicity gpg ncftp</pre>
 <p> read the trick77.com page for setup</p>
-<xmp>
+<pre>
 /etc/duply/offsite/conf:
 {{{
 GPG_KEY='F61826A6'
@@ -1036,19 +1036,19 @@ _do mysql dump before backup_
 }}}
 /etc/cron.d/duply
 lftp -u ***,**** ****.your-backup.de
-</xmp>
+</pre>
 
 <p>It is good to backup /etc/duply/offsite/ somewhere, if the machine crashes, there is the info to retrieve encrypted files from the backup!</p>
 
 <div class="blocksubsubtitle">Restoring</div>
 <p>To list the current backup sets on your remote backup path use the following command:</p>
-<xmp>duply offsite status</xmp>
+<pre>duply offsite status</pre>
 <p>To restore the whole “offsite” backup to /tmp I’d use this command:</p>
-<xmp>duply offsite restore /tmp/restore</xmp>
+<pre>duply offsite restore /tmp/restore</pre>
 <p>To restore the lastest version of a file from my “offsite” backup to /tmp I’d use this command:</p>
-<xmp>duply offsite fetch etc/myfile /tmp/restore</xmp>
+<pre>duply offsite fetch etc/myfile /tmp/restore</pre>
 <p>To restore the version from 4 days ago of a file from my “offsite” backup to /tmp I’d use this command:</p>
-<xmp>duply offsite fetch etc/myfile /tmp/restore 4D</xmp>
+<pre>duply offsite fetch etc/myfile /tmp/restore 4D</pre>
 <p>The combination of Duplicity and Duply is a very powerful solution for backups on non-trusted spaces. The setup is a piece of cake compared to other Linux based backup solutions.</p>
 </div>
 
@@ -1060,23 +1060,23 @@ When you have a different format you can use QGIS or other opensource software t
 
 <div class="blocksubtitle">Converting KML (or Other Formats) into osm Format</div>
 <p>To perform this task we need to use gpsbabel. It is very useful to convert waypoints, tracks, and routes between popular GPS receivers and mapping programs. The syntax is very simple, and GPS Babel has an interface to create the syntax for you:</p>
-<xmp>   $ gpsbabel -i kml -f my_places.kml -o osm,tagnd="tourism:museum",created_by -F my_places.osm</xmp>
+<pre>   $ gpsbabel -i kml -f my_places.kml -o osm,tagnd="tourism:museum",created_by -F my_places.osm</pre>
  <p>The generated file is like this:</p>
- <xmp>
-   <?xml version '1.0' encoding 'UTF-8'?>
-   <osm version '0.5' generator 'GPSBabel-1.4.0'>
-     <node id '-1' visible 'true' lat '41.890121' lon '12.492265'>
-       <tag k 'name' v 'place01'/>
-       <tag k 'note' v 'place01'/>
-       <tag k 'tourism' v 'museum'/>
-     </node>
-   <node id '-2' visible 'true' lat '41.892241' lon '12.489031'>
-       <tag k 'name' v 'place02'/>
-       <tag k 'note' v 'place02'/>
-       <tag k 'tourism' v 'museum'/>
-     </node>
-   </osm>
-</xmp>
+ <pre>
+   &lt;?xml version='1.0' encoding='UTF-8'?&gt;
+   &lt;osm version='0.5' generator='GPSBabel-1.4.0'&gt;
+     &lt;node id='-1' visible='true' lat='41.890121' lon='12.492265'&gt;
+       &lt;tag k='name' v='place01'/&gt;
+       &lt;tag k='note' v='place01'/&gt;
+       &lt;tag k='tourism' v='museum'/&gt;
+     &lt;/node&gt;
+   &lt;node id='-2' visible='true' lat='41.892241' lon='12.489031'&gt;>
+       &lt;tag k='name' v='place02'/&gt;
+       &lt;tag k='note' v='place02'/&gt;
+       &lt;tag k='tourism' v='museum'/&gt;
+     &lt;/node&gt;
+   &lt;/osm&gt;
+</pre>
 
 <p>All points inside the kml file are converted into osm points, assigning them some properties like tourism category and museum type. The created_by= option with missing value means that the properties will be ignored. If your poi belongs to different categories, I suggest you create multiple osm files and create OsmAnd odf files and merge them together later with OsmAndMapCreator, or create multiple obf files. </p>
 
