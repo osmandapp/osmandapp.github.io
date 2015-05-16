@@ -4,26 +4,54 @@
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>OsmAnd - Offline Mobile Maps and Navigation
-
-</title>
-<link rel="stylesheet" type="text/css" href="site.css"/>
- <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
-
+<title>OsmAnd - Offline Mobile Maps and Navigation</title>
+  <link rel="stylesheet" type="text/css" href="site.css"/>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+  <script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
   <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-
 </head>
+
 <body>
-
-
+<div class="gocontainer">
+  <div class="goheader">
+    <img src="images/logo-grey.png" class="logo"/>
+  </div>
+  
  <div id="map">
- <div class="maplinks">
- <a href="http://www.osmand.net">OsmAnd</a>
- <a href="https://play.google.com/store/apps/details?id=net.osmand.plus">Get it on Google Play</a>
- <a href="http://www.amazon.com/gp/product/B00D0SEGMC/ref=mas_pm_OsmAnd-Maps-Navigation">Get it on Amazon</a>
- <div style="clear:both;"/>
+&nbsp;
+ </div>
+ 
+ <div class="gofooter">
+<div class="coordinatescontainer">
+  <div class="column iconcontainer"><img src="images/coordinates.png"/></div>
+  <div class=" column latitudecontainer">
+    <div class="coordinatetitle">LATITUDE</div>
+    <div class="coordinate latitude"></div>
+  </div>
+  <div class=" column longitudecontainer">
+    <div class="coordinatetitle">LONGITUDE</div>
+    <div class="coordinate longitude"></div>
+  </div>
+  <div class="clear:both;"></div>
+ </div>
+ 
+<div class="gobadges">
+  <div class="badgecontainer">
+   <a href="https://play.google.com/store/apps/details?id=net.osmand.plus">
+          <img alt="Get it on Google Play" src="https://developer.android.com/images/brand/en_generic_rgb_wo_45.png">
+   </a>
+  </div>
+  <div class="badgecontainer apple">
+  <a href="https://itunes.apple.com/us/app/id934850257"><img src="images/app-store-badge.png"></a>
+  </div>
+  <div class="badgecontainer">
+     <a href="http://www.amazon.com/gp/product/B00D0SEGMC/ref=mas_pm_OsmAnd-Maps-Navigation">
+          <img alt="Get it on Amazon" src="images/amazon-apps-store.png">
+     </a>
+  </div>
+
 </div>
+ </div>
  </div>
 
 
@@ -46,11 +74,8 @@
  
   var map =null;
 $( document ).ready(function() {
-	$('#map').height($(document).height());
-	var newWidth = $(document).width();
-	//if (newWidth > 1280){
-	//	newWidth = 1280;
-	//}
+	$('#map').height($(document).height()-233);
+	var newWidth = $(document).width();	
 	$('#map').width(newWidth);
 	var lat = (location.search.split('lat=')[1]||'').split('&')[0];
 	var pointDefined = true;
@@ -68,6 +93,14 @@ $( document ).ready(function() {
 		z = 13;
 		pointDefined = false;
 	}
+	var container = $(".gocontainer");
+	
+	var footer = $(".gofooter");
+	footer.remove();
+	
+	var badges = $(".gobadges");
+	badges.remove();
+	
 	map = L.map('map').setView([lat, lon], z);
 	L.tileLayer('http://tile.osmand.net/hd/{z}/{x}/{y}.png', {
 		attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
@@ -75,7 +108,12 @@ $( document ).ready(function() {
 	}).addTo(map);
 	if (pointDefined == true){
 		var marker = L.marker([lat, lon]).addTo(map);
+		
 	}
+	container.append(footer);
+	$(".latitude").text(lat);
+		$(".longitude").text(lon);
+	
 });
 
  </script>
