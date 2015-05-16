@@ -328,7 +328,7 @@ ant -file build.xml -Dsdk.dir=$ANDROID_SDK -Dndk.dir=$ANDROID_NDK -Dnativeoff=fa
 
  if [ -z $INDEXES_FILE ]; then INDEXES_FILE="build-scripts/regions/indexes.xml"; echo "$INDEXES_FILE"; fi
 
- java -XX:+UseParallelGC -Xmx2048M -Xmn256M -Djava.util.logging.config.file=build-scripts/batch-logging.properties -cp "DataExtractionOSM&#8203;/OsmAndMapCreator.jar&#8203;:DataExtractionOSM&#8203;/lib/*.jar" net.osmand.data.&#8203;index.IndexBatchCreator build-scripts/indexes-batch-generate.xml "$INDEXES_FILE" </pre></li>
+ java -XX:+UseParallelGC -Xmx2048M -Xmn256M -Djava.util.logging.config.file=&#8203;build-scripts/batch-logging.properties -cp "DataExtractionOSM&#8203;/OsmAndMapCreator.jar&#8203;:DataExtractionOSM&#8203;/lib/*.jar" net.osmand.data.&#8203;index.IndexBatchCreator build-scripts/indexes-batch-generate.xml "$INDEXES_FILE" </pre></li>
 </ul>
 <p>You can point $INDEXES_FILE to any indexes.xml and leave only regions you want to generate. Please also copy build-scripts/indexes-batch-generate.xml and update it to your local settings and replace _java_ program parameter to your local file.</p>
 
@@ -367,7 +367,7 @@ echo date > starttime.txt
 echo "Now converting from osm.pbf to osmand obf\n"
 cd "$WORK_FOLDER/OsmAndMapCreator"
 
-java -Djava.util.logging.config.file=&#8203;logging.properties -Xms256M -Xmx2560M -cp "./OsmAndMapCreator.jar:./lib/OsmAnd-core.jar:./lib/*.jar" net.osmand.data.index.IndexBatchCreator ./batch.xml
+java -Djava.util.logging.config.file=&#8203;logging.properties -Xms256M -Xmx2560M -cp "./OsmAndMapCreator.jar:&#8203;./lib/OsmAnd-core.jar:./lib/*.jar" net.osmand.data.&#8203;index.IndexBatchCreator ./batch.xml
 
 cd $WORK_FOLDER
 echo date > endtime.txt
@@ -381,7 +381,7 @@ mv index_files/*.obf osmandmaps/
 <p>We move into the folder _OsmAndMapCreator_ where we installed/copied the OsmAndMapCreator program. It is best to really use the program from this folder, otherwise you have to set all kind of environment variables.
 The line:
 <pre>
-_java -Djava.util.logging.config.file=&#8203;logging.properties -Xms256M -Xmx2560M -cp "./OsmAndMapCreator.jar:./lib/OsmAnd-core.jar:./lib/*.jar" net.osmand.data.index.IndexBatchCreator ./batch.xml_
+_java -Djava.util.logging.config.file=&#8203;logging.properties -Xms256M -Xmx2560M -cp "./OsmAndMapCreator.jar:&#8203;./lib/OsmAnd-core.jar:./lib/*.jar" net.osmand.data.&#8203;index.IndexBatchCreator ./batch.xml_
 </pre>
  runs OsmAndMapcreator on our downloaded maps. OsmAndMapCreator will process all maps it will find in the download map. this also means that it will process older maps if you still had them there.</p>
 <p>We will log the process to file (-Djava.util.logging.config.file=logging.properties), give OsmAndMapCreator a minimum amount of 256MB and a maximum amount of 2560MB (preferably more then 1024MB), and we use the setup as specified in _batch.xml_.<br/>
@@ -940,7 +940,7 @@ copy /var/www/www-download completely to the new server (note, this location is 
  <li> edit uiman&#39;s crontab</li>
  <li> crontab:
 <pre>
-MAILTO=pavol.zibrita+uiman@gmail.com,&#8203;victor.shcherb+uiman@gmail.com
+MAILTO=&#8203;pavol.zibrita+uiman@gmail.com,&#8203;victor.shcherb+uiman@gmail.com
 /1 * * * * /home/uiman/uiChanges.sh
 </pre></li>
 <li><pre>cd /home/uiman; ln -s uiChanges-git/OsmAnd/ repository</pre> </li>
@@ -982,7 +982,7 @@ ADMINS = (
 {{{
 GPG_KEY='F61826A6'
 GPG_PW='*******'
-TARGET='ftp://*****:******@****.your-backup.de/dailybackup'
+TARGET='ftp://*****:******@****.&#8203;your-backup.de/dailybackup'
 SOURCE='/'
 MAX_AGE=2M
 MAX_FULLBKP_AGE=1M
@@ -1060,7 +1060,7 @@ When you have a different format you can use QGIS or other opensource software t
 
 <div class="blocksubtitle">Converting KML (or Other Formats) into osm Format</div>
 <p>To perform this task we need to use gpsbabel. It is very useful to convert waypoints, tracks, and routes between popular GPS receivers and mapping programs. The syntax is very simple, and GPS Babel has an interface to create the syntax for you:</p>
-<pre>   $ gpsbabel -i kml -f my_places.kml -o osm,tagnd="tourism:museum",created_by -F my_places.osm</pre>
+<pre>   $ gpsbabel -i kml -f my_places.kml -o osm,tagnd="tourism:museum",&#8203;created_by -F my_places.osm</pre>
  <p>The generated file is like this:</p>
  <pre>
    &lt;?xml version='1.0' encoding='UTF-8'?&gt;
