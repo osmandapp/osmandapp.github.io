@@ -74,9 +74,9 @@
  
   var map =null;
 $( document ).ready(function() {
-	$('#map').height($(document).height()-233);
+	/*$('#map').height($(document).height()-233);
 	var newWidth = $(document).width();	
-	$('#map').width(newWidth);
+	$('#map').width(newWidth);*/
 	var lat = (location.search.split('lat=')[1]||'').split('&')[0];
 	var pointDefined = true;
 	if (!lat){
@@ -97,23 +97,22 @@ $( document ).ready(function() {
 	
 	var footer = $(".gofooter");
 	footer.remove();
-	
-	var badges = $(".gobadges");
-	badges.remove();
-	
+
 	map = L.map('map').setView([lat, lon], z);
 	L.tileLayer('http://tile.osmand.net/hd/{z}/{x}/{y}.png', {
 		attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
 		maxZoom: 18
 	}).addTo(map);
+	
+	
+	container.append(footer);
 	if (pointDefined == true){
 		var marker = L.marker([lat, lon]).addTo(map);
 		
 	}
-	container.append(footer);
 	$(".latitude").text(lat);
-		$(".longitude").text(lon);
-	
+	$(".longitude").text(lon);
+
 });
 
  </script>

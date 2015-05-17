@@ -147,24 +147,19 @@ h1{font-weight:normal; font-size:40px; letter-spacing: 0.06em; padding-top:25px;
 .appstorebadge img{width:100px; display:block; margin:0 auto;}
 
 /*****************go.html***********************/
-html, body{height:100%;}
-.mapwrapper{background-color:#fff; padding-top:40px; padding-bottom:260px;}
-.mapinnerwrapper{padding:5px; border:1px solid #ccc; width:1200px;  margin:0 auto;}
-#map{position:relative;}
-.maplinks {position:absolute; right:0; background:#fff; z-index:1010;}
-.maplinks a{position:relative; float:left; padding-left:10px; padding-right:10px; }
-.gocontainer {border: 1px solid #ccc; height:100%;}
-.goheader{border-bottom:1px solid #ccc;}
+#map{position:absolute; top:83px; bottom:148px; width:100%;}
+.gocontainer {height:100%;}
+.goheader{border-bottom:1px solid #ccc; width:100%; -webkit-box-shadow: 2px 2px 5px #CAC8C3; -moz-box-shadow: 2px 2px 5px #CAC8C3; box-shadow: 2px 2px 5px #CAC8C3; position:absolute; top:0;}
 .goheader img{padding:15px; height:45px;}
-.gofooter{position:absolute; bottom:-5px; width:100%;}
-.coordinatescontainer{height:95px; width:100%; border-top:1px solid #ccc; position:relative;}
+.gofooter{position:absolute; bottom:-5px; width:100%; background:#fff; -webkit-box-shadow: 2px -2px 5px #CAC8C3; -moz-box-shadow: 2px -2px 5px #CAC8C3; box-shadow: 2px -2px 5px #CAC8C3;}
+.coordinatescontainer{height:95px; width:100%; position:relative;}
 .coordinatescontainer .column{float:left; width:80px;}
-.coordinatescontainer .coordinatetitle{font-size:8pt; color:#aaa; padding-top:20px; padding-bottom:7px;}
+.coordinatescontainer .coordinatetitle{font-size:8pt; color:#9A9A9A; padding-top:20px; padding-bottom:7px;}
 .coordinatescontainer .coordinate{font-weight:bold;}
 .coordinatescontainer .iconcontainer{width:60px; padding-top:20px; position:relativel}
 .coordinatescontainer .iconcontainer img{height:35px; margin-left:15px;}
-.gobadges{height:55px; background-color:#333;}
-.gobadges .badgecontainer{float:left; width:32%; max-width:150px;}
+.gobadges{height:55px; background-color:#43464D;}
+.gobadges .badgecontainer{float:left; width:32%; max-width:120px;}
 .gobadges .badgecontainer img{max-width:100px; min-height:30px; max-height:30px;}
 .gobadges .badgecontainer img{padding:10px;}
 .gobadges .apple img{padding-left:2px;}
