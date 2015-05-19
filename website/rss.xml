@@ -8,7 +8,7 @@
 
 <item>
 <title>OsmAnd 1.0.2 (iOS)</title>
-<link>http://osmand.net?blog?id=osmand-ios-1.0.2</link>
+<link>http://osmand.net/blog?id=osmand-ios-1.0.2</link>
 <description>
 <p>We are glad to announce that iPhone version of OsmAnd is becoming better over time. We put significant efforts and managed to finish lots of useful features in a short period of time. Here is the short list of achievements.</p>
 <ul>
@@ -16,7 +16,7 @@
 	<li>OsmAnd Maps is also available for iPad.</li>
 	<li>We added translations to Russian, German, Danish, French, Spanish and others, thanks to our community. </li>
 	<li>Parking Position and Trip Recording addons were added to the application.</li>
-	<li>In the new version you will be able to search location by simply put the url or enter the coordinantes.
+	<li>In the new version you will be able to search location by simply put the url or enter the coordinantes.</li>
 	<li>Lots of bugfixes</li>
 </ul>
 </description>
@@ -26,22 +26,11 @@
 
 <item>
 <title>OsmAnd 2.0</title>
-<link>http://osmand.net?blog?id=osmand-2-0-released</link>
+<link>http://osmand.net/blog?id=osmand-2-0-released</link>
 <description>
 <p>We are glad to announce that OsmAnd 2.0 is coming to devices. We expect to finish the rollout on this week. This has been a while we had to admit that OsmAnd didn't follow the guidelines and had an inconsistent UI. This major release we fully focused to put the most trending UI, Material Design, in place. Meanwhile we considered dozens interactive patterns to improve the usability of various features in OsmAnd and came up with a Dashboard screen, which provides a balanced solution between Search &amp; Map display. Please help us by giving your feedback to make the product better.</p>
 </description>
 <pubDate>Tue, 29 Apr 2015 18:30:40 +0100</pubDate>
-</item>
-
-<item>
-<title>Nepal HOT OSM</title>
-<guid isPermaLink="false">http://osmand.net?special=nepal-hot-osm</guid>
-<link>http://osmand.net?special=nepal-hot-osm</link>
-<description>
-<p>We are following the initiative of HOT OSM to provide quick maps in order to give another tools for rescue services. We udpate Nepal at least once an hour and try to do it quicker. Here is a direct link <a href="http://download.osmand.net/download.php?standard=yes&amp;file=Nepal_asia_2.obf.zip">Nepal map</a>. Android clients are setup to have 1 map update per day, so the maps could look green, though redownloading the map will update it on the device. </p>
-<p> You can download the maps using browser and put it on the device. In order to have unlimited updates please use the nightly OsmAnd version or the paid one.</p>
-</description>
-<pubDate>Mon, 27 Apr 2015 13:30:40 +0100</pubDate>
 </item>
 
 
