@@ -10,14 +10,14 @@
 <title>OsmAnd 1.0.2 (iOS)</title>
 <link>http://osmand.net/blog?id=osmand-ios-1.0.2</link>
 <description>
-<p>We are glad to announce that iPhone version of OsmAnd is becoming better over time. We put significant efforts and managed to finish lots of useful features in a short period of time. Here is the short list of achievements.</p>
+	<p>We are glad to announce that iOS version of OsmAnd is becoming better over time. We put significant efforts and managed to finish lots of useful features in a short period of time. Here is the short list of achievements.</p>
 <ul>
 	<li>We significantly improved the responsiveness of the map interaction.</li>
-	<li>OsmAnd Maps is also available for iPad.</li>
-	<li>We added translations to Russian, German, Danish, French, Spanish and others, thanks to our community. </li>
-	<li>Parking Position and Trip Recording addons were added to the application.</li>
-	<li>In the new version you will be able to search location by simply put the url or enter the coordinantes.</li>
-	<li>Lots of bugfixes</li>
+	<li>OsmAnd Maps now is also available for iPad.</li>
+	<li>We added translations to Russian, German, Danish, French, Spanish and other languages (thanks to our great community). </li>
+	<li>Parking Position and Trip Recording addons were added to the application. Please feel free to use them without charge</li>
+	<li>In the new version you will be able to search a location by simply put the url or enter the coordinantes in the search text box.</li>
+	<li>And lots of other minor and useful improvements.</li>
 </ul>
 </description>
 <pubDate>Tue, 19 May 2015 18:30:40 +0100</pubDate>
