@@ -78,7 +78,7 @@
 		  <h1>LATEST ARTICLES</h1>
 		  <div class="delimiter"></div>
 		  <ul class="articlelinklist">
-		  	<li><a data-gatag='osmand_ios_1_0_2' href="http://osmand.net/blog?id=osmand-appzine-review.html" >New review from Appzine</a></li>
+		  	<li><a data-gatag='osmand_ios_1_0_2' href="http://osmand.net/blog?id=osmand-appzine-review" >New review from Appzine</a></li>
 		  	<li><a data-gatag='osmand_ios_1_0_2' href="http://osmand.net/blog?id=osmand-ios-1.0.2" >OsmAnd 1.0.2 (iOS)</a></li>
 		  	<li><a data-gatag='osmand_2_0' href="http://osmand.net/blog?id=osmand-2-0-released" >OsmAnd 2.0</a></li>
 		  	<li><a data-gatag='osmand_ios' href="http://osmand.net/blog?id=osmand-ios" >OsmAnd for iPhone is released</a></li>
