@@ -40,6 +40,7 @@
    .toc .subtitle{font-weight:normal;}  
   
   .screenshot{max-width:95%; max-height:100%; padding:7px; border:1px solid #ddd;}
+  .download{width:24px; height:24px; padding-left:15px; vertical-align: bottom;}
   .imgcontainer{margin:20px 30px;}
   .legendcontainer{margin:0;}
   .legend{width:100%;}
