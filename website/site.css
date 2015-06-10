@@ -5,7 +5,7 @@ ul li{padding:0; margin:0;}
 h1 { -webkit-margin-before:0; -webkit-margin-after:0;}
 
 /*default styles*/
-h1{font-weight:normal; font-size:40px; letter-spacing: 0.06em; padding-top:25px; padding-bottom:25px;}
+h1{font-weight:normal; font-size:3em; letter-spacing: 0.06em; padding-top:25px; padding-bottom:25px;}
 
 
 .maincontainer{ width:100%; height:auto; overflow:hidden; background-color:#CFCFCF; min-width:1280px;}
@@ -41,17 +41,18 @@ h1{font-weight:normal; font-size:40px; letter-spacing: 0.06em; padding-top:25px;
 .specialeventtext.hidden {color:#fff; padding-bottom:60px; width:900px;}
 .specialevent .headertitletext{letter-spacing:0;}
 /************* features*****************************/
-.features{position:relative; overflow:hidden;background:#fff;}
-.features img{width:250px;}
-.features ul li {border-bottom: 1px solid #EFEFEF; }
-.features ul li.last{border-bottom: none;}
-.features .imagecolumn{float:left; width:400px; text-align:center;}
-.features .textcolumn{float:left; width:700px;}
+.features{position:relative; overflow:hidden;background:#fff; }
 .featurestitle{text-align:center; padding: 25px 0;color:#000;}
 .featurestitle p{color:#9A9A9A; font-size:1.2em;}
-.itemcontainer{position:relative; width:1100px; margin:50px auto; overflow:hidden;}
-.features .categorydescription{list-style-type:disc; padding-right:40px; padding-left:25px;}
-.features  .categorydescription li{border-bottom:none; padding-bottom:5px; padding-left:5px;}
+.featurestitle h1{color:rgb(255, 143, 0); padding-bottom:0; }
+.featurescontainer{width:1100px; margin:50px auto; position:relative; }
+.featureblock{width:500px; float:left; padding-left:100px; min-height:550px; margin-top:15px;}
+.featureblocktitle{border-bottom: 6px solid rgb(255, 143, 0); margin-bottom:40px; position:relative; }
+.featureblocktitle img {position:absolute; bottom:0; left:0; width:60px; margin-bottom:30px;}
+.featureblocktitle h1 {float:left; padding-left:95px; padding-top:5px; max-width:400px; min-height:60px; font-size:2.3em;  margin-bottom:0;}
+
+.features .categorydescription{list-style-type:disc; padding-left:25px; line-height:1.7em;}
+.features  .categorydescription li{border-bottom:none;}
 
 /*.mapexample img{width:1200px; }*/
 .mapexample{background:#fff; position:relative;padding-top:20px; padding-bottom:20px;}
@@ -61,10 +62,11 @@ h1{font-weight:normal; font-size:40px; letter-spacing: 0.06em; padding-top:25px;
 .selectbox .selecttitle{padding: 19px 5px 6px 5px;color:#2196F3; font-weight:bold; font-size:14px;}
 .selectbox .selecttitle.first{padding-top: 2px;}
 .selectbox ul {margin:0;padding-left:0;}
-.selectbox ul li {line-height: 15px; font-size:11px;}
-.selectbox input{padding-top:5px;}
+.selectbox ul li {line-height: 1.2em; font-size:0.6em;}
+.selectbox input{padding-top:5px; cursor:pointer;}
+.selectbox label{cursor:pointer;}
 
-.screenshots{background:#EDEDED; position:relative; padding:20px; overflow:hidden;}
+.screenshots{background:#FFF; position:relative; padding:20px; overflow:hidden; padding-bottom:100px;}
 .slider{position:relative;width:1100px; margin:0 auto;}
 .arrow{cursor:pointer;padding-bottom: 207px;}
 .left{ margin-left: -73px; padding-right: 27px;}
@@ -162,3 +164,18 @@ h1{font-weight:normal; font-size:40px; letter-spacing: 0.06em; padding-top:25px;
 .gobadges .badgecontainer img{padding:8px;}
 .gobadges .apple img{padding-left:1px; max-width:114px;}
 
+
+/*************************WHAT YOU SAY ************************************/
+.whatyousay{background:#EDEDED; position:relative; padding:20px; }
+.whatyousaycontainer{position:relative; width:1100px; margin:0 auto; }
+.whatyousaycontainer .titleicon{position:absolute; width:60px; left:-80px; top:30px;}
+.whatyousaycontainer .badgescontainer{ text-align:center; position:relative; width:500px; margin-bottom:20px;}
+.whatyousaycontainer .badges {position:relative; left:0; top:0; width:800px; }
+.whatyousaycontainer .badges li {padding-left:30px;}
+.whatyousayblock{float:left; width:500px; padding-left:50px;  min-height:250px;}
+.noleftpadding {padding-left:0;}
+.whatyousaymessage{position:relative; background-color:#fff; width:460px; padding:20px; font-style:italic; line-height:1.5em; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; -webkit-box-shadow: 2px 2px 5px #CAC8C3; -moz-box-shadow: 2px 2px 5px #CAC8C3; box-shadow: 2px 2px 5px #CAC8C3;}
+
+.whatyousayblock .signature{padding-left:10px; margin-top:20px;}
+.whatyousayblock .signature .source {color:#9A9A9A; font-size:0.7em; margin-top:5px; }
+.whatyousaymessage img{position:absolute; bottom:-14px; left:28px; width:20px; }
