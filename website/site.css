@@ -76,11 +76,11 @@ h1{font-weight:normal; font-size:3em; letter-spacing: 0.06em; padding-top:25px; 
 .screenshots  .first {padding-left:0;}
 .sliderheader {position:relative;}
 .sliderheader h1 {float:left; padding-bottom:50px;}
-.switch {float:right; text-align:center; padding-top:25px; color:#fff; cursor:pointer;}
-.switch .button {float:left; width:100px; padding:20px; background:#cdcdcd;  }
-.switch .button.left {-webkit-border-radius: 5px 0px 0px 5px; -moz-border-radius: 5px 0px 0px 5px; border-radius: 5px 0px 0px 5px;}
-.switch .button.right {-webkit-border-radius: 0px 5px 5px 0px; -moz-border-radius: 0px 5px 5px 0px; border-radius: 0px 5px 5px 0px;}
-.switch .button.active {background-color:rgb(255, 143, 0);}
+.sliderheader .switch {float:right; text-align:center; padding-top:35px; color:#fff; cursor:pointer;}
+.sliderheader .switch .button {float:left; width:75px; padding:15px; background:#D4D4D4;  }
+.sliderheader .switch .button.left {-webkit-border-radius: 8px 0px 0px 8px; -moz-border-radius: 8px 0px 0px 8px; border-radius: 8px 0px 0px 8px;}
+.sliderheader .switch .button.right {-webkit-border-radius: 0px 8px 8px 0px; -moz-border-radius: 0px 8px 8px 0px; border-radius: 0px 8px 8px 0px;}
+.sliderheader .switch .button.active {background-color:rgb(255, 143, 0);}
 .disabled {cursor:default;}
 
 .blogcontainerwrap{background:#fff; line-height:1.7em;}
