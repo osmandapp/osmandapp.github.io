@@ -11,6 +11,9 @@ $(function() {
 	 $('.screenshots .arrow').on('click', function(){
 	    sendGAEvent('screenshots', this);		
 	 });
+	 $('.screenshots .button').on('click', function(){
+	    sendGAEvent('screenshots', this);		
+	 });
 	 $('.blogitem a').on('click', function(){
 	    sendGAEvent('blogitem', this);		
 	 });

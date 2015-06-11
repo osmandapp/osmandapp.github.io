@@ -1,4 +1,4 @@
-var images=[
+var images_android=[
 "promo-1s.png",
 "promo-2s.png",
 "promo-3s.png",
@@ -13,6 +13,14 @@ var images=[
 "promo-12s.png"
 ];
 
+var images_ios=[
+"ios-1s.png",
+"ios-2s.png",
+"ios-3s.png",
+"ios-4s.png",
+"ios-5s.png"
+];
+
 function slider(container){
 var $cnt = $(container);
 var $img1 = $cnt.find("#screenshot1");
@@ -21,8 +29,12 @@ var $img3 = $cnt.find("#screenshot3");
 var $img4 = $cnt.find("#screenshot4");
 var $leftarrow =  $cnt.find(".arrow.left");
 var $rightarrow =  $cnt.find(".arrow.right");
+var $btnleft = $cnt.find(".button.left");
+var $btnright = $cnt.find(".button.right");
 var currentPosition =0;
 var count =4;
+
+var images = images_android;
 
 var init = function(){
 	updatePictures();
@@ -41,13 +53,37 @@ var init = function(){
 			updateArrows();	
 		}
 	});
+	$btnleft.on('click', function(){
+		if (!$btnleft.hasClass("active")){
+			$btnleft.addClass("active");
+			$btnright.removeClass("active");
+			$btnright.addClass
+			images = images_android;
+			currentPosition = 0;
+			updatePictures();
+			updateArrows();
+		}
+		
+		
+	});
+	$btnright.on('click', function(){
+		if (!$btnright.hasClass("active")){
+			$btnright.addClass("active");
+			$btnleft.removeClass("active");
+			images = images_ios;
+			currentPosition = 0;
+			updatePictures();
+			updateArrows();
+		}
+		
+	});
 }
 
 var changePicture = function(img, index){
 	if (index < images.length){
 		img.attr("src", "images/" + images[index]);
 	}else{
-		img.attr("src", "");
+		img.attr("src", "images/empty.png");
 	}
 }
 var updatePictures = function(){

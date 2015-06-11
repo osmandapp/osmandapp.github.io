@@ -6,13 +6,13 @@
 <title>OsmAnd - Offline Mobile Maps and Navigation
 </title>
 
-<link rel="stylesheet" type="text/css" href="site.css"/>
+<link rel="stylesheet" type="text/css" href="site.css?v=1"/>
 <script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="scripts/slider.js"></script>
+<script type="text/javascript" src="scripts/slider.js?v=1"></script>
 <script type="text/javascript" src="scripts/mapselector.js"></script>
 <script type="text/javascript" src="scripts/poll.js"></script>
 <script type="text/javascript" src="scripts/ga-init.js"></script>
-<script type="text/javascript" src="scripts/ga-home.js"></script>
+<script type="text/javascript" src="scripts/ga-home.js?v=1"></script>
 </head>
 <body>
 
@@ -136,9 +136,15 @@
 	
 	<div class="screenshots">	 
 	   <div class="slider">
+	   <div class="sliderheader">
 	   <h1>SCREENSHOTS</h1>
-	  
-	  
+	  <div class="switch">
+	       <div class="button left active" data-gatag="android_button">Android</div>
+	       <div class="button right" data-gatag="ios_button">iOS</div>
+		 
+	  </div>
+	  <div style="clear:both;"></div>
+	  </div>
 	  <div class="images">
 	    <img class="left arrow" data-gatag="left_arrow" src="images/left_arrow_orange.png"/>	
 	    <img class="screenshot first" id="screenshot1"  src="images/promo-1s.png"/>

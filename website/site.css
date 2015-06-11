@@ -2,7 +2,7 @@
 body{margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; height:100%;}
 ul{list-style-type: none; margin:0; padding:0;}
 ul li{padding:0; margin:0;}
-h1 { -webkit-margin-before:0; -webkit-margin-after:0;}
+h1 { -webkit-margin-before:0; -webkit-margin-after:0; margin-top:0; margin-bottom:0;}
 
 /*default styles*/
 h1{font-weight:normal; font-size:3em; letter-spacing: 0.06em; padding-top:25px; padding-bottom:25px;}
@@ -74,6 +74,13 @@ h1{font-weight:normal; font-size:3em; letter-spacing: 0.06em; padding-top:25px; 
 .screenshots .images {position:relative;}
 .screenshots .screenshot{float:left; padding-left:30px; max-width:250px; max-height:445px;}
 .screenshots  .first {padding-left:0;}
+.sliderheader {position:relative;}
+.sliderheader h1 {float:left; padding-bottom:50px;}
+.switch {float:right; text-align:center; padding-top:25px; color:#fff; cursor:pointer;}
+.switch .button {float:left; width:100px; padding:20px; background:#cdcdcd;  }
+.switch .button.left {-webkit-border-radius: 5px 0px 0px 5px; -moz-border-radius: 5px 0px 0px 5px; border-radius: 5px 0px 0px 5px;}
+.switch .button.right {-webkit-border-radius: 0px 5px 5px 0px; -moz-border-radius: 0px 5px 5px 0px; border-radius: 0px 5px 5px 0px;}
+.switch .button.active {background-color:rgb(255, 143, 0);}
 .disabled {cursor:default;}
 
 .blogcontainerwrap{background:#fff; line-height:1.7em;}
