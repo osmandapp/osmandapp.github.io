@@ -68,16 +68,15 @@ h1{font-weight:normal; font-size:3em; letter-spacing: 0.06em; padding-top:25px; 
 
 .screenshots{background:#FFF; position:relative; padding:20px; overflow:hidden; padding-bottom:100px;}
 .slider{position:relative;width:1100px; margin:0 auto;}
-.arrow{cursor:pointer;padding-bottom: 207px;}
-.left{ margin-left: -73px; padding-right: 27px;}
-.right{padding-left: 27px; }
-.screenshots ul {padding:0; height:416px; overflow:hidden; display: inline-block;}
-.screenshots ul li{float:left; padding-left:30px;}
-.screenshots ul li.first{padding-left:0;}
-.screenshots ul img {max-width:235px; max-height:415px;}
+.arrow{cursor:pointer; position:absolute; top:50%;}
+.left{ left:-73px;}
+.right{right:-65px; }
+.screenshots .images {position:relative;}
+.screenshots .screenshot{float:left; padding-left:30px; max-width:250px; max-height:445px;}
+.screenshots  .first {padding-left:0;}
 .disabled {cursor:default;}
 
-.blogcontainerwrap{background:#fff;}
+.blogcontainerwrap{background:#fff; line-height:1.7em;}
 .blogcontainer {width:1100px; overflow:hidden; margin:0 auto; }
 .blogcontainer .leftcolumn{float:left; width:500px;}
 .blogcontainer .rightcolumn{float:right; width:400px; padding-bottom: 10px}
@@ -94,7 +93,7 @@ h1{font-weight:normal; font-size:3em; letter-spacing: 0.06em; padding-top:25px; 
 .pds-box.osmand{border-radius:0;}
 
 
-.footer{position:relative;  background-color:#43464D; height:220px; }
+.footer{position:relative;  background-color:#43464D; height:220px; line-height:1.7em;}
 .halvecolumn{width:50%; float:left;}
 .thirdcolumn{width:30%; float:left;}
 .footer .narrow{width:20%;  float:left;}
