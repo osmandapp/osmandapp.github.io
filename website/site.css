@@ -107,7 +107,7 @@ h1{font-weight:normal; font-size:3em; letter-spacing: 0.06em; padding-top:25px; 
 .footer .narrow{width:20%;  float:left;}
 .footer .wide{width:30%;  float:left;}
 .footerlogo{position:absolute; top:30px; left:21%; width:200px;}
-.footerlinkstitle{color: #698C8E; margin-top:18px; margin-bottom:10px;}
+.footerlinkstitle{color: rgb(255, 143, 0); margin-top:18px; margin-bottom:10px; font-weight:bold;}
 .footer ul{list-style-type: none;  font-size:0.8em; padding-left:0; padding-top:25px; padding-bottom:40px;}
 .footer ul li {line-height:31px;}
 .footer ul a{color:#fff; text-decoration:none;}
