@@ -50,6 +50,7 @@ h1{font-weight:normal; font-size:3em; letter-spacing: 0.06em; padding-top:25px; 
 .featureblocktitle{border-bottom: 6px solid rgb(255, 143, 0); margin-bottom:40px; position:relative; }
 .featureblocktitle img {position:absolute; bottom:0; left:0; width:60px; margin-bottom:30px;}
 .featureblocktitle h1 {float:left; padding-left:95px; padding-top:5px; max-width:400px; min-height:60px; font-size:2.3em;  margin-bottom:0;}
+.featureblocktitle .warning{color:rgb(255, 143, 0); font-size:0.6em; letter-spacing:0;}
 
 .features .categorydescription{list-style-type:disc; padding-left:25px; line-height:1.7em;}
 .features  .categorydescription li{border-bottom:none;}
