@@ -101,14 +101,14 @@ h1{font-weight:normal; font-size:3em; letter-spacing: 0.06em; padding-top:25px; 
 .pds-box.osmand{border-radius:0;}
 
 
-.footer{position:relative;  background-color:#43464D; height:220px; line-height:1.7em;}
+.footer{position:relative;  background-color:#43464D; line-height:1.7em;}
 .halvecolumn{width:50%; float:left;}
 .thirdcolumn{width:30%; float:left;}
 .footer .narrow{width:20%;  float:left;}
 .footer .wide{width:30%;  float:left;}
 .footerlogo{position:absolute; top:30px; left:21%; width:200px;}
 .footerlinkstitle{color: #698C8E; margin-top:18px; margin-bottom:10px;}
-.footer ul{list-style-type: none;  font-size:0.8em; padding-left:0; padding-top:25px;}
+.footer ul{list-style-type: none;  font-size:0.8em; padding-left:0; padding-top:25px; padding-bottom:40px;}
 .footer ul li {line-height:31px;}
 .footer ul a{color:#fff; text-decoration:none;}
 
