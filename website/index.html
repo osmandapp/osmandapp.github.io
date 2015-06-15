@@ -16,6 +16,14 @@
 </head>
 <body>
 
+<script>
+function contactus() {
+  var link = "m" + "ail" + "to" + ':';
+  link = link + "anna" + '.' + "soloviova" + "@" + "osmand.net";
+  window.location = link;
+}
+
+</script>	   
 <div class="maincontainer">
   <div class="main">
     <div class="header">
@@ -300,7 +308,6 @@
 -->
 
 	   <h1>POLL</h1>
-	   
 <script type="text/javascript" charset="utf-8" src="http://static.polldaddy.com/p/8920706.js"></script>
 <noscript><a href="http://polldaddy.com/poll/8920706/">What do you think of OsmAnd interface?</a></noscript>
 
@@ -344,13 +351,17 @@
 	<div class="footer">
 	  <div class="halvecolumn">
 	    <img src="images/logo.png" class="footerlogo"/>	
-		<div>&nbsp;</div>
+		<div>&nbsp; 
+			<a data-gatag="contactus" href="javascript:contactus();" class="footercontactus">Contact Us</a>
+		</div>
+
 	  </div>
 	  <div class="halvecolumn">
 	    <div class="narrow">
 		  
 		    <ul>
 		    <div class="footerlinkstitle">WEBSITE</div>
+		    
 		    <li><a data-gatag="home" href="http://www.osmand.net">Home</a></li>			
 			<li><a data-gatag="blog" href="http://osmand.net/blog">Blog</a></li>		
 			<li><a data-gatag="help" href="http://osmand.net/help/">Help</a></li>							
