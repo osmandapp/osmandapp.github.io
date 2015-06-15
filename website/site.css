@@ -84,7 +84,7 @@ h1{font-weight:normal; font-size:3em; letter-spacing: 0.06em; padding-top:25px; 
 .sliderheader .switch .button.active {background-color:rgb(255, 143, 0);}
 .disabled {cursor:default;}
 
-.blogcontainerwrap{background:#fff; line-height:1.7em;}
+.blogcontainerwrap{background:#fff; line-height:1.7em; padding-bottom:25px;}
 .blogcontainer {width:1100px; overflow:hidden; margin:0 auto; }
 .blogcontainer .leftcolumn{float:left; width:500px;}
 .blogcontainer .rightcolumn{float:right; width:400px; padding-bottom: 10px}

@@ -6,7 +6,7 @@
 <title>OsmAnd - Offline Mobile Maps and Navigation
 </title>
 
-<link rel="stylesheet" type="text/css" href="site.css?v=5"/>
+<link rel="stylesheet" type="text/css" href="site.css?v=6"/>
 <script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="scripts/slider.js?v=1"></script>
 <script type="text/javascript" src="scripts/mapselector.js"></script>
@@ -321,8 +321,8 @@
 
 	   <h1>POLL</h1>
 	   
-<script type="text/javascript" charset="utf-8" src="http://static.polldaddy.com/p/8920706.js"></script>
-<noscript><a href="http://polldaddy.com/poll/8920706/">What do you think of OsmAnd interface?</a></noscript>
+<script type="text/javascript" charset="utf-8" src="http://static.polldaddy.com/p/8931291.js"></script>
+<noscript><a href="http://polldaddy.com/poll/8931291/">How often do you use OsmAnd?</a></noscript>
 
 	</div>  <!-- rightcolumn -->
 	</div> <!-- blogcontainer -->
@@ -364,6 +364,12 @@
 	<div class="footer">
 	  <div class="halvecolumn">
 	    <img src="images/logo.png" class="footerlogo"/>	
+ 
+        <a data-gatag="contactus" href="javascript:contactus();" class="footercontactus">Contact Us</a>
+        <div>&nbsp;</div>
+
+
+		
 		<div>&nbsp;</div>
 	  </div>
 	  <div class="halvecolumn">
@@ -420,6 +426,13 @@ $( document ).ready(function() {
  setTimeout(applyPolStyles, timeout);
 
 });
+
+
+function contactus() {
+  var link = "m" + "ail" + "to" + ':';
+  link = link + "anna" + '.' + "soloviova" + "@" + "osmand.net";
+  window.location = link;
+}
  
 </script>
 </body>
