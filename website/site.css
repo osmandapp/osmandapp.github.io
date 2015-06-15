@@ -177,10 +177,10 @@ h1{font-weight:normal; font-size:3em; letter-spacing: 0.06em; padding-top:25px; 
 .whatyousay{background:#EDEDED; position:relative; padding:20px; }
 .whatyousaycontainer{position:relative; width:1100px; margin:0 auto; }
 .whatyousaycontainer .titleicon{position:absolute; width:60px; left:-80px; top:30px;}
-.whatyousaycontainer .badgescontainer{ text-align:center; position:relative; width:500px; margin-bottom:20px;}
+.whatyousaycontainer .badgescontainer{ text-align:center; position:relative; width:500px; margin-bottom:20px; margin-top:20px;}
 .whatyousaycontainer .badges {position:relative; left:0; top:0; width:800px; }
 .whatyousaycontainer .badges li {padding-left:30px;}
-.whatyousayblock{float:left; width:500px; padding-left:50px;  min-height:230px;}
+.whatyousayblock{float:left; width:500px; padding-left:90px;  min-height:230px;}
 .noleftpadding {padding-left:0;}
 .whatyousaymessage{position:relative; background-color:#fff; width:460px; padding:20px; font-style:italic; line-height:1.5em; -webkit-border-radius: 5px; -moz-border-radius: 7px; border-radius: 7px; -webkit-box-shadow: 2px 2px 5px #CAC8C3; -moz-box-shadow: 2px 2px 5px #CAC8C3; box-shadow: 2px 2px 5px #CAC8C3;}
 
