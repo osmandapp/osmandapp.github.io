@@ -180,10 +180,11 @@ h1{font-weight:normal; font-size:3em; letter-spacing: 0.06em; padding-top:25px; 
 .whatyousaycontainer .badgescontainer{ text-align:center; position:relative; width:500px; margin-bottom:20px;}
 .whatyousaycontainer .badges {position:relative; left:0; top:0; width:800px; }
 .whatyousaycontainer .badges li {padding-left:30px;}
-.whatyousayblock{float:left; width:500px; padding-left:50px;  min-height:250px;}
+.whatyousayblock{float:left; width:500px; padding-left:50px;  min-height:230px;}
 .noleftpadding {padding-left:0;}
-.whatyousaymessage{position:relative; background-color:#fff; width:460px; padding:20px; font-style:italic; line-height:1.5em; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; -webkit-box-shadow: 2px 2px 5px #CAC8C3; -moz-box-shadow: 2px 2px 5px #CAC8C3; box-shadow: 2px 2px 5px #CAC8C3;}
+.whatyousaymessage{position:relative; background-color:#fff; width:460px; padding:20px; font-style:italic; line-height:1.5em; -webkit-border-radius: 5px; -moz-border-radius: 7px; border-radius: 7px; -webkit-box-shadow: 2px 2px 5px #CAC8C3; -moz-box-shadow: 2px 2px 5px #CAC8C3; box-shadow: 2px 2px 5px #CAC8C3;}
 
 .whatyousayblock .signature{padding-left:10px; margin-top:20px;}
-.whatyousayblock .signature .source {color:#9A9A9A; font-size:0.7em; margin-top:5px; }
+.whatyousayblock .signature .name {font-weight:bold;}
+.whatyousayblock .signature .source {color:#9A9A9A; font-size:0.9em; margin-top:5px; }
 .whatyousaymessage img{position:absolute; bottom:-14px; left:28px; width:20px; }
