@@ -1,0 +1,22 @@
+<h1>OsmAnd 2.1</h1>
+<div class="date">April 29, 2015</div>
+<p>OsmAnd 2.1 release is out! This time, we focused on improving POI search and making your trips even more interactive through new Wikipedia data sorted by country. Besides that, the favorites get a backup. If an app corrupts for some reason, all your favorite places will be safe.</p>
+
+<h4>Wikipedia data</h4>
+Now you can choose to download Wikipedia files as you download the regular maps. Just hit the ‘W’ symbol to add wiki data to your download. To see the info, add the corresponding layer to your POI view.
+<p class="img"><img src="images/blog/2.1/wiki.png" /></p>
+<p class="img"><img src="images/blog/2.1/wiki_2.png" /></p>
+
+<h4>Routing</h4>
+<p>There are some important updates in the routing section. We’ve added turn arrows on route to make navigation easier. Also, the app now has a new routing recalculation algorithm: after several attempts to calculate the optimal route, it offers a different one.</p>
+<p class="img"><img class="help" src="images/blog/2.1/route1.png" /></p>
+<p class="img"><img class="help" src="images/blog/2.1/route2.png" /></p>
+
+
+<h4>New POI features</h4>
+<p>The POI that are closing in 30 minutes will be marked orange. This way, the travelers will be able to get more out of their sightseeing experiences and manage time right. Moreover, you can now use more specific queries (for instance, find the nearest church or the gas station with the specific fuel type you need).
+</p>
+<p class="img"><img class="help" src="images/blog/2.1/poi_1.png" /></p>
+<p class="img"><img class="help" src="images/blog/2.1/poi3.png" /></p>
+
+<p> Please feel free to tell us what you think and follow OsmAnd Maps on social media.
