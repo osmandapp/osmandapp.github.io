@@ -43,11 +43,11 @@
 	  <div class="headerlogo"></div>
 	  <ul class="menu">
 	  <li><a data-gatag="header_home" href="http://osmand.net">HOME</a></li>
-	  <li class="activeitem"><a data-gatag="header_blog" href="http://osmand.net/blog">BLOG</a></li>
+	  <li><a data-gatag="header_blog" href="http://osmand.net/blog">BLOG</a></li>
 	  <li><a data-gatag="header_help" href="http://osmand.net/help/">HELP</a></li>		
 	  <li><a data-gatag="header_dvr" href="http://dvr.osmand.net">DVR</a></li>	  
 	  </ul>
-	  <div class="headertext">BLOG</div>
+	  <div class="headertext">PLUGINS</div>
     </div> 
 	<div class="articles">
 	  <div class="articlescontainer">
