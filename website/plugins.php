@@ -1,6 +1,6 @@
 <?php
 				if (empty($_GET['id'])) {
-					$_GET['id'] ="contour-lines-plugin";
+					$_GET['id'] ="nautical-charts";
 		    	}	
 		    	?>		    	
 <!DOCTYPE html>
