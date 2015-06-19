@@ -1,0 +1,24 @@
+<h1>OsmAnd Contour lines plugin</h1>
+<div class="date">June 19, 2015</div>
+<p>This plugin reminds of good old physical maps form schools we used to have back in the day. It actually works several ways: as a ﻿terrain contour lines data provider and as a full hillshade map using dark shades and colors to show slopes, peaks and lowlands.</p>
+<img class="rightimage" src="images/plugins/hillshade_1new.png"/>
+<img class="rightimage" src="images/plugins/hillshade_2new.png"/>
+<img class="rightimage" src="images/plugins/hillshade_3new.png"/>
+<h2>Contour lines</h2>
+<p>To see the contours of a specific area, just go to map downloads, choose Contour lines in the upper menu bar (it is set to Regular maps by default) and get the region you need. Then zoom your desired area until you see the lines and zoom even more to check the height of a specific spot (the number on the line).</p>
+<h2>Hillshade</h2>
+<p>To see the visualization of a terrain, make sure you download the corresponding section of the map (switch to Hillshade overlay in the All downloads menu) and enable Hillshade in your map configurations, then relaunch the app.
+After that, you’ll be able to enjoy a map with all the hills and peaks. A nice option for both practical use and a general knowledge about the area you live on or travel to.</p>
+<p>The global data (between 70 degrees north and 70 degrees south) is based on measurements by SRTM (Shuttle Radar Topography Mission) and ASTER (Advanced Spaceborne Thermal Emission and Reflection Radiometer), an imaging instrument onboard Terra, the flagship satellite of NASA's Earth Observing System. ASTER is a cooperative effort between NASA, Japan's Ministry of Economy, Trade and Industry (METI), and Japan Space Systems (J-spacesystems).</p>
+<div style="clear:both;"></div>
+</div>
+
+
+
+
+
+
+
+
+
+
