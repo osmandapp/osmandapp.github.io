@@ -24,6 +24,10 @@ $(function() {
 	    sendGAEvent('mapexample', this);		
 	 }); 
 	 
+	 $('a.header_joinus').on('click', function(){
+	    sendGAEvent('joinus', this);		
+	 }); 
+	 
 });
 
 
