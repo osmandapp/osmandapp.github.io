@@ -49,16 +49,15 @@
 	  </ul>
 	  <div class="headertext">BLOG</div>
     </div> 
-	<div class="articles">
-<?php
+    <?php
         if ($_GET['id'] == '5_years') {
 ?>
-             <iframe src="http://cdn.knightlab.com/libs/timeline/latest/embed/index.html?source=13SophOj2oI_AO1lb9aAOWrZiZiW1saaPgseZdijtuEE&font=Bevan-PotanoSans&maptype=toner&lang=en&start_at_slide=1&height=650"/>
+             <iframe src="http://cdn.knightlab.com/libs/timeline/latest/embed/index.html?source=13SophOj2oI_AO1lb9aAOWrZiZiW1saaPgseZdijtuEE&font=Bevan-PotanoSans&maptype=toner&lang=en&start_at_slide=1&height=650" style="width:100%;height:650px"/>
 <?php  
         }
 ?>
-	  
-	  <div class="articlescontainer">
+	<div class="articles">
+			  <div class="articlescontainer">
 	    <ul class="articlelist">
 	      <li>
 		    <div class="article">
