@@ -1,6 +1,6 @@
 <?php
 				if (empty($_GET['id'])) {
-					$_GET['id'] ="osmand-2-1-released";
+					$_GET['id'] ="5_years";
 		    	}	
 		    	?>		    	
 <!DOCTYPE html>
@@ -86,6 +86,7 @@
 		  <h1>LATEST ARTICLES</h1>
 		  <div class="delimiter"></div>
 		  <ul class="articlelinklist">
+		  	<li><a data-gatag='osmand-5-years' href="http://osmand.net/blog?id=5_years" >5 years!</a></li>
 		  	<li><a data-gatag='osmand-2-1-released' href="http://osmand.net/blog?id=osmand-2-1-released" >OsmAnd 2.1</a></li>
 		  	<li><a data-gatag='osmand_ios_1_0_2' href="http://osmand.net/blog?id=osmand-ios-1.0.2" >OsmAnd 1.0.2 (iOS)</a></li>
 		  	<li><a data-gatag='osmand_2_0' href="http://osmand.net/blog?id=osmand-2-0-released" >OsmAnd 2.0</a></li>
