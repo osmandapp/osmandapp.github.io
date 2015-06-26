@@ -38,8 +38,11 @@
 
 <div class="maincontainer">
   <div class="main">
+  	  <?php
+        if ($_GET['id'] != '5_years') {
+?>
     <div class="simpleheader">
-	<div class="shadowline"></div>	  
+	  <div class="shadowline"></div>	  
 	  <div class="headerlogo"></div>
 	  <ul class="menu">
 	  <li><a data-gatag="header_home" href="http://osmand.net">HOME</a></li>
@@ -49,6 +52,9 @@
 	  </ul>
 	  <div class="headertext">BLOG</div>
     </div> 
+    <?php  
+        }
+?>
     <?php
         if ($_GET['id'] == '5_years') {
 ?>
