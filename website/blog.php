@@ -1,6 +1,7 @@
 <?php
 				if (empty($_GET['id'])) {
-					$_GET['id'] ="5_years";
+					$_GET['id'] ="osmand-ios-1.1.1-released.html
+";
 		    	}	
 		    	?>		    	
 <!DOCTYPE html>
