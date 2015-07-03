@@ -1,7 +1,6 @@
 <?php
 				if (empty($_GET['id'])) {
-					$_GET['id'] ="5_years
-";
+					$_GET['id'] ="5_years";
 		    	}	
 		    	?>		    	
 <!DOCTYPE html>
