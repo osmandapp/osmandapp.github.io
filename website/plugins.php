@@ -81,7 +81,7 @@
 		  	<li><a data-gatag='nautical_charts' href="http://osmand.net/plugins?id=nautical-charts" >Nautical charts</a></li>
 		  	<li><a data-gatag='contour-lines-plugin' href="http://osmand.net/plugins?id=contour-lines-plugin" >Contour lines plugin</a></li>
 		  	<li><a data-gatag='parking-plugin' href="http://osmand.net/plugins?id=parking-plugin" >Parking plugin</a></li>
-		  	<li><a data-gatag=' ski-plugin' href="http://osmand.net/plugins?id= ski-plugin" >Ski maps</a></li>
+		  	<li><a data-gatag='ski-plugin' href="http://osmand.net/plugins?id=ski-plugin" >Ski maps</a></li>
 
 		  </ul>
 		</div>
