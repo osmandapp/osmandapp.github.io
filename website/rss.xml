@@ -6,6 +6,24 @@
 <generator></generator>
 
 <item>
+<title>OsmAnd 1.1.1. for iOS released</title>
+<link>http://osmand.net/blog?id=osmand-ios-1.1.1-released</link>
+<description>
+<p>A new OsmAnd version for iOS is here! The update includes a convenient plugin, more improvements in the POI area and a nicer UI.</p>
+<h2>Offline Contour Lines Maps</h2>
+<p>This plugin, being much appreciated by Android users, is now available in the iOS version. It provides you with quite detail info on the terrain of a certain location and the heights. To get the plugin, just go to the in-app purchase area.</p>
+<img class="leftimage" height="400" src="images/blog/ios-1.1.1/ios_1-1_14.png" alt="TODO"/>
+<h2>POI improvements &amp; Wikipedia</h2>
+<p>Now you can get even more detailed info about POI and use Wikipedia articles offline.</p>
+<img src="images/blog/ios-1.1.1/ios_1-1_10.PNG" alt="Download contour lines &amp; wikipedia maps"/>
+<img src="images/blog/ios-1.1.1/ios_1-1_7.PNG" alt="Wikipedia search"/>
+<img src="images/blog/ios-1.1.1/ios_1-1_9.PNG" alt="Wikipedia article"/>
+<h2>New trip recording features and UI advancements</h2>
+<img class="leftimage" height="400" src="images/blog/ios-1.1.1/ios_1-1_5.PNG" alt="Add waypoints to recording track"/>
+<p>You can add new waypoints to the track while recording it or do the same with a new track without recording. Also, you&#39;ll see UI amendments called to make the use of the app better.</p>
+<br/>
+
+<item>
 <title>5 years with OsmAnd!</title>
 <link>http://osmand.net/blog?id=5_years</link>
 <description>
