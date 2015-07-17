@@ -78,6 +78,8 @@
 		  <h1>PLUGINS</h1>
 		  <div class="delimiter"></div>
 		  <ul class="articlelinklist">
+		  	<li><a data-gatag='audio-video-notes-plugin' href="http://osmand.net/plugins?id=audio-video-notes-plugin" >Audio/video notes plugin</a></li>
+		  	<li><a data-gatag='trip-recording-plugin' href="http://osmand.net/plugins?id=trip-recording-plugin" >Trip recording plugin</a></li>
 		  	<li><a data-gatag='nautical_charts' href="http://osmand.net/plugins?id=nautical-charts" >Nautical charts</a></li>
 		  	<li><a data-gatag='contour-lines-plugin' href="http://osmand.net/plugins?id=contour-lines-plugin" >Contour lines plugin</a></li>
 		  	<li><a data-gatag='parking-plugin' href="http://osmand.net/plugins?id=parking-plugin" >Parking plugin</a></li>
