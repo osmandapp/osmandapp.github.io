@@ -1,0 +1,11 @@
+<h1>OsmAnd Online maps plugin</h1>
+<div class="textandimagecontainer">
+<p>OsmAnd Online maps are an extensive addition to already comprehensive base of open street maps the application uses. With this plugin, you can add layers to your map, from those with general information from a different source, like satellite view, to quite specific data like fire hydrants&#39; locations.</p>
+
+<h2>How to use</h2>
+<p>It’s not just one map you add to the basic view, it’s two of them: choose an underlay and an overlay maps to combine three of them on one screen. For instance, you can open a basic OsmAnd map, then add a satellite view, then put cycling routes map underneath.</p>
+<p>But how to view all thee maps without getting lost in the details? Simply adjust which information from the map you need and set the transparency of the layer. For example, combining Microsotf Earth map with the basic OsmAnd map can be very helpful .You can hide all the excessive data from the map and simply overlay roads over the satellite images. To set the features you would like to hide from the current map, just go to Configure map - Hide and select buildings, polygons, boundaries or all of them together.</p>
+<h2>Save raster tiles</h2>
+<p>Despite the maps being called ‘online’, you can use them without the internet, as well. You just have to save the parts of maps (often called tiles) to get them later. To do that, download a specific Map Creator tool developed by OsmAnd.</p>
+<p>Select the area you need to download, click Preload area, then set the smallest and the largest zoom levels you want to have and download tiles. Copy them to your phone’s osmand/tiles/*tile type* folder. You’ll also need to go to Configure map - Overlay map and choose OsmAnd online tiles.</p>
+<p>Online tiles can be helpful when you need just a small section of map or when you need a specific type of map to use in the limited area, but don’t want to download the whole region. They can come in handy in endless situations.</p>
