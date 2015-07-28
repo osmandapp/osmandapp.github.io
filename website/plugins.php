@@ -78,7 +78,7 @@
 		  <h1>PLUGINS</h1>
 		  <div class="delimiter"></div>
 		  <ul class="articlelinklist">
-		  	<li><a data-gatag='osm-editing-plugin' href="http://osmand.net/plugins?id=osm-editing-plugin.html" >OSM Editing Plugin</a></li>
+		  	<li><a data-gatag='osm-editing-plugin' href="http://osmand.net/plugins?id=osm-editing-plugin" >OSM Editing Plugin</a></li>
 		  	<li><a data-gatag='online-maps-plugin' href="http://osmand.net/plugins?id=online-maps-plugin" >Online maps plugin</a></li>
 		  	<li><a data-gatag='audio-video-notes-plugin' href="http://osmand.net/plugins?id=audio-video-notes-plugin" >Audio/video notes plugin</a></li>
 		  	<li><a data-gatag='trip-recording-plugin' href="http://osmand.net/plugins?id=trip-recording-plugin" >Trip recording plugin</a></li>
