@@ -1,8 +1,8 @@
 <?php
-				if (empty($_GET['id'])) {
-					$_GET['id'] ="nautical-charts";
-		    	}	
-		    	?>		    	
+	if (empty($_GET['id'])) {
+		$_GET['id'] ="online-maps-plugin";
+	}	
+?>		    	
 <!DOCTYPE html>
 <html>
 
@@ -75,19 +75,18 @@
 		  
 	    </ul>
 		<div class="acticlestitles">
-		  <h1>PLUGINS</h1>
+		  <h1>FEATURES</h1>
 		  <div class="delimiter"></div>
 		  <ul class="articlelinklist">
-		  <li><a data-gatag='distance-calculator-and-planning-tool' href="http://osmand.net/plugins?id=distance-calculator-and-planning-tool" >Distance calculator & planning tool</a></li>
-		  	<li><a data-gatag='osm-editing-plugin' href="http://osmand.net/plugins?id=osm-editing-plugin" >OSM Editing Plugin</a></li>
-		  	<li><a data-gatag='online-maps-plugin' href="http://osmand.net/plugins?id=online-maps-plugin" >Online maps plugin</a></li>
-		  	<li><a data-gatag='audio-video-notes-plugin' href="http://osmand.net/plugins?id=audio-video-notes-plugin" >Audio/video notes plugin</a></li>
-		  	<li><a data-gatag='trip-recording-plugin' href="http://osmand.net/plugins?id=trip-recording-plugin" >Trip recording plugin</a></li>
-		  	<li><a data-gatag='nautical_charts' href="http://osmand.net/plugins?id=nautical-charts" >Nautical charts</a></li>
-		  	<li><a data-gatag='contour-lines-plugin' href="http://osmand.net/plugins?id=contour-lines-plugin" >Contour lines plugin</a></li>
-		  	<li><a data-gatag='parking-plugin' href="http://osmand.net/plugins?id=parking-plugin" >Parking plugin</a></li>
-		  	<li><a data-gatag='ski-plugin' href="http://osmand.net/plugins?id=ski-plugin" >Ski maps</a></li>
-
+		  	<li><a data-gatag='online-maps-plugin' href="http://osmand.net/plugins?id=online-maps-plugin">Online maps (Plugin)</a></li>
+		  	<li><a data-gatag='contour-lines-plugin' href="http://osmand.net/plugins?id=contour-lines-plugin" >Contour lines and hillshade (Plugin)</a></li>
+		  	<li><a data-gatag='trip-recording-plugin' href="http://osmand.net/plugins?id=trip-recording-plugin" >Trip recording (Plugin)</a></li>
+		  	<li><a data-gatag='ski-plugin' href="http://osmand.net/plugins?id=ski-plugin" >Ski maps (Plugin)</a></li>
+		  	<li><a data-gatag='nautical_charts' href="http://osmand.net/plugins?id=nautical-charts" >Nautical charts (Plugin)</a></li>
+		  	<li><a data-gatag='audio-video-notes-plugin' href="http://osmand.net/plugins?id=audio-video-notes-plugin" >Audio/video notes (Plugin)</a></li>
+		  	<li><a data-gatag='osm-editing-plugin' href="http://osmand.net/plugins?id=osm-editing-plugin">OSM editing (Plugin)</a></li>
+		  	<li><a data-gatag='distance-calculator-and-planning-tool' href="http://osmand.net/plugins?id=distance-calculator-and-planning-tool">Distance calculator (Plugin)</a></li>
+		  	<li><a data-gatag='parking-plugin' href="http://osmand.net/plugins?id=parking-plugin" >Parking (Plugin)</a></li>
 		  </ul>
 		</div>
 	  </div>
@@ -113,7 +112,7 @@
 	    
 		  <ul>
 		  <div class="footerlinkstitle">VERSIONS</div>  
-		    <li><a data-gatag="releases" href="http://download.osmand.net/releases/">OsmAnd Releases</a></li>
+		    	<li><a data-gatag="releases" href="http://download.osmand.net/releases/">OsmAnd Releases</a></li>
 			<li><a data-gatag="map_creator" href="http://download.osmand.net/latest-night-build/OsmAndMapCreator-main.zip">OsmAnd Map Creator</a></li>
 			<li><a data-gatag="nightly_build" href="http://download.osmand.net/latest-night-build/OsmAnd-default.apk">OsmAnd Nightly Build
 			</a></li>
