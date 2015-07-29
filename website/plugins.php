@@ -47,7 +47,7 @@
 	  <li><a data-gatag="header_help" href="http://osmand.net/help/">HELP</a></li>		
 	  <li><a data-gatag="header_dvr" href="http://dvr.osmand.net">DVR</a></li>	  
 	  </ul>
-	  <div class="headertext">PLUGINS</div>
+	  <div class="headertext">FEATURES</div>
     </div> 
 	<div class="articles">
 	  <div class="articlescontainer">
