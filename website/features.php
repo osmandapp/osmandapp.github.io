@@ -55,7 +55,7 @@
 	      <li>
 		    <div class="article">
 		    <?php
-		    	echo file_get_contents("plugin_articles/".$_GET['id'].".html");
+		    	echo file_get_contents("feature_articles/".$_GET['id'].".html");
 			?>
 			
 		    </div>
