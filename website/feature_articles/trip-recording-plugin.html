@@ -43,3 +43,29 @@ RouteConverter can edit and convert GPX tracks and tracks from many other format
 <b>CAUTION</b> Recording a track impacts the battery life: even if the screen is off, it continues to run. Check it using the notification that OsmAnd is running in the background in your status bar. 
 <p>Increasing battery life</p>
 <p>Hint: Before putting the device to sleep mode on a long hike, press the home button so the OsmAnd app goes to the background. If OsmAnd remains in the foreground and the device is often turned on even briefly (maybe even accidentally, like by shifting in your pocket or backpack), then GPS would be activated each time with very noticeable impact on you battery life. In remote areas with bad or no cell reception, you can also set the device to "Flight mode" (but with GPS on) to save the battery by preventing the cell phone using high transmission power to look for transmission towers. You can get good 20 hours of recording GPX tracks on hikes with the above parameters.</p>
+<h2>Online tracking</h2>
+<p>You can set up your phone to track its location. T do that, go to Settings - Plugins - Trip recording and tap Settings, then choose Online Tracking. To make it possible, you also have to provide a valid link.</p>
+<p>Make a Google Spreadsheet and name it. Then go to Tools - Scrip Editor - Create script for  - Blank project. In your spreadsheet, copy the key from the URL field. It is a set of numbers like this: </p>
+<p>https://docs.google.com/spreadsheets/d/<b>1ev_1UaENcl7ukWsE-tnO6ixVxFdn0OlNhTHKAHUHjEg</b>/edit#gid=0</p>
+<p>Go back to the script.</p>
+<p>Delete everything. Insert this code:</p>
+<p>function doGet(e) {</p>
+<p>var app = UiApp.createApplication();</p>
+<p>var sp = SpreadsheetApp.openById("0Ana......");</p>
+<p>// insert new row</p>
+<p>sp.insertRowBefore(1);</p>
+<p>if(e) {</p>
+<p>var d = new Date( Date( e.parameter.timestamp));</p>
+<p>sp.getRange( "A1").setValue( parseFloat( e.parameter.lat));</p>
+<p>sp.getRange( "B1").setValue( parseFloat( e.parameter.lon));</p>
+<p> sp.getRange( "F1").setValue( Math.round(( parseFloat( e.parameter.speed / 1000 * 60 *60))) + " km/h");</p>
+<p>sp.getRange( "D1").setValue( parseFloat( e.parameter.altitude));</p>
+<p>sp.getRange( "E1").setValue( parseFloat( e.parameter.hdop));</p>
+<p>sp.getRange( "C1").setValue( d);</p>
+<p> }</p>
+<p>return app;</p>
+<p> } </p>
+<p>Paste your Spreadsheet key instead of <b>0Ana......</b></p>
+<p>Save and go to Publish - Deploy as web app - set access as Anyone, even anonymous.</p>
+<p>Now your movements will be exported to that spreadsheet as coordinates. You'll find speed information in the document. You can also set tracking interval.</p>
+<p>Setup own server: because Google deprecates lots of stuff, please think of own server <a href="http://www.heise.de/ct/projekte/machmit/mylieu/browser/Server">machmit/mylieu/browser/Server ksmapper.blogspot.co.at</a> or end to end solution like <a href="http://osmodroid.ru/">http://osmodroid.ru/</a></p>
