@@ -49,10 +49,9 @@ RouteConverter can edit and convert GPX tracks and tracks from many other format
 <p>https://docs.google.com/spreadsheets/d/<b>1ev_1UaENcl7ukWsE-tnO6ixVxFdn0OlNhTHKAHUHjEg</b>/edit#gid=0</p>
 <p>Go back to the script.</p>
 <p>Delete everything. Insert this code:</p>
-<p>function doGet(e) {</p>
+<font size="2">This is some text!<p>function doGet(e) {</p>
 <p>var app = UiApp.createApplication();</p>
 <p>var sp = SpreadsheetApp.openById("0Ana......");</p>
-<p>// insert new row</p>
 <p>sp.insertRowBefore(1);</p>
 <p>if(e) {</p>
 <p>var d = new Date( Date( e.parameter.timestamp));</p>
@@ -64,7 +63,7 @@ RouteConverter can edit and convert GPX tracks and tracks from many other format
 <p>sp.getRange( "C1").setValue( d);</p>
 <p> }</p>
 <p>return app;</p>
-<p> } </p>
+<p> } </font></p>
 <p>Paste your Spreadsheet key instead of <b>0Ana......</b></p>
 <p>Save and go to Publish - Deploy as web app - set access as Anyone, even anonymous.</p>
 <p>Now your movements will be exported to that spreadsheet as coordinates. You'll find speed information in the document. You can also set tracking interval.</p>
