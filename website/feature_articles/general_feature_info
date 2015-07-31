@@ -1,0 +1,68 @@
+<h1>OsmAnd Features</h1>
+<p>OsmAnd app is designed with quite a large number of default features, however, there is a possibility to add even more. There are plugins often available for free that are intended to help with specific situations. You can download a tool for better parking, winter sports locations’ maps, etc. Here, we’ll review some of them briefly.</p>
+<h2>Online maps</h2>
+<p>Online maps plugin allows you to put new layers of information onto your map. Choose the map source by yourself and add up to two layers to map's main view. The plugin's helpful for smaller areas if you don't need a whole map of the country.</p>
+<table class="layout" cellspacing="0">
+   <tr>
+    <td class="col1">Price: free</td>
+    <td class="col2"><a href="http://osmand.net/features?id=online-maps-plugin">Details</a></td>
+   </tr>
+   </table>
+   <h2>OsmAnd Contour lines plugin</h2>
+   <p>The plugin allows you to see the information about heights of the terrain (contour lines) and see its visualization by enabling the hillshade. If you combine these two features, you’ll get both the information in numbers and its visual representation. Regular, contour and hillshade maps are three different types of downloads.</p>
+   <table class="layout" cellspacing="0">
+   <tr>
+    <td class="col1">Price: paid</td>
+    <td class="col2"><a href="http://osmand.net/features?id=contour-lines-plugin">Details</a></td>
+    <td class="col2"><a href="https://play.google.com/store/apps/details?id=net.osmand.srtmPlugin.paid">Download</a></td>
+   </tr>
+   </table>
+   <h2>OsmAnd Trip recording tool</h2>
+   <p>This feature allows you to record your trip and save it as a GPX file. It uses your phone’s GPS to track your movement. You can view the route you’ve traveled, send it to Open Street Map project or upload it to external services.</p>
+ <table class="layout" cellspacing="0">
+   <tr>
+    <td class="col1">Price: free</td>
+    <td class="col2"><a href="http://osmand.net/features?id=trip-recording-plugin">Details</a></td>
+   </tr>
+   </table>
+   <h2>OsmAnd Ski maps</h2>
+   <p>These maps are intended to help you navigate at winter sports locations. They contain the information about sports facilities, ski pistes, and even approximate track complexity.</p>
+   <table class="layout" cellspacing="0">
+   <tr>
+    <td class="col1">Price: free</td>
+    <td class="col2"><a href="http://osmand.net/features?id=ski-plugin">Details</a></td>
+    <td class="col2"><a href="https://play.google.com/store/apps/details?id=net.osmand.skimapsPlugin">Download</a></td>
+   </tr>
+   </table>
+   <h2>Nautical charts</h2>
+   <p>Just like land Open Street Maps, Nautical charts are open-source maps. They provide you with the information about seas, rivers, harbors, etc. including sailing routes, dangerous areas, ?areas where it's allowed or not allowed to sail or dock, etc. They are no substitute for official nautical charts sailors are required to have on vessels, but can be a great additional tool.</p>
+   <td class="col1">Price: free</td>
+    <td class="col2"><a href="http://osmand.net/features?id=ski-plugin">Details</a></td>
+    <td class="col2"><a href="https://play.google.com/store/apps/details?id=net.osmand.nauticalPlugin">Download</a></td>
+   </tr>
+   </table>
+<h2>OsmAnd Audio/video notes plugin</h2>
+<p>This plugin helps you save memories during trips and connect them to your route. Take photos, make videos? or audio notes. You can also export them to view in different software.</p>
+  <td class="col1">Price: free</td>
+  <td class="col2"><a href="http://osmand.net/features?id=ski-plugin">Details</a></td>
+    </tr>
+   </table>
+   <h2>OSM Editing plugin</h2>
+   <p>Want to edit the map by yourself? Take a glance at OSM editing plugin. OsmAnd uses the maps created at <a href="https://openstreetmap.org">Open Street Map</a> project, a collaborative community of volunteers who make maps and update them. If you’d like to try it yourself, just enable the plugin and update the information about the points of interest at any location. For wider possibilities, please join <a href="https://openstreetmap.org">Open Street Map</a>.</p>
+   <td class="col1">Price: free</td>
+    <td class="col2"><a href="http://osmand.net/features?id=osm-editing-plugin">Details</a></td>
+    </tr>
+   </table>
+   <h2>Distance calculator & planning tool</h2>
+   <p>This tool allows you to measure the distance between two or more points connected by straight lines, make and edit GPX files.</p>
+   <td class="col1">Price: free</td>
+    <td class="col2"><a href="http://osmand.net/features?id=distance-calculator-and-planning-tool">Details</a></td>
+   </tr>
+   </table>
+   <h2>Parking plugin</h2>
+   <p>It is a plugin called to remind you of your exact parking spot and the time when your parking time runs out (optional). This is especially helpful when you travel to a new location.</p>
+   <td class="col1">Price: free</td>
+    <td class="col2"><a href="http://osmand.net/features?id=parking-plugin">Details</a></td>
+    <td class="col2"><a href="https://play.google.com/store/apps/details?id=net.osmand.parkingPlugin">Download</a></td>
+   </tr>
+   </table>
