@@ -21,8 +21,8 @@
 <img class="leftimage" height="400" src="images/blog/ios-1.1.1/ios_1-1_5.PNG" alt="Add waypoints to recording track"/>
 <p>You can add new waypoints to the track while recording it or do the same with a new track without recording. Also, you&#39;ll see UI amendments called to make the use of the app better.</p>
 </description>
-<br/>
 </item>
+
 <item>
 <title>5 years with OsmAnd!</title>
 <link>http://osmand.net/blog?id=5_years</link>
@@ -33,6 +33,7 @@
 </description>
 <br/>
 </item>
+
 <item>
 <description>
 <p>Viktor Shcherb, CEO</p>
