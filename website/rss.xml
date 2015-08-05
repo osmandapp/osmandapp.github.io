@@ -2,7 +2,6 @@
 <channel>
 <title>OsmAnd blog</title>
 <link>http://osmand.net/blog</link>
-<description/>
 <generator></generator>
 
 <item>
@@ -21,8 +20,9 @@
 <h2>New trip recording features and UI advancements</h2>
 <img class="leftimage" height="400" src="images/blog/ios-1.1.1/ios_1-1_5.PNG" alt="Add waypoints to recording track"/>
 <p>You can add new waypoints to the track while recording it or do the same with a new track without recording. Also, you&#39;ll see UI amendments called to make the use of the app better.</p>
+</description>
 <br/>
-
+</item>
 <item>
 <title>5 years with OsmAnd!</title>
 <link>http://osmand.net/blog?id=5_years</link>
@@ -30,8 +30,11 @@
 <p>5 years with OsmAnd!</p>
 <img src="5years_blog.png" />
 <p>Hard to believe, but it' s been 5 years since OsmAnd app appeared in the market. To recap the highlights of our work so far, we decided to ask OsmAnd team members how do they feel about working here, why they chose to work on a navigation app and more.</p>
+</description>
 <br/>
-
+</item>
+<item>
+<description>
 <p>Viktor Shcherb, CEO</p>
 <p><b>What does #osmandme mean to you?</b></p>
 <p>First of all, it means the favorite map &amp; navigation tool. All the operations I do myself I do with OsmAnd. Before I had a navigation tool, I used paper maps for the most operations and I still love them. Nowadays, I can' t imagine my normal life without OsmAnd, it covers most of the aspects of outdoor activities: hiking, going to restaurant, tourism, boat trips, forest walks and, of course, car travels. Surprisingly, I read #osmandme as ' OSM and Me' and OsmAnd is a tool to use these features. I need to confess, I have a crazy idea to extend OsmAnd and use all the features that OSM data can provide). By the way, it was a conscious decision to put OSM in the name of the product. I believe in OSM and I would like to thank all OSM contributors.</p>
@@ -51,7 +54,6 @@
 </item>
 
 <item>
-	
 <title>OsmAnd 2.1</title>
 <link>http://osmand.net/blog?id=osmand-osmand-2-1-released</link>
 <description>
@@ -95,7 +97,6 @@
 <description>
 <p>We are glad to announce that iPhone version of OsmAnd is released.</p>
 <p>This version contains the most used functionality of Android version together with significantly improved user interface, which we believe is a good combination.</p>
-			
 </description>
 <pubDate>Sun, 19 Apr 2015 12:30:40 +0100</pubDate>
 </item>
@@ -114,6 +115,5 @@
 </description>
 <pubDate>Fri, 20 Mar 2015 18:30:40 +0100</pubDate>
 </item>
-
 </channel>
 </rss>
