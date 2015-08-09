@@ -21,8 +21,6 @@
 <script src="https://apis.google.com/js/platform.js" async defer>
 </script>
 
-<script type="text/javascript" src="scripts/ga-init.js"></script>
-<script type="text/javascript" src="scripts/ga-blog.js"></script>
 </head>
 <body>
 
