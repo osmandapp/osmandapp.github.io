@@ -16,7 +16,7 @@
 <li><a href="#change_maps_dir">How to move OsmAnd's home (maps) folder to the external SD card?</a></li>
 <li><a href="#failed_to_use_sdcard_on_4_4">How do I use my SD Card with OsmAnd under Android 4.4+ ?</a></li>
 <li><a href="#osmand_installation_failed">OsmAnd+ installation on the SD card fails</a></li>
-<li><a href="#importing_gpx">I have a GPX file, how do I get it into OsmAnd?</a></li>
+<li><a href="#importing_gpx">I have a GPX file, how do I import it into OsmAnd?</a></li>
 <li><a href="#contour_lines_not_visible">Contour lines are not showing up</a></li>
 <li><a href="#countour_lines_feet">Is there a way to have the Contour Lines display in feet also, instead of meters? </a></li>
 <li><a href="#installation_issue">I can't install or upgrade the app</a></li>
@@ -81,9 +81,20 @@
 <div class="subtitle" id="change_maps_dir">How to move OsmAnd's home (maps) folder to the external SD card?</div>
 <div class="content">In order to move the OsmAnd home (maps) folder to an external SD card:</div>
 <ul class="list">
-<li> Go to Settings (on the start screen) → General → Storage directory. </li>
-<li> Change the value to /storage/extSdCard</li>
-<li> Then move the /osmand folder to the external SD card (via connecting the device to a computer as an external drive, or using a file manager (like Astro or any other) on the device itself.</li>
+<li> Tap on the "Gear" icon (on the main menu) → General settings → Data storage folder. </li>
+<li> You must select amongst the following options : 
+<ul>
+    <li> Internal memory : eg /storage/emulated/0/osmand </li>
+    <li> External storage 1 : eg /storage/emulated/0/Android/data/net.osmand/files </li>
+    <li> External storage 2 (SD card) : eg /storage/sdcard1/Android/data/net.osmand/files </li>
+    <li> Multiuser storage 1 : eg /storage/emulated/0/Android/obb/net.osmand </li>
+    <li> Multiuser storage 2 (SD card) : eg /storage/sdcard1/Android/obb/net.osmand </li>
+    <li> Internal application memory : eg /data/data/net.osmand/no_backup </li>
+    <li> Manually specified </li>
+</ul>
+</li>
+<li> Select "External storage 2".</li>
+<li> Click "Copy" on the prompt asking whether Osmand should also copy its data files to the new destination.</li>
 </ul>
 </div>
 
@@ -123,10 +134,10 @@ Copies can also be invoked in OsmAnd itself via Menu/Settings/General/Data stora
 </div>
 
 <div class="question">
-<div class="subtitle" id="importing_gpx">I have a GPX file, how do I get it into OsmAnd?</div>
+<div class="subtitle" id="importing_gpx">I have a GPX file, how do I import it into OsmAnd?</div>
 <ul class="list">
   <li>You can download and open it via File Browser or Dropbox and select OsmAnd as a target application</li>
-  <li>You can put it in OsmAnd home folder : osmand/tracks/(optional_sub-folder)/your_file.gpx</li>
+  <li>You can put it in the path <osmand_home>/tracks/(optional_sub-folder)/your_file.gpx where <osmand_home> is defined as the "Data Storage folder" property value of your configuration</li>
 </ul>
 </div>
 
