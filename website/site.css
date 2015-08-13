@@ -27,6 +27,8 @@ h1{font-weight:normal; font-size:3em; letter-spacing: 0.06em; padding-top:25px; 
 .badges li.first {padding-left:0;}
 .badges li img{height:45px; border:none;}
 .header .blogbutton{position:absolute; top:30%; right:12%; height:280px; width:280px; background-color:rgb(255, 143, 0); color:#fff; text-align:center; font-weight:bold;  max-width:20%; overflow:hidden; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px;}
+.badges li.survey{float:none;  padding-left:0; line-height:120px; clear:left;}
+.badges .surveylink {padding:10px 20px; background-color:rgb(255, 143, 0); color:#fff;  -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; text-decoration:none;}
 .header .five {font-size:120pt; line-height:130pt; }
 .header .years {font-size:28pt; letter-spacing:0.15em;}
 .header .joinus{font-size:14pt; padding-top:17px; text-decoration:underline; letter-spacing:0.3em;}
