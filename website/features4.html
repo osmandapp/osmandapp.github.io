@@ -1,8 +1,4 @@
-<?php
-	if (empty($_GET['id'])) {
-		$_GET['id'] ="general";
-	}	
-?>		    	
+	    	
 <!DOCTYPE html>
 <html>
 
@@ -12,22 +8,12 @@
 <title>OsmAnd - Offline Mobile Maps and Navigation
 </title>
 
-<link rel="stylesheet" type="text/css" href="site3.css"/>
+<link rel="stylesheet" type="text/css" href="site4.css"/>
 <script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
 
 
 </head>
 <body>
-
-<!-- for FB-->
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
 
 <div class="maincontainer">
   <div class="main">
@@ -43,11 +29,11 @@
 	  </ul>
 	  <div class="headertext">FEATURES</div>
     </div> 
-	<div class="articles">
-	  <div class="articlescontainer">
+	
 	  
-			   <p>OsmAnd app is designed with quite a large number of default features, however, there is a possibility to add even more. There are plugins often available for free that are intended to help with specific situations. You can download a tool for better parking, winter sports locations, maps, etc. Here, we'll review some of them briefly.</p>
+			   <div class="plugins">
 			    <div class="pluginscontainer">
+				  <p class="introduction">OsmAnd app is designed with quite a large number of default features, however, there is a possibility to add even more. There are plugins often available for free that are intended to help with specific situations. You can download a tool for better parking, winter sports locations, maps, etc. Here, we'll review some of them briefly.</p>
 				  <div class="feature firstusage">
 				    <div class="description">					  
 				      <h1>First usage</h1>
@@ -69,8 +55,9 @@
 					  <p>Online maps plugin allows you to put new layers of information onto your map. Choose the map source by yourself and add up to two layers to map's main view. The plugin's helpful for smaller areas if you don't need a whole map of the country.</p>
 					  <div class="buttonscontainer">
 					    <div class="buttons">
+						  <div class="readmore"><a href="http://osmand.net/features?id=online-maps-plugin">Read more</a></div>
 		    			  <div class="pricetype">Price:<span class="pricetypevalue">Free</span></div>
-			    		  <div class="readmore"><a href="http://osmand.net/features?id=online-maps-plugin">Read more</a></div>
+			    		  
 			      	    </div>
 					  </div>
 					</div>	
@@ -90,9 +77,10 @@
 						<p>This plugin allows you to see the information about heights of the terrain (contour lines) and see its visualization by enabling the hillshade. If you combine these two features, you&#39;ll get both the information in numbers and its visual representation. Regular, contour and hillshade maps are three different types of downloads.</p>
 					  <div class="buttonscontainer">
 					    <div class="buttons">
+						  <div class="readmore"><a href="http://osmand.net/features?id=contour-lines-plugin">Read more</a></div>
 						  <div class="getbutton"><a href="https://play.google.com/store/apps/details?id=net.osmand.srtmPlugin.paid">GET</a></div>
 		    			  <div class="pricetype">Price:<span class="pricetypevalue">Paid</span></div>
-			    		  <div class="readmore"><a href="http://osmand.net/features?id=contour-lines-plugin">Read more</a></div>
+			    		  
 			      	    </div>
 					  </div>
 					</div>	
@@ -113,8 +101,9 @@
 						<p>This feature allows you to record your trip and save it as a GPX file. It uses your phone&#39;s GPS to track your movement. You can view the route you&#39;ve traveled, send it to Open Street Map project or upload it to external services.</p>
 					  <div class="buttonscontainer">
 					    <div class="buttons">
+						  <div class="readmore"><a href="http://osmand.net/features?id=trip-recording-plugin">Read more</a></div>
 		    			  <div class="pricetype">Price:<span class="pricetypevalue">Free</span></div>
-			    		  <div class="readmore"><a href="http://osmand.net/features?id=trip-recording-plugin">Read more</a></div>
+			    		  
 			      	    </div>
 					  </div>
 					</div>	
@@ -136,9 +125,9 @@
 						<p>These maps are intended to help you navigate at winter sports locations. They contain the information about sports facilities, ski pistes, and even approximate track complexity.</p>
 					  <div class="buttonscontainer">
 					    <div class="buttons">
+						  <div class="readmore"><a href="http://osmand.net/features?id=ski-plugin">Read more</a></div>
 						  <div class="getbutton"><a href="https://play.google.com/store/apps/details?id=net.osmand.skimapsPlugin">GET</a></div>
-		    			  <div class="pricetype">Price:<span class="pricetypevalue">Free</span></div>
-			    		  <div class="readmore"><a href="http://osmand.net/features?id=ski-plugin">Read more</a></div>
+		    			  <div class="pricetype">Price:<span class="pricetypevalue">Free</span></div>			    		  
 			      	    </div>
 					  </div>
 					</div>	
@@ -159,9 +148,9 @@
 						<p>Just like land Open Street Maps, Nautical charts are open-source maps. They provide you with the information about seas, rivers, harbors, etc. including sailing routes, dangerous areas, ?areas where it's allowed or not allowed to sail or dock, etc. They are no substitute for official nautical charts sailors are required to have on vessels, but can be a great additional tool.</p>
 					  <div class="buttonscontainer">
 					    <div class="buttons">
+						  <div class="readmore"><a href="http://osmand.net/features?id=nautical-charts">Read more</a></div>
 						  <div class="getbutton"><a href="https://play.google.com/store/apps/details?id=net.osmand.nauticalPlugin">GET</a></div>
-		    			  <div class="pricetype">Price:<span class="pricetypevalue">Free</span></div>
-			    		  <div class="readmore"><a href="http://osmand.net/features?id=nautical-charts">Read more</a></div>
+		    			  <div class="pricetype">Price:<span class="pricetypevalue">Free</span></div>			    		  
 			      	    </div>
 					  </div>
 					</div>	
@@ -182,8 +171,9 @@
 						<p>This plugin helps you save memories during trips and connect them to your route. Take photos, make videos? or audio notes. You can also export them to view in different software.</p>
 					  <div class="buttonscontainer">
 					    <div class="buttons">
+						   <div class="readmore"><a href="http://osmand.net/features?id=audio-video-notes-plugin">Read more</a></div>
 		    			  <div class="pricetype">Price:<span class="pricetypevalue">Free</span></div>
-			    		  <div class="readmore"><a href="http://osmand.net/features?id=audio-video-notes-plugin">Read more</a></div>
+			    		 
 			      	    </div>
 					  </div>
 					</div>	
@@ -204,8 +194,9 @@
 						<p>Want to edit the map by yourself? Take a glance at OSM editing plugin. OsmAnd uses the maps created at <a href="https://openstreetmap.org" target="_blank">Open Street Map</a> project, a collaborative community of volunteers who make maps and update them. If you&#39;d like to try it yourself, just enable the plugin and update the information about the points of interest at any location. For wider possibilities, please join <a href="https://openstreetmap.org" target="_blank">Open Street Map</a>.</p>
 					  <div class="buttonscontainer">
 					    <div class="buttons">
+						  <div class="readmore"><a href="http://osmand.net/features?id=osm-editing-plugin">Read more</a></div>
 		    			  <div class="pricetype">Price:<span class="pricetypevalue">Free</span></div>
-			    		  <div class="readmore"><a href="http://osmand.net/features?id=osm-editing-plugin">Read more</a></div>
+			    		  
 			      	    </div>
 					  </div>
 					</div>	
@@ -225,8 +216,9 @@
 						<p>This tool allows you to measure the distance between two or more points connected by straight lines, make and edit GPX files.</p>
 					  <div class="buttonscontainer">
 					    <div class="buttons">
+						  <div class="readmore"><a href="http://osmand.net/features?id=distance-calculator-and-planning-tool">Read more</a></div>
 		    			  <div class="pricetype">Price:<span class="pricetypevalue">Free</span></div>
-			    		  <div class="readmore"><a href="http://osmand.net/features?id=distance-calculator-and-planning-tool">Read more</a></div>
+			    		  
 			      	    </div>
 					  </div>
 					</div>	
@@ -244,12 +236,13 @@
 				      <h1>Parking</h1>
 				      <div class="featuretype">Plugin</div>					
 						<p>It is a plugin called to remind you of your exact parking spot and the time when your parking time runs out (optional). This is especially helpful when you travel to a new location.</p>
-					  <div class="buttonscontainer">
-					    <div class="buttons">
+					  <div class="buttonscontainer">					    
+					    <div class="buttons">	
+                          <div class="readmore"><a href="http://osmand.net/features?id=parking-plugin">Read more</a></div>						
 						  <div class="getbutton"><a href="https://play.google.com/store/apps/details?id=net.osmand.parkingPlugin">GET</a></div>
-		    			  <div class="pricetype">Price:<span class="pricetypevalue">Free</span></div>
-			    		  <div class="readmore"><a href="http://osmand.net/features?id=parking-plugin">Read more</a></div>
+		    			  <div class="pricetype">Price:<span class="pricetypevalue">Free</span></div>			    		
 			      	    </div>
+						
 					  </div>
 					</div>	
                     <div class="screenshot">
@@ -276,12 +269,12 @@
 					   
                     </div>
 					<div class="clear" ></div>					
-				  </div>			
+				  </div>	
+                  <div class="clear" ></div>					  
 		    </div>
 		
 	
-	  </div>
-	</div>
+          </div>
 	<div class="footer">
 	  <div class="halvecolumn">
 	    <img src="images/logo.png" class="footerlogo"/>	
@@ -324,8 +317,7 @@
   </div>
 </div>
 
-<!-- for twitter-->
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></div>
+</div>
 </body>
 
 </html>

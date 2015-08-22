@@ -199,32 +199,36 @@ h1{font-weight:normal; font-size:3em; letter-spacing: 0.06em; padding-top:25px; 
 
 
 /***********************PLUGINS******************************************/
-.pluginscontainer {}
-.feature {position:relative; margin-bottom:30px; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; position:relative; min-height:410px;}
+.plugins { position:relative; background:#fff;}
+.pluginscontainer{width:1100px; margin:0 auto;}
+
+.plugins .introduction {margin:0; padding:40px 0;}
+.feature {position:relative; margin-bottom:30px; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; position:relative;height:575px; width:495px; float:left; margin-right:10px;}
 .feature .description {width:50%; position:absolute; height:100%; left:0; top:0;  background-color:rgba(255, 143, 0, .8); color:#fff; -webkit-border-radius: 5px 0px 0px 5px; -moz-border-radius: 5px 0px 0px 5px; border-radius: 5px 0px 0px 5px;}
 .feature .descriptioncontent {position:relative; padding:40px;}
-.feature .description h1{font-size:34px; padding:40px;}
+.feature .description h1{font-size:34px; padding:40px; line-height: 40px;}
 .feature .description p{padding:0px 40px; margin:0; margin-bottom:100px;}
 .feature .readmore {position:absolute; bottom:40px; left:40px; color:#fff; text-decoration:none; padding:10px; border:1px solid #fff; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;}
-.feature.firstusage {background-image:url(images/features/first_usage.jpg); }
-.feature.navigation {background-image:url(images/features/navigation.jpg);}
-.plugin{ background-color:#F6F6F6; padding-left:30px; padding-right:15px; position:relative; margin-bottom:30px; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; position:relative; min-height:410px;}
+.feature.firstusage {background:url("images/features/first_usage.jpg") center center no-repeat; }
+.feature.navigation {background:url("images/features/navigation.jpg") center center no-repeat;}
+
+.plugin{ background-color:#F6F6F6; padding-left:30px; padding-right:15px; position:relative; margin-bottom:30px; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; position:relative; height:575px; width:495px; float:left; margin-right:10px;}
 .plugin h1{font-size:34px; color:#619CD4; padding-bottom:10px; line-height:40px; }
 .plugin .featuretype{color:#9A9A9A;}
-.plugin .description{float:left; margin-bottom:90px; width:800px; }
+.plugin .description{float:left; margin-bottom:90px; width:250px; overflow:hidden;}
 .plugin .description a{color:#619CD4; }
 .plugin .description a:visited{color:#619CD4; }
 .plugin .screenshot{float:right; width:240px; height:100%; }
 .plugin .screenshotcontainer {position:absolute; bottom:0;}
 .plugin .screenshotcontainer .frame{width:252px; position:absolute; bottom:0;}
 .plugin .screenshot .screenshotimg{ width:200px; position:absolute; bottom:0; left:26px;}
-.plugin .buttonscontainer{position:absolute; bottom:30px; width:800px;}
+.plugin .buttonscontainer{position:absolute; bottom:30px; width:250px;}
 .plugin .buttons{position:relative;}
 .plugin .buttons .pricetype {float:left; background-color:#E3E3E3; padding:10px 15px 10px 15px; color:#9A9A9A; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;}
 .plugin .buttons .pricetypevalue{padding-left:5px; font-weight:bold; color:#000;}
-.plugin .buttons .readmore{float:right; padding-top:15px;}
-.plugin .buttons .readmore a{color:rgb(255, 143, 0);}
-.plugin .buttons .readmore a:visited{color:rgb(255, 143, 0);}
+.plugin .buttonscontainer .readmore{width:100%; padding-bottom:15px; text-align:right;}
+.plugin .buttonscontainer .readmore a{color:rgb(255, 143, 0);}
+.plugin .buttonscontainer .readmore a:visited{color:rgb(255, 143, 0);}
 .plugin .buttons .getbutton {float:left; background-color:#7ACC2E; padding:10px 15px 10px 15px; margin-right:20px; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;}
 .plugin .buttons .getbutton a{color:#FFF; text-decoration:none; font-weight:bold;}
 .plugin .buttons .getbutton a:visited{color:#FFF; text-decoration:none;}
