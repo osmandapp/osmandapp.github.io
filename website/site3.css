@@ -201,7 +201,7 @@ h1{font-weight:normal; font-size:3em; letter-spacing: 0.06em; padding-top:25px; 
 /***********************PLUGINS******************************************/
 .pluginscontainer {}
 .feature {position:relative; margin-bottom:30px; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; position:relative; min-height:410px;}
-.feature .description {width:50%; position:absolute; height:100%; left:0; top:0;  background-color:rgba(255, 143, 0, .8); color:#fff; -webkit-border-radius: 5px 0px 0px 5px; -moz-border-radius: 5px 0px 0px 5px; border-radius: 5px 0px 0px 5px;}
+.feature .description {width:50%; position:absolute; height:100%; left:0; top:0; background-color:rgb(255, 143, 0);  background-color:rgba(255, 143, 0, .8); color:#fff; -webkit-border-radius: 5px 0px 0px 5px; -moz-border-radius: 5px 0px 0px 5px; border-radius: 5px 0px 0px 5px;}
 .feature .descriptioncontent {position:relative; padding:40px;}
 .feature .description h1{font-size:34px; padding:40px;}
 .feature .description p{padding:0px 40px; margin:0; margin-bottom:100px;}
