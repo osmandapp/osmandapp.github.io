@@ -73,6 +73,9 @@
 				<li><a data-gatag='trip-planning' href="http://osmand.net/features?trip-planning">Planning trip</a></li>
 				<li><a data-gatag='troubleshooting' href="http://osmand.net/features?installation-and-troubleshooting">Installation &amp; troubleshoooting</a></li>
 		  		<div class="delimiter"></div>
+		  	</ul>
+		  	<h1>PLUGINS</h1>
+		  	<ul class="articlelinklist">
 		  		<li><a data-gatag='online-maps-plugin' href="http://osmand.net/features?id=online-maps-plugin">Online maps</a></li>
 		  		<li><a data-gatag='contour-lines-plugin' href="http://osmand.net/features?id=contour-lines-plugin" >Contour lines and Hillshade map</a></li>
 		  		<li><a data-gatag='trip-recording-plugin' href="http://osmand.net/features?id=trip-recording-plugin" >Trip recording</a></li>
