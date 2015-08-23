@@ -206,8 +206,6 @@ h1{font-weight:normal; font-size:3em; letter-spacing: 0.06em; padding-top:25px; 
 .feature .description h1{font-size:34px; padding:40px;}
 .feature .description p{padding:0px 40px; margin:0; margin-bottom:100px;}
 .feature .readmore {position:absolute; bottom:40px; left:40px; color:#fff; text-decoration:none; padding:10px; border:1px solid #fff; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;}
-.feature.firstusage {background-image:url(images/features/first_usage.jpg); }
-.feature.navigation {background-image:url(images/features/navigation.jpg);}
 .plugin{ background-color:#F6F6F6; padding-left:30px; padding-right:15px; position:relative; margin-bottom:30px; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; position:relative; min-height:410px;}
 .plugin h1{font-size:34px; color:#619CD4; padding-bottom:10px; line-height:40px; }
 .plugin .featuretype{color:#9A9A9A;}
