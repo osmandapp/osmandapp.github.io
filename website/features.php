@@ -66,12 +66,12 @@
 		  	<h1>FEATURES</h1>
 		  	<div class="delimiter"></div>
 		  	<ul class="articlelinklist">
-		  		<li><a data-gatag='start' href="http://osmand.net/features?start">Begin with OsmAnd</a></li>
-		  		<li><a data-gatag='navigation' href="http://osmand.net/features?navigation">Navigation</a></li>
-		  		<li><a data-gatag='map-viewing' href="http://osmand.net/features?map-viewing">Map Viewing</a></li>
-		  		<li><a data-gatag='search-on-map' href="http://osmand.net/features?find-something-on-map">Search on the map</a></li>
-				<li><a data-gatag='trip-planning' href="http://osmand.net/features?trip-planning">Planning trip</a></li>
-				<li><a data-gatag='troubleshooting' href="http://osmand.net/features?installation-and-troubleshooting">Installation &amp; troubleshoooting</a></li>
+		  		<li><a data-gatag='start' href="http://osmand.net/features?id=start">Begin with OsmAnd</a></li>
+		  		<li><a data-gatag='navigation' href="http://osmand.net/features?id=navigation">Navigation</a></li>
+		  		<li><a data-gatag='map-viewing' href="http://osmand.net/features?id=map-viewing">Map Viewing</a></li>
+		  		<li><a data-gatag='search-on-map' href="http://osmand.net/features?id=find-something-on-map">Search on the map</a></li>
+				<li><a data-gatag='trip-planning' href="http://osmand.net/features?id=trip-planning">Planning trip</a></li>
+				<li><a data-gatag='troubleshooting' href="http://osmand.net/features?id=installation-and-troubleshooting">Installation &amp; troubleshoooting</a></li>
 		  		
 		  	</ul>
 		  	<h1>PLUGINS</h1>
