@@ -72,9 +72,10 @@
 		  		<li><a data-gatag='search-on-map' href="http://osmand.net/features?find-something-on-map">Search on the map</a></li>
 				<li><a data-gatag='trip-planning' href="http://osmand.net/features?trip-planning">Planning trip</a></li>
 				<li><a data-gatag='troubleshooting' href="http://osmand.net/features?installation-and-troubleshooting">Installation &amp; troubleshoooting</a></li>
-		  		<div class="delimiter"></div>
+		  		
 		  	</ul>
 		  	<h1>PLUGINS</h1>
+		  	<div class="delimiter"></div>
 		  	<ul class="articlelinklist">
 		  		<li><a data-gatag='online-maps-plugin' href="http://osmand.net/features?id=online-maps-plugin">Online maps</a></li>
 		  		<li><a data-gatag='contour-lines-plugin' href="http://osmand.net/features?id=contour-lines-plugin" >Contour lines and Hillshade map</a></li>
