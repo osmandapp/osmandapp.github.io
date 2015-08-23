@@ -50,20 +50,18 @@
     </div> 
 	<div class="articles">
 	  <div class="articlescontainer">
+	  	<?php
+        if ($_GET['id'] != 'main') {
+		?>
 	    <ul class="articlelist">
 	      <li>
 		    <div class="article">
 		    <?php
 		    	echo file_get_contents("feature_articles/".$_GET['id'].".html");
 			?>
-			
 		    </div>
 		  </li>
-		  
 	    </ul>
-	    <?php
-        if ($_GET['id'] != 'main') {
-		?>
 			<div class="acticlestitles">
 		  	<h1>FEATURES</h1>
 		  	<div class="delimiter"></div>
@@ -80,8 +78,11 @@
 		  	</ul>
 			</div>
 		<?php
+			} else {
+				echo file_get_contents("feature_articles/".$_GET['id'].".html");
 			}
 		?>
+
 	  </div>
 	</div>
 	<div class="footer">
