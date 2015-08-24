@@ -53,14 +53,14 @@
 
 <p>Use only _one_ expression for a certain feature, do not mix two possible expressions. Examples:</p>
 <ul class="list">
- <li> check for existing expressions and re-use them in new strings, also in translations,of course
- <li> use &#34;navigation&#34;, not &#34;routing&#34;, throughout.
- <li> use &#34;tracking&#34;, not &#34;monitoring&#34;
- <li> understand that &#34;position&#34; is where you are, while &#34;location&#34; refers to arbitrary points
- <li> use &#34;destination&#34;, not &#34;target&#34;
- <li> use &#34;speed&#34;, not &#34;velocity&#34;
- <li> know the difference between &#34;elevation&#34; and &#34;altitude&#34;
- <li> It is &#34;OsmAnd&#34; now, not &#34;Osmand&#34; any more :-)
+ <li> check for existing expressions and re-use them in new strings, also in translations,of course </li>
+ <li> use &#34;navigation&#34;, not &#34;routing&#34;, throughout. </li>
+ <li> use &#34;tracking&#34;, not &#34;monitoring&#34; </li>
+ <li> understand that &#34;position&#34; is where you are, while &#34;location&#34; refers to arbitrary points </li>
+ <li> use &#34;destination&#34;, not &#34;target&#34; </li>
+ <li> use &#34;speed&#34;, not &#34;velocity&#34; </li>
+ <li> know the difference between &#34;elevation&#34; and &#34;altitude&#34; </li>
+ <li> It is &#34;OsmAnd&#34; now, not &#34;Osmand&#34; any more :-) </li>
 </ul>
 
 <p><b>(2) Authoring Text:</b></p>
@@ -565,6 +565,7 @@ Note that smaller maps will be around the 15x factor whereas big maps (&#62;350M
 
 
 
+
 <div class="subtitle" id="OsmAnd_Data_Structure">OsmAnd Data Structure</div>
 <div class="content">
 
@@ -618,7 +619,7 @@ TODO More details should be here (about districts of the city ...) ...</p>
  <li> extract cities (TOWN, CITY)</li>
  <li> extract vilagges (anything else)</li>
 </ul>
-<li><p>iterate all RELATIONs and WAYs with type=boundary and register all boundaries</p>
+<li><p>iterate all RELATIONs and WAYs with type=boundary and register all boundaries</p></li>
 <ul>
  <li> boundary is called Entity (way or relation) with tag &#39;boundary=administrative&#39; or with tag &#39;place=...&#39;</li>
  <li> boundary should be admin_level &#62; 4 or don&#39;t have it</li>
@@ -637,7 +638,7 @@ TODO More details should be here (about districts of the city ...) ...</p>
 </ul>
 <li>If the city doesn&#39;t have any assigned boundary then all boundaries that doesn&#39;t have center cities  and contain that city will be checked and the boundary with admin_level &#62;=7 will be assigned.</li>
 <li>for each boundary, make a list of cities that are in it.</li>
-<li><p>iterate all RELATIONS and find addresses (<a href="http://wiki.openstreetmap.org/wiki/Relations/Proposed/Postal_Addresses">Postal_Addresses</a>)</p>
+<li><p>iterate all RELATIONS and find addresses (<a href="http://wiki.openstreetmap.org/wiki/Relations/Proposed/Postal_Addresses">Postal_Addresses</a>)</p></li>
 <ul>
  <li> relation with &#34;address&#34; tag type, and is &#34;house&#34; or &#34;a6&#34; address_type</li>
  <li> search for associatedStreet relation and house members</li>
