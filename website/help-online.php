@@ -1,3 +1,8 @@
+<?php
+  if (empty($_GET['id'])) {
+    $_GET['id'] ="faq";
+  } 
+?>          
 <!DOCTYPE html>
 <html>
 
@@ -32,8 +37,17 @@
     ?>
   </div>
   <div class="articles">
-        <div class="articlescontainer">
+      <div class="articlescontainer">
+        <li>
+        <div class="article">
+        <?php
+          echo file_get_contents("help/".$_GET['id'].".html");
+      ?>
         </div>
+      </li>
+      </div>
+      <div class="acticlestitles">
+        <h1>HELP</h1>
         <ul class="articlelinklist">          
           <li><a data-gatag='faq' href="http://osmand.net/help-online?id=faq">FAQ</a></li>
           <li><a data-gatag='versions' href="http://osmand.net/help/changes.html">Versions</a></li>
@@ -45,6 +59,7 @@
           <li><a data-gatag='technical' href="http://osmand.net/help/Map-Legend_default.html">Techincal articles</a></li>
           <li><a data-gatag='about' href="http://osmand.net/help-online?id=about">About</a></li>
         </ul>
+      </div>
   </div>
 </div>
 </body>
