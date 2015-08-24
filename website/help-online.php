@@ -31,6 +31,10 @@
       include 'blocks/footer.html';
     ?>
   </div>
+  <div class="articles">
+        <div class="articlescontainer">
+        </div>
+  </div>
 </div>
 </body>
 </html>
