@@ -564,6 +564,7 @@ Note that smaller maps will be around the 15x factor whereas big maps (&#62;350M
 
 
 
+
 <div class="subtitle" id="OsmAnd_Data_Structure">OsmAnd Data Structure</div>
 <div class="content">
 
@@ -577,7 +578,7 @@ Note that smaller maps will be around the 15x factor whereas big maps (&#62;350M
 appear later in OsmAnd&#39;s offline address search? What objects are used
 in detail for that? What nodes with a place tag are included, and
 which are excluded?</p>
-<p>A: All places that are visible in OsmAnd as Cities are taken from nodes that has tag place <a class="externallink" href="http://wiki.openstreetmap.org/wiki/Place." rel="nofollow" title="http://wiki.openstreetmap.org/wiki/Place.">http://wiki.openstreetmap.org/wiki/Place.</a> Currently are used city, town, suburb, village, hamlet.</p>
+<p>A: All places that are visible in OsmAnd as Cities are taken from nodes that has tag place <a class="externallink" href="http://wiki.openstreetmap.org/wiki/pPlace." rel="nofollow" title="http://wiki.openstreetmap.org/wiki/Place.">http://wiki.openstreetmap.org/wiki/Place.</a> Currently are used city, town, suburb, village, hamlet.</p>
 <br/>
 <p>Q: How does mapcreator handle an area polygon that is given via a relation with boundary=administrative? How do you associate a place
 given as a node with its boundary when it is present in the OSM data?</p>
@@ -610,6 +611,7 @@ TODO More details should be here (about districts of the city ...) ...</p>
 <p>There are these relations: </p>
 <div>city -&#62; 0..1 boundary</div>
 <div>boundary -&#62; 0..** city (used to define suburb of city)</div>
+
 <ol class="list">
 <li>iterate all Osm NODEs and register as cities if the tag = PLACE is present.</li>
 <ul>
@@ -625,6 +627,7 @@ TODO More details should be here (about districts of the city ...) ...</p>
  <li>boundary exactly matches by name city node and city node is in boundary</li>
  <li> boundary matches start, end or substring by name city node and city node is in boundary</li>
 </ul>
+
 <p>Many boundaries can be associated with one city. Here is the order how the most important boundary is taken and associated with the city</p>
 <ul>
  <li> Boundary is matched by name exactly and has tag place</li>
@@ -646,16 +649,16 @@ TODO More details should be here (about districts of the city ...) ...</p>
    <ul>
      <li>if street is registered, and we are processing street:</li>
 	 <li>iterate over all relation members:</li>
-	 <ul>
-	   <li>find street -&#62; write the nodes of the street to db</li>
-	   <li>find house  -&#62; write the house to to the street</li>
-	 </ul>
+	   <ul>
+	     <li>find street -&#62; write the nodes of the street to db</li>
+	     <li>find house  -&#62; write the house to to the street</li>
+	   </ul>
 	 <li>if street is registered, and we are processing house:</li>
-	 <ul>
-	   <li>find house number</li>
-	   <li>find house border: if found, store: building for the street</li>
-	 </ul>
-    </ul>
+	   <ul>
+	     <li>find house number</li>
+	     <li>find house border: if found, store: building for the street</li>
+	   </ul>
+  </ul>
 	 <p>register street (street, location of street (los), cities):</p>
 	 <p> Note: we might register street for more cities = this means, the street can be in nested areas, suburb, city, hamlet, etc... For each area, we want to register the street in it.</p>
 	 <ul>
@@ -693,17 +696,20 @@ TODO More details should be here (about districts of the city ...) ...</p>
     <li>for each interpolation, findOrRegister a street with the location of the interpolation</li>
     <li>for each two nodes create a building representing the interpolation</li>
   </ul>
+
   <li>for any entity, find addr:housenumber and addr:street tag (can be also the interpolation nodes again!!!)</li>
   <ul>
    <li> skip if building for this entity already exists!</li>
    <li> findOrRegister streets for the street</li>
    <li> find the house number</li>
    <li> if housenumber contains &#39;-&#39;, try to create interpolated house number (missing latlon2?)</li>
-   <li> <p>if housenumber contains &#39;/&#39;, try to lookup second street addr:street2 --&#62; seems only for  <a href="http://wiki.openstreetmap.org/wiki/RU:Key:addr">RU osm</a>:</p>
-   <p> TODO: there are more variations for this: adr:housenumber2, addr2:street, addr2:housenumber etc....</p></li>
-   <li> for each street, store the existing house</p>
+   <li> <p>if housenumber contains &#39;/&#39;, try to lookup second street addr:street2 --&#62; seems only for  <a href="http://wiki.openstreetmap.org/wiki/RU:Key:addr">RU osm</a>:</p></li>
+   <li><p> there are more variations for this: adr:housenumber2, addr2:street, addr2:housenumber etc....</p></li>
+   <li> for each street, store the existing house</li>
   </ul>
+
   <li>for way with tag - name &#38; tag - highway, but without addr:housenumber and addr:street:</li>
+
   <ul>
    <li>Note: this might be ways for cars, with names (highway, or so)</li>
    <li>skip if such street exists already</li>
@@ -713,6 +719,7 @@ TODO More details should be here (about districts of the city ...) ...</p>
   <li><p>Each relation with &#34;postal_code&#34;, store for later use.</p>
       <p><b>Note</b>: this does not include the address:type = pc and addr:postalcode</p></li>
 </ol>
+
 <li>process post codes</li>
 <ul>
   <li> for each stored postal_code relation</li>
@@ -720,6 +727,7 @@ TODO More details should be here (about districts of the city ...) ...</p>
     <li>for each building member, update the postal_code</li>
   </ul>
 </ul>  
+
 
 <li>write the index:</li>
 <ul>
