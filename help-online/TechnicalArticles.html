@@ -562,6 +562,8 @@ Note that smaller maps will be around the 15x factor whereas big maps (&#62;350M
 </div>
 
 
+
+
 <div class="subtitle" id="OsmAnd_Data_Structure">OsmAnd Data Structure</div>
 <div class="content">
 
@@ -629,7 +631,7 @@ TODO More details should be here (about districts of the city ...) ...</p>
  <li> Boundary is matched by name exactly and has admin_level 8 &#62; 7 &#62; 6 &#62; 9 &#62; 10 &#62; 5... or nothing</li>
  <li> Boundary has admin_id matching </li>
  <li> All other cases including sorting of admin_level</li>
-</ul></li>
+</ul>
 <li>If the city doesn&#39;t have any assigned boundary then all boundaries that doesn&#39;t have center cities  and contain that city will be checked and the boundary with admin_level &#62;=7 will be assigned.</li>
 <li>for each boundary, make a list of cities that are in it.</li>
 <li><p>iterate all RELATIONS and find addresses (<a href="http://wiki.openstreetmap.org/wiki/Relations/Proposed/Postal_Addresses">Postal_Addresses</a>)</p>
@@ -655,7 +657,7 @@ TODO More details should be here (about districts of the city ...) ...</p>
 	 </ul>
     </ul>
 	 <p>register street (street, location of street (los), cities):</p>
-	 <p> Note: we might register street for more cities = this means, the street can be in nested areas, suburb, city, hamlet, etc... For each area, we want to register the street in it.</dpiv>
+	 <p> Note: we might register street for more cities = this means, the street can be in nested areas, suburb, city, hamlet, etc... For each area, we want to register the street in it.</p>
 	 <ul>
 	   <li>for each city:</li>
 	   <ul>
@@ -682,7 +684,7 @@ TODO More details should be here (about districts of the city ...) ...</p>
 	  </ul>
 	</ul>
   </ul>
-</ul>
+</ol>
 
 <li>iterate all NODES than WAYS than RELATIONS (iterate main entity)</li>
 <ol>
@@ -742,6 +744,7 @@ TODO More details should be here (about districts of the city ...) ...</p>
 
 <p class="back_to_top"><a href="#top">Back to top</a></p>
 </div>
+
 
 <div class="subtitle" id="How_To_Inspect_an_obf_Binary_File">How to inspect an obf binary file</div>
 <div class="content">
