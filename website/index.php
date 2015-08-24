@@ -302,39 +302,21 @@ _polldaddy.push( {
 <div class="blogcontainerwrap">
 	<div class="blogcontainer">
         <div class="leftcolumn">
-	   <h1>NEWS</h1>
-
-	      <div class="blogitem">
- 	     <h3><a data-gatag="osmand-ios-1.1.1-released" href="http://osmand.net/blog?id=osmand-ios-1.1.1-released">OsmAnd 1.1.1. for iOS released</a></h3>
-		 <p>A new OsmAnd version for iOS is here! The update includes a convenient plugin, more improvements in the POI area and a nicer UI. But let&#39;s discuss every feature in detail.</p>
-		 <div class="blogitemfooter">
-		   <div class="readmore"><a data-gatag="osmand-ios-1.1.1-released" href="blog?id=osmand-ios-1.1.1-released">Read more</a></div>
-		   <div class="date"> 15 July, 2015</div>
-		 </div>
-	       </div>
-	     <div class="blogitem">
- 	     <h3><a data-gatag="osmand-2-1-released" href="http://osmand.net/blog?id=osmand-2-1-released">OsmAnd 2.1</a></h3>
-		 <p>OsmAnd 2.1 release is out! This time, we focused on improving POI search and making your trips even more interactive through new Wikipedia data sorted by country. Besides that, the favorites get a backup. If an app corrupts for some reason, all your favorite places will be safe.</p>
-		 <div class="blogitemfooter">
-		   <div class="readmore"><a data-gatag="osmand-2-1-released" href="blog?id=osmand-2-1-released">Read more</a></div>
-		   <div class="date"> 19 June, 2015</div>
-		 </div>
-	      </div> <!-- blogitem -->    
-	</div> <!-- leftcolumn -->
-       
+	     
+	       <?php 
+  		include 'blocks/main_news.html';
+  	?>
 	   
+	</div> <!-- leftcolumn -->
+      
 	   <div class="rightcolumn">
-	<!--   	   <h1>TWITTER</h1>
-	             	<a class="twitter-timeline" href="https://twitter.com/osmandapp" data-widget-id="598236050113372160">Tweets by @osmandapp</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
--->
 
-	   <h1>POLL</h1>
-<script type="text/javascript" charset="utf-8" src="http://static.polldaddy.com/p/9024466.js"></script>
-<noscript><a href="http://polldaddy.com/poll/9024466/">Have you joined OsmAnd on social media?</a></noscript>
-</div>  <!-- rightcolumn -->
+	  <?php 
+  		include 'blocks/main_poll.html';
+  	?>
+		</div>  <!-- rightcolumn -->
 	</div> <!-- blogcontainer -->
-        </div>   <!-- blogcontainerwrap -->
+    </div>   <!-- blogcontainerwrap -->
 	   
 	   	   
 	   	 <div id="fb-root"></div>
@@ -365,7 +347,7 @@ _polldaddy.push( {
   	</div>   <!-- blogcontainerwrap -->
 
   	<?php 
-  		include 'footer.html';
+  		include 'blocks/footer.html';
   	?>
 
   </div>
