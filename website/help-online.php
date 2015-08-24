@@ -46,8 +46,8 @@
           <li><a data-gatag='features' href="http://osmand.net/features">Features</a></li>
         -->
           <li><a data-gatag='map-legend' href="http://osmand.net/help-online?id=Map-Legend_default">Map legend</a></li>
-          <li><a data-gatag='howto' href="http://osmand.net/help-online?id=HowToArticles">How to artilces</a></li>
-          <li><a data-gatag='technical' href="http://osmand.net/help-online?id=TechnicalArcles">Techincal articles</a></li>
+          <li><a data-gatag='howto' href="http://osmand.net/help-online?id=HowToArticles">How to articles</a></li>
+          <li><a data-gatag='technical' href="http://osmand.net/help-online?id=TechnicalArticles">Technical articles</a></li>
           <li><a data-gatag='about' href="http://osmand.net/help-online?id=about">About</a></li>
         </ul>
       </div> <!-- acticlestitles -->

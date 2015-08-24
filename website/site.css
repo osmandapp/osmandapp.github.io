@@ -226,5 +226,39 @@ h1{font-weight:normal; font-size:3em; letter-spacing: 0.06em; padding-top:25px; 
 .plugin .buttons .getbutton {float:left; background-color:#7ACC2E; padding:10px 15px 10px 15px; margin-right:20px; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;}
 .plugin .buttons .getbutton a{color:#FFF; text-decoration:none; font-weight:bold;}
 .plugin .buttons .getbutton a:visited{color:#FFF; text-decoration:none;}
+
+
+/***********************HELP*********************************************/
+a {color:#536DFE;}
+   xmp, pre{white-space: pre-wrap;}
+.main{ margin:0 auto; font-family:arial; font-size:11pt;}
+   
+.code{font-style:italic;} 
+.list li{padding-bottom:10px; color:#000; }
+.list li a{ text-decoration:none;} 
+.subtitle{border-bottom:1px solid #F3F3F3; font-size:13pt; margin-top:10px; font-weight:bold;}
+.blocksubtitle{font-weight:bold; margin-top:10px;}
+.blocksubsubtitle{font-weight:bold; margin-top:10px; font-size:9pt;}
+h1{background-color:#FF8F00; font-size:15pt; color:#fff; padding-left:15px; padding-top:30px; padding-bottom:15px; font-weight:bold; 
+-webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px; margin-top:-5px;}
+.content{padding:15px; padding-top:5px;}
+.content ul{padding-left:20px;}
+/************home page*****************/
+.mainlist{list-style-type: none; margin:0; padding:0;}  
+.mainlist li{border-bottom: 1px solid #F3F3F3; padding:15px; }
+.mainlist li.last{border-bottom:none;}
+h1.sub{background-color:#536DFE; margin-top:0;}   
+h1.sub small{display:block; font-weight:normal; color:#ACB9FF; margin-top:5px;}
+   
+  /*************frequently asked questions**************/  
+.toc .list li{color:#D2D2D2;}
+.toc .subtitle{font-weight:normal;}  
+.screenshot{max-width:95%; max-height:100%; padding:7px; border:1px solid #ddd;}
+.download{width:24px; height:24px; padding-left:15px; vertical-align: bottom;}
+.imgcontainer{margin:20px 30px;}
+.legendcontainer{margin:0;}
+.legend{width:100%;}
+
+
 /***********************UTILS**********************************************/
 .clear{clear:both;}
