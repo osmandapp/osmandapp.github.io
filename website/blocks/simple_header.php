@@ -10,7 +10,7 @@
 	  	<a data-gatag="header_blog" href="http://osmand.net/blog">BLOG</a>
 	  </li>
 	  <li class="<?php if($simpleheader_header == HELP) echo activeitem?>">
-	  	<a data-gatag="header_help" href="http://osmand.net/help/">HELP</a>
+	  	<a data-gatag="header_help" href="http://osmand.net/help-online">HELP</a>
 	  </li>		
 	  <li><a data-gatag="header_dvr" href="http://dvr.osmand.net">DVR</a></li>	  
 	</ul>
