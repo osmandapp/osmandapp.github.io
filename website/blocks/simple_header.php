@@ -1,6 +1,7 @@
 <div class="simpleheader">
-	<div class="shadowline"></div>	  
-	<div class="headerlogo"></div>
+	<div class="shadowline">
+		<div class="shadowlinecontent">
+			<div class="headerlogo"></div>	
 	<ul class="menu">
 	  <li><a data-gatag="header_home" href="http://osmand.net">HOME</a></li>
 	  <li class="<?php if($simpleheader_header == FEATURES) echo activeitem?>">
@@ -14,5 +15,10 @@
 	  </li>		
 	  <li><a data-gatag="header_dvr" href="http://dvr.osmand.net">DVR</a></li>	  
 	</ul>
-	<div class="headertext"><?php echo $simpleheader_header ?></div>
+	<div class="clear"></div>
+	</div>
+	</div>	 
+    <div class="headercontent">
+		<div class="headertext"><?php echo $simpleheader_header ?></div>
+	</div>	
 </div> 

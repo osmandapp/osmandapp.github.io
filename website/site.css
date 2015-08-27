@@ -4,9 +4,11 @@ ul{list-style-type: none; margin:0; padding:0;}
 ul li{padding:0; margin:0;}
 h1 { -webkit-margin-before:0; -webkit-margin-after:0; margin-top:0; margin-bottom:0;}
 
+
 /*default styles*/
 h1{font-weight:normal; font-size:3em; letter-spacing: 0.06em; padding-top:25px; padding-bottom:25px; line-height:1em;}
-
+a {color:#619CD4;}
+a:visited {color:#619CD4;}
 
 .maincontainer{ width:100%; height:auto; overflow:hidden; background-color:#CFCFCF; min-width:1250px;}
 .main {position:relative; max-width:1920px; margin:0 auto; min-height:100%;}
@@ -34,8 +36,13 @@ h1{font-weight:normal; font-size:3em; letter-spacing: 0.06em; padding-top:25px; 
 .header .joinus{font-size:14pt; padding-top:17px; text-decoration:underline; letter-spacing:0.3em;}
 
 .simpleheader{height:250px; color:#fff; background: url("images/header_image.jpg") center top no-repeat; }
-.simpleheader .headertext{top:155px; }
+.simpleheader .headertext{position:relative; top:0; margin-top:35px; left:0; }
 .simpleheader .badges{top:170px; left:73%;}
+.simpleheader .headercontent {width:1100px; margin:0 auto;}
+.simpleheader .shadowlinecontent{width:1100px; margin:0 auto;}
+.simpleheader .headerlogo {position:relative; top:0; left:0; margin-top:5px; float:left; margin-left:-25px;}
+.simpleheader .menu {position:relative; float:right; margin-top:38px; left:0; top:0; margin-right:-55px;}
+.simpleheader .shadowline {position:relative;}
 
 .specialevent {position:relative; background:#fff; height:650px;}
 .specialeventwrap{width:900px;  position:absolute; left:50%; margin-top:-60px;}
@@ -46,6 +53,8 @@ h1{font-weight:normal; font-size:3em; letter-spacing: 0.06em; padding-top:25px; 
 .specialeventtext .signature{font-weight:bold;}
 .specialeventtext.hidden {color:#fff; padding-bottom:60px; width:900px;}
 .specialevent .headertitletext{letter-spacing:0;}
+
+
 /************* features*****************************/
 .features{position:relative; overflow:hidden;background:#fff; }
 .featurestitle{text-align:center; padding: 25px 0;color:#000;}
@@ -88,15 +97,15 @@ h1{font-weight:normal; font-size:3em; letter-spacing: 0.06em; padding-top:25px; 
 .sliderheader .switch .button.left {-webkit-border-radius: 8px 0px 0px 8px; -moz-border-radius: 8px 0px 0px 8px; border-radius: 8px 0px 0px 8px;}
 .sliderheader .switch .button.right {-webkit-border-radius: 0px 8px 8px 0px; -moz-border-radius: 0px 8px 8px 0px; border-radius: 0px 8px 8px 0px;}
 .sliderheader .switch .button.active {background-color:rgb(255, 143, 0);}
-.disabled {cursor:default;}
+
 
 .blogcontainerwrap{background:#fff; line-height:1.7em; padding-bottom:25px;}
 .blogcontainer {width:1100px; overflow:hidden; margin:0 auto; }
 .blogcontainer .leftcolumn{float:left; width:500px;}
 .blogcontainer .rightcolumn{float:right; width:400px; padding-bottom: 10px}
 .blogitem h3 {font-size:1.2em; color:#76B6F6; font-weight:normal; margin:0;}
-.blogitem h3 a{color: #76B6F6; text-decoration:none;}
-.blogitem h3 a:visited{color: #76B6F6; text-decoration:none;}
+.blogitem h3 a{text-decoration:none;}
+.blogitem h3 a:visited{text-decoration:none;}
 .blogitem p{margin-top:5px;}
 .blogitem .readmore {text-align:left; display:inline-block; margin-bottom:40px;}
 .blogitem .readmore a{color:#9A9A9A;}
@@ -125,9 +134,9 @@ h1{font-weight:normal; font-size:3em; letter-spacing: 0.06em; padding-top:25px; 
 .articlescontainer{position:relative; overflow:hidden; width:1100px; margin:0 auto;}
 .articlelist {float:left; width:750px;}
 .acticlestitles {float:right; width:300px; margin-bottom:25px; margin-left:50px;} 
-.acticlestitles h1{color:#9A9A9A; font-weight:bold; font-family:Verdana, Arial; font-size:1.1em; padding-bottom:5px;}
-.acticlestitles .delimiter {border:2px solid #FF8601; width:100%; margin-bottom:15px;}
-.acticlestitles ul a{text-decoration:none; color:#76B6F6;}
+.acticlestitles h1{color:#9A9A9A; font-family:Verdana, Arial; font-size:1.1em; padding-bottom:5px;}
+.acticlestitles .delimiter {border-top:2px solid #FF8601; width:100%; margin-bottom:15px;}
+.acticlestitles ul a{text-decoration:none; }
 .acticlestitles ul  li{padding-bottom:10px;}
 .textlist {list-style-type: disc; padding-left:30px;}
 .textlist li {padding-top:10px;}
@@ -206,17 +215,17 @@ h1{font-weight:normal; font-size:3em; letter-spacing: 0.06em; padding-top:25px; 
 .feature .description h1{font-size:34px; padding:40px;}
 .feature .description p{padding:0px 40px; margin:0; margin-bottom:100px;}
 .feature .readmore {position:absolute; bottom:40px; left:40px; color:#fff; text-decoration:none; padding:10px; border:1px solid #fff; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;}
-.plugin{ background-color:#F6F6F6; padding-left:30px; padding-right:15px; position:relative; margin-bottom:30px; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; position:relative; min-height:410px;}
+.plugin{ background-color:#F6F6F6; padding-left:30px; padding-right:15px; position:relative; margin-bottom:30px; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; position:relative; min-height:340px;}
 .plugin h1{font-size:34px; color:#619CD4; padding-bottom:10px; line-height:40px; }
 .plugin .featuretype{color:#9A9A9A;}
-.plugin .description{float:left; margin-bottom:90px; width:800px; }
+.plugin .description{float:left; margin-bottom:90px; width:830px; }
 .plugin .description a{color:#619CD4; }
 .plugin .description a:visited{color:#619CD4; }
-.plugin .screenshot{float:right; width:240px; height:100%; }
+.plugin .screenshot{float:right; width:200px; height:100%; }
 .plugin .screenshotcontainer {position:absolute; bottom:0;}
-.plugin .screenshotcontainer .frame{width:252px; position:absolute; bottom:0;}
-.plugin .screenshot .screenshotimg{ width:200px; position:absolute; bottom:0; left:26px;}
-.plugin .buttonscontainer{position:absolute; bottom:30px; width:800px;}
+.plugin .screenshotcontainer .frame{width:201px; position:absolute; bottom:0;}
+.plugin .screenshot .screenshotimg{ width:159px; position:absolute; bottom:0; left:21px;}
+.plugin .buttonscontainer{position:absolute; bottom:30px; width:830px;}
 .plugin .buttons{position:relative;}
 .plugin .buttons .pricetype {float:left; background-color:#E3E3E3; padding:10px 15px 10px 15px; color:#9A9A9A; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;}
 .plugin .buttons .pricetypevalue{padding-left:5px; font-weight:bold; color:#000;}
@@ -229,19 +238,17 @@ h1{font-weight:normal; font-size:3em; letter-spacing: 0.06em; padding-top:25px; 
 
 
 /***********************HELP*********************************************/
-a {color:#536DFE;} 
+
 .code{font-style:italic;} 
 .list li{padding-bottom:10px; color:#000; }
 .list li a{ text-decoration:none;} 
 .subtitle{border-bottom:1px solid #F3F3F3; font-size:13pt; margin-top:10px; font-weight:bold;}
 .blocksubtitle{font-weight:bold; margin-top:10px;}
 .blocksubsubtitle{font-weight:bold; margin-top:10px; font-size:9pt;}
-/* h1{ font-size:15pt; padding-left:15px; padding-top:30px; padding-bottom:15px; font-weight:bold; 
--webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px; margin-top:-5px;} */
-
 .content{padding:15px; padding-top:5px;}
 .content ul{padding-left:20px;}
-/************home page*****************/
+
+/************help home page*****************/
 .mainlist{list-style-type: none; margin:0; padding:0;}  
 .mainlist li{border-bottom: 1px solid #F3F3F3; padding:15px; }
 .mainlist li.last{border-bottom:none;}
@@ -260,3 +267,4 @@ h1.sub small{display:block; font-weight:normal;  margin-top:5px;}
 
 /***********************UTILS**********************************************/
 .clear{clear:both;}
+.disabled {cursor:default;}

@@ -5,8 +5,9 @@
 <title>OsmAnd - Offline Mobile Maps and Navigation
 </title>
 
-<link rel="stylesheet" type="text/css" href="site.css?v=9"/>
-<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
+ <?php     	
+        include 'blocks/default_links.html';
+    ?>
 <script type="text/javascript" src="scripts/slider.js?v=1"></script>
 <script type="text/javascript" src="scripts/mapselector.js"></script>
 <script type="text/javascript" src="scripts/poll.js"></script>

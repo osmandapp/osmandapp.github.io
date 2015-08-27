@@ -11,8 +11,9 @@
 <title>OsmAnd - Offline Mobile Maps and Navigation
 </title>
 
-<link rel="stylesheet" type="text/css" href="site.css"/>
-<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
+ <?php     	
+        include 'blocks/default_links.html';
+    ?>
 
 <!-- for google+-->
  <link rel="canonical"
