@@ -8,17 +8,18 @@
 
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<title>OsmAnd - Offline Mobile Maps and Navigation
-</title>
+<meta property="og:url"        <?php	echo 'content="http://osmand.net'.$_SERVER['REQUEST_URI'].'"'  ?>	/> 
+<meta property="og:type"          content="website" />
+<meta property="og:title"         content="OsmAnd - Offline Mobile Maps and Navigation" />
+<meta property="og:description"   content="" />
+<meta property="og:image"         content="http://osmand.net/images/logo-grey.png" />
+	
+<title>OsmAnd - Offline Mobile Maps and Navigation</title>
 
- <?php     	
-        include 'blocks/default_links.html';
-    ?>
+ <?php include 'blocks/default_links.html'; ?>
 
 <!-- for google+-->
- <link rel="canonical"
- 	<?php	echo 'href="http://osmand.net/blog?id='.$_GET['id'].'.html"'  ?>
- 	/>
+<link rel="canonical" <?php	echo 'href="http://osmand.net'.$_SERVER['REQUEST_URI'].'"'  ?>	/>
 <script src="https://apis.google.com/js/platform.js" async defer>
 </script>
 
@@ -39,6 +40,7 @@
 
 <div class="maincontainer">
   <div class="main">
+  
   	  <?php
         if ($_GET['id'] != '5_years') {
         	$simpleheader_header = "BLOG";
@@ -47,35 +49,16 @@
 ?>
              <iframe src="http://cdn.knightlab.com/libs/timeline/latest/embed/index.html?source=13SophOj2oI_AO1lb9aAOWrZiZiW1saaPgseZdijtuEE&font=Bevan-PotanoSans&maptype=toner&lang=en&start_at_slide=1&height=450" style="width:100%;height:450px">
              	</iframe>
-<?php  
-        }
-?>
-	<div class="articles">
-			  <div class="articlescontainer">
-	    <ul class="articlelist">
-	      <li>
-		    <div class="article">
-		    <?php
-		    	echo file_get_contents("blog_articles/".$_GET['id'].".html");
-			?>
-			
-		    </div>
-			<ul class="share_buttons">		       
-		       <li class="fb">
-		       	<div class="fb-like" 
-		       	<?php	echo 'data-href="http://osmand.net/blog?id='.$_GET['id'].'.html"'  ?>
-		       	data-width="75" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false">
-		       </div></li> 
-			   <li><a href="https://twitter.com/share" class="twitter-share-button" 
-			   			<?php	echo 'data-url="http://osmand.net/blog?id='.$_GET['id'].'.html"'  ?>
-			   	>Tweet</a></li>
+<?php   } ?>
 
-			   <li><div class="g-plusone" data-size="medium"></div></li>
-			</ul>
-		  </li>
-		  
-	    </ul>
-		<div class="acticlestitles">
+	<div class="articles">
+	  <div class="articlescontainer">
+	    
+		<div class="article">
+		    <?php echo file_get_contents("blog_articles/".$_GET['id'].".html"); ?>			
+		</div>		
+		
+		<div class="acticlestitles">		
 		  <h1>LATEST ARTICLES</h1>
 		  <div class="delimiter"></div>
 		  <ul class="articlelinklist">
@@ -96,6 +79,21 @@
 			<li><a data-gatag='osmand_rss' href="http://osmand.net/rss.xml" >RSS</a></li>
 		  </ul>
 		</div>
+		<div class="clear"> </div>
+		
+		<div class="share_buttons">			  
+		       <div class="social_network_button fb">
+		       	  <div class="fb-like" <?php	echo 'data-href="http://osmand.net'.$_SERVER['REQUEST_URI'].'"'  ?>
+					data-width="75" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false">
+		          </div>
+			   </div>
+			   <div  class="social_network_button twitter">
+			      <a href="https://twitter.com/share" class="twitter-share-button" <?php	echo 'data-url="http://osmand.net'.$_SERVER['REQUEST_URI'].'" data-count-url="http://osmand.net'.$_SERVER['REQUEST_URI'].'.html"'  ?> >Tweet</a>
+				</div>
+
+			   <div  class="social_network_button gplus"><div class="g-plusone" data-size="medium"></div></div>
+			   <div class="clear"></div>
+		 </div>
 	  </div>
 	</div>
 	<?php 

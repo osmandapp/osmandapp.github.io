@@ -11,14 +11,10 @@
 <title>OsmAnd - Offline Mobile Maps and Navigation
 </title>
 
- <?php     	
-        include 'blocks/default_links.html';
-    ?>
+ <?php include 'blocks/default_links.html';  ?>
 
 <!-- for google+-->
- <link rel="canonical"
- 	<?php	echo 'href="http://osmand.net/features?id='.$_GET['id'].'.html"'  ?>
- 	/>
+ <link rel="canonical"	<?php	echo 'href="http://osmand.net'.$_SERVER['REQUEST_URI'].'"'  ?> />
 <script src="https://apis.google.com/js/platform.js" async defer>
 </script>
 
@@ -43,18 +39,12 @@
     ?>
 	<div class="articles">
 	  <div class="articlescontainer">
-	  	<?php
-        if ($_GET['id'] != 'main') {
-		?>
-	    <ul class="articlelist">
-	      <li>
+	  
+	   <?php if ($_GET['id'] != 'main') { ?>
 		    <div class="article">
-		    <?php
-		    	echo file_get_contents("feature_articles/".$_GET['id'].".html");
-			?>
+		    <?php echo file_get_contents("feature_articles/".$_GET['id'].".html"); ?>
 		    </div>
-		  </li>
-	    </ul>
+			
 			<div class="acticlestitles">
 		  	<h1>FEATURES</h1>
 		  	<div class="delimiter"></div>
@@ -81,17 +71,13 @@
 		  		<li><a data-gatag='parking-plugin' href="http://osmand.net/features?id=parking-plugin" >Parking place</a></li>
 		  	</ul>
 			</div>
-		<?php
-			} else {
-				echo file_get_contents("feature_articles/".$_GET['id'].".html");
-			}
-		?>
-
+		
+		<?php } else { 
+		        echo file_get_contents("feature_articles/".$_GET['id'].".html"); 
+		  } ?>
 	  </div>
 	</div>
-	  	<?php 
-  		include 'blocks/footer.html';
-  	?>
+	 <?php include 'blocks/footer.html';	?>
 
   </div>
 </div>
