@@ -13,6 +13,7 @@
 <script type="text/javascript" src="scripts/poll.js"></script>
 <script type="text/javascript" src="scripts/ga-init.js"></script>
 <script type="text/javascript" src="scripts/ga-home.js?v=2"></script>
+<script id="flamingo-switcher" type="text/javascript" charset="utf-8">(function(c,a,i,b){if(!i()){return}a.write('<plaintext style="display:none">');var h=false;try{h=localStorage}catch(f){}var g=3,d=function(){var j=Object.prototype.toString.call(b.dataUrl)=="[object Array]"?b.dataUrl[0]:b.dataUrl,e=a.createElement("script"),k=a.getElementsByTagName("script")[0];e.src=j+"flamingo"+(!a.evaluate?"-compat":"")+".js";e.id="flamingo-engine";e.charset="utf-8";e.onload=function(){try{Flamingo.init(c,a,h,b)}catch(l){console.error("Unable to initialize Flamingo Engine",l)}};e.onerror=function(){g--;k.parentNode.removeChild(e);if(g){if(Object.prototype.toString.call(b.dataUrl)=="[object Array]"){b.dataUrl.splice(0,1);b.dataUrl.push(j)}d()}else{alert("Something is going wrong. Try to reload page.")}};k.parentNode.insertBefore(e,k)};setTimeout(d)})(window,document,function(){if(typeof(Flamingo)!=="undefined"){return false}if(window.name.indexOf("flamingo")===0){return true}return(navigator.userAgent.match(/iPhone|Ipod/i)||navigator.userAgent.match(/Android/i)||navigator.userAgent.match(/(Mobile|Tablet);.*rv:.*Gecko/i))},{dataUrl:"//cdn.mobilizetoday.ru/live/55e4e82a43e595a23d8b45de/latest/"});</script>
 </head>
 <body>
 
