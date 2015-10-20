@@ -20,6 +20,7 @@
 <li><a href="#contour_lines_not_visible">Contour lines are not showing up</a></li>
 <li><a href="#countour_lines_feet">Is there a way to have the Contour Lines display in feet also, instead of meters? </a></li>
 <li><a href="#installation_issue">I can't install or upgrade the app</a></li>
+<li><a href="#reinstalling">I uninstalled the app/I use a new device. Do I have to buy OsmAnd again?</a></li>
 </ul>
 
 <div class="subtitle">Using OsmAnd's Navigation</div>
@@ -340,15 +341,22 @@ And OsmAnd specific intents:
   <li> http://download.osmand.net/go?lat=&amp;lon=&amp;z=</li>
 </ul>
 </div>
+<div class="question">
+<div class="subtitle" id="drain_too_much_power">OsmAnd seems to drain too much battery power</div>
+<div class="content">
 </div>
 
 <div class="question">
-<div class="subtitle" id="map_creator">Creating your own maps and OsmAndMapCreator</div>
+<div class="subtitle" id="reinstalling">I uninstalled the app/I use a new device. Do I have to buy OsmAnd again?</div>
 <div class="content">
+  <ul><b>Android</b>
+  <li> No. Just enter PlayMarket app using the same account you used to buy OsmAnd, then find OsmAnd through Search and install it again.</li>
+</ul>
+<ul><b>iOS</b>
+  <li> No. All you have to do is enter Appstore and install OsmAnd once again. You can use it on as many devices as you want without the need to buy the app again.You may see the "Buy" button, but you won't have to pay: just press it to download the app without paying again.</li>
+</ul>
 <h4 class="help" id="">OsmAndMapCreator fails with message: OutOfMemoryError </h4>
 The file you try to process with OsmAndMapCreator is too large. Either try to process a smaller file, or increase the memory for OsmAndMapCreator in the .sh or .bat file. The -Xmx parameter specifies how much memory the program can consume. Settings can be different for 64bit (more than 1.5GB) and 32bit (max around 1.5GB) machines.
-
-
 <h4 class="help" id="">After converting an .osm to .obf with only a POI index, the .obf is empty, although original .osm file did contain POIs. What is wrong? </h4>
 It could be that a crucial tag was missing for OsmAndMapCreator to recognize a POI when you converted the osm from another source, like Garmin. If a point in the OSM file looks like this:
 <xmp>
