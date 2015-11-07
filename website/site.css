@@ -149,6 +149,8 @@ a:visited {color:#619CD4;}
 .article .centeredimageblog{width:735px; margin:0 auto; text-align:center; margin-top:30px;}
 .article .centeredimageblog img{width:200px; margin-bottom:20px; padding:10px; border:1px solid #ccc; margin-right:10px;}
 .article .centeredimageblog.wide img{width:auto; max-height:300px;}
+.article .noborder img {border:none; padding:0px;}
+.article .leftimage {padding:10px; border:1px solid #ccc; width:200px;}
 
 .social_network_button{float:right; line-height:1em;/*line-height:21px;*/ }
 .share_buttons .gplus {width:86px;}
