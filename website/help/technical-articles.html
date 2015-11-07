@@ -1003,63 +1003,63 @@ ADMINS = (
 <p> read the trick77.com page for setup</p>
 <pre>
 /etc/duply/offsite/conf:
-{{{
-GPG_KEY='F61826A6'
-GPG_PW='*******'
-TARGET='ftp://*****:******@****.&#8203;your-backup.de/dailybackup'
-SOURCE='/'
-MAX_AGE=2M
-MAX_FULLBKP_AGE=1M
-DUPL_PARAMS="$DUPL_PARAMS --full-if-older-than $MAX_FULLBKP_AGE "
-VOLSIZE=100
-DUPL_PARAMS="$DUPL_PARAMS --volsize $VOLSIZE "
-}}}
-/etc/duply/offsite/exclude:
-{{{
-/bin
-/boot
-/dev
-/lib
-/lib32
-/lib64
-/lost+found
-/media
-/mnt
-/opt
-/proc
-/sbin
-/srv
-/sys
-/tmp
-/usr
-/run
-/selinux
-- /var/lib/jenkins/backup
-- /var/lib/jenkins/backup_old
-- /var/lib/jenkins/indexes
-- /var/lib/jenkins/uploaded
-- /var/lib/jenkins/wiki/work
-- /var/lib/jenkins/srtm-osm
-- /var/lib/jenkins/srtm-proccess
-- /var/lib/jenkins/workspace
-+ /var/lib/jenkins
-+ /var/lib/awstats/
-- /var/www/www-download/indexes
-- /var/www/www-download/night-builds
-- /var/www/www-download/php_errors.log
-- /var/www/www-download/latest-night-build
-+ /var/www
+{{{ 
+GPG_KEY='F61826A6' 
+GPG_PW='*******' 
+TARGET='ftp://*****:******@****.<wbr>your-backup.de/dailybackup' 
+SOURCE='/' 
+MAX_AGE=2M 
+MAX_FULLBKP_AGE=1M 
+DUPL_PARAMS="$DUPL_PARAMS --full-if-older-than $MAX_FULLBKP_AGE" 
+VOLSIZE=100 
+DUPL_PARAMS="$DUPL_PARAMS --volsize $VOLSIZE " 
+}}} 
+/etc/duply/offsite/exclude: 
+{{{ 
+/bin 
+/boot 
+/dev 
+/lib 
+/lib32 
+/lib64 
+/lost+found 
+/media 
+/mnt 
+/opt 
+/proc 
+/sbin 
+/srv 
+/sys 
+/tmp 
+/usr 
+/run 
+/selinux 
+- /var/lib/jenkins/backup 
+- /var/lib/jenkins/backup_old 
+- /var/lib/jenkins/indexes 
+- /var/lib/jenkins/uploaded 
+- /var/lib/jenkins/wiki/work 
+- /var/lib/jenkins/srtm-osm 
+- /var/lib/jenkins/srtm-proccess 
+- /var/lib/jenkins/workspace 
++ /var/lib/jenkins 
++ /var/lib/awstats/ 
+- /var/www/www-download/indexes 
+- /var/www/www-download/night-builds 
+- /var/www/www-download/php_errors.log 
+- /var/www/www-download/latest-night-build 
++ /var/www 
 - /var
-/home/zibrita
-- /root/nobakcup
-}}}
-_do mysql dump before backup_
-/etc/duply/offsite/pre
-{{{
-/usr/bin/mysqldump --all-databases -u root -p***** > /home/mysqldump_all.sql
-}}}
-/etc/cron.d/duply
-lftp -u ***,**** ****.your-backup.de
+/home/zibrita 
+- /root/nobakcup 
+}}} 
+_do mysql dump before backup_ 
+/etc/duply/offsite/pre 
+{{{ 
+/usr/bin/mysqldump --all-databases -u root -p***** > /home/mysqldump_all.sql 
+}}} 
+/etc/cron.d/duply 
+lftp -u ***,**** ****.your-backup.de 
 </pre>
 
 <p>It is good to backup /etc/duply/offsite/ somewhere, if the machine crashes, there is the info to retrieve encrypted files from the backup!</p>

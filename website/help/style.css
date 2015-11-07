@@ -2,6 +2,9 @@
    body{padding:0; margin:0; }
    a {color:#536DFE;}
    xmp, pre{white-space: pre-wrap;}
+   
+   h1{display:none;}
+   
    .main{ margin:0 auto; font-family:arial; font-size:11pt;}
    @media(max-device-width: 799px)
    {
@@ -15,6 +18,7 @@
    }
    
    .code{font-style:italic;}
+   
    
    .list li, .textlist li{padding-bottom:10px; color:#000; }
    .list li a, .textlist li a{ text-decoration:none;} 
@@ -52,3 +56,7 @@
   .legend{width:100%;}
   
   .definition{font-weight:bold;}
+  
+  /***********help about****************************************************/
+.about .surname{font-weight:bold;}
+.about h3{margin-top:30px;}

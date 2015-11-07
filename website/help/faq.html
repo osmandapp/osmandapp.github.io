@@ -96,7 +96,7 @@
   <li><u>Move OsmAnd's data folder <span class="code">osmand</span> to the internal storage.</u>
      <br/> <b>Drawback:</b> Internal storage can be rather small.</li>
   <li><u>Move OsmAnd's data folder <span class="code">osmand</span> into its standard SD folder</u>,
-     <br/>for OsmAnd+ : <span class="code">(extSdCard)/Android/data/net.osmand.plus/files</span>
+     <br/>for OsmAnd+ : <span class="code">(extSdCard)/Android/data/net.osmand.plus<wbr>/files</span>
      <br/>for OsmAnd : <span class="code">(extSdCard)/Android/data/net.osmand/files</span>
      <br/> <b>Caution:</b> Whenever you uninstall OsmAnd now, all your data will be erased as well! (Unless you unmount your SD-Card, or rename the <span class="code">net.osmand(.plus)</span> folder before de-installation.)
 </ul>
@@ -388,7 +388,7 @@ OsmAndMapCreator can process only OSM files (osm-xml, bz2, pbf). However the set
 file https://github.com/osmandapp/OsmAnd-core/blob/master/OsmAnd-java/src/net/osmand/osm/rendering_types.xml. 
 OsmAndMapCreator has an option to use custom rendering_types.xml in the settings. Once the map file is created you can double check that data is present via the binaryInspector utility with the '-vmap' argument. This utility is packaged with OsmAndMapCreator. 
 <br/><br/>
-Once the .obf file is ready you can create a custom rendering file to display your custom missing attributes. There is a default rendering style which contains all information about rendering https://github.com/osmandapp/OsmAnd-resources/blob/master/rendering_styles/default.render.xml. It is good to have a look at it but it is rather hard to understand, open, and edit it. A more convenient way to create your own rendering style is to create a style that depends on (inherits from) the default style.  A good example of a custom 'depends' rendering style is https://github.com/osmandapp/OsmAnd-resources/blob/master/rendering_styles/Winter-and-ski.render.xml.
+Once the .obf file is ready you can create a custom rendering file to display your custom missing attributes. There is a default rendering style which contains all information about rendering https://github.com/osmandapp/OsmAnd-resources/blob/master/rendering_styles<wbr>/default.render.xml. It is good to have a look at it but it is rather hard to understand, open, and edit it. A more convenient way to create your own rendering style is to create a style that depends on (inherits from) the default style.  A good example of a custom 'depends' rendering style is https://github.com/osmandapp/OsmAnd-resources/blob/master/rendering_styles/Winter-and-ski.render.xml.
 <br/><br/>
 Currently OsmAndMapCreator doesn't support relation tagging. So you need to manually copy all tags from relations (like route color) to way tags by script.
 </div>

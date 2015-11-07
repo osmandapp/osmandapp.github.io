@@ -14,6 +14,7 @@
     <?php     	
         include 'blocks/default_links.html';
     ?>
+</head>
 <body>
 
 
