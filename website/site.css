@@ -3,7 +3,7 @@ body{margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; font-size:1.
 ul{list-style-type: none; margin:0; padding:0;}
 ul li{padding:0; margin:0;}
 h1 { -webkit-margin-before:0; -webkit-margin-after:0; margin-top:0; margin-bottom:0;}
-
+ xmp, pre{white-space: pre-wrap;}
 
 /*default styles*/
 h1{font-weight:normal; font-size:3em; letter-spacing: 0.06em; padding-top:25px; padding-bottom:25px; line-height:1em;}
@@ -134,19 +134,21 @@ a:visited {color:#619CD4;}
 .articles{position:relative; overflow:hidden;background:#fff;}
 .articles .date{color:#9A9A9A;}
 .articlescontainer{position:relative; overflow:hidden; width:1100px; margin:0 auto;}
-.acticlestitles {float:right; width:300px; margin-bottom:25px; margin-left:50px;} 
-.acticlestitles h1{color:#9A9A9A; font-family:Verdana, Arial; font-size:1.1em; padding-bottom:5px;}
-.acticlestitles .delimiter {border-top:2px solid #FF8601; width:100%; margin-bottom:15px;}
+.acticlestitles {float:right; width:300px; margin-top:20px; border:1px solid #e6e6e6; padding:20px;} 
+.acticlestitles h1{font-size:0.9em; padding-bottom:15px; letter-spacing:0.2em; font-weight:bold; padding-top:0;}
+.acticlestitles .delimiter {border-top:4px solid #FF8601; width:100%; margin-bottom:15px;}
 .acticlestitles ul a{text-decoration:none; }
-.acticlestitles ul  li{padding-bottom:10px;}
+.acticlestitles ul  li{padding-bottom:10px; padding-left:10px;}
+.acticlestitles ul  li.last {padding-bottom:0;}
 .textlist {list-style-type: disc; padding-left:30px;}
 .textlist li {padding-top:10px;}
-.article {float:left; width:750px; margin-bottom:25px;}
+.article {float:left; width:735px; margin-bottom:25px;}
 .article h1{font-size:34px;}
 .article .textandimagecontainer{position:relative;}
 .article .rightimage{float:right; width:450px;}
-.article .centeredimageblog{width:612px; margin:0 auto;}
-.article .centeredimageblog img{left:left; width:200px;}
+.article .centeredimageblog{width:735px; margin:0 auto; text-align:center; margin-top:30px;}
+.article .centeredimageblog img{width:200px; margin-bottom:20px; padding:10px; border:1px solid #ccc; margin-right:10px;}
+.article .centeredimageblog.wide img{width:auto; max-height:300px;}
 
 .social_network_button{float:right; line-height:1em;/*line-height:21px;*/ }
 .share_buttons .gplus {width:86px;}
@@ -245,11 +247,19 @@ a:visited {color:#619CD4;}
 .code{font-style:italic;} 
 .list li{padding-bottom:10px; color:#000; }
 .list li a{ text-decoration:none;} 
-.subtitle{border-bottom:1px solid #F3F3F3; font-size:13pt; margin-top:10px; font-weight:bold;}
-.blocksubtitle{font-weight:bold; margin-top:10px;}
-.blocksubsubtitle{font-weight:bold; margin-top:10px; font-size:9pt;}
+.subtitle, .subtitle h2{font-size:1.3em; margin-top:10px; font-weight:bold;}
+.blocksubtitle{font-weight:bold; margin-top:10px; font-size:1.2em;}
+.blocksubsubtitle{font-weight:bold; margin-top:10px; font-size:1.1em;}
 .content{padding:15px; padding-top:5px;}
 .content ul{padding-left:20px;}
+.help h1 {font-size:41px; letter-spacing:0.03em; margin-top:20px; margin-bottom:10px;}
+/***********help about****************************************************/
+.about .surname{font-weight:bold;}
+.contributorsbanner {width: 100%; background: url("images/help/contributors.png") center top no-repeat; background-size:contain; height:196px;}
+.about h3{margin-top:90px;}
+
+/***********help versions****************************************************/
+.versions .version {border: 1px solid #e6e6e6; padding:20px;}
 
 /************help home page*****************/
 .mainlist{list-style-type: none; margin:0; padding:0;}  
@@ -271,3 +281,7 @@ h1.sub small{display:block; font-weight:normal;  margin-top:5px;}
 /***********************UTILS**********************************************/
 .clear{clear:both;}
 .disabled {cursor:default;}
+
+/*************************fetures articles********************************/
+  
+  .definition{font-weight:bold;}
