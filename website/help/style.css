@@ -47,7 +47,7 @@
    .toc .list li{color:#D2D2D2;}
    .toc .subtitle{font-weight:normal;}  
   
-  .screenshot, .centeredimageblog img{max-width:95%; max-height:100%; padding:7px; border:1px solid #ddd; margin-bottom:20px;} 
+  .screenshot, .centeredimageblog img{max-width:95%; max-height:120%; padding:7px; border:1px solid #ddd; margin-bottom:20px;} 
   .imgcontainer, .centeredimageblog{margin:20px 30px;}
   
    .download{width:24px; height:24px; padding-left:15px; vertical-align: bottom;}
