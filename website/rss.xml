@@ -4,7 +4,29 @@
 <link>http://osmand.net/blog</link>
 <description/>
 <generator></generator>
-
+<item>
+<title>OsmAnd 2.2</title>
+<link>http://osmand.net/blog?id=osmand-2-2-released</link>
+<description>
+<p>New OsmAnd 2.2 has been released. Fuller POI information, restructured downloads and a brand-new UI are some of the main things to see. Get the update now!</p>
+<h2>Reworked context-sensitive UI</h2>
+<p>OsmAnd has acquired a whole new context menu design that changes according to the content and the type of location you're working with. Now POI, Favorites and other types of locations get corresponding context menus to help you operate the app much easier. Also, you can now just tap on a region you need to download the map. This way, you'll get the map sections that you need much faster. More to come, you can enjoy amazing pull-up menus and a whole new Create POI interface.</p>
+<img src="images/blog/2.2/ver_2_2_9.jpg"/>
+<img src="images/blog/2.2/ver_2_2_17.jpg"/>
+<h2>New Wikipedia data, downloads by country and much more complete data</h2>
+<p>Now you can enter the name of the country and see all maps available for this particular location: the Standard map, Hillshade, Wikipedia data, Contour lines map and Roads-only map. This way, you'll see Wikipedia files as soon as you enter the country name. Besides that, the Wikipedia data has gotten fuller.</p>
+<img src="images/blog/2.2/ver_2_2_2.jpg"/>
+<img src="images/blog/2.2/ver_2_2_3.jpg"/>
+<h2>New navigation interface</h2>
+<p>You can build a route with all your waypoints or select to go right to the destination point. To do it, just tap the destination, and then press the blue navigation button.</p>
+<img src="images/blog/2.2/ver_2_2_10.jpg"/>
+<img src="images/blog/2.2/ver_2_2_18.jpg"/>
+<h2>Reworked POI editing menu</h2>
+<p>See new improvements in the POI editing section. You can now edit the points of interest you've created before committing them to the server. Also, the whole new Edit POI menu interface will help you add new points rapidly and manage them. Just don't forget to turn OSM Editing plugin on.</p>
+<img src="images/blog/2.2/ver_2_2_8.jpg"/>
+<img src="images/blog/2.2/ver_2_2_14.jpg"/>
+</description>
+</item>
 <item>
 <title>OsmAnd 1.2.2 for iOS is now released</title>
 <link>http://osmand.net/blog?id=osmand-ios-1.2.2-released</link>
