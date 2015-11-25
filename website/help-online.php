@@ -46,6 +46,7 @@
           <li><a data-gatag='versions' href="http://osmand.net/help-online?id=changes">Versions</a></li>
           <li><a data-gatag='map-legend' href="http://osmand.net/help-online?id=map-legend">Map legend</a></li>
           <li><a data-gatag='technical' href="http://osmand.net/help-online?id=technical-articles">Technical articles</a></li>
+          <li><a data-gatag='license' href="http://osmand.net/help-online?id=license">License</a></li>
           <li><a data-gatag='about' href="http://osmand.net/help-online?id=about">About</a></li>
         </ul>
       </div> <!-- acticlestitles -->
