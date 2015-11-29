@@ -212,37 +212,65 @@ a:visited {color:#619CD4;}
 .whatyousaymessage img{position:absolute; bottom:-14px; left:28px; width:20px; }
 
 
-
-
 /***********************PLUGINS******************************************/
 .pluginscontainer {}
-.feature {position:relative; margin-bottom:30px; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; position:relative; min-height:410px;}
-.feature .description {width:50%; position:absolute; height:100%; left:0; top:0; background-color:rgb(255, 143, 0);  background-color:rgba(255, 143, 0, .9); color:#fff; -webkit-border-radius: 5px 0px 0px 5px; -moz-border-radius: 5px 0px 0px 5px; border-radius: 5px 0px 0px 5px;}
+.pluginscontainer  .readmore {color:#adadad; text-decoration:none; border-bottom:1px solid #d6d6d6; }
+.pluginscontainer  .readmore a {color:#adadad; text-decoration:none;}
+.featurecontainer { padding:7px; border:1px solid #ededed;}
+.featurecontainer.sub{padding:0; margin-top:-1px;}
+.featurecontainer.last{margin-top:30px; margin-bottom:30px;}
+
+.feature {position:relative;  min-height:410px;}
+.feature.firstusage{background-image:url(images/features/first_usage.jpg);}
+.feature.navigation {background-image:url(images/features/navigation.jpg);}
+.feature .description {width:40%; position:absolute; height:100%; left:0; top:0; background-color:rgb(255, 143, 0);  background-color:rgba(255, 143, 0, .9); color:#fff; }
 .feature .descriptioncontent {position:relative; padding:40px;}
-.feature .description h1{font-size:34px; padding:40px;}
+.feature  h1{font-size:34px; padding:40px; }
 .feature .description p{padding:0px 40px; margin:0; margin-bottom:100px;}
-.feature .readmore {position:absolute; bottom:40px; left:40px; color:#fff; text-decoration:none; padding:10px; border:1px solid #fff; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;}
-.plugin{ background-color:#F6F6F6; padding-left:30px; padding-right:15px; position:relative; margin-bottom:30px; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; position:relative; min-height:340px;}
-.plugin h1{font-size:34px; color:#619CD4; padding-bottom:10px; line-height:40px; }
-.plugin .featuretype{color:#9A9A9A;}
-.plugin .description{float:left; margin-bottom:90px; width:830px; }
-.plugin .description a{color:#619CD4; }
-.plugin .description a:visited{color:#619CD4; }
-.plugin .screenshot{float:right; width:200px; height:100%; }
-.plugin .screenshotcontainer {position:absolute; bottom:0;}
-.plugin .screenshotcontainer .frame{width:201px; position:absolute; bottom:0;}
-.plugin .screenshot .screenshotimg{ width:159px; position:absolute; bottom:0; left:21px;}
-.plugin .buttonscontainer{position:absolute; bottom:30px; width:830px;}
+.feature .readmore {position:absolute; bottom:40px; left:40px; color:#fff; text-decoration:none; border-bottom:1px solid #fff; }
+
+.subfeature {float:left; width: 544px;}
+.subfeature.odd{border-left:1px solid #ededed;}
+.subfeaturecontent{ padding:25px 25px 25px 75px;}
+.subfeature .subfeatureheader{font-size: 34px; color:#619CD4;}
+.subfeature .text{padding: 20px 20px 0px 0px; height:69px; overflow:hidden; margin-bottom:20px; }
+
+.plugin{ float:left; width:470px; position:relative; min-height:340px; padding:30px; border:1px solid #ededed; margin-bottom:30px;}
+.plugin.odd {float:right;}
+.plugin .pluginpicture {height:230px; border:1px solid #ededed;}
+.plugin h1{font-size:30px; color:#619CD4; padding-bottom:10px; line-height:40px;letter-spacing:0; }
+.plugin .plugintext{height:100px; margin-bottom:60px; overflow:hidden;}
+
+.plugin .buttonscontainer{position:absolute; bottom:30px; width:470px;}
 .plugin .buttons{position:relative;}
-.plugin .buttons .pricetype {float:left; background-color:#E3E3E3; padding:10px 15px 10px 15px; color:#9A9A9A; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;}
-.plugin .buttons .pricetypevalue{padding-left:5px; font-weight:bold; color:#000;}
+.plugin .buttons .pricetype {float:left; background-color:#ededed; padding:10px 15px; color:#9a9a9a; font-weight:bold; }
 .plugin .buttons .readmore{float:right; padding-top:15px;}
-.plugin .buttons .readmore a{color:rgb(255, 143, 0);}
-.plugin .buttons .readmore a:visited{color:rgb(255, 143, 0);}
-.plugin .buttons .getbutton {float:left; background-color:#7ACC2E; padding:10px 15px 10px 15px; margin-right:20px; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;}
+.plugin .buttons .getbutton {float:left; background-color:#7ACC2E; padding:10px 15px 10px 15px; margin-right:20px; }
 .plugin .buttons .getbutton a{color:#FFF; text-decoration:none; font-weight:bold;}
 .plugin .buttons .getbutton a:visited{color:#FFF; text-decoration:none;}
 
+.featuresheader {margin-bottom:30px;}
+.featuresheader .headerpart{float:left; width:44%; background:rgb(255, 143, 0); border:0; height:3px;}
+.featuresheader .featuresheadertext{float:left; padding:0 19px; letter-spacing:0.11em; font-weight:bold;}
+
+.plugin .onlinemaps {background:url("images/features/online_maps_main.png") no-repeat;}
+.plugin .contourlines {background:url("images/features/contour_lines_main.png") no-repeat;}
+.plugin .triprecordingtool {background:url("images/features/trip_recording_tool_main.png") no-repeat;}
+.plugin .skimaps {background:url("images/features/ski_maps_main.png") no-repeat;}
+.plugin .nauticalcharts {background:url("images/features/nautical_charts_main.png") no-repeat;}
+.plugin .audiovideo {background:url("images/features/audio_video_note_main.png") no-repeat;}
+.plugin .osmediting {background:url("images/features/osm_editing_main.png") no-repeat;}
+.plugin .planningtool {background:url("images/features/planning_tool_main.png") no-repeat;}
+.plugin .parking {background:url("images/features/parking_main.png") no-repeat;}
+.plugin .development {background:url("images/features/development_main.png") no-repeat;}
+
+.subfeature .viewmap {background:url("images/features/view_map_icon.png") no-repeat 25px 25px;}
+.subfeature .search {background:url("images/features/search_icon.png") no-repeat 25px 25px;}
+.subfeature .plantrip {background:url("images/features/plan_trip_icon.png") no-repeat 25px 25px;}
+.subfeature .install {background:url("images/features/install_icon.png") no-repeat 25px 25px;}
+
+.ellipsis {	white-space: nowrap; overflow: hidden;}
+.ellipsis.multiline {white-space: normal;}
 
 /***********************HELP*********************************************/
 
