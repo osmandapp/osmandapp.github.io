@@ -42,7 +42,7 @@
   <div class="main">
   
   	  <?php
-        if ($_GET['id'] != '5_years') {
+        if ($_GET['id'] != 'osmand_google_apps') {
         	$simpleheader_header = "BLOG";
         	include 'blocks/simple_header.php';
         } else {
@@ -62,7 +62,7 @@
 		  <h1>LATEST ARTICLES</h1>
 		  <div class="delimiter"></div>
 		  <ul class="articlelinklist">
-		  	<li><a data-gatag='osmand_google_apps' href="http://osmand.net/blog?id=osmand_and_google_maps" >5 years!</a></li>
+		  	<li><a data-gatag='osmand_google_apps' href="http://osmand.net/blog?id=osmand_and_google_maps" >Google maps vs. OsmAnd maps  & navigation</a></li>
 		  	<li><a data-gatag='osmand-2-2-released' href="http://osmand.net/blog?id=osmand-2-2-released" >OsmAnd 2.2</a></li>
 		  	<li><a data-gatag='osmand-ios-1.2.2-released' href="http://osmand.net/blog?id=osmand-ios-1.2.2-released" >OsmAnd 1.2.2 (iOS)</a></li>
 		  	<li><a data-gatag='osmand-ios-1.1.1-released' href="http://osmand.net/blog?id=osmand-ios-1.1.1-released" >OsmAnd 1.1.1 (iOS)</a></li>
