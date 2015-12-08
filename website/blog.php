@@ -1,6 +1,6 @@
 <?php
 	if (empty($_GET['id'])) {
-		$_GET['id'] ="comparison";
+		$_GET['id'] ="osmand_google_comparison";
 	}	
 ?>		    	
 <!DOCTYPE html>
@@ -62,7 +62,7 @@
 		  <h1>LATEST ARTICLES</h1>
 		  <div class="delimiter"></div>
 		  <ul class="articlelinklist">
-		  	<li><a data-gatag='comparison' href="http://osmand.net/blog?id=osmand_google_comparison" >Google maps vs. OsmAnd maps  & navigation</a></li>
+		  	<li><a data-gatag='osmand_google_comparison' href="http://osmand.net/blog?id=osmand_google_comparison" >Google maps vs. OsmAnd maps  & navigation</a></li>
 		  	<li><a data-gatag='osmand-2-2-released' href="http://osmand.net/blog?id=osmand-2-2-released" >OsmAnd 2.2</a></li>
 		  	<li><a data-gatag='osmand-ios-1.2.2-released' href="http://osmand.net/blog?id=osmand-ios-1.2.2-released" >OsmAnd 1.2.2 (iOS)</a></li>
 		  	<li><a data-gatag='osmand-ios-1.1.1-released' href="http://osmand.net/blog?id=osmand-ios-1.1.1-released" >OsmAnd 1.1.1 (iOS)</a></li>
