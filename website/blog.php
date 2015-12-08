@@ -42,7 +42,7 @@
   <div class="main">
   
   	  <?php
-        if ($_GET['id'] != 'osmand_google_apps') {
+        if ($_GET['id'] != 'osmand-5-years') {
         	$simpleheader_header = "BLOG";
         	include 'blocks/simple_header.php';
         } else {
