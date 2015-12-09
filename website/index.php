@@ -372,13 +372,6 @@ $( document ).ready(function() {
  setTimeout(applyPolStyles, timeout);
 
 });
-
-
-function contactus() {
-  var link = "m" + "ail" + "to" + ':';
-  link = link + "contactus" + "@" + "osmand.net";
-  window.location = link;
-}
  
 </script>
 </body>
