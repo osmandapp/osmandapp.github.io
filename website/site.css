@@ -14,7 +14,7 @@ a:visited {color:#619CD4;}
 .main {position:relative; max-width:1920px; margin:0 auto; min-height:100%;}
 /* images/header_image.jpg */
 .header {position:relative; color:#fff; height: 0;
-    padding-top: 40%; background: url("images/NY_header.jpg") center top no-repeat; background-size:contain;}
+    padding-top: 40%; background: url("images/NY_Header.jpg") center top no-repeat; background-size:contain;}
 .shadowline{position:absolute; top:0; height:100px; width:100%; background: url("images/head_shadow.png") repeat-x; background-size:contain;}
 /*.headerimage {position:absolute; top:0; left:0; width:100%;}*/
 .headertitle {position:absolute; bottom:-15px; left:20%; right:20%; background: #fff; border: 2px solid; border-radius: 15px;}
