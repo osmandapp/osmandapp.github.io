@@ -34,6 +34,7 @@
 		  
           </a></li>
           <li><a data-gatag="ios" class="appstoretopbadge" href="https://itunes.apple.com/app/apple-store/id934850257?pt=2123532&ct=WebSite&mt=8"><img src="images/app-store-badge.png"/></a></li> 
+          <!--
 		   <li class="survey">
 		  <span><a class="pd-embed surveylink" id="pd1439392361078" href="http://osmandapp.polldaddy.com/s/tell-us-about-you">Join OsmAnd Survey &#8594;</a></span>
 <script type="text/javascript">
@@ -48,9 +49,10 @@ _polldaddy.push( {
 } );
 
 (function(d,c,j){if(!document.getElementById(j)){var pd=d.createElement(c),s;pd.id=j;pd.src=('https:'==document.location.protocol)?'https://polldaddy.com/survey.js':'http://i0.poll.fm/survey.js';s=document.getElementsByTagName(c)[0];s.parentNode.insertBefore(pd,s);}}(document,'script','pd-embed'));
-</script>
+</script> 
 
 		  </li>
+		  -->
 	  </ul>
 	  <ul class="menu">
 	  <!-- 	<nav class="menu"> -->
