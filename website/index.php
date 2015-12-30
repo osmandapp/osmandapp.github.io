@@ -64,7 +64,7 @@ _polldaddy.push( {
 	  </ul>
      </div>
     </div>
-
+<!--
     <div class="specialevent"  >     
       <div class="specialeventwrap">
         <div class="specialeventcontent">
@@ -75,7 +75,7 @@ _polldaddy.push( {
         </div>
       </div>     
     </div>
-
+-->
 
       	<div class="features">
 	  
