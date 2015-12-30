@@ -64,18 +64,17 @@ _polldaddy.push( {
 	  </ul>
      </div>
     </div>
-<!--
-	  <div class="specialevent"  >     
+
+    <div class="specialevent"  >     
       <div class="specialeventwrap">
         <div class="specialeventcontent">
           <div class="specialeventtext" style="height:600px">
-
-        </div>
-          
+          	Merry Christmas and Happy New 2016 Year!
+          </div>
         </div>
       </div>     
     </div>
-    -->
+
 
       	<div class="features">
 	  
