@@ -64,18 +64,22 @@ _polldaddy.push( {
 	  </ul>
      </div>
     </div>
-<!--
-    <div class="specialevent"  >     
+
+  <!--  <div class="specialevent"  >     
       <div class="specialeventwrap">
         <div class="specialeventcontent">
-          <div class="specialeventtext" style="height:300px">
-          	<div class="headertext">Merry Christmas and Happy New 2016 Year!</div>
-          	
+          <div class="specialeventtext">
+          	<div class="headertitletext">Merry Christmas and Happy New 2016 Year!</div>
+          	<p>This year, we've worked hard on the user experience of OsmAnd to let you enjoy the app. OsmAnd 2.0 with the new material design was released, we added new functions and published a comprehensive guide to them available at <a href="http://osmand.net/features">osmand.net/features</a>. </p>
+			<p>Also, OsmAnd for iOS went live. Now not only Android users but also iOS device owners can get offline maps and use them wherever they are.</p>
+			<p>Besides the main OsmAnd version for iOS, we've also published OsmAnd DVR to help you on the road.</p>
+			<p>Nautical charts have become available. Thousands of users are now able to get the plugin.</p>
+			<p class="signature">Sincerely yours,<br>OsmAnd Team </p>
           </div>
         </div>
       </div>     
-    </div>
--->
+    </div>-->
+
 
       	<div class="features">
 	  

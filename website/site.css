@@ -49,12 +49,12 @@ a:visited {color:#619CD4;}
 .specialevent {position:relative; background:#fff; height:650px;}
 .specialeventwrap{width:900px;  position:absolute; left:50%; margin-top:-60px;}
 .specialeventcontent{position:relative; left:-50%; border-radius: 15px; background:#fff; }
-.specialeventtext{width:85%; margin:0 auto; overflow:hidden; line-height: 1.6em; font-size:14px; }
-.specialeventtext p, .specialeventtext ul{padding-bottom:15px;}
+.specialeventtext{width:85%; margin:0 auto; padding-top:20px; overflow:hidden; line-height: 1.6em; font-size:14px; }
+.specialeventtext p, .specialeventtext ul{padding-bottom:10px;}
 .specialeventtext .beforelist{padding-bottom:0; margin-bottom:5px;}
 .specialeventtext .signature{font-weight:bold;}
 .specialeventtext.hidden {color:#fff; padding-bottom:60px; width:900px;}
-.specialevent .headertitletext{letter-spacing:0;}
+.specialevent .headertitletext{letter-spacing:0; font-weight:bold;}
 
 
 /************* features*****************************/
