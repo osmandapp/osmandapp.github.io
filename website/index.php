@@ -70,7 +70,7 @@ _polldaddy.push( {
         <div class="specialeventcontent">
           <div class="specialeventtext">
           	<div class="headertitletext">Merry Christmas and Happy New 2016 Year!</div>
-          	<p>We would like to thank everyone who has been with us this year, who discovered us and who has known us and used for a while. Without you it will be impossible this app has started and evolved. You probably see that nowadays there are plenty of free solutions for Maps &amp; Navigation, though we aim to build not just free, but truly opensource, handy, useful multifunctional application.  </p>
+          	<p>We would like to thank everyone who has been with us this year, who discovered us and who has known us and used for a while. Without you it will be impossible this app has started and evolved. </p>
           	<ul class="specialeventlist">
           	<li>This year, we've worked hard on the user experience of OsmAnd to let you enjoy the app. OsmAnd 2.0 with the new material design was released, we added new functions and published a comprehensive guide to them available at <a href="http://osmand.net/features">osmand.net/features</a>. 
 			<li>Also, OsmAnd for iOS went live. Now not only Android users but also iOS device owners can get offline maps and use them wherever they are.
