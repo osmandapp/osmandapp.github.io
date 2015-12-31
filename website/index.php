@@ -71,15 +71,15 @@ _polldaddy.push( {
           <div class="specialeventtext">
           	<div class="headertitletext">Merry Christmas and Happy New 2016 Year!</div>
           	<p>We would like to thank everyone who has been with us this year, who discovered us and who has known us and used for a while. Without you it will be impossible this app has started and evolved. You probably see that nowadays there are plenty of free solutions for Maps &amp; Navigation, though we aim to build not just free, but truly opensource, handy, useful multifunctional application.  </p>
-          	<ul  class="categorydescription">
+          	<ul class="specialeventlist">
           	<li><p>This year, we've worked hard on the user experience of OsmAnd to let you enjoy the app. OsmAnd 2.0 with the new material design was released, we added new functions and published a comprehensive guide to them available at <a href="http://osmand.net/features">osmand.net/features</a>. </p>
 			<li><p>Also, OsmAnd for iOS went live. Now not only Android users but also iOS device owners can get offline maps and use them wherever they are.</p>
 			<li><p>Besides the main OsmAnd version for iOS, we've also published OsmAnd DVR to help you on the road.</p>
 			<li><p>Nautical charts have become available. Thousands of users are now able to get the plugin.</p>
 			</ul>
 			We greatly rely on your feedback, that's why we want to publish our New Year resolutions to encourage you participate more in development. Same as last year this list is quite ambitious for our small team to accomplish next year, but we don't give up and look forward with exceeding any expectations.
-			<p><b>New Year Resolutions</b></p>
-			<ul class="categorydescription">
+			<div class="headertitletext">New Year Resolutions</div>
+			<ul class="specialeventlist">
 			<li>Better Usability. We hope you've already noticed our efforts this year, we've done some major improvements in applications, we've also created comprehensive guide and constantly watching your feedback about usability in our polls on the website and in the application. Thanks everyone for participation, we hear you and we will deliver these improvements as soon as we can!
           	<li>Live updates. This feature is already available on Android nightly builds since September, we didn't release it yet, because we want to improve stability of it and make working for every piece of application. 
           	<li>3D maps. That feature was already released on the IPhone version, but merging 2 rendering engines is not an easy task and we want to release this feature once we're sure it works as expected on all supported Android phones.

@@ -18,8 +18,8 @@ a:visited {color:#619CD4;}
     /*  background: url("images/head_shadow.png") repeat-x;*/
 .shadowline{position:absolute; top:0; height:100px; width:100%; background-size:contain;}
 /*.headerimage {position:absolute; top:0; left:0; width:100%;}*/
-.headertitle {position:absolute; bottom:-15px; left:20%; right:20%; background: #fff; border: 2px solid; border-radius: 15px;}
-.headertitletext {text-align:center; padding: 3px 0;color:#000; line-height:1.6em;font-size: 22px}
+/*.headertitle {position:absolute; bottom:-15px; left:20%; right:20%; background: #fff; border: 2px solid; border-radius: 15px;}*/
+
 .headerlogo{position:absolute; top:5px; left:21%; width:200px; height:77px; background: url("images/logo.png") center top no-repeat; background-size:contain;}
 .headertext {position:absolute; top:35%; left: 21%; font-size:50px; letter-spacing:0.06em; line-height:1.6em;}
 .menu{position: absolute; top:38px; right:10%; list-style-type: none;  font-family:Verdana, Arial; font-weight:bold; letter-spacing:0.06em;}
@@ -49,12 +49,15 @@ a:visited {color:#619CD4;}
 .specialevent {position:relative; background:#fff; height:650px;}
 .specialeventwrap{width:900px;  position:absolute; left:50%; margin-top:-60px;}
 .specialeventcontent{position:relative; left:-50%; border-radius: 15px; background:#fff; }
-.specialeventtext{width:85%; margin:0 auto; padding-top:20px; overflow:hidden; line-height: 1.6em; font-size:16px; }
+.specialeventtext{width:85%; margin:0 auto; padding-top:20px; overflow:hidden; line-height: 1.6em; font-size:18px; }
 .specialeventtext p, .specialeventtext ul{padding-bottom:10px;}
 .specialeventtext .beforelist{padding-bottom:0; margin-bottom:5px;}
 .specialeventtext .signature{font-weight:bold;}
 .specialeventtext.hidden {color:#fff; padding-bottom:60px; width:900px;}
+.specialeventlist {list-style-type:disc; padding-left:25px; line-height:1.7em;}
+.specialeventlist li{border-bottom:none;}
 .specialevent .headertitletext{letter-spacing:0; font-weight:bold;}
+.headertitletext {text-align:center; padding: 3px 0;color:#000; line-height:1.6em; font-size: 22px}
 
 
 /************* features*****************************/
@@ -68,6 +71,7 @@ a:visited {color:#619CD4;}
 .featureblocktitle img {position:absolute; bottom:0; left:0; width:60px; margin-bottom:30px;}
 .featureblocktitle h1 {float:left; padding-left:95px; padding-top:5px; max-width:400px; min-height:60px; font-size:2.3em;  margin-bottom:0;}
 .featureblocktitle .warning{color:rgb(255, 143, 0); font-size:0.6em; letter-spacing:0;}
+
 
 .features .categorydescription{list-style-type:disc; padding-left:25px; line-height:1.7em;}
 .features  .categorydescription li{border-bottom:none;}
