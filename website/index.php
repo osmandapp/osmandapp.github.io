@@ -70,21 +70,21 @@ _polldaddy.push( {
         <div class="specialeventcontent">
           <div class="specialeventtext">
           	<div class="headertitletext">Merry Christmas and Happy New 2016 Year!</div>
-          	<p>We would like to thank everyone who has been with us this year, who discovered us and who has known us and used for a while. Without you it will be impossible this app has started and evolved. </p>
+          	<p>We would like to thank everyone who has been with us this year, who discovered us and who has known OsmAnd and used it for a while. Without you, it would be impossible for the app to start and evolve.</p>
           	<ul class="specialeventlist">
-          	<li>This year, we've worked hard on the user experience of OsmAnd to let you enjoy the app. OsmAnd 2.0 with the new material design was released, we added new functions and published a comprehensive guide to them available at <a href="http://osmand.net/features">osmand.net/features</a>. 
+          	<li>This year, we've worked hard on the user experience of OsmAnd to let you enjoy the app. OsmAnd 2.0 with the new material design was released, we added new functions and published a comprehensive guide to them available at osmand.net/features</a>. 
 			<li>Also, OsmAnd for iOS went live. Now not only Android users but also iOS device owners can get offline maps and use them wherever they are.
 			<li>Besides the main OsmAnd version for iOS, we've also published OsmAnd DVR to help you on the road.
-			<li>Nautical charts have become available. Thousands of users are now able to get the plugin.
+			<li>Nautical charts have become available. Thousands of users are now able to get the plugin. 
 			</ul>
-			We greatly rely on your feedback, that's why we want to publish our New Year resolutions to encourage you participate more in development. Same as last year this list is quite ambitious for our small team to accomplish next year, but we don't give up and look forward with exceeding any expectations.
+			We greatly rely on your feedback, that's why we want to publish our New Year resolutions to encourage you to participate more in development. Same as last year, this list is quite ambitious for our small team to accomplish next year, but we don't give up and look forward to exceeding any expectations.
 			<div class="headertitletext">New Year Resolutions</div>
 			<ul class="specialeventlist">
-			<li>Better Usability. We hope you've already noticed our efforts this year, we've done some major improvements in applications, we've also created comprehensive guide and constantly watching your feedback about usability in our polls on the website and in the application. Thanks everyone for participation, we hear you and we will deliver these improvements as soon as we can!
-          	<li>Live updates. This feature is already available on Android nightly builds since September, we didn't release it yet, because we want to improve stability of it and make working for every piece of application. 
+			<li>Better Usability. We hope you've already noticed our efforts this year, we've done some major improvements in applications, we've also created a comprehensive guide and constantly watching your feedback about usability in our polls on the website and in the application. Thanks everyone for participation, we hear you and we will deliver these improvements as soon as we can!
+          	<li>Live updates. This feature is already available on Android nightly builds since September. We haven't released it yet because we want to improve stability of it and ensure it works well for every piece of the application.
           	<li>3D maps. That feature was already released on the IPhone version, but merging 2 rendering engines is not an easy task and we want to release this feature once we're sure it works as expected on all supported Android phones.
-          	<li>Fast rendering. It is not a secret that over years rendering style becomes prettier, more detailed and more complex. So our efforts in making map faster are not that visible. Next year we hope to make a breakthrough in that area.
-          	<li>Stable and longer distance routing. There have no been major improvements this year in the routing except small and useful features and some bug fixes. However we did some important analysis on new ideas and they could go production very soon.
+          	<li>Fast rendering. It is not a secret that over years rendering style becomes prettier, more detailed and more complex. So our efforts in making map faster are not that visible. Next year, we hope to make a breakthrough in that area.
+          	<li>Stable and longer distance routing. There have not been major improvements this year in the routing except small and useful features and some bug fixes. However, we did some important analysis of new ideas and they can go to production very soon.
           	</ul>
 			<p class="signature">Sincerely yours,<br>OsmAnd Team </p>
           </div>
