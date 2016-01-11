@@ -11,7 +11,7 @@ if(!isset($_GET['month'])) {
 } else {
   $month = $_GET["month"];
 }
-$result = pg_query($dbconn, "count ( distinct username) people, count(*) changes from changesets
+$result = pg_query($dbconn, "select count ( distinct username) people, count(*) changes from changesets
 where substr(closed_at_day, 0, 8) = '".$month."';");
 if (!$result) {
   echo "{'error':'No result'}";
