@@ -13,7 +13,7 @@ if(isset($_GET['month'])) {
 }
 $result = pg_query($dbconn, "select nt rank, count (username) people, min(size) min, max(size) max , sum(size) / count(size) avg_changes
 from (
-	SELECT username, ntile("+$ranking_range+") over (order by count(*) desc) nt, count(*) size FROM changesets 
+	SELECT username, ntile(".$ranking_range.") over (order by count(*) desc) nt, count(*) size FROM changesets 
 		where substr(closed_at_day, 0, 8) = '".$month."'
 		group by username
 		having count(*) >= ".$min_changes."
