@@ -16,7 +16,7 @@ from (
 	SELECT username, ntile("+$ranking_range+") over (order by count(*) desc) nt, count(*) size FROM changesets 
 		where substr(closed_at_day, 0, 8) = '".$month."'
 		group by username
-		having count(*) >= "+$min_changes+"
+		having count(*) >= ".$min_changes."
 		order by count(*) desc
 	) data
 group by nt order by nt asc;");
@@ -26,6 +26,7 @@ if (!$result) {
 }
 
 $res = new stdClass();
+$res->month = $month;
 $res->rows = array();
 while ($row = pg_fetch_row($result)) {
   $rw = new stdClass();

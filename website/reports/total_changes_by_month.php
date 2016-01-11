@@ -20,6 +20,7 @@ if (!$result) {
 
 $res = new stdClass();
 $row = pg_fetch_row($result)
+$res->month = $month;
 $res->users = $row[0];
 $res->changes = $row[1];
 
