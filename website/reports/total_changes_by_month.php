@@ -1,5 +1,6 @@
 <?php
 include 'db_conn.php';
+include 'default_vars.php';
 $dbconn = db_conn();
 if (!$dbconn) {
 	echo "{'error':'No db connection'}";
