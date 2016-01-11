@@ -6,7 +6,7 @@ if (!$dbconn) {
 	echo "{'error':'No db connection'}";
 	exit;
 }
-if(isset($_GET['month'])) {
+if(!isset($_GET['month'])) {
   $month = date("Y-m");	
 } else {
   $month = $_GET["month"];

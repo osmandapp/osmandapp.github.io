@@ -6,12 +6,12 @@ if (!$dbconn) {
 	echo "{'error':'No db connection'}";
 	exit;
 }
-if(isset($_GET['month'])) {
+if(!isset($_GET['month'])) {
   $month = date("Y-m");	
 } else {
   $month = $_GET["month"];
 }
-$result = pg_query($dbconn, "count ( distinct username) people, count(*) changes
+$result = pg_query($dbconn, "count ( distinct username) people, count(*) changes from changesets
 where substr(closed_at_day, 0, 8) = '".$month."';");
 if (!$result) {
   echo "{'error':'No result'}";
