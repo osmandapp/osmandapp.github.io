@@ -1,0 +1,22 @@
+
+#month-selection {
+	margin-bottom: 10px;
+}
+#region-selection {
+	margin-bottom: 10px;
+}
+#report-total {
+	font-size: 21px;
+}
+
+#report-total-div {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+#container {
+	width:60%;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	margin-left: auto;
+	margin-right: auto;
+}

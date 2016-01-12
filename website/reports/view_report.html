@@ -1,0 +1,137 @@
+<html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+ <!--
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" 	integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+-->
+
+<script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js"></script>
+ 
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<link rel='stylesheet' href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel='stylesheet' href="report.css">
+<link rel='stylesheet' href="https://cdn.datatables.net/1.10.10/css/dataTables.bootstrap.min.css">
+<!--
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/run_prettify.min.js"></script>
+<script src="http://bootboxjs.com/bootbox.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.5/js/bootstrap-dialog.min.js"></script> 
+<link rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.5/css/bootstrap-dialog.min.css" type="text/css" />
+
+-->
+
+
+  
+<body>
+<div id="container">
+	<div class="report-period-group">
+  		<label for="month-selection">Report period:</label>
+  		<select class="form-control" id="month-selection">
+  		</select>
+  		<label for="month-selection">Region:</label>
+  		<select class="form-control" id="region-selection">
+  			<option>Worldwide</option>
+  		</select>
+	</div>
+	<div class="panel panel-default" id="report-total-div">
+  		<div class="panel-heading"><strong>Overall</strong></div>
+  		<div class="panel-body"><p id="report-total"></p></div>
+	</div>
+
+ 	<h4 id="report-ranking"></h4>
+    <table id="report-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
+    </table>
+</div>
+</body>
+<script>
+
+var floatFormat = function (o) { 
+    var fl = parseFloat(o) * 100;
+    return Math.round(fl) / 100.;
+}
+
+
+function updateTotalChanges(month) {
+	$('#report-total').empty();
+	$.ajax({
+  		url: "query_report.php?report=total_changes_by_month&month="+month,	
+  	}).done(function(res) {
+  		var data = jQuery.parseJSON( res );
+  		$('#report-total').html("In total <strong>"+ data.changes + "</strong> changes were done by <strong>" 
+  			+ data.users + "</strong> contributors");
+	});
+}
+
+var reportDataTable;
+function updateRankingByMonth(month) {
+	if(reportDataTable) {
+		reportDataTable.destroy();
+	}
+	$('#report-ranking').empty();
+
+	$.ajax({
+  		url: "query_report.php?report=ranking_by_month&month="+month,	
+  	}).done(function(res) {
+  		var data = jQuery.parseJSON( res );
+  		$('#report-ranking').text("Ranking of contributors by " + data.rows.length + " groups (made more than 3 changes)");
+  		reportDataTable = $('#report-table').DataTable({
+        	data: data.rows,
+        	columns: [
+            	{ "data": "rank", title: "Group rank"},
+            	{ "data": "countUsers", title: "Contributors in group"},
+            	{ "data": "minChanges", title: "Minimum changes in group"},
+            	{ "data": "maxChanges", title: "Maximum changes in group"},
+            	{ "data": "avgChanges", title: "Average changes in group", render:floatFormat}
+        	],
+        	//"paging":   false,
+	        "ordering": true,
+	        "iDisplayLength": 20,
+	        "info":     false,
+	        "searching": false
+    	});
+	});
+}
+
+function formatYearMonthHuman(year, month) {
+	var monthNames = ["January", "February", "March", "April", "May", "June",
+  			"July", "August", "September", "October", "November", "December"];
+	return monthNames[month - 1] + " " + year;
+}
+
+function formatYearMonth(year, month) {
+	if(month < 10) {
+		return year +"-0" +month;
+	} else {
+		return year +"-" +month;
+	}
+}
+
+$(document).ready(function(){
+	var currentTime = new Date();
+	var month = currentTime.getMonth() + 1;
+	var day = currentTime.getDate();
+	var year = currentTime.getFullYear();
+	var mid = formatYearMonth(year, month);
+	for(yi = 2015; yi <= year; yi++) {
+		stmonth = yi == 2015? 6 : 1;
+		endmonth = yi == year? month : 12;
+		for(mi = stmonth; mi <= endmonth; mi++) {
+			$("#month-selection").prepend("<option value='"+formatYearMonth(yi,mi)+"'>"+formatYearMonthHuman(yi,mi)+"</option>");
+		}
+	}
+	updateTotalChanges(mid);
+    updateRankingByMonth(mid);
+    $('select').on('change', function (e) {
+    	var optionSelected = $("option:selected", this);
+    	var mid = this.value;
+    	updateTotalChanges(mid);
+    	updateRankingByMonth(mid);
+    });
+    
+   
+});
+</script>
+
+</html>
