@@ -132,8 +132,9 @@ function updateUserRankingByMonth() {
   		}).done(function(res) {
   			var data = jQuery.parseJSON( res );
   			$('#users-ranking').text("Ranking of contributors");
-  			reportDataTable = $('#users-table').DataTable({
+  			reportUserDataTable = $('#users-table').DataTable({
         		data: data.rows,
+        		destroy: true,
         		columns: [
             		{ "data": "rank", title: "Rank"},
             		{ "data": "user", title: "User name"},
@@ -164,6 +165,7 @@ function updateRankingByMonth() {
   		$('#report-ranking').text("Ranking of contributors by " + data.rows.length + " groups (made more than 3 changes)");
   		reportDataTable = $('#report-table').DataTable({
         	data: data.rows,
+        	destroy: true,
         	columns: [
             	{ "data": "rank", title: "Group rank"},
             	{ "data": "countUsers", title: "Contributors in group"},
