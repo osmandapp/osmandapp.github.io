@@ -54,6 +54,14 @@ var floatFormat = function (o) {
     return Math.round(fl) / 100.;
 }
 
+function regionDepth(region, regionsmap) {
+	if(region.parentid in regionsmap) {
+		return regionDepth(regionsmap[region.parentid], regionsmap) + 1;
+	} else {
+		return 0;
+	}
+}
+
 function updateRegions() {
 	$('#region-selection').empty();
 	regionsmap = {};
@@ -62,16 +70,27 @@ function updateRegions() {
   		url: "query_report.php?report=all_countries",	
   	}).done(function(res) {
   		var data = jQuery.parseJSON( res );
-  		for(i = 0; i <= data.rows.length; i++) {
+  		var namemap = {};
+  		for(i = 0; i < data.rows.length; i++) {
+  			var row = data.rows[i];
   			regionsmap[data.rows[i].id] = data.rows[i];
-  			if("downloadname" in data.rows[i] && data.rows[i].downloadname) {
-  				var name = data.rows[i].name;
-  				if(data.rows[i].parentid in regionsmap) {
-  					name = regionsmap[data.rows[i].parentid].name + " " + name;
+  			if(row.downloadname && row.map == "1" ) {
+  				var name = row.name;
+  				var depth = regionDepth(row, regionsmap);
+  				if(depth > 2) {
+  					if(depth > 3) {
+  						var parent = regionsmap[row.parentid];
+						name = regionsmap[parent.parentid].name + " " + name;
+  					} else {
+  						name = regionsmap[row.parentid].name + " " + name;
+  					}
   				}
-  				$("#region-selection").append("<option value='"+data.rows[i].downloadname+"'>"+name+"</option>");	
+  				namemap[name] = row.downloadname;
   			}
-			
+		}
+		var sorted_keys = Object.keys(namemap).sort()
+		for(i = 0; i < sorted_keys.length; i++) {
+			$("#region-selection").append("<option value='"+namemap[sorted_keys[i]]+"'>"+sorted_keys[i]+"</option>");	
 		}
 	});
 }

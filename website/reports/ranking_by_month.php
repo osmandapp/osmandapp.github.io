@@ -11,15 +11,31 @@ if(!isset($_GET['month'])) {
 } else {
   $month = $_GET["month"];
 }
+
+
+if(isset($_GET['region']) && strlen($_GET['region']) > 0) {
 $result = pg_query($dbconn, "select nt rank, count (username) people, min(size) min, max(size) max , sum(size) / count(size) avg_changes
-from (
-	SELECT username, ntile(".$ranking_range.") over (order by count(*) desc) nt, count(*) size FROM changesets 
-		where substr(closed_at_day, 0, 8) = '".$month."'
-		group by username
-		having count(*) >= ".$min_changes."
-		order by count(*) desc
-	) data
-group by nt order by nt asc;");
+  from (
+   SELECT username, ntile(".$ranking_range.") over (order by count(*) desc) nt, count(*) size 
+      from changesets ch, changeset_country cc where ch.id = cc.changesetid 
+      and substr(cc.closed_at_day, 0, 8) = '".$month."'
+      and cc.countryid = (select from countries where download_name= '".$_GET['region']."')
+      group by cc.username
+      having count(*) >= ".$min_changes."
+      order by count(*) desc
+   ) data
+  group by nt order by nt asc;");
+} else {
+  $result = pg_query($dbconn, "select nt rank, count (username) people, min(size) min, max(size) max , sum(size) / count(size) avg_changes
+  from (
+	 SELECT username, ntile(".$ranking_range.") over (order by count(*) desc) nt, count(*) size FROM changesets 
+		  where substr(closed_at_day, 0, 8) = '".$month."'
+		  group by username
+		  having count(*) >= ".$min_changes."
+		  order by count(*) desc
+	 ) data
+  group by nt order by nt asc;");
+}
 if (!$result) {
   echo "{'error':'No result'}";
   exit;
