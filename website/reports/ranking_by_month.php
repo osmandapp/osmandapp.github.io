@@ -19,7 +19,7 @@ $result = pg_query($dbconn, "select nt rank, count (username) people, min(size) 
    SELECT username, ntile(".$ranking_range.") over (order by count(*) desc) nt, count(*) size 
       from changesets ch, changeset_country cc where ch.id = cc.changesetid 
       and substr(cc.closed_at_day, 0, 8) = '".$month."'
-      and cc.countryid = (select from countries where download_name= '".$_GET['region']."')
+      and cc.countryid = (select id from countries where downloadname= '".$_GET['region']."')
       group by cc.username
       having count(*) >= ".$min_changes."
       order by count(*) desc
