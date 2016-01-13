@@ -26,6 +26,7 @@ while ($row = pg_fetch_row($result)) {
   $rw->parentid = $row[1];
   $rw->downloadname = $row[2];
   $rw->name = $row[3];
+  $rw->map = $row[4];
 }
 
 echo json_encode($res);
