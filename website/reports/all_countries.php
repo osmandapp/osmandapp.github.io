@@ -11,7 +11,7 @@ if(!isset($_GET['month'])) {
 } else {
   $month = $_GET["month"];
 }
-$result = pg_query($dbconn, "select id, parentid, downloadname, name from countries where downloadname is not null;");
+$result = pg_query($dbconn, "select id, parentid, downloadname, name, map from countries;");
 if (!$result) {
   echo "{'error':'No result'}";
   exit;
