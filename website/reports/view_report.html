@@ -68,6 +68,7 @@ function updateRegions() {
 	$("#region-selection").append("<option value=''>Worldwide</option>");	
 	$.ajax({
   		url: "query_report.php?report=all_countries",	
+  		async: true
   	}).done(function(res) {
   		var data = jQuery.parseJSON( res );
   		var namemap = {};
@@ -99,6 +100,7 @@ function updateTotalChanges() {
 	$('#report-total').empty();
 	$.ajax({
   		url: "query_report.php?report=total_changes_by_month&month="+mid+"&region="+region,	
+  		async: true
   	}).done(function(res) {
   		var data = jQuery.parseJSON( res );
   		$('#report-total').html("In total <strong>"+ data.changes + "</strong> changes were done by <strong>" 
@@ -115,6 +117,7 @@ function updateRankingByMonth() {
 
 	$.ajax({
   		url: "query_report.php?report=ranking_by_month&month="+mid+"&region="+region,	
+  		async: true
   	}).done(function(res) {
   		var data = jQuery.parseJSON( res );
   		$('#report-ranking').text("Ranking of contributors by " + data.rows.length + " groups (made more than 3 changes)");
@@ -170,8 +173,8 @@ $(document).ready(function(){
     $('#month-selection').on('change', function (e) {
     	var optionSelected = $("option:selected", this);
     	mid = this.value;
-    	updateTotalChanges(mid);
-    	updateRankingByMonth(mid);
+    	updateTotalChanges();
+    	updateRankingByMonth();
     });
 
     $('#region-selection').on('change', function (e) {
