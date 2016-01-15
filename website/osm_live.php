@@ -227,7 +227,7 @@ $(document).ready(function(){
   var year = currentTime.getFullYear();
   mid = formatYearMonth(year, month);
   for(yi = 2015; yi <= year; yi++) {
-    stmonth = yi == 2015? 6 : 1;
+    stmonth = yi == 2015? 8 : 1;
     endmonth = yi == year? month : 12;
     for(mi = stmonth; mi <= endmonth; mi++) {
       $("#month-selection").prepend("<option value='"+formatYearMonth(yi,mi)+"'>"+formatYearMonthHuman(yi,mi)+"</option>");
