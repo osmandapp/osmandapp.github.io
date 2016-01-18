@@ -11,10 +11,11 @@ a {color:#619CD4;}
 a:visited {color:#619CD4;}
 
 .maincontainer{ width:100%; height:auto; overflow:hidden; background-color:#CFCFCF; min-width:1250px;}
-.main {position:relative; max-width:1920px; margin:0 auto; min-height:100%;url("images/header_image.jpg");}
+.main {position:relative; max-width:1920px; margin:0 auto; min-height:100%;
+      background:url("images/header_image.jpg");}
 /*  */
 .header {position:relative; color:#fff; height: 0;
-   /* padding-top: 40%; background: url("images/header_image.jpg") center top no-repeat; background-size:contain;*/
+   /* padding-top: 40%;  background: url("images/header_image.jpg") center top no-repeat; background-size:contain;*/
     background: url("images/head_shadow.png") repeat-x;
 }
 .shadowline{position:absolute; top:0; height:100px; width:100%; background-size:contain;}
