@@ -69,6 +69,7 @@ var region = "";
 var regionName = "";
 var regionsmap = {};
 
+
 var floatFormat = function (o) { 
     var fl = parseFloat(o) * 100;
     return Math.round(fl) / 100.;
@@ -85,6 +86,9 @@ function regionDepth(region, regionsmap) {
 function updateRegions() {
   $('#region-selection').empty();
   regionsmap = {};
+  if(regionName.length > 0 && regionName != "Worldwide") {
+    $("#region-selection").append("<option value='"+region+"'>"+regionName+"</option>"); 
+  }
   $("#region-selection").append("<option value=''>Worldwide</option>"); 
   $.ajax({
       url: "reports/query_report.php?report=all_countries", 
@@ -233,14 +237,32 @@ $(document).ready(function(){
       $("#month-selection").prepend("<option value='"+formatYearMonth(yi,mi)+"'>"+formatYearMonthHuman(yi,mi)+"</option>");
     }
   }
+  if(typeof(Storage) !== "undefined") {
+      if(sessionStorage.month) {
+          mid = sessionStorage.month;
+          midName = sessionStorage.monthName;
+          $("#month-selection").val(mid);
+      }
+      if(sessionStorage.region) {
+          region = sessionStorage.region;
+          regionName = sessionStorage.regionName;
+          $("#region-selection").val(region);
+      }
+  }
+  
+
   updateRegions();
   updateTotalChanges();
-    updateRankingByMonth();
-    updateUserRankingByMonth();
+  updateRankingByMonth();
+  updateUserRankingByMonth();
     $('#month-selection').on('change', function (e) {
       var optionSelected = $("option:selected", this);
       mid = this.value;
       midName = optionSelected.text();
+      if(typeof(Storage) !== "undefined") {
+        sessionStorage.month = mid;
+        sessionStorage.monthName = midName;
+      }
       updateTotalChanges();
       updateRankingByMonth();
       updateUserRankingByMonth();
@@ -250,6 +272,11 @@ $(document).ready(function(){
       var optionSelected = $("option:selected", this);
       region = this.value;
       regionName = optionSelected.text();
+      if(typeof(Storage) !== "undefined") {
+        sessionStorage.region = region;
+        sessionStorage.regionName = regionName;
+      }
+      
       updateTotalChanges();
       updateRankingByMonth();
       updateUserRankingByMonth();
