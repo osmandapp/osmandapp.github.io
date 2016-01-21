@@ -5,10 +5,19 @@
 #region-selection {
 	margin-bottom: 10px;
 }
-#report-total {
+.infobox {
 	font-size: 15px;
+	line-height: 150%;
 }
+.infobox ul {
+	list-style-type: circle;
+	    list-style-position: inside;
 
+}
+#recipients-info-div {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
 #report-total-div {
 	margin-top: 20px;
 	margin-bottom: 20px;

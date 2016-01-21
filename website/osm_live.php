@@ -52,7 +52,7 @@
       <hr>
         <h4 class="vlabel" for="report-total-div">Overview</h4 >
         <div class="panel panel-default" id="report-total-div">
-            <div class="panel-body"><p id="report-total"></p></div>
+            <div class="panel-body"><p id="report-total" class="infobox"></p></div>
         </div>
       <hr>
           <h4 class="vlabel" for="report-table" id="report-ranking"></h4>
@@ -71,6 +71,10 @@
         </div>
     </div>
     <div id="recipients" class="tab-pane fade ">
+      <h4 class="vlabel" for="recipients-info-div">Information</h4 >
+        <div class="panel panel-default" id="recipients-info-div">
+            <div class="panel-body"><p id="recipients-info" class="infobox"></p></div>
+        </div>
     </div>
   </div>
 </div>
@@ -241,6 +245,18 @@ function formatYearMonth(year, month) {
   }
 }
 
+function updateRecipientsInfo() {
+  $("#recipients-info").html("UNDER CONSTRUCTION<br>OsmAnd heavily relies on OSM and its community. Honestly saying, OsmAnd won't exist without it and it is even stated in the name."+
+    "When we started implementation OSM Live, we immediately decided that should be not only a paid service, but a donation platform as well. " +
+    "Taking into account that OSM Live is possible only because 10000 contributors change the map every day, we want to distribute a part of the income between OSM editors. " +
+    "<br><br><strong>How it works</strong><ul>" +
+    "<li> Every OSM contributor can be registered as a recipient. He just need to provide a valid Bitcoin address in the form below. " +
+    "<li> Every OsmAnd user who wants to get live updates needs to subscribe to that service. " +
+    "<li> After Google and Bank deductions the whole sum is split into 2 parts (<strong>30% OsmAnd</strong> and <strong>70% Donations</strong>)"+
+    "<li> All donations are exchanged into Bitcoin and distributed between OSM contributors according to their ranking."+
+    "<li> Every OsmAnd user can select preferred donation region, in that case <strong>30% of donation</strong> will be distributed between editors of this region."+
+    "</ul><br> Please find all rankings and formulas in the reports on OSM Live.")
+}
 
 $(document).ready(function(){
   var currentTime = new Date();
@@ -275,7 +291,7 @@ $(document).ready(function(){
       }
   }
   
-
+  updateRecipientsInfo();
   updateRegions();
   updateTotalChanges();
   updateRankingByMonth();
