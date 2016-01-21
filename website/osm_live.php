@@ -34,27 +34,45 @@
         include 'blocks/simple_header.php';
     ?>
 <div class="container">
-  <div class="report-period-group">
-      <h4 class="vlabel" for="month-selection">Report period</h4>
-      <select class="form-control" id="month-selection">
-      </select>
-      <h4 class="vlabel" for="region-selection">Region</h4>
-      <select class="form-control" id="region-selection">
-      </select>
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#report">OSM Contributions</a></li>
+    <li><a  data-toggle="tab" href="#donate">Supporters</a></li>
+    <li><a data-toggle="tab" href="#recipients">Recipients</a></li>    
+  </ul>
+  <div class="tab-content">
+    <div id="report" class="tab-pane fade in active">
+        <div class="report-period-group">
+            <h4 class="vlabel" for="month-selection">Report period</h4>
+            <select class="form-control" id="month-selection">
+            </select>
+            <h4 class="vlabel" for="region-selection">Region</h4>
+            <select class="form-control" id="region-selection">
+            </select>
+        </div>
+      <hr>
+        <h4 class="vlabel" for="report-total-div">Overview</h4 >
+        <div class="panel panel-default" id="report-total-div">
+            <div class="panel-body"><p id="report-total"></p></div>
+        </div>
+      <hr>
+          <h4 class="vlabel" for="report-table" id="report-ranking"></h4>
+          <table id="report-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
+          </table>
+      <hr>
+          <h4 class="vlabel" for="users-table" id="users-ranking"></h4>
+          <table id="users-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
+          </table>
+    </div>
+    <div id="donate" class="tab-pane fade ">
+      <div class="report-period-group">
+            <h4 class="vlabel" for="donate-month-selection">Report period</h4>
+            <select class="form-control" id="donate-month-selection">
+            </select>
+        </div>
+    </div>
+    <div id="recipients" class="tab-pane fade ">
+    </div>
   </div>
-<hr>
-  <h4 class="vlabel" for="report-total-div">Overview</h4 >
-  <div class="panel panel-default" id="report-total-div">
-      <div class="panel-body"><p id="report-total"></p></div>
-  </div>
-<hr>
-    <h4 class="vlabel" for="report-table" id="report-ranking"></h4>
-    <table id="report-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
-    </table>
-<hr>
-    <h4 class="vlabel" for="users-table" id="users-ranking"></h4>
-    <table id="users-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
-    </table>
 </div>
 
 <?php include 'blocks/footer.html'; ?>
@@ -235,6 +253,13 @@ $(document).ready(function(){
     endmonth = yi == year? month : 12;
     for(mi = stmonth; mi <= endmonth; mi++) {
       $("#month-selection").prepend("<option value='"+formatYearMonth(yi,mi)+"'>"+formatYearMonthHuman(yi,mi)+"</option>");
+    }
+  }
+  for(yi = 2016; yi <= year; yi++) {
+    stmonth = yi == 2016? 1 : 1;
+    endmonth = yi == year? month : 12;
+    for(mi = stmonth; mi <= endmonth; mi++) {
+      $("#donate-month-selection").prepend("<option value='"+formatYearMonth(yi,mi)+"'>"+formatYearMonthHuman(yi,mi)+"</option>");
     }
   }
   if(typeof(Storage) !== "undefined") {

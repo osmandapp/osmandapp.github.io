@@ -21,9 +21,16 @@
   font-size: 21px;	
 }
 
+.nav a {
+	font-size: 15px;
+}
+
+.tab-content {
+	margin-top: 25px;
+}
 .container {
 	width:60%;
-	margin-top: 50px;
+	margin-top: 10px;
 	margin-bottom: 50px;
 	margin-left: auto;
 	margin-right: auto;
