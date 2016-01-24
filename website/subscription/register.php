@@ -11,7 +11,7 @@
   		$res = array();        
   		$res['error'] = "Error";
   		echo json_encode($res);
-  		die 1;
+  		die 0;
   	}
   	$row = pg_fetch_row($result);
     $res = array();        
