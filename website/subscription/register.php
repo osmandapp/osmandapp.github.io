@@ -2,9 +2,9 @@
   if($_SERVER['SERVER_NAME'] == 'builder.osmand.net') {
   	include '../reports/db_conn.php';
   	$dbconn = db_conn();
-	$visiblename = pg_escape_string($dbconn, $_GET["visibleName"]);
-	$useremail = pg_escape_string($dbconn, $_GET["email"]);
-	$country = pg_escape_string($dbconn, $_GET["preferredCountry"]);
+	$visiblename = pg_escape_string($dbconn, $_REQUEST["visibleName"]);
+	$useremail = pg_escape_string($dbconn, $_REQUEST["email"]);
+	$country = pg_escape_string($dbconn, $_REQUEST["preferredCountry"]);
 	$result = pg_query($dbconn, "UPDATE supporters SET visiblename='{$visiblename}', preferred_region='{$country}' ".
   		" where useremail='${useremail}' RETURNING userid;");
 	$insert = !$result;
@@ -28,9 +28,9 @@
   		
   	}  	
     $res = array();        
-    $res['visibleName'] = $_GET["visibleName"]; 
-    $res['email'] = $_GET["email"];
-    $res['preferredCountry'] = $_GET["preferredCountry"]; 
+    $res['visibleName'] = $_REQUEST["visibleName"]; 
+    $res['email'] = $_REQUEST["email"];
+    $res['preferredCountry'] = $_REQUEST["preferredCountry"]; 
     $res['userid'] = $row[0]; 
 	echo json_encode($res);
   } else {
