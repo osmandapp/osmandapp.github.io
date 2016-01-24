@@ -31,7 +31,7 @@ while ($row = pg_fetch_row($result)) {
   array_push($res->rows, $rw);
   $visiblename = $row[1];
   if(!$visiblename || strlen($visiblename) == 0) {
-  	  $visiblename = "USER ".$row[0];
+  	  $visiblename = "User ".$row[0];
   }
   $rw->user = $visiblename;
 }
