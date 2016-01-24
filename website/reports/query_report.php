@@ -12,6 +12,9 @@ if(!$get_result) {
   if(!isset($_GET['month']) || strlen($_GET["month"]) == 0 || date("Y-m") == $_GET["month"]) {
   	$timeout = 300; 	
   }
+  if($_GET["report"] == "supporters_by_month") {
+  	$timeout = 10;
+  }
   $memcache->set($_SERVER['QUERY_STRING'], $get_result, 0, $timeout);
 
 }
