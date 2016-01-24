@@ -68,6 +68,9 @@
             <h4 class="vlabel" for="donate-month-selection">Report period</h4>
             <select class="form-control" id="donate-month-selection">
             </select>
+            <h4 class="vlabel" for="support-table" id="support-table-header">OSM Live donators</h4>
+            <table id="support-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            </table>
         </div>
     </div>
     <div id="recipients" class="tab-pane fade ">
@@ -87,6 +90,8 @@
 <script>
 var mid = "";
 var midName = "";
+var supportMonth = "";
+var supportMonthName = "";
 var region = "";
 var regionName = "";
 var regionsmap = {};
@@ -167,6 +172,32 @@ function updateTotalChanges() {
   });
 }
 
+var reportSupportDataTable;
+function updateSupportByMonth() {
+  if(reportSupportDataTable) {
+    reportSupportDataTable.destroy();
+  }
+  $.ajax({
+        url: "reports/query_report.php?report=supporters_by_month&month="+supportMonth, 
+        async: true
+  }).done(function(res) {
+        var data = jQuery.parseJSON( res );
+        reportSupportDataTable = $('#support-table').DataTable({
+            data: data.rows,
+            destroy: true,
+            columns: [
+                { "data": "user", title: "User name"}
+            ],
+            "paging":   true,
+            "ordering": true,
+            "iDisplayLength": 50,
+            "info":     false,
+            "searching": true
+        });
+  });
+}
+
+
 var reportUserDataTable;
 function updateUserRankingByMonth() {
   if(reportUserDataTable) {
@@ -196,7 +227,7 @@ function updateUserRankingByMonth() {
             "searching": false
         });
     });
-    }
+  }
 }
 
 var reportDataTable;
@@ -279,6 +310,11 @@ $(document).ready(function(){
     }
   }
   if(typeof(Storage) !== "undefined") {
+    if(sessionStorage.supportMonth) {
+          supportMonth = sessionStorage.supportMonth;
+          supportMonthName = sessionStorage.supportMonthName;
+          $("#donate-month-selection").val(supportMonth);
+      }
       if(sessionStorage.month) {
           mid = sessionStorage.month;
           midName = sessionStorage.monthName;
@@ -292,11 +328,23 @@ $(document).ready(function(){
   }
   
   updateRecipientsInfo();
+  updateSupportByMonth();
   updateRegions();
   updateTotalChanges();
   updateRankingByMonth();
   updateUserRankingByMonth();
-    $('#month-selection').on('change', function (e) {
+  $('#donate-month-selection').on('change', function (e) {
+      var optionSelected = $("option:selected", this);
+      supportMonth = this.value;
+      supportMonthName = optionSelected.text();
+      if(typeof(Storage) !== "undefined") {
+        sessionStorage.supportMonth = supportMonth;
+        sessionStorage.supportMonthName = supportMonthName;
+      }
+      updateSupportByMonth();
+  });
+  
+  $('#month-selection').on('change', function (e) {
       var optionSelected = $("option:selected", this);
       mid = this.value;
       midName = optionSelected.text();
@@ -307,9 +355,9 @@ $(document).ready(function(){
       updateTotalChanges();
       updateRankingByMonth();
       updateUserRankingByMonth();
-    });
+  });
 
-    $('#region-selection').on('change', function (e) {
+  $('#region-selection').on('change', function (e) {
       var optionSelected = $("option:selected", this);
       region = this.value;
       regionName = optionSelected.text();

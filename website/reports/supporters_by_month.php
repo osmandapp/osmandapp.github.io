@@ -1,4 +1,8 @@
 <?php
+echo "{'rows':[{'user':'1'}, {'user':'3'}]}";
+die 0;
+
+
 include 'db_conn.php';
 include 'default_vars.php';
 $dbconn = db_conn();
