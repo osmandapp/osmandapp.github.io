@@ -8,7 +8,7 @@
     $country = pg_escape_string($dbconn, $_GET["preferredCountry"]);
     $userid = pg_escape_string($dbconn, $_GET["userid"]);
   	$result = pg_query($dbconn, "UPDATE supporters SET visiblename='{$visiblename}', useremail='{$useremail}', preferred_region='{$country}' ".
-  		" where userid = '{$userid}' and useremail='${cemail}';");
+  		" where userid = '{$userid}' and useremail='${email}';");
   	if(!$result) {
   		$res = array();        
   		$res['error'] = "Error";
@@ -20,9 +20,9 @@
     $res['visibleName'] = $_GET["visibleName"]; 
     $res['email'] = $_GET["email"];
     $res['preferredCountry'] = $_GET["preferredCountry"]; 
-    $res['userid'] = $row[0]; 
+    $res['userid'] = $_GET["userid"]; 
 	echo json_encode($res);
   } else {
-  	echo file_get_contents("http://builder.osmand.net/subscription/register.php?".$_SERVER['QUERY_STRING']);
+  	echo file_get_contents("http://builder.osmand.net/subscription/update.php?".$_SERVER['QUERY_STRING']);
   }
 ?>
