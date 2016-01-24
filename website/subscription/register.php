@@ -3,7 +3,7 @@
   	include '../reports/db_conn.php';
 	$visiblename = pg_escape_string($dbconn, $_GET["visibleName"]);
 	$useremail = pg_escape_string($dbconn, $_GET["email"]);
-	$country = pg_escape_string($dbconn, $_GET["preferredCountry"])
+	$country = pg_escape_string($dbconn, $_GET["preferredCountry"]);
   	$result = pg_query($dbconn, "INSERT INTO supporters(userid, visiblename, useremail, preferred_region)  ".
   		"VALUES (nextval('supporters_seq'), '{$visiblename}', '{$useremail}', '{$country}') RETURNING userid;");
   	$row = pg_fetch_row($result);
