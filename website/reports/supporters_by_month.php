@@ -30,9 +30,7 @@ while ($row = pg_fetch_row($result)) {
   $rw = new stdClass();
   array_push($res->rows, $rw);
   $visiblename = $row[1];
-  $email = $row[2];
   if(!$visiblename || strlen($visiblename) == 0) {
-  	  $l = strlen($email);
   	  $visiblename = "USER ".$row[0];
   }
   $rw->user = $visiblename;
