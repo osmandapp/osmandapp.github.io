@@ -1,6 +1,7 @@
 <?php
   if($_SERVER['SERVER_NAME'] == 'builder.osmand.net') {
   	include '../reports/db_conn.php';
+  	$dbconn = db_conn();
 	$visiblename = pg_escape_string($dbconn, $_GET["visibleName"]);
 	$useremail = pg_escape_string($dbconn, $_GET["email"]);
 	$country = pg_escape_string($dbconn, $_GET["preferredCountry"]);
