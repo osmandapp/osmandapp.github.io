@@ -5,7 +5,7 @@
 	$useremail = pg_escape_string($dbconn, $_GET["email"]);
 	$country = pg_escape_string($dbconn, $_GET["preferredCountry"])
   	$result = pg_query($dbconn, "INSERT INTO supporters(userid, visiblename, useremail, preferred_region)  ".
-  		"VALUES (nextval('supporters_seq'), '{$visiblename}', '{$country}') RETURNING userid;");
+  		"VALUES (nextval('supporters_seq'), '{$visiblename}', '{$useremail}', '{$country}') RETURNING userid;");
   	$row = pg_fetch_row($result);
     $res = array();        
     $res['visibleName'] = $_GET["visibleName"]; 
