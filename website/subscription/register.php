@@ -5,7 +5,7 @@
 	$visiblename = pg_escape_string($dbconn, $_GET["visibleName"]);
 	$useremail = pg_escape_string($dbconn, $_GET["email"]);
 	$country = pg_escape_string($dbconn, $_GET["preferredCountry"]);
-	$result = pg_query($dbconn, "UPDATE SET visiblename='{$visiblename}', preferred_region='{$country}' ".
+	$result = pg_query($dbconn, "UPDATE supporters SET visiblename='{$visiblename}', preferred_region='{$country}' ".
   		" where useremail='${useremail}' RETURNING userid;");
 	if(!$result) {
   		$result = pg_query($dbconn, "INSERT INTO supporters(userid, visiblename, useremail, preferred_region)  ".
