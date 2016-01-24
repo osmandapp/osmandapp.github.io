@@ -5,10 +5,9 @@
 	$visiblename = pg_escape_string($dbconn, $_GET["visibleName"]);
 	$useremail = pg_escape_string($dbconn, $_GET["email"]);
 	$country = pg_escape_string($dbconn, $_GET["preferredCountry"]);
-	$result = pg_query($dbconn, "SELECT userid FROM supporters WHERE useremail = '{$useremail}';");
-	if($row = pg_fetch_row($result)) {
-		// no insert
-	} else {
+	$result = pg_query($dbconn, "UPDATE SET visiblename='{$visiblename}', preferred_region='{$country}' ".
+  		" where useremail='${useremail}' RETURNING userid;");
+	if(!$result) {
   		$result = pg_query($dbconn, "INSERT INTO supporters(userid, visiblename, useremail, preferred_region)  ".
   			" VALUES (nextval('supporters_seq'), '{$visiblename}', '{$useremail}', '{$country}') RETURNING userid;");
   		if(!$result) {
@@ -17,9 +16,8 @@
   			echo json_encode($res);
   			die;
   		}
-  	}
-
-
+  		
+  	}  	
   	$row = pg_fetch_row($result);
     $res = array();        
     $res['visibleName'] = $_GET["visibleName"]; 
