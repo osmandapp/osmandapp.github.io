@@ -27,7 +27,7 @@
     $res['email'] = $_REQUEST["email"];
     $res['preferredCountry'] = $_REQUEST["preferredCountry"]; 
     $res['userid'] = $_REQUEST["userid"]; 
-	 echo json_encode($res);
+	  echo json_encode($res);
   } else {
   	echo file_get_contents("http://builder.osmand.net/subscription/update.php?".$_SERVER['QUERY_STRING']);
   }

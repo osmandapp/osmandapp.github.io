@@ -68,9 +68,16 @@
             <h4 class="vlabel" for="donate-month-selection">Report period</h4>
             <select class="form-control" id="donate-month-selection">
             </select>
+            <hr>
+            <h4 class="vlabel" for="donator-report-total-div">Overview</h4 >
+            <div class="panel panel-default" id="donator-report-total-div">
+                <div class="panel-body"><p id="donator-report-total" class="infobox"></p></div>
+            </div>
+            <hr>
             <h4 class="vlabel" for="support-table" id="support-table-header">OSM Live donators</h4>
             <table id="support-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
             </table>
+
         </div>
     </div>
     <div id="recipients" class="tab-pane fade ">
@@ -182,11 +189,15 @@ function updateSupportByMonth() {
         async: true
   }).done(function(res) {
         var data = jQuery.parseJSON( res );
+        $('#donator-report-total').html("There are <strong>" + data.active + 
+            "</strong> active donators from <strong>" + data.count +"</strong> registered users." );
+
         reportSupportDataTable = $('#support-table').DataTable({
             data: data.rows,
             destroy: true,
             columns: [
-                { "data": "user", title: "User name"}
+                { "data": "user", title: "User name"},
+                { "data": "status", title: "Status"}
             ],
             "paging":   true,
             "ordering": true,
@@ -343,7 +354,7 @@ $(document).ready(function(){
       }
       updateSupportByMonth();
   });
-  
+
   $('#month-selection').on('change', function (e) {
       var optionSelected = $("option:selected", this);
       mid = this.value;
