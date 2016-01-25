@@ -1,6 +1,4 @@
 <?php
-include 'db_conn.php';
-include 'default_vars.php';
 include 'calculate_ranking.php';
 $ar = calculateRanking($_GET['month'], $_GET['region']);
 $res = new stdClass();
