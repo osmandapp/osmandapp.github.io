@@ -24,7 +24,7 @@ $result = pg_query($dbconn, "
       and substr(ch.closed_at_day, 0, 8) = '{$month}'
       and cc.countryid = (select id from countries where downloadname= '${region}')
       group by ch.username
-      having count(*) >= ".$min_changes."
+      having count(*) >= {$min_changes}"
       order by count(*) desc
       ");
 if (!$result) {

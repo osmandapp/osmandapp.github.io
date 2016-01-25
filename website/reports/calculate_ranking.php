@@ -1,4 +1,6 @@
 <?php
+include 'db_conn.php';
+include 'default_vars.php';
 function calculateRanking($imonth, $iregion) {
 	$dbconn = db_conn();
 	if (!$dbconn) {
