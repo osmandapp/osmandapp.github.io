@@ -25,7 +25,7 @@ if(isset($iregion) && strlen($iregion) > 0) {
       and ch.id = cc.changesetid 
       and cc.countryid = (select id from countries where downloadname= '{$region}')
       group by ch.username
-      having count(*) >= {$min_changes}
+      having count(*) >= {".$min_changes."}
       order by count(*) desc
    ) data group by data.cnt order by changes desc;
   ");
@@ -37,7 +37,7 @@ if(isset($iregion) && strlen($iregion) > 0) {
       from changesets ch where 
       substr(ch.closed_at_day, 0, 8) = '{$month}'
       group by ch.username
-      having count(*) >= {$min_changes}
+      having count(*) >= {".$min_changes."}
       order by count(*) desc
    ) data group by data.cnt order by changes desc;
   ");
