@@ -25,8 +25,7 @@ $result = pg_query($dbconn, "
       group by ch.username
       having count(*) >= {$min_changes}
       order by count(*) desc ) t join 
-   (SELECT username, count(*) size from changesets ch
-    from changesets ch where 
+   (SELECT username, count(*) size from changesets ch where 
     substr(ch.closed_at_day, 0, 8) = '{$month}'
     group by ch.username
     ) s on s.username = t.username;
