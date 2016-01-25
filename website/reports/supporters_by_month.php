@@ -47,7 +47,7 @@ while ($row = pg_fetch_row($result)) {
   $checked = 0;
   if($row[4] && strlen($row[4]) > 0) {
 	  $status = "Pending verification";
-	  if($row[6])) {
+	  if($row[6]) {
 		 $checked = $row[5];
 		 if(time() * 1000 > $row[6]) {
 		 	$status = "Expired";
