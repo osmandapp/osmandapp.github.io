@@ -17,13 +17,19 @@ if(!isset($_GET['month'])) {
 $region =  pg_escape_string($dbconn, $_GET['region']);
 $min_changes = getMinChanges();
 $result = pg_query($dbconn, "
-   SELECT username, count(*) size 
+  SELECT  t.username, t.size changes , s.size gchanges FROM
+   ( SELECT username, count(*) size 
       from changesets ch, changeset_country cc where ch.id = cc.changesetid 
       and substr(ch.closed_at_day, 0, 8) = '{$month}'
       and cc.countryid = (select id from countries where downloadname= '${region}')
       group by ch.username
       having count(*) >= {$min_changes}
-      order by count(*) desc
+      order by count(*) desc ) t join 
+   (SELECT username, count(*) size from changesets ch
+    from changesets ch where 
+    substr(ch.closed_at_day, 0, 8) = '{$month}'
+    group by ch.username
+    ) s on s.username = t.username;
       ");
 if (!$result) {
   echo "{'error':'No result'}";
@@ -38,6 +44,7 @@ while ($row = pg_fetch_row($result)) {
   array_push($res->rows, $rw);
   $rw->user = $row[0];
   $rw->changes = $row[1];
+  $rw->globalchanges = $row[2];
   for($i = 0; $i < count($ar); $i++) {
     if($ar[$i]->min <= $row[1]  && $ar[$i]->max >= $row[1] ){
       $rw->rank = $i + 1;
@@ -45,7 +52,7 @@ while ($row = pg_fetch_row($result)) {
     }
   }
   for($i = 0; $i < count($gar); $i++) {
-    if($gar[$i]->min <= $row[1]  && $gar[$i]->max >= $row[1] ){
+    if($gar[$i]->min <= $row[2]  && $gar[$i]->max >= $row[2] ){
       $rw->grank = $i + 1;
       break;
     }

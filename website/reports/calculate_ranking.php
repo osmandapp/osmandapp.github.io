@@ -5,12 +5,16 @@ function getRankingRange() {
   return 20;
 }
 
+function getRegionRankingRange() {
+  return 7;
+}
+
 function getMinChanges() {
   return 3;
 }
 
 function calculateRanking($imonth, $iregion) {
-  $ranking_range = getRankingRange();
+  
   $min_changes = getMinChanges();
 	$dbconn = db_conn();
 	if (!$dbconn) {
@@ -26,6 +30,7 @@ function calculateRanking($imonth, $iregion) {
 
 if(isset($iregion) && strlen($iregion) > 0) {
   $region =  pg_escape_string($dbconn, $iregion);
+  $ranking_range = getRegionRankingRange();
   $result = pg_query($dbconn, "
   select data.cnt changes, count(*) group_size
    from (
@@ -40,6 +45,7 @@ if(isset($iregion) && strlen($iregion) > 0) {
    ) data group by data.cnt order by changes desc;
   ");
 } else {
+  $ranking_range = getRankingRange();
   $result = pg_query($dbconn, "
   select data.cnt changes, count(*) group_size
    from (

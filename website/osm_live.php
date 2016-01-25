@@ -227,10 +227,11 @@ function updateUserRankingByMonth() {
             data: data.rows,
             destroy: true,
             columns: [
+                { "data": "rank", title: "Region rank"},
                 { "data": "grank", title: "World rank"},
-                { "data": "rank", title: "Group Rank"},
-                { "data": "user", title: "User name"},
-                { "data": "changes", title: "Changes"}
+                { "data": "user", title: "User name"},        
+                { "data": "changes", title: "Region changes"},
+                { "data": "globalchanges", title: "All changes"}
             ],
             "paging":   true,
             "ordering": true,
