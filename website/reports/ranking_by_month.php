@@ -2,7 +2,7 @@
 include 'calculate_ranking.php';
 $ar = calculateRanking($_GET['month'], $_GET['region']);
 $res = new stdClass();
-$res->month = $month;
+$res->month = $_GET['month'];
 $res->rows = array();
 for ($i = 0; $i < count($ar) ; ++$i) {
   $row = $ar[$i];
