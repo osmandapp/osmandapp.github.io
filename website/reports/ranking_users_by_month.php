@@ -15,7 +15,7 @@ if(!isset($_GET['month'])) {
   $month = $_GET["month"];
 }
 $region =  pg_escape_string($dbconn, $_GET['region']);
-
+$min_changes = getMinChanges();
 $result = pg_query($dbconn, "
    SELECT username, count(*) size 
       from changesets ch, changeset_country cc where ch.id = cc.changesetid 

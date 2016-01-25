@@ -1,8 +1,17 @@
 <?php
 include 'db_conn.php';
+
+function getRankingRange() {
+  return 20;
+}
+
+function getMinChanges() {
+  return 3;
+}
+
 function calculateRanking($imonth, $iregion) {
-  $ranking_range=20;
-  $min_changes=3;
+  $ranking_range = getRankingRange();
+  $min_changes = getMinChanges();
 	$dbconn = db_conn();
 	if (!$dbconn) {
 		echo "{'error':'No db connection'}";
