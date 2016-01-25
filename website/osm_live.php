@@ -227,7 +227,8 @@ function updateUserRankingByMonth() {
             data: data.rows,
             destroy: true,
             columns: [
-                { "data": "rank", title: "Rank"},
+                { "data": "grank", title: "World rank"},
+                { "data": "rank", title: "Group Rank"},
                 { "data": "user", title: "User name"},
                 { "data": "changes", title: "Changes"}
             ],
@@ -259,8 +260,7 @@ function updateRankingByMonth() {
           destroy: true,
           columns: [
 
-              { "data": "rank", title: "Group rank"},
-              { "data": "grank", title: "World rank"},
+              { "data": "rank", title: "Rank"},
               { "data": "countUsers", title: "Contributors in group"},
               { "data": "minChanges", title: "Minimum changes in group"},
               { "data": "maxChanges", title: "Maximum changes in group"},
