@@ -189,8 +189,8 @@ function updateSupportByMonth() {
         async: true
   }).done(function(res) {
         var data = jQuery.parseJSON( res );
-        $('#donator-report-total').html("There are <strong>" + data.active + 
-            "</strong> active donators from <strong>" + data.count +"</strong> registered users." );
+        $('#donator-report-total').html("There are <strong>" + data.activeCount + 
+            "</strong> active donors and <strong>" + data.count +"</strong> registered supporters." );
 
         reportSupportDataTable = $('#support-table').DataTable({
             data: data.rows,

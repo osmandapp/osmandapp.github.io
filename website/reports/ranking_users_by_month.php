@@ -11,15 +11,17 @@ if(!isset($_GET['month'])) {
 } else {
   $month = $_GET["month"];
 }
+$region =  pg_escape_string($dbconn, $_GET['region']);
 
 $result = pg_query($dbconn, "
    SELECT username, ntile(".$ranking_range.") over (order by count(*) desc) nt, count(*) size 
       from changesets ch, changeset_country cc where ch.id = cc.changesetid 
       and substr(ch.closed_at_day, 0, 8) = '".$month."'
-      and cc.countryid = (select id from countries where downloadname= '".$_GET['region']."')
+      and cc.countryid = (select id from countries where downloadname= '${region}')
       group by ch.username
       having count(*) >= ".$min_changes."
-      order by count(*) desc");
+      order by count(*) desc
+      ");
 if (!$result) {
   echo "{'error':'No result'}";
   exit;
