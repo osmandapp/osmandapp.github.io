@@ -53,10 +53,9 @@ while ($row = pg_fetch_row($result)) {
   $rw->count = $row[1];
   $rw->changes = $row[0] * $row[1];
 }
-$iter = 10;
-while(count($ar) > $ranking_range && count($ar) > 1 && $iter > 0) {
+
+while(count($ar) > $ranking_range && count($ar) > 1 ) {
   $minind = 0;
-  $iter --;
   $minsum = $ar[0]->count + $ar[1]->count;
   for ($i = 1; $i < count($ar) - 1; ++$i) {
      if ( $ar[$i]->count + $ar[$i+1]->count < $minsum) {
