@@ -1,6 +1,5 @@
 <?php
 include 'db_conn.php';
-include 'default_vars.php';
 $dbconn = db_conn();
 if (!$dbconn) {
 	echo "{'error':'No db connection'}";
@@ -12,9 +11,10 @@ if(!isset($_GET['month'])) {
   $month = $_GET["month"];
 }
 if(isset($_GET['region']) && strlen($_GET['region']) > 0) {
+	$reg =  pg_escape_string($dbconn, $_GET['region']);
 	$result = pg_query($dbconn, "select count(distinct ch.username) users, count(distinct ch.id) changes 
 			from changesets ch, changeset_country cc where ch.id = cc.changesetid 
-			and cc.countryid = (select id from countries where downloadname= '".$_GET['region']."')
+			and cc.countryid = (select id from countries where downloadname= '${reg}')
 			and substr(ch.closed_at_day, 0, 8) = '".$month."';");
 } else {
 	$result = pg_query($dbconn, "select count ( distinct username) users, count(*) changes 
