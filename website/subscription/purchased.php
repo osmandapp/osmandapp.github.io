@@ -8,7 +8,7 @@
     // $email = pg_escape_string($dbconn, $_POST["email"]);
     $time = time() * 1000;
     
-    $result = pg_query($dbconn, "INSERT supporters_subscription(userid, sku, purchasetoken, checktime) 
+    $result = pg_query($dbconn, "INSERT INTO supporters_subscription(userid, sku, purchasetoken, checktime) 
       VALUES('{$userid}','{$sku}','{$purchaseToken}',${time});");
   	if(!$result) {
   		$res = array();        
