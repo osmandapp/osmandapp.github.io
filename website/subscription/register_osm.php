@@ -15,7 +15,7 @@
           ),
       );
     $context  = stream_context_create($options);
-    $resosm = file_get_contents("https://api.openstreetmap.org//api/0.6/user/details", false, $context);
+    $resosm = @file_get_contents("https://api.openstreetmap.org//api/0.6/user/details", false, $context);
     if ($resosm === false) {
         $res = array();        
         $res['error'] = "Couldn't authenticate on osm server";

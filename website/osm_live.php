@@ -90,13 +90,22 @@
         <h4 class="vlabel" for="recipients-register-div">Register as a recipient</h4 >
         <div class="panel panel-default" id="recipients-register-div">
             <div class="panel-body">
-              <form role="form" action="subscription/register_osm.php">
+            <div class="alert alert-danger" role="alert" id="osm_register_failed" style="display:none">
+              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> 
+               OSM Authentication has failed.
+            </div>
+            <div class="alert alert-success" role="alert" id="osm_register_success" style="display:none">
+              <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> 
+              You successfully registered as a recipient.
+            </div>
+            <form role="form" action="subscription/register_osm.php" method="post" id="register_osm">
+
                 <label for="osm_usr">OSM Name:</label>
-                <input type="text" class="form-control" id="osm_usr">
-                <label for="osm_pwd">OSM Password (we do not store it):</label>
-                <input type="password" class="form-control" id="osm_pwd">
+                <input type="text" class="form-control" id="osm_usr" name="osm_usr">
+                <label for="osm_pwd">OSM Password (we do not store it on servers):</label>
+                <input type="password" class="form-control" id="osm_pwd" name="osm_pwd">
                 <label for="bitcoin_addr">Bitcoin address:</label>
-                <input type="text" class="form-control" id="bitcoin_addr">
+                <input type="text" class="form-control" id="bitcoin_addr" name="bitcoin_addr">
                 <button type="submit" class="btn btn-default" id="register_osm_user">Register</button>
             </form>
               
@@ -333,6 +342,28 @@ function updateRecipientsInfo() {
     "</ul><br> Please find all rankings and formulas in the reports on OSM Live.")
 }
 
+function handleRegisterOsm() {
+  $( "#register_osm" ).submit(function( event ) {
+      event.preventDefault();
+      $.post("subscription/register_osm.php", $("#register_osm").serialize(), function(res) {
+          if (res == "OK") {
+            $("#osm_register_success").fadeIn(100);
+          }
+          $("#osm_register_failed").html(res);
+          $("#osm_register_failed").fadeIn(100);
+          var data = jQuery.parseJSON( res );
+          if (data.error) {
+            $("#osm_register_failed").fadeIn(100);
+            $("#osm_register_failed").html(data.error);
+          } else {
+            $("#osm_register_failed").fadeOut(0);
+            $("#osm_register_success").fadeIn(100); 
+          }
+         
+      });
+  });
+}
+
 $(document).ready(function(){
   var currentTime = new Date();
   var month = currentTime.getMonth() + 1;
@@ -370,7 +401,7 @@ $(document).ready(function(){
           $("#region-selection").val(region);
       }
   }
-  
+  handleRegisterOsm();
   updateRecipientsInfo();
   updateSupportByMonth();
   updateRegions();

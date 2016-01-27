@@ -39,6 +39,9 @@
 	font-size: 15px;
 }
 
+.form-control {
+	margin-bottom: 10px;
+}
 .tab-content {
 	margin-top: 25px;
 }
