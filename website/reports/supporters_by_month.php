@@ -22,7 +22,7 @@ $result = pg_query($dbconn, "
 	 first_value(autorenewing) OVER(partition by userid, sku order by checktime desc) autorenewing
 	 from supporters_subscription ) t on  
 	s.userid = t.userid
-	where not(s.disable = 1);
+	where s.disable is null;
 	");
 if (!$result) {
   echo "{'error':'No result'}";
