@@ -2,7 +2,22 @@
   if($_SERVER['SERVER_NAME'] == 'builder.osmand.net') {
   	include '../reports/db_conn.php';
   	$dbconn = db_conn();
-    $userid = pg_escape_string($dbconn, $_POST["userid"]);
+    $userid = pg_escape_string($dbconn, $_REQUEST["userid"]);
+    $result = pg_query($dbconn, "SELECT userid from supporters where userid = '{$userid}';");
+    $ok = false;
+    if($result) {
+      $row = pg_fetch_row($result);
+      if($row) {
+        $ok = $row[0] == $_REQUEST["userid"];
+      }
+    }
+    if(!$ok) {
+      $res = array();        
+      $res['error'] = "User id not found";
+      echo json_encode($res);
+      die;
+    }
+
     $sku = pg_escape_string($dbconn, $_POST["sku"]);
     $purchaseToken = pg_escape_string($dbconn, $_POST["purchaseToken"]);
     // $email = pg_escape_string($dbconn, $_POST["email"]);
