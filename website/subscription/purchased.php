@@ -15,11 +15,11 @@
       echo json_encode(array( "error" => "User id is not found"));
       die; 
     }
-    if($_POST["purchaseToken"] == '') {
+    if(!array_key_exists($_POST, "purchaseToken") || $_POST["purchaseToken"] == '') {
       echo json_encode(array( "error" => "Purchase token is not specified"));
       die; 
     }
-    if($_POST["sku"] == '') {
+    if(!array_key_exists($_POST, "sku") || $_POST["sku"] == '') {
       echo json_encode(array( "error" => "Subscription id is not specified"));
       die; 
     }
