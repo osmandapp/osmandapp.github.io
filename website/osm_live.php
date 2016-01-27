@@ -67,7 +67,7 @@
     <div id="donate" class="tab-pane fade ">
       <div class="report-period-group">
             <h4 class="vlabel" for="donate-month-selection">Report period</h4>
-            <select class="form-control" id="donate-month-selection">
+            <select class="form-control osm-live-month-select" id="donate-month-selection">
             </select>
             <hr>
             <h4 class="vlabel" for="donator-report-total-div">Overview</h4 >
@@ -82,9 +82,9 @@
         </div>
     </div>
     <div id="information" class="tab-pane fade in active">
-      <h4 class="vlabel" for="recipients-info-div">Information</h4 >
-        <div class="panel panel-default" id="recipients-info-div">
-            <div class="panel-body"><p id="recipients-info" class="infobox"></p></div>
+      <h4 class="vlabel" for="general-info-div">Information</h4 >
+        <div class="panel panel-default" id="general-info-div">
+            <div class="panel-body"><p id="general-info" class="infobox"></p></div>
         </div>
         <hr>
         <h4 class="vlabel" for="recipients-register-div">Register as a recipient</h4 >
@@ -113,6 +113,18 @@
         </div>
     </div>
     <div id="recipients" class="tab-pane fade ">
+      <h4 class="vlabel" for="general-info-div">Information</h4 >
+        <div class="panel panel-default" id="general-info-div">
+            <div class="panel-body"><p id="general-info" class="infobox"></p></div>
+        </div>
+        <hr>
+        <h4 class="vlabel" for="recipients-month-selection">Report period</h4>
+            <select class="form-control osm-live-month-select" id="recipients-month-selection">
+            </select>
+          <hr>
+       <h4 class="vlabel" for="recipients-table" id="recipients-table-header">OSM Recipients</h4>
+        <table id="recipients-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        </table>
     </div>
   </div>
 </div>
@@ -216,6 +228,33 @@ function skuApp(value) {
   }
   return "-";
 }
+
+var reportRecipientsDataTable;
+function updateRecipientsByMonth() {
+  if(reportRecipientsDataTable) {
+    reportRecipientsDataTable.destroy();
+  }
+  $.ajax({
+        url: "reports/query_report.php?report=recipients_by_month&month="+supportMonth, 
+        async: true
+  }).done(function(res) {
+        reportRecipientsDataTable = $('#recipients-table').DataTable({
+            data: data.rows,
+            destroy: true,
+            columns: [
+                { "data": "osmid", title: "OSM ID"},
+                { "data": "btcaddress", title: "Bitcoin Address"}
+            ],
+            "paging":   true,
+            "ordering": true,
+            "iDisplayLength": 50,
+            "info":     false,
+            "searching": true
+        });
+  });
+}
+
+
 var reportSupportDataTable;
 function updateSupportByMonth() {
   if(reportSupportDataTable) {
@@ -329,8 +368,8 @@ function formatYearMonth(year, month) {
   }
 }
 
-function updateRecipientsInfo() {
-  $("#recipients-info").html("UNDER CONSTRUCTION<br>OsmAnd heavily relies on OSM and its community. Honestly saying, OsmAnd won't exist without it and it is even stated in the name."+
+function updateGeneralInfo() {
+  $("#general-info").html("UNDER CONSTRUCTION<br>OsmAnd heavily relies on OSM and its community. Honestly saying, OsmAnd won't exist without it and it is even stated in the name."+
     "When we started implementation OSM Live, we immediately decided that should be not only a paid service, but a donation platform as well. " +
     "Taking into account that OSM Live is possible only because 10000 contributors change the map every day, we want to distribute a part of the income between OSM editors. " +
     "<br><br><strong>How it works</strong><ul>" +
@@ -346,7 +385,7 @@ function handleRegisterOsm() {
 
   $( "#register_osm" ).submit(function( event ) {
       event.preventDefault();
-      if($("#bitcoin_addr").val() == "" ) {
+        if($("#bitcoin_addr").val() == "") {
           $("#osm_register_failed").html("Please specify correct bitcoin address");
           $("#osm_register_failed").fadeIn(100);
           return;
@@ -388,14 +427,14 @@ $(document).ready(function(){
     stmonth = yi == 2016? 1 : 1;
     endmonth = yi == year? month : 12;
     for(mi = stmonth; mi <= endmonth; mi++) {
-      $("#donate-month-selection").prepend("<option value='"+formatYearMonth(yi,mi)+"'>"+formatYearMonthHuman(yi,mi)+"</option>");
+      $(".osm-live-month-select").prepend("<option value='"+formatYearMonth(yi,mi)+"'>"+formatYearMonthHuman(yi,mi)+"</option>");
     }
   }
   if(typeof(Storage) !== "undefined") {
     if(sessionStorage.supportMonth) {
           supportMonth = sessionStorage.supportMonth;
           supportMonthName = sessionStorage.supportMonthName;
-          $("#donate-month-selection").val(supportMonth);
+          $(".osm-live-month-select").val(supportMonth);
       }
       if(sessionStorage.month) {
           mid = sessionStorage.month;
@@ -409,13 +448,14 @@ $(document).ready(function(){
       }
   }
   handleRegisterOsm();
-  updateRecipientsInfo();
+  updateGeneralInfo();
   updateSupportByMonth();
+  updateRecipientsByMonth();
   updateRegions();
   updateTotalChanges();
   updateRankingByMonth();
   updateUserRankingByMonth();
-  $('#donate-month-selection').on('change', function (e) {
+  $('.osm-live-month-select').on('change', function (e) {
       var optionSelected = $("option:selected", this);
       supportMonth = this.value;
       supportMonthName = optionSelected.text();
@@ -424,6 +464,7 @@ $(document).ready(function(){
         sessionStorage.supportMonthName = supportMonthName;
       }
       updateSupportByMonth();
+      updateRecipientsByMonth();
   });
 
   $('#month-selection').on('change', function (e) {
