@@ -35,12 +35,13 @@
     ?>
 <div class="container">
   <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#report">OSM Contributions</a></li>
+    <li  class="active"><a data-toggle="tab" href="#information">Information</a></li>    
+    <li><a data-toggle="tab" href="#report">OSM Contributions</a></li>
     <li><a  data-toggle="tab" href="#donate">Supporters</a></li>
     <li><a data-toggle="tab" href="#recipients">Recipients</a></li>    
   </ul>
   <div class="tab-content">
-    <div id="report" class="tab-pane fade in active">
+    <div id="report" class="tab-pane fade">
         <div class="report-period-group">
             <h4 class="vlabel" for="month-selection">Report period</h4>
             <select class="form-control" id="month-selection">
@@ -80,11 +81,29 @@
 
         </div>
     </div>
-    <div id="recipients" class="tab-pane fade ">
+    <div id="information" class="tab-pane fade in active">
       <h4 class="vlabel" for="recipients-info-div">Information</h4 >
         <div class="panel panel-default" id="recipients-info-div">
             <div class="panel-body"><p id="recipients-info" class="infobox"></p></div>
         </div>
+        <hr>
+        <h4 class="vlabel" for="recipients-register-div">Register as a recipient</h4 >
+        <div class="panel panel-default" id="recipients-register-div">
+            <div class="panel-body">
+              <form role="form" action="subscription/register_osm.php">
+                <label for="osm_usr">OSM Name:</label>
+                <input type="text" class="form-control" id="osm_usr">
+                <label for="osm_pwd">OSM Password (we do not store it):</label>
+                <input type="password" class="form-control" id="osm_pwd">
+                <label for="bitcoin_addr">Bitcoin address:</label>
+                <input type="text" class="form-control" id="bitcoin_addr">
+                <button type="submit" class="btn btn-default" id="register_osm_user">Register</button>
+            </form>
+              
+            </div>
+        </div>
+    </div>
+    <div id="recipients" class="tab-pane fade ">
     </div>
   </div>
 </div>
@@ -179,6 +198,15 @@ function updateTotalChanges() {
   });
 }
 
+function skuApp(value) {
+  if(value == "osm_live_subscription_1" || value == "osm_live_subscription_2") {
+    return "OsmAnd+";
+  }
+  if(value == "osm_free_live_subscription_1" || value == "osm_free_live_subscription_2") {
+    return "OsmAnd";
+  }
+  return "-";
+}
 var reportSupportDataTable;
 function updateSupportByMonth() {
   if(reportSupportDataTable) {
@@ -197,7 +225,7 @@ function updateSupportByMonth() {
             destroy: true,
             columns: [
                 { "data": "user", title: "User name"},
-                // { "data": "sku", title: "SKU"},
+                { "data": "sku", title: "Application", render: skuApp},
                 // { "data": "autorenew", title: "Autorenew"},
                 { "data": "status", title: "Status"}
             ],

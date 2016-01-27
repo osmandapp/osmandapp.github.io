@@ -12,8 +12,13 @@
 .infobox ul {
 	list-style-type: circle;
 	    list-style-position: inside;
-
 }
+
+#register_osm_user {
+	float: right;
+	margin-top: 15px;
+}
+
 #recipients-info-div {
 	margin-top: 20px;
 	margin-bottom: 20px;
