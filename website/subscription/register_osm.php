@@ -30,7 +30,7 @@
         echo json_encode($res);
         die;	
   	}
-    $res = array();        
+    $res = new stdClass();        
     $res->osm_usr = $_POST["osm_usr"];
     $res->bitcoin_addr = $_POST["bitcoin_addr"];
     $res->time = $time;
