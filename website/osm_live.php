@@ -262,6 +262,7 @@ function updateRecipientsByMonth() {
             destroy: true,
             columns: [
                 { "data": "osmid", title: "OSM ID"},
+                { "data": "changes", title: "OSM Changes"},
                 { "data": "btcaddress", title: "Bitcoin Address"}
             ],
             "paging":   true,

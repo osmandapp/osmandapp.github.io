@@ -19,10 +19,10 @@ $result = pg_query($dbconn, "
     from osm_recipients s left join 
 	(select count(*) size, ch.username
       from changesets ch".
-      (regionName == " where" ? ", changeset_country cc where ch.id = cc.changesetid  and ").
-        substr(ch.closed_at_day, 0, 8) = '${month}'.
-	  (regionName == "" ? " cc.countryid = (select id from countries where downloadname= '${regionName}') ").
-      "group by username) t 
+      (regionName == ""? " where":? ", changeset_country cc where ch.id = cc.changesetid  and ").
+       " substr(ch.closed_at_day, 0, 8) = '${month}' ".
+	  (regionName == "" ? "" :" cc.countryid = (select id from countries where downloadname= '${regionName}') ").
+      " group by username) t 
     on t.username = s.osmid".
   (regionName == "" ? "" :" where t.size is not null ").
 	" order by changes desc");
