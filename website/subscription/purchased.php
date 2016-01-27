@@ -12,10 +12,16 @@
       }
     }
     if(!$ok) {
-      $res = array();        
-      $res['error'] = "User id not found";
-      echo json_encode($res);
-      die;
+      echo json_encode(array( "error" => "User id is not found"));
+      die; 
+    }
+    if($_POST["purchaseToken"] == '') {
+      echo json_encode(array( "error" => "Purchase token is not specified"));
+      die; 
+    }
+    if($_POST["sku"] == '') {
+      echo json_encode(array( "error" => "Subscription id is not specified"));
+      die; 
     }
 
     $sku = pg_escape_string($dbconn, $_POST["sku"]);
