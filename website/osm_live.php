@@ -346,7 +346,7 @@ function handleRegisterOsm() {
 
   $( "#register_osm" ).submit(function( event ) {
       event.preventDefault();
-      if($("#bitcoin_addr").text() == "" || !check($("#bitcoin_addr").text())) {
+      if($("#bitcoin_addr").val() == "" || !check($("#bitcoin_addr").val())) {
           $("#osm_register_failed").html("Please specify correct bitcoin address");
           $("#osm_register_failed").fadeIn(100);
           return;
