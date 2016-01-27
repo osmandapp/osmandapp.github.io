@@ -9,7 +9,7 @@ if (!$dbconn) {
 
 $gar = calculateRanking($_GET['month'], '');
 $ar = calculateRanking($_GET['month'], $_GET['region']);
-if(!isset($_GET['month'])) {
+if(!isset($_GET['month']) or $_GET['month'] == '') {
   $month = date("Y-m");	
 } else {
   $month = $_GET["month"];
