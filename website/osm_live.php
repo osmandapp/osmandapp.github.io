@@ -197,6 +197,8 @@ function updateSupportByMonth() {
             destroy: true,
             columns: [
                 { "data": "user", title: "User name"},
+                // { "data": "sku", title: "SKU"},
+                // { "data": "autorenew", title: "Autorenew"},
                 { "data": "status", title: "Status"}
             ],
             "paging":   true,

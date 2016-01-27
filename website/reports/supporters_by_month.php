@@ -43,12 +43,16 @@ while ($row = pg_fetch_row($result)) {
   if(!$visiblename || strlen($visiblename) == 0) {
   	  $visiblename = "User ".$row[0];
   }
+  $sku = '';
+  $autorenew = '';
   $status = "Not purchased";
   $checked = 0;
   if($row[4] && strlen($row[4]) > 0) {
 	  $status = "Pending verification";
+	  $sku = $row[4];
 	  if($row[6]) {
 		 $checked = $row[5];
+		 $autorenew = $row[8];
 		 if(time() * 1000 > $row[6]) {
 		 	$status = "Expired";
 		 } else {
@@ -61,6 +65,8 @@ while ($row = pg_fetch_row($result)) {
   $rw->user = $visiblename;
   $rw->status = $status;
   $rw->checked = $checked;
+  $rw->sku = $sku;
+  $rw->autorenew = $autorenew;
 }
 $res->count = $cnt;
 $res->activeCount = $active;
