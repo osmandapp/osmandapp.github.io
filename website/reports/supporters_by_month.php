@@ -21,7 +21,8 @@ $result = pg_query($dbconn, "
 	 first_value(expiretime) OVER(partition by userid, sku order by checktime desc) expiretime,
 	 first_value(autorenewing) OVER(partition by userid, sku order by checktime desc) autorenewing
 	 from supporters_subscription ) t on  
-	s.userid = t.userid;
+	s.userid = t.userid
+	where s.disable <> 1;
 	");
 if (!$result) {
   echo "{'error':'No result'}";
