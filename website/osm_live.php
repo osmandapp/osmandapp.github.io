@@ -113,15 +113,18 @@
         </div>
     </div>
     <div id="recipients" class="tab-pane fade ">
-      <h4 class="vlabel" for="general-info-div">Information</h4 >
-        <div class="panel panel-default" id="general-info-div">
-            <div class="panel-body"><p id="general-info" class="infobox"></p></div>
+      <h4 class="vlabel" for="recipients-info-div">Information</h4 >
+        <div class="panel panel-default" id="recipients-info-div">
+            <div class="panel-body"><p id="recipients-general-info" class="infobox"></p></div>
         </div>
         <hr>
-        <h4 class="vlabel" for="recipients-month-selection">Report period</h4>
-            <select class="form-control osm-live-month-select" id="recipients-month-selection">
+        <h4 class="vlabel" for="recipient-month-selection">Report period</h4>
+            <select class="form-control osm-live-month-select" id="recipient-month-selection">
             </select>
-          <hr>
+        <h4 class="vlabel" for="recipient-region-selection">Region</h4>
+        <select class="form-control" id="recipient-region-selection">
+        </select>
+        <hr>
        <h4 class="vlabel" for="recipients-table" id="recipients-table-header">OSM Recipients</h4>
         <table id="recipients-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
         </table>
@@ -142,6 +145,11 @@ var supportMonthName = "";
 var region = "";
 var regionName = "";
 var regionsmap = {};
+var recipientMonth = "";
+var recipientMonthName = "";
+var recipientRegion = "";
+var recipientRegionName = "";
+
 
 
 var floatFormat = function (o) { 
@@ -159,11 +167,16 @@ function regionDepth(region, regionsmap) {
 
 function updateRegions() {
   $('#region-selection').empty();
+  $('#recipient-region-selection').empty();
   regionsmap = {};
   if(regionName.length > 0 && regionName != "Worldwide") {
     $("#region-selection").append("<option value='"+region+"'>"+regionName+"</option>"); 
   }
+  if(recipientRegionName.length > 0 && recipientRegionName != "Worldwide") {
+    $("#recipient-region-selection").append("<option value='"+recipientRegion+"'>"+recipientRegionName+"</option>"); 
+  }
   $("#region-selection").append("<option value=''>Worldwide</option>"); 
+  $("#recipient-region-selection").append("<option value=''>Worldwide</option>"); 
   $.ajax({
       url: "reports/query_report.php?report=all_countries", 
       async: true
@@ -196,6 +209,7 @@ function updateRegions() {
     var sorted_keys = Object.keys(namemap).sort()
     for(i = 0; i < sorted_keys.length; i++) {
       $("#region-selection").append("<option value='"+namemap[sorted_keys[i]]+"'>"+sorted_keys[i]+"</option>"); 
+      $("#recipient-region-selection").append("<option value='"+namemap[sorted_keys[i]]+"'>"+sorted_keys[i]+"</option>"); 
     }
   });
 }
@@ -235,9 +249,14 @@ function updateRecipientsByMonth() {
     reportRecipientsDataTable.destroy();
   }
   $.ajax({
-        url: "reports/query_report.php?report=recipients_by_month&month="+supportMonth, 
+        url: "reports/query_report.php?report=recipients_by_month&month="+recipientMonth+"&region="+recipientRegion, 
         async: true
   }).done(function(res) {
+        var data = jQuery.parseJSON( res );
+        var intro = "All payments are done from <strong>1GRgEnKujorJJ9VBa76g8cp3sfoWtQqSs4</strong> Bitcoin address. "+
+          "If you want to donate without any extra charges and directly to OSM contributors please transfer funds to this Bitcoin address.<br>";
+        intro += "Currently available sum <strong>" + (data.btc * 1000.) +"</strong> mBTC (approximately). This sum may vary in the final report.";
+        $("#recipients-general-info").html(intro);
         reportRecipientsDataTable = $('#recipients-table').DataTable({
             data: data.rows,
             destroy: true,
@@ -369,15 +388,15 @@ function formatYearMonth(year, month) {
 }
 
 function updateGeneralInfo() {
-  $("#general-info").html("UNDER CONSTRUCTION<br>OsmAnd heavily relies on OSM and its community. Honestly saying, OsmAnd won't exist without it and it is even stated in the name."+
-    "When we started implementation OSM Live, we immediately decided that should be not only a paid service, but a donation platform as well. " +
-    "Taking into account that OSM Live is possible only because 10000 contributors change the map every day, we want to distribute a part of the income between OSM editors. " +
+  $("#general-info").html("UNDER CONSTRUCTION<br>OsmAnd heavily relies on OSM and its community. Honestly saying, OsmAnd wouldn't exist without that great community. "+
+    "When we started implementation OSM Live, we immediately decided that it should not be only a paid service, but a donation service as well. " +
+    "Thinking that OSM Live is only possible because thousands of edits every hour in many places of the world, we want to distribute a part of the income between OSM editors. " +
     "<br><br><strong>How it works</strong><ul>" +
     "<li> Every OSM contributor can be registered as a recipient. He just need to provide a valid Bitcoin address in the form below. " +
     "<li> Every OsmAnd user who wants to get live updates needs to subscribe to that service. " +
     "<li> After Google and Bank deductions the whole sum is split into 2 parts (<strong>30% OsmAnd</strong> and <strong>70% Donations</strong>)"+
     "<li> All donations are exchanged into Bitcoin and distributed between OSM contributors according to their ranking."+
-    "<li> Every OsmAnd user can select preferred donation region, in that case <strong>30% of donation</strong> will be distributed between editors of this region."+
+    "<li> Every OsmAnd user can select preferred donation region, in that case <strong>50% of donation</strong> will be distributed between editors of this region."+
     "</ul><br> Please find all rankings and formulas in the reports on OSM Live.")
 }
 
@@ -410,6 +429,12 @@ function handleRegisterOsm() {
   });
 }
 
+function selectProperTab() {
+  var url = document.location.toString();
+  if (url.match('#')) {
+      $('.nav-tabs a[href=#'+url.split('#')[1]+']').tab('show') ;
+  } 
+}
 $(document).ready(function(){
   var currentTime = new Date();
   var month = currentTime.getMonth() + 1;
@@ -423,7 +448,7 @@ $(document).ready(function(){
       $("#month-selection").prepend("<option value='"+formatYearMonth(yi,mi)+"'>"+formatYearMonthHuman(yi,mi)+"</option>");
     }
   }
-  for(yi = 2016; yi <= year; yi++) {
+  for(yi = 2015; yi <= year; yi++) {
     stmonth = yi == 2016? 1 : 1;
     endmonth = yi == year? month : 12;
     for(mi = stmonth; mi <= endmonth; mi++) {
@@ -431,11 +456,22 @@ $(document).ready(function(){
     }
   }
   if(typeof(Storage) !== "undefined") {
-    if(sessionStorage.supportMonth) {
+      if(sessionStorage.supportMonth) {
           supportMonth = sessionStorage.supportMonth;
           supportMonthName = sessionStorage.supportMonthName;
-          $(".osm-live-month-select").val(supportMonth);
+          $("#donate-month-selection").val(supportMonth);
       }
+      if(sessionStorage.recipientMonth) {
+          recipientMonth = sessionStorage.recipientMonth;
+          recipientMonthName = sessionStorage.recipientMonthName;
+          $("#recipient-month-selection").val(recipientMonth);
+      }
+      if(sessionStorage.recipientRegion) {
+          recipientRegion = sessionStorage.recipientRegion;
+          recipientRegionName = sessionStorage.recipientRegionName;
+          $("#recipient-region-selection").val(recipientRegion);
+      }
+
       if(sessionStorage.month) {
           mid = sessionStorage.month;
           midName = sessionStorage.monthName;
@@ -447,6 +483,8 @@ $(document).ready(function(){
           $("#region-selection").val(region);
       }
   }
+
+
   handleRegisterOsm();
   updateGeneralInfo();
   updateSupportByMonth();
@@ -455,7 +493,17 @@ $(document).ready(function(){
   updateTotalChanges();
   updateRankingByMonth();
   updateUserRankingByMonth();
-  $('.osm-live-month-select').on('change', function (e) {
+  
+  $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+      var target = $(e.target).attr("href") // activated tab
+      window.location.hash = target;
+  });
+  window.onpopstate = function(event) {
+    selectProperTab();
+  };
+  selectProperTab();
+
+  $('#donate-month-selection').on('change', function (e) {
       var optionSelected = $("option:selected", this);
       supportMonth = this.value;
       supportMonthName = optionSelected.text();
@@ -464,9 +512,28 @@ $(document).ready(function(){
         sessionStorage.supportMonthName = supportMonthName;
       }
       updateSupportByMonth();
-      updateRecipientsByMonth();
   });
-
+  $('#recipient-month-selection').on('change', function (e) {
+      var optionSelected = $("option:selected", this);
+      recipientMonth = this.value;
+      recipientMonthName = optionSelected.text();
+      if(typeof(Storage) !== "undefined") {
+        sessionStorage.recipientMonth = recipientMonth;
+        sessionStorage.recipientMonthName = recipientMonthName;
+      }
+      updateSupportByMonth();
+  });
+  $('#recipient-region-selection').on('change', function (e) {
+      var optionSelected = $("option:selected", this);
+      recipientRegion = this.value;
+      recipientRegionName = optionSelected.text();
+      if(typeof(Storage) !== "undefined") {
+        sessionStorage.recipientRegion = recipientRegion;
+        sessionStorage.recipientRegionName = recipientRegionName;
+      }
+      updateRecipientsByMonth();
+    });
+  
   $('#month-selection').on('change', function (e) {
       var optionSelected = $("option:selected", this);
       mid = this.value;
@@ -497,93 +564,6 @@ $(document).ready(function(){
    
 });
 
-// bitcoin addr validation
-function check(address) {
-  var decoded = base58_decode(address);     
-  if (decoded.length != 25) return false;
-
-  var cksum = decoded.substr(decoded.length - 4); 
-  var rest = decoded.substr(0, decoded.length - 4);  
-
-  var good_cksum = hex2a(sha256_digest(hex2a(sha256_digest(rest)))).substr(0, 4);
-
-  if (cksum != good_cksum) return false;
-  return true;
-}
-
-function base58_decode(string) {
-  var table = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz';
-  var table_rev = new Array();
-
-  var i;
-  for (i = 0; i < 58; i++) {
-    table_rev[table[i]] = int2bigInt(i, 8, 0);
-  } 
-
-  var l = string.length;
-  var long_value = int2bigInt(0, 1, 0);  
-
-  var num_58 = int2bigInt(58, 8, 0);
-
-  var c;
-  for(i = 0; i < l; i++) {
-    c = string[l - i - 1];
-    long_value = add(long_value, mult(table_rev[c], pow(num_58, i)));
-  }
-
-  var hex = bigInt2str(long_value, 16);  
-
-  var str = hex2a(hex);  
-
-  var nPad;
-  for (nPad = 0; string[nPad] == table[0]; nPad++);  
-
-  var output = str;
-  if (nPad > 0) output = repeat("\0", nPad) + str;
-
-  return output;
-}
-
-function hex2a(hex) {
-    var str = '';
-    for (var i = 0; i < hex.length; i += 2)
-        str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
-    return str;
-}
-
-function a2hex(str) {
-    var aHex = "0123456789abcdef";
-    var l = str.length;
-    var nBuf;
-    var strBuf;
-    var strOut = "";
-    for (var i = 0; i < l; i++) {
-      nBuf = str.charCodeAt(i);
-      strBuf = aHex[Math.floor(nBuf/16)];
-      strBuf += aHex[nBuf % 16];
-      strOut += strBuf;
-    }
-    return strOut;
-}
-
-function pow(big, exp) {
-    if (exp == 0) return int2bigInt(1, 1, 0);
-    var i;
-    var newbig = big;
-    for (i = 1; i < exp; i++) {
-        newbig = mult(newbig, big);
-    }
-
-    return newbig;
-}
-
-function repeat(s, n){
-    var a = [];
-    while(a.length < n){
-        a.push(s);
-    }
-    return a.join('');
-}
 </script>
 
 </html>
