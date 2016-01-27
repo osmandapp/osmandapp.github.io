@@ -26,7 +26,7 @@
 	  <ul class="badges">
 		<li class="first"><a data-gatag="googleplay" href="https://play.google.com/store/apps/details?id=net.osmand.plus">
           <img alt="Get it on Google Play"
-          src="https://developer.android.com/images/brand/en_generic_rgb_wo_45.png" />
+          src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" />
           </a></li>
 		  <li><a data-gatag="amazon" href="http://www.amazon.com/gp/product/B00D0SEGMC/ref=mas_pm_OsmAnd-Maps-Navigation">
           <img alt="Get it on Amazon"
