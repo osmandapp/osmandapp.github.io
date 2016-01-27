@@ -37,7 +37,7 @@
   		echo json_encode($res);
   		die;
   	}
-	  echo "{'status':'OK'}";
+	  echo "{'status':'OK'}"; 
   } else {
   	$data = $_POST;
       // use key 'http' even if you send the request to https://...
