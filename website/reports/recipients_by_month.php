@@ -31,7 +31,7 @@ if (!$result) {
   exit;
 }
 $ranking = json_decode(
-	file_get_contents("query_report.php?report=ranking_by_month&month={$month}&region={$regionName}"));
+	file_get_contents("http://builder.osmand.net/reports/query_report.php?report=ranking_by_month&month={$month}&region={$regionName}"));
 
 
 $res = new stdClass();
