@@ -1,4 +1,5 @@
 <?
+include 'calculate_ranking.php';
 include 'db_conn.php';
 $dbconn = db_conn();
 if (!$dbconn) {
