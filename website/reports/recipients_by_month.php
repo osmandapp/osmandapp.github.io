@@ -30,6 +30,9 @@ if (!$result) {
   echo "{'error':'No result'}";
   exit;
 }
+$ranking = json_decode(
+	file_get_contents("query_report.php?report=ranking_by_month&month={$month}&region={$regionName}"));
+
 
 $res = new stdClass();
 $res->month = $month;
@@ -37,19 +40,36 @@ $res->rows = array();
 $res->month = $month;
 $res->region = $regionName;
 $cnt = 0;
-$active = 0;
+$totalWeight = 0;
 while ($row = pg_fetch_row($result)) {
   $rw = new stdClass();
   array_push($res->rows, $rw);
   $rw->osmid = $row[0];
   $rw->changes = $row[1];
   $rw->btcaddress = $row[2];
+  $rw->rank = 0;
+  $rw->weight = 0;
+  $cnt ++;
+  for ($i = 0; $i < count($ranking->rows) ; ++$i) {
+  	if($rw->changes >= $ranking->rows[$i]->minChanges and 
+  		$rw->changes >= $ranking->rows[$i]->maxChanges) {
+  		$rw->rank = $ranking->rows[$i]->rank;
+  		if($regionName == '') {
+  	    	$rw->weight = getRankingRange() + 1 - $rw->rank;
+  	    } else {
+  	    	$rw->weight = getRegionRankingRange() + 1 - $rw->rank;
+  	    }
+  	    $totalWeight += $rw->weight;
+  	}
+  }
 }
 
 $val = 10;
 $rate = json_decode(file_get_contents("https://blockchain.info/ticker"));
 $btc = $val / $rate->EUR->sell;
 $res->eur = $val;
+$res->cnt = $cnt;
+$res->totalWeight = $totalWeight;
 $res->eurRate = $rate->EUR->sell;
 $res->btc = $val / $res->eurRate;
 
