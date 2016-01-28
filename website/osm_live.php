@@ -124,6 +124,9 @@
         <h4 class="vlabel" for="recipient-region-selection">Region</h4>
         <select class="form-control" id="recipient-region-selection">
         </select>
+        <div class="panel panel-default">
+            <div class="panel-body"><p id="recipients-data-info" class="infobox"></p></div>
+        </div>
         <hr>
        <h4 class="vlabel" for="recipients-table" id="recipients-table-header">OSM Recipients</h4>
         <table id="recipients-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
@@ -253,16 +256,23 @@ function updateRecipientsByMonth() {
         async: true
   }).done(function(res) {
         var data = jQuery.parseJSON( res );
-        var intro = "All payments are done from <strong>1GRgEnKujorJJ9VBa76g8cp3sfoWtQqSs4</strong> Bitcoin address. "+
-          "If you want to donate without any extra charges and directly to OSM contributors please transfer funds to this Bitcoin address.<br>";
-        intro += "Currently available sum <strong>" + (data.btc * 1000.) +"</strong> mBTC (approximately). This sum may vary in the final report.";
+        var intro = "";
+        var intro2 = "";
+         intro += "All payments are done from <strong>1GRgEnKujorJJ9VBa76g8cp3sfoWtQqSs4</strong> Bitcoin address. ";
+        intro +="If you want to donate without any extra charges and directly to OSM contributors please transfer funds to this Bitcoin address.<br>";
+        intro += "The payouts are distributed based on the ranking which is available in OSM Contributions tab, the last ranking has weight = 1, the ranking before the last has weight = 2 and so on till the 1st ranking.<br>";
+        intro2 += "Currently available sum <strong>" + (data.btc * 1000.) +"</strong> mBTC (may vary in the final report). ";
+        intro2 += "Currently total weight is <strong> " + data.totalWeight +"</strong>.";
         $("#recipients-general-info").html(intro);
+        $("#recipients-data-info").html(intro2);
         reportRecipientsDataTable = $('#recipients-table').DataTable({
             data: data.rows,
             destroy: true,
             columns: [
                 { "data": "osmid", title: "OSM ID"},
                 { "data": "changes", title: "OSM Changes"},
+                { "data": "rank", title: "Rank"},
+                { "data": "weight", title: "Weight payout"},
                 { "data": "btcaddress", title: "Bitcoin Address"}
             ],
             "paging":   true,

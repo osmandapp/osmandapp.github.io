@@ -52,7 +52,7 @@ while ($row = pg_fetch_row($result)) {
   $cnt ++;
   for ($i = 0; $i < count($ranking->rows) ; ++$i) {
   	if($rw->changes >= $ranking->rows[$i]->minChanges and 
-  		$rw->changes >= $ranking->rows[$i]->maxChanges) {
+  		$rw->changes <= $ranking->rows[$i]->maxChanges) {
   		$rw->rank = $ranking->rows[$i]->rank;
   		if($regionName == '') {
   	    	$rw->weight = getRankingRange() + 1 - $rw->rank;
@@ -60,6 +60,7 @@ while ($row = pg_fetch_row($result)) {
   	    	$rw->weight = getRegionRankingRange() + 1 - $rw->rank;
   	    }
   	    $totalWeight += $rw->weight;
+  	    break;
   	}
   }
 }
