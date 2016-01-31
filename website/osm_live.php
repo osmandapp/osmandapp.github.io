@@ -318,6 +318,9 @@ function updateSupportByMonth() {
         async: true
   }).done(function(res) {
         var data = jQuery.parseJSON( res );
+        if(extended) {
+          data.rows.push.apply(data.rows, data.notactive)
+        }
         $('#donator-report-total').html("There are <strong>" + data.activeCount + 
             "</strong> active donors and <strong>" + data.count +"</strong> registered supporters." );
 
@@ -331,15 +334,12 @@ function updateSupportByMonth() {
                 { "data": "autorenew", "title": "Autorenew", "visible": extended},
                 { "data": "region", "title": "Region",  "render": countryName, "visible": extended},
             ],
-            "order": [[ 1, "asc" ]],
             "paging":   true,
             "ordering": true,
             "iDisplayLength": 50,
             "info":     false,
             "searching": true
         });
-        if(!extended) {           
-        }
   });
 }
 
