@@ -141,6 +141,16 @@
 
 </body>
 <script>
+$.urlParam = function(name){
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    if (results==null){
+       return null;
+    }
+    else{
+       return results[1] || 0;
+    }
+}
+var extended = $.urlParam('full') == 'yes';
 var mid = "";
 var midName = "";
 var supportMonth = "";
@@ -152,6 +162,7 @@ var recipientMonth = "";
 var recipientMonthName = "";
 var recipientRegion = "";
 var recipientRegionName = "";
+
 
 
 
@@ -302,10 +313,11 @@ function updateSupportByMonth() {
             data: data.rows,
             destroy: true,
             columns: [
-                { "data": "user", title: "User name"},
-                { "data": "sku", title: "Application", render: skuApp},
-                // { "data": "autorenew", title: "Autorenew"},
-                { "data": "status", title: "Status"}
+                { "data": "user", "title": "User name"},
+                { "data": "sku", "title": "Application", "render": skuApp},
+                
+                { "data": "autorenew", "title": "Autorenew", "visible": extended},
+                { "data": "status", "title": "Status"}
             ],
             "paging":   true,
             "ordering": true,
@@ -345,7 +357,7 @@ function updateUserRankingByMonth() {
             "ordering": true,
             "iDisplayLength": 50,
             "info":     false,
-            "searching": false
+            "searching": true
         });
     });
   }
@@ -459,7 +471,7 @@ $(document).ready(function(){
       $("#month-selection").prepend("<option value='"+formatYearMonth(yi,mi)+"'>"+formatYearMonthHuman(yi,mi)+"</option>");
     }
   }
-  for(yi = 2015; yi <= year; yi++) {
+  for(yi = 2016; yi <= year; yi++) {
     stmonth = yi == 2016? 1 : 1;
     endmonth = yi == year? month : 12;
     for(mi = stmonth; mi <= endmonth; mi++) {

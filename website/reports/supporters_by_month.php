@@ -34,11 +34,12 @@ if (!$result) {
 $res = new stdClass();
 $res->month = $month;
 $res->rows = array();
+$res->notactive = array();
 $cnt = 0;
 $active = 0;
 while ($row = pg_fetch_row($result)) {
   $rw = new stdClass();
-  array_push($res->rows, $rw);
+  
   $visiblename = $row[1];
   if(!$visiblename || strlen($visiblename) == 0) {
   	  $visiblename = "User ".$row[0];
@@ -60,14 +61,20 @@ while ($row = pg_fetch_row($result)) {
 		 	$active++;
 		 }
 	  }	
+	 array_push($res->rows, $rw);
+  } else {
+	 array_push($res->notactive, $rw);
   }
+
   $cnt++;
   $rw->user = $visiblename;
   $rw->status = $status;
   $rw->checked = $checked;
+  $rw->region = $row[3];
   $rw->sku = $sku;
   $rw->autorenew = $autorenew;
 }
+$rw->rows = array_merge($rw->rows, $rw->notactive);
 $res->count = $cnt;
 $res->activeCount = $active;
 
