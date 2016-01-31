@@ -74,7 +74,7 @@ while ($row = pg_fetch_row($result)) {
   $rw->sku = $sku;
   $rw->autorenew = $autorenew;
 }
-$rw->rows = array_merge($rw->rows, $rw->notactive);
+$res->rows = array_merge($res->rows, $res->notactive);
 $res->count = $cnt;
 $res->activeCount = $active;
 
