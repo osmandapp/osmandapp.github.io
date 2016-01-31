@@ -314,9 +314,9 @@ function updateSupportByMonth() {
             destroy: true,
             columns: [
                 { "data": "user", "title": "User name"},
-                { "data": "sku", "title": "Application", "render": skuApp},
-                
+                { "data": "sku", "title": "Application", "render": skuApp, "visible": extended},
                 { "data": "autorenew", "title": "Autorenew", "visible": extended},
+                { "data": "region", "title": "Region", "visible": extended},
                 { "data": "status", "title": "Status"}
             ],
             "paging":   true,

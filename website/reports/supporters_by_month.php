@@ -70,7 +70,7 @@ while ($row = pg_fetch_row($result)) {
   $rw->user = $visiblename;
   $rw->status = $status;
   $rw->checked = $checked;
-  $rw->region = $row[3];
+  $rw->region = $row[2];
   $rw->sku = $sku;
   $rw->autorenew = $autorenew;
 }
