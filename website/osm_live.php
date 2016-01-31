@@ -158,6 +158,7 @@ var supportMonthName = "";
 var region = "";
 var regionName = "";
 var regionsmap = {};
+var regionsbydownloadname = {};
 var recipientMonth = "";
 var recipientMonthName = "";
 var recipientRegion = "";
@@ -183,6 +184,7 @@ function updateRegions() {
   $('#region-selection').empty();
   $('#recipient-region-selection').empty();
   regionsmap = {};
+  regionsbydownloadname = {};
   if(regionName.length > 0 && regionName != "Worldwide") {
     $("#region-selection").append("<option value='"+region+"'>"+regionName+"</option>"); 
   }
@@ -201,6 +203,7 @@ function updateRegions() {
         var row = data.rows[i];
         regionsmap[data.rows[i].id] = data.rows[i];
         if(row.downloadname && row.map == "1" ) {
+
           var name = row.name;
           var depth = regionDepth(row, regionsmap);
           if(depth > 2 || (depth == 2 && regionsmap[row.parentid].name == "Russia")) {
@@ -218,6 +221,7 @@ function updateRegions() {
             }
           } 
           namemap[name] = row.downloadname;
+          regionsbydownloadname[row.downloadname] = name;
         }
     }
     var sorted_keys = Object.keys(namemap).sort()
@@ -256,6 +260,14 @@ function skuApp(value) {
   }
   return "-";
 }
+
+function countryName(value) {
+  if(value in regionsbydownloadname) {
+    return regionsbydownloadname[value];
+  }
+  return value;
+}
+
 
 var reportRecipientsDataTable;
 function updateRecipientsByMonth() {
@@ -302,7 +314,7 @@ function updateSupportByMonth() {
     reportSupportDataTable.destroy();
   }
   $.ajax({
-        url: "reports/query_report.php?report=supporters_by_month&month="+supportMonth, 
+        url: "reports/query_report.php?report=supporters_by_month&month="+supportMonth+"&full="+extended, 
         async: true
   }).done(function(res) {
         var data = jQuery.parseJSON( res );
@@ -314,17 +326,20 @@ function updateSupportByMonth() {
             destroy: true,
             columns: [
                 { "data": "user", "title": "User name"},
+                { "data": "status", "title": "Status"},
                 { "data": "sku", "title": "Application", "render": skuApp, "visible": extended},
                 { "data": "autorenew", "title": "Autorenew", "visible": extended},
-                { "data": "region", "title": "Region", "visible": extended},
-                { "data": "status", "title": "Status"}
+                { "data": "region", "title": "Region",  "render": countryName, "visible": extended},
             ],
+            "order": [[ 1, "asc" ]],
             "paging":   true,
             "ordering": true,
             "iDisplayLength": 50,
             "info":     false,
             "searching": true
         });
+        if(!extended) {           
+        }
   });
 }
 
@@ -507,12 +522,13 @@ $(document).ready(function(){
       }
   }
 
-
+  
   handleRegisterOsm();
+  updateRegions();
   updateGeneralInfo();
   updateSupportByMonth();
   updateRecipientsByMonth();
-  updateRegions();
+  
   updateTotalChanges();
   updateRankingByMonth();
   updateUserRankingByMonth();
