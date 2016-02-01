@@ -16,7 +16,7 @@
 	     }
 
 	  if($insert) {
-      $rand = rand(100000,1000000)
+      $rand = rand(100000,1000000);
   		$result = pg_query($dbconn, "INSERT INTO supporters(userid, token, visiblename, useremail, preferred_region)  ".
   			" VALUES (nextval('supporters_seq'), '{$rand}', '{$visiblename}', '{$useremail}', '{$country}') RETURNING userid, token;");
   		$row = pg_fetch_row($result);
