@@ -3,12 +3,17 @@
   	include '../reports/db_conn.php';
   	$dbconn = db_conn();
     $userid = pg_escape_string($dbconn, $_REQUEST["userid"]);
-    $result = pg_query($dbconn, "SELECT userid from supporters where userid = '{$userid}';");
+    $token = pg_escape_string($dbconn, $_REQUEST["token"]);
+    $result = pg_query($dbconn, "SELECT userid, token, visiblename, useremail, preferred_region from supporters where userid = '{$userid}' and token = '{$token}';");
     $ok = false;
+    $res = array();     
     if($result) {
       $row = pg_fetch_row($result);
       if($row) {
         $ok = $row[0] == $_REQUEST["userid"];
+        $res['visibleName'] = $row[2]; 
+        $res['email'] = $row[3]; 
+        $res['preferredCountry'] = $row[4];  
       }
     }
     if(!$ok) {
@@ -37,7 +42,9 @@
   		echo json_encode($res);
   		die;
   	}
-	  echo "{'status':'OK'}"; 
+    
+    $res['status'] = 'OK';
+	  echo json_encode($res);
   } else {
   	$data = $_POST;
       // use key 'http' even if you send the request to https://...
