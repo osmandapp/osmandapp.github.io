@@ -75,7 +75,11 @@
                 <div class="panel-body"><p id="donator-report-total" class="infobox"></p></div>
             </div>
             <hr>
-            <h4 class="vlabel" for="support-table" id="support-table-header">OSM Live donators</h4>
+            <h4 class="vlabel" for="support-country-table" id="support-country-table-header">Supported countries</h4>
+            <table id="support-country-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            </table>
+            <hr>
+            <h4 class="vlabel" for="support-table" id="support-table-header">OSM Live supporters</h4>
             <table id="support-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
             </table>
 
@@ -309,8 +313,10 @@ function updateRecipientsByMonth() {
 
 
 var reportSupportDataTable;
+var reportSupportCountryDataTable;
 function updateSupportByMonth() {
   if(reportSupportDataTable) {
+    reportSupportCountryDataTable.destroy();
     reportSupportDataTable.destroy();
   }
   $.ajax({
@@ -322,8 +328,25 @@ function updateSupportByMonth() {
           data.rows.push.apply(data.rows, data.notactive)
         }
         $('#donator-report-total').html("There are <strong>" + data.activeCount + 
-            "</strong> active donors and <strong>" + data.count +"</strong> registered supporters." );
-
+            "</strong> active supporters and <strong>" + data.count +"</strong> registered supporters." );
+        var regionsList = Object.keys(data.regions).map(function(key){
+            data.regions[key].coeff = data.regions[key].count * 100 / (data.active * 2) + "%";
+            return data.regions[key];
+        });
+        reportSupportCountryDataTable = $('#support-country-table').DataTable({
+          data: regionsList,
+            destroy: true,
+            columns: [
+                { "data": "id", "title": "Region name",  "render": countryName},
+                { "data": "count", "title": "Supported users"},
+                { "data": "coeff", "title": "Percentage"}
+            ],
+            "paging":   true,
+            "ordering": true,
+            "iDisplayLength": 50,
+            "info":     false,
+            "searching": true
+        });
         reportSupportDataTable = $('#support-table').DataTable({
             data: data.rows,
             destroy: true,
