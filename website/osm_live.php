@@ -266,6 +266,9 @@ function skuApp(value) {
 }
 
 function countryName(value) {
+  if(value == '') {
+    return "Worldwide";
+  }
   if(value in regionsbydownloadname) {
     return regionsbydownloadname[value];
   }
