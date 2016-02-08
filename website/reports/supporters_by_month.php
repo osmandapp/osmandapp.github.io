@@ -54,11 +54,13 @@ while ($row = pg_fetch_row($result)) {
   if($row[4] && strlen($row[4]) > 0) {
 	  $status = "Pending verification";
 	  $sku = $row[4];
+	  $skip = false;
 	  if($row[6]) {
 		 $checked = $row[5];
 		 $autorenew = $row[8];
 		 if(time() * 1000 > $row[6]) {
 		 	$status = "Expired";
+		 	$skip = (time() - $row[6]) > 120000;
 		 } else {
 		 	$status = "Active";
 		 	$res->regions['']->count ++; 
@@ -73,8 +75,12 @@ while ($row = pg_fetch_row($result)) {
 		 	}
 		 	$active++;
 		 }
-	  }	
-	 array_push($res->rows, $rw);
+	 }	
+	 if($skip) {
+	 	array_push($res->notactive, $rw);
+	 } else {
+	 	array_push($res->rows, $rw);
+	 }
   } else {
 	 array_push($res->notactive, $rw);
   }
