@@ -288,21 +288,28 @@ function updateRecipientsByMonth() {
         var data = jQuery.parseJSON( res );
         var intro = "";
         var intro2 = "";
-         intro += "All payments are done from <strong>1GRgEnKujorJJ9VBa76g8cp3sfoWtQqSs4</strong> Bitcoin address. ";
+        intro += "All payments are done from <strong>1GRgEnKujorJJ9VBa76g8cp3sfoWtQqSs4</strong> Bitcoin address. ";
         intro +="If you want to donate without any extra charges and directly to OSM contributors please transfer funds to this Bitcoin address.<br>";
         intro += "The payouts are distributed based on the ranking which is available in OSM Contributions tab, the last ranking has weight = 1, the ranking before the last has weight = 2 and so on till the 1st ranking.<br>";
         intro2 += "Currently available sum <strong>" + (data.btc * 1000.) +"</strong> mBTC (may vary in the final report). ";
         intro2 += "Currently total weight is <strong> " + data.totalWeight +"</strong>.";
         $("#recipients-general-info").html(intro);
         $("#recipients-data-info").html(intro2);
+        var list = data.rows.map(function(key){
+            key.percent = (key.weight * 100. / data.totalWeight) + "% x " + data.regionPercentage + "%";
+            key.btc = (data.btc * 1000. * key.weight / data.totalWeight * data.regionPercentage / 100)  + " mBTC";
+            return key;
+        });
         reportRecipientsDataTable = $('#recipients-table').DataTable({
-            data: data.rows,
+            data: list,
             destroy: true,
             columns: [
                 { "data": "osmid", title: "OSM ID"},
                 { "data": "changes", title: "OSM Changes"},
                 { "data": "rank", title: "Rank"},
                 { "data": "weight", title: "Weight"},
+                { "data": "percent", title: "Part"},
+                { "data": "btc", title: "Sum"},
                 { "data": "btcaddress", title: "Bitcoin Address"}
             ],
             "paging":   true,

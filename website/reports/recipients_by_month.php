@@ -44,7 +44,7 @@ $res->region = $regionName;
 $res->regionPercentage = 0;
 if($supporters->activeCount > 0 && array_key_exists($regionName, $supporters->region) ) {
   $s = $supporters->region[$regionName];
-  $res->regionPercentage = (($s->count*1000)/($supporters->activeCount*2));
+  $res->regionPercentage = (($s->count*100)/($supporters->activeCount*2));
 } 
 $cnt = 0;
 $totalWeight = 0;
