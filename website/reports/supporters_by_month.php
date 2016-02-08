@@ -59,8 +59,8 @@ while ($row = pg_fetch_row($result)) {
 		 $checked = $row[5];
 		 $autorenew = $row[8];
 		 if(time() * 1000 > $row[6]) {
-		 	$status = "Expired " . ( (time() - $row[6]) / 3600) + " hours ago";
-		 	$skip = (time() - $row[6]) > 120000;
+		 	$status = "Expired " . ( (time() - $row[6] / 1000) / 3600) . " hours ago";
+		 	$skip = (time() - $row[6] / 1000) > 120000;
 		 } else {
 		 	$status = "Active";
 		 	$res->regions['']->count ++; 
