@@ -42,7 +42,7 @@ $res->rows = array();
 $res->month = $month;
 $res->region = $regionName;
 $res->regionPercentage = 0;
-if($supporters->activeCount > 0 && array_key_exists($regionName, $supporters->region) ) {
+if($supporters->activeCount > 0 && array_key_exists($regionName, $supporters->regions) ) {
   $s = $supporters->region[$regionName];
   $res->regionPercentage = (($s->count*100)/($supporters->activeCount*2));
 } 
