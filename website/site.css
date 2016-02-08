@@ -328,3 +328,33 @@ h1.sub small{display:block; font-weight:normal;  margin-top:5px;}
 /*************************fetures articles********************************/
   
   .definition{font-weight:bold;}
+
+  
+/*************************osm live ***************************************/
+.osmlive h1 {margin-top:30px;}
+.osmlive h3 {margin-top:50px;}
+.osmlive .submenucontainer {height:70px; width:100%; background-color:rgb(255, 143, 0); color:#fff; overflow:hidden;}
+.osmlive .submenu {width:1100px; margin:0 auto; padding-top:23px; letter-spacing:0.2em; font-size:1em;}
+.osmlive .submenu li {float:left; padding-right:40px;}
+.osmlive .tabcontent {width: 100%; background-color:#fff;}
+.osmlive .article {width:100%;}
+.osmlive .article ul {list-style-type:disc;padding-left:25px;}
+.osmlive .article ul li {padding-bottom:15px; }
+.osmlive .formcontainer {width:100%; margin-top:30px;}
+.osmlive .formcontainer .column {background-color:#ededed; width:470px; padding:30px;}
+.osmlive .formcontainer .column.left {float:left; }
+.osmlive .formcontainer .column.right {float:right;}
+.osmlive input {height:50px; width:465px; border:1px solid #d6d6d6; margin: 5px 0; font-size:1.1em; padding-left:45px;}
+.osmlive .info {color:#adadad;}
+.osmlive .row {margin-bottom:35px; position:relative;}
+.osmlive .column h3 {margin-top:0; margin-bottom:30px;}
+.osmlive .textbox {position:relative;}
+.osmlive .textbox i{position:absolute; top:22px; left:15px; color:#9a9a9a;}
+.osmlive .btn {height:45px; width:130px; font-size:18px; color:#fff; font-weight:bold;  border:none; background-color: #619CD4;
+border-radius:5px; cursor:pointer;}
+.osmlive form {margin-bottom:0;}
+.osmlive p{line-height:2em;}
+.osmlive .column p{line-height:1.4em; margin-top:5px;}
+.osmlive .column h4{margin-bottom:0; margin-top:40px;}
+.osmlive .address {background-color:rgb(255, 143, 0); color:#fff; border-radius:5px; padding:10px 15px; width:440px; margin-bottom:20px;}
+.osmlive .googleplay {height:50px;}
