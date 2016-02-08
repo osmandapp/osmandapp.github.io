@@ -35,6 +35,8 @@ $res = new stdClass();
 $res->month = $month;
 $res->rows = array();
 $res->notactive = array();
+$res->regions = array();
+$res->regions['']->count = 0;
 $cnt = 0;
 $active = 0;
 while ($row = pg_fetch_row($result)) {
@@ -58,6 +60,15 @@ while ($row = pg_fetch_row($result)) {
 		 	$status = "Expired";
 		 } else {
 		 	$status = "Active";
+		 	$res->regions['']->count ++; 
+		 	if(!$row[2]) {
+		 		$res->regions['']->count ++;
+		 	} else {
+		 		if(!array_key_exists($row[2], $res->regions)) {
+					$res->regions[$row[2]]->count = 0;
+		 		}
+		 		$res->regions[$row[2]]->count ++;
+		 	}
 		 	$active++;
 		 }
 	  }	
