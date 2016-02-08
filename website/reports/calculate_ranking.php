@@ -1,5 +1,5 @@
 <?php
-include 'db_conn.php';
+include_once 'db_conn.php';
 
 function getRankingRange() {
   return 20;

@@ -1,5 +1,7 @@
 <?
 include 'calculate_ranking.php';
+include 'supporters_by_month_base.php';
+
 $dbconn = db_conn();
 if (!$dbconn) {
 	echo "{'error':'No db connection'}";
@@ -32,13 +34,18 @@ if (!$result) {
 }
 $ranking = json_decode(
 	file_get_contents("http://builder.osmand.net/reports/query_report.php?report=ranking_by_month&month={$month}&region={$regionName}"));
-
+$supporters = getSupporters();
 
 $res = new stdClass();
 $res->month = $month;
 $res->rows = array();
 $res->month = $month;
 $res->region = $regionName;
+$res->regionPercentage = 0;
+if($supporters->activeCount > 0 && array_key_exists($regionName, $supporters->region) ) {
+  $s = $supporters->region[$regionName];
+  $res->regionPercentage = (($s->count*1000)/($supporters->activeCount*2));
+} 
 $cnt = 0;
 $totalWeight = 0;
 while ($row = pg_fetch_row($result)) {

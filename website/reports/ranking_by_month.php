@@ -1,5 +1,5 @@
 <?php
-include 'calculate_ranking.php';
+include_once 'calculate_ranking.php';
 $ar = calculateRanking($_GET['month'], $_GET['region']);
 $res = new stdClass();
 $res->month = $_GET['month'];

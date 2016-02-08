@@ -302,7 +302,7 @@ function updateRecipientsByMonth() {
                 { "data": "osmid", title: "OSM ID"},
                 { "data": "changes", title: "OSM Changes"},
                 { "data": "rank", title: "Rank"},
-                { "data": "weight", title: "Weight payout"},
+                { "data": "weight", title: "Weight"},
                 { "data": "btcaddress", title: "Bitcoin Address"}
             ],
             "paging":   true,
