@@ -433,7 +433,7 @@ are not really neccessary but simply display how long the process takes.</p>
 </ul>
 
 <div class="blocksubsubtitle">SSD disks</div>
-<p>The modern &#34;solid state&#34; disks are almost as fast as memory and can improve your map creation performance dramatically.</p>
+<p>The modern &#34;solid state&#34; disks are 2-6 times as fast as conventinal hard-disks and can improve your map creation performance dramatically.</p>
 
 <div class="blocksubsubtitle">Multiple disks</div>
 <p>Modern operating systems can access multiple disks simultaneously. Note that this really means *multiple disks* and *NOT* multiple partitions on one disk.</p>
@@ -447,7 +447,7 @@ are not really neccessary but simply display how long the process takes.</p>
 <p>The <span class="code">osmDbDialect=&#34;sqlite&#34; mapDbDialect=&#34;sqlite&#34;</span> determines where your map generation process will take place.</p>
 <p>The line <span class="code">osmDbDialect=&#34;sqlite&#34; mapDbDialect=&#34;sqlite&#34;</span> means that it will take place on disk.</p>
 <p>If you change this to <span class="code">osmDbDialect=&#34;sqlite_in_memory&#34; mapDbDialect=&#34;sqlite_in_memory&#34; </span>the process will take place in memory.</p>
-<p>This &#34;in memory&#34; processing will speed up the map generation by 10-50% but requires a lot of memory. The 10% to 50% is dependent on the map size. Smaller maps benefit less from in memory processing that larger maps, as still the normal disk access (initial reading and final map writing) plays a major role in smaller maps, where as the processing of all the data (and their relations) in larger maps requires more &#34;calculation&#34;.</p>
+<p>This &#34;in memory&#34; processing will speed up the map generation by 10-50% but requires a lot of memory. The 10% to 50% is dependent on the map size. Smaller maps benefit less from in memory processing than larger maps, as still the normal disk access (initial reading and final map writing) plays a major role in smaller maps, where as the processing of all the data (and their relations) in larger maps requires more &#34;calculation&#34;.</p>
 <p>In normal &#34;on disk&#34; processing a nodes.tmp.odb file is created from your .osm or .osm.pbf file. This nodes.tmp.odb file is a sqlite database file and it is about 15 to 25 times as big as the original .osm.pbf file which you downloaded from <a href="http://download.geofabrik.de/">geofabrik.de</a>.</p>
 <p>So if your original .osm.pbf file is 300MB, your nodes.tmp.odb file will be 5GB to 6GB!
 Note that smaller maps will be around the 15x factor whereas big maps (&#62;350MB) will end up in the 20x to 25X space increase.</p>
@@ -555,7 +555,7 @@ Note that smaller maps will be around the 15x factor whereas big maps (&#62;350M
  <li> download &#34;raw data&#34; map of ile-de-france from geofabrik.de</li>
  <li> create raw data map of Paris from the ile-de-france map and the Paris poly like
 <pre> $ osmconvert ile-de-france.osm.pbf -B=paris.poly --out-pbf > Paris.osm.pbf</pre></li>
- <li> Download the OsmAndMapCreator application from <a class="externallink" href="http://code.google.com/p/osmand" rel="nofollow" title="http://code.google.com/p/osmand">code.google.com/p/osmand</a></li>
+ <li> Download the OsmAndMapCreator application from <a class="externallink" href="http://download.osmand.net/latest-night-build/" rel="nofollow" title="http://download.osmand.net/latest-night-build/">download.osmand.net/latest-night-build/</a></li>
  <li> create your OsmAnd obf map from the Paris.osm.pbf data map using OsmAndMapCreator.</li>
 </ul>
 <p class="back_to_top"><a href="#top">Back to top</a></p>
