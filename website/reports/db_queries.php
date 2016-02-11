@@ -426,6 +426,14 @@ function getRecipients() {
   $res->eurRate = $rate->EUR->sell;
   $res->btc = $res->eur / $res->eurRate;
   $res->regionBtc = $res->regionPercentage * $res->btc;
+  for($i = 0; $i < count($res->rows); $i++) {
+      $rw = $res->rows[$i];
+      if($totalWeight > 0) {
+        $rw->btc = $res->regionBtc * $rw->weight / $totalWeight;
+      } else {
+        $rw->btc = 0;
+      }
+  }
   return $res;
 }
 

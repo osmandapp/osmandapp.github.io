@@ -291,8 +291,10 @@ function updateRecipientsByMonth() {
         intro += "All payments are done from <strong>1GRgEnKujorJJ9VBa76g8cp3sfoWtQqSs4</strong> Bitcoin address. ";
         intro +="If you want to donate without any extra charges and directly to OSM contributors please transfer funds to this Bitcoin address.<br>";
         intro += "The payouts are distributed based on the ranking which is available in OSM Contributions tab, the last ranking has weight = 1, the ranking before the last has weight = 2 and so on till the 1st ranking.<br>";
-        intro2 += "Currently available sum <strong>" + (data.btc * 1000.) +"</strong> mBTC (may vary in the final report). ";
-        intro2 += "Currently total weight is <strong> " + data.totalWeight +"</strong>.";
+        intro2 += "Available donation in total is <strong>" + (data.btc * 1000.).toFixed(4) +"</strong> mBTC, ";
+        intro2 += "available for '<strong>"+recipientRegionName+"</strong>' is <strong>" + (data.regionBtc*1000.).toFixed(4) + "</strong> mBTC.<br>";
+        intro2 += "This sum is distributed between <strong> " + data.regionCount +"</strong> recipients as ";
+        intro2 += "<strong>" + data.regionTotalWeight"</strong> parts. "
         $("#recipients-general-info").html(intro);
         $("#recipients-data-info").html(intro2);
         var list = data.rows.map(function(key){
