@@ -459,12 +459,12 @@ function getAllReports() {
   // 1st step:
 // getTotalChanges - region
 // calculateRanking - region
-// calculateUsersRanking - region
+// calculateUsersRanking - region (calculateRanking/reg, calculateRanking/'')
 // [getSupporters, getCountries, getRegionRankingRange, getRankingRange, getMinChanges ]
 // 2nd step:
 // ! [getBTCEurRate, getEurValue] !
 // FINAL step: 
-// ! getRecipients - region
+// ! getRecipients - region (calculateRanking, getSupporters)
   $countries = getCountries();
 
   $rw = new stdClass();
@@ -505,10 +505,10 @@ function getAllReports() {
 
 
   for($i = 0; $i < count($countries->rows); $i++) {
-      if($countries->rows->map == '0') {
+      if($countries->rows[$i]->map == '0' || true) {
         continue;
       }
-      $iregion = $countries->rows->downloadname;
+      $iregion = $countries->rows[$i]->downloadname;
       $rw = new stdClass();
       array_push($res->reports, $rw);
       $rw->name = 'calculateUsersRanking';
@@ -544,10 +544,10 @@ function getAllReports() {
   $res->payoutTotal = 0;
   $res->payoutAvailable = $res->eurValue / $res->rate;
   for($i = 0; $i < count($countries->rows); $i++) {
-      if($countries->rows->map == '0') {
+      if($countries->rows[$i]->map == '0') {
         continue;
       }
-      $iregion = $countries->rows->downloadname;
+      $iregion = $countries->rows[$i]->downloadname;
       $rw = new stdClass();
       array_push($res->reports, $rw);
       $rw->name = 'getRecipients';
