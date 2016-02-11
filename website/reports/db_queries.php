@@ -214,6 +214,7 @@ function calculateUsersRanking() {
     }
     
   }
+  return $res;
 
 }
 
