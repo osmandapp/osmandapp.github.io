@@ -500,7 +500,8 @@ function getAllReports() {
   $rw->name = 'getSupporters';
   $rw->month = $imonth;
   $rw->region = '';
-  $rw->report = getSupporters(); 
+  $supporters = getSupporters();
+  $rw->report = $supporters; 
 
 
   for($i = 0; $i < count($countries->rows); $i++) {
