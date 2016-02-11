@@ -46,6 +46,7 @@ function getMinChanges() {
 }
 
 function getTotalChanges() {
+  global $iregion, $imonth, $month, $dbconn;
   if(isset($iregion) && strlen($iregion) > 0) {
     $reg =  pg_escape_string($dbconn, $iregion);
     $result = pg_query($dbconn, "select count(distinct ch.username) users, count(distinct ch.id) changes 
@@ -72,6 +73,7 @@ function getTotalChanges() {
 }
 
 function calculateRanking($ireg = NULL) {
+  global $iregion, $imonth, $month, $dbconn;
   if($ireg == NULL) {
     $ireg = $iregion;
   }
@@ -162,6 +164,7 @@ function calculateRanking($ireg = NULL) {
 
 
 function calculateUsersRanking() {
+  global $iregion, $imonth, $month, $dbconn;
   $gar = calculateRanking('');
   $ar = calculateRanking();
   $region =  pg_escape_string($iregion);
@@ -215,6 +218,7 @@ function calculateUsersRanking() {
 }
 
 function getCountries() {
+  global $iregion, $imonth, $month, $dbconn;
   $result = pg_query($dbconn, "select id, parentid, downloadname, name, map from countries;");
   $res = new stdClass();
   if (!$result) {
@@ -235,6 +239,7 @@ function getCountries() {
 }
 
 function getSupporters() {
+  global $iregion, $imonth, $month, $dbconn;
   $result = pg_query($dbconn, "
     select s.userid, s.visiblename, s.preferred_region, s.useremail, 
     t.sku, t.checktime, t.expiretime, t.starttime, t.autorenewing from supporters s left join 
@@ -324,15 +329,18 @@ function getSupporters() {
 }
 
 function getEurValue($activeCount) {
+  global $iregion, $imonth, $month, $dbconn;
   return $activeCount * 1.2 ; // 1.2 EUR
 }
 
 function getBTCEurRate() {
+  global $iregion, $imonth, $month, $dbconn;
   return json_decode(file_get_contents("https://blockchain.info/ticker"));
 }
 
 
 function getRecipients() {
+  global $iregion, $imonth, $month, $dbconn;
   $regionName =  pg_escape_string($dbconn, $iregion);
   $result = pg_query($dbconn, "
     select distinct s.osmid, t.size changes,
