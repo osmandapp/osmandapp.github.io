@@ -231,7 +231,7 @@ function getCountries() {
     $rw->name = $row[3];
     $rw->map = $row[4];
   }
-  return $res
+  return $res;
 }
 
 function getSupporters() {
