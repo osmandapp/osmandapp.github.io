@@ -165,8 +165,8 @@ function calculateRanking($ireg = NULL) {
 
 function calculateUsersRanking() {
   global $iregion, $imonth, $month, $dbconn;
-  $gar = calculateRanking('');
-  $ar = calculateRanking();
+  $gar = calculateRanking('')->rows;
+  $ar = calculateRanking()->rows;
   $region =  pg_escape_string($iregion);
   $min_changes = getMinChanges();
   
