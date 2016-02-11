@@ -1,47 +1,54 @@
-<h1 id="top">Introduction</H1>
+<!-- Copied from:  https://code.google.com/archive/p/osmand/wikis/MapAddressDataStructure.wiki  -->
+<h1>Introduction</H1>
 
 Regarding many questions, issues about map data in application that topic unveils technical details of internal data format and data processing. It can be interesting for non-developers but who is familar with OSM data structure.
 
 All the OsmAnd data is containing in 'obf' files. 'obf' files have complex structure and can consists of many part. It is higly not recomended to have files around or more than 2 Gb. Currently obf parts can be many POI parts, many Map parts, Transport parts, Adress parts. That list can be extended in future. To combine or split or delete some parts from obf file use 'binary_inspector' console tool provided with OsmAndMapCreator.
 
-POI, Transport part
+<H1></H1>POI, Transport part</H1>
 
-Map part
+<H1>Map part</H1>
 
-Address part
+<H1>Address part</H1>
 
-How does mapcreator generate its list of all places that will appear later in OsmAnd's offline address search? What objects are used in detail for that? What nodes with a place tag are included, and which are excluded?
-All places that are visible in OsmAnd as Cities are taken from nodes that has tag place http://wiki.openstreetmap.org/wiki/Place. Currently are used city, town, suburb, village, hamlet.
+1. How does mapcreator generate its list of all places that will appear later in OsmAnd's offline address search? What objects are used in detail for that? What nodes with a place tag are included, and which are excluded?
+    All places that are visible in OsmAnd as Cities are taken from nodes that has tag place http://wiki.openstreetmap.org/wiki/Place. Currently are used city, town, suburb, village, hamlet.
 
-How does mapcreator handle an area polygon that is given via a relation with boundary=administrative? How do you associate a place given as a node with its boundary when it is present in the OSM data?
-Simply saying it works by name currently. Mapcreator tries to visit all boundaries and create closed (!) boundary from relation or from separated ways and associate with one of the name. After that it tries to match place with boundary name by contains of algorithm. Also there is additional check that boundary contains the place. If there are many boundaries of different admin_level with the same name (containing each_other like district/town/region has same name) the highest admin_level with exact matching will be chosen. TODO More details should be here (about districts of the city ...) ...
+2. How does mapcreator handle an area polygon that is given via a relation with boundary=administrative? How do you associate a place given as a node with its boundary when it is present in the OSM data?
+    Simply saying it works by name currently. Mapcreator tries to visit all boundaries and create closed (!) boundary from relation or from separated ways and associate with one of the name. After that it tries to match place with boundary name by contains of algorithm. Also there is additional check that boundary contains the place. If there are many boundaries of different admin_level with the same name (containing each_other like district/town/region has same name) the highest admin_level with exact matching will be chosen. TODO More details should be here (about districts of the city ...) ...
 
-Where is a documentation what admin level is right to build an association to a certain place node? What countries prefer what admin level?
-Currently admin_level is Currently association between admin_level relation and admin_centre is not used. Because only few relations provides that information.
+3. Where is a documentation what admin level is right to build an association to a certain place node? What countries prefer what admin level?
+    Currently admin_level is Currently association between admin_level relation and admin_centre is not used. Because only few relations provides that information.
 
-How does mapcreator know what street belongs to what place? Are there different cases when a boundary polygon is given and when there is none?
-There are many strategies to check and they are prioritized :
-
-The most important are places and their boundaries. In order street management algorithm will work fine the place matching boundaries should be successfull. If the street belongs to many boundaries it will be registered in all appropriate places.
-is_in tag (it is deprecated). So if street has is_in tag, it will be parsed and splitted by comma and street will be attached to all cities (by exact name matching). (TO CHECK: basic check street is in city radius?)
-If the street doesn't belongs to any boundary (boundary were not properly closed could be an issue) it tries to find the closest/biggest city and register in it (sometimes it register in town for 1 km and missing 100m closest hamlet).
-The last part is very inaccurate that's why many streets get attached to a neighboor city.
+4. How does mapcreator know what street belongs to what place? Are there different cases when a boundary polygon is given and when there is none?
+    There are many strategies to check and they are prioritized :
+<ul class="list">
+<li>The most important are places and their boundaries. In order street management algorithm will work fine the place matching boundaries should be successfull. If the street belongs to many boundaries it will be registered in all appropriate places.</li>
+<li>is_in tag (it is deprecated). So if street has is_in tag, it will be parsed and splitted by comma and street will be attached to all cities (by exact name matching). (TO CHECK: basic check street is in city radius?)</li>
+<li>If the street doesn't belongs to any boundary (boundary were not properly closed could be an issue) it tries to find the closest/biggest city and register in it (sometimes it register in town for 1 km and missing 100m closest hamlet).</li>
+</ul>
+The last part is very inaccurate and that's why many streets get attached to a neighbor city.
 
 At mapcreator's preferences you have five more settings for street suffixes, zoom, smoothness and rendering ... what are the detailed effects that you can achieve with each of them? Are those settings actually used?
-Tools
 
-OsmAndMapCreator can display what streets are associated to what city (context menu -> Show address). Local obf files should be present and configured in Settings.
-Binary expector tool can show list of streets for each city. Run it to see parameters.
-Currently all index files contain gen.log. Viewing the log file you can find errors in map creation process and that could an answer why some streets are not in the proper address index place .
-Address Part - workflow
+<H1>Tools</H1>
+
+<ul class="list">
+<li>OsmAndMapCreator can display what streets are associated to what city (context menu -> Show address). Local obf files should be present and configured in Settings.</li>
+<li>Binary expector tool can show list of streets for each city. Run it to see parameters.</li>
+<li>Currently all index files contain gen.log. Viewing the log file you can find errors in map creation process and that could an answer why some streets are not in the proper address index place.</li>
+</ul>
+
+<H1>Address Part - workflow</H1>
 
 There are these relations: city -> 0..1 boundary boundary -> 0.. city (used to define suburb of city)
 
-iterate all Osm NODEs and register as cities if the tag = PLACE is present.
+1. iterate all Osm NODEs and register as cities if the tag = PLACE is present.
 
 extract cities (TOWN, CITY)
 extract vilagges (anything else)
-iterate all RELATIONs and WAYs with type=boundary and register all boundaries
+
+2. iterate all RELATIONs and WAYs with type=boundary and register all boundaries
 
 boundary is called Entity (way or relation) with tag 'boundary=administrative' or with tag 'place=...'
 boundary should be admin_level > 4 or don't have it
@@ -51,11 +58,11 @@ boundary exactly matches by name city node and city node is in boundary
 boundary matches start, end or substring by name city node and city node is in boundary
 2.1 Many boundaries can be associated with one city. Here is the order how the most important boundary is taken and associated with the city * Boundary is matched by name exactly and has tag place * Boundary is matched by name exactly and has admin_level 8 > 7 > 6 > 9 > 10 > 5... or nothing * Boundary has admin_id matching * All other cases including sorting of admin_level
 
-If the city doesn't have any assigned boundary then all boundaries that doesn't have center cities and contain that city will be checked and the boundary with admin_level >=7 will be assigned.
+3. If the city doesn't have any assigned boundary then all boundaries that doesn't have center cities and contain that city will be checked and the boundary with admin_level >=7 will be assigned.
 
-for each boundary, make a list of cities that are in it.
+4. For each boundary, make a list of cities that are in it.
 
-iterate all RELATIONS and find addresses (http://wiki.openstreetmap.org/wiki/Relations/Proposed/Postal_Addresses)
+5. iterate all RELATIONS and find addresses (http://wiki.openstreetmap.org/wiki/Relations/Proposed/Postal_Addresses)
 
 relation with "address" tag type, and is "house" or "a6" address_type
 search for associatedStreet relation and house members
@@ -74,30 +81,37 @@ find house border: if found, store: building for the street
 
 :findOrRegister street * find close cities to the street * if the street is in the boundary of the city, add the city for search * if no city was find, using boundary, find closest city for the street * :register street: for the found cities
 
-iterate all NODES than WAYS than RELATIONS (iterate main entity)
-7.1 find ways - interpolations: * for each interpolation, findOrRegister a street with the location of the interpolation * for each two nodes create a building representing the interpolation
+6. iterate all NODES then WAYS then RELATIONS (iterate main entity)
+6.1 find ways - interpolations: * for each interpolation, findOrRegister a street with the location of the interpolation * for each two nodes create a building representing the interpolation
 
-7.2 for any entity, find addr:housenumber and addr:street tag (can be also the interpolation nodes again!!!) * skip if building for this entity already exists! * findOrRegister streets for the street * find the house number * if housenumber contains '-', try to create interpolated house number (missing latlon2?) * if housenumber contains '/', try to lookup second street addr:street2 --> seems only for RU osm: http://wiki.openstreetmap.org/wiki/RU:Key:addr * TODO: there are more variations for this: adr:housenumber2, addr2:street, addr2:housenumber etc.... * for each street, store the existing house
+6.2 for any entity, find addr:housenumber and addr:street tag (can be also the interpolation nodes again!!!) * skip if building for this entity already exists! * findOrRegister streets for the street * find the house number * if housenumber contains '-', try to create interpolated house number (missing latlon2?) * if housenumber contains '/', try to lookup second street addr:street2 --> seems only for RU osm: http://wiki.openstreetmap.org/wiki/RU:Key:addr * TODO: there are more variations for this: adr:housenumber2, addr2:street, addr2:housenumber etc.... * for each street, store the existing house
 
-7.3 for way with tag - name & tag - highway, but without addr:housenumber and addr:street: * Note: this might be ways for cars, with names (highway, or so) * skip if such street exists already * findOrRegister the street for city * write the nodes for each found street in each city
+6.3 for way with tag - name & tag - highway, but without addr:housenumber and addr:street: * Note: this might be ways for cars, with names (highway, or so) * skip if such street exists already * findOrRegister the street for city * write the nodes for each found street in each city
 
-7.4 Each relation with "postal_code", store for later use.
+6.4 Each relation with "postal_code", store for later use.
 
-Note: this does not include the address:type = pc and addr:postalcode !!!
+    </i>Note: this does not include the address:type = pc and addr:postalcode !!!</i>
 
-process post codes
+7. process post codes
+<ul class="list">
+<li>for each stored postal_code relation</li>
+<li>for each building member, update the postal_code</li>
+</ul>
 
-for each stored postal_code relation
-for each building member, update the postal_code
-write the index:
-
-split cities to: citties+towns, suburbs (suburb with is_in tag), villages (not city or town)
-write cities+towns using suburbs
-read street from cities+tows + apropriate subburs for each town
-in here, there might be more streets with same name for one city, in such case we try to find a cityPart for the street (suburb), where the street is in. There should be not more streets with same name within one city part!
-for each street
-for each building, register/create/find postcode, register the street
-write villages
-same as towns...
-write extracted postcodes and their streets
-TODO
+8. write the index:
+<ul class="list">
+<li>split cities to: cities+towns, suburbs (suburb with is_in tag), villages (not city or town)</li>
+<li>write cities+towns using suburbs</li>
+<li>read street from cities+tows + apropriate subburs for each town</li>
+<ul class="list" TYPE="square">
+<li>in here, there might be more streets with same name for one city, in such case we try to find a cityPart for the street (suburb), where the street is in. There should be not more streets with same name within one city part!</li>
+</ul>
+<li>for each street</li>
+<ul class="list" TYPE="square">
+<li>For each building, register/create/find postcode, register the street</li>
+</ul>
+<li>write villages</li>
+<li>same as towns...</li>
+<li>write extracted postcodes and their streets</li>
+</ul>
+<H1>TODO</H1>
