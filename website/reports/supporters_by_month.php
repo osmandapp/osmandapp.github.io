@@ -1,5 +1,4 @@
 <?php
-include 'supporters_by_month_base.php';
-$res = getSupporters();
-echo json_encode($res);
+include_once 'db_queries.php';
+echo json_encode(getSupporters());
 ?>
