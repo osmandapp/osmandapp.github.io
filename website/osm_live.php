@@ -295,7 +295,7 @@ function updateRecipientsByMonth() {
         intro2 += "Available donation in total is <strong>" + (data.btc * 1000.).toFixed(4) +"</strong> mBTC, ";
         intro2 += "available for <strong>"+rg+"</strong> region is <strong>" + (data.regionBtc*1000.).toFixed(4) + "</strong> mBTC.<br>";
         intro2 += "This sum is split into ";
-        intro2 += "<strong>" + data.regionTotalWeight + "</strong> parts.  ";
+        intro2 += "<strong>" + data.regionTotalWeight + "</strong> parts";
         intro2 += " and distributed between <strong> " + data.regionCount +"</strong> recipients according to the region ranking.";
         $("#recipients-general-info").html(intro);
         $("#recipients-data-info").html(intro2);

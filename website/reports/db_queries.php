@@ -366,12 +366,14 @@ function getEurValue($activeCount) {
 
 function getBTCEurRate() {
   global $iregion, $imonth, $month, $dbconn;
-  return json_decode(file_get_contents("https://blockchain.info/ticker"));
+  return json_decode(file_get_contents("https://blockchain.info/ticker"))->EUR->sell;
 }
 
 
-function getRecipients() {
+function getRecipients($eurValue = NULL, $rate = NULL ) {
   global $iregion, $imonth, $month, $dbconn;
+  
+
   $regionName =  pg_escape_string($dbconn, $iregion);
   $result = pg_query($dbconn, "
     select distinct s.osmid, t.size changes,
@@ -429,9 +431,14 @@ function getRecipients() {
   }
   $res->regionCount = $cnt;
   $res->regionTotalWeight = $totalWeight;
-  $res->eur = getEurValue($supporters->activeCount);
-  $rate = getBTCEurRate();
-  $res->eurRate = $rate->EUR->sell;
+  if($rate == NULL) {
+    $rate = getBTCEurRate();
+  }
+  if($eurValue == NULL) {
+    $eurValue = getEurValue($supporters->activeCount);
+  }
+  $res->eur = $eurValue;
+  $res->eurRate = $rate;
   $res->btc = $res->eur / $res->eurRate;
   $res->regionBtc = $res->regionPercentage * $res->btc;
   for($i = 0; $i < count($res->rows); $i++) {
@@ -443,6 +450,122 @@ function getRecipients() {
       }
   }
   return $res;
+}
+
+function getAllReports() {
+  global $iregion, $imonth, $month, $dbconn;
+  $res = new stdClass();
+  $res->reports = array();
+  // 1st step:
+// getTotalChanges - region
+// calculateRanking - region
+// calculateUsersRanking - region
+// [getSupporters, getCountries, getRegionRankingRange, getRankingRange, getMinChanges ]
+// 2nd step:
+// ! [getBTCEurRate, getEurValue] !
+// FINAL step: 
+// ! getRecipients - region
+  $countries = getCountries();
+
+  $rw = new stdClass();
+  array_push($res->reports, $rw);
+  $rw->name = 'getCountries';
+  $rw->month = $imonth;
+  $rw->region = '';
+  $rw->report = getCountries(); 
+
+  $rw = new stdClass();
+  array_push($res->reports, $rw);
+  $rw->name = 'getRegionRankingRange';
+  $rw->month = $imonth;
+  $rw->region = '';
+  $rw->report = getRegionRankingRange(); 
+
+  $rw = new stdClass();
+  array_push($res->reports, $rw);
+  $rw->name = 'getRankingRange';
+  $rw->month = $imonth;
+  $rw->region = '';
+  $rw->report = getRankingRange(); 
+
+  $rw = new stdClass();
+  array_push($res->reports, $rw);
+  $rw->name = 'getMinChanges';
+  $rw->month = $imonth;
+  $rw->region = '';
+  $rw->report = getMinChanges(); 
+
+  $rw = new stdClass();
+  array_push($res->reports, $rw);
+  $rw->name = 'getSupporters';
+  $rw->month = $imonth;
+  $rw->region = '';
+  $rw->report = getSupporters(); 
+
+
+  for($i = 0; $i < count($res->rows); $i++) {
+      if($res->rows->map == 0) {
+        continue;
+      }
+      $iregion = $res->rows->downloadname;
+      $rw = new stdClass();
+      array_push($res->reports, $rw);
+      $rw->name = 'calculateUsersRanking';
+      $rw->month = $imonth;
+      $rw->region = $iregion;
+      $rw->report = calculateUsersRanking(); 
+
+      $rw = new stdClass();
+      array_push($res->reports, $rw);
+      $rw->name = 'calculateRanking';
+      $rw->month = $imonth;
+      $rw->region = $iregion;
+      $rw->report = calculateRanking();
+
+      $rw = new stdClass();
+      array_push($res->reports, $rw);
+      $rw->name = 'getTotalChanges';
+      $rw->month = $imonth;
+      $rw->region = $iregion;
+      $rw->report = getTotalChanges(); 
+  }
+  if(!isset($_GET['rate'])) {
+      $res->rate = getBTCEurRate(); 
+  } else {
+      $res->rate = $_GET['rate'];
+  }
+  if(!isset($_GET['eurValue'])) {
+      $res->eurValue = getEurValue(); 
+  } else {
+      $res->eurValue = $_GET['eurValue'];
+  }
+  $res->payouts = array();
+  $res->payoutTotal = 0;
+  $res->payoutAvailable = $res->eurValue / $res->rate;
+  for($i = 0; $i < count($res->rows); $i++) {
+      if($res->rows->map == 0) {
+        continue;
+      }
+      $rw = new stdClass();
+      array_push($res->reports, $rw);
+      $rw->name = 'getRecipients';
+      $rw->month = $imonth;
+      $rw->region = $iregion;
+      $rw->report = getRecipients($res->eurValue, $res->rate); 
+      for($i = 0; $i < count($rw->report->rows); $i++) {
+        $rt = $rw->report->rows[$i];
+        
+        $rs = new stdClass();
+        array_push($res->payouts, $rs);
+        $rs->btc = $rt->btc;
+        $rs->osmid = $rt->osmid;
+        $rs->btcaddress = $rt->btcaddress;
+        $res->payoutTotal += $rt->btc;
+      }
+        
+  }
+  return $res;
+
 }
 
 ?>
