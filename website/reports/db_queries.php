@@ -310,7 +310,11 @@ function getSupporters() {
             if(!array_key_exists($row[2], $res->regions)) {
               $res->regions[$row[2]]->count = 0;
               $res->regions[$row[2]]->id = $row[2];
-              $res->regions[$row[2]]->name = $countryMap[$row[2]];
+              if(array_key_exists($row[2], $countryMap)) {
+                  $res->regions[$row[2]]->name = $countryMap[$row[2]];
+              } else {
+                  $res->regions[$row[2]]->name == '';
+              }
             }
             $res->regions[$row[2]]->count ++;
           }
@@ -331,7 +335,11 @@ function getSupporters() {
     $rw->status = $status;
     $rw->checked = $checked;
     $rw->region = $row[2];
-    $rw->regionName = $countryMap[$row[2]];
+    if(array_key_exists($row[2], $countryMap)) {
+      $rw->regionName = $countryMap[$row[2]];
+    } else {
+       $rw->regionName = '';
+    }
     $rw->sku = $sku;
     $rw->autorenew = $autorenew;
   }
