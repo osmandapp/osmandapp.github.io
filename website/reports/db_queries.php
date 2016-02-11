@@ -68,11 +68,14 @@ function getTotalChanges() {
   $res->month = $month;
   $res->users = $row[0];
   $res->changes = $row[1];
- return $res;
+  return $res;
 }
 
-function calculateRanking($ireg = $iregion) {
-   $min_changes = getMinChanges();
+function calculateRanking($ireg = NULL) {
+  if($ireg == NULL) {
+    $ireg = $iregion;
+  }
+  $min_changes = getMinChanges();
     
   if(isset($ireg) && strlen($ireg) > 0) {
     $region =  pg_escape_string($dbconn, $ireg);
