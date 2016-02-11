@@ -245,7 +245,7 @@ function getCountryMapName() {
   $rs = getCountries();
   $res = array();
   for ($i = 0; $i < count($rs->rows) ; ++$i) {
-    $res[$rs[$i]->downloadname] = $rs[$i]->name;
+    $res[$rs->rows[$i]->downloadname] = $rs->rows[$i]->name;
   }
   return $res;
 } 

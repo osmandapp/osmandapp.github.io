@@ -347,7 +347,7 @@ function updateSupportByMonth() {
           data: regionsList,
             destroy: true,
             columns: [
-                { "data": "name", "title": "Region name",  "render": countryName},
+                { "data": "name", "title": "Region name"},
                 { "data": "count", "title": "Supported users"},
                 { "data": "coeff", "title": "Percentage"}
             ],
@@ -365,7 +365,7 @@ function updateSupportByMonth() {
                 { "data": "status", "title": "Status"},
                 { "data": "sku", "title": "Application", "render": skuApp, "visible": extended},
                 { "data": "autorenew", "title": "Autorenew", "visible": extended},
-                { "data": "regionName", "title": "Region",  "render": countryName, "visible": extended},
+                { "data": "regionName", "title": "Region", "visible": extended},
             ],
             "paging":   true,
             "ordering": true,
