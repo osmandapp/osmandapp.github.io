@@ -11,7 +11,7 @@
 <!-- Copied from:  https://code.google.com/archive/p/osmand/wikis/MapAddressDataStructure.wiki  -->
 <h1>Introduction</H1>
 
-Many questions and issues are about the map data in the application. This article tries to explain some technical details of internal data format and data processing. It can be interesting for non-developers but who are familiar with the OSM data structure.
+Many questions and issues are about the map data in the application. This article tries to explain some technical details of the internal data format and data processing. It can be interesting for both developers as well as non-developers, who are familiar with the OSM data structure.
 
 All the OsmAnd data is in 'obf' files. 'obf' files have a complex structure and can consists of many parts. It is not recomended at all to have/use 'obf' files of more than 2 Gb. Currently obf files can contain (multiple) POI parts, (mutiple) Map parts, (multiple) Transport parts and (multiple) Adress parts. That list can be extended in the future. To combine, split off (extract) or delete some parts from the obf file, you can use 'binary_inspector' console tool provided with OsmAndMapCreator.
 
