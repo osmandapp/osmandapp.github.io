@@ -404,6 +404,7 @@ function getRecipients() {
   $res->eurRate = $rate->EUR->sell;
   $res->btc = $res->eur / $res->eurRate;
   $res->regionBtc = $res->regionPercentage * $res->btc;
+  return $res;
 }
 
 ?>
