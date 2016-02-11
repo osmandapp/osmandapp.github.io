@@ -298,8 +298,8 @@ function updateRecipientsByMonth() {
         $("#recipients-general-info").html(intro);
         $("#recipients-data-info").html(intro2);
         var list = data.rows.map(function(key){
-            key.percent = (key.weight * 100. / data.totalWeight) + "% x " + data.regionPercentage + "%";
-            key.btc = (data.btc * 1000. * key.weight / data.totalWeight * data.regionPercentage / 100)  + " mBTC";
+            key.percent = key.weight + " / " + data.totalWeight + "%";
+            key.mbtc = (key.btc * 1000.).toFixed(4)  + " mBTC";
             return key;
         });
         reportRecipientsDataTable = $('#recipients-table').DataTable({
