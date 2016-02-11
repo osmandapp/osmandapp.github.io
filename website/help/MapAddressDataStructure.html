@@ -11,26 +11,26 @@
 <!-- Copied from:  https://code.google.com/archive/p/osmand/wikis/MapAddressDataStructure.wiki  -->
 <h1>Introduction</H1>
 
-Regarding many questions, issues about map data in application that topic unveils technical details of internal data format and data processing. It can be interesting for non-developers but who is familar with OSM data structure.
+Many questions and issues are about the map data in the application. This article tries to explain some technical details of internal data format and data processing. It can be interesting for non-developers but who are familiar with the OSM data structure.
 
-All the OsmAnd data is containing in 'obf' files. 'obf' files have complex structure and can consists of many part. It is higly not recomended to have files around or more than 2 Gb. Currently obf parts can be many POI parts, many Map parts, Transport parts, Adress parts. That list can be extended in future. To combine or split or delete some parts from obf file use 'binary_inspector' console tool provided with OsmAndMapCreator.
+All the OsmAnd data is in 'obf' files. 'obf' files have a complex structure and can consists of many parts. It is not recomended at all to have/use 'obf' files of more than 2 Gb. Currently obf files can contain (multiple) POI parts, (mutiple) Map parts, (multiple) Transport parts and (multiple) Adress parts. That list can be extended in the future. To combine, split off (extract) or delete some parts from the obf file, you can use 'binary_inspector' console tool provided with OsmAndMapCreator.
 
-<H1></H1>POI, Transport part</H1>
+<H1>POI, Transport part</H1>
 
 <H1>Map part</H1>
 
 <H1>Address part</H1>
 
-1. How does mapcreator generate its list of all places that will appear later in OsmAnd's offline address search? What objects are used in detail for that? What nodes with a place tag are included, and which are excluded?
+1. How does mapcreator generate its list of all places that will appear later in OsmAnd's offline address search? What objects are used in detail for that? What nodes with a place tag are included, and which are excluded?<br>
     All places that are visible in OsmAnd as Cities are taken from nodes that has tag place http://wiki.openstreetmap.org/wiki/Place. Currently are used city, town, suburb, village, hamlet.
 
-2. How does mapcreator handle an area polygon that is given via a relation with boundary=administrative? How do you associate a place given as a node with its boundary when it is present in the OSM data?
+<br>2. How does mapcreator handle an area polygon that is given via a relation with boundary=administrative? How do you associate a place given as a node with its boundary when it is present in the OSM data?<br>
     Simply saying it works by name currently. Mapcreator tries to visit all boundaries and create closed (!) boundary from relation or from separated ways and associate with one of the name. After that it tries to match place with boundary name by contains of algorithm. Also there is additional check that boundary contains the place. If there are many boundaries of different admin_level with the same name (containing each_other like district/town/region has same name) the highest admin_level with exact matching will be chosen. TODO More details should be here (about districts of the city ...) ...
 
-3. Where is a documentation what admin level is right to build an association to a certain place node? What countries prefer what admin level?
+<br>3. Where is a documentation what admin level is right to build an association to a certain place node? What countries prefer what admin level?<br>
     Currently admin_level is Currently association between admin_level relation and admin_centre is not used. Because only few relations provides that information.
 
-4. How does mapcreator know what street belongs to what place? Are there different cases when a boundary polygon is given and when there is none?
+<br>4. How does mapcreator know what street belongs to what place? Are there different cases when a boundary polygon is given and when there is none?<br>
     There are many strategies to check and they are prioritized :
 <ul class="list">
 <li>The most important are places and their boundaries. In order street management algorithm will work fine the place matching boundaries should be successfull. If the street belongs to many boundaries it will be registered in all appropriate places.</li>
