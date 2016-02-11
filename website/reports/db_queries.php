@@ -241,6 +241,15 @@ function getCountries() {
   return $res;
 }
 
+function getCountryMapName() {
+  $rs = getCountries();
+  $res = array();
+  for ($i = 0; $i < count($rs->rows) ; ++$i) {
+    $res[$rs[$i]->downloadname] = $rs[$i]->name;
+  }
+  return $res;
+} 
+
 function getSupporters() {
   global $iregion, $imonth, $month, $dbconn;
   $result = pg_query($dbconn, "
@@ -259,7 +268,7 @@ function getSupporters() {
     $res->error ='No result';
     return $res;
   }
-  
+  $countryMap = getCountryMapName();
   
   $res = new stdClass();
   $res->month = $month;
@@ -268,6 +277,7 @@ function getSupporters() {
   $res->regions = array();
   $res->regions['']->count = 0;
   $res->regions['']->id = '';
+  $res->regions['']->name = 'Worldwide';
   $cnt = 0;
   $active = 0;
   while ($row = pg_fetch_row($result)) {
@@ -300,6 +310,7 @@ function getSupporters() {
             if(!array_key_exists($row[2], $res->regions)) {
               $res->regions[$row[2]]->count = 0;
               $res->regions[$row[2]]->id = $row[2];
+              $res->regions[$row[2]]->name = $countryMap[$row[2]];
             }
             $res->regions[$row[2]]->count ++;
           }
@@ -320,6 +331,7 @@ function getSupporters() {
     $rw->status = $status;
     $rw->checked = $checked;
     $rw->region = $row[2];
+    $rw->regionName = $countryMap[$row[2]];
     $rw->sku = $sku;
     $rw->autorenew = $autorenew;
   }
