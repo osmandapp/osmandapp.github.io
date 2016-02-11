@@ -200,12 +200,14 @@ function calculateUsersRanking() {
     $rw->user = $row[0];
     $rw->changes = $row[1];
     $rw->globalchanges = $row[2];
+    $rw->rank = '';
     for($i = 0; $i < count($ar); $i++) {
       if($ar[$i]->minChanges <= $row[1]  && $ar[$i]->maxChanges >= $row[1] ){
         $rw->rank = $ar[$i]->rank;
         break;
       }
     }
+    $rw->grank = '';
     for($i = 0; $i < count($gar); $i++) {
       if($gar[$i]->minChanges <= $row[2]  && $gar[$i]->maxChanges >= $row[2] ){
         $rw->grank = $gar[$i]->rank;
