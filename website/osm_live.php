@@ -342,7 +342,7 @@ function updateSupportByMonth() {
         $('#donator-report-total').html("There are <strong>" + data.activeCount + 
             "</strong> active supporters and <strong>" + data.count +"</strong> registered supporters." );
         var regionsList = Object.keys(data.regions).map(function(key){
-            data.regions[key].coeff = data.regions[key].count * 100 / (data.activeCount * 2) + "%";
+            data.regions[key].coeff = data.regions[key].percent * 100 + "%";
             return data.regions[key];
         });
         reportSupportCountryDataTable = $('#support-country-table').DataTable({

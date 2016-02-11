@@ -348,6 +348,14 @@ function getSupporters() {
   //}
   $res->count = $cnt;
   $res->activeCount = $active;
+  foreach ($res->regions as $key => $value) {
+      if($active > 0) {
+        $res->regions[$key]->percent = $value->count / (2 * $active);
+      } else {
+        $res->regions[$key]->percent = 0;
+      }
+  }
+  
   return $res;
 }
 
