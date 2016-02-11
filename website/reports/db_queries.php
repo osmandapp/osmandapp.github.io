@@ -503,11 +503,11 @@ function getAllReports() {
   $rw->report = getSupporters(); 
 
 
-  for($i = 0; $i < count($res->rows); $i++) {
-      if($res->rows->map == 0) {
+  for($i = 0; $i < count($countries->rows); $i++) {
+      if($countries->rows->map == '0') {
         continue;
       }
-      $iregion = $res->rows->downloadname;
+      $iregion = $countries->rows->downloadname;
       $rw = new stdClass();
       array_push($res->reports, $rw);
       $rw->name = 'calculateUsersRanking';
@@ -542,10 +542,11 @@ function getAllReports() {
   $res->payouts = array();
   $res->payoutTotal = 0;
   $res->payoutAvailable = $res->eurValue / $res->rate;
-  for($i = 0; $i < count($res->rows); $i++) {
-      if($res->rows->map == 0) {
+  for($i = 0; $i < count($countries->rows); $i++) {
+      if($countries->rows->map == '0') {
         continue;
       }
+      $iregion = $countries->rows->downloadname;
       $rw = new stdClass();
       array_push($res->reports, $rw);
       $rw->name = 'getRecipients';
