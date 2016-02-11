@@ -288,17 +288,23 @@ function updateRecipientsByMonth() {
         var data = jQuery.parseJSON( res );
         var intro = "";
         var intro2 = "";
+        var rg = recipientRegionName == '' ? 'Worldwide' : recipientRegionName; 
         intro += "All payments are done from <strong>1GRgEnKujorJJ9VBa76g8cp3sfoWtQqSs4</strong> Bitcoin address. ";
-        intro +="If you want to donate without any extra charges and directly to OSM contributors please transfer funds to this Bitcoin address.<br>";
-        intro += "The payouts are distributed based on the ranking which is available in OSM Contributions tab, the last ranking has weight = 1, the ranking before the last has weight = 2 and so on till the 1st ranking.<br>";
+        //intro +="If you want to donate without any extra charges and directly to OSM contributors please transfer funds to this Bitcoin address.<br>";
+        intro += "The payouts are distributed based on the ranking which is available on the OSM Contributions tab, the last ranking has weight = 1, the ranking before the last has weight = 2 and so on till the 1st ranking.<br>";
         intro2 += "Available donation in total is <strong>" + (data.btc * 1000.).toFixed(4) +"</strong> mBTC, ";
-        intro2 += "available for '<strong>"+recipientRegionName+"</strong>' is <strong>" + (data.regionBtc*1000.).toFixed(4) + "</strong> mBTC.<br>";
-        intro2 += "This sum is distributed between <strong> " + data.regionCount +"</strong> recipients as ";
-        intro2 += "<strong>" + data.regionTotalWeight"</strong> parts. "
+        intro2 += "available for <strong>"+rg+"</strong> region is <strong>" + (data.regionBtc*1000.).toFixed(4) + "</strong> mBTC.<br>";
+        intro2 += "This sum is split into ";
+        intro2 += "<strong>" + data.regionTotalWeight + "</strong> parts.  ";
+        intro2 += " and distributed between <strong> " + data.regionCount +"</strong> recipients according to the region ranking.";
         $("#recipients-general-info").html(intro);
         $("#recipients-data-info").html(intro2);
         var list = data.rows.map(function(key){
-            key.percent = key.weight + " / " + data.totalWeight + "%";
+            if(data.regionTotalWeight > 0) {
+              key.percent = key.weight + " / " + data.regionTotalWeight ;
+            } else {
+              key.percent = '';
+            }
             key.mbtc = (key.btc * 1000.).toFixed(4)  + " mBTC";
             return key;
         });
@@ -311,7 +317,7 @@ function updateRecipientsByMonth() {
                 { "data": "rank", title: "Rank"},
                 { "data": "weight", title: "Weight"},
                 { "data": "percent", title: "Part"},
-                { "data": "btc", title: "Sum"},
+                { "data": "mbtc", title: "Sum"},
                 { "data": "btcaddress", title: "Bitcoin Address"}
             ],
             "paging":   true,
