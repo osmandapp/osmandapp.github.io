@@ -29,7 +29,7 @@ if(!isset($_GET['region'])) {
 // calculateUsersRanking - region
 // [getSupporters, getCountries, getRegionRankingRange, getRankingRange, getMinChanges ]
 // 2nd step:
-// ! [getBTCEurRate, getEurValue] !
+// ! [getBTCEurRate, getBTCValue, getEurValue] !
 // FINAL step: 
 // ! getRecipients - region
 
@@ -45,8 +45,34 @@ function getMinChanges() {
   return 3;
 }
 
+function getReport($name, $ireg == NULL) {
+  global  $month, $dbconn;
+  if($ireg == NULL) {
+    $rregion = '';
+  } else {
+    $rregion = pg_escape_string($dbconn, $ireg);
+  }
+  $result = pg_query($dbconn, "select report from final_reports where month = '${month}'
+        and region = '${rregion}' and name='${name}';");
+  if (!$result) {
+    return NULL;
+  }
+  $row = pg_fetch_row($result);
+  return json_decode($row[0]);
+}
+
+function saveReports($res) {
+  global  $month, $dbconn;
+  // TODO
+}
+
 function getTotalChanges() {
   global $iregion, $imonth, $month, $dbconn;
+  $finalReport = getReport('getTotalChanges', $iregion);
+  if($finalReport != NULL) {
+    return $finalReport;
+  }
+
   if(isset($iregion) && strlen($iregion) > 0) {
     $reg =  pg_escape_string($dbconn, $iregion);
     $result = pg_query($dbconn, "select count(distinct ch.username) users, count(distinct ch.id) changes 
@@ -77,6 +103,11 @@ function calculateRanking($ireg = NULL) {
   if($ireg == NULL) {
     $ireg = $iregion;
   }
+  $finalReport = getReport('calculateRanking', $ireg);
+  if($finalReport != NULL) {
+    return $finalReport;
+  }
+
   $min_changes = getMinChanges();
     
   if(isset($ireg) && strlen($ireg) > 0) {
@@ -165,6 +196,10 @@ function calculateRanking($ireg = NULL) {
 
 function calculateUsersRanking() {
   global $iregion, $imonth, $month, $dbconn;
+  $finalReport = getReport('calculateUsersRanking', $iregion);
+  if($finalReport != NULL) {
+    return $finalReport;
+  }
   $gar = calculateRanking('')->rows;
   $ar = calculateRanking()->rows;
   $region =  pg_escape_string($iregion);
@@ -222,6 +257,10 @@ function calculateUsersRanking() {
 
 function getCountries() {
   global $iregion, $imonth, $month, $dbconn;
+  $finalReport = getReport('getCountries');
+  if($finalReport != NULL) {
+    return $finalReport;
+  }
   $result = pg_query($dbconn, "select id, parentid, downloadname, name, map from countries;");
   $res = new stdClass();
   if (!$result) {
@@ -252,6 +291,10 @@ function getCountryMapName() {
 
 function getSupporters() {
   global $iregion, $imonth, $month, $dbconn;
+  $finalReport = getReport('getSupporters');
+  if($finalReport != NULL) {
+    return $finalReport;
+  }
   $result = pg_query($dbconn, "
     select s.userid, s.visiblename, s.preferred_region, s.useremail, 
     t.sku, t.checktime, t.expiretime, t.starttime, t.autorenewing from supporters s left join 
@@ -361,18 +404,38 @@ function getSupporters() {
 
 function getEurValue($activeCount) {
   global $iregion, $imonth, $month, $dbconn;
+  $finalReport = getReport('getEurValue');
+  if($finalReport != NULL) {
+    return $finalReport;
+  }
   return $activeCount * 1.2 ; // 1.2 EUR
+}
+
+function getBTCValue($eurValue, $rate) {
+  global $iregion, $imonth, $month, $dbconn;
+  $finalReport = getReport('getBTCValue');
+  if($finalReport != NULL) {
+    return $finalReport;
+  }
+  return $eurValue / $rate;
 }
 
 function getBTCEurRate() {
   global $iregion, $imonth, $month, $dbconn;
+  $finalReport = getReport('getBTCEurRate');
+  if($finalReport != NULL) {
+    return $finalReport;
+  }
   return json_decode(file_get_contents("https://blockchain.info/ticker"))->EUR->sell;
 }
 
 
-function getRecipients($eurValue = NULL, $rate = NULL ) {
+function getRecipients($eurValue = NULL, $btc = NULL ) {
   global $iregion, $imonth, $month, $dbconn;
-  
+  $finalReport = getReport('getRecipients', $iregion);
+  if($finalReport != NULL) {
+    return $finalReport;
+  }
 
   $regionName =  pg_escape_string($dbconn, $iregion);
   $result = pg_query($dbconn, "
@@ -431,15 +494,16 @@ function getRecipients($eurValue = NULL, $rate = NULL ) {
   }
   $res->regionCount = $cnt;
   $res->regionTotalWeight = $totalWeight;
-  if($rate == NULL) {
+  if($btc == NULL) {
     $rate = getBTCEurRate();
+    $btc = getBTCValue($res->eur, $rate->eurRate);
   }
   if($eurValue == NULL) {
     $eurValue = getEurValue($supporters->activeCount);
   }
   $res->eur = $eurValue;
-  $res->eurRate = $rate;
-  $res->btc = $res->eur / $res->eurRate;
+  $res->btc = $btc;
+  $res->eurRate = $btc > 0 ? $eurValue / $btc : 0;
   $res->regionBtc = $res->regionPercentage * $res->btc;
   for($i = 0; $i < count($res->rows); $i++) {
       $rw = $res->rows[$i];
@@ -452,19 +516,8 @@ function getRecipients($eurValue = NULL, $rate = NULL ) {
   return $res;
 }
 
-function getAllReports() {
+function getAllReportsStage1($res) {
   global $iregion, $imonth, $month, $dbconn;
-  $res = new stdClass();
-  $res->reports = array();
-  // 1st step:
-// getTotalChanges - region
-// calculateRanking - region
-// calculateUsersRanking - region (calculateRanking/reg, calculateRanking/'')
-// [getSupporters, getCountries, getRegionRankingRange, getRankingRange, getMinChanges ]
-// 2nd step:
-// ! [getBTCEurRate, getEurValue] !
-// FINAL step: 
-// ! getRecipients - region (calculateRanking, getSupporters)
   $countries = getCountries();
 
   $rw = new stdClass();
@@ -508,6 +561,9 @@ function getAllReports() {
       if($countries->rows[$i]->map == '0' || true) {
         continue;
       }
+      if($i > 10) {
+        continue;
+      }
       $iregion = $countries->rows[$i]->downloadname;
       $rw = new stdClass();
       array_push($res->reports, $rw);
@@ -530,42 +586,80 @@ function getAllReports() {
       $rw->region = $iregion;
       $rw->report = getTotalChanges(); 
   }
-  if(!isset($_GET['rate'])) {
-      $res->rate = getBTCEurRate(); 
-  } else {
-      $res->rate = $_GET['rate'];
-  }
+  
+}
+
+function getAllReports() {
+  global $iregion, $imonth, $month, $dbconn;
+  $res = new stdClass();
+  $res->reports = array();
+
+  // 1st step:
+// getTotalChanges - region
+// calculateRanking - region
+// calculateUsersRanking - region (calculateRanking/reg, calculateRanking/'')
+// [getSupporters, getCountries, getRegionRankingRange, getRankingRange, getMinChanges ]
+// 2nd step:
+// ! [getBTCEurRate, getEurValue, getBTCValue] !
+// FINAL step: 
+// ! getRecipients - region (calculateRanking, getSupporters)
+
   if(!isset($_GET['eurValue'])) {
-      $res->eurValue = getEurValue(); 
+      getAllReportsStage1($res);
   } else {
+      $countries = getCountries();
       $res->eurValue = $_GET['eurValue'];
-  }
-  $res->payouts = array();
-  $res->payoutTotal = 0;
-  $res->payoutAvailable = $res->eurValue / $res->rate;
-  for($i = 0; $i < count($countries->rows); $i++) {
-      if($countries->rows[$i]->map == '0') {
-        continue;
+      if(isset($_GET['btcValue'])) {
+        $res->btc = $_GET['btcValue'];
+        $res->rate = $res->eurValue / $res->btc ;
+      } else {
+         $res->rate = getBTCEurRate(); 
+         $res->btc = $res->eurValue / $res->rate;
       }
-      $iregion = $countries->rows[$i]->downloadname;
+      
       $rw = new stdClass();
       array_push($res->reports, $rw);
-      $rw->name = 'getRecipients';
+      $rw->name = 'getEurValue';
       $rw->month = $imonth;
-      $rw->region = $iregion;
-      $rw->report = getRecipients($res->eurValue, $res->rate); 
-      for($i = 0; $i < count($rw->report->rows); $i++) {
-        $rt = $rw->report->rows[$i];
-        
-        $rs = new stdClass();
-        array_push($res->payouts, $rs);
-        $rs->btc = $rt->btc;
-        $rs->osmid = $rt->osmid;
-        $rs->btcaddress = $rt->btcaddress;
-        $res->payoutTotal += $rt->btc;
+      $rw->region = '';
+      $rw->report = $res->eurValue;
+
+      $rw = new stdClass();
+      array_push($res->reports, $rw);
+      $rw->name = 'getBTCValue';
+      $rw->month = $imonth;
+      $rw->region = '';
+      $rw->report = $res->btc;
+
+      $res->payouts = array();
+      $res->payoutTotal = 0;
+      for($i = 0; $i < count($countries->rows); $i++) {
+          if($countries->rows[$i]->map == '0') {
+            continue;
+          }
+          $iregion = $countries->rows[$i]->downloadname;
+          $rw = new stdClass();
+          array_push($res->reports, $rw);
+          $rw->name = 'getRecipients';
+          $rw->month = $imonth;
+          $rw->region = $iregion;
+          $rw->report = getRecipients($res->eurValue, $res->btc); 
+          for($i = 0; $i < count($rw->report->rows); $i++) {
+            $rt = $rw->report->rows[$i];          
+            $rs = new stdClass();
+            array_push($res->payouts, $rs);
+            $rs->btc = $rt->btc;
+            $rs->osmid = $rt->osmid;
+            $rs->btcaddress = $rt->btcaddress;
+            $res->payoutTotal += $rt->btc;
+          }       
       }
-        
   }
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    saveReports($res);
+  }
+  
+  
   return $res;
 
 }
