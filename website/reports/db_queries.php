@@ -561,7 +561,7 @@ function getAllReportsStage1($res) {
       if($countries->rows[$i]->map == '0' || true) {
         continue;
       }
-      if($i > 10) {
+      if($i > 50) {
         continue;
       }
       $iregion = $countries->rows[$i]->downloadname;
