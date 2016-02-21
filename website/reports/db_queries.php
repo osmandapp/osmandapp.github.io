@@ -5,10 +5,10 @@ if (!$dbconn) {
   echo "{'error':'No db connection'}";
   die;
 }
-if(!isset($_GET['month'])) {
+if(!isset($_REQUEST['month'])) {
   $imonth = date("Y-m"); 
 } else {
-  $imonth = $_GET["month"];
+  $imonth = $_REQUEST["month"];
 }
 if(!isset($imonth)) {
   $month = date("Y-m"); 
@@ -16,10 +16,10 @@ if(!isset($imonth)) {
   $month = pg_escape_string($dbconn, $imonth);
 }
 
-if(!isset($_GET['region'])) {
+if(!isset($_REQUEST['region'])) {
   $iregion = ''; 
 } else {
-  $iregion = $_GET['region'];
+  $iregion = $_REQUEST['region'];
 }
 
 // FUNCTION LIST
@@ -604,13 +604,13 @@ function getAllReports() {
 // FINAL step: 
 // ! getRecipients - region (calculateRanking, getSupporters)
 
-  if(!isset($_GET['eurValue'])) {
+  if(!isset($_REQUEST['eurValue'])) {
       getAllReportsStage1($res);
   } else {
       $countries = getCountries();
-      $res->eurValue = $_GET['eurValue'];
-      if(isset($_GET['btcValue'])) {
-        $res->btc = $_GET['btcValue'];
+      $res->eurValue = $_REQUEST['eurValue'];
+      if(isset($_REQUEST['btcValue'])) {
+        $res->btc = $_REQUEST['btcValue'];
         $res->rate = $res->eurValue / $res->btc ;
       } else {
          $res->rate = getBTCEurRate(); 
