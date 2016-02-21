@@ -517,7 +517,7 @@ function getRecipients($eurValue = NULL, $btc = NULL ) {
   $res->eur = $eurValue;
   if($btc == NULL) {
     $rate = getBTCEurRate();
-    $btc = getBTCValue($res->eur, $rate->eurRate);
+    $btc = getBTCValue($res->eur, $rate);
   }
   $res->btc = $btc;
   $res->eurRate = $btc > 0 ? $eurValue / $btc : 0;
