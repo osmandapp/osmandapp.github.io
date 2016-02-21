@@ -8,10 +8,7 @@ $memcache->connect('localhost', 11211) or die ("Can't connect");
 $get_result = $memcache->get($_SERVER['QUERY_STRING']);
 if(!$get_result) {
   $get_result = file_get_contents("http://builder.osmand.net/reports/".$_GET["report"].".php?".$_SERVER['QUERY_STRING']);
-  $timeout = 120000;
-  if(!isset($_GET['month']) || strlen($_GET["month"]) == 0 || date("Y-m") == $_GET["month"]) {
-  	$timeout = 300; 	
-  }
+  $timeout = 300; 	
   if($_GET["report"] == "supporters_by_month") {
   	$timeout = 10;
   }

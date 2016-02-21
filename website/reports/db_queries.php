@@ -511,14 +511,14 @@ function getRecipients($eurValue = NULL, $btc = NULL ) {
   }
   $res->regionCount = $cnt;
   $res->regionTotalWeight = $totalWeight;
-  if($btc == NULL) {
-    $rate = getBTCEurRate();
-    $btc = getBTCValue($res->eur, $rate->eurRate);
-  }
   if($eurValue == NULL) {
     $eurValue = getEurValue($supporters->activeCount);
   }
   $res->eur = $eurValue;
+  if($btc == NULL) {
+    $rate = getBTCEurRate();
+    $btc = getBTCValue($res->eur, $rate->eurRate);
+  }
   $res->btc = $btc;
   $res->eurRate = $btc > 0 ? $eurValue / $btc : 0;
   $res->regionBtc = $res->regionPercentage * $res->btc;
