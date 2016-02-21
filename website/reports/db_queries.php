@@ -112,7 +112,7 @@ function getTotalChanges() {
 
 function calculateRanking($ireg = NULL) {
   global $iregion, $imonth, $month, $dbconn;
-  if($ireg == NULL) {
+  if(is_null($ireg)) {
     $ireg = $iregion;
   }
   $finalReport = getReport('calculateRanking', $ireg);
@@ -251,6 +251,8 @@ function calculateUsersRanking() {
     for($i = 0; $i < count($ar); $i++) {
       if($ar[$i]->minChanges <= $row[1]  && $ar[$i]->maxChanges >= $row[1] ){
         $rw->rank = $ar[$i]->rank;
+        $rw->min = $ar[$i]->minChanges ;
+        $rw->max = $ar[$i]->maxChanges ;
         break;
       }
     }
@@ -260,7 +262,7 @@ function calculateUsersRanking() {
         $rw->grank = $gar[$i]->rank;
         $rw->gmin = $gar[$i]->minChanges ;
         $rw->gmax = $gar[$i]->maxChanges ;
-        
+
         break;
       }
     }
