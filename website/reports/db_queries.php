@@ -63,7 +63,19 @@ function getReport($name, $ireg = NULL) {
 
 function saveReports($res) {
   global  $month, $dbconn;
-  // TODO
+  for($i = 0; $i < count($res->reports); $i++) {
+      $rw = $res->reports[$i];
+      if(is_scalar($rw->report)){
+        $content = pg_escape_string($rw->report);
+      } else {
+        $content = json_encode(pg_escape_string($rw->report));    
+      }    
+      $region = pg_escape_string($rw->region);
+      $name = pg_escape_string($rw->name);
+      $mn = pg_escape_string($rw->month);
+      pg_query($dbconn, "insert into final_reports(month, region, name, report) 
+          values('${mn}', '${region}', '${name}', '${content}');");
+  }
 }
 
 function getTotalChanges() {
@@ -559,9 +571,6 @@ function getAllReportsStage1($res) {
 
   for($i = 0; $i < count($countries->rows); $i++) {
       if($countries->rows[$i]->map == '0') {
-        continue;
-      }
-      if($i > 50) {
         continue;
       }
       $iregion = $countries->rows[$i]->downloadname;
