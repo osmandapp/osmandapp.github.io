@@ -558,7 +558,7 @@ function getAllReportsStage1($res) {
 
 
   for($i = 0; $i < count($countries->rows); $i++) {
-      if($countries->rows[$i]->map == '0' || true) {
+      if($countries->rows[$i]->map == '0') {
         continue;
       }
       if($i > 50) {
