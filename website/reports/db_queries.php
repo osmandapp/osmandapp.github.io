@@ -45,7 +45,7 @@ function getMinChanges() {
   return 3;
 }
 
-function getReport($name, $ireg == NULL) {
+function getReport($name, $ireg = NULL) {
   global  $month, $dbconn;
   if($ireg == NULL) {
     $rregion = '';
