@@ -1,4 +1,5 @@
 <?php
 include 'db_queries.php';
-echo json_encode(getAllReports());
+$r = getAllReports();
+echo "Stored ".count($r->reports)." reports";
 ?>
