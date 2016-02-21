@@ -108,6 +108,8 @@
                 <input type="text" class="form-control" id="osm_usr" name="osm_usr">
                 <label for="osm_pwd">OSM Password (we do not store it on servers):</label>
                 <input type="password" class="form-control" id="osm_pwd" name="osm_pwd">
+                <label for="email">Email address:</label>
+                <input type="text" class="form-control" id="email" name="email">
                 <label for="bitcoin_addr">Bitcoin address:</label>
                 <input type="text" class="form-control" id="bitcoin_addr" name="bitcoin_addr">
                 <button type="submit" class="btn btn-default" id="register_osm_user">Register</button>
@@ -487,7 +489,12 @@ function handleRegisterOsm() {
           $("#osm_register_failed").html("Please specify correct bitcoin address");
           $("#osm_register_failed").fadeIn(100);
           return;
-      }
+        }
+        if($("#email").val() == "") {
+          $("#osm_register_failed").html("Please specify correct email address");
+          $("#osm_register_failed").fadeIn(100);
+          return;
+        }
 
       $.post("subscription/register_osm.php", $("#register_osm").serialize(), function(res) {
           if (res == "OK") {

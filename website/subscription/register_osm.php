@@ -48,6 +48,7 @@
     $osm_usr = pg_escape_string($dbconn, $_POST["osm_usr"]);
     $osm_pwd = pg_escape_string($dbconn, $_POST["osm_pwd"]);
     $bitcoin = pg_escape_string($dbconn, $_POST["bitcoin_addr"]);
+    $email = pg_escape_string($dbconn, $_POST["email"]);
     $time = time() * 1000;
     $basic = base64_encode($osm_usr.":".$osm_pwd);
     $options = array(
@@ -65,8 +66,8 @@
         echo json_encode($res);
         die;
     }
-    $result = pg_query($dbconn, "INSERT INTO osm_recipients(osmid, btcaddr, updatetime) 
-      VALUES('{$osm_usr}','{$bitcoin}',${time});");
+    $result = pg_query($dbconn, "INSERT INTO osm_recipients(osmid, email, btcaddr, updatetime) 
+      VALUES('{$osm_usr}','{$email}','{$bitcoin}',${time});");
   	if(!$result) {
   	    $res = array();        
         $res['error'] = "Error updating db";
