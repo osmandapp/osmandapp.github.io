@@ -258,6 +258,9 @@ function calculateUsersRanking() {
     for($i = 0; $i < count($gar); $i++) {
       if($gar[$i]->minChanges <= $row[2]  && $gar[$i]->maxChanges >= $row[2] ){
         $rw->grank = $gar[$i]->rank;
+        $rw->gmin = $gar[$i]->minChanges ;
+        $rw->gmax = $gar[$i]->maxChanges ;
+        
         break;
       }
     }
