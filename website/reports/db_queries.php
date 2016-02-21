@@ -573,9 +573,6 @@ function getAllReportsStage1($res) {
       if($countries->rows[$i]->map == '0') {
         continue;
       }
-      if($i > 15) {
-        continue;
-      }
       $iregion = $countries->rows[$i]->downloadname;
       $rw = new stdClass();
       array_push($res->reports, $rw);
