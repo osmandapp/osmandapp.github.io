@@ -251,8 +251,8 @@ function calculateUsersRanking() {
     for($i = 0; $i < count($ar); $i++) {
       if($ar[$i]->minChanges <= $row[1]  && $ar[$i]->maxChanges >= $row[1] ){
         $rw->rank = $ar[$i]->rank;
-        $rw->min = $ar[$i]->minChanges ;
-        $rw->max = $ar[$i]->maxChanges ;
+        // $rw->min = $ar[$i]->minChanges ;
+        // $rw->max = $ar[$i]->maxChanges ;
         break;
       }
     }
@@ -260,8 +260,8 @@ function calculateUsersRanking() {
     for($i = 0; $i < count($gar); $i++) {
       if($gar[$i]->minChanges <= $row[2]  && $gar[$i]->maxChanges >= $row[2] ){
         $rw->grank = $gar[$i]->rank;
-        $rw->gmin = $gar[$i]->minChanges ;
-        $rw->gmax = $gar[$i]->maxChanges ;
+        // $rw->gmin = $gar[$i]->minChanges ;
+        // $rw->gmax = $gar[$i]->maxChanges ;
 
         break;
       }
