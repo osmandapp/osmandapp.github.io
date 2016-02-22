@@ -449,10 +449,10 @@ function getBTCEurRate() {
 }
 
 
-function getRecipients($eurValue = NULL, $btc = NULL ) {
+function getRecipients($eurValue = NULL, $btc = NULL, $useReport = true ) {
   global $iregion, $imonth, $month, $dbconn;
   $finalReport = getReport('getRecipients', $iregion);
-  if($finalReport != NULL) {
+  if($finalReport != NULL && $useReport) {
     return $finalReport;
   }
 
@@ -674,7 +674,7 @@ function getAllReports() {
           $rw->name = 'getRecipients';
           $rw->month = $imonth;
           $rw->region = $iregion;
-          $rw->report = getRecipients($res->eurValue, $res->btc); 
+          $rw->report = getRecipients($res->eurValue, $res->btc, false); 
           for($i = 0; $i < count($rw->report->rows); $i++) {
             $rt = $rw->report->rows[$i];          
             $rs = new stdClass();
