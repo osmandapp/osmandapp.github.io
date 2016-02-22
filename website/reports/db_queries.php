@@ -73,6 +73,8 @@ function saveReports($res) {
       $region = pg_escape_string($dbconn, $rw->region);
       $name = pg_escape_string($dbconn, $rw->name);
       $mn = pg_escape_string($dbconn, $rw->month);
+      pg_query($dbconn, "delete from final_reports where month = '${mn}' 
+        and name = '${name}' and region = '${region}';");
       pg_query($dbconn, "insert into final_reports(month, region, name, report) 
           values('${mn}', '${region}', '${name}', '${content}');");
   }
