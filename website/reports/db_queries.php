@@ -661,7 +661,7 @@ function getAllReports() {
           if($countries->rows[$i]->name == 'World') {
              $iregion = '';
           } else {
-            if($i > 8) {
+            if($i > 15) {
               continue;
             }
             if($countries->rows[$i]->map == '0') {
