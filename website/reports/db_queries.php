@@ -495,7 +495,7 @@ function getRecipients($eurValue = NULL, $btc = NULL, $useReport = true ) {
     }   
   } else {
     $rr = $regionName == "" ? "_empty_" : $regionName;
-    if(property_exists($rr, $supporters->regions) ) {
+    if(property_exists($supporters->regions, $rr) ) {
       $s = $supporters->regions->{$rr};
       $res->regionPercentage = $s->percent;
     } 
