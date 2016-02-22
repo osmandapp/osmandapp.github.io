@@ -513,7 +513,7 @@ function getRecipients($eurValue = NULL, $btc = NULL ) {
   }
   $res->regionCount = $cnt;
   $res->regionTotalWeight = $totalWeight;
-  if(is_null($eurValue))) {
+  if(is_null($eurValue)) {
     $eurValue = getEurValue($supporters->activeCount);
   }
   $res->eur = $eurValue;
