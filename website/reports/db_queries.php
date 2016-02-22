@@ -661,9 +661,6 @@ function getAllReports() {
           if($countries->rows[$i]->name == 'World') {
              $iregion = '';
           } else {
-            if($i > 15) {
-              continue;
-            }
             if($countries->rows[$i]->map == '0') {
               continue;
             }
@@ -677,8 +674,8 @@ function getAllReports() {
           $rw->month = $imonth;
           $rw->region = $iregion;
           $rw->report = getRecipients($res->eurValue, $res->btc, false); 
-          for($i = 0; $i < count($rw->report->rows); $i++) {
-            $rt = $rw->report->rows[$i];          
+          for($t = 0; $t < count($rw->report->rows); $t++) {
+            $rt = $rw->report->rows[$t];          
             $rs = new stdClass();
             array_push($res->payouts, $rs);
             $rs->btc = $rt->btc;
