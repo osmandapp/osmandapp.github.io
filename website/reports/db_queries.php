@@ -654,12 +654,13 @@ function getAllReports() {
       $res->payouts = array();
       $res->payoutTotal = 0;
       for($i = 0; $i < count($countries->rows); $i++) {
-          if($i > 15) {
-            continue;
-          }
+
           if($countries->rows[$i]->name == 'World') {
              $iregion = '';
           } else {
+            if(true) {
+              continue;
+            }
             if($countries->rows[$i]->map == '0') {
               continue;
             }
