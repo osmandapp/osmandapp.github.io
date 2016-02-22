@@ -482,11 +482,11 @@ function getRecipients($eurValue = NULL, $btc = NULL ) {
   $res->rows = array();
   $res->region = $regionName;
   $res->regionPercentage = 0;
-  if(strlen($regionName) == 0) {
+  if($regionName == "") {
     $res->regionPercentage = 0.5;
   } else if($supporters->activeCount > 0 && array_key_exists($regionName, $supporters->regions) ) {
-      $s = $supporters->regions[$regionName];
-      $res->regionPercentage = ($s->count/($supporters->activeCount*2));
+    $s = $supporters->regions[$regionName];
+    $res->regionPercentage = ($s->count/($supporters->activeCount*2));
   } 
   $cnt = 0;
   $totalWeight = 0;
