@@ -484,11 +484,9 @@ function getRecipients($eurValue = NULL, $btc = NULL, $useReport = true ) {
   $res->rows = array();
   $res->region = $regionName;
   $res->regionPercentage = 0;
-  if($regionName == "") {
-    $res->regionPercentage = 0.5;
-  } else if($supporters->activeCount > 0 && array_key_exists($regionName, $supporters->regions) ) {
+  if(array_key_exists($regionName, $supporters->regions) ) {
     $s = $supporters->regions[$regionName];
-    $res->regionPercentage = ($s->count/($supporters->activeCount*2));
+    $res->regionPercentage = $s->percent;
   } 
   $cnt = 0;
   $totalWeight = 0;
@@ -675,6 +673,9 @@ function getAllReports() {
           $rw->report = getRecipients($res->eurValue, $res->btc, false); 
           for($t = 0; $t < count($rw->report->rows); $t++) {
             $rt = $rw->report->rows[$t];          
+            if($rt->btc == 0) {
+              continue;
+            }
             $rs = new stdClass();
             array_push($res->payouts, $rs);
             $rs->btc = $rt->btc;
