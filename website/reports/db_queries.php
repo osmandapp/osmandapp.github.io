@@ -628,9 +628,9 @@ function getAllReports() {
       getAllReportsStage1($res);
   } else {
       $countries = getCountries();
-      $res->eurValue = $_REQUEST['eurValue'];
+      $res->eurValue = floatval($_REQUEST['eurValue']);
       if(isset($_REQUEST['btcValue'])) {
-        $res->btc = $_REQUEST['btcValue'];
+        $res->btc = floatval($_REQUEST['btcValue']);
         $res->rate = $res->eurValue / $res->btc ;
       } else {
          $res->rate = getBTCEurRate(); 
