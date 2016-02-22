@@ -665,7 +665,13 @@ function getAllReports() {
       $rw->region = '';
       $rw->report = $res->btc;
 
-      $res->payouts = array();
+      $res->payouts = new stdClass();
+      $res->payouts->payoutBTCAvailable = $res->btc;
+      $res->payouts->payoutEurAvailable = $res->eurValue;
+      $res->payouts->rate = $res->rate;
+      $res->payouts->payoutTotal = 0;
+      $res->payouts->payments = array();
+
       $res->payoutTotal = 0;
       for($i = 0; $i < count($countries->rows); $i++) {
           if($countries->rows[$i]->name == 'World') {
@@ -689,13 +695,20 @@ function getAllReports() {
               continue;
             }
             $rs = new stdClass();
-            array_push($res->payouts, $rs);
+            array_push($res->payouts->payments, $rs);
             $rs->btc = $rt->btc;
             $rs->osmid = $rt->osmid;
             $rs->btcaddress = $rt->btcaddress;
-            $res->payoutTotal += $rt->btc;
+            $res->payouts->payoutTotal += $rt->btc;
           }       
       }
+
+      $rw = new stdClass();
+      array_push($res->reports, $rw);
+      $rw->name = 'getPayouts';
+      $rw->month = $imonth;
+      $rw->region = '';
+      $rw->report = $res->payouts;
   }
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     saveReports($res);
