@@ -488,7 +488,7 @@ function getRecipients($eurValue = NULL, $btc = NULL, $useReport = true ) {
   $res->rows = array();
   $res->region = $regionName;
   $res->regionPercentage = 0;
-  $rr = $regionName = "" ? "_empty_" : $regionName;
+  $rr = $regionName == "" ? "_empty_" : $regionName;
   if(array_key_exists($rr, $supporters->regions) ) {
     $s = $supporters->regions[$rr];
     $res->regionPercentage = $s->percent;
