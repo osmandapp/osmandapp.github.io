@@ -342,6 +342,10 @@ function getSupporters() {
   $res->regions['']->name = 'Worldwide';
   $cnt = 0;
   $active = 0;
+  $time = time();
+  if($imonth != date("Y-m")) {
+    $time = strtotime($imonth."-28"); 
+  }
   while ($row = pg_fetch_row($result)) {
     $rw = new stdClass();
     
@@ -360,9 +364,9 @@ function getSupporters() {
       if($row[6]) {
         $checked = $row[5];
         $autorenew = $row[8];
-        if(time() * 1000 > $row[6]) {
-          $status = "Expired " . floor( (time() - $row[6] / 1000) / (3600*24)) . " days ago";
-          $skip = (time() - $row[6] / 1000) > 120000;
+        if($time * 1000 > $row[6]) {
+          $status = "Expired " . floor( ($time - $row[6] / 1000) / (3600*24)) . " days ago";
+          $skip = ($time - $row[6] / 1000) > 120000;
         } else {
           $status = "Active";
           $res->regions['']->count ++; 
