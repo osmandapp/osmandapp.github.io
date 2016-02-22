@@ -474,9 +474,9 @@ function getRecipients($eurValue = NULL, $btc = NULL, $useReport = true ) {
     $res->error = 'No result';
     return $res;
   }
-  error_log("Ranking ".$iregion);
+  
   $ranking = calculateRanking();
-  error_log("Supporters ".$iregion);
+  
   $supporters = getSupporters();
 
   $res = new stdClass();
@@ -666,7 +666,6 @@ function getAllReports() {
             }
             $iregion = $countries->rows[$i]->downloadname;
           }
-          error_log("Recipients ".$iregion);
           
           $rw = new stdClass();
           array_push($res->reports, $rw);
