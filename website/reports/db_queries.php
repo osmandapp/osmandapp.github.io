@@ -488,11 +488,18 @@ function getRecipients($eurValue = NULL, $btc = NULL, $useReport = true ) {
   $res->rows = array();
   $res->region = $regionName;
   $res->regionPercentage = 0;
-  $rr = $regionName == "" ? "_empty_" : $regionName;
-  if(array_key_exists($rr, $supporters->regions) ) {
-    $s = $supporters->regions[$rr];
-    $res->regionPercentage = $s->percent;
-  } 
+  if(is_array($supporters->regions)) {
+    if(array_key_exists($regionName, $supporters->regions) ) {
+      $s = $supporters->regions[$regionName];
+      $res->regionPercentage = $s->percent;
+    }   
+  } else {
+    $rr = $regionName == "" ? "_empty_" : $regionName;
+    if(property_exists($rr, $supporters->regions) ) {
+      $s = $supporters->regions->{$rr};
+      $res->regionPercentage = $s->percent;
+    } 
+  }
   $cnt = 0;
   $totalWeight = 0;
   while ($row = pg_fetch_row($result)) {
