@@ -47,7 +47,7 @@ function getMinChanges() {
 
 function getReport($name, $ireg = NULL) {
   global  $month, $dbconn;
-  if($ireg == NULL) {
+  if(is_null($ireg)) {
     $rregion = '';
   } else {
     $rregion = pg_escape_string($dbconn, $ireg);
@@ -474,7 +474,9 @@ function getRecipients($eurValue = NULL, $btc = NULL, $useReport = true ) {
     $res->error = 'No result';
     return $res;
   }
+  error_log("Ranking ".$iregion);
   $ranking = calculateRanking();
+  error_log("Supporters ".$iregion);
   $supporters = getSupporters();
 
   $res = new stdClass();
@@ -656,11 +658,10 @@ function getAllReports() {
       $res->payouts = array();
       $res->payoutTotal = 0;
       for($i = 0; $i < count($countries->rows); $i++) {
-
           if($countries->rows[$i]->name == 'World') {
              $iregion = '';
           } else {
-            if($i > 10) {
+            if($i > 3) {
               continue;
             }
             if($countries->rows[$i]->map == '0') {
@@ -668,6 +669,7 @@ function getAllReports() {
             }
             $iregion = $countries->rows[$i]->downloadname;
           }
+          error_log("Recipients ".$iregion);
           
           $rw = new stdClass();
           array_push($res->reports, $rw);
