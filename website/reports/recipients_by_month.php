@@ -10,7 +10,7 @@ $explanation = "All donations are distributed between registered recipients acco
 	Half of donations is distributed between all osm editors and displayed for the 'Worldwide' region. 
 	The other half is distributed between osm editors of specific regions which are selected as 'Preferred region' by supporters.";
 $visibleReg = $res->region;
-if($region == '') {
+if($res->region == '') {
 	$visibleReg = "Worldwide"
 } else {
 	for($i = 0; $i < count($cnt); $i++) {
