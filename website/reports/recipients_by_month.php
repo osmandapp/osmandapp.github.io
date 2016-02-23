@@ -11,7 +11,7 @@ $explanation = "All donations are distributed between registered recipients acco
 	The other half is distributed between osm editors of specific regions which are selected as 'Preferred region' by supporters.";
 $visibleReg = $res->region;
 if($res->region == '') {
-	$visibleReg = "Worldwide"
+	$visibleReg = "Worldwide";
 } else {
 	for($i = 0; $i < count($cnt); $i++) {
 		if($cnt[$i]->downloadname == $res->region) {
