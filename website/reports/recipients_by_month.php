@@ -13,9 +13,9 @@ $visibleReg = $res->region;
 if($res->region == '') {
 	$visibleReg = "Worldwide";
 } else {
-	for($i = 0; $i < count($cnt); $i++) {
-		if($cnt[$i]->downloadname == $res->region) {
-			$visibleReg = $cnt[$i]->name;
+	for($i = 0; $i < count($cnt->rows); $i++) {
+		if($cnt->rows[$i]->downloadname == $res->region) {
+			$visibleReg = $cnt->rows[$i]->name;
 			break;
 		}
 	}
