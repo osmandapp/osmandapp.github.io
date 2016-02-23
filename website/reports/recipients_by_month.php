@@ -9,7 +9,17 @@ $explanation = "All donations are distributed between registered recipients acco
 	to their ranking based on the number of changes done in the selected region. 
 	Half of donations is distributed between all osm editors and displayed for the 'Worldwide' region. 
 	The other half is distributed between osm editors of specific regions which are selected as 'Preferred region' by supporters.";
-$visibleReg = $region;
+$visibleReg = $res->region;
+if($region == '') {
+	$visibleReg = "Worldwide"
+} else {
+	for($i = 0; $i < count($cnt); $i++) {
+		if($cnt[$i]->downloadname == $res->region) {
+			$visibleReg = $cnt[$i]->name;
+			break;
+		}
+	}
+}
 if(is_null(getReport('getBTCValue'))) {
 	$res->message = $explanation;
 	$res->message = $res->message . "<br>Approximate collected sum is <strong>" . 
