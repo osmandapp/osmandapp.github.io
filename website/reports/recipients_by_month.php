@@ -9,7 +9,7 @@ $explanation = "All donations are distributed between registered recipients acco
 	to their ranking based on the number of changes done in the selected region. 
 	Half of donations is distributed between all osm editors and displayed for the 'Worldwide' region. 
 	The other half is distributed between osm editors of specific regions which are selected as 'Preferred region' by supporters.";
-if(is_null(getReport('getBTCValue')) {
+if(is_null(getReport('getBTCValue'))) {
 	$res->message = $explanation;
 	$res->message += "<br>Approximate collected sum is <strong>" + 
 					($res->btc * 1000.) + "</strong> mBTC in total " +
