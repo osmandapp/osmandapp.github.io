@@ -22,17 +22,17 @@ if($res->region == '') {
 }
 if(is_null(getReport('getBTCValue'))) {
 	$res->message = $explanation;
-	$res->message = $res->message . "<br>Approximate collected sum is <strong>" . 
+	$res->message = $res->message . "<br><br>Approximate collected sum is <strong>" . 
 					number_format($res->btc * 1000, 3) . "</strong> mBTC in total " .
 					"and specially collected for <strong>{$visibleReg}</strong> region is <strong>"  .
 				  	number_format($res->regionBtc*1000, 3) . "</strong> mBTC.<br>";
 
 } else {
 	$res->message = $explanation;
-	$res->message = $res->message . "<br>Collected sum is <strong>" . 
+	$res->message = $res->message . "<br><br>Collected sum is <strong>" . 
 					number_format($res->btc * 1000, 3) . "</strong> mBTC in total " .
 					"and specially collected for <strong>{$visibleReg}</strong> region is <strong>"  .
-				  	number_format($res->regionBtc*1000, 3) . "</strong> mBTC.<br>";
+				  	number_format($res->regionBtc*1000, 3) . "</strong> mBTC.<br><br>";
 	if($res->month == '2016-01') {
 		$res->message = $res->message . 'Payouts: <a href="https://blockchain.info/tx/d5d780bb8171e6438531d4b439d55f6e299c5f70d352ade6db98c7d040baf02c">Transaction #1</a>';
 	}
