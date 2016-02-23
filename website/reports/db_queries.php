@@ -232,7 +232,7 @@ function calculateUsersRanking() {
      (SELECT username, count(*) size from changesets ch where 
       substr(ch.closed_at_day, 0, 8) = '{$month}'
       group by ch.username
-      ) s on s.username = t.username;
+      ) s on s.username = t.username order by t.size desc;
         ");
   if (!$result) {
     $res->error ='No result';
