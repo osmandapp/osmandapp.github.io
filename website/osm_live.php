@@ -50,8 +50,6 @@
             <select class="form-control" id="region-selection">
             </select>
         </div>
-      <hr>
-        <h4 class="vlabel" for="report-total-div">Overview</h4 >
         <div class="panel panel-default" id="report-total-div">
             <div class="panel-body"><p id="report-total" class="infobox"></p></div>
         </div>
@@ -69,8 +67,6 @@
             <h4 class="vlabel" for="donate-month-selection">Report period</h4>
             <select class="form-control osm-live-month-select" id="donate-month-selection">
             </select>
-            <hr>
-            <h4 class="vlabel" for="donator-report-total-div">Overview</h4 >
             <div class="panel panel-default" id="donator-report-total-div">
                 <div class="panel-body"><p id="donator-report-total" class="infobox"></p></div>
             </div>
@@ -86,10 +82,31 @@
         </div>
     </div>
     <div id="information" class="tab-pane fade in active">
-      <h4 class="vlabel" for="general-info-div">Information</h4 >
         <div class="panel panel-default" id="general-info-div">
             <div class="panel-body"><p id="general-info" class="infobox"></p></div>
         </div>
+        
+    </div>
+    <div id="recipients" class="tab-pane fade ">
+      <!--
+      <h4 class="vlabel" for="recipients-info-div">Information</h4 >
+        <div class="panel panel-default" id="recipients-info-div">
+            <div class="panel-body"><p id="recipients-general-info" class="infobox"></p></div>
+        </div>
+        <hr> -->
+        <h4 class="vlabel" for="recipient-month-selection">Report period</h4>
+            <select class="form-control osm-live-month-select" id="recipient-month-selection">
+            </select>
+        <h4 class="vlabel" for="recipient-region-selection">Region</h4>
+        <select class="form-control" id="recipient-region-selection">
+        </select>
+        <div class="panel panel-default">
+            <div class="panel-body"><p id="recipients-data-info" class="infobox"></p></div>
+        </div>
+        <hr>
+       <h4 class="vlabel" for="recipients-table" id="recipients-table-header">OSM Recipients</h4>
+        <table id="recipients-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        </table>
         <hr>
         <h4 class="vlabel" for="recipients-register-div">Register as a recipient</h4 >
         <div class="panel panel-default" id="recipients-register-div">
@@ -117,26 +134,6 @@
               
             </div>
         </div>
-    </div>
-    <div id="recipients" class="tab-pane fade ">
-      <h4 class="vlabel" for="recipients-info-div">Information</h4 >
-        <div class="panel panel-default" id="recipients-info-div">
-            <div class="panel-body"><p id="recipients-general-info" class="infobox"></p></div>
-        </div>
-        <hr>
-        <h4 class="vlabel" for="recipient-month-selection">Report period</h4>
-            <select class="form-control osm-live-month-select" id="recipient-month-selection">
-            </select>
-        <h4 class="vlabel" for="recipient-region-selection">Region</h4>
-        <select class="form-control" id="recipient-region-selection">
-        </select>
-        <div class="panel panel-default">
-            <div class="panel-body"><p id="recipients-data-info" class="infobox"></p></div>
-        </div>
-        <hr>
-       <h4 class="vlabel" for="recipients-table" id="recipients-table-header">OSM Recipients</h4>
-        <table id="recipients-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
-        </table>
     </div>
   </div>
 </div>
@@ -288,19 +285,8 @@ function updateRecipientsByMonth() {
         async: true
   }).done(function(res) {
         var data = jQuery.parseJSON( res );
-        var intro = "";
-        var intro2 = "";
-        var rg = recipientRegionName == '' ? 'Worldwide' : recipientRegionName; 
-        intro += "All payments are done from <strong>1GRgEnKujorJJ9VBa76g8cp3sfoWtQqSs4</strong> Bitcoin address. ";
-        //intro +="If you want to donate without any extra charges and directly to OSM contributors please transfer funds to this Bitcoin address.<br>";
-        intro += "The payouts are distributed based on the ranking which is available on the OSM Contributions tab, the last ranking has weight = 1, the ranking before the last has weight = 2 and so on till the 1st ranking.<br>";
-        intro2 += "Available donation in total is <strong>" + (data.btc * 1000.).toFixed(4) +"</strong> mBTC, ";
-        intro2 += "available for <strong>"+rg+"</strong> region is <strong>" + (data.regionBtc*1000.).toFixed(4) + "</strong> mBTC.<br>";
-        intro2 += "This sum is split into ";
-        intro2 += "<strong>" + data.regionTotalWeight + "</strong> parts";
-        intro2 += " and distributed between <strong> " + data.regionCount +"</strong> recipients according to the region ranking.";
-        $("#recipients-general-info").html(intro);
-        $("#recipients-data-info").html(intro2);
+        //$("#recipients-general-info").html(intro);
+        $("#recipients-data-info").html(res.message);
         var list = data.rows.map(function(key){
             if(data.regionTotalWeight > 0) {
               key.percent = key.weight + " / " + data.regionTotalWeight ;
@@ -469,7 +455,7 @@ function formatYearMonth(year, month) {
 }
 
 function updateGeneralInfo() {
-  $("#general-info").html("UNDER CONSTRUCTION<br>OsmAnd heavily relies on OSM and its community. Honestly saying, OsmAnd wouldn't exist without that great community. "+
+  $("#general-info").html("OsmAnd heavily relies on OSM and its community. Honestly saying, OsmAnd wouldn't exist without that great community. "+
     "When we started implementation OSM Live, we immediately decided that it should not be only a paid service, but a donation service as well. " +
     "Thinking that OSM Live is only possible because thousands of edits every hour in many places of the world, we want to distribute a part of the income between OSM editors. " +
     "<br><br><strong>How it works</strong><ul>" +
