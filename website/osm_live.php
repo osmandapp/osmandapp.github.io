@@ -286,7 +286,7 @@ function updateRecipientsByMonth() {
   }).done(function(res) {
         var data = jQuery.parseJSON( res );
         //$("#recipients-general-info").html(intro);
-        $("#recipients-data-info").html(res.message);
+        $("#recipients-data-info").html(data.message);
         var list = data.rows.map(function(key){
             if(data.regionTotalWeight > 0) {
               key.percent = key.weight + " / " + data.regionTotalWeight ;
