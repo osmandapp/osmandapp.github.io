@@ -43,7 +43,7 @@
 
 <div class="subtitle">Miscellaneous</div>
 <ul class="list">
-<li><a href="#google_maps">Why does OsmAnd not offer access to google maps?</a></li>
+<li><a href="#google_maps">Why does OsmAnd not offer access to Google maps?</a></li>
 <li><a href="#speed_cameras">OsmAnd shows only some speed camera traps</a></li>
 <li><a href="#drain_too_much_power">OsmAnd seems to drain too much battery power </a></li>
 </ul>
@@ -108,9 +108,9 @@
      <br/>for OsmAnd : <span class="code">(extSdCard)/Android/data/net.osmand/files</span>
      <br/> <b>Caution:</b> Whenever you uninstall OsmAnd now, all your data will be erased as well! (Unless you unmount your SD-Card, or rename the <span class="code">net.osmand(.plus)</span> folder before de-installation.)
 </ul>
-If you manually want to perform the necessary copies/moves, either use a PC to perform this action on he SD card, or via the device itself use a file manager tool <b>which came pre-installed with your Android</b>, (only these methods will have the necessary write permission).
+If you manually want to perform the necessary copies/moves, either use a PC to perform this action on the SD card, or via the device itself use a file manager tool <b>which came pre-installed with your Android</b>, (only these methods will have the necessary write permission).
 Copies can also be invoked in OsmAnd itself via Menu/Settings/General/Data storage folder but the copy operations may take a long time or result in errors (e.g. if the SD-card is too full).
-<p>You might experience an issue with the new OsmAnd version working with android 5 devices. It is known and we&#8217;re working to fix it as soon as possible. Please read more <a href="https://github.com/osmandapp/Osmand/issues/1838">on GitHub</a>. OsmAnd doesn&#8217;t ask specific permissions to get access to random folder on device, though we expect that standard path on sdcard should work (Android/data/net.osmand.plus/files/osmand). You can try to enter the pass manually in order to make it work.</p>
+<p>You might experience an issue with the new OsmAnd version working with Android 5 devices. It is known and we&#8217;re working to fix it as soon as possible. Please read more <a href="https://github.com/osmandapp/Osmand/issues/1838">on GitHub</a>. OsmAnd doesn&#8217;t ask specific permissions to get access to random folder on device, though we expect that standard path on sdcard should work (Android/data/net.osmand.plus/files/osmand). You can try to enter the path manually in order to make it work.</p>
 </div>
 </div>
 
@@ -151,7 +151,7 @@ Copies can also be invoked in OsmAnd itself via Menu/Settings/General/Data stora
 <div class="content">Please follow these steps:
 <ul class="list">
  <li> Check if the Contour Maps plugin you bought is enabled under Settings &#8212; Plugins &#8212; checkmark Contour Lines Plugin. </li>
- <li> You need to download the contour line files from the menu in Settings &#8212; Manage map files &#8212; Click Here To Download or Update Offline Data &#8212; tap the little triangle where it says "Regular Maps", and select Countour lines. </li>
+ <li> You need to download the contour line files from the menu in Settings &#8212; Manage map files &#8212; Click Here To Download or Update Offline Data &#8212; tap the little triangle where it says "Regular Maps", and select Contour lines. </li>
  <li> Check at what zoom level they appear in Menu &#8212; Configure Screen &#8212; Show contour lines. </li>
  <li> If you additionally have hillshade layer data present, its display can independently be enabled in Menu &#8212; Map Layers &#8212; Hillshade Layer. </li>
  </ul>
@@ -166,7 +166,7 @@ Copies can also be invoked in OsmAnd itself via Menu/Settings/General/Data stora
 </div>
 <div class="question">
 <div class="subtitle" id="countour_lines_feet">Is there a way to have the Contour Lines display in feet also, instead of meters?</div>
-<div class="content">Unfortunately not. This would require the generation of completely seperate contour line data with different geometry and labels.</div>
+<div class="content">Unfortunately not. This would require the generation of completely separate contour line data with different geometry and labels.</div>
 </div>
 
 <div class="question">
@@ -254,7 +254,7 @@ In order to find an address by a postcode:
  <li> Choose a Street</li>
  <li> Choose a Building (not required)</li>
 </ul>
-Please keep in mind that OsmAnd data is based on the data from Open Street Map. This global map is built collaboratively by the Internet users. In some cases the data is not complete. If you cannot find the postcode you need, it does not always mean that the postcode is wrong. Maybe just nobody added it to the map. You can make the OSM map better by adding the missing data yourself, more info is found here: <a href="http://www.openstreetmap.org">OpenStreetMaps</a>
+Please keep in mind that OsmAnd data is based on the data from OpenStreetMap. This global map is built collaboratively by the Internet users. In some cases the data is not complete. If you cannot find the postcode you need, it does not always mean that the postcode is wrong. Maybe just nobody added it to the map. You can make the OSM map better by adding the missing data yourself, more info is found here: <a href="http://www.openstreetmap.org">OpenStreetMaps</a>
 </div>
 </div>
 
@@ -263,7 +263,7 @@ Please keep in mind that OsmAnd data is based on the data from Open Street Map. 
 <div class="content">
 <p>Most of these issues are map data issues and should be double-checked via <a href="http://www.openstreetmap.org/">OpenStreetMaps</a>. If you can see that data is present there (note that it takes some time for new OSM data to appear in OsmAnd maps), then the problem is in OsmAnd's algorithm or how that data is structured.</p>
 
-<p>The most common issue is that streets exist but are not found in a city, and this is due to missing evidence in the OSM data to what town/city the street belongs. In OsmAnd's address search you can try the button "Search in neighbooring cities" if you do not find a street as expected.</p>
+<p>The most common issue is that streets exist but are not found in a city, and this is due to missing evidence in the OSM data to what town/city the street belongs. In OsmAnd's address search you can try the button "Search in neighbouring cities" if you do not find a street as expected.</p>
 
 <p>To investigate this problem you can use the BinaryInspector tool from <a href="http://www.osmand.net">OsmAndMapCreator</a>, installation of which shows you exact information on what is in the obf file. Most probably you will find your street in a neighboring town. If you decide to report an issue, please specify all relevant information in its description.</p>
 
@@ -274,7 +274,7 @@ Please keep in mind that OsmAnd data is based on the data from Open Street Map. 
 <div class="question">
 <div class="subtitle" id="house_numbers_missing">House numbers are missing</div>
 <div class="content">
-<p>OsmAnd uses Open Street Map (OSM) as the source of the map data.</p>
+<p>OsmAnd uses OpenStreetMap (OSM) as the source of the map data.</p>
 
 <p>This map is built colaboratively by the Internet users. There are some advantages of this approach, like changes to roads or POIs can appear very quickly. But there are also disadvantages, like missing data (house numbers as an example), as the data is not overall checked for consistency.  </p>
 
@@ -283,9 +283,9 @@ Please keep in mind that OsmAnd data is based on the data from Open Street Map. 
 </div>
 
 <div class="question">
-<div class="subtitle" id="google_maps">Why does OsmAnd not offer access to google maps?</div>
+<div class="subtitle" id="google_maps">Why does OsmAnd not offer access to Google maps?</div>
  <div class="content">
- Firstly, OsmAnd is meant to support the OSM project and tries to go that path as far as possible. Secondly, there are licensing issues. OsmAnd cannot be distributed with google map sources, you can, however, add the tile source manually, if you know the tile source url.
+ Firstly, OsmAnd is meant to support the OSM project and tries to go that path as far as possible. Secondly, there are licensing issues. OsmAnd cannot be distributed with Google map sources, you can, however, add the tile source manually, if you know the tile source url.
  </div>
  </div>
 <!--
@@ -321,20 +321,20 @@ Currently, OsmAnd can only make use of the elements that consists of a single no
 <div class="content">
   <b>Android</b>
 <ul>
-  <li> No. Just enter PlayMarket app using the same account you used to buy OsmAnd, then find OsmAnd through Search and install it again.</li>
+  <li> No. Just enter Google Play using the same account you used to buy OsmAnd, then find OsmAnd through Search and install it again.</li>
 </ul>
 <b>iOS</b>
 <ul>
-  <li> No. All you have to do is enter Appstore and install OsmAnd once again. You can use it on as many devices as you want without the need to buy the app again.You may see the "Buy" button, but you won't have to pay: just press it to download the app without paying again.</li>
+  <li> No. All you have to do is enter Appstore and install OsmAnd once again. You can use it on as many devices as you want without the need to buy the app again. You may see the "Buy" button, but you won't have to pay: just press it to download the app without paying again.</li>
 </ul>
 </div>
 <div class="question">
-<div class="subtitle" id="505_on_android_5">Managing 'Error 505' on android 5+</div>
+<div class="subtitle" id="505_on_android_5">Managing 'Error 505' on Android 5+</div>
 <div class="content">
 Some Android 5+ users may experience the issue with getting the "Error 505" message. To overcome it, you need to go to your device's Settings - OsmAnd or OsmAnd+ and press Uninstall for all users. Then reinstall the application normally. If you still have questions, please let us help you. Write us to support@osmand.net.
 </div>
 <div class="question">
-<div class="subtitle" id="development">OsmAnd lisence and rules of use</div>
+<div class="subtitle" id="development">OsmAnd license and rules of use</div>
 <div class="content">
 <h4 class="help" id="can_i_code">Can I develop using OsmAnd source code?</h4>
 <p>OsmAnd is protected by the <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/legalcode">Creative Commons Attribution-NonCommercial-NoDerivs 2.0 Generic (CC BY-NC-ND 2.0)</a> and <a href="http://www.gnu.org/licenses/gpl-3.0.en.html">GNU GENERAL PUBLIC LICENSE, Version 3 with an exception.</a></p>
@@ -450,7 +450,7 @@ Currently OsmAndMapCreator doesn't support relation tagging. So you need to manu
 <div class="question">
 <div class="subtitle" id="beta_testing">OsmAnd Beta Testing</div>
 <div class="content">
-The Google Play Store provides the possibility to test beta versions of apps, which enables you to (temporary) download and use the test version from the Google Play Store instead of the standard release version(s).
+The Google Play Store provides the possibility to test beta versions of apps, which enables you to (temporarily) download and use the test version from the Google Play Store instead of the standard release version(s).
 For OsmAnd this means that you can participate in testing the new OsmAnd free or the new OsmAnd+ paid versions. This enables you to use and test exciting new features. Of course, using a beta version also means that you might encounter bugs or app crashes.
 The Google Play Store mechanism also supports the easy return to the standard version from the Google Play Store.
 
