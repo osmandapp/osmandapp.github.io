@@ -69,6 +69,7 @@
 		  		<li><a data-gatag='osm-editing-plugin' href="http://osmand.net/features?id=osm-editing-plugin">OSM editing</a></li>
 		  		<li><a data-gatag='distance-calculator-and-planning-tool' href="http://osmand.net/features?id=distance-calculator-and-planning-tool">Distance calculator and planning tool</a></li>
 		  		<li><a data-gatag='parking-plugin' href="http://osmand.net/features?id=parking-plugin" >Parking place</a></li>
+		  		<li><a data-gatag='osmo-plugin' href="http://osmand.net/features?id=osmo-plugin">OsMo plugin</a></li>
 		  	</ul>
 			</div>
 		
