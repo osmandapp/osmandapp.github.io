@@ -35,6 +35,8 @@ if(is_null(getReport('getBTCValue'))) {
 				  	number_format($res->regionBtc*1000, 3) . "</strong> mBTC.<br><br>";
 	if($res->month == '2016-01') {
 		$res->message = $res->message . 'Payouts: <a href="https://blockchain.info/tx/d5d780bb8171e6438531d4b439d55f6e299c5f70d352ade6db98c7d040baf02c">Transaction #1</a>';
+	} else if($res->month == '2016-02') {
+		$res->message = $res->message . 'Payouts: <a href="https://blockchain.info/tx/8158da594891265e36ec2ba531061e7edcde27e2a46b459c9019bfa280b2cf85">Transaction #1</a>';
 	}
 }
         
