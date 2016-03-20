@@ -594,7 +594,7 @@ $(document).ready(function(){
         sessionStorage.recipientMonth = recipientMonth;
         sessionStorage.recipientMonthName = recipientMonthName;
       }
-      updateSupportByMonth();
+      updateRecipientsByMonth();
   });
   $('#recipient-region-selection').on('change', function (e) {
       var optionSelected = $("option:selected", this);
