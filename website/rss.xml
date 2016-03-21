@@ -5,6 +5,23 @@
 <description/>
 <generator></generator>
 <item>
+<title>OsmAnd 2.3</title>
+<link>http://osmand.net/blog?id=osmand-2-3-released</link>
+<description>
+<p>OsmAnd 2.3 is on its way! Get ready for a brand new route preparation interface, improved UI, and more. We also added a revolutionary feature for you to try.</p>
+<h2>OSM Live Beta</h2>
+<p>The most important and outstanding feature of the new release is OSM Live. It's the system that will encourage OSM mappers to update the information and will give you frequent updates (up to once an hour). You make a donation and receive the updates, 30% goes to the OsmAnd team and 70% is spread between OSM contributors who have registered in the OSM Live program. They are encouraged to make more updates and you get fresh and more detailed maps. Please read more and join here.</p>
+<img src="images/blog/2.3/ver_2_3_9.jpg"/>
+<img src="images/blog/2.3/ver_2_3_10.jpg"/>
+<h2>New map markers interface</h2>
+<p>Map markers are points you can add to the route or leave for future trips. Add them to the map to use for route preparation or save for future.</p>
+<img src="images/blog/2.3/ver_2_3_11"/>
+<img src="images/blog/2.3/ver_2_3_12"/>
+<h2>General improvements</h2>
+<p>Now, you'll see the address when you tap a location on the map. This makes map use even smoother. Besides that, text rendering throughout the application has become better.</p>
+</description>
+</item>
+<item>
 <title>OsmAnd 2.2</title>
 <link>http://osmand.net/blog?id=osmand-2-2-released</link>
 <description>
