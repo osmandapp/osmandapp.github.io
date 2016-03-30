@@ -512,7 +512,7 @@ function getRecipients($eurValue = NULL, $btc = NULL, $useReport = true ) {
       $rw->weight = 0;
       $cnt ++;
       for ($i = 0; $i < count($ranking->rows) ; ++$i) {
-        if($rw->changes >= $ranking->rows[$i]->minChanges and 
+        if(!is_null($rw->changes) and $rw->changes >= $ranking->rows[$i]->minChanges and 
           $rw->changes <= $ranking->rows[$i]->maxChanges) {
           $rw->rank = $ranking->rows[$i]->rank;
           if($regionName == '') {
