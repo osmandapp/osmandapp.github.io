@@ -14,15 +14,18 @@ From the beginning we wanted to make the system as transparent as possible. So p
 After we launched OSM Live many people supported the initiative, but have some concerns and questions we decided to answer them publicly, so it everybody could find these answers.
 <h4>Financials</h4>
 <ul class="textlist">
-	<li >Supporters can buy inapp only in 2 application OsmAnd Free and OsmAnd+ and only on Google Play platform.
+	<li>Supporters can buy inapp only in 2 application OsmAnd Free and OsmAnd+ and only on Google Play platform.
 	<li>We plan to support direct donations to bitcoin address and different platform but we focused first on the platform that has > 90 % of all our users, i.e. Google Play.
 	<li>The price for OsmAnd+ is around 1 EUR and for OsmAnd Free is 1.5 EUR. The prices are different cause in OsmAnd Free automatically all downloads will be enabled for subscription period, so in that case there is no immediate need to buy OsmAnd+ itself.
+	<li>Please keep in mind there are transactions costs between Supporter and Recipient. Google takes <b>30%</b> of every payment, Bitcoin processing fees are very small and about 0.5%. OsmAnd takes 30% but it is part of the contribution itself and enables hourly updates features.
 	<li>We understand that OSM Live is not just a feature but a crowdfunding platform and 1 price doesn't fit all cases. So we plan in later releases to enable more in apps subscriptions and purchases.
-	
+	<li>We also understand that some people would like to use OSM Live to make a donation without OsmAnd part and OsmAnd features, for example if they don't use OsmAnd at all. You are welcome, please write to us and we will find an approriate way.
+	<li>We also plan to add special line to support OsmAnd 100%, for example if you are mapper yourself and you think these small donations could help OsmAnd more.
 </ul>
 <br>
-<h4>Mappers ranking</h4>
+<h4>Mappers</h4>
 <ul class="textlist">
+	<li>Important: OsmAnd doesn't store any OSM password on website! You can double check the code <a href="https://github.com/osmandapp/osmandapp.github.io/blob/master/website/osm_live.php">here</a>. We also don't like that approach and we would like to switch to OAuth or just sending a private confirmation link/message to OSM user. There were discussions with contributors about it and we hope to get a pull-request with that code.
 	<li>In order to get a minimal payout, the mapper should make at least 3 changes (changesets) a month. That's not much and we think to increase that number to 5-6. You can see according the statistics on first page <a data-gatag="osm_live" href="http://osmand.net/osm_live">OSM Live</a> that's give a threshold of 50% monthly contributors.
 	<li>All mappers are divided in 20 groups (worldwide) and 7 groups (each region), based on the group each mapper ends with the rank is assigned. The 1st ranking is assigned to the group of people who did the most changes. We intentionally limited by groups so people from the first group wouldn't compete for the top 1 place and feel reasonable with assigned ranking.
 	<li>Each ranking is transformed into weight by simple formula Weight = Groups (20 or 7) + 1 - Rank. The total amount is divided equally with weight multiplier.
