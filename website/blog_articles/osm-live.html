@@ -13,8 +13,8 @@ From the beginning we wanted to make the system as transparent as possible. So p
 <br>
 After we launched OSM Live many people supported the initiative, but have some concerns and questions we decided to answer them publicly, so it everybody could find these answers.
 <h4>Financials</h4>
-<ul>
-	<li>Supporters can buy inapp only in 2 application OsmAnd Free and OsmAnd+ and only on Google Play platform.
+<ul class="textlist">
+	<li >Supporters can buy inapp only in 2 application OsmAnd Free and OsmAnd+ and only on Google Play platform.
 	<li>We plan to support direct donations to bitcoin address and different platform but we focused first on the platform that has > 90 % of all our users, i.e. Google Play.
 	<li>The price for OsmAnd+ is around 1 EUR and for OsmAnd Free is 1.5 EUR. The prices are different cause in OsmAnd Free automatically all downloads will be enabled for subscription period, so in that case there is no immediate need to buy OsmAnd+ itself.
 	<li>We understand that OSM Live is not just a feature but a crowdfunding platform and 1 price doesn't fit all cases. So we plan in later releases to enable more in apps subscriptions and purchases.
@@ -22,7 +22,7 @@ After we launched OSM Live many people supported the initiative, but have some c
 </ul>
 <br>
 <h4>Mappers ranking</h4>
-<ul>
+<ul class="textlist">
 	<li>In order to get a minimal payout, the mapper should make at least 3 changes (changesets) a month. That's not much and we think to increase that number to 5-6. You can see according the statistics on first page <a data-gatag="osm_live" href="http://osmand.net/osm_live">OSM Live</a> that's give a threshold of 50% monthly contributors.
 	<li>All mappers are divided in 20 groups (worldwide) and 7 groups (each region), based on the group each mapper ends with the rank is assigned. The 1st ranking is assigned to the group of people who did the most changes. We intentionally limited by groups so people from the first group wouldn't compete for the top 1 place and feel reasonable with assigned ranking.
 	<li>Each ranking is transformed into weight by simple formula Weight = Groups (20 or 7) + 1 - Rank. The total amount is divided equally with weight multiplier.
@@ -30,8 +30,17 @@ After we launched OSM Live many people supported the initiative, but have some c
 	<li>There is a valid concern that some people could start making fake changesets in order to get higher in a ranking. We think to start solving that issue when it becomes visible, today payouts are quite small (1-2 glass of beer) and they are pretty much equal between registered contributors.
 </ul>
 
+<h4>OSM Live updates<h4>
+OsmAnd hourly updates are still in <b>Beta</b>. Address incremental update is not supported and last minute we had to disable OSM Live for Routing. Mostly the issues are related to maps itself and users don't need to update OsmAnd 2.3 but they require new maps.
+<ul>
+<li>Please be aware of serious possible issue with map rendering. It could become extremely slow or have diagonal lines (<a href="https://github.com/osmandapp/Osmand/issues/2398">1</a>, <a href="https://github.com/osmandapp/Osmand/issues/1843">2</a>). It is still not fixed and we plan to provide a fix with April OSM maps. Maps should be redownloaded.
+<li>Today we have around 4-5 hours delay after a change in OSM until the map will be available for downloads in OsmAnd. We plan to reduce to 15-20 minutes soon. 
+<li>The delta maps are designed to work in a reasonable way for 5-6 months, so sometimes it is good to clean OSM Live and redownload the base map. In case of any unexpected rendering issue please try to disable OSM Live first. The technology is still in Beta and will need some time to mature. 
+</ul>
 
-
+<br>
+<p>Only together we can make OSM better.</p>
+<br>
 <p>
 Best Regards,<br>
 OsmAnd CEO<br>
