@@ -62,6 +62,7 @@
 		  <h1>LATEST ARTICLES</h1>
 		  <div class="delimiter"></div>
 		  <ul class="articlelinklist">
+		  	<li><a data-gatag='osm-live' href="http://osmand.net/blog?id=osm-live" >OSM Live</a></li>
 		  	<li><a data-gatag='osmand-2-3-released' href="http://osmand.net/blog?id=osmand-2-3-released" >OsmAnd 2.3</a></li>
 		  	<li><a data-gatag='osmand_google_comparison' href="http://osmand.net/blog?id=osmand_google_comparison" >Google maps vs. OsmAnd maps  & navigation</a></li>
 		  	<li><a data-gatag='osmand-2-2-released' href="http://osmand.net/blog?id=osmand-2-2-released" >OsmAnd 2.2</a></li>
