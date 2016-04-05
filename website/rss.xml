@@ -40,7 +40,7 @@ It&#39;s been about a week since we delivered OsmAnd 2.3 to more than half of ou
 	<li>There is a valid concern that some people could start making fake changesets in order to get higher in ranking. We think to start solving that issue when it becomes visible, today payouts are quite small and they are pretty much equal between registered contributors.</li>
 </ul>
 <h4>OSM Live updates</h4>
-<p></p>OsmAnd hourly updates are still in Beta. Address incremental update is not supported and last minute we had to disable OSM Live for Routing. Mostly the issues are related to maps themselves and users don't need to update OsmAnd 2.3 but they require new maps.</p>
+<p>OsmAnd hourly updates are still in Beta. Address incremental update is not supported and last minute we had to disable OSM Live for Routing. Mostly the issues are related to maps themselves and users don't need to update OsmAnd 2.3 but they require new maps.</p>
 <ul >
 <li>Please be aware of a serious possible issue with map rendering. It might become extremely slow or have diagonal lines (<a href="https://github.com/osmandapp/Osmand/issues/2398">1</a>, <a href="https://github.com/osmandapp/Osmand/issues/1843">2</a>). It is still not fixed and we plan to provide a fix with April OSM maps. Maps should be redownloaded. It is still not fixed and we plan to provide a fix with April OSM maps. Maps should be redownloaded.</li>
 <li>Today we have around 4-5 hours delay after a change in OSM until the map will be available for downloads in OsmAnd. We plan to reduce to 15-20 minutes soon.</li>
