@@ -159,7 +159,7 @@ _polldaddy.push( {
 				<li>High quality information from the 2 best collaborative projects of the world</li>
 						<li>Global maps from OpenStreetMap, available per country or region</li>
 						<li>Wikipedia POIs, great for sightseeing (not available in free version)</li>
-						<li>Unlimited free map downloads, directly from the app (download limit 10 map files in the free version)</li>
+						<li>Unlimited free map downloads, directly from the app (download limit 7 map files in the free version)</li>
 						<li>Always up-to-date maps (updated at least once a month)</li>
 						<li>Compact offline vector maps</li>	
 						<li>Select between complete map data and just road network (Example: All of Japan is 700 MB, or 200 MB for the road network only)</li>						
