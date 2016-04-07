@@ -35,12 +35,13 @@
 
      return substr(strtoupper(hash("sha256",hash("sha256",pack("H*",substr($address,0,strlen($address)-8)),true))),0,8) == substr($address,strlen($address)-8);
   }
-    if(!checkAddress($_POST["bitcoin_addr"])) {
-      $res = array();        
-        $res['error'] = "Please validate bitcoin address";
-        echo json_encode($res);
-        die;
-    }
+    // test
+    //if(!checkAddress($_POST["bitcoin_addr"])) {
+     // $res = array();        
+      //  $res['error'] = "Please validate bitcoin address";
+      //  echo json_encode($res);
+      //  die;
+   // }
 
   	include '../reports/db_conn.php';
   	$dbconn = db_conn();
