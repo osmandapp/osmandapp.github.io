@@ -5,7 +5,7 @@ if (!$dbconn) {
   echo "{'error':'No db connection'}";
   die;
 }
-if(!isset($_REQUEST['month'])) {
+if(!isset($_REQUEST['month']) || $_REQUEST['month'] == '') {
   $imonth = date("Y-m"); 
 } else {
   $imonth = $_REQUEST["month"];
