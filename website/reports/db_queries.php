@@ -431,7 +431,7 @@ function getEurValue($activeCount) {
   if($finalReport != NULL) {
     return $finalReport;
   }
-  return $activeCount * 1.2 ; // 1.2 EUR
+  return $activeCount * 0.5 ; // 1 EUR - 30% (GPlay) - 30% (OsmAnd)
 }
 
 function getBTCValue($eurValue, $rate) {
