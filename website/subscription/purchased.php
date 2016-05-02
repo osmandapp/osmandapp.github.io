@@ -2,6 +2,7 @@
   if($_SERVER['SERVER_NAME'] == 'builder.osmand.net') {
   	include '../reports/db_conn.php';
   	$dbconn = db_conn();
+    error_log("User id '".$_REQUEST["userid"]."' token '".$_REQUEST["token"]."'", 3, "/var/log/apache2/purchased.log");
     $userid = pg_escape_string($dbconn, $_REQUEST["userid"]);
     $token = pg_escape_string($dbconn, $_REQUEST["token"]);
     $result = pg_query($dbconn, "SELECT userid, token, visiblename, useremail, preferred_region from supporters where userid = '{$userid}' and token = '{$token}';");
