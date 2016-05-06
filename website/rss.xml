@@ -4,6 +4,29 @@
 <link>http://osmand.net/blog</link>
 <description/>
 <generator></generator>
+
+<item>
+<title>OsmAnd API Demo</title>
+<link>http://osmand.net/blog?id=api_demo</link>
+<pubDate>Fri, 6 May 2016</pubDate>
+<description>
+<p>OsmAnd API Demo allows you to test integration with OsmAnd and functioning of the main features.</p>
+<p>OsmAnd API features:</p>
+<ul >
+<li>Adding favorites and markers to the map</li>
+<li>Creating audio/video/photo notes</li>
+<li>Starting and stopping GPX track recording</li>
+<li>Importing GPX tracks into OsmAnd and navigating along them</li>
+<li>Navigation between locations</li>
+</ul>
+<img src="images/blog/api_demo_osmand/api_d1.jpg"/>
+<img src="images/blog/api_demo_osmand/api_d2.jpg"/>
+<p>More about features and how to work with them: <a href="https://github.com/osmandapp/osmand-api-demo">https://github.com/osmandapp/osmand-api-demo</a></p>
+
+<p>To test OsmAnd API Demo options, you need to install one of <a href="http://osmand.net/help/changes.html">OsmAnd Maps versions</a>.</p>
+</description>
+</item>
+
 <item>
 <title>OSM Live</title>
 <link>http://osmand.net/blog?id=osm-live</link>
