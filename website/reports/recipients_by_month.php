@@ -42,7 +42,9 @@ if(is_null(getReport('getBTCValue'))) {
 		$res->message = $res->message . ',<nbsp><a href="https://blockchain.info/tx/3f1fc2d9bd0abc184d77d5457c915ed5252bce21dfda0299347fee863423ee73">Transaction #2</a>';
 		$res->message = $res->message . ',<nbsp><a href="https://blockchain.info/tx/b86aa1773e2c256da33632c725b1d5c5227aad406bff5fbf27924c30298ec426">Transaction #3</a>';
 		$res->message = $res->message . ',<nbsp><a href="https://blockchain.info/tx/513f7ada01e01cbb56f87ea8d70c8da4e3b8c9e49e19c44813f7a56669b499d3">Transaction #4</a>';
-		
+	} else if($res->month == '2016-04') {
+		$res->message = $res->message . 'Payouts: <a href="https://blockchain.info/tx/811fe35729272a754178c6d385a31f5604f1f3c97126ed90f7ead0f93c60ca2f">Transaction #1</a>';
+		$res->message = $res->message . ',<nbsp><a href="https://blockchain.info/tx/1b3a2ad4498882b70f117bb7a2f4ed01fcf0b55d8b734a4710c1530c3b7e9ac">Transaction #2</a>';
 	}
 }
         
