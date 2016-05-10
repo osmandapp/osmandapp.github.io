@@ -409,6 +409,9 @@ And OsmAnd specific intents:
   <li> http://download.osmand.net/go?lat=&amp;lon=&amp;z=</li>
 </ul>
 </div>
+<div class="question">
+<div class="subtitle" id="map_creator">Creating own maps and OsmAndMapCreator</div>
+<div class="content">
 <h4 class="help">OsmAndMapCreator fails with message: OutOfMemoryError </h4>
 The file you try to process with OsmAndMapCreator is too large. Either try to process a smaller file, or increase the memory for OsmAndMapCreator in the .sh or .bat file. The -Xmx parameter specifies how much memory the program can consume. Settings can be different for 64bit (more than 1.5GB) and 32bit (max around 1.5GB) machines.
 <h4 class="help">After converting an .osm to .obf with only a POI index, the .obf is empty, although original .osm file did contain POIs. What is wrong? </h4>
@@ -429,9 +432,6 @@ change it to contain an additional 'amenity' tag, like:
 </xmp>
 Then convert the file using OsmAndMapCreator. You can check on the OSM site what tags are good ones to use, or you can just use this amenity.
 
-<div class="question">
-<div class="subtitle" id="#map_creator">Creating own maps and OsmAndMapCreator</div>
-<div class="content">
 <h4 class="help" id="">How can I specify internet access proxy settings for OsmAndMapCreator?</h4>
 See <a href="http://stackoverflow.com/questions/120797/how-do-i-set-the-proxy-to-be-used-by-the-jvm">http://stackoverflow.com/questions/120797/how-do-i-set-the-proxy-to-be-used-by-the-jvm</a>
 Use OsmAndMapCreator.bat or OsmAndMapCreator.sh to start OsmAndMapCreator based on your operating system. Both of them invoke java, so you just need to add the -D... -D.. (i .e. -Djava.util.logging.config.file = logging.properties) params to the invocation.
