@@ -77,7 +77,7 @@ function getTotalReport() {
     $rw->report = json_decode($row[0]);
     array_push($res->reports, $rw);
   }
-  return $rw;
+  return $res;
 }
 
 function saveReports($res) {
