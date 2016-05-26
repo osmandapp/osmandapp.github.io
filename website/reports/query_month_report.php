@@ -7,7 +7,7 @@ if(!isset($_REQUEST['region'])) {
 }
 
 if($_REQUEST["report"] == "total") {
-	echo json_encode(getAllReports());	
+	echo json_encode(getTotalReport());	
 } else {
 	echo json_encode(getReport($_REQUEST["report"], $rregion));
 }

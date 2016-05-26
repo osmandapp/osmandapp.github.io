@@ -61,6 +61,25 @@ function getReport($name, $ireg = NULL) {
   return json_decode($row[0]);
 }
 
+function getTotalReport() {
+  global  $month, $dbconn;
+  $result = pg_query($dbconn, "select report,region,name from final_reports where month = '${month}';");
+  if (!$result) {
+    return NULL;
+  }
+  $res = new stdClass();
+  $res->reports = array();
+  while ($row = pg_fetch_row($result)) {
+    $rw = new stdClass();
+    $rw->month = $month;
+    $rw->region = $row[1];
+    $rw->name = $row[2];
+    $rw->report = json_decode($row[0]);
+    array_push($res->reports, $rw);
+  }
+  return $rw;
+}
+
 function saveReports($res) {
   global  $month, $dbconn;
   for($i = 0; $i < count($res->reports); $i++) {
