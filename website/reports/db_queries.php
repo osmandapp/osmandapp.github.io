@@ -638,7 +638,7 @@ function getAllReports() {
 // FINAL step: 
 // ! getRecipients - region (calculateRanking, getSupporters)
 
-  if(!isset($_REQUEST['eurValue'])) {
+  if(!isset($_REQUEST['eurValue']) or isset($_REQUEST['firstStage'])) {
       getAllReportsStage1($res);
   } else {
       $countries = getCountries();
