@@ -46,6 +46,7 @@ if(is_null(getReport('getBTCValue'))) {
 		$res->message = $res->message . 'Payouts: <a href="https://blockchain.info/tx/811fe35729272a754178c6d385a31f5604f1f3c97126ed90f7ead0f93c60ca2f">Transaction #1</a>';
 		$res->message = $res->message . ',<nbsp><a href="https://blockchain.info/tx/1b3a2ad4498882b70f117bb7a2f4ed01fcf0b55d8b734a4710c1530c3b7e9ac">Transaction #2</a>';
 	}
+	$res->message = $res->message.'<br><a href="http://builder.osmand.net/reports/query_month_report.php?report=total&month='.$res->month.'">All json reports</a>.'
 }
         
 echo json_encode($res);
