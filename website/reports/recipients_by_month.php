@@ -45,6 +45,10 @@ if(is_null(getReport('getBTCValue'))) {
 	} else if($res->month == '2016-04') {
 		$res->message = $res->message . 'Payouts: <a href="https://blockchain.info/tx/811fe35729272a754178c6d385a31f5604f1f3c97126ed90f7ead0f93c60ca2f">Transaction #1</a>';
 		$res->message = $res->message . ',<nbsp><a href="https://blockchain.info/tx/1b3a2ad4498882b70f117bb7a2f4ed01fcf0b55d8b734a4710c1530c3b7e9ac">Transaction #2</a>';
+	} else if($res->month == '2016-05') {
+		$res->message = $res->message . 'Payouts: <a href="https://blockchain.info/tx/c68717df1663a87bb91a540c05989db645cb94e89b508457322bd1393c4ccda0">Transaction #1</a>';
+		$res->message = $res->message . ',<nbsp><a href="https://blockchain.info/tx/1df5e24f3edb0ce6932be78f23293cca7d1c54a5ef1d8506ac2f4205cb4bfdfd">Transaction #2</a>';
+		$res->message = $res->message . ',<nbsp><a href="https://blockchain.info/tx/6f1365a832456c60259ca77dabb1b02b7db51cd22aa58e8036f46962a997c6d2">Transaction #3</a>';
 	}
 	$res->message = $res->message.'<br><a href="http://builder.osmand.net/reports/query_month_report.php?report=total&month='.$res->month.'">All json reports</a>.';
 }
