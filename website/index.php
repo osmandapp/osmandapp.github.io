@@ -21,7 +21,7 @@
     <div class="header">
 	<div class="shadowline"></div>
 	 <!-- <img src="images/logo.png" class="headerlogo"/>-->
-	 <div class="headerlogo"></div>
+	 <a href="/"><div class="headerlogo"></div></a>
 	  <div class="headertext">OFFLINE MOBILE<br/> MAPS &amp; NAVIGATION</div>
 	  <ul class="badges">
 		<li class="first"><a data-gatag="googleplay" href="https://play.google.com/store/apps/details?id=net.osmand.plus">
@@ -56,10 +56,10 @@ _polldaddy.push( {
 	  </ul>
 	  <ul class="menu">
 	  <!-- 	<nav class="menu"> -->
-	  <li class="activeitem"><a data-gatag="header_home" href="http://www.osmand.net">HOME</a></li>	  
-	  <li><a data-gatag="header_features" href="http://osmand.net/features">FEATURES</a></li>		
-	  <li><a data-gatag="header_blog" href="http://osmand.net/blog" >BLOG</a></li>
-	  <li><a data-gatag="header_help" href="http://osmand.net/help-online">HELP</a></li>		
+	  <li class="activeitem"><a data-gatag="header_home" href="/">HOME</a></li>	  
+	  <li><a data-gatag="header_features" href="/features">FEATURES</a></li>		
+	  <li><a data-gatag="header_blog" href="/blog" >BLOG</a></li>
+	  <li><a data-gatag="header_help" href="/help-online">HELP</a></li>		
 	  <li><a data-gatag="header_dvr" href="http://dvr.osmand.net">DVR</a></li>
 	  </ul>
      </div>
