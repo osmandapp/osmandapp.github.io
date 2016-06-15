@@ -214,7 +214,7 @@ If you log out of iTunes or reinstall the application, you might need to restore
 
 <p>For native routing there are different limitations for different phones, depending on memory &amp; processor. In general, native routing should handle &lt; 300 km routes nicely. The route calculation should take between 15 sec and 4 minutes. It is prudent to not wait much longer than 4 minutes, because most likely the program will crash. </p>
 
-<p>The only known workaround to compute long routes is to insert waypoints. Two additional waypoints should be enough even for very long routes.</p>
+<p>The only known workaround to compute long routes is to insert intermediate destinations. Two additional intermediate destinations should be enough even for very long routes.</p>
 </div>
 </div>
 
@@ -244,7 +244,7 @@ If you log out of iTunes or reinstall the application, you might need to restore
 
 <p>Which TTS languages are supported on your device and the sound quality of each TTS voice strictly depends on the TTS engine you select (or install) via your <u>Android device settings</u>. There is usually one TTS engine pre-installed on each device (e.g. google, Samsung, Pico). An additional 3rd party engine (see below) can be installed if needed.<p>
 
-<p>A TTS engine often supports several languages, but one needs to be selected as the one to be used. To improve the voice quality: Some TTS engines come pre-installed with a only set of basic-quality pronunciation packages for the languages they support, and then faciliate downloading a high-quality package for the very language you actually select to be used.</p>
+<p>A TTS engine often supports several languages, but one needs to be selected as the one to be used. To improve the voice quality: Some TTS engines come pre-installed with only a set of basic-quality pronunciation packages for the languages they support, and then faciliate downloading a high-quality package for the very language you actually select to be used.</p>
 
 <p>If you have issues with the TTS voice guidance:
 <ul class="list">
@@ -344,7 +344,7 @@ Currently, OsmAnd can only make use of the elements that consists of a single no
 <div class="question">
 <div class="subtitle" id="drain_too_much_power">OsmAnd seems to drain too much battery power</div>
 <div class="content">
-<p>There have on and off been user reports about this. We made lots of measurements and could never really reproduce it, even though under some circumstances OsmAnd is reported responsible for 90% of the battery usage. Please be aware that OsmAnd does not run anything in background except its Sleep mode (background service), and this needs to be specifically enabled (via OsmAnd's GPX recording or Navigation guidance functionality). If enabled, you will always see the OsmAnd sleep mode icon in the status bar (can also be stopped there). So unless the sleep mode is active, if you exit the app (go to home screen or press the Exit button), OsmAnd will stop working and will not cause any power consumption.</p>
+<p>There have on and off been user reports about this. We made lots of measurements and could never really reproduce it, even though under some circumstances OsmAnd is reported responsible for 90% of the battery usage. Please be aware that OsmAnd does not run anything in background except its Sleep mode (background service), and this needs to be specifically enabled (via OsmAnd's GPX recording or Navigation guidance functionality). If enabled, you will always see the OsmAnd sleep mode icon in the status bar (can also be stopped there). So unless the sleep mode is active, if you exit the app (go to home screen), OsmAnd will will not cause any power consumption.</p>
 
 <p>Power usage issues were reported with Android 2.3 and Android 4.0. In Android 4.0 you can double-check details of what causes how much battery drain. If you check CPU time / screen time / GPS time consumed by OsmAnd (in Android's standard power manager) you will see that the numbers don't add up correctly. For example, 2 min GPS, 2 min CPU, 1 min Screen causes 30% consumption. If you have some better good evidence, please contact us.</p>
 
