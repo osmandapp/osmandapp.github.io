@@ -2,6 +2,10 @@
 <?php
 
   if($_SERVER['SERVER_NAME'] == 'builder.osmand.net') {
+  function startsWith($haystack, $needle) {
+    // search backwards starting from haystack length characters from the end
+    return $needle === "" || strrpos($haystack, $needle, -strlen($haystack)) !== false;
+  }	
   function checkAddress($address) {
     $origbase58 = $address;
     $dec = "0";
@@ -36,7 +40,7 @@
      return substr(strtoupper(hash("sha256",hash("sha256",pack("H*",substr($address,0,strlen($address)-8)),true))),0,8) == substr($address,strlen($address)-8);
   }
     // test
-    if(!checkAddress($_POST["bitcoin_addr"])) {
+    if(!startsWith($_POST["bitcoin_addr"], "3") and !checkAddress($_POST["bitcoin_addr"])) {
       $res = array();        
       $res['error'] = "Please validate bitcoin address";
       echo json_encode($res);
