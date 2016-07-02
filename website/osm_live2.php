@@ -72,7 +72,7 @@
            Thinking that OSM Live is only possible because thousands of edits every hour in many places of the world, we want to distribute a part of the income between OSM editors.</p> 
       <h3>How it works</h3>
 	  <ul>
-        <li> Every OSM contributor can be registered as a recipient. He just need to provide a valid Bitcoin address in the form below.</li>
+        <li> Every OSM contributor can be registered as a recipient. One just needs to provide a valid Bitcoin address in the form below.</li>
         <li> Every OsmAnd user who wants to get live updates needs to subscribe to that service.</li>
         <li> After Google and Bank deductions the whole sum is split into 2 parts (<strong>30% OsmAnd</strong> and <strong>70% Donations</strong>)</li>
         <li> All donations are exchanged into Bitcoin and distributed between OSM contributors according to their ranking.</li>
@@ -445,7 +445,7 @@ function updateGeneralInfo() {
     "When we started implementation OSM Live, we immediately decided that it should not be only a paid service, but a donation service as well. " +
     "Thinking that OSM Live is only possible because thousands of edits every hour in many places of the world, we want to distribute a part of the income between OSM editors. " +
     "<br><br><strong>How it works</strong><ul>" +
-    "<li> Every OSM contributor can be registered as a recipient. He just need to provide a valid Bitcoin address in the form below. " +
+    "<li> Every OSM contributor can be registered as a recipient. One just needs to provide a valid Bitcoin address in the form below. " +
     "<li> Every OsmAnd user who wants to get live updates needs to subscribe to that service. " +
     "<li> After Google and Bank deductions the whole sum is split into 2 parts (<strong>30% OsmAnd</strong> and <strong>70% Donations</strong>)"+
     "<li> All donations are exchanged into Bitcoin and distributed between OSM contributors according to their ranking."+
