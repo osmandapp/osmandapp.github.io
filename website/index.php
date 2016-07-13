@@ -22,7 +22,7 @@
 	<div class="shadowline"></div>
 	 <!-- <img src="images/logo.png" class="headerlogo"/>-->
 	 <a href="/"><div class="headerlogo"></div></a>
-	  <div class="headertext">OFFLINE MOBILE<br/> MAPS &amp; NAVIGATION</div>
+	  <div class="headertext">TEST OFFLINE MOBILE<br/> MAPS &amp; NAVIGATION</div>
 	  <ul class="badges">
 		<li class="first"><a data-gatag="googleplay" href="https://play.google.com/store/apps/details?id=net.osmand.plus">
           <img alt="Get it on Google Play"
