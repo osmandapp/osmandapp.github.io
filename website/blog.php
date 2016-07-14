@@ -62,6 +62,7 @@
 		  <h1>LATEST ARTICLES</h1>
 		  <div class="delimiter"></div>
 		  <ul class="articlelinklist">
+		  	<li><a data-gatag='osmand_videos' href="http://osmand.net/blog?id=osmand_videos" >OsmAnd Videos</a></li>
 		  	<li><a data-gatag='api_demo' href="http://osmand.net/blog?id=api_demo" >OsmAnd API Demo</a></li>
 		  	<li><a data-gatag='osm-live' href="http://osmand.net/blog?id=osm-live" >OSM Live</a></li>
 		  	<li><a data-gatag='osmand-2-3-released' href="http://osmand.net/blog?id=osmand-2-3-released" >OsmAnd 2.3</a></li>
@@ -81,8 +82,6 @@
 			<li><a data-gatag='osmand_1_7' href="http://osmand.net/blog?id=osmand-1-7-released" >OsmAnd 1.7</a></li>
 			<li><a data-gatag='osmand_1_6' href="http://osmand.net/blog?id=osmand-1-6-released" >OsmAnd 1.6</a></li>
 			<li><a data-gatag='osmand_1_5' href="http://osmand.net/blog?id=osmand-1-5-released" >OsmAnd 1.5</a></li>
-			<li><a data-gatag='osmand_videos' href="http://osmand.net/blog?id=osmand_videos" >OsmAnd Videos</a></li>
-
 			<li><a data-gatag='osmand_rss' href="http://osmand.net/rss.xml" >RSS</a></li>
 		  </ul>
 		</div>
