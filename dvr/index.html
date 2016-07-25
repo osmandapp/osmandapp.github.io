@@ -1,136 +1,121 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<title>OsmAnd DVR - Car Video Recorder and Maps
-</title>
-
-<link rel="stylesheet" type="text/css" href="site.css"/>
-<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="scripts/slider.js"></script>
-<script type="text/javascript" src="scripts/ga-init.js"></script>
-<script type="text/javascript" src="scripts/ga-home.js"></script>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <title>OsmAnd DVR - Car Video Recorder and Maps</title>
+  <link rel="stylesheet" type="text/css" href="site.css"/>
+  <link rel="stylesheet" type="text/css" href="slick.css"/>
+  <script type="text/javascript" src="scripts/jquery-3.1.0.min.js"></script>
+  <script type="text/javascript" src="scripts/slick.js"></script>
+  <!-- <script type="text/javascript" src="scripts/ga-init.js"></script>
+  <script type="text/javascript" src="scripts/ga-home.js"></script> -->
 </head>
 <body>
 <div class="maincontainer">
   <div class="main">
+
     <div class="header">
-	<div class="shadowline">
-	 <div class="headerlogo"></div>
-	  <ul class="menu">
-	  <li class="activeitem"><a data-gatag="menu_home" href="http://dvr.osmand.net">HOME</a></li>
-	  <li><a data-gatag="menu_osmand" href="http://www.osmand.net">OSMAND</a></li>		
-	  </ul>
-	</div>
-	 <div class="headertextwrapper">
-		<div class="headertextblock">
-	       <div class="dvrlogo"></div>
-	       <div class="headertitle">OsmAnd <span class="bold">DVR</span></div>
-		   <div class="headertitletext">Car Video Recorder + Maps</div>
-		   <a class="appstorebadge" href="http://itunes.apple.com/us/app/id963873905"><img src="images/app-store-badge.png"></a>
-		 </div>
-	 </div>	 
+      <div class="header-map"></div>
+      <div class="shadowline">
+        <div class="menu-wrapper">
+          <a href="/" class="headerlogo-link"><div class="headerlogo"></div></a>
+          <ul class="menu">
+            <li class="mobile-sign">Menu</li>
+            <li class="activeitem"><a data-gatag="menu_home" href="http://dvr.osmand.net">Home</a></li>
+            <li><a data-gatag="menu_osmand" href="http://www.osmand.net">OsmAnd</a></li>
+          </ul>
+          <div class="menu-humburger"></div>
+        </div>
+      </div>
+      <div class="header-caption">
+        <div class="dvrlogo"></div>
+          <div class="headertitle">OsmAnd <span>DVR</span></div>
+          <div class="headertitletext">Car Video Recorder + Maps</div>
+          <a class="appstorebadge" href="http://itunes.apple.com/us/app/id963873905"><img src="images/app-store-badge.png"></a>
+      </div>
     </div>
-	<div class="slideswrapper">
-	  <center>
-        <div class="slides">
-          <div class="slides-container">
-	         <div class="slides-control">
-		        <div class="slide" style="display:block;">
-  			      <img src="images/1p-en.png"/>
-			    </div>
-			    <div class="slide" style="display:none;">
-			      <img src="images/2p-en.png"/>
-			    </div>
-			    <div class="slide" style="display:none;">
-			      <img src="images/3p-en.png"/>
-			    </div>
-			    <div class="slide" style="display:none;">
-   			      <img src="images/4p-en.png"/>
-			    </div>
-			    <div class="slide" style="display:none;">
-			      <img src="images/5p-en.png"/>
-			    </div>
-		    </div>
-	    </div>
-	 <div class="wrapper-image">
-	    <img src="images/5s-body.png"/>
-	 </div>
-	 <ul class="pagination">
-	   <li class="current" data-index="1"></li>
-	   <li data-index="2"></li>
-	   <li data-index="3"></li>
-	   <li data-index="4"></li>
-	   <li data-index="5"></li>
-	 </ul>
-   </div>
-   </center>
-   </div>
-	<div class="features">
-	  <div class="featurescontent">
-	  <h1>FEATURES</h1>
-	  <ul class="column left">
-	    <li><div class="iconcontainer"><div class="icon recover-video-recording"></div></div><div class="textcontainer"><span>Non-stop video recording</span></div></li>
-		<li><div class="iconcontainer"><div class="icon recover-video-recording"></div></div><div class="textcontainer"><span>Recover video recording after returning from the background mode or after incoming call</span></div></li>
-		<li><div class="iconcontainer"><div class="icon password-protection"></div></div><div class="textcontainer"><span>Password protection</span></div></li>
-		<li><div class="iconcontainer"><div class="icon simple-interface"></div></div><div class="textcontainer"><span>Simple user interface</span></div></li>
-		<li><div class="iconcontainer"><div class="icon location-reading"></div></div><div class="textcontainer"><span>Location, speed and altitude reading</span></div></li>
-		<li><div class="iconcontainer"><div class="icon subtitles"></div></div><div class="textcontainer"><span>Customizable subtitles in SRT format + Export to Camera Roll with built in subtitles</span></div></li>
-		<li><div class="iconcontainer"><div class="icon power-saving"></div></div><div class="textcontainer"><span>Power saving mode + Black screen mode</span></div></li>
-		<li><div class="iconcontainer"><div class="icon speedlimit"></div></div><div class="textcontainer"><span>Speed limit feature</span></div></li>
-		<li><div class="iconcontainer"><div class="icon map-providers"></div></div><div class="textcontainer"><span>Four Map providers, layer switching, traffic layer</span></div></li>
-		<li><div class="iconcontainer"><div class="icon ios7"></div></div><div class="textcontainer"><span>iOS 7 supported</span></div></li>	
-	  </ul>
-	  <ul class="column right">
-	    <li><div class="iconcontainer"><div class="icon photo"></div></div><div class="textcontainer"><span>Still photos while recording the video</span></div></li>
-		<li><div class="iconcontainer"><div class="icon favorites"></div></div><div class="textcontainer"><span>Favorites</span></div></li>
-		<li><div class="iconcontainer"><div class="icon videogallery"></div></div><div class="textcontainer"><span>Built-in video/photo gallery</span></div></li>
-		<li><div class="iconcontainer"><div class="icon help"></div></div><div class="textcontainer"><span>Built-in Help</span></div></li>
-		<li><div class="iconcontainer"><div class="icon gpx"></div></div><div class="textcontainer"><span>GPX track writing</span></div></li>
-		<li><div class="iconcontainer"><div class="icon portrait-landscape"></div></div><div class="textcontainer"><span>Portrait and landscape modes</span></div></li>
-		<li><div class="iconcontainer"><div class="icon carmode"></div></div><div class="textcontainer"><span>Car mode</span></div></li>
-		<li><div class="iconcontainer"><div class="icon webserver"></div></div><div class="textcontainer"><span>Web server</span></div></li>
-		<li><div class="iconcontainer"><div class="icon ipad-supported"></div></div><div class="textcontainer"><span>iPad supported</span></div></li>	
-	  </ul>
-	  </div>
-	
-	</div>
+  </div>
 
-	
+    <div class="slideswrapper">
+      <div class="slides">
+        <img src="images/1p-en.png"/>
+        <img src="images/2p-en.png"/>
+        <img src="images/3p-en.png"/>
+        <img src="images/4p-en.png"/>
+        <img src="images/5p-en.png"/>
+      </div>
+      <div class="wrapper-image">
+        <img src="images/5s-body.png"/>
+      </div>
+    </div>
+    <div class="features">
+      <div class="featurescontent">
+      <h2>FEATURES</h2>
+        <ul class="column">
+          <li><div class="recover-video-recording"><span>Non-stop video recording</span></div></li>
+          <li><div class="recover-video-recording"><span>Recover video recording after returning from the background mode or after incoming call</span></div></li>
+          <li><div class="password-protection"><span>Password protection</span></div></li>
+          <li><div class="simple-interface"><span>Simple user interface</span></div></li>
+          <li><div class="location-reading"><span>Location, speed and altitude reading</span></div></li>
+          <li><div class="subtitles"><span>Customizable subtitles in SRT format + Export to Camera Roll with built in subtitles</span></div></li>
+          <li><div class="power-saving"><span>Power saving mode + Black screen mode</span></div></li>
+          <li><div class="speedlimit"><span>Speed limit feature</span></div></li>
+          <li><div class="map-providers"><span>Four Map providers, layer switching, traffic layer</span></div></li>
+          <li><div class="ios7"><span>iOS 7 supported</span></div></li>  
+        </ul>
+        <ul class="column">
+          <li><div class="photo"><span>Still photos while recording the video</span></div></li>
+          <li><div class="favorites"><span>Favorites</span></div></li>
+          <li><div class="videogallery"><span>Built-in video/photo gallery</span></div></li>
+          <li><div class="help"><span>Built-in Help</span></div></li>
+          <li><div class="gpx"><span>GPX track writing</span></div></li>
+          <li><div class="portrait-landscape"><span>Portrait and landscape modes</span></div></li>
+          <li><div class="carmode"><span>Car mode</span></div></li>
+          <li><div class="webserver"><span>Web server</span></div></li>
+          <li><div class="ipad-supported"><span>iPad supported</span></div></li> 
+        </ul>
+      </div>
+    </div>
 
-	<div class="footer">
-	  <div class="halvecolumn">
-	    <img src="images/logo.png" class="footerlogo"/>	
-		<div>&nbsp;</div>
-	  </div>
-	  <div class="halvecolumn">
-	  <div class="left">
-		  	 <div class="footerdvrlogo"></div>
-		    
-	    </div>
-	    <div class="right">
-		  
-		    <ul>
-		    <div class="footerlinkstitle">WEBSITE</div>
-		    <li><a data-gatag="menu_home" href="http://dvr.osmand.net">Home</a></li>
-			<li><a data-gatag="menu_osmand" href="http://www.osmand.net">OsmAnd</a></li>			
-		    </ul>
-	    </div>
-	    
-	  
-	  </div>
-	</div>
+    <div class="footer">
+      <div class="footer-block">
+        <a href="/" class="footerlogo"></a>
+      </div>
+      <div class="footer-block footer-dvrlogo"></div>
+      <div class="footer-block footer-menu">
+        <ul>
+          <li class="footerlinkstitle">Website</li>
+          <li><a data-gatag="menu_home" href="http://dvr.osmand.net">Home</a></li>
+          <li><a data-gatag="menu_osmand" href="http://www.osmand.net">OsmAnd</a></li>      
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
 <script type="text/javascript">
-var sl;
+  function setSliderSettings() {
+    return {
+      infinite: true,
+      autoplaySpeed: 4000,
+      arrows: false,
+      slidesToShow: 1,
+      autoplay: true,
+      dots: true,
+    }
+  }
 
-$( document ).ready(function() {
- sl = new slider($(".slides"));
-});
- 
+  $('.slides').slick(setSliderSettings());
+
+  $('.menu-humburger').on('click', function() {
+    $('.maincontainer').toggleClass('menu-open');
+    if ($('.menu').hasClass('active')) {
+      setTimeout(function() {
+        $('.menu').removeClass('active')
+      }, 500)
+    } else {
+      $('.menu').addClass('active');
+    }
+  });
 </script>
 </body>
-
 </html>
