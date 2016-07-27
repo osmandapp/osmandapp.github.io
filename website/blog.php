@@ -7,6 +7,7 @@
 <html>
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta property="og:url"        <?php  echo 'content="http://osmand.net'.$_SERVER['REQUEST_URI'].'"'  ?> /> 
   <meta property="og:type"          content="website" />
   <meta property="og:title"         content="OsmAnd - Offline Mobile Maps and Navigation" />
@@ -48,12 +49,16 @@
     <div class="articles">
       <div class="articlescontainer">
         
+      
+      <div class="article">
+        <?php echo file_get_contents("blog_articles/".$_GET['id'].".html"); ?>      
+      </div>    
+      
       <div class="article-menu-wrapper">
         <div class="modal-menu-button"></div>
         <div class="article-menu">
           <div class="acticlestitles">
             <h2>Latest articles</h2>
-            <div class="delimiter"></div>
             <ul class="articlelinklist">
               <li><a data-gatag='api_demo' href="http://osmand.net/blog?id=api_demo" >OsmAnd API Demo</a></li>
               <li><a data-gatag='osm-live' href="http://osmand.net/blog?id=osm-live" >OSM Live</a></li>
@@ -81,11 +86,7 @@
           </div>
         </div>
       </div>
-      
-      <div class="article">
-        <?php echo file_get_contents("blog_articles/".$_GET['id'].".html"); ?>      
-      </div>    
-      
+
       <div class="share_buttons">       
         <div class="social_network_button fb">
           <div class="fb-like" <?php  echo 'data-href="http://osmand.net'.$_SERVER['REQUEST_URI'].'"'  ?>
@@ -124,6 +125,12 @@
 
   $('.article-menu-wrapper').on('click', function(e) {
     e.stopPropagation();
+  });
+
+  $(window).on('resize', function() {
+    if ($(document).width() > 900) {
+      $('.article-menu').attr('style', false);
+    }
   });
 </script>
 </body>

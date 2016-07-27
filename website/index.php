@@ -29,7 +29,7 @@
             <li><a data-gatag="header_help" href="/help-online">Help</a></li>   
             <li><a data-gatag="header_dvr" href="http://dvr.osmand.net">DVR</a></li>
           </ul>
-          <div class="menu-humburger"></div>
+          <div class="menu-hamburger"></div>
         </div>
       </div>
       <div class="header-caption">
@@ -406,8 +406,11 @@
       }
     });
 
-    $('.menu-humburger').on('click', function() {
+    $('.menu-hamburger').on('click', function() {
       $('.maincontainer').toggleClass('menu-open');
+      if ($(document).width() < 321) {
+        $(this).toggleClass('in-menu');
+      }
       if ($('.menu').hasClass('active')) {
         setTimeout(function() {
           $('.menu').removeClass('active')
@@ -415,6 +418,16 @@
       } else {
         $('.menu').addClass('active');
       }
+    });
+
+    $('body').on('click', function() {
+      if ($('.maincontainer').hasClass('menu-open')) {
+        $('.menu-hamburger').click();
+      }
+    });
+
+    $('.menu-hamburger, .menu').on('click', function(e) {
+      e.stopPropagation();
     });
 
     $('.selectbox').on('click', function() {
@@ -452,7 +465,7 @@
     $(window).on('resize', function(){
         $(".specialevent").height($(".specialeventcontent").height()- 60);
 
-        if (!$('.menu-humburger').is(':visible')) {
+        if (!$('.menu-hamburger').is(':visible')) {
           $('.menu').removeClass('active');
           $('.maincontainer').removeClass('menu-open');
         }
@@ -467,7 +480,6 @@
 
     });
 
-     
     setTimeout(applyPolStyles, timeout);
 
   });

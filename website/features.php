@@ -36,11 +36,15 @@
     <div class="articles">
       <div class="articlescontainer">
     
-      <?php if ($_GET['id'] != 'main') { ?>
+      <?php if ( true || $_GET['id'] != 'main') { ?>
+
+        <div class="article"><?php echo file_get_contents("feature_articles/".$_GET['id'].".html"); ?></div>
+
         <div class="article-menu-wrapper">
           <div class="modal-menu-button"></div>
           <div class="article-menu">
             <div class="acticlestitles">
+              <h2>Features</h2>
               <ul class="articlelinklist">
                 <li><a data-gatag='start' href="http://osmand.net/features?id=start">Begin with OsmAnd</a></li>
                 <li><a data-gatag='navigation' href="http://osmand.net/features?id=navigation">Navigation</a></li>
@@ -65,8 +69,6 @@
             </div>
           </div>
         </div>
-
-        <div class="article"><?php echo file_get_contents("feature_articles/".$_GET['id'].".html"); ?></div>
     
       <?php } else { 
         echo file_get_contents("feature_articles/".$_GET['id'].".html"); 
