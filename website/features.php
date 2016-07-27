@@ -36,34 +36,39 @@
     <div class="articles">
       <div class="articlescontainer">
     
-      <?php if ($_GET['id'] != 'main') { ?>
+      <?php if ( true || $_GET['id'] != 'main') { ?>
+
         <div class="article"><?php echo file_get_contents("feature_articles/".$_GET['id'].".html"); ?></div>
-        <div class="acticlestitles">
-        <h2>Features</h2>
-        <div class="delimiter"></div>
-        <ul class="articlelinklist">
-          <li><a data-gatag='start' href="http://osmand.net/features?id=start">Begin with OsmAnd</a></li>
-          <li><a data-gatag='navigation' href="http://osmand.net/features?id=navigation">Navigation</a></li>
-          <li><a data-gatag='map-viewing' href="http://osmand.net/features?id=map-viewing">Map Viewing</a></li>
-          <li><a data-gatag='search-on-map' href="http://osmand.net/features?id=find-something-on-map">Search on the map</a></li>
-          <li><a data-gatag='trip-planning' href="http://osmand.net/features?id=trip-planning">Planning trip</a></li>
-          <li><a data-gatag='troubleshooting' href="http://osmand.net/features?id=installation-and-troubleshooting">Installation &amp; troubleshoooting</a></li>
-        </ul>
-        <h2>Plugins</h2>
-        <div class="delimiter"></div>
-        <ul class="articlelinklist">
-          <li><a data-gatag='online-maps-plugin' href="http://osmand.net/features?id=online-maps-plugin">Online maps</a></li>
-          <li><a data-gatag='contour-lines-plugin' href="http://osmand.net/features?id=contour-lines-plugin" >Contour lines and Hillshade map</a></li>
-          <li><a data-gatag='trip-recording-plugin' href="http://osmand.net/features?id=trip-recording-plugin" >Trip recording</a></li>
-          <li><a data-gatag='ski-plugin' href="http://osmand.net/features?id=ski-plugin" >Ski maps</a></li>
-          <li><a data-gatag='nautical_charts' href="http://osmand.net/features?id=nautical-charts" >Nautical charts</a></li>
-          <li><a data-gatag='audio-video-notes-plugin' href="http://osmand.net/features?id=audio-video-notes-plugin" >Audio/video notes</a></li>
-          <li><a data-gatag='osm-editing-plugin' href="http://osmand.net/features?id=osm-editing-plugin">OSM editing</a></li>
-          <li><a data-gatag='distance-calculator-and-planning-tool' href="http://osmand.net/features?id=distance-calculator-and-planning-tool">Distance calculator and planning tool</a></li>
-          <li><a data-gatag='parking-plugin' href="http://osmand.net/features?id=parking-plugin" >Parking place</a></li>
-          <li><a data-gatag='osmo-plugin' href="http://osmand.net/features?id=osmo-plugin">OsMo plugin</a></li>
-        </ul>
-      </div>
+
+        <div class="article-menu-wrapper">
+          <div class="modal-menu-button"></div>
+          <div class="article-menu">
+            <div class="acticlestitles">
+              <h2>Features</h2>
+              <ul class="articlelinklist">
+                <li><a data-gatag='start' href="http://osmand.net/features?id=start">Begin with OsmAnd</a></li>
+                <li><a data-gatag='navigation' href="http://osmand.net/features?id=navigation">Navigation</a></li>
+                <li><a data-gatag='map-viewing' href="http://osmand.net/features?id=map-viewing">Map Viewing</a></li>
+                <li><a data-gatag='search-on-map' href="http://osmand.net/features?id=find-something-on-map">Search on the map</a></li>
+                <li><a data-gatag='trip-planning' href="http://osmand.net/features?id=trip-planning">Planning trip</a></li>
+                <li><a data-gatag='troubleshooting' href="http://osmand.net/features?id=installation-and-troubleshooting">Installation &amp; troubleshoooting</a></li>
+              </ul>
+              <h2>Plugins</h2>
+              <ul class="articlelinklist">
+                <li><a data-gatag='online-maps-plugin' href="http://osmand.net/features?id=online-maps-plugin">Online maps</a></li>
+                <li><a data-gatag='contour-lines-plugin' href="http://osmand.net/features?id=contour-lines-plugin" >Contour lines and Hillshade map</a></li>
+                <li><a data-gatag='trip-recording-plugin' href="http://osmand.net/features?id=trip-recording-plugin" >Trip recording</a></li>
+                <li><a data-gatag='ski-plugin' href="http://osmand.net/features?id=ski-plugin" >Ski maps</a></li>
+                <li><a data-gatag='nautical_charts' href="http://osmand.net/features?id=nautical-charts" >Nautical charts</a></li>
+                <li><a data-gatag='audio-video-notes-plugin' href="http://osmand.net/features?id=audio-video-notes-plugin" >Audio/video notes</a></li>
+                <li><a data-gatag='osm-editing-plugin' href="http://osmand.net/features?id=osm-editing-plugin">OSM editing</a></li>
+                <li><a data-gatag='distance-calculator-and-planning-tool' href="http://osmand.net/features?id=distance-calculator-and-planning-tool">Distance calculator and planning tool</a></li>
+                <li><a data-gatag='parking-plugin' href="http://osmand.net/features?id=parking-plugin" >Parking place</a></li>
+                <li><a data-gatag='osmo-plugin' href="http://osmand.net/features?id=osmo-plugin">OsMo plugin</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
     
       <?php } else { 
         echo file_get_contents("feature_articles/".$_GET['id'].".html"); 
@@ -107,15 +112,34 @@
     }
     });
   }
+
   $(window).on('resize', function() {
     if ($(window).width() > 800) {
       equalHeight($('.plugin'));
     }
   });
+
   $(window).on('load', function() {
     if ($(window).width() > 800) {
       equalHeight($('.plugin'));
     }
+  });
+
+  $('.modal-menu-button').on('click', function(e) {
+    e.preventDefault();
+    $(this).toggleClass('active');
+    $('.article-menu').slideToggle();
+  });
+
+  $('body').on('click', function() {
+    if ($('.modal-menu-button').hasClass('active')) {
+      $('.modal-menu-button').toggleClass('active');
+      $('.article-menu').slideToggle();
+    }
+  });
+
+  $('.article-menu-wrapper').on('click', function(e) {
+    e.stopPropagation();
   });
 </script>
 </body>
