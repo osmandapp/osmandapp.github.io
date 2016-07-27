@@ -48,7 +48,7 @@
     }
   });
 
-  $('.menu').on('click', function(e) {
+  $('.menu-hamburger, .menu').on('click', function(e) {
     e.stopPropagation();
   });
 </script>
