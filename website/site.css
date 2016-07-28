@@ -514,6 +514,7 @@ a::-moz-focus-inner {
   padding: 15px;
   background: #d4d4d4;
   font-size: 18px;
+  text-align: center;
 }
 .switch .button:first-child {
   border-radius: 8px 0 0 8px;
@@ -1720,9 +1721,12 @@ a,a:visited
   width:100%;
 }
 
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 1550px) {
   .menu {
     right: 0;
+  }
+  .headertext {
+    margin: 100px 0 70px;
   }
 }
 @media screen and (max-width: 1200px) {
@@ -1979,7 +1983,7 @@ a,a:visited
 @media screen and (max-width: 650px) {
   .headertext {
     font-size: 30px;
-    margin: 110px 0 50px;
+    margin: 100px 0 50px;
   }
   .header .badges {
     padding-bottom: 80px;
