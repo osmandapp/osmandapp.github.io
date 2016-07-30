@@ -138,6 +138,12 @@
     }
   });
 
+  $(window).on('resize', function() {
+    if ($(document).width() > 900) {
+      $('.article-menu').attr('style', false);
+    }
+  });
+
   $('.article-menu-wrapper').on('click', function(e) {
     e.stopPropagation();
   });
