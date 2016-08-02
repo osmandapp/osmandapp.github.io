@@ -84,7 +84,7 @@
 		  <form role="form" action="subscription/register_osm.php" method="post" id="register_osm">
             <h3>Register as a recipient</h3>
             <div class="row list-group-item">
-		      <label for="osm_usr">Open Street Map name:</label>				
+		      <label for="osm_usr">OpenStreetMap name:</label>				
 		      <div class="textbox">
                 <input type="text"  id="osm_usr" name="osm_usr"/>				
 				<i class="fa fa-user fa-lg"></i>
@@ -93,7 +93,7 @@
 		    </div>
 				
 	     	<div class="row">
-              <label for="osm_pwd">Open Street Map password:</label>
+              <label for="osm_pwd">OpenStreetMap password:</label>
 			  <div class="textbox">
                 <input type="password" id="osm_pwd" name="osm_pwd"/>
 				<i class="fa fa-lock fa-lg"></i>
