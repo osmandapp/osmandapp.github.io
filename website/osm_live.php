@@ -29,58 +29,171 @@
       $simpleheader_header = "OSM LIVE";
       include 'blocks/simple_header.php';
     ?>
-    <div class="container">
-      <ul class="nav nav-tabs">
+    <div class="nav-holder">
+      <ul class="navigation">
         <li class="active"><a data-toggle="tab" href="#information">Information</a></li>
         <li><a data-toggle="tab" href="#report">OSM Contributions</a></li>
         <li><a data-toggle="tab" href="#donate">Supporters</a></li>
         <li><a data-toggle="tab" href="#recipients">Recipients</a></li>
       </ul>
+    </div>
+    <div class="container">
       <div class="tab-content">
         <div id="report" class="tab-pane fade">
+          <h2>OSM Contributions</h2>
           <div class="report-period-group">
-            <h4 class="vlabel" for="month-selection">Report period</h4>
-            <select class="form-control" id="month-selection"></select>
-            <h4 class="vlabel" for="region-selection">Region</h4>
-            <select class="form-control" id="region-selection"></select>
-          </div>
-          <div class="panel panel-default" id="report-total-div">
-            <div class="panel-body">
-              <p id="report-total" class="infobox"></p>
-            </div>
-          </div>
-          <hr>
-          <h4 class="vlabel" for="report-table" id="report-ranking"></h4>
-          <table id="report-table" class="table table-striped table-bordered" cellspacing="0" width="100%"></table>
-          <hr>
-          <h4 class="vlabel" for="users-table" id="users-ranking"></h4>
-          <table id="users-table" class="table table-striped table-bordered" cellspacing="0" width="100%"></table>
-        </div>
-        <div id="donate" class="tab-pane fade ">
-          <div class="report-period-group">
-            <h4 class="vlabel" for="donate-month-selection">Report period</h4>
-            <select class="form-control osm-live-month-select" id="donate-month-selection"></select>
-            <div class="panel panel-default" id="donator-report-total-div">
-              <div class="panel-body">
-                <p id="donator-report-total" class="infobox"></p>
+            <div class="report-group period">
+              <h4 class="vlabel" for="month-selection">Report period</h4>
+              <div class="styled-select">
+                <select class="form-control" id="month-selection"></select>
               </div>
             </div>
-            <hr>
-            <h4 class="vlabel" for="support-country-table" id="support-country-table-header">Supported countries</h4>
-            <table id="support-country-table" class="table table-striped table-bordered" cellspacing="0" width="100%"></table>
-            <hr>
-            <h4 class="vlabel" for="support-table" id="support-table-header">OSM Live supporters</h4>
-            <table id="support-table" class="table table-striped table-bordered" cellspacing="0" width="100%"></table>
+            <div class="report-group region">
+              <h4 class="vlabel" for="region-selection">Region</h4>
+              <div class="styled-select">
+                <select class="form-control" id="region-selection"></select>
+              </div>
+            </div>
           </div>
+          <div class="report-total-div">
+            <div class="overview-body">
+              <p class='overview-hint'>Overview for: <span id="overview-contributors_options"></span></p>
+              <div id="report-total" class="infobox"></div>
+            </div>
+          </div>
+          <h4 class="vlabel" for="report-table" id="report-ranking"></h4>
+          <table id="report-table" class="table table-bordered" cellspacing="0" width="100%"></table>
+          <h4 class="vlabel" for="users-table" id="users-ranking"></h4>
+          <div class="table-controls hidden">
+            <div class="tc search">
+              <input type="search" class="form-control" aria-control="users-table" id="users-table-search" placeholder="Search">
+            </div>
+            <div class="tc entries">
+              <label>
+              <span>Show entries</span>
+              <div class="styled-select">
+                <select name="users-table_length" aria-controls="users-table" class="form-control" id="users-table-select">
+                  <option value="10">10</option>
+                  <option value="25">25</option>
+                  <option value="50" selected>50</option>
+                  <option value="100">100</option>
+                </select>
+              </div>
+              </label>
+            </div>
+          </div>
+          <table id="users-table" class="table table-bordered" cellspacing="0" width="100%"></table>
+        </div>
+        <div id="donate" class="tab-pane fade ">
+          <h2>Supporters</h2>
+          <div class="supporters-total-holder">
+            <div class="report-period-group supporters">
+              <div class="report-group period">
+                <h4 class="vlabel" for="donate-month-selection">Report period</h4>
+                <div class="styled-select">
+                  <select class="form-control osm-live-month-select" id="donate-month-selection"></select>
+                </div>
+              </div>
+            </div>
+            <div class="supporters-total" id="donator-report-total-div">
+              <div class="panel-body">
+                <p class='overview-hint'>Overview for: <span id="overview-supporters_options"></span></p>
+                <div id="donator-report-total" class="infobox"></div>
+              </div>
+            </div>
+          </div>
+          <h4 class="vlabel" for="support-country-table" id="support-country-table-header">Supported countries</h4>
+          <div class="table-controls support-country-controls hidden">
+            <div class="tc search">
+              <input type="search" class="form-control" aria-control="support-country-table" id="support-country-table-search" placeholder="Search">
+            </div>
+            <div class="tc entries">
+              <label>
+              <span>Show entries</span>
+              <div class="styled-select">
+                <select name="support-country-table_length" aria-controls="support-country-table" class="form-control" id="support-country-table-select">
+                  <option value="10">10</option>
+                  <option value="25">25</option>
+                  <option value="50" selected>50</option>
+                  <option value="100">100</option>
+                </select>
+              </div>
+              </label>
+            </div>
+          </div>
+          <table id="support-country-table" class="table table-bordered" cellspacing="0" width="100%"></table>
+          <h4 class="vlabel" for="support-table" id="support-table-header">OSM Live supporters</h4>
+          <div class="table-controls support-controls hidden">
+            <div class="tc search">
+              <input type="search" class="form-control" aria-control="support-table" id="support-table-search" placeholder="Search">
+            </div>
+            <div class="tc entries">
+              <label>
+              <span>Show entries</span>
+              <div class="styled-select">
+                <select name="support-table_length" aria-controls="support-table" class="form-control" id="support-table-select">
+                  <option value="10">10</option>
+                  <option value="25">25</option>
+                  <option value="50" selected>50</option>
+                  <option value="100">100</option>
+                </select>
+              </div>
+              </label>
+            </div>
+          </div>
+          <table id="support-table" class="table table-bordered" cellspacing="0" width="100%"></table>
         </div>
         <div id="information" class="tab-pane fade in active">
-          <div class="panel panel-default" id="general-info-div">
-            <div class="panel-body">
-              <p id="general-info" class="infobox"></p>
+          <div id="general-info-div">
+            <div id="general-info" class="infobox"></div>
+          </div>
+          <div class="registration recipient-registration" id="recipients-register-div">
+            <h4 class="vlabel" for="recipients-register-div">Register as a recipient</h4 >
+            <div class="alert alert-danger" role="alert" id="osm_register_failed" style="display:none">
+              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> 
+              OSM Authentication has failed.
             </div>
+            <div class="alert alert-success" role="alert" id="osm_register_success" style="display:none">
+              <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> 
+              You successfully registered as a recipient.
+            </div>
+            <form role="form" action="subscription/register_osm.php" method="post" id="register_osm">
+              <label for="osm_usr">OpenStreetMap user name:</label>
+              <div class="input-holder input-user">
+                <input type="text" class="form-control" id="osm_usr" name="osm_usr">
+              </div>
+              <p class="input-hint">We use OpenStreetMap.org API to access user statistic.</p>
+              <label for="osm_pwd">OpenStreetMap password:</label>
+              <div class="input-holder input-pass">
+                <input type="password" class="form-control" id="osm_pwd" name="osm_pwd">
+              </div>
+              <p class="input-hint">We do not store it on servers.</p>
+              <!-- <label for="email">Email address:</label>
+              <div class="input-holder">
+                <input type="text" class="form-control" id="email" name="email">
+              </div> -->
+              <label for="bitcoin_addr">Bitcoin address:</label>
+              <div class="input-holder input-bitcoin">
+                <input type="text" class="form-control" id="bitcoin_addr" name="bitcoin_addr">
+              </div>
+              <p class="input-hint">We use OpenStreetMap.org API to access user statistic.</p>
+              <button type="submit" class="btn btn-default" id="register_osm_user">Register</button>
+            </form>
+          </div>
+          <div class="registration contributor-registration" id="contributor-register-div">
+            <h4 class="vlabel" for="recipients-register-div">Register as a contributor</h4 >
+            <p>If you want support OSM buy OsmAnd OSM Live Subscription, you can do it directly in application.</p>
+            <div class="registration-badges">
+              <a data-gatag="googleplay" href="https://play.google.com/store/apps/details?id=net.osmand.plus"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" /></a>
+            </div>
+            <h5 class="vlabel">Donate without any extra charges:</h5>
+            <p>If you want to donate without any extra charges and directly to OSM contributors please transfer funds to this Bitcoin address</p>
+            <div class="btc-address">1GRgEnKujorJJ9VBa76g8cp3sfoWtQqSs4</div>
+            <p>The payouts are distributed based on the ranking which is available in OSM Contributions tab, th last ranking has weight&nbsp;=&nbsp;1, the ranking before the last has weight&nbsp;=&nbsp;2 and so on till the 1st ranking.</p>
           </div>
         </div>
         <div id="recipients" class="tab-pane fade">
+          <h2>Recipients</h2>
           <!--
             <h4 class="vlabel" for="recipients-info-div">Information</h4 >
               <div class="panel panel-default" id="recipients-info-div">
@@ -88,43 +201,45 @@
               </div>
             <hr>
           -->
-          <h4 class="vlabel" for="recipient-month-selection">Report period</h4>
-          <select class="form-control osm-live-month-select" id="recipient-month-selection"></select>
-          <h4 class="vlabel" for="recipient-region-selection">Region</h4>
-          <select class="form-control" id="recipient-region-selection"></select>
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <p id="recipients-data-info" class="infobox"></p>
+          <div class="report-period-group">
+            <div class="report-group period">
+              <h4 class="vlabel" for="recipient-month-selection">Report period</h4>
+              <div class="styled-select">
+                <select class="form-control osm-live-month-select" id="recipient-month-selection"></select>
+              </div>
+            </div>
+            <div class="report-group region">
+              <h4 class="vlabel" for="recipient-region-selection">Region</h4>
+              <div class="styled-select">
+                <select class="form-control" id="recipient-region-selection"></select>
+              </div>
             </div>
           </div>
-          <hr>
+          <div class="report-total-div">
+            <div class="overview-body">
+              <div id="recipients-data-info" class="infobox"></div>
+            </div>
+          </div>
           <h4 class="vlabel" for="recipients-table" id="recipients-table-header">OSM Recipients</h4>
-          <table id="recipients-table" class="table table-striped table-bordered" cellspacing="0" width="100%"></table>
-          <hr>
-          <h4 class="vlabel" for="recipients-register-div">Register as a recipient</h4 >
-          <div class="panel panel-default" id="recipients-register-div">
-            <div class="panel-body">
-              <div class="alert alert-danger" role="alert" id="osm_register_failed" style="display:none">
-                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> 
-                OSM Authentication has failed.
+          <div class="table-controls recipients-controls hidden">
+            <div class="tc search">
+              <input type="search" class="form-control" aria-control="recipients-table" id="recipients-table-search" placeholder="Search">
+            </div>
+            <div class="tc entries">
+              <label>
+              <span>Show entries</span>
+              <div class="styled-select">
+                <select name="recipients-table_length" aria-controls="recipients-table" class="form-control" id="recipients-table-select">
+                  <option value="10">10</option>
+                  <option value="25">25</option>
+                  <option value="50" selected>50</option>
+                  <option value="100">100</option>
+                </select>
               </div>
-              <div class="alert alert-success" role="alert" id="osm_register_success" style="display:none">
-                <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> 
-                You successfully registered as a recipient.
-              </div>
-              <form role="form" action="subscription/register_osm.php" method="post" id="register_osm">
-                <label for="osm_usr">OSM Name:</label>
-                <input type="text" class="form-control" id="osm_usr" name="osm_usr">
-                <label for="osm_pwd">OSM Password (we do not store it on servers):</label>
-                <input type="password" class="form-control" id="osm_pwd" name="osm_pwd">
-                <label for="email">Email address:</label>
-                <input type="text" class="form-control" id="email" name="email">
-                <label for="bitcoin_addr">Bitcoin address:</label>
-                <input type="text" class="form-control" id="bitcoin_addr" name="bitcoin_addr">
-                <button type="submit" class="btn btn-default" id="register_osm_user">Register</button>
-              </form>
+              </label>
             </div>
           </div>
+          <table id="recipients-table" class="table table-bordered" cellspacing="0" width="100%"></table>
         </div>
       </div>
     </div>
@@ -227,15 +342,13 @@
         async: true
       }).done(function(res) {
         var data = jQuery.parseJSON( res );
-        var html = "In total <strong>"+ data.changes + "</strong> changes were done by <strong>" 
-          + data.users + "</strong> contributors";
+        var html = "<div class='overview overview-changes'><p>" + data.changes + "</p><span>changes</span></div>" 
+          + "<div class='overview overview-users'><p>" + data.users   + "</p><span>contributors</span></div>";
         if(regionName.length > 0) {
-           html = html + " in " + regionName;
-        } 
-        if(midName.length > 0) {
-           html = html + " in " + midName;
+           html = html + "<div class='overview overview-region'><p>" + regionName + "</p><span>country</span></div>";
         } 
         $('#report-total').html(html);
+        setContributorsOverviewHint();
     });
   }
   
@@ -305,12 +418,12 @@
                   { "data": "btcaddress", title: "Bitcoin Address"}
               ],
               "paging":   true,
-              "ordering": true,
               "iDisplayLength": rowPerPage($(window).width()),
               "info":     false,
-              "searching": true,
               "bAutoWidth": false,
+              "dom": "tip"
           });
+          $('.table-controls.recipients-controls').removeClass('hidden');
     });
   }
   
@@ -330,8 +443,9 @@
           if(extended) {
             data.rows.push.apply(data.rows, data.notactive)
           }
-          $('#donator-report-total').html("There are <strong>" + data.activeCount + 
-              "</strong> active supporters and <strong>" + data.count +"</strong> registered supporters." );
+          $('#donator-report-total').html("<div class='overview overview-active_supporters'><p>" + data.activeCount + 
+              "</p><span>active donors</span></div>" 
+              + "<div class='overview overview-register_supporters'><p>" + data.count +"</p><span>registered supporters</span></div>" );
           var regionsList = Object.keys(data.regions).map(function(key){
               data.regions[key].coeff = data.regions[key].percent * 100 + "%";
               return data.regions[key];
@@ -345,11 +459,11 @@
                   { "data": "coeff", "title": "Percentage"}
               ],
               "paging":   true,
-              "ordering": true,
               "iDisplayLength": 50,
               "info":     false,
-              "searching": true
+              "dom": "tip"
           });
+          $('.table-controls.support-country-controls').removeClass('hidden');
           reportSupportDataTable = $('#support-table').DataTable({
               data: data.rows,
               destroy: true,
@@ -364,8 +478,11 @@
               "ordering": true,
               "iDisplayLength": 50,
               "info":     false,
-              "searching": true
+              "searching": true,
+              "dom": "tip"
           });
+          $('.table-controls.support-controls').removeClass('hidden');
+          setSupportersOverviewHint();
     });
   }
   
@@ -398,8 +515,10 @@
               "ordering": true,
               "iDisplayLength": 50,
               "info":     false,
-              "searching": true
+              "searching": true,
+              "dom": 'tip'
           });
+          $('.table-controls').removeClass('hidden');
       });
     }
   }
@@ -416,23 +535,23 @@
         async: true
       }).done(function(res) {
         var data = jQuery.parseJSON( res );
-        $('#report-ranking').text("Ranking of contributors by " + data.rows.length + " groups (made more than 3 changes)");
+        $('#report-ranking').html("Ranking of contributors by " + data.rows.length + " groups <span>(made more than 3 changes)</span>");
         reportDataTable = $('#report-table').DataTable({
             data: data.rows,
             destroy: true,
             columns: [
   
                 { "data": "rank", title: "Rank"},
-                { "data": "countUsers", title: "Contributors in group"},
-                { "data": "minChanges", title: "Minimum changes in group"},
-                { "data": "maxChanges", title: "Maximum changes in group"},
-                { "data": "avgChanges", title: "Average changes in group", render:floatFormat}
+                { "data": "countUsers", title: "Contributors <span>in group</span>"},
+                { "data": "minChanges", title: "Minimum changes <span>in group</span>"},
+                { "data": "maxChanges", title: "Maximum changes <span>in group</span>"},
+                { "data": "avgChanges", title: "Average changes <span>in group</span>", render:floatFormat}
             ],
             "paging":   false,
             "ordering": true,
             //"iDisplayLength": 20,
             "info":     false,
-            "searching": false
+            "searching": false,
         });
     });
   }
@@ -452,10 +571,11 @@
   }
   
   function updateGeneralInfo() {
-    $("#general-info").html("OsmAnd heavily relies on OSM and its community. Honestly saying, OsmAnd wouldn't exist without that great community. "+
+    $("#general-info").html("<h2>About OSM Live</h2>" + 
+      "<p>OsmAnd heavily relies on OSM and its community. Honestly saying, OsmAnd wouldn't exist without that great community. "+
       "When we started implementation OSM Live, we immediately decided that it should not be only a paid service, but a donation service as well. " +
-      "Thinking that OSM Live is only possible because thousands of edits every hour in many places of the world, we want to distribute a part of the income between OSM editors. " +
-      "<br><br><strong>How it works</strong><ul>" +
+      "Thinking that OSM Live is only possible because thousands of edits every hour in many places of the world, we want to distribute a part of the income between OSM editors.</p>" +
+      "<h3>How it works</h3><ul>" +
       "<li> Every OSM contributor can be registered as a recipient. He just need to provide a valid Bitcoin address in the form below. " +
       "<li> Every OsmAnd user who wants to get live updates needs to subscribe to that service. " +
       "<li> After Google and Bank deductions the whole sum is split into 2 parts (<strong>30% OsmAnd</strong> and <strong>70% Donations</strong>)"+
@@ -565,8 +685,10 @@
     updateUserRankingByMonth();
     
     $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-        var target = $(e.target).attr("href") // activated tab
-        window.location.hash = target;
+        /*var target = $(e.target).attr("href") // activated tab
+        window.location.hash = target;*/
+        e.preventDefault();
+        return false;
     });
     window.onpopstate = function(event) {
       selectProperTab();
@@ -630,8 +752,55 @@
         updateRankingByMonth();
         updateUserRankingByMonth();
       });
-      
+    
      
+  });
+
+  function setContributorsOverviewHint() {
+    if ($('.overview-hint').is(':visible')) {
+      var currentMonth  = $("#month-selection").children("option").filter(":selected").text(),
+          currentRegion = $("#region-selection").children("option").filter(":selected").text()
+      $('#overview-contributors_options').text(currentMonth + ', ' + currentRegion);
+    }
+  }
+
+  function setSupportersOverviewHint() {
+    if ($('.overview-hint').is(':visible')) {
+      var currentMonth  = $("#donate-month-selection").children("option").filter(":selected").text();
+      $('#overview-supporters_options').text(currentMonth);
+    }
+  }
+
+  $('#users-table-search').on('keyup', function() {
+    reportUserDataTable.search(this.value).draw();
+  });
+
+  $('#users-table-select').on('change', function() {
+    reportUserDataTable.page.len(this.value).draw();
+  });
+
+  $('#support-country-table-search').on('keyup', function() {
+    reportSupportCountryDataTable.search(this.value).draw();
+  });
+
+  $('#support-country-table-select').on('change', function() {
+    reportSupportCountryDataTable.page.len(this.value).draw();
+  });
+
+  $('#support-table-search').on('keyup', function() {
+    reportSupportDataTable.search(this.value).draw();
+  });
+
+  $('#support-table-select').on('change', function() {
+    reportSupportDataTable.page.len(this.value).draw();
+  });
+
+  $('#recipients-table-search').on('keyup', function() {
+    reportRecipientsDataTable.search(this.value).draw();
+  });
+
+  $('#recipients-table-select').on('change', function() {
+    reportRecipientsDataTable.page.len(this.value).draw();
   });
   
 </script>

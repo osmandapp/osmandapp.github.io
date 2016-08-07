@@ -23,11 +23,12 @@
           <a href="/" class="headerlogo-link"><div class="headerlogo"></div></a>
           <ul class="menu">
             <li class="mobile-sign">Menu</li>
-            <li class="activeitem"><a data-gatag="header_home" href="/">Home</a></li>   
-            <li><a data-gatag="header_features" href="/features">Features</a></li>    
+            <li><a data-gatag="header_features" href="/features">Features</a></li>
             <li><a data-gatag="header_blog" href="/blog" >Blog</a></li>
-            <li><a data-gatag="header_help" href="/help-online">Help</a></li>   
+            <li><a data-gatag="header_osm_live" href="/osm_live">OSM Live</a></li>
+            <li><a data-gatag="header_help" href="/help-online">Help</a></li>
             <li><a data-gatag="header_dvr" href="http://dvr.osmand.net">DVR</a></li>
+            <li class="mobile-only"><a data-gatag="header_downloads" href="/help-online?id=changes">Downloads</a></li>
           </ul>
           <div class="menu-hamburger"></div>
         </div>
@@ -333,7 +334,6 @@
             settings: {
               slidesToShow: 4,
               centerMode: true,
-              arrows: false,
               autoplay: true
             }
           },
@@ -341,7 +341,6 @@
             breakpoint: 900,
             settings: {
               slidesToShow: 3,
-              arrows: false,
               autoplay: true
             }
           }
