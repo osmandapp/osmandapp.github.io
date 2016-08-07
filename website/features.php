@@ -46,25 +46,25 @@
             <div class="acticlestitles">
               <h2>Features</h2>
               <ul class="articlelinklist">
-                <li><a data-gatag='start' href="http://osmand.net/features?id=start">Begin with OsmAnd</a></li>
-                <li><a data-gatag='navigation' href="http://osmand.net/features?id=navigation">Navigation</a></li>
-                <li><a data-gatag='map-viewing' href="http://osmand.net/features?id=map-viewing">Map Viewing</a></li>
-                <li><a data-gatag='search-on-map' href="http://osmand.net/features?id=find-something-on-map">Search on the map</a></li>
-                <li><a data-gatag='trip-planning' href="http://osmand.net/features?id=trip-planning">Planning trip</a></li>
-                <li><a data-gatag='troubleshooting' href="http://osmand.net/features?id=installation-and-troubleshooting">Installation &amp; troubleshoooting</a></li>
+                <li><a data-gatag='start' href="/features?id=start">Begin with OsmAnd</a></li>
+                <li><a data-gatag='navigation' href="/features?id=navigation">Navigation</a></li>
+                <li><a data-gatag='map-viewing' href="/features?id=map-viewing">Map Viewing</a></li>
+                <li><a data-gatag='search-on-map' href="/features?id=find-something-on-map">Search on the map</a></li>
+                <li><a data-gatag='trip-planning' href="/features?id=trip-planning">Planning trip</a></li>
+                <li><a data-gatag='troubleshooting' href="/features?id=installation-and-troubleshooting">Installation &amp; troubleshoooting</a></li>
               </ul>
               <h2>Plugins</h2>
               <ul class="articlelinklist">
-                <li><a data-gatag='online-maps-plugin' href="http://osmand.net/features?id=online-maps-plugin">Online maps</a></li>
-                <li><a data-gatag='contour-lines-plugin' href="http://osmand.net/features?id=contour-lines-plugin" >Contour lines and Hillshade map</a></li>
-                <li><a data-gatag='trip-recording-plugin' href="http://osmand.net/features?id=trip-recording-plugin" >Trip recording</a></li>
-                <li><a data-gatag='ski-plugin' href="http://osmand.net/features?id=ski-plugin" >Ski maps</a></li>
-                <li><a data-gatag='nautical_charts' href="http://osmand.net/features?id=nautical-charts" >Nautical charts</a></li>
-                <li><a data-gatag='audio-video-notes-plugin' href="http://osmand.net/features?id=audio-video-notes-plugin" >Audio/video notes</a></li>
-                <li><a data-gatag='osm-editing-plugin' href="http://osmand.net/features?id=osm-editing-plugin">OSM editing</a></li>
-                <li><a data-gatag='distance-calculator-and-planning-tool' href="http://osmand.net/features?id=distance-calculator-and-planning-tool">Distance calculator and planning tool</a></li>
-                <li><a data-gatag='parking-plugin' href="http://osmand.net/features?id=parking-plugin" >Parking place</a></li>
-                <li><a data-gatag='osmo-plugin' href="http://osmand.net/features?id=osmo-plugin">OsMo plugin</a></li>
+                <li><a data-gatag='online-maps-plugin' href="/features?id=online-maps-plugin">Online maps</a></li>
+                <li><a data-gatag='contour-lines-plugin' href="/features?id=contour-lines-plugin" >Contour lines and Hillshade map</a></li>
+                <li><a data-gatag='trip-recording-plugin' href="/features?id=trip-recording-plugin" >Trip recording</a></li>
+                <li><a data-gatag='ski-plugin' href="/features?id=ski-plugin" >Ski maps</a></li>
+                <li><a data-gatag='nautical_charts' href="/features?id=nautical-charts" >Nautical charts</a></li>
+                <li><a data-gatag='audio-video-notes-plugin' href="/features?id=audio-video-notes-plugin" >Audio/video notes</a></li>
+                <li><a data-gatag='osm-editing-plugin' href="/features?id=osm-editing-plugin">OSM editing</a></li>
+                <li><a data-gatag='distance-calculator-and-planning-tool' href="/features?id=distance-calculator-and-planning-tool">Distance calculator and planning tool</a></li>
+                <li><a data-gatag='parking-plugin' href="/features?id=parking-plugin" >Parking place</a></li>
+                <li><a data-gatag='osmo-plugin' href="/features?id=osmo-plugin">OsMo plugin</a></li>
               </ul>
             </div>
           </div>
@@ -82,46 +82,47 @@
 <!-- for twitter-->
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <script>
-  var equalHeight = function(container){
+  var equalHeight = function(container) {
 
-  var currentTallest = 0,
-      currentRowStart = 0,
-      rowDivs = new Array(),
-      $el,
-      topPosition = 0;
-  $(container).each(function() {
+    var currentTallest = 0,
+        currentRowStart = 0,
+        rowDivs = new Array(),
+        $el,
+        topPosition = 0;
 
-    $el = $(this);
-    $($el).height('auto')
-    topPostion = $el.position().top;
+    $(container).each(function() {
 
-    if (currentRowStart != topPostion) {
+      $el = $(this);
+      $($el).height('auto')
+      topPostion = $el.position().top;
+
+      if (currentRowStart != topPostion) {
+        for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
+          rowDivs[currentDiv].height(currentTallest);
+        }
+        rowDivs.length = 0; // empty the array
+        currentRowStart = topPostion;
+        currentTallest = $el.height();
+        rowDivs.push($el);
+      } else {
+        rowDivs.push($el);
+        currentTallest = (currentTallest < $el.height()) ? ($el.height()) : (currentTallest);
+      }
       for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
         rowDivs[currentDiv].height(currentTallest);
       }
-      rowDivs.length = 0; // empty the array
-      currentRowStart = topPostion;
-      currentTallest = $el.height();
-      rowDivs.push($el);
-    } else {
-      rowDivs.push($el);
-      currentTallest = (currentTallest < $el.height()) ? ($el.height()) : (currentTallest);
-    }
-    for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
-      rowDivs[currentDiv].height(currentTallest);
-    }
     });
   }
 
   $(window).on('resize', function() {
     if ($(window).width() > 800) {
-      equalHeight($('.plugin'));
+      equalHeight($('.plugin, .subfeatureheader'));
     }
   });
 
   $(window).on('load', function() {
     if ($(window).width() > 800) {
-      equalHeight($('.plugin'));
+      equalHeight($('.plugin, .subfeatureheader'));
     }
   });
 
