@@ -317,8 +317,14 @@ select:-moz-focusring {
   right: 0;
   width: 20px;
   height: 20px;
-  background: url('../images/main-sprite.png') no-repeat -160px -140px;
+  background: url('../images/main-sprite.png') no-repeat;
   transform: translate(0, -50%);
+}
+.sorting_asc:after {
+  background-position: -160px -140px;
+}
+.sorting_desc:after {
+  background-position: -200px -140px;
 }
 .sorting:after {
   content: '' !important;
