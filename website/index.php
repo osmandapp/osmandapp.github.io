@@ -28,7 +28,7 @@
             <li><a data-gatag="header_osm_live" href="/osm_live">OSM Live</a></li>
             <li><a data-gatag="header_help" href="/help-online">Help</a></li>
             <li><a data-gatag="header_dvr" href="http://dvr.osmand.net">DVR</a></li>
-            <li class="mobile-only"><a data-gatag="header_downloads" href="/help-online?id=changes">Downloads</a></li>
+            <li class="mobile-only"><a data-gatag="header_downloads" href="/downloads">Downloads</a></li>
           </ul>
           <div class="menu-hamburger"></div>
         </div>
