@@ -802,7 +802,7 @@ a::-moz-focus-inner {
 }
 
 .articles {
-  padding: 0 20px;
+  padding: 0 20px 40px;
 }
 .articlescontainer {
   position: relative;
