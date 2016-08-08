@@ -29,12 +29,12 @@
               <div class="acticlestitles">
                 <h2>Help</h2>
                 <ul class="articlelinklist">
-                  <li><a data-gatag='faq' href="http://osmand.net/help-online?id=faq">FAQ</a></li>
-                  <li><a data-gatag='versions' href="http://osmand.net/help-online?id=changes">Downloads</a></li>
-                  <li><a data-gatag='map-legend' href="http://osmand.net/help-online?id=map-legend">Map legend</a></li>
-                  <li><a data-gatag='technical' href="http://osmand.net/help-online?id=technical-articles">Technical articles</a></li>
-                  <li><a data-gatag='license' href="http://osmand.net/help-online?id=license">License</a></li>
-                  <li><a data-gatag='about' href="http://osmand.net/help-online?id=about">About</a></li>
+                  <li><a data-gatag='faq' href="/help-online?id=faq">FAQ</a></li>
+                  <li><a data-gatag='versions' href="/downloads">Downloads</a></li>
+                  <li><a data-gatag='map-legend' href="/help-online?id=map-legend">Map legend</a></li>
+                  <li><a data-gatag='technical' href="/help-online?id=technical-articles">Technical articles</a></li>
+                  <li><a data-gatag='license' href="/help-online?id=license">License</a></li>
+                  <li><a data-gatag='about' href="/help-online?id=about">About</a></li>
                 </ul>
               </div>
             </div>
