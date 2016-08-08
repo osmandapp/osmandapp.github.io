@@ -283,7 +283,7 @@ select:-moz-focusring {
   top: 0;
   right: 0;
   width: 100%;
-  max-width: 175px;
+  max-width: 180px;
   font-size: 14px;
 }
 .tc.entries .styled-select {
@@ -301,7 +301,7 @@ select:-moz-focusring {
 .tc.entries select {
   display: inline-block;
   vertical-align: middle;
-  width: 120%;
+  width: 125%;
   padding: 10px 0 10px 10px;
 }
 .sorting_desc,
@@ -463,6 +463,7 @@ select:-moz-focusring {
   }
   .report-group.period {
     max-width: 420px;
+    margin-right: 0;
   }
   .supporters-total .overview {
     margin-right: 20px;
