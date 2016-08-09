@@ -634,14 +634,14 @@
       stmonth = yi == 2015? 8 : 1;
       endmonth = yi == year? month : 12;
       for(mi = stmonth; mi <= endmonth; mi++) {
-        $("#month-selection").prepend("<option value='"+formatYearMonth(yi,mi)+"'>"+formatYearMonthHuman(yi,mi)+"</option>");
+        $("#month-selection").prepend("<option value='"+formatYearMonth(yi,mi)+"'"+((mi==endmonth&&yi==year)?' selected':'')+">"+formatYearMonthHuman(yi,mi)+"</option>");
       }
     }
     for(yi = 2016; yi <= year; yi++) {
       stmonth = yi == 2016? 1 : 1;
       endmonth = yi == year? month : 12;
       for(mi = stmonth; mi <= endmonth; mi++) {
-        $(".osm-live-month-select").prepend("<option value='"+formatYearMonth(yi,mi)+"'>"+formatYearMonthHuman(yi,mi)+"</option>");
+        $(".osm-live-month-select").prepend("<option value='"+formatYearMonth(yi,mi)+"'"+((mi==endmonth&&yi==year)?' selected':'')+">"+formatYearMonthHuman(yi,mi)+"</option>");
       }
     }
     if(typeof(Storage) !== "undefined") {
