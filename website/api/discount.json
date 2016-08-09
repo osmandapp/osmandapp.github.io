@@ -1,6 +1,9 @@
 {
-"message" : "OsmAnd+ 50% discount",
-"description" : "New version of OsmAnd+ with 50% discount",
-"validnow" : true,
-"url" :  "osmand-market-app:net.osmand.plus"
+  "message" : "OsmAnd+ 50% discount",
+  "description" : "New version of OsmAnd+ with 50% discount",
+  "validnow" : true,
+  "url" :  "osmand-market-app:net.osmand.plus",
+  "application" : {
+    "net.osmand" : true
+  }
 }
