@@ -312,6 +312,7 @@
           {
             breakpoint: 1200,
             settings: {
+              arrows: false,
               slidesToShow: 4,
               centerMode: true,
               autoplay: true

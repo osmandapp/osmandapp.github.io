@@ -33,8 +33,8 @@
         <img src="images/dvr/5s-body.png"/>
       </div>
     </div>
-    <div class="features">
-      <div class="featurescontent">
+    <div class="dvr-features">
+      <div class="dvr-featurescontent">
       <h2>FEATURES</h2>
         <ul class="column">
           <li><div class="recover-video-recording"><span>Non-stop video recording</span></div></li>

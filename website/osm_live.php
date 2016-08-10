@@ -40,6 +40,7 @@
     </div>
     <div class="container">
       <div class="tab-content">
+        <div class="loading"></div>
         <div id="report" class="tab-pane fade">
           <h2>OSM Contributions</h2>
           <div class="report-period-group">
@@ -422,7 +423,7 @@
               "iDisplayLength": rowPerPage($(window).width()),
               "info":     false,
               "bAutoWidth": false,
-              "dom": "tip"
+              "dom": "tp"
           });
           $('.table-controls.recipients-controls').removeClass('hidden');
     });
@@ -462,7 +463,7 @@
               "paging":   true,
               "iDisplayLength": 50,
               "info":     false,
-              "dom": "tip"
+              "dom": "tp"
           });
           $('.table-controls.support-country-controls').removeClass('hidden');
           reportSupportDataTable = $('#support-table').DataTable({
@@ -480,7 +481,7 @@
               "iDisplayLength": 50,
               "info":     false,
               "searching": true,
-              "dom": "tip"
+              "dom": "tp"
           });
           $('.table-controls.support-controls').removeClass('hidden');
           setSupportersOverviewHint();
@@ -517,7 +518,7 @@
               "iDisplayLength": 50,
               "info":     false,
               "searching": true,
-              "dom": 'tip'
+              "dom": 'tp'
           });
           $('.table-controls').removeClass('hidden');
       });
@@ -553,9 +554,11 @@
             //"iDisplayLength": 20,
             "info":     false,
             "searching": false,
+            "dom": "t",
         });
     });
   }
+
   
   function formatYearMonthHuman(year, month) {
     var monthNames = ["January", "February", "March", "April", "May", "June",
@@ -802,6 +805,15 @@
 
   $('#recipients-table-select').on('change', function() {
     reportRecipientsDataTable.page.len(this.value).draw();
+  });
+
+  $(document).on({
+    ajaxStart: function() { 
+      $('.loading').addClass("active");
+    },
+    ajaxStop: function() { 
+      $('.loading').removeClass("active");
+    }
   });
   
 </script>
