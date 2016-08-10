@@ -449,7 +449,7 @@
               "</p><span>active donors</span></div>" 
               + "<div class='overview overview-register_supporters'><p>" + data.count +"</p><span>registered supporters</span></div>" );
           var regionsList = Object.keys(data.regions).map(function(key){
-              data.regions[key].coeff = data.regions[key].percent * 100 + "%";
+              data.regions[key].coeff = Math.round(data.regions[key].percent * 10000) / 100 + "%";
               return data.regions[key];
           });
           reportSupportCountryDataTable = $('#support-country-table').DataTable({
