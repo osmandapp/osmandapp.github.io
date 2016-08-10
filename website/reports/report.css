@@ -146,6 +146,11 @@ h2, h3 {
   background: transparent;
   text-overflow: ellipsis;
 }
+select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
 select:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
