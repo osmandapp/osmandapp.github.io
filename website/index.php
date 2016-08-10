@@ -27,7 +27,7 @@
             <li><a data-gatag="header_blog" href="/blog" >Blog</a></li>
             <li><a data-gatag="header_osm_live" href="/osm_live">OSM Live</a></li>
             <li><a data-gatag="header_help" href="/help-online">Help</a></li>
-            <li><a data-gatag="header_dvr" href="http://dvr.osmand.net">DVR</a></li>
+            <li><a data-gatag="header_dvr" href="/dvr">DVR</a></li>
             <li class="mobile-only"><a data-gatag="header_downloads" href="/downloads">Downloads</a></li>
           </ul>
           <div class="menu-hamburger"></div>
@@ -36,12 +36,14 @@
       <div class="header-caption">
         <div class="headertext">Offline mobile<br/> maps &amp; navigation</div>
         <div class="badges">
-            <a data-gatag="googleplay" href="https://play.google.com/store/apps/details?id=net.osmand.plus"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" /></a>
+          <!-- https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png -->
+            <a data-gatag="googleplay" href="https://play.google.com/store/apps/details?id=net.osmand.plus"><img alt="Get it on Google Play" src="images/en-play-badge.png" /></a>
             <a data-gatag="amazon" href="http://www.amazon.com/gp/product/B00D0SEGMC/ref=mas_pm_OsmAnd-Maps-Navigation"><img alt="Get it on Amazon" src="images/amazon-apps-store.png" /></a>
             <a data-gatag="ios" class="appstoretopbadge" href="https://itunes.apple.com/app/apple-store/id934850257?pt=2123532&ct=WebSite&mt=8"><img src="images/app-store-badge.png"/></a>
           </li>
         </div>
       </div>
+
     </div>
   </div>
 

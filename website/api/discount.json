@@ -1,0 +1,13 @@
+{
+  "message" : "OsmAnd+ 50% discount",
+  "description" : "New version of OsmAnd+ with 50% discount",
+  "start" : "10-08-2016 00:00",
+  "end" : "17-08-2016 00:00",
+  "show_start_frequency" : 10,
+  "show_day_frequency" : 3,
+  "icon" : "ic_action_gift",
+  "url" :  "osmand-market-app:net.osmand.plus",
+  "application" : {
+    "net.osmand" : true
+  }
+}

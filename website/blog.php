@@ -1,8 +1,8 @@
 <?php
-  if (empty($_GET['id'])) {
-    $_GET['id'] ="osmand-2-3-released";
-  } 
-?>          
+	if (empty($_GET['id'])) {
+		$_GET['id'] ="osmand-2-4-released";
+	}	
+?>		    	
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,6 +60,8 @@
           <div class="acticlestitles">
             <h2>Latest articles</h2>
             <ul class="articlelinklist">
+              <li><a data-gatag='osmand-2-4-released' href="http://osmand.net/blog?id=osmand-2-4-released" >OsmAnd 2.4</a></li>
+              <li><a data-gatag='osmand_videos' href="http://osmand.net/blog?id=osmand_videos" >OsmAnd Videos</a></li>
               <li><a data-gatag='api_demo' href="http://osmand.net/blog?id=api_demo" >OsmAnd API Demo</a></li>
               <li><a data-gatag='osm-live' href="http://osmand.net/blog?id=osm-live" >OSM Live</a></li>
               <li><a data-gatag='osmand-2-3-released' href="http://osmand.net/blog?id=osmand-2-3-released" >OsmAnd 2.3</a></li>
@@ -86,23 +88,9 @@
           </div>
         </div>
       </div>
-
-      <div class="share_buttons">       
-        <div class="social_network_button fb">
-          <div class="fb-like" <?php  echo 'data-href="http://osmand.net'.$_SERVER['REQUEST_URI'].'"'  ?>
-            data-width="75" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false">
-          </div>
-        </div>
-        <div class="social_network_button twitter">
-          <a href="https://twitter.com/share" class="twitter-share-button" <?php  echo 'data-url="http://osmand.net'.$_SERVER['REQUEST_URI'].'" data-count-url="http://osmand.net'.$_SERVER['REQUEST_URI'].'.html"'  ?> >Tweet</a>
-        </div>
-         <div class="social_network_button gplus"><div class="g-plusone" data-size="medium"></div></div>
-       </div>
-      </div>
     </div>
 
     <?php include 'blocks/footer.html'; ?>
-
   </div>
 </div>
 
