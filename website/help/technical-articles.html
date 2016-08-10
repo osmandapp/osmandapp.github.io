@@ -1,222 +1,197 @@
-<html>
-<head>
-<title>OsmAnd Help Pages</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-<meta http-equiv="cleartype" content="on" />
-<link href="style.css" rel="stylesheet" type="text/css"/>
-</head>
-<body>
 <div class="main">
-<h1 id="top">Technical articles</h1>
-<div class="toc" >
+  <h1 id="top">Technical articles</h1>
 
-<ul class="list">
-<li><a href="#Creating_a_Consistent_User_Experience">Creating a consistent user experience</a>
-</li>
-<li><a href="#How_to_Translate_.60OsmAnd.60_-_We_Need_Your_Assistance.21">How to translate OsmAnd - we need your assistance!</a>
-</li>
-<li><a href="#Install_Development_Environment">How to install the development environment</a>
-</li>
-<li><a href="#Documentation_of_.60OsmAnd.60_Settings_Development">Documentation of OsmAnd settings development</a>
-</li>
-<li class="toclevel-2"><a href="#Voice_Routing_-_Current_Status_.28by_Hardy.29">Voice routing - current status (by Hardy)</a>
-</li>
-<li class="toclevel-2"><a href="#Installation_of_Different_Builds">Installation of different builds</a>
-</li>
-<li><a href="#Map_Generation_Process">The map generation process</a>
-</li>
-<li><a href="#Create_offline_maps_for_yourself">Create offline maps for yourself</a>
-</li>
-<li><a href="#Country_Polygon_Creation">Creating a country polygonn</a>
-</li>
-<li><a href="#OsmAnd_Data_Structure">OsmAnd data structure</a>
-</li>
-<li><a href="#How_To_Inspect_an_obf_Binary_File">How to inspect an obf binary file</a>
-</li>
-<li><a href="#OBF_routing_debugging_on_a_PC_with_OSM_map_display">OBF routing debugging on a PC with OSM map display</a>
-</li>
-<li><a href="#OsmAnd_Server_Configuration">OsmAnd server configuration</a>
-</li>
-<li><a href="#Using_KML_Files">Using KML files</a>
-</li>
-<li><a href="#How_to_produce_customized_vector_data">How to produce customized vector data</a>
-</li>
-</ul>
-</div>
+  <div class="toc" >
+    <ul class="list">
+      <li><a href="#Creating_a_Consistent_User_Experience">Creating a consistent user experience</a></li>
+      <li><a href="#How_to_Translate_.60OsmAnd.60_-_We_Need_Your_Assistance.21">How to translate OsmAnd - we need your assistance!</a></li>
+      <li><a href="#Install_Development_Environment">How to install the development environment</a></li>
+      <li><a href="#Documentation_of_.60OsmAnd.60_Settings_Development">Documentation of OsmAnd settings development</a></li>
+      <li class="toclevel-2"><a href="#Voice_Routing_-_Current_Status_.28by_Hardy.29">Voice routing - current status (by Hardy)</a></li>
+      <li class="toclevel-2"><a href="#Installation_of_Different_Builds">Installation of different builds</a></li>
+      <li><a href="#Map_Generation_Process">The map generation process</a></li>
+      <li><a href="#Create_offline_maps_for_yourself">Create offline maps for yourself</a></li>
+      <li><a href="#Country_Polygon_Creation">Creating a country polygonn</a></li>
+      <li><a href="#OsmAnd_Data_Structure">OsmAnd data structure</a></li>
+      <li><a href="#How_To_Inspect_an_obf_Binary_File">How to inspect an obf binary file</a></li>
+      <li><a href="#OBF_routing_debugging_on_a_PC_with_OSM_map_display">OBF routing debugging on a PC with OSM map display</a></li>
+      <li><a href="#OsmAnd_Server_Configuration">OsmAnd server configuration</a></li>
+      <li><a href="#Using_KML_Files">Using KML files</a></li>
+      <li><a href="#How_to_produce_customized_vector_data">How to produce customized vector data</a></li>
+    </ul>
+  </div>
 
-<div class="subtitle" id="Creating_a_Consistent_User_Experience">Creating a consistent user experience</div>
-<div class="content">
-<p>Usability of our complex features is decisively enhanced by wording and good translations, and as much consistency as possible. It is worth thinking about many expressions or sentences for a little while :-)</p>
-<p>Please try to adhere to the following points and conventions:</p>
+  <div class="question">
+    <div class="subtitle" id="Creating_a_Consistent_User_Experience">Creating a consistent user experience</div>
+    <div class="content">
+      <p>Usability of our complex features is decisively enhanced by wording and good translations, and as much consistency as possible. It is worth thinking about many expressions or sentences for a little while :-)</p>
+      <p>Please try to adhere to the following points and conventions:</p>
+      <p><b>(1) Consistent Wording:</b></p>
+      <p>Use only _one_ expression for a certain feature, do not mix two possible expressions. Examples:</p>
+      <ul class="list">
+        <li> check for existing expressions and re-use them in new strings, also in translations,of course </li>
+        <li> use &#34;navigation&#34;, not &#34;routing&#34;, throughout. </li>
+        <li> use &#34;tracking&#34;, not &#34;monitoring&#34; </li>
+        <li> understand that &#34;position&#34; is where you are, while &#34;location&#34; refers to arbitrary points </li>
+        <li> use &#34;destination&#34;, not &#34;target&#34; </li>
+        <li> use &#34;speed&#34;, not &#34;velocity&#34; </li>
+        <li> know the difference between &#34;elevation&#34; and &#34;altitude&#34; </li>
+        <li> It is &#34;OsmAnd&#34; now, not &#34;Osmand&#34; any more :-) </li>
+      </ul>
+      <p><b>(2) Authoring Text:</b></p>
+      <ul class="list">
+        <li> Moreover, please try to re-use existing string constants as much as possible, it is good for memory and performance  :-)
+        <li> When changing existing strings, please double-check with _all_ their occurrences in the code
+        <li> In general, please be short and precise. EVERY word you write should convey _necessary_ information, so be as precise and as short as possible. Unnecessary text clutters screens without helping much.
+        <li> Please double-check appearance of wording in the app, in particular in low-density devices. Too many line breaks, cut-off text or blown-up menu buttons may make a screen almost unusable.
+        <li> In some cases there are conventions, which may be worth checking, rather than &#34;inventing something&#34;... So if 99% of commercial navigation systems in your language announce &#34;you have reached your destination&#34;, then using &#34;you have arrived at where you wanted to go&#34; may not be the best of choices ...  :-)
+        <li> Clearly mark all features which require Internet access with the expression &#34;online&#34;
+      </ul>
+      <p><b>(3)</b> A note about rendering: The appearance our default renderer creates has been tested at a multitude of map locations, with many devices, and under very different light conditions. &#34;Spontaneous improvements&#34; to the renderer are almost always questionable, may at least require more investigation and testing than you may think ... :-)</p>
+      <p class="back_to_top"><a href="#top">Back to top</a></p>
+    </div>
+  </div>
 
-<p><b>(1) Consistent Wording:</b></p>
+  <div class="question">
+    <div class="subtitle" id="How_to_Translate_.60OsmAnd.60_-_We_Need_Your_Assistance.21">How to translate OsmAnd - we need your assistance!</div>
+    <div class="content">
+      <p>We very much appreciate your help providing translations for OsmAnd! Provideing translations is not very complicated, the preferred way to provide string transaltions is described here: <a href="http://translate.osmand.net/">translate.osmand.net</a>.</p>
+      <div class="blocksubtitle">Additional Information</div>
+      <ul class="list">
+        <li> All translated strings are stored in  <a href="https://github.com/osmandapp/Osmand/tree/master/OsmAnd/res">resources</a>, where you can check if there is already a &#39;values-{language}&#39; directory for your language, e.g. &#39;values-sk&#39; for Slovak.
+        <li> Existing language files could be modified by editing the respective strings.xml file (requires a github account) as desired, but please use the easier way of prividing translations and corrections as described above. The master string data is kept in the <a href="https://github.com/osmandapp/Osmand/blob/master/OsmAnd/res/values/strings.xml">english strings.xml file</a>, please do also check out the hints I have added to the beginning of that file.
+        <li> To create a translation for a new OsmAnd language, download the <a href="https://github.com/osmandapp/Osmand/blob/master/OsmAnd/res/values/strings.xml">english strings.xml file</a>, translate it  and open an Issue at <a href="http://code.google.com/p/osmand/issues/list"><a href="http://code.google.com/p/osmand/issues/list">http://code.google.com/p/osmand/issues/list</a></a> (requires a google account) announcing that a translation has been created
+        <li> The same applies to theswing_messages_{language}.properties files in <a href="https://github.com/osmandapp/Osmand/tree/master/DataExtractionOSM/src/net/osmand/swing">DataExtractionOsm</a> project if you want to translate the map data extractor
+      </ul>
+      <p>Please use these described methods rather than publishing changes to strings.xml as issues or e-mailing them to the OsmAnd group.</p>
+      <p>Thank you for your help !</p>
+      <div class="blocksubtitle">Q&#38;A</div>
+      <p>Q: Which strings should I translate?*</p>
+      <p>A: In the strings.xml the strings look like:
+      <pre>
+        <string name="shared_string_save_as_gpx">Save as GPX track</string>
+      </pre>
+      Translate only the &#39;Save route as GPX track&#39; part. In the swing_messages.properties the strings looks like: 
+      <pre>IndexCreator.INDEX_CITIES=Indexing cities...</pre>
+      Translate only the right part &#39;Indexing cities...&#39;</p>
+      <br/>
+      <p>Q: I don&#39;t want to create github or googlecode account, can I still post you the file?*</p>
+      <p>A: Yes, you can email the file, but still for us is the best way to use the github, it is easy.</p>
+      <br/>
+      <p>Q: How should I check what has changed in the _english strings.xml_ ?*
+      <p>
+      <p>A: New strings are added always on the top of the file. You can download the english file, your file and use some utility like pspad, or vim, or whatever you like to compare them for the new keys. You can also *<a href="https://github.com/osmandapp/Osmand/blame/master/OsmAnd/res/values/strings.xml">blame</a>* the english file to see the last line modifications </p>
+      <p class="back_to_top"><a href="#top">Back to top</a></p>
+    </div>
+  </div>
 
-<p>Use only _one_ expression for a certain feature, do not mix two possible expressions. Examples:</p>
-<ul class="list">
- <li> check for existing expressions and re-use them in new strings, also in translations,of course </li>
- <li> use &#34;navigation&#34;, not &#34;routing&#34;, throughout. </li>
- <li> use &#34;tracking&#34;, not &#34;monitoring&#34; </li>
- <li> understand that &#34;position&#34; is where you are, while &#34;location&#34; refers to arbitrary points </li>
- <li> use &#34;destination&#34;, not &#34;target&#34; </li>
- <li> use &#34;speed&#34;, not &#34;velocity&#34; </li>
- <li> know the difference between &#34;elevation&#34; and &#34;altitude&#34; </li>
- <li> It is &#34;OsmAnd&#34; now, not &#34;Osmand&#34; any more :-) </li>
-</ul>
+  <div class="question">
+    <div class="subtitle" id="Documentation_of_.60OsmAnd.60_Settings_Development">Documentation of OsmAnd Settings Development</div>
+    <div class="content">
+      <p>Hardy&#39;s documentation on OsmAnd UI/Settings development
+      <div class="blocksubtitle">2011-12</div>
+      <ul class="list">
+        <li> <a href="http://code.google.com/p/osmand/issues/detail?id=772">Documentation of Osmand settings and setting defaults (Issue 772)</a></li>
+        <li> <a href="http://code.google.com/p/osmand/issues/detail?id=794">New settings structure, and display all &#39;current settings&#39;, and use profile colors (Issue 794)</a></li>
+        <li> <a href="http://code.google.com/p/osmand/issues/detail?id=794#c32">Latest document 2012-02-10</a></li>
+      </ul>
+      <div class="blocksubtitle">2012-09</div>
+      <ul class="list">
+        <li> <a href="http://code.google.com/p/osmand/issues/detail?id=1356">Settings structure and default values (Issue 1356)</a>, after Define View and Configure screen (widgets) has been moved from settings to map screen menus</li>
+        <li> <a href="http://code.google.com/p/osmand/issues/detail?id=1356#c2">Status 2012-09-05</a></li>
+        <li> <a href="http://code.google.com/p/osmand/issues/detail?id=1356#c4">Latest document 2013-05-22</a></li>
+      </ul>
+      <p class="back_to_top"><a href="#top">Back to top</a></p>
+    </div>
+  </div>
 
-<p><b>(2) Authoring Text:</b></p>
-
-<ul class="list">
- <li> Moreover, please try to re-use existing string constants as much as possible, it is good for memory and performance  :-)
- <li> When changing existing strings, please double-check with _all_ their occurrences in the code
- <li> In general, please be short and precise. EVERY word you write should convey _necessary_ information, so be as precise and as short as possible. Unnecessary text clutters screens without helping much.
- <li> Please double-check appearance of wording in the app, in particular in low-density devices. Too many line breaks, cut-off text or blown-up menu buttons may make a screen almost unusable.
- <li> In some cases there are conventions, which may be worth checking, rather than &#34;inventing something&#34;... So if 99% of commercial navigation systems in your language announce &#34;you have reached your destination&#34;, then using &#34;you have arrived at where you wanted to go&#34; may not be the best of choices ...  :-)
- <li> Clearly mark all features which require Internet access with the expression &#34;online&#34;
-</ul>
-
-<p><b>(3)</b> A note about rendering: The appearance our default renderer creates has been tested at a multitude of map locations, with many devices, and under very different light conditions. &#34;Spontaneous improvements&#34; to the renderer are almost always questionable, may at least require more investigation and testing than you may think ... :-)</p>
-<p class="back_to_top"><a href="#top">Back to top</a></p>
-</div>
-
-<div class="subtitle" id="How_to_Translate_.60OsmAnd.60_-_We_Need_Your_Assistance.21">How to translate OsmAnd - we need your assistance!</div>
-<div class="content">
-<p>We very much appreciate your help providing translations for OsmAnd! Provideing translations is not very complicated, the preferred way to provide string transaltions is described here: <a href="http://translate.osmand.net/">translate.osmand.net</a>.</p>
-
-<div class="blocksubtitle">Additional Information</div>
-<ul class="list">
- <li> All translated strings are stored in  <a href="https://github.com/osmandapp/Osmand/tree/master/OsmAnd/res">resources</a>, where you can check if there is already a &#39;values-{language}&#39; directory for your language, e.g. &#39;values-sk&#39; for Slovak.
- <li> Existing language files could be modified by editing the respective strings.xml file (requires a github account) as desired, but please use the easier way of prividing translations and corrections as described above. The master string data is kept in the <a href="https://github.com/osmandapp/Osmand/blob/master/OsmAnd/res/values/strings.xml">english strings.xml file</a>, please do also check out the hints I have added to the beginning of that file.
- <li> To create a translation for a new OsmAnd language, download the <a href="https://github.com/osmandapp/Osmand/blob/master/OsmAnd/res/values/strings.xml">english strings.xml file</a>, translate it  and open an Issue at <a href="http://code.google.com/p/osmand/issues/list"><a href="http://code.google.com/p/osmand/issues/list">http://code.google.com/p/osmand/issues/list</a></a> (requires a google account) announcing that a translation has been created
- <li> The same applies to theswing_messages_{language}.properties files in <a href="https://github.com/osmandapp/Osmand/tree/master/DataExtractionOSM/src/net/osmand/swing">DataExtractionOsm</a> project if you want to translate the map data extractor
-</ul>
-<p>Please use these described methods rather than publishing changes to strings.xml as issues or e-mailing them to the OsmAnd group.</p>
-<p>Thank you for your help !</p>
- <div class="blocksubtitle">Q&#38;A</div>
-
-<p>Q: Which strings should I translate?*</p>
-<p>A: In the strings.xml the strings look like:
-<pre>
-<string name="shared_string_save_as_gpx">Save as GPX track</string>
-</pre>
-Translate only the &#39;Save route as GPX track&#39; part. In the swing_messages.properties the strings looks like: 
-<pre>IndexCreator.INDEX_CITIES=Indexing cities...</pre>
-Translate only the right part &#39;Indexing cities...&#39;</p>
-<br/>
-
-<p>Q: I don&#39;t want to create github or googlecode account, can I still post you the file?*</p>
-<p>A: Yes, you can email the file, but still for us is the best way to use the github, it is easy.</p>
-<br/>
-
-<p>Q: How should I check what has changed in the _english strings.xml_ ?*<p>
-<p>A: New strings are added always on the top of the file. You can download the english file, your file and use some utility like pspad, or vim, or whatever you like to compare them for the new keys. You can also *<a href="https://github.com/osmandapp/Osmand/blame/master/OsmAnd/res/values/strings.xml">blame</a>* the english file to see the last line modifications </p>
-<p class="back_to_top"><a href="#top">Back to top</a></p>
-</div>
-
-<div class="subtitle" id="Documentation_of_.60OsmAnd.60_Settings_Development">Documentation of OsmAnd Settings Development</div>
-<div class="content">
-<p>Hardy&#39;s documentation on OsmAnd UI/Settings development
-<div class="blocksubtitle">2011-12</div>
-
-<ul class="list">
- <li> <a href="http://code.google.com/p/osmand/issues/detail?id=772">Documentation of Osmand settings and setting defaults (Issue 772)</a></li>
- <li> <a href="http://code.google.com/p/osmand/issues/detail?id=794">New settings structure, and display all &#39;current settings&#39;, and use profile colors (Issue 794)</a></li>
-  <li> <a href="http://code.google.com/p/osmand/issues/detail?id=794#c32">Latest document 2012-02-10</a></li>
-</ul>
-<div class="blocksubtitle">2012-09</div>
-<ul class="list">
-
- <li> <a href="http://code.google.com/p/osmand/issues/detail?id=1356">Settings structure and default values (Issue 1356)</a>, after Define View and Configure screen (widgets) has been moved from settings to map screen menus</li>
-  <li> <a href="http://code.google.com/p/osmand/issues/detail?id=1356#c2">Status 2012-09-05</a></li>
-  <li> <a href="http://code.google.com/p/osmand/issues/detail?id=1356#c4">Latest document 2013-05-22</a></li>
-</ul>
-<p class="back_to_top"><a href="#top">Back to top</a></p>
-</div>
-
-<div class="subtitle" id="Install_Development_Environment">How to install the development environment</div>
-<div class="content">
-<div class="blocksubtitle">Introduction</div>
-<p>The installation is not very difficult, here are the things you are required :</p>
-<ul class="list">
- <li> Java - 1.6, 1.7 (compile target is 1.6!)</li>
- <li> Eclipse - 3.3, 3.4, 3.5 (version is undefined, newer the better)</li>
- <li> Android SDK + android eclipse plugin</li>
- <li> Optionally Andriod NDK (native code)</li>
- <li> EGit - git plugin for eclipse (can not do everything yet)</li>
- <li> Downloads : tile maps, osm (osm.bz2) vector map depends on the area you want to work to. For country Belarus (Minsk) you can download directly from the &#34;downloads&#34;</li>
-</ul>
-<div class="blocksubtitle">Details</div>
- <p> <a href="https://jdk6.dev.java.net"> Java 1.6</a> is required. Download jdk to get source code of base java classes</p>
- <p> <a href="http://developer.android.com/sdk/installing/index.html">Android SDK</a> is required. You will need two versions 1.6 and 2.2</p>
- <p>(Optional) <a href="http://developer.android.com/tools/sdk/ndk/index.html">Android NDK</a> is required if you want to change and compile native code.</p>
- <p> You can download Eclipse <a href="http://www.eclipse.org/downloads">here</a>. <b>Note</b>: run the eclipse with <a href="http://wiki.eclipse.org/FAQ_How_do_I_increase_the_heap_size_available_to_Eclipse%3F">more memory</a>, 32 bit around 512MB, 64 bit around 1GB. Android tools take lot of memory to compile the project!</p>
- <p> You will need <a href="http://developer.android.com/tools/sdk/eclipse-adt.html">Android Development Tools (ADT)</a> plugin for Eclipse.</p>
- <p> (Optional) You can install <a href="http://www.eclipse.org/egit/">EGit</a>, Git plug-in for eclipse. Alternatively you can stick to some other Git tool.</p>
- <p> To see results how you are working you also need map data : </p>
- <ul class="list">
-    <li>  To create tile maps you can use (MobileAtlasCreator) : create tiles for OSMtracker  tile storage (now &#39;Mapnik&#39; as source map is hardcoded), please use it.</li>
-    <li>  You can find osm map for country through special sites. You can download small part of osm for town through JOSM (as example).</li>
-    <li>  You also can use Internet : both swing application &#38; android application can download tiles by itself from Internet.</li>
-</ul>
-<p> Install repo utility:</p>
-<pre>
- $ curl http://commondatastorage.&#8203;googleapis.com/git-repo-downloads/repo &#62; ~/bin/repo
- $ chmod a+x ~/bin/repo
-</pre>
-<p> Check out the project from repository:</p>
-<pre> 
-   $ repo init -u git://github.com/osmandapp/OsmAnd-manifest.git
-   $ repo sync
-</pre>
-<p> You can make your <a href="https://help.github.com/articles/fork-a-repo">fork</a> on github and work with it and do <a href="https://help.github.com/articles/using-pull-requests">pull-requests</a> to publish your work in OsmAnd&#39;s repository.</p>
-<p>  Import OsmAnd (from /platforms/android) and OsmAndMapCreator (from /tools/) and OsmAnd-java (from /core/) projects from  into eclipse (do not copy them to workspace). See plugins directory, where can be some plugin projects you can contribute to.</p>
-<p>  Make sure that Eclipse Android plugin refers to android sdk path (Preferences -&#62; Android -&#62; SDK)</p>
-<p>  (Optional, should work out of the box) Check external folder in OsmAnd project : specify that *use* refers to OsmAnd-java/src (use path variable to have common version in reposititory).</p>
-<p> Try to compile all projects to get rid of the errors or try to run Ant script alternatively.</p>
-<p> Configure local.properties (look at sample file) in OsmAnd project in order to run OsmAnd\build.xml. Run Ant file OsmAnd\build.xml and get OsmAnd-debug.apk ready.</p>
-
-<div class="blocksubtitle">Config Application</div>
-<p> You can run OsmExtractionUI.class and it is OsmAndMapCreator</p>
-<p> If you want to enable logging - do not forget to put Java VM arg<pre> -Djava.util.logging.config.file=&#8203;logging.properties</pre></p>
-<p>After that you can try to run Swing (standalone) application to see whatever result.</p>
-<p>After that you should have installed the development environment on your machine.</p>
-
-<div class="blocksubtitle">Terminal based compilation on Linux or Mac OS X</div>
-<p>This might work as well on windows with slightly different commands. It does not use Eclipse or any other IDE.
-Download and install the Android SDK and NDK.
-The commands between () are only needed on the initial setup/compilation.</p>
-<pre>
+  <div class="question">
+    <div class="subtitle" id="Install_Development_Environment">How to install the development environment</div>
+    <div class="content">
+      <div class="blocksubtitle">Introduction</div>
+      <p>The installation is not very difficult, here are the things you are required :</p>
+      <ul class="list">
+        <li> Java - 1.6, 1.7 (compile target is 1.6!)</li>
+        <li> Eclipse - 3.3, 3.4, 3.5 (version is undefined, newer the better)</li>
+        <li> Android SDK + android eclipse plugin</li>
+        <li> Optionally Andriod NDK (native code)</li>
+        <li> EGit - git plugin for eclipse (can not do everything yet)</li>
+        <li> Downloads : tile maps, osm (osm.bz2) vector map depends on the area you want to work to. For country Belarus (Minsk) you can download directly from the &#34;downloads&#34;</li>
+      </ul>
+      <div class="blocksubtitle">Details</div>
+      <p><a href="https://jdk6.dev.java.net">Java 1.6</a> is required. Download jdk to get source code of base java classes</p>
+      <p><a href="http://developer.android.com/sdk/installing/index.html">Android SDK</a> is required. You will need two versions 1.6 and 2.2</p>
+      <p>(Optional) <a href="http://developer.android.com/tools/sdk/ndk/index.html">Android NDK</a> is required if you want to change and compile native code.</p>
+      <p>You can download Eclipse <a href="http://www.eclipse.org/downloads">here</a>. <b>Note</b>: run the eclipse with <a href="http://wiki.eclipse.org/FAQ_How_do_I_increase_the_heap_size_available_to_Eclipse%3F">more memory</a>, 32 bit around 512MB, 64 bit around 1GB. Android tools take lot of memory to compile the project!</p>
+      <p> You will need <a href="http://developer.android.com/tools/sdk/eclipse-adt.html">Android Development Tools (ADT)</a> plugin for Eclipse.</p>
+      <p> (Optional) You can install <a href="http://www.eclipse.org/egit/">EGit</a>, Git plug-in for eclipse. Alternatively you can stick to some other Git tool.</p>
+      <p> To see results how you are working you also need map data : </p>
+      <ul class="list">
+        <li>  To create tile maps you can use (MobileAtlasCreator) : create tiles for OSMtracker  tile storage (now &#39;Mapnik&#39; as source map is hardcoded), please use it.</li>
+        <li>  You can find osm map for country through special sites. You can download small part of osm for town through JOSM (as example).</li>
+        <li>  You also can use Internet : both swing application &#38; android application can download tiles by itself from Internet.</li>
+      </ul>
+      <p>Install repo utility:</p>
+      <pre>
+$ curl http://commondatastorage.&#8203;googleapis.com/git-repo-downloads/repo &#62; ~/bin/repo
+$ chmod a+x ~/bin/repo
+      </pre>
+      <p>Check out the project from repository:</p>
+      <pre> 
+$ repo init -u git://github.com/osmandapp/OsmAnd-manifest.git
+$ repo sync
+      </pre>
+      <p> You can make your <a href="https://help.github.com/articles/fork-a-repo">fork</a> on github and work with it and do <a href="https://help.github.com/articles/using-pull-requests">pull-requests</a> to publish your work in OsmAnd&#39;s repository.</p>
+      <p>  Import OsmAnd (from /platforms/android) and OsmAndMapCreator (from /tools/) and OsmAnd-java (from /core/) projects from  into eclipse (do not copy them to workspace). See plugins directory, where can be some plugin projects you can contribute to.</p>
+      <p>  Make sure that Eclipse Android plugin refers to android sdk path (Preferences -&#62; Android -&#62; SDK)</p>
+      <p>  (Optional, should work out of the box) Check external folder in OsmAnd project : specify that *use* refers to OsmAnd-java/src (use path variable to have common version in reposititory).</p>
+      <p> Try to compile all projects to get rid of the errors or try to run Ant script alternatively.</p>
+      <p> Configure local.properties (look at sample file) in OsmAnd project in order to run OsmAnd\build.xml. Run Ant file OsmAnd\build.xml and get OsmAnd-debug.apk ready.</p>
+      <div class="blocksubtitle">Config Application</div>
+      <p> You can run OsmExtractionUI.class and it is OsmAndMapCreator</p>
+      <p> If you want to enable logging - do not forget to put Java VM arg</p>
+      <pre>-Djava.util.logging.config.file=&#8203;logging.properties</pre>
+      <p>After that you can try to run Swing (standalone) application to see whatever result.</p>
+      <p>After that you should have installed the development environment on your machine.</p>
+      <div class="blocksubtitle">Terminal based compilation on Linux or Mac OS X</div>
+      <p>This might work as well on windows with slightly different commands. It does not use Eclipse or any other IDE.
+        Download and install the Android SDK and NDK.
+        The commands between () are only needed on the initial setup/compilation.
+      </p>
+      <pre>
 cd /opt/software
 (mkdir osmandapp)
 cd osmandapp
 (repo init -u https://github.com/osmandapp/OsmAnd-manifest.git)
 repo sync -d
-</pre>
-<pre>
+      </pre>
+      <pre>
 export ANDROID_SDK=/opt/software/android-sdk-linux
 export ANDROID_NDK=/opt/software/android-ndk-r8e
-</pre>
-<pre>
+      </pre>
+      <pre>
 ./android/OsmAnd/old-ndk-build.sh
-</pre>
-<p>This will build all the basic stuff, the dependencies and the native library</p>
+      </pre>
+      <p>This will build all the basic stuff, the dependencies and the native library</p>
+      <p>The above command(s)  will build the dependencies for an arm, x86 and mips combined apk, but it will not build the apk itself yet.</p>
+      <p>Make sure that the last line of your &#34;./android/OsmAnd/old-ndk-build.sh&#34; command compilation run ends with:
+      <pre>
+  Install        : libgnustl_shared.so =&#62; libs/armeabi/libgnustl_shared.so
+      </pre>
+      To compile the apk finally do:
+      <pre>
+  cd android/OsmAnd
+  ant -file build.xml -Dsdk.dir=$ANDROID_SDK -Dndk.dir=$ANDROID_NDK -Dnativeoff=false -Dmanifest="/opt/software/osmandapp/&#8203;android/OsmAnd/&#8203;AndroidManifest.xml" clean debug
+      </pre>
+      <p class="back_to_top"><a href="#top">Back to top</a></p>
+    </div>
+  </div>
 
-<p>The above command(s)  will build the dependencies for an arm, x86 and mips combined apk, but it will not build the apk itself yet.</p>
-<p>Make sure that the last line of your &#34;./android/OsmAnd/old-ndk-build.sh&#34; command compilation run ends with:
-<pre>
-Install        : libgnustl_shared.so =&#62; libs/armeabi/libgnustl_shared.so
-</pre>
-To compile the apk finally do:
-<pre>
-cd android/OsmAnd
-ant -file build.xml -Dsdk.dir=$ANDROID_SDK -Dndk.dir=$ANDROID_NDK -Dnativeoff=false -Dmanifest="/opt/software/osmandapp/&#8203;android/OsmAnd/&#8203;AndroidManifest.xml" clean debug
-</pre>
-<p class="back_to_top"><a href="#top">Back to top</a></p>
-</div>
-
-<div class="subtitle" id="Voice_Routing_-_Current_Status_.28by_Hardy.29">Voice routing - current status (by Hardy)</div>
-<div class="content">
-<p>The current feature set is documented in each (new, v1.5-style) tts-config.p file in this comment block in the file header:</p>
-<pre>
+  <div class="question">
+    <div class="subtitle" id="Voice_Routing_-_Current_Status_.28by_Hardy.29">Voice routing - current status (by Hardy)</div>
+    <div class="content">
+      <p>The current feature set is documented in each (new, v1.5-style) tts-config.p file in this comment block in the file header:</p>
+      <pre>
 % IMPLEMENTED (X) or MISSING ( ) FEATURES:
 % (X) new Version 1.5 format
 % (X) route calculated prompts, left/right, u-turns, roundabouts, straight/follow
@@ -230,135 +205,146 @@ ant -file build.xml -Dsdk.dir=$ANDROID_SDK -Dndk.dir=$ANDROID_NDK -Dnativeoff=fa
 % (X) Name announcement for destination / intermediate / GPX waypoint arrival
 % ( ) Time announcement for new and recalculated route (for recalculated suppress in appMode=car)
 % ( ) word order checked (hint for translators)
-</pre>
-<p>The file&#39;s string contents are sorted accordingly, in this fashion we can easily check which file already supports which feature.</p>
-<div class="blocksubtitle">Prompts</div>
-<p>Let me quickly document here which prompt is played when in our voice router module:</p>
+      </pre>
+      <p>The file&#39;s string contents are sorted accordingly, in this fashion we can easily check which file already supports which feature.</p>
+      <div class="blocksubtitle">Prompts</div>
+      <p>Let me quickly document here which prompt is played when in our voice router module:</p>
+      <ol class="list">
+        <li>&#34;Route recalculated&#34;:*</li>
+        <ol type="a">
+          <li> Is played after the route has been recalculated, but only if the new route &#34;is useful&#34;, i.e. now guides you in &#34;forward direction&#34;</li>
+          <li> Is suppressed entirely for GPX routing (as it makes no sense then)</li>
+        </ol>
+        <li>
+          &#34;GPS signal lost&#34;:* 
+          <p>Is played after GPS signal has been lost for continuous 20 sec and this was not caused by user action (still buggy, see Issue 893) </p>
+        </li>
+        <li>
+          &#34;Make a U-turn when possible&#34;:*
+          <p>This prompt is an interim advice for cases where you continuously head in the wrong direction, and does only sound (once) if a new route in forward direction could not be found in x (currently 10) seconds:</p>
+          <ol type="a">
+            <li> When you head down a long dead end road, where the only possible route out is &#39;backwards&#39;.</li>
+            <li> Where a new route in forward direction could not yet be re-calculated within the x seconds.</li>
+            <li> The prompt is only played once, until the situation is resolved, i.e. you have either turned in the right direction, or route has been recalculated in &#34;forward&#34; direction.</li>
+          </ol>
+        </li>
+        <li>
+          Turn instructions:* 
+          <p> Are suppressed if traveling in a weird directions (account for GPS issues)</p>
+        </li>
+        <li>Lead distances (lead time)</li>
+        <ol type="a">
+          <li>
+            CAR profile* (DEFAULT_SPEED = 12m/s=43km/h):
+            <p>|| (a) &#62;3000m out            || &#34;Follow the course of the road for...&#34;||
+              || (b) 3000m-2000m           || PREPARE_LONG||
+              || (c) 1500m-1200m           || PREPARE||
+              || (d) 300m-168m (or &#60;25sec) || TURN_IN||
+              || (e) &#60;60m (or &#60;5sec)       || TURN||
+            </p>
+          </li>
+          <li>
+            BICYCLE profile* (DEFAULT_SPEED = 5m/s=18 km/h):
+            <p>|| (b) 500m-300m                                      || PREPARE_LONG||
+              || (c) ~~500m-350m~~ 200m-120m                        || PREPARE||
+              || (d) ~~225m-80m (or &#60;45sec)~~ 80m-60m (or &#60;16sec)   || TURN_IN||
+              || (e) ~~&#60;45m (or &#60;9sec)~~ &#60;30m (or &#60;6sec)            || TURN||
+            </p>
+          </li>
+          <li>
+            PEDESTRIAN profile* (DEFAULT_SPEED = 2 m/s=7.2km/h):
+            <p>|| (c) ~~200m-150m~~ 100m-70m                         || PREPARE||
+              || (d) ~~100m-70m (or &#60;50sec)~~ 50m-30m (or &#60;25sec)   || TURN_IN||
+              || (e) ~~25m or (or &#60;12sec)~~  15m (or &#60;7.5sec)       || TURN||
+            </p>
+            <p>,,(Corrected values for bike and ped from forum feedback June 2013.),,</p>
+          </li>
+        </ol>
+      </ol>
+      <p class="back_to_top"><a href="#top">Back to top</a></p>
+    </div>
+  </div>
 
-<ol class="list">
-<li>&#34;Route recalculated&#34;:*</li>
-<ol type="a">
- <li> Is played after the route has been recalculated, but only if the new route &#34;is useful&#34;, i.e. now guides you in &#34;forward direction&#34;</li>
- <li> Is suppressed entirely for GPX routing (as it makes no sense then)</li>
- </ol>
- 
-<li>&#34;GPS signal lost&#34;:* 
-<p>Is played after GPS signal has been lost for continuous 20 sec and this was not caused by user action (still buggy, see Issue 893) </p></li>
+  <div class="question">
+    <div class="subtitle" id="Installation_of_Different_Builds">Installation of different builds</div>
+    <div class="content">
+      <p>Different builds of OsmAnd should install over any other build of the same strain (older or newer) without any issues, and with all Offline data being preserved.</p>
+      <p>The latest development build (not necessarily stable !) for testing can be found <a href="http://download.osmand.net/latest-night-build/OsmAnd-default.apk">here</a>.</p>
+      <p>This will update over any more recent existing development build with no problems at all. Should trying to update produce a signing or &#34;not installed&#34; error (like if you currently use the market or a very old dev build), please</p>
+      <ul class="list">
+        <li> export your Favorites first (Menu/Export in the fav list)</li>
+        <li> uninstall the previous version</li>
+        <li> re-install the new development build</li>
+        <li> re-import your Favorites again (Menu/Import)</li>
+      </ul>
+      <p>All maps/tracks etc. are kept in place unchanged during this procedure.</p>
+      <p class="back_to_top"><a href="#top">Back to top</a></p>
+    </div>
+  </div>
 
-<li>&#34;Make a U-turn when possible&#34;:*
-<p>This prompt is an interim advice for cases where you continuously head in the wrong direction, and does only sound (once) if a new route in forward direction could not be found in x (currently 10) seconds:</p>
-<ol type="a">
- <li> When you head down a long dead end road, where the only possible route out is &#39;backwards&#39;.</li>
- <li> Where a new route in forward direction could not yet be re-calculated within the x seconds.</li>
- <li> The prompt is only played once, until the situation is resolved, i.e. you have either turned in the right direction, or route has been recalculated in &#34;forward&#34; direction.</li>
- </ol>
- </li>
+  <div class="question">
+    <div class="subtitle" id="Map_Generation_Process">The map generation process</div>
+    <div class="content">
+      <div class="blocksubtitle">Introduction</div>
+      <p>Since OsmAnd has its own binary map format it is an OsmAnd initiative to generate/support and distribute these maps. OsmAnd can not update the maps frequently because it takes 2 weeks to process the whole world and only 1 out of 3 generations is successful. Most people are looking for a solution providing local maps.</p>
+      <p>The tool OsmAndMapCreator helps to create maps in a non-automated way. This is only to process user-defined OSM maps or to use maps for your own purpose.</p>
+      <p>On this page two methods will be described:</p>
+      <ul class="list">
+        <li> A fully automated way to update local maps frequently with the possibility to upload local generated maps to osmand.net to simplify life for others.</li>
+        <li> An automated way to create offline maps for yourself.</li>
+      </ul>
+      <div class="blocksubtitle">Complete automated workflow with upload possibilities</div>
+      <div class="blocksubsubtitle">Prerequisites</div>
+      <p>Prerequisites : *Jenkins*, *Java*, *Ant*.</p>
+      <p>Automation is provided by  the continuous integration tool called <a href="http://jenkins-ci.org/">Jenkins</a>. It will allow you to schedule jobs at whatever time you like and to utilize a lot of useful Jenkins plugins.</p>
+      <p>Please configure Jenkins so that it is allowed to use Java and Ant from your machine. Don&#39;t forget to install the GIT plugin for Jenkins and to specify user.name and user.email.</p>
+      <div class="blocksubsubtitle">Steps overview</div>
+      <p>There are 2 main steps : GenerateIndexes and UploadIndexes. You can have a look at <a href="http://new.osmand.net:8080/">continuous integration</a>. GenerateIndexes downloads OSM files from different sources (defined in regions.xml) and generates OsmAnd files. After that, successfully generated files are moved to the indexes directory. UploadIndexes verifies generated files from *indexes* dir, moves them into the *uploaded* dir and uploads them through *ssh* to a specified server.</p>
+      <p><a href="http://new.osmand.net:8080/">OsmAnd continuous generation</a> has the same steps except that it uploads to a different *ssh* (production) server. And there is also an additional step to move all uploaded files to a backup and start a completely new index generation. It is used when all indexes are generated.</p>
+      <p>To monitor the whole process you can use the logs from this <a href="http://new.osmand.net:8080/job/GenerateIndexes">site</a>. You can also see what files are currently generated <a href="http://new.osmand.net:8080/job/GenerateIndexes/ws/.work/">work folder</a>. You can see what files are about to be verified and uploaded <a href="http://new.osmand.net:8080/job/GenerateIndexes/ws/indexes/">dir</a> and which have already been uploaded in the <a href="http://new.osmand.net:8080/job/GenerateIndexes/ws/indexes/uploaded">uploaded directory</a>.</p>
+      <div class="blocksubsubtitle">Configure GenerateIndexes</div>
+      <p>Schedule : Depends on you. You can run it every day 0 12 * * * or manually.</p>
+      <p>SCM (source control) : _git://github.com/osmandapp/Osmand.git_ and Branch Specifier _origin/master_.</p>
+      <p>Steps :</p>
+      <ul class="list">
+        <li> ant *clean compile jar* . Advanced DataExtractionOSM/build.xml. </li>
+        <li>
+          Shell script
+          <pre>
+mkdir ~/indexes && mkdir ~/indexes/uploaded
 
-<li>Turn instructions:* 
-<p> Are suppressed if traveling in a weird directions (account for GPS issues)</p></li>
+rm -rf .work && mkdir .work &&  mkdir .work/osm
 
-<li>Lead distances (lead time)</li>
-<ol type="a">
-<li>CAR profile* (DEFAULT_SPEED = 12m/s=43km/h):
-<p>|| (a) &#62;3000m out            || &#34;Follow the course of the road for...&#34;||
-|| (b) 3000m-2000m           || PREPARE_LONG||
-|| (c) 1500m-1200m           || PREPARE||
-|| (d) 300m-168m (or &#60;25sec) || TURN_IN||
-|| (e) &#60;60m (or &#60;5sec)       || TURN||</p></li>
-<li>BICYCLE profile* (DEFAULT_SPEED = 5m/s=18 km/h):
+if [ -z $INDEXES_FILE ]; then INDEXES_FILE="build-scripts/regions/indexes.xml"; echo "$INDEXES_FILE"; fi
 
-<p>|| (b) 500m-300m                                      || PREPARE_LONG||
-|| (c) ~~500m-350m~~ 200m-120m                        || PREPARE||
-|| (d) ~~225m-80m (or &#60;45sec)~~ 80m-60m (or &#60;16sec)   || TURN_IN||
-|| (e) ~~&#60;45m (or &#60;9sec)~~ &#60;30m (or &#60;6sec)            || TURN||</p></li>
-<li>PEDESTRIAN profile* (DEFAULT_SPEED = 2 m/s=7.2km/h):
-<p>|| (c) ~~200m-150m~~ 100m-70m                         || PREPARE||
-|| (d) ~~100m-70m (or &#60;50sec)~~ 50m-30m (or &#60;25sec)   || TURN_IN||
-|| (e) ~~25m or (or &#60;12sec)~~  15m (or &#60;7.5sec)       || TURN||</p>
-<p>,,(Corrected values for bike and ped from forum feedback June 2013.),,</p></li>
-</ol>
-</ol>
-<p class="back_to_top"><a href="#top">Back to top</a></p>
-</div>
+java -XX:+UseParallelGC -Xmx2048M -Xmn256M -Djava.util.logging.config.file=&#8203;build-scripts/batch-logging.properties -cp "DataExtractionOSM&#8203;/OsmAndMapCreator.jar&#8203;:DataExtractionOSM&#8203;/lib/*.jar" net.osmand.data.&#8203;index.IndexBatchCreator build-scripts/indexes-batch-generate.xml "$INDEXES_FILE"
+          </pre>
+        </li>
+      </ul>
+      <p>You can point $INDEXES_FILE to any indexes.xml and leave only regions you want to generate. Please also copy build-scripts/indexes-batch-generate.xml and update it to your local settings and replace _java_ program parameter to your local file.</p>
+      <div class="blocksubsubtitle">Configure UploadIndexes</div>
+      <p>It is highly appreciated if you want to share generated indexes with others. You need to send your public key (id_rsa.pub) generated by ssh-keygen to the community (<a href="http://groups.google.com/group/osmand">Google Groups</a>). After that you will be authorized to *ssh jenkins@new.osmand.net* (to a master jenkins continuous generation). I think it would also be good to register at Jenkins through UI.</p>
+      <p>Schedule : every 15 minutes to monitor indexes folder constantly for changes */15 * * * *.</p>
+      <p>SCM (source control) : _git://github.com/osmandapp/Osmand.git_ and Branch Specifier _origin/master_.</p>
+      <p>Steps :</p>
+      <pre>
+ant *compile jar*. Advanced DataExtractionOSM/build.xml.
+      </pre>
+      <pre>
+java -cp "DataExtractionOSM&#8203;/OsmAndMapCreator.jar&#8203;:DataExtractionOSM&#8203;/lib/*.jar" net.osmand.data&#8203;.index.IndexUploader /home/.../indexes /home/.../indexes/uploaded -ssh --url=ssh://... --user=jenkins --privKey=/home/.../.ssh/id_rsa --path=/var/lib/jenkins/indexes/
+      </pre>
+      <p>The 1st argument is where the indexes to upload are laid, 2nd argument if the upload success where the files will be moved. Specify private key to authorize through ssh --privKey.</p>
+      <p class="back_to_top"><a href="#top">Back to top</a></p>
+    </div>
+  </div>
 
-<div class="subtitle" id="Installation_of_Different_Builds">Installation of different builds</div>
-<div class="content">
-<p>Different builds of OsmAnd should install over any other build of the same strain (older or newer) without any issues, and with all Offline data being preserved.</p>
-<p>The latest development build (not necessarily stable !) for testing can be found <a href="http://download.osmand.net/latest-night-build/OsmAnd-default.apk">here</a>.</p>
-
-<p>This will update over any more recent existing development build with no problems at all. Should trying to update produce a signing or &#34;not installed&#34; error (like if you currently use the market or a very old dev build), please</p>
-<ul class="list">
- <li> export your Favorites first (Menu/Export in the fav list)</li>
- <li> uninstall the previous version</li>
- <li> re-install the new development build</li>
- <li> re-import your Favorites again (Menu/Import)</li>
-</ul>
-<p>All maps/tracks etc. are kept in place unchanged during this procedure.</p>
-<p class="back_to_top"><a href="#top">Back to top</a></p>
-</div>
-
-<div class="subtitle" id="Map_Generation_Process">The map generation process</div>
-<div class="content">
-<div class="blocksubtitle">Introduction</div>
-<p>Since OsmAnd has its own binary map format it is an OsmAnd initiative to generate/support and distribute these maps. OsmAnd can not update the maps frequently because it takes 2 weeks to process the whole world and only 1 out of 3 generations is successful. Most people are looking for a solution providing local maps.</p>
-<p>The tool OsmAndMapCreator helps to create maps in a non-automated way. This is only to process user-defined OSM maps or to use maps for your own purpose.</p>
-<p>On this page two methods will be described:</p>
-<ul class="list">
- <li> A fully automated way to update local maps frequently with the possibility to upload local generated maps to osmand.net to simplify life for others.</li>
- <li> An automated way to create offline maps for yourself.</li>
-</ul>
-
-<div class="blocksubtitle">Complete automated workflow with upload possibilities</div>
-
-<div class="blocksubsubtitle">Prerequisites</div>
-<p>Prerequisites : *Jenkins*, *Java*, *Ant*.</p>
-<p>Automation is provided by  the continuous integration tool called <a href="http://jenkins-ci.org/">Jenkins</a>. It will allow you to schedule jobs at whatever time you like and to utilize a lot of useful Jenkins plugins.</p>
-<p>Please configure Jenkins so that it is allowed to use Java and Ant from your machine. Don&#39;t forget to install the GIT plugin for Jenkins and to specify user.name and user.email.</p>
-
-<div class="blocksubsubtitle">Steps overview</div>
-<p>There are 2 main steps : GenerateIndexes and UploadIndexes. You can have a look at <a href="http://new.osmand.net:8080/">continuous integration</a>. GenerateIndexes downloads OSM files from different sources (defined in regions.xml) and generates OsmAnd files. After that, successfully generated files are moved to the indexes directory. UploadIndexes verifies generated files from *indexes* dir, moves them into the *uploaded* dir and uploads them through *ssh* to a specified server.</p>
-<p><a href="http://new.osmand.net:8080/">OsmAnd continuous generation</a> has the same steps except that it uploads to a different *ssh* (production) server. And there is also an additional step to move all uploaded files to a backup and start a completely new index generation. It is used when all indexes are generated.</p>
-<p>To monitor the whole process you can use the logs from this <a href="http://new.osmand.net:8080/job/GenerateIndexes">site</a>. You can also see what files are currently generated <a href="http://new.osmand.net:8080/job/GenerateIndexes/ws/.work/">work folder</a>. You can see what files are about to be verified and uploaded <a href="http://new.osmand.net:8080/job/GenerateIndexes/ws/indexes/">dir</a> and which have already been uploaded in the <a href="http://new.osmand.net:8080/job/GenerateIndexes/ws/indexes/uploaded">uploaded directory</a>.</p>
-
-<div class="blocksubsubtitle">Configure GenerateIndexes</div>
-<p>Schedule : Depends on you. You can run it every day 0 12 * * * or manually.</p>
-<p>SCM (source control) : _git://github.com/osmandapp/Osmand.git_ and Branch Specifier _origin/master_.</p>
-<p>Steps :</p>
-<ul class="list">
- <li> ant *clean compile jar* . Advanced DataExtractionOSM/build.xml. </li>
- <li> Shell script
- <pre>
- mkdir ~/indexes && mkdir ~/indexes/uploaded
-
- rm -rf .work && mkdir .work &&  mkdir .work/osm
-
- if [ -z $INDEXES_FILE ]; then INDEXES_FILE="build-scripts/regions/indexes.xml"; echo "$INDEXES_FILE"; fi
-
- java -XX:+UseParallelGC -Xmx2048M -Xmn256M -Djava.util.logging.config.file=&#8203;build-scripts/batch-logging.properties -cp "DataExtractionOSM&#8203;/OsmAndMapCreator.jar&#8203;:DataExtractionOSM&#8203;/lib/*.jar" net.osmand.data.&#8203;index.IndexBatchCreator build-scripts/indexes-batch-generate.xml "$INDEXES_FILE" </pre></li>
-</ul>
-<p>You can point $INDEXES_FILE to any indexes.xml and leave only regions you want to generate. Please also copy build-scripts/indexes-batch-generate.xml and update it to your local settings and replace _java_ program parameter to your local file.</p>
-
-<div class="blocksubsubtitle">Configure UploadIndexes</div>
-<p>It is highly appreciated if you want to share generated indexes with others. You need to send your public key (id_rsa.pub) generated by ssh-keygen to the community (<a href="http://groups.google.com/group/osmand">Google Groups</a>). After that you will be authorized to *ssh jenkins@new.osmand.net* (to a master jenkins continuous generation). I think it would also be good to register at Jenkins through UI.</p>
-<p>Schedule : every 15 minutes to monitor indexes folder constantly for changes */15 * * * *.</p>
-<p>SCM (source control) : _git://github.com/osmandapp/Osmand.git_ and Branch Specifier _origin/master_.</p>
-<p>Steps :</p>
-<pre>
- ant *compile jar*. Advanced DataExtractionOSM/build.xml.
- </pre>
- <pre>
- java -cp "DataExtractionOSM&#8203;/OsmAndMapCreator.jar&#8203;:DataExtractionOSM&#8203;/lib/*.jar" net.osmand.data&#8203;.index.IndexUploader /home/.../indexes /home/.../indexes/uploaded -ssh --url=ssh://... --user=jenkins --privKey=/home/.../.ssh/id_rsa --path=/var/lib/jenkins/indexes/
-</pre>
-<p>The 1st argument is where the indexes to upload are laid, 2nd argument if the upload success where the files will be moved. Specify private key to authorize through ssh --privKey.</p>
-<p class="back_to_top"><a href="#top">Back to top</a></p>
-</div>
-
-<div class="subtitle" id="Create_offline_maps_for_yourself">Create offline maps for yourself</div>
-<div class="content">
-<p>OsmAndMapCreator can also be used to create maps for yourself if you want maps that are more up-to-date then the ones you can download from OsmAnd.
-We will explain this via a Un*x/Linux/OS X like shell script and we will use the nightly generated maps from <a href="http://download.geofabrik.de/">Geofabrik</a>, a German company that sells OpenstreetMap based maps and appliances.</p>
-<div class="blocksubtitle">Shell script</div>
-<pre>
+  <div class="question">
+    <div class="subtitle" id="Create_offline_maps_for_yourself">Create offline maps for yourself</div>
+    <div class="content">
+      <p>OsmAndMapCreator can also be used to create maps for yourself if you want maps that are more up-to-date then the ones you can download from OsmAnd.
+      We will explain this via a Un*x/Linux/OS X like shell script and we will use the nightly generated maps from <a href="http://download.geofabrik.de/">Geofabrik</a>, a German company that sells OpenstreetMap based maps and appliances.</p>
+      <div class="blocksubtitle">Shell script</div>
+      <pre>
 #!/bin/sh
 WORK_FOLDER="/opt/OpenStreetMap"
 # First download all the data
@@ -381,627 +367,632 @@ echo date > endtime.txt
 
 echo "And finally moving the obf files from the index folder to the osmandmaps folder\n"
 mv index_files/*.obf osmandmaps/
-</pre>
-<div class="blocksubtitle">Explanation</div>
-<p>The line _WORK_FOLDER=&#34;/opt/OpenStreetMap&#34;_ is a variable to set our working folder. Inside this folder we have the maps _osm_files_, _OsmAndMapCreator_, _index_files_ and _gen_files_.</p>
-<p>We move into our download folder _osm_files_ and we use the command _wget_ to download our map(s). The wget command is used with the parameter _-O &#60;name&#62;_ as we will download the latest nightly map from Geofabrik, but we will save it immediately in the nameformat OsmAnd prefers.</p>
-<p>We move into the folder _OsmAndMapCreator_ where we installed/copied the OsmAndMapCreator program. It is best to really use the program from this folder, otherwise you have to set all kind of environment variables.
-The line:
-<pre>
+      </pre>
+      <div class="blocksubtitle">Explanation</div>
+      <p>The line _WORK_FOLDER=&#34;/opt/OpenStreetMap&#34;_ is a variable to set our working folder. Inside this folder we have the maps _osm_files_, _OsmAndMapCreator_, _index_files_ and _gen_files_.</p>
+      <p>We move into our download folder _osm_files_ and we use the command _wget_ to download our map(s). The wget command is used with the parameter _-O &#60;name&#62;_ as we will download the latest nightly map from Geofabrik, but we will save it immediately in the nameformat OsmAnd prefers.</p>
+      <p>We move into the folder _OsmAndMapCreator_ where we installed/copied the OsmAndMapCreator program. It is best to really use the program from this folder, otherwise you have to set all kind of environment variables.
+        The line:
+      <pre>
 _java -Djava.util.logging.config.file=&#8203;logging.properties -Xms256M -Xmx2560M -cp "./OsmAndMapCreator.jar:&#8203;./lib/OsmAnd-core.jar:./lib/*.jar" net.osmand.data.&#8203;index.IndexBatchCreator ./batch.xml_
-</pre>
- runs OsmAndMapcreator on our downloaded maps. OsmAndMapCreator will process all maps it will find in the download map. this also means that it will process older maps if you still had them there.</p>
-<p>We will log the process to file (-Djava.util.logging.config.file=logging.properties), give OsmAndMapCreator a minimum amount of 256MB and a maximum amount of 2560MB (preferably more then 1024MB), and we use the setup as specified in _batch.xml_.<br/>
-Note: a 32bit Operating system can address up to approximately 1.5GB. This means that your -Xmx value can no larger be then -Xmx1720M. A larger specification is accepted without errors, but not used.</p>
-
-<p>The _batch.xml_ file can be found in the OsmAndMapCreator folder, together with the program, and contains settings for running the program.
-The line:
-<pre>
- _process directory_for_osm_files=&#8203;"/opt/OpenStreetMap/osm_files" directory_for_index_files=&#8203;"/opt/OpenStreetMap/index_files" directory_for_generation=&#8203;"/opt/OpenStreetMap/gen_files"_
-</pre> specifies our working folders.</p>
-The next line:
-<pre>
+      </pre>
+      runs OsmAndMapcreator on our downloaded maps. OsmAndMapCreator will process all maps it will find in the download map. this also means that it will process older maps if you still had them there.</p>
+      <p>We will log the process to file (-Djava.util.logging.config.file=logging.properties), give OsmAndMapCreator a minimum amount of 256MB and a maximum amount of 2560MB (preferably more then 1024MB), and we use the setup as specified in _batch.xml_.<br/>
+        Note: a 32bit Operating system can address up to approximately 1.5GB. This means that your -Xmx value can no larger be then -Xmx1720M. A larger specification is accepted without errors, but not used.
+      </p>
+      <p>The _batch.xml_ file can be found in the OsmAndMapCreator folder, together with the program, and contains settings for running the program.
+        The line:
+      <pre>
+_process directory_for_osm_files=&#8203;"/opt/OpenStreetMap/osm_files" directory_for_index_files=&#8203;"/opt/OpenStreetMap/index_files" directory_for_generation=&#8203;"/opt/OpenStreetMap/gen_files"_
+      </pre>
+      specifies our working folders.</p>
+      The next line:
+      <pre>
 _skipExistingIndexesAt="/..." indexPOI="true" indexRouting="true" indexMap="true"        indexTransport="true" indexAddress="true">_ 
-</pre>
-gives you options to modify parts of your map. If you don&#39;t need routing and/or addresses, you can simply skip these by setting the parameters to &#34;false&#34;. </p>
-<p>You can also use multiple batch.xml files for different purposes.</p>
-<p>The last two lines in the script move the created maps to the osmandmaps folder where we store our maps (in this case).</p>
-<p>
-The lines 
-<pre>
+      </pre>
+      gives you options to modify parts of your map. If you don&#39;t need routing and/or addresses, you can simply skip these by setting the parameters to &#34;false&#34;. </p>
+      <p>You can also use multiple batch.xml files for different purposes.</p>
+      <p>The last two lines in the script move the created maps to the osmandmaps folder where we store our maps (in this case).</p>
+      <p>
+        The lines 
+      <pre>
 _echo date > starttime.txt_ 
 
 and 
 
 _echo date > endtime.txt_ 
-</pre>
-are not really neccessary but simply display how long the process takes.</p>
-
-<div class="blocksubtitle">Scheduling</div>
-<p>The shell script can be scheduled as well. You have to take notice of the Geofabrik schedule for the maps creations (calculate for your own time zone).</p>
-<p>If you want to create a new map every night, you could add a crontab line like:</p>
-<pre>_01 03 * * 7 /opt/OpenStreetMap/&#8203;osm.pbf_to_obf_convert.sh > /dev/null 2>&1_</pre>
-<p>This will start the creation of the map at 03:01 in the morning which is currently after the Geofabrik netherlands osm.pbf map has been generated (local time zone).</p>
-
-<div class="blocksubtitle">Performance and tuning</div>
-<p>Creating maps is a memory hungry and very I/O intensive (disk intensive) process. In other words: It takes long to very long!</p>
-<p>What can you do to improve performance:</p>
-<ul class="list">
-<li> SSD disks.</li>
-<li> Use multiple disks.</li>
-<li> Use &#34;in memory&#34; processing.</li>
-</ul>
-
-<div class="blocksubsubtitle">SSD disks</div>
-<p>The modern &#34;solid state&#34; disks are 2-6 times as fast as conventional hard-disks and can improve your map creation performance dramatically.</p>
-
-<div class="blocksubsubtitle">Multiple disks</div>
-<p>Modern operating systems can access multiple disks simultaneously. Note that this really means *multiple disks* and *NOT* multiple partitions on one disk.</p>
-<p>If you have your _process directory_for_osm_files_ on one disk and your _directory_for_generation_ on another disk you will see an nice and noticeable performance gain.</p>
-
-<div class="blocksubsubtitle">In memory processing</div>
-<p>You can do a great deal of the map creation not on disk but in memory. In your batch.xml one of the top lines contains:</p>
-<pre>
+      </pre>
+      are not really neccessary but simply display how long the process takes.</p>
+      <div class="blocksubtitle">Scheduling</div>
+      <p>The shell script can be scheduled as well. You have to take notice of the Geofabrik schedule for the maps creations (calculate for your own time zone).</p>
+      <p>If you want to create a new map every night, you could add a crontab line like:</p>
+      <pre>_01 03 * * 7 /opt/OpenStreetMap/&#8203;osm.pbf_to_obf_convert.sh > /dev/null 2>&1_</pre>
+      <p>This will start the creation of the map at 03:01 in the morning which is currently after the Geofabrik netherlands osm.pbf map has been generated (local time zone).</p>
+      <div class="blocksubtitle">Performance and tuning</div>
+      <p>Creating maps is a memory hungry and very I/O intensive (disk intensive) process. In other words: It takes long to very long!</p>
+      <p>What can you do to improve performance:</p>
+      <ul class="list">
+        <li> SSD disks.</li>
+        <li> Use multiple disks.</li>
+        <li> Use &#34;in memory&#34; processing.</li>
+      </ul>
+      <div class="blocksubsubtitle">SSD disks</div>
+      <p>The modern &#34;solid state&#34; disks are 2-6 times as fast as conventional hard-disks and can improve your map creation performance dramatically.</p>
+      <div class="blocksubsubtitle">Multiple disks</div>
+      <p>Modern operating systems can access multiple disks simultaneously. Note that this really means *multiple disks* and *NOT* multiple partitions on one disk.</p>
+      <p>If you have your _process directory_for_osm_files_ on one disk and your _directory_for_generation_ on another disk you will see an nice and noticeable performance gain.</p>
+      <div class="blocksubsubtitle">In memory processing</div>
+      <p>You can do a great deal of the map creation not on disk but in memory. In your batch.xml one of the top lines contains:</p>
+      <pre>
 <process_attributes mapZooms="" renderingTypesFile="" zoomWaySmoothness="" osmDbDialect="sqlite" mapDbDialect="sqlite"/>
-</pre>
-<p>The <span class="code">osmDbDialect=&#34;sqlite&#34; mapDbDialect=&#34;sqlite&#34;</span> determines where your map generation process will take place.</p>
-<p>The line <span class="code">osmDbDialect=&#34;sqlite&#34; mapDbDialect=&#34;sqlite&#34;</span> means that it will take place on disk.</p>
-<p>If you change this to <span class="code">osmDbDialect=&#34;sqlite_in_memory&#34; mapDbDialect=&#34;sqlite_in_memory&#34; </span>the process will take place in memory.</p>
-<p>This &#34;in memory&#34; processing will speed up the map generation by 10-50% but requires a lot of memory. The 10% to 50% is dependent on the map size. Smaller maps benefit less from in memory processing than larger maps, as still the normal disk access (initial reading and final map writing) plays a major role in smaller maps, where as the processing of all the data (and their relations) in larger maps requires more &#34;calculation&#34;.</p>
-<p>In normal &#34;on disk&#34; processing a nodes.tmp.odb file is created from your .osm or .osm.pbf file. This nodes.tmp.odb file is a sqlite database file and it is about 15 to 25 times as big as the original .osm.pbf file which you downloaded from <a href="http://download.geofabrik.de/">geofabrik.de</a>.</p>
-<p>So if your original .osm.pbf file is 300MB, your nodes.tmp.odb file will be 5GB to 6GB!
-Note that smaller maps will be around the 15x factor whereas big maps (&#62;350MB) will end up in the 20x to 25X space increase.</p>
-<p>With &#34;in memory&#34; processing this nodes.tmp.odb file will be created in your working memory. It means that the -Xmx parameter, which we discussed in the <a href="http://code.google.com/p/osmand/wiki/CreateOfflineMapsForYourself#Explanation">Explanation</a> sections, needs to be big enough for both the nodes.tmp.odb and the normal processing that takes place in memory.</p>
-<p>You will need &#34;the size of the nodes.tmp.odb&#34; + 20-25%.</p>
-<p>It means that for a 250MB .osm.pbf, which will generate a ~4.5GB nodes.tmp.odb file, you need about 5GB heapspace which requires an -Xmx value of -Xmx5120M.</p>
-<p><b>Note</b>: a 32bit Operating system can address up to approximately 1.5GB. This means that your -Xmx value can no larger be then -Xmx1720M. A larger specification is accepted without errors, but not used. </p>
-<p>So in effect you really need a 64bit Operating system to really benefit from &#34;in memory&#34; processing.</p>
-<p>Note also that your -Xmx value should not be that big that your operating system starts swapping to disk. This will even decrease your performance below that of normal &#34;on disk&#34; processing.</p>
-<p>Finally: your source .osm.pbf file can be no larger then 600MB as this would require up to 20GB working memory. If your source file exceeds 600MB, OsmAndMapCreator will switch back to normal &#34;on disk&#34; processing. You will be notified early in the process with a warning &#34;Switching SQLITE in memory dialect to SQLITE&#34;</p>
-<p class="back_to_top"><a href="#top">Back to top</a></p>
-</div>
+      </pre>
+      <p>The <span class="code">osmDbDialect=&#34;sqlite&#34; mapDbDialect=&#34;sqlite&#34;</span> determines where your map generation process will take place.</p>
+      <p>The line <span class="code">osmDbDialect=&#34;sqlite&#34; mapDbDialect=&#34;sqlite&#34;</span> means that it will take place on disk.</p>
+      <p>If you change this to <span class="code">osmDbDialect=&#34;sqlite_in_memory&#34; mapDbDialect=&#34;sqlite_in_memory&#34; </span>the process will take place in memory.</p>
+      <p>This &#34;in memory&#34; processing will speed up the map generation by 10-50% but requires a lot of memory. The 10% to 50% is dependent on the map size. Smaller maps benefit less from in memory processing than larger maps, as still the normal disk access (initial reading and final map writing) plays a major role in smaller maps, where as the processing of all the data (and their relations) in larger maps requires more &#34;calculation&#34;.</p>
+      <p>In normal &#34;on disk&#34; processing a nodes.tmp.odb file is created from your .osm or .osm.pbf file. This nodes.tmp.odb file is a sqlite database file and it is about 15 to 25 times as big as the original .osm.pbf file which you downloaded from <a href="http://download.geofabrik.de/">geofabrik.de</a>.</p>
+      <p>So if your original .osm.pbf file is 300MB, your nodes.tmp.odb file will be 5GB to 6GB!
+        Note that smaller maps will be around the 15x factor whereas big maps (&#62;350MB) will end up in the 20x to 25X space increase.
+      </p>
+      <p>With &#34;in memory&#34; processing this nodes.tmp.odb file will be created in your working memory. It means that the -Xmx parameter, which we discussed in the <a href="http://code.google.com/p/osmand/wiki/CreateOfflineMapsForYourself#Explanation">Explanation</a> sections, needs to be big enough for both the nodes.tmp.odb and the normal processing that takes place in memory.</p>
+      <p>You will need &#34;the size of the nodes.tmp.odb&#34; + 20-25%.</p>
+      <p>It means that for a 250MB .osm.pbf, which will generate a ~4.5GB nodes.tmp.odb file, you need about 5GB heapspace which requires an -Xmx value of -Xmx5120M.</p>
+      <p><b>Note</b>: a 32bit Operating system can address up to approximately 1.5GB. This means that your -Xmx value can no larger be then -Xmx1720M. A larger specification is accepted without errors, but not used. </p>
+      <p>So in effect you really need a 64bit Operating system to really benefit from &#34;in memory&#34; processing.</p>
+      <p>Note also that your -Xmx value should not be that big that your operating system starts swapping to disk. This will even decrease your performance below that of normal &#34;on disk&#34; processing.</p>
+      <p>Finally: your source .osm.pbf file can be no larger then 600MB as this would require up to 20GB working memory. If your source file exceeds 600MB, OsmAndMapCreator will switch back to normal &#34;on disk&#34; processing. You will be notified early in the process with a warning &#34;Switching SQLITE in memory dialect to SQLITE&#34;</p>
+      <p class="back_to_top"><a href="#top">Back to top</a></p>
+    </div>
+  </div>
 
-<div class="subtitle" id="Country_Polygon_Creation">Creating a country polygon</div>
-<div class="content">
-<p>This article describes how to create a poly(gon) for a missing country in geofabrik.de and how to add this poly to the map generation server of OsmAnd</p>
-<div class="blocksubtitle">Introduction</div>
-<p>OsmAnd comes with a lot of maps for a lot of countries. Most maps are created from &#34;raw data&#34; maps downloaded from <a href="http://download.geofabrik.de">geofabrik.de</a>. Geofabrik supplies these raw data maps for free to everyone and they deliver (commercial) services and products based on these maps.</p>
-<p>Geofabrik.de has the strategy to deliver maps for the countries that are requested by larger numbers of users or by their customers. This means that some maps never make it on geofabrik as there are simply not enough requests for (or none at all), like some exotic countries like the Seychelles or Burundi, etc.</p> 
+  <div class="question">
+    <div class="subtitle" id="Country_Polygon_Creation">Creating a country polygon</div>
+    <div class="content">
+      <p>This article describes how to create a poly(gon) for a missing country in geofabrik.de and how to add this poly to the map generation server of OsmAnd</p>
+      <div class="blocksubtitle">Introduction</div>
+      <p>OsmAnd comes with a lot of maps for a lot of countries. Most maps are created from &#34;raw data&#34; maps downloaded from <a href="http://download.geofabrik.de">geofabrik.de</a>. Geofabrik supplies these raw data maps for free to everyone and they deliver (commercial) services and products based on these maps.</p>
+      <p>Geofabrik.de has the strategy to deliver maps for the countries that are requested by larger numbers of users or by their customers. This means that some maps never make it on geofabrik as there are simply not enough requests for (or none at all), like some exotic countries like the Seychelles or Burundi, etc.</p>
+      <div class="blocksubtitle">Server process</div>
+      <p>Because of this strategic decision of geofabrik, OsmAnd has an option to generate maps for these exotic rare countries and the tools <a href="http://download.osmand.net/latest-night-build/OsmAndMapCreator-development.zip">OsmAndMapCreator</a> and <a href="http://wiki.openstreetmap.org/wiki/Osmconvert">osmconvert</a> are used for this. For OsmAndMapCreator this is a three step process:</p>
+      <ul class="list">
+        <li> OsmAndMapCreator needs a polygon which surrounds the outer border of the country.</li>
+        <li> OsmAndMapCreator needs the &#34;raw data map&#34; from the next level incorporating this country. For Burundi it mean that OsmAndMapCreator needs the Africa map. For Nordrhein-Westfalen it means that OsmAndMapCreator needs the Germany map.</li>
+        <li> <a href="http://wiki.openstreetmap.org/wiki/Osmconvert">Osmconvert</a> will create a &#34;raw data&#34; map from the poly extracting the map data from the &#34;parent&#34; map.</li>
+        <li> OsmAndMapCreator will create an OsmAnd obf map based on the intermediate &#34;raw data&#34; map generated by osmconvert.</li>
+      </ul>
+      <div class="blocksubtitle">Necessary actions</div>
+      <p>Depending on the complexity of the (generated) polygon this complete chain of actions can take from 10 minutes to 2 hours in total.</p>
+      <div class="blocksubtitle">Get the OpenStreetMap relation from Nominatim</div>
+      <ul class="list">
+        <li> Go to <a href="http://nominatim.openstreetmap.org">nominatim.openstreetmap.org</a></li>
+        <li> Fill in your country name</li>
+        <li> Once found click on the link &#34;(details)&#34;</li>
+        <li> In Details scroll down to &#34;OSM: relation &#34; and write down or copy the relation ID number.</li>
+      </ul>
+      <div class="blocksubtitle">Retrieve the poly(gon) from polygons.openstreetmap.fr</div>
+      <div class="blocksubsubtitle">Generate the polygon</div>
+      <ul class="list">
+        <li> Go to <a href="http://polygons.openstreetmap.fr/">polygons.openstreetmap.fr</a></li>
+        <li> Fill in (or paste) the &#34;OSM: relation &#34; ID number you retrieved from Nominatim for your desired country into the &#34;Id of relation&#34; field.</li>
+        <li> This will create a default polygon, consisting of 250 to 3500 nodes (NPoints). The poly itself can be found in the &#34;poly&#34; column.</li>
+        <li> In case of more then 350 nodes you will need to simplify  the polygon. The simpler the polygon, the faster the country map can be created (of course depending on the contents)</li>
+      </ul>
+      <div class="blocksubsubtitle">Simplify the polygon</div>
+      <p>The number of Node Points (NPoints) needs to be as low as possible for the fastest possible creation of the map by OsmAndMapCreator. As mentioned: In case of more then 350 node points try to reduce them by simplifying the polygon.</p>
+      <ul class="list">
+        <li> In case of more then 350 nodes, try to reduce them by &#34;playing&#34; with the X variable (in my experience the others don&#39;t really matter)</li>
+        <li> Sometimes you get great results (90 NPoints, 200 NPoints, 270 NPoints) and then you are done with this step. Sometimes you simply can&#39;t get below 450 NPoints or so. Then you need to apply further manual steps.</li>
+        <li> Save your final polygon to file. Use the correct default name for it, like france.poly. Stick to lowercase characters.</li>
+      </ul>
+      </pre>
+      <div class="blocksubsubtitle">Further modification and simplification of the polygon</div>
+      <ul class="list">
+        <li> Open JOSM (download if necessary) and open the polygon file you created (did you make a copy/backup of the original polygon that you saved?).</li>
+        <li> Add a background from the &#34;Images&#34; menu and select the default &#34;OpenStreetMap (Mapnik)&#34; background.</li>
+        <li> Manually remove node points where possible. *Note:* Keep the polygon as close as possible around the border. You do need some overlap but try to keep it below 2-5 kilometers. Overlap in countries will be generated twice for each country. Less overlap, means less rendering time and rendering errors. At coastlines and around islands try to keep more distance (20 kilometers). This is widely acepted and the sea is &#34;empty&#34; anyway.</li>
+        <li> When you have done the best you can you can save the updated, corrected poly. As said: try to get as little node points as possible, but sometimes a country border is so complicated that you simply need more node points to describe it and to keep the polygon as close as possible around the border: so be it.</li>
+        <li> *Do not upload the polygon to OSM*. JOSM will ask you to upload your work to OpenStreetMap. Don&#39;t do this for these polygons unless you know exactly what you do. Almost every country in the world is already perfectly covered in OpenStreetMap (otherwise nominatim would not be able to give you the details about the country, and polygons.openstreetmap.fr would not be able to generate the polygon based on the OSM relation id.)</li>
+      </ul>
+      <div class="blocksubtitle">Adding the poly(gon) to the OsmAnd server</div>
+      <p>To be able to do this you must register as a user.</p>
+      <p>To make the map generation possible there are two steps required:</p>
+      <ul class="list">
+        <li> Adding the polygon to the map data section</li>
+        <li> Adding the country to the data file that is used to generate the OsmAnd obf maps.</li>
+      </ul>
+      <div class="blocksubsubtitle">Adding the polygon to the map data section</div>
+      <ul class="list">
+        <li> Go to the web address of the OsmAnd development server at <a class="externallink" href="https://github.com/osmandapp/" rel="nofollow" title="https://github.com/osmandapp/">https://github.com/osmandapp/</a></li>
+        <li> Select the OsmAnd-misc section.</li>
+        <li> Select &#34;fork&#34; to create your own personal repository</li>
+        <li>
+          <p>In your personal repository go to the folder osm-planet/polygons and select the relevant continent.</p>
+          <p><b>Note</b>: The &#34;master&#34; repository is at <a href="https://github.com/osmandapp/OsmAnd-misc/.">github.com/osmandapp/OsmAnd-misc</a>. Your repository is at <a href="https://github.com/">github.com</a>&#60;your user name&#62;/OsmAnd-misc.</p>
+        </li>
+        <li> Create a new file and copy your poly data inside. Save the file.</li>
+        <li> Create a pull request.</li>
+      </ul>
+      <div class="blocksubsubtitle">Add the map creation to the batch list</div>
+      <ul class="list">
+        <li> Go to the web address of the OsmAnd development server at <a href="https://github.com/osmandapp/">github.com/osmandapp</a></li>
+        <li> Select the OsmAnd-tools section.</li>
+        <li> Select &#34;fork&#34; to create your own personal repository.</li>
+        <li> In your personal repository go to the folder obf-generation/regions.</li>
+        <li> Select the file indexes.xml and click edit.</li>
+        <li> Add your country at the relevant location and save the file.</li>
+        <li> Create a pull request.</li>
+      </ul>
+      <div class="blocksubtitle">Creating your own personal maps from a poly</div>
+      <p>You can create for example polygons from countries, counties/provinces/states, regions and cities.</p>
+      <p>Say your daughter is going to Paris for a couple of days with a friend. She is not interested in navigation, walking or cycling (unless absolutely necessary), but she wants to know where she is, where to go to and where to find the interesting places (POIs). Next to that she has a small phone (low end CPU, low on memory) and small SD-card (stuffed with music). So the map needs to be as small as possible: both for storage as well as performance. You can of course download the map for france_ile-de-france.obf containing Paris, but you can also generate a &#34;custom made&#34; Paris map.</p>
+      <ul class="list">
+        <li> Let your daughter download OsmAnd, or even better: let her buy OsmAnd+</li>
+        <li> Get the OSM relation id for Paris from Nominatim.</li>
+        <li> Get the (simplified) poly for the Paris id from polygons.openstreetmap.fr</li>
+        <li> download or compile <a href="http://wiki.openstreetmap.org/wiki/Osmconvert">osmconvert</a></li>
+        <li> download &#34;raw data&#34; map of ile-de-france from geofabrik.de</li>
+        <li>
+          create raw data map of Paris from the ile-de-france map and the Paris poly like
+          <pre> $ osmconvert ile-de-france.osm.pbf -B=paris.poly --out-pbf > Paris.osm.pbf</pre>
+        </li>
+        <li> Download the OsmAndMapCreator application from <a class="externallink" href="http://download.osmand.net/latest-night-build/" rel="nofollow" title="http://download.osmand.net/latest-night-build/">download.osmand.net/latest-night-build/</a></li>
+        <li> create your OsmAnd obf map from the Paris.osm.pbf data map using OsmAndMapCreator.</li>
+      </ul>
+      <p class="back_to_top"><a href="#top">Back to top</a></p>
+    </div>
+  </div>
 
-<div class="blocksubtitle">Server process</div>
-<p>Because of this strategic decision of geofabrik, OsmAnd has an option to generate maps for these exotic rare countries and the tools <a href="http://download.osmand.net/latest-night-build/OsmAndMapCreator-development.zip">OsmAndMapCreator</a> and <a href="http://wiki.openstreetmap.org/wiki/Osmconvert">osmconvert</a> are used for this. For OsmAndMapCreator this is a three step process:</p>
-<ul class="list">
- <li> OsmAndMapCreator needs a polygon which surrounds the outer border of the country.</li>
- <li> OsmAndMapCreator needs the &#34;raw data map&#34; from the next level incorporating this country. For Burundi it mean that OsmAndMapCreator needs the Africa map. For Nordrhein-Westfalen it means that OsmAndMapCreator needs the Germany map.</li>
- <li> <a href="http://wiki.openstreetmap.org/wiki/Osmconvert">Osmconvert</a> will create a &#34;raw data&#34; map from the poly extracting the map data from the &#34;parent&#34; map.</li>
- <li> OsmAndMapCreator will create an OsmAnd obf map based on the intermediate &#34;raw data&#34; map generated by osmconvert.</li>
-</ul>
+  <div class="question">
+    <div class="subtitle" id="OsmAnd_Data_Structure">OsmAnd Data Structure</div>
+    <div class="content">
+      <div class="blocksubtitle">Introduction</div>
+      <p>Regarding many questions, issues about map data in application that topic unveils technical details of internal data format and data processing. It can be interesting for non-developers but who is familar with OSM data structure. </p>
+      <p>All the OsmAnd data is containing in &#39;obf&#39; files. &#39;obf&#39; files have complex structure and can consists of many part. It is higly not recomended to have files around or more than 2 Gb. Currently obf parts can be many POI parts, many Map parts, Transport parts, Adress parts. That list can be extended in future. To combine or split or delete some parts from obf file use &#39;binary_inspector&#39; console tool provided with OsmAndMapCreator.</p>
+      <div class="blocksubtitle">POI, Transport part</div>
+      <div class="blocksubtitle">Map part</div>
+      <div class="blocksubtitle">Address part</div>
+      <p>Q: How does mapcreator generate its list of all places that will
+        appear later in OsmAnd&#39;s offline address search? What objects are used
+        in detail for that? What nodes with a place tag are included, and
+        which are excluded?
+      </p>
+      <p>A: All places that are visible in OsmAnd as Cities are taken from nodes that has tag place <a class="externallink" href="http://wiki.openstreetmap.org/wiki/pPlace." rel="nofollow" title="http://wiki.openstreetmap.org/wiki/Place.">http://wiki.openstreetmap.org/wiki/Place.</a> Currently are used city, town, suburb, village, hamlet.</p>
+      <br/>
+      <p>Q: How does mapcreator handle an area polygon that is given via a relation with boundary=administrative? How do you associate a place
+        given as a node with its boundary when it is present in the OSM data?
+      </p>
+      <p>A: Simply saying it works by name currently. Mapcreator tries to visit all boundaries and create closed (!) boundary from relation or from separated ways and associate with one of the name. After that it tries to match *place* with *boundary name* by *contains of* algorithm. Also there is additional check that boundary contains the place. If there  are many boundaries of different admin_level with the same name (containing each_other like district/town/region has same name) the highest admin_level with exact matching will be chosen.
+        TODO More details should be here (about districts of the city ...) ...
+      </p>
+      <br/>
+      <p>Q: Where is a documentation what admin level is right to build an association to a certain place node? What countries prefer what admin level?</p>
+      <p>A: Currently admin_level is Currently association between admin_level relation and admin_centre is not used. Because only few relations provides that information.</p>
+      <br/>
+      <p>Q: How does mapcreator know what street belongs to what place? Are there different cases when a boundary polygon is given and when there is none?</p>
+      <p>A: There are many strategies to check and they are prioritized :</p>
+      <ul class="list">
+        <li> The most important are places and their boundaries. In order street management algorithm will work fine the place matching boundaries should be successfull. If the street belongs to many boundaries it will be registered in all appropriate places.</li>
+        <li> is_in tag (it is deprecated). So if street has is_in tag, it will be parsed and splitted by comma and street will be attached to all cities (by exact name matching). (TO CHECK: basic check street is in city radius?)</li>
+        <li> If the street doesn&#39;t belongs to any boundary (boundary were not properly closed could be an issue) it tries to find the closest/biggest city and register in it (sometimes it register in town for 1 km and missing 100m closest hamlet).</li>
+      </ul>
+      <p>The last part is very inaccurate that&#39;s why many streets get attached to a neighboor city.</p>
+      <br/>
+      <p> At mapcreator&#39;s preferences you have five more settings for street suffixes, zoom, smoothness and rendering ... what are the detailed effects that you can achieve with each of them? Are those settings actually used?</p>
+      <div class="blocksubtitle">Tools</div>
+      <ul class="list">
+        <li> OsmAndMapCreator can display what streets are associated to what city (context menu -&#62; Show address). Local obf files should be present and configured in Settings.</li>
+        <li> Binary expector tool can show list of streets for each city. Run it to see parameters.</li>
+        <li> Currently all index files contain gen.log. Viewing the log file you can find errors in map creation process and that could an answer why some streets are not in the proper address index place. </li>
+      </ul>
+      <div class="blocksubtitle">Address Part - workflow</div>
+      <p>There are these relations: </p>
+      <div>city -&#62; 0..1 boundary</div>
+      <div>boundary -&#62; 0..** city (used to define suburb of city)</div>
+      <ol class="list">
+        <li>
+          <p>iterate all Osm NODEs and register as cities if the tag = PLACE is present.</p>
+          <ul>
+            <li> extract cities (TOWN, CITY)</li>
+            <li> extract villages (anything else)</li>
+          </ul>
+        </li>
+        <li>
+          <p>iterate all RELATIONs and WAYs with type=boundary and register all boundaries</p>
+          <ul>
+            <li> boundary is called Entity (way or relation) with tag &#39;boundary=administrative&#39; or with tag &#39;place=...&#39;</li>
+            <li> boundary should be admin_level &#62; 4 or don&#39;t have it</li>
+            <li> boundary is not always associated with a city (or state, ...). </li>
+            <li> boundary can have &#39;admin_center&#39;, &#39;label&#39; member pointing to a city node</li>
+            <li>boundary exactly matches by name city node and city node is in boundary</li>
+            <li> boundary matches start, end or substring by name city node and city node is in boundary</li>
+          </ul>
+          <p>Many boundaries can be associated with one city. Here is the order how the most important boundary is taken and associated with the city</p>
+          <ul>
+            <li> Boundary is matched by name exactly and has tag place</li>
+            <li> Boundary is matched by name exactly and has admin_level 8 &#62; 7 &#62; 6 &#62; 9 &#62; 10 &#62; 5... or nothing</li>
+            <li> Boundary has admin_id matching </li>
+            <li> All other cases including sorting of admin_level</li>
+          </ul>
+        </li>
+        <li>
+          <p>If the city doesn&#39;t have any assigned boundary then all boundaries that doesn&#39;t have center cities  and contain that city will be checked and the boundary with admin_level &#62;=7 will be assigned.</p>
+        </li>
+        <li>
+          <p>for each boundary, make a list of cities that are in it.</p>
+        </li>
+        <li>
+          <p>iterate all RELATIONS and find addresses (<a href="http://wiki.openstreetmap.org/wiki/Relations/Proposed/Postal_Addresses">Postal_Addresses</a>)</p>
+          <ul>
+            <li> relation with &#34;address&#34; tag type, and is &#34;house&#34; or &#34;a6&#34; address_type</li>
+            <li> search for associatedStreet relation and house members</li>
+            <li> try to find the city for the street and city for house address.</li>
+            <li> look up cities (we already must have find it in steps before!!)</li>
+            <li> if we have city and street, register it to database:</li>
+            <ul>
+              <li>for streetregistration, see: register street for a city</li>
+              <li>
+                <ul>
+                  <li>if street is registered, and we are processing street:</li>
+                  <li>iterate over all relation members:</li>
+                  <ul>
+                    <li>find street -&#62; write the nodes of the street to db</li>
+                    <li>find house  -&#62; write the house to to the street</li>
+                  </ul>
+                  <li>if street is registered, and we are processing house:</li>
+                  <ul>
+                    <li>find house number</li>
+                    <li>find house border: if found, store: building for the street</li>
+                  </ul>
+                </ul>
+                <p>register street (street, location of street (los), cities):</p>
+                <p> Note: we might register street for more cities = this means, the street can be in nested areas, suburb, city, hamlet, etc... For each area, we want to register the street in it.</p>
+              </li>
+              <li>
+                <ul>
+                  <li>for each city:</li>
+                  <ul>
+                    <li>find existing street registration within the city:</li>
+                    <li>
+                      <ul>
+                        <li>if street exists:</li>
+                        <li>
+                          <ul>
+                            <li>if city part is unknown -&#62; update the existing street's city part</li>
+                            <li>try to find cityPart for our street, and lookup the street again</li>
+                          </ul>
+                        </li>
+                        <li>if street does not exists: (might change after the lookup)</li>
+                        <li>
+                          <ul>
+                            <li>register the street for city, city part, location, and street name</li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </ul>
+              </li>
+              <p>findOrRegister street</p>
+              <ul>
+                <li>find close cities to the street</li>
+                <li>if the street is in the boundary of the city, add the city for search</li>
+                <li>if no city was find, using boundary, find closest city for the street</li>
+                <li>:register street: for the found cities</li>
+              </ul>
+            </ul>
+          </ul>
+        </li>
+        <li>
+          <p>iterate all NODES than WAYS than RELATIONS (iterate main entity)</p>
+          <ol>
+            <li>
+              <p>find ways - interpolations:</p>
+              <ul>
+                <li>for each interpolation, findOrRegister a street with the location of the interpolation</li>
+                <li>for each two nodes create a building representing the interpolation</li>
+              </ul>
+            </li>
+            <li>
+              <p>for any entity, find addr:housenumber and addr:street tag (can be also the interpolation nodes again!!!)</p>
+              <ul>
+                <li> skip if building for this entity already exists!</li>
+                <li> findOrRegister streets for the street</li>
+                <li> find the house number</li>
+                <li> if housenumber contains &#39;-&#39;, try to create interpolated house number (missing latlon2?)</li>
+                <li>if housenumber contains &#39;/&#39;, try to lookup second street addr:street2 --&#62; seems only for <a href="http://wiki.openstreetmap.org/wiki/RU:Key:addr">RU osm</a>:</li>
+                <li>there are more variations for this: adr:housenumber2, addr2:street, addr2:housenumber etc...</li>
+                <li> for each street, store the existing house</li>
+              </ul>
+            </li>
+            <li>for way with tag - name &#38; tag - highway, but without addr:housenumber and addr:street:</li>
+            <ul>
+              <li>Note: this might be ways for cars, with names (highway, or so)</li>
+              <li>skip if such street exists already</li>
+              <li>findOrRegister the street for city</li>
+              <li>write the nodes for each found street in each city</li>
+            </ul>
+            <li>
+              <p>Each relation with &#34;postal_code&#34;, store for later use.</p>
+              <p><b>Note</b>: this does not include the address:type = pc and addr:postalcode</p>
+            </li>
+          </ol>
+        </li>
+        <li>
+          <p>process post codes</p>
+          <ul>
+            <li> for each stored postal_code relation</li>
+            <ul>
+              <li>for each building member, update the postal_code</li>
+            </ul>
+          </ul>
+        </li>
+        <li>
+          <p>write the index:</p>
+          <ul>
+            <li>split cities to: citties+towns, suburbs (suburb with is_in tag), villages (not city or town)</li>
+            <li> write cities+towns using suburbs</li>
+            <ul>
+              <li>read street from cities+tows + apropriate subburs for each town</li>
+              <ul>
+                <li>in here, there might be more streets with same name for one city, in such case we try to find a cityPart for the street (suburb), where the street is in. There should be not more streets with same name within one city part!</li>
+              </ul>
+              <li>for each street</li>
+              <ul>
+                <li>for each building, register/create/find postcode, register the street</li>
+              </ul>
+            </ul>
+            <li>write villages</li>
+            <ul>
+              <li>same as towns...</li>
+            </ul>
+            <li>write extracted postcodes and their streets</li>
+          </ul>
+        </li>
+      </ol>
+      <p class="back_to_top"><a href="#top">Back to top</a></p>
+    </div>
+  </div>
 
-<div class="blocksubtitle">Necessary actions</div>
-<p>Depending on the complexity of the (generated) polygon this complete chain of actions can take from 10 minutes to 2 hours in total.</p> 
-<div class="blocksubtitle">Get the OpenStreetMap relation from Nominatim</div>
-<ul class="list">
- <li> Go to <a href="http://nominatim.openstreetmap.org">nominatim.openstreetmap.org</a></li>
- <li> Fill in your country name</li>
- <li> Once found click on the link &#34;(details)&#34;</li>
- <li> In Details scroll down to &#34;OSM: relation &#34; and write down or copy the relation ID number.</li>
- </ul>
- 
-<div class="blocksubtitle">Retrieve the poly(gon) from polygons.openstreetmap.fr</div>
-<div class="blocksubsubtitle">Generate the polygon</div>
-<ul class="list">
- <li> Go to <a href="http://polygons.openstreetmap.fr/">polygons.openstreetmap.fr</a></li>
- <li> Fill in (or paste) the &#34;OSM: relation &#34; ID number you retrieved from Nominatim for your desired country into the &#34;Id of relation&#34; field.</li>
- <li> This will create a default polygon, consisting of 250 to 3500 nodes (NPoints). The poly itself can be found in the &#34;poly&#34; column.</li>
- <li> In case of more then 350 nodes you will need to simplify  the polygon. The simpler the polygon, the faster the country map can be created (of course depending on the contents)</li>
-</ul>
+  <div class="question">
+    <div class="subtitle" id="How_To_Inspect_an_obf_Binary_File">How to inspect an obf binary file</div>
+    <div class="content">
+      <p>If you want inspect the content of obf file, you need to download  <a href="http://download.osmand.net/latest-night-build/OsmAndMapCreator-development.zip">OsmAndMapCreator</a>. There you can find a console application BinaryInspector (.sh, .bat). This console application has optional parameters [-vmap, -vaddress, -vtransport] and one required parameter (input obf file). By specifying optional parameters  you could trace the whole information from obf file (be aware it could be huge!).</p>
+      <p>Example and step-by-step for Windows users:</p>
+      <ul class="list">
+        <li> have Java Runtime Environment installed</li>
+        <li> download or copy any Osmand offline map from your device to your PC, place that obf file ideally in the folder with all the unzipped Mapcreator files</li>
+        <li> Open Windows commandline  (e.g. by pressing Windows-key and &#34;r&#34;, then enter cmd and press return</li>
+        <li> go to the folder where you have unzipped the Osmand-Mapcreator by command cd and folder name</li>
+        <li> type dir to see whether you are in the right folder with file inspector.bat</li>
+        <li> type inspector -h to see some help text</li>
+        <li> type inspector -vaddress name_of_your_map.obf &#62;output.csv</li>
+        <li> if you get a Java console error about not enough memory or similar, edit the file inspector.bat by increasing the number at parameter -Xmx512M (or similar) step-by step to a higher value</li>
+        <li> try to load that (eventually very big) CSV text file into any editor or program that can load very big files, like Notepad++ ... or try an import into any spreadsheet programm like Excel or LibreOffice calc (choose TAB as field separator)</li>
+        <li> use any search feature to find place names or street names</li>
+      </ul>
+      <p class="back_to_top"><a href="#top">Back to top</a></p>
+    </div>
+  </div>
 
-<div class="blocksubsubtitle">Simplify the polygon</div>
-<p>The number of Node Points (NPoints) needs to be as low as possible for the fastest possible creation of the map by OsmAndMapCreator. As mentioned: In case of more then 350 node points try to reduce them by simplifying the polygon.</p>
-<ul class="list">
- <li> In case of more then 350 nodes, try to reduce them by &#34;playing&#34; with the X variable (in my experience the others don&#39;t really matter)</li>
- <li> Sometimes you get great results (90 NPoints, 200 NPoints, 270 NPoints) and then you are done with this step. Sometimes you simply can&#39;t get below 450 NPoints or so. Then you need to apply further manual steps.</li>
- <li> Save your final polygon to file. Use the correct default name for it, like france.poly. Stick to lowercase characters.</li>
-</ul>
-</pre>
+  <div class="question">
+    <div class="subtitle" id="OBF_routing_debugging_on_a_PC_with_OSM_map_display">OBF routing debugging on a PC with OSM map display</div>
+    <div class="content">
+      <div class="blocksubtitle">How-to</div>
+      <ul class="list">
+        <li> go to <a class="externallink" href="http://osmand.net" rel="nofollow" title="http://osmand.net">http://osmand.net</a> and download OsmandMapCreator.zip from the link on the right screen side, and unzip it, </li>
+        <li> copy the obf file from your phone or tablet into that folder,</li>
+        <li> start OsmandMapCreator via bat file or sh file,</li>
+        <li> be sure to have an internet connection so that mapcreator can download map tiles, check all menus and settings inside mapcreator,</li>
+        <li> set the working directory of mapcreator to the folder where mapcreator itself and the obf file is located.</li>
+        <li> pan and zoom the map to that place where you have routing issues and that is covered by the mentioned OBF file,</li>
+        <li> do right clicks in the map to set start and end points and different routing engines</li>
+      </ul>
+      <div class="blocksubtitle">Find the place name to what a street is associated in offline OBF maps</div>
+      <ul class="list">
+        <li> Have a Java framework installed on your desktop computer.</li>
+        <li> Download Osmand&#39;s Mapcreator, for example from <a href="http://download.osmand.net/releases/">download.osmand.net/releases</a> and unzip it to your PC.</li>
+        <li> Take any map file with extensiuon OBF and put it in the same folder where all files from mapcreator are located.</li>
+        <li> Start Mapcreator on your PC by clicking OsmAndMapCreator.bat or OsmAndMapCreator.sh</li>
+        <li> Be sure that you have internet access on your PC, and Mapcreator&#39;s settings are that tiles are downloaded when you drag and zoom the map to your location where your issue is located.</li>
+        <li> If you have zoomed to your area, do a right-click with the mouse on the map and choose &#34;show address&#34; from the popup-menu.</li>
+        <li> Normally, now all the street names should be displayed from the obf file, and the place name to where each street is associated in Osmand&#39;s offline search.</li>
+      </ul>
+      <p class="back_to_top"><a href="#top">Back to top</a></p>
+    </div>
+  </div>
 
-<div class="blocksubsubtitle">Further modification and simplification of the polygon</div>
-<ul class="list">
- <li> Open JOSM (download if necessary) and open the polygon file you created (did you make a copy/backup of the original polygon that you saved?).</li>
- <li> Add a background from the &#34;Images&#34; menu and select the default &#34;OpenStreetMap (Mapnik)&#34; background.</li>
- <li> Manually remove node points where possible. *Note:* Keep the polygon as close as possible around the border. You do need some overlap but try to keep it below 2-5 kilometers. Overlap in countries will be generated twice for each country. Less overlap, means less rendering time and rendering errors. At coastlines and around islands try to keep more distance (20 kilometers). This is widely acepted and the sea is &#34;empty&#34; anyway.</li>
- <li> When you have done the best you can you can save the updated, corrected poly. As said: try to get as little node points as possible, but sometimes a country border is so complicated that you simply need more node points to describe it and to keep the polygon as close as possible around the border: so be it.</li>
- <li> *Do not upload the polygon to OSM*. JOSM will ask you to upload your work to OpenStreetMap. Don&#39;t do this for these polygons unless you know exactly what you do. Almost every country in the world is already perfectly covered in OpenStreetMap (otherwise nominatim would not be able to give you the details about the country, and polygons.openstreetmap.fr would not be able to generate the polygon based on the OSM relation id.)</li>
-</ul>
-
-<div class="blocksubtitle">Adding the poly(gon) to the OsmAnd server</div>
-<p>To be able to do this you must register as a user.</p>
-<p>To make the map generation possible there are two steps required:</p>
-<ul class="list">
- <li> Adding the polygon to the map data section</li>
- <li> Adding the country to the data file that is used to generate the OsmAnd obf maps.</li>
-</ul>
-
-<div class="blocksubsubtitle">Adding the polygon to the map data section</div>
-<ul class="list">
- <li> Go to the web address of the OsmAnd development server at <a class="externallink" href="https://github.com/osmandapp/" rel="nofollow" title="https://github.com/osmandapp/">https://github.com/osmandapp/</a></li>
- <li> Select the OsmAnd-misc section.</li>
- <li> Select &#34;fork&#34; to create your own personal repository</li>
- <li> <p>In your personal repository go to the folder osm-planet/polygons and select the relevant continent.</p>
-     <p><b>Note</b>: The &#34;master&#34; repository is at <a href="https://github.com/osmandapp/OsmAnd-misc/.">github.com/osmandapp/OsmAnd-misc</a>. Your repository is at <a href="https://github.com/">github.com</a>&#60;your user name&#62;/OsmAnd-misc.</p> </li>
- <li> Create a new file and copy your poly data inside. Save the file.</li>
- <li> Create a pull request.</li>
-</ul>
-
-<div class="blocksubsubtitle">Add the map creation to the batch list</div>
-<ul class="list">
- <li> Go to the web address of the OsmAnd development server at <a href="https://github.com/osmandapp/">github.com/osmandapp</a></li>
- <li> Select the OsmAnd-tools section.</li>
- <li> Select &#34;fork&#34; to create your own personal repository.</li>
- <li> In your personal repository go to the folder obf-generation/regions.</li>
- <li> Select the file indexes.xml and click edit.</li>
- <li> Add your country at the relevant location and save the file.</li>
- <li> Create a pull request.</li>
-</ul>
-
-<div class="blocksubtitle">Creating your own personal maps from a poly</div>
-<p>You can create for example polygons from countries, counties/provinces/states, regions and cities.</p>
-<p>Say your daughter is going to Paris for a couple of days with a friend. She is not interested in navigation, walking or cycling (unless absolutely necessary), but she wants to know where she is, where to go to and where to find the interesting places (POIs). Next to that she has a small phone (low end CPU, low on memory) and small SD-card (stuffed with music). So the map needs to be as small as possible: both for storage as well as performance. You can of course download the map for france_ile-de-france.obf containing Paris, but you can also generate a &#34;custom made&#34; Paris map.</p>
-<ul class="list">
- <li> Let your daughter download OsmAnd, or even better: let her buy OsmAnd+</li>
- <li> Get the OSM relation id for Paris from Nominatim.</li>
- <li> Get the (simplified) poly for the Paris id from polygons.openstreetmap.fr</li>
- <li> download or compile <a href="http://wiki.openstreetmap.org/wiki/Osmconvert">osmconvert</a></li>
- <li> download &#34;raw data&#34; map of ile-de-france from geofabrik.de</li>
- <li> create raw data map of Paris from the ile-de-france map and the Paris poly like
-<pre> $ osmconvert ile-de-france.osm.pbf -B=paris.poly --out-pbf > Paris.osm.pbf</pre></li>
- <li> Download the OsmAndMapCreator application from <a class="externallink" href="http://download.osmand.net/latest-night-build/" rel="nofollow" title="http://download.osmand.net/latest-night-build/">download.osmand.net/latest-night-build/</a></li>
- <li> create your OsmAnd obf map from the Paris.osm.pbf data map using OsmAndMapCreator.</li>
-</ul>
-<p class="back_to_top"><a href="#top">Back to top</a></p>
-</div>
-
-
-
-
-
-
-<div class="subtitle" id="OsmAnd_Data_Structure">OsmAnd Data Structure</div>
-<div class="content">
-
-<div class="blocksubtitle">Introduction</div>
-<p>Regarding many questions, issues about map data in application that topic unveils technical details of internal data format and data processing. It can be interesting for non-developers but who is familar with OSM data structure. </p>
-<p>All the OsmAnd data is containing in &#39;obf&#39; files. &#39;obf&#39; files have complex structure and can consists of many part. It is higly not recomended to have files around or more than 2 Gb. Currently obf parts can be many POI parts, many Map parts, Transport parts, Adress parts. That list can be extended in future. To combine or split or delete some parts from obf file use &#39;binary_inspector&#39; console tool provided with OsmAndMapCreator.</p>
-<div class="blocksubtitle">POI, Transport part</div>
-<div class="blocksubtitle">Map part</div>
-<div class="blocksubtitle">Address part</div>
-<p>Q: How does mapcreator generate its list of all places that will
-appear later in OsmAnd&#39;s offline address search? What objects are used
-in detail for that? What nodes with a place tag are included, and
-which are excluded?</p>
-<p>A: All places that are visible in OsmAnd as Cities are taken from nodes that has tag place <a class="externallink" href="http://wiki.openstreetmap.org/wiki/pPlace." rel="nofollow" title="http://wiki.openstreetmap.org/wiki/Place.">http://wiki.openstreetmap.org/wiki/Place.</a> Currently are used city, town, suburb, village, hamlet.</p>
-<br/>
-<p>Q: How does mapcreator handle an area polygon that is given via a relation with boundary=administrative? How do you associate a place
-given as a node with its boundary when it is present in the OSM data?</p>
-<p>A: Simply saying it works by name currently. Mapcreator tries to visit all boundaries and create closed (!) boundary from relation or from separated ways and associate with one of the name. After that it tries to match *place* with *boundary name* by *contains of* algorithm. Also there is additional check that boundary contains the place. If there  are many boundaries of different admin_level with the same name (containing each_other like district/town/region has same name) the highest admin_level with exact matching will be chosen.
-TODO More details should be here (about districts of the city ...) ...</p>
-<br/>
-<p>Q: Where is a documentation what admin level is right to build an association to a certain place node? What countries prefer what admin level?</p>
-<p>A: Currently admin_level is Currently association between admin_level relation and admin_centre is not used. Because only few relations provides that information.</p>
-<br/>
-<p>Q: How does mapcreator know what street belongs to what place? Are there different cases when a boundary polygon is given and when there is none?</p>
-<p>A: There are many strategies to check and they are prioritized :</p>
-
-<ul class="list">
- <li> The most important are places and their boundaries. In order street management algorithm will work fine the place matching boundaries should be successfull. If the street belongs to many boundaries it will be registered in all appropriate places.</li>
- <li> is_in tag (it is deprecated). So if street has is_in tag, it will be parsed and splitted by comma and street will be attached to all cities (by exact name matching). (TO CHECK: basic check street is in city radius?)</li>
- <li> If the street doesn&#39;t belongs to any boundary (boundary were not properly closed could be an issue) it tries to find the closest/biggest city and register in it (sometimes it register in town for 1 km and missing 100m closest hamlet).</li>
-</ul>
-<p>The last part is very inaccurate that&#39;s why many streets get attached to a neighboor city.</p>
-<br/>
-<p> At mapcreator&#39;s preferences you have five more settings for street suffixes, zoom, smoothness and rendering ... what are the detailed effects that you can achieve with each of them? Are those settings actually used?</p>
-
-<div class="blocksubtitle">Tools</div>
-<ul class="list">
- <li> OsmAndMapCreator can display what streets are associated to what city (context menu -&#62; Show address). Local obf files should be present and configured in Settings.</li>
- <li> Binary expector tool can show list of streets for each city. Run it to see parameters.</li>
- <li> Currently all index files contain gen.log. Viewing the log file you can find errors in map creation process and that could an answer why some streets are not in the proper address index place. </li>
-</ul>
-
-<div class="blocksubtitle">Address Part - workflow</div>
-<p>There are these relations: </p>
-<div>city -&#62; 0..1 boundary</div>
-<div>boundary -&#62; 0..** city (used to define suburb of city)</div>
-
-<ol class="list">
-<li>iterate all Osm NODEs and register as cities if the tag = PLACE is present.</li>
-<ul>
- <li> extract cities (TOWN, CITY)</li>
- <li> extract vilagges (anything else)</li>
-</ul>
-<li><p>iterate all RELATIONs and WAYs with type=boundary and register all boundaries</p></li>
-<ul>
- <li> boundary is called Entity (way or relation) with tag &#39;boundary=administrative&#39; or with tag &#39;place=...&#39;</li>
- <li> boundary should be admin_level &#62; 4 or don&#39;t have it</li>
- <li> boundary is not always associated with a city (or state, ...). </li>
- <li> boundary can have &#39;admin_center&#39;, &#39;label&#39; member pointing to a city node</li>
- <li>boundary exactly matches by name city node and city node is in boundary</li>
- <li> boundary matches start, end or substring by name city node and city node is in boundary</li>
-</ul>
-
-<p>Many boundaries can be associated with one city. Here is the order how the most important boundary is taken and associated with the city</p>
-<ul>
- <li> Boundary is matched by name exactly and has tag place</li>
- <li> Boundary is matched by name exactly and has admin_level 8 &#62; 7 &#62; 6 &#62; 9 &#62; 10 &#62; 5... or nothing</li>
- <li> Boundary has admin_id matching </li>
- <li> All other cases including sorting of admin_level</li>
-</ul>
-<li>If the city doesn&#39;t have any assigned boundary then all boundaries that doesn&#39;t have center cities  and contain that city will be checked and the boundary with admin_level &#62;=7 will be assigned.</li>
-<li>for each boundary, make a list of cities that are in it.</li>
-<li><p>iterate all RELATIONS and find addresses (<a href="http://wiki.openstreetmap.org/wiki/Relations/Proposed/Postal_Addresses">Postal_Addresses</a>)</p></li>
-<ul>
- <li> relation with &#34;address&#34; tag type, and is &#34;house&#34; or &#34;a6&#34; address_type</li>
- <li> search for associatedStreet relation and house members</li>
- <li> try to find the city for the street and city for house address.</li>
- <li> look up cities (we already must have find it in steps before!!)</li>
- <li> if we have city and street, register it to database:</li>
- <ul>
-   <li>for streetregistration, see: register street for a city</li>
-   <ul>
-     <li>if street is registered, and we are processing street:</li>
-	 <li>iterate over all relation members:</li>
-	   <ul>
-	     <li>find street -&#62; write the nodes of the street to db</li>
-	     <li>find house  -&#62; write the house to to the street</li>
-	   </ul>
-	 <li>if street is registered, and we are processing house:</li>
-	   <ul>
-	     <li>find house number</li>
-	     <li>find house border: if found, store: building for the street</li>
-	   </ul>
-  </ul>
-	 <p>register street (street, location of street (los), cities):</p>
-	 <p> Note: we might register street for more cities = this means, the street can be in nested areas, suburb, city, hamlet, etc... For each area, we want to register the street in it.</p>
-	 <ul>
-	   <li>for each city:</li>
-	   <ul>
-	     <li>find existing street registration within the city:</li>
-	     <ul>
-          <li>if street exists:</li>
-	      <ul>
-		   <li>if city part is unknown -&#62; update the existing street's city part</li>
-		   <li>try to find cityPart for our street, and lookup the street again</li>
-		 </ul>
-		 <li>if street does not exists: (might change after the lookup)</li>
-		 <ul>
-		   <li>register the street for city, city part, location, and street name</li>
-		 </ul>
-	    </ul>
-	   </ul>
-	  </ul>
-	 <p>findOrRegister street</p>
-	 <ul>
-	   <li>find close cities to the street</li>
-	   <li>if the street is in the boundary of the city, add the city for search</li>
-	   <li>if no city was find, using boundary, find closest city for the street</li>
-	   <li>:register street: for the found cities</li>	 
-	  </ul>
-	</ul>
-  </ul>
-
-
-<li>iterate all NODES than WAYS than RELATIONS (iterate main entity)</li>
-<ol>
-  <li>find ways - interpolations:</li>
-  <ul>
-    <li>for each interpolation, findOrRegister a street with the location of the interpolation</li>
-    <li>for each two nodes create a building representing the interpolation</li>
-  </ul>
-
-  <li>for any entity, find addr:housenumber and addr:street tag (can be also the interpolation nodes again!!!)</li>
-  <ul>
-   <li> skip if building for this entity already exists!</li>
-   <li> findOrRegister streets for the street</li>
-   <li> find the house number</li>
-   <li> if housenumber contains &#39;-&#39;, try to create interpolated house number (missing latlon2?)</li>
-   <li> <p>if housenumber contains &#39;/&#39;, try to lookup second street addr:street2 --&#62; seems only for  <a href="http://wiki.openstreetmap.org/wiki/RU:Key:addr">RU osm</a>:</p></li>
-   <li><p> there are more variations for this: adr:housenumber2, addr2:street, addr2:housenumber etc....</p></li>
-   <li> for each street, store the existing house</li>
-  </ul>
-
-  <li>for way with tag - name &#38; tag - highway, but without addr:housenumber and addr:street:</li>
-
-  <ul>
-   <li>Note: this might be ways for cars, with names (highway, or so)</li>
-   <li>skip if such street exists already</li>
-   <li>findOrRegister the street for city</li>
-   <li>write the nodes for each found street in each city</li>
-  </ul>
-  <li><p>Each relation with &#34;postal_code&#34;, store for later use.</p>
-      <p><b>Note</b>: this does not include the address:type = pc and addr:postalcode</p></li>
-</ol>
-
-<li>process post codes</li>
-<ul>
-  <li> for each stored postal_code relation</li>
-  <ul>
-    <li>for each building member, update the postal_code</li>
-  </ul>
-</ul>  
-
-
-<li>write the index:</li>
-<ul>
-  <li>split cities to: citties+towns, suburbs (suburb with is_in tag), villages (not city or town)</li>
-  <li> write cities+towns using suburbs</li>
-  <ul>
-    <li>read street from cities+tows + apropriate subburs for each town</li>
-	<ul>
-	  <li>in here, there might be more streets with same name for one city, in such case we try to find a cityPart for the street (suburb), where the street is in. There should be not more streets with same name within one city part!</li>
-	</ul>
-	<li>for each street</li>
-	<ul>
-	  <li>for each building, register/create/find postcode, register the street</li>
-	</ul>
-  </ul>
-  <li>write villages</li>
-  <ul>
-    <li>same as towns...</li>
-  </ul>
-  <li>write extracted postcodes and their streets</li>
-</ul>
-
-<p class="back_to_top"><a href="#top">Back to top</a></p>
-</div>
-
-
-<div class="subtitle" id="How_To_Inspect_an_obf_Binary_File">How to inspect an obf binary file</div>
-<div class="content">
-<p>If you want inspect the content of obf file, you need to download  <a href="http://download.osmand.net/latest-night-build/OsmAndMapCreator-development.zip">OsmAndMapCreator</a>. There you can find a console application BinaryInspector (.sh, .bat). This console application has optional parameters [-vmap, -vaddress, -vtransport] and one required parameter (input obf file). By specifying optional parameters  you could trace the whole information from obf file (be aware it could be huge!).</p>
-<p>Example and step-by-step for Windows users:</p>
-<ul class="list">
- <li> have Java Runtime Environment installed</li>
- <li> download or copy any Osmand offline map from your device to your PC, place that obf file ideally in the folder with all the unzipped Mapcreator files</li>
- <li> Open Windows commandline  (e.g. by pressing Windows-key and &#34;r&#34;, then enter cmd and press return</li>
- <li> go to the folder where you have unzipped the Osmand-Mapcreator by command cd and folder name</li>
- <li> type dir to see whether you are in the right folder with file inspector.bat</li>
- <li> type inspector -h to see some help text</li>
- <li> type inspector -vaddress name_of_your_map.obf &#62;output.csv</li>
- <li> if you get a Java console error about not enough memory or similar, edit the file inspector.bat by increasing the number at parameter -Xmx512M (or similar) step-by step to a higher value</li>
- <li> try to load that (eventually very big) CSV text file into any editor or program that can load very big files, like Notepad++ ... or try an import into any spreadsheet programm like Excel or LibreOffice calc (choose TAB as field separator)</li>
- <li> use any search feature to find place names or street names</li>
-</ul>
-<p class="back_to_top"><a href="#top">Back to top</a></p>
-</div>
-
-
-<div class="subtitle" id="OBF_routing_debugging_on_a_PC_with_OSM_map_display">OBF routing debugging on a PC with OSM map display</div>
-<div class="content">
-<div class="blocksubtitle">How-to</div>
-<ul class="list">
- <li> go to <a class="externallink" href="http://osmand.net" rel="nofollow" title="http://osmand.net">http://osmand.net</a> and download OsmandMapCreator.zip from the link on the right screen side, and unzip it, </li>
- <li> copy the obf file from your phone or tablet into that folder,</li>
- <li> start OsmandMapCreator via bat file or sh file,</li>
- <li> be sure to have an internet connection so that mapcreator can download map tiles, check all menus and settings inside mapcreator,</li>
- <li> set the working directory of mapcreator to the folder where mapcreator itself and the obf file is located.</li>
- <li> pan and zoom the map to that place where you have routing issues and that is covered by the mentioned OBF file,</li>
- <li> do right clicks in the map to set start and end points and different routing engines</li>
-</ul>
-
-<div class="blocksubtitle">Find the place name to what a street is associated in offline OBF maps</div>
-<ul class="list">
- <li> Have a Java framework installed on your desktop computer.</li>
- <li> Download Osmand&#39;s Mapcreator, for example from <a href="http://download.osmand.net/releases/">download.osmand.net/releases</a> and unzip it to your PC.</li>
- <li> Take any map file with extensiuon OBF and put it in the same folder where all files from mapcreator are located.</li>
- <li> Start Mapcreator on your PC by clicking OsmAndMapCreator.bat or OsmAndMapCreator.sh</li>
- <li> Be sure that you have internet access on your PC, and Mapcreator&#39;s settings are that tiles are downloaded when you drag and zoom the map to your location where your issue is located.</li>
- <li> If you have zoomed to your area, do a right-click with the mouse on the map and choose &#34;show address&#34; from the popup-menu.</li>
- <li> Normally, now all the street names should be displayed from the obf file, and the place name to where each street is associated in Osmand&#39;s offline search.</li>
-</ul>
-</ol>
-<p class="back_to_top"><a href="#top">Back to top</a></p>
-</div>
-
-
-
-
-<div class="subtitle" id="OsmAnd_Server_Configuration">OsmAnd Server Configuration</div>
-<div class="content">
-<div class="blocksubtitle">Introduction</div>
-<p>This document describes the steps needed to fully setup OsmAnd server for services needed by osmand and relateds stuff to it.</p>
-<div class="blocksubtitle">Mail</div>
-<pre>
+  <div class="question">
+    <div class="subtitle" id="OsmAnd_Server_Configuration">OsmAnd Server Configuration</div>
+    <div class="content">
+      <div class="blocksubtitle">Introduction</div>
+      <p>This document describes the steps needed to fully setup OsmAnd server for services needed by osmand and relateds stuff to it.</p>
+      <div class="blocksubtitle">Mail</div>
+      <pre>
 #Optionally remove the sendmail if present
 apt-get purge sendmail-base
 apt-get purge sendmail-bin
 #Install the postfix and utilities
 apt-get install postfix
 apt-get install mailutils
-</pre>
-<p>Postfix setup: <a href="https://help.ubuntu.com/community/PostfixBasicSetupHowto">PostfixBasicSetupHowto</a>
-or
-dpkg-reconfigure postix
-and setup the mail</p>
-<div class="blocksubtitle">jenkins.osmand.net: Jenkins - builds and indexes</div>
-<pre>
+      </pre>
+      <p>Postfix setup: <a href="https://help.ubuntu.com/community/PostfixBasicSetupHowto">PostfixBasicSetupHowto</a> or dpkg-reconfigure postix and setup the mail</p>
+      <div class="blocksubtitle">jenkins.osmand.net: Jenkins - builds and indexes</div>
+      <pre>
 apt-get install jenkins
 apt-get install openjdk6
-</pre>
-<p>Plugins needed in jenkins: (todo list)</p>
-<p>/var/lib/jenkins</p>
-<p>In case of existing jenkins site, complete jenkins configuration can be copied: (link on jenkins wiki)</p>
-<p>install android sdk - /var/lib/android-sdk-linux (steps)</p>
-<p> on 64 bit system install 32 libs: apt-get install ia32-libs</p>
-<p> maybe you will need to change jenkins jobs configuration to point the builds to android-sdk-linux location using the sdk.dir variable</p>
-<p>Copy debug.keystore to /var/lib/jenkins/.android/debug.keystore take it from git: (link)</p>
-<p>add jenkins to group www-data</p>
+      </pre>
+      <p>Plugins needed in jenkins: (todo list)</p>
+      <p>/var/lib/jenkins</p>
+      <p>In case of existing jenkins site, complete jenkins configuration can be copied: (link on jenkins wiki)</p>
+      <p>install android sdk - /var/lib/android-sdk-linux (steps)</p>
+      <p> on 64 bit system install 32 libs: apt-get install ia32-libs</p>
+      <p> maybe you will need to change jenkins jobs configuration to point the builds to android-sdk-linux location using the sdk.dir variable</p>
+      <p>Copy debug.keystore to /var/lib/jenkins/.android/debug.keystore take it from git: (link)</p>
+      <p>add jenkins to group www-data</p>
+      <div class="blocksubtitle">Apache</div>
+      <pre>
+apt-get install libapache2-mod-php5
+apt-get install php5-mysql
+cd /etc/apache2/mods-enabled
+ln -s ../mods-available/rewrite.load
+ln -s ../mods-available/proxy.load
+ln -s ../mods-available/proxy.conf
+ln -s ../mods-available/proxy_balancer.load
+ln -s ../mods-available/proxy_balancer.conf
+! copy sites (git, todo...)
+cd /etc/apache2/sites-enabled
+ln -s ../sites-available/*
+service apache2 restart
+      </pre>
+      <p>! apache configuration is not yet in git, should be there !</p>
+      <p>For putting jenkins under ssl:</p>
+      <ul class="list">
+        <li> a2enmod ssl</li>
+        <li> a2enmod headers</li>
+        <li> a2enmod proxy_http</li>
+        <li> create self signed cert: 
+          <pre>make-ssl-cert /usr/share/ssl-cert/ssleay.cnf /etc/ssl/private/jenkins.crt</pre>
+        </li>
+        <li> the ssl virtual host can server as jenkins.osmand.net</li>
+        <li> change the ssl file in the ssl virtual host conf:
+          <pre>
+#SSLCertificateFile    /etc/ssl/certs/ssl-cert-snakeoil.pem
+#SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key
+SSLCertificateFile /etc/ssl/private/jenkins.crt
+          </pre>
+        </li>
+        <li> see <a href="https://wiki.jenkins-ci.org/display/JENKINS/Running+Jenkins+behind+Apache">this</a> to bind apache to jenkins</li>
+        <li>
+          add this to ssl site config:
+          <pre>
+ProxyRequests     Off
+ProxyPreserveHost On
 
-<div class="blocksubtitle">Apache</div>
-<pre>
- apt-get install libapache2-mod-php5
- apt-get install php5-mysql
- cd /etc/apache2/mods-enabled
- ln -s ../mods-available/rewrite.load
- ln -s ../mods-available/proxy.load
- ln -s ../mods-available/proxy.conf
- ln -s ../mods-available/proxy_balancer.load
- ln -s ../mods-available/proxy_balancer.conf
- ! copy sites (git, todo...)
- cd /etc/apache2/sites-enabled
- ln -s ../sites-available/*
- service apache2 restart
-</pre>
-<p>! apache configuration is not yet in git, should be there !</p>
-<p>For putting jenkins under ssl:</p>
-<ul class="list">
- <li> a2enmod ssl</li>
- <li> a2enmod headers</li>
- <li> a2enmod proxy_http</li>
- <li> create self signed cert: 
- <pre>make-ssl-cert /usr/share/ssl-cert/ssleay.cnf /etc/ssl/private/jenkins.crt</pre></li>
- <li> the ssl virtual host can server as jenkins.osmand.net</li>
- <li> change the ssl file in the ssl virtual host conf:
-<pre>
-       #SSLCertificateFile    /etc/ssl/certs/ssl-cert-snakeoil.pem
-       #SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key
-       SSLCertificateFile /etc/ssl/private/jenkins.crt
-</pre></li>
+<Proxy http://localhost:8080/*>
+  Order deny,allow
+  Allow from all
+</Proxy>
 
- <li> see <a href="https://wiki.jenkins-ci.org/display/JENKINS/Running+Jenkins+behind+Apache">this</a> to bind apache to jenkins</li>
- <li> add this to ssl site config:
-<pre>
-       ProxyRequests     Off
-       ProxyPreserveHost On
-
-       <Proxy http://localhost:8080/*>
-         Order deny,allow
-         Allow from all
-       </Proxy>
-
-       ProxyPass         /  http://localhost:8080/
-       ProxyPassReverse  /  http://localhost:8080/
-       ProxyPassReverse  /  http://jenkins.osmand.net/
-</pre></li>
-
-  <li> the default site can have ServerAlias on jenkins.osmand.net and rewrite rule:
-<pre>
-       RewriteEngine On
-       RewriteCond %{HTTPS} off
-       RewriteCond %{HTTP_HOST} jenkins.osmand.net
-       RewriteRule (.*) https://jenkins.osmand.net%{REQUEST_URI}
-</pre></li>
-</ul>
-
-<div class="blocksubtitle">download.osmand.net</div>
-<p>If migrating from existing server:</p>
-<pre>
+ProxyPass         /  http://localhost:8080/
+ProxyPassReverse  /  http://localhost:8080/
+ProxyPassReverse  /  http://jenkins.osmand.net/
+          </pre>
+        </li>
+        <li> the default site can have ServerAlias on jenkins.osmand.net and rewrite rule:
+          <pre>
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} jenkins.osmand.net
+RewriteRule (.*) https://jenkins.osmand.net%{REQUEST_URI}
+          </pre>
+        </li>
+      </ul>
+      <div class="blocksubtitle">download.osmand.net</div>
+      <p>If migrating from existing server:</p>
+      <pre>
 copy /var/www/www-download completely to the new server (note, this location is used by scripts, do not change!)
-</pre>
-<p>Or, create from scratch:</p>
-<pre>
- copy from git config/site to /var/www/www-download
-</pre>
-
-<div class="blocksubtitle">www.osmand.net (joomla)</div>
-<pre>
- copy /var/www/www-joomla completely to the new server
- (todo)
-</pre>
-<p><a href="http://docs.joomla.org/Copying_a_Joomla_website">Copying a Joomla website</a></p>
-<pre>
- tar cvfz joomlabackup.tar.gz /path-to-joomla
- scp joomlaback.tar.gz someuser@remote.machine.etc
- mysqldump -u joomla -p joomla > joomladb.out
- scp joomladb.out someuser@remote.machine.etc
-</pre>
-<p>On remote machine:</p>
-<pre>
- apt-get install mysql-server mysql-client //don't forget the password for mysql root user
- mysqladmin -u root -p create joomla
- mysql -u root -p mysql //we are going to create joomla user
- mysql> {{{ GRANT ALL PRIVILEGES ON joomla.* TO joomla@localhost IDENTIFIED BY 'password'; }}} //use the password configured for joomla, configuration.php
- mysql>  flush privileges;
- mysql -u joommla -p joomla < joomladb.out
- cd /var/www-joomla/
- tar xvfz joomlabackup.tar.gz
-</pre>
-
-<div class="blocksubtitle">Awstats</div>
-<pre>
- apt-get install awstats
- copy /etc/awstats/* or get it from git
- copy /var/lib/awstats/* to new server to preserve data
- cd /etc/apache2/conf.d/
- cp /usr/share/doc/awstats/examples/&#8203;apache.conf awstats.conf
-</pre>
-<p> read also: <a href="http://www.debianhelp.co.uk/awstats.htm">http://www.debianhelp.co.uk/awstats.htm</a></p>
-<p> !change permissions of apache logs so that awstats can read them!</p>
-<p> put a prerotate script to apache2 in /etc/logrotate.d/</p>
-<pre>
-       prerotate
-       if [ -x /usr/share/awstats/tools/update.sh ]; then
-         su - -c /usr/share/awstats/tools/update.sh www-data
-       fi
-       endscript
-</pre>
-
-<pre>
- service apache2 restart
-</pre>
-
-<div class="blocksubtitle">Geo::IP instalation for awstats</div>
-<p> overview: <a href="http://www.maxmind.com/app/installation">http://www.maxmind.com/app/installation</a></p>
-<pre>
- apt-get install geoip-database
- apt-get install libgeo-ip-perl
-</pre>
-<p>Now see: <a href="http://the.new.site/cgi-bin/awstats.pl">http://the.new.site/cgi-bin/awstats.pl</a></p>
-
-<div class="blocksubtitle">uiman</div>
-<ul class="list">
- <li> adduser uiman //and password!</li>
- <li> copy /home/uiman/* to new server</li>
- <li> edit uiman&#39;s crontab</li>
- <li> crontab:
-<pre>
+      </pre>
+      <p>Or, create from scratch:</p>
+      <pre>
+copy from git config/site to /var/www/www-download
+      </pre>
+      <div class="blocksubtitle">www.osmand.net (joomla)</div>
+      <pre>
+copy /var/www/www-joomla completely to the new server
+(todo)
+      </pre>
+      <p><a href="http://docs.joomla.org/Copying_a_Joomla_website">Copying a Joomla website</a></p>
+      <pre>
+tar cvfz joomlabackup.tar.gz /path-to-joomla
+scp joomlaback.tar.gz someuser@remote.machine.etc
+mysqldump -u joomla -p joomla > joomladb.out
+scp joomladb.out someuser@remote.machine.etc
+      </pre>
+      <p>On remote machine:</p>
+      <pre>
+apt-get install mysql-server mysql-client //don't forget the password for mysql root user
+mysqladmin -u root -p create joomla
+mysql -u root -p mysql //we are going to create joomla user
+mysql> {{{ GRANT ALL PRIVILEGES ON joomla.* TO joomla@localhost IDENTIFIED BY 'password'; }}} //use the password configured for joomla, configuration.php
+mysql>  flush privileges;
+mysql -u joommla -p joomla < joomladb.out
+cd /var/www-joomla/
+tar xvfz joomlabackup.tar.gz
+      </pre>
+      <div class="blocksubtitle">Awstats</div>
+      <pre>
+apt-get install awstats
+copy /etc/awstats/* or get it from git
+copy /var/lib/awstats/* to new server to preserve data
+cd /etc/apache2/conf.d/
+cp /usr/share/doc/awstats/examples/&#8203;apache.conf awstats.conf
+      </pre>
+      <p> read also: <a href="http://www.debianhelp.co.uk/awstats.htm">http://www.debianhelp.co.uk/awstats.htm</a></p>
+      <p> !change permissions of apache logs so that awstats can read them!</p>
+      <p> put a prerotate script to apache2 in /etc/logrotate.d/</p>
+      <pre>
+prerotate
+if [ -x /usr/share/awstats/tools/update.sh ]; then
+ su - -c /usr/share/awstats/tools/update.sh www-data
+fi
+endscript
+      </pre>
+      <pre>
+service apache2 restart
+      </pre>
+      <div class="blocksubtitle">Geo::IP instalation for awstats</div>
+      <p> overview: <a href="http://www.maxmind.com/app/installation">http://www.maxmind.com/app/installation</a></p>
+      <pre>
+apt-get install geoip-database
+apt-get install libgeo-ip-perl
+      </pre>
+      <p>Now see: <a href="http://the.new.site/cgi-bin/awstats.pl">http://the.new.site/cgi-bin/awstats.pl</a></p>
+      <div class="blocksubtitle">uiman</div>
+      <ul class="list">
+        <li> adduser uiman //and password!</li>
+        <li> copy /home/uiman/* to new server</li>
+        <li> edit uiman&#39;s crontab</li>
+        <li> crontab:
+          <pre>
 MAILTO=&#8203;pavol.zibrita+uiman@gmail.com,&#8203;victor.shcherb+uiman@gmail.com
 /1 * * * * /home/uiman/uiChanges.sh
-</pre></li>
-<li><pre>cd /home/uiman; ln -s uiChanges-git/OsmAnd/ repository</pre> </li>
-</ul>
-
-<div class="blocksubtitle">DNS</div>
-<p>if needed, change the dns settings accordingly on the new server provider (currently <a href="https://robot.your-server.de/">https://robot.your-server.de/</a>)</p>
-
-<div class="blocksubtitle">translate.osmand.net</div>
-<ul class="list">
- <li>user www-data (?)</li>
- <li>cd /var/www/</li>
- <li>git clone https://github.com/nijel/weblate weblate-git</li>
- <li>ln -s weblate weblate-git</li>
- <li>cd weblate</li>
- <li>vim weblate/settings.py
- <pre>
+          </pre>
+        </li>
+        <li>
+          <pre>cd /home/uiman; ln -s uiChanges-git/OsmAnd/ repository</pre>
+        </li>
+      </ul>
+      <div class="blocksubtitle">DNS</div>
+      <p>if needed, change the dns settings accordingly on the new server provider (currently <a href="https://robot.your-server.de/">https://robot.your-server.de/</a>)</p>
+      <div class="blocksubtitle">translate.osmand.net</div>
+      <ul class="list">
+        <li>user www-data (?)</li>
+        <li>cd /var/www/</li>
+        <li>git clone https://github.com/nijel/weblate weblate-git</li>
+        <li>ln -s weblate weblate-git</li>
+        <li>cd weblate</li>
+        <li> vim weblate/settings.py
+          <pre>
 ...
 ADMINS = (
    ('Pavol Zibrita', 'pavol.zibrita+weblate@gmail.com'),
 ) ... 'ENGINE': 'django.db.backends.mysql' ... SERVER_EMAIL = 'pavol.zibrita+&#8203;weblateadmin@gmail.com' ... DEFAULT_FROM_EMAIL = 'pavol.zibrita+&#8203;weblateadmin@gmail.com' ...
-</pre></li>
-<li> git commit (currently the changes are commited, doing rebase for new releases)</li>
-<li> install, what is needed in INSTALL</li>
-<li> ./manage.py syncdb</li>
-<li> ./manage.py migrate (needed when upgrading, read the DOCS!!!)</li>
-<li> use apache config found in the project</li>
-<li> install apache wsgi gateway</li>
-<li> create apache virtual server for weblate, like translate.osmand.net</li>
-</ul>
-
-<div class="blocksubtitle">Backup</div>
-<p><a href="http://duply.net/?title=Main_Page">http://duply.net/?title=Main_Page</a></p>
-<p><a href="http://trick77.com/2010/01/01/how-to-ftp-backup-a-linux-server-duply/">http://trick77.com/2010/01/01/how-to-ftp-backup-a-linux-server-duply/</a></p>
-<pre> apt-get install duplicity gpg ncftp</pre>
-<p> read the trick77.com page for setup</p>
-<pre>
+          </pre>
+        </li>
+        <li> git commit (currently the changes are commited, doing rebase for new releases)</li>
+        <li> install, what is needed in INSTALL</li>
+        <li> ./manage.py syncdb</li>
+        <li> ./manage.py migrate (needed when upgrading, read the DOCS!!!)</li>
+        <li> use apache config found in the project</li>
+        <li> install apache wsgi gateway</li>
+        <li> create apache virtual server for weblate, like translate.osmand.net</li>
+      </ul>
+      <div class="blocksubtitle">Backup</div>
+      <p><a href="http://duply.net/?title=Main_Page">http://duply.net/?title=Main_Page</a></p>
+      <p><a href="http://trick77.com/2010/01/01/how-to-ftp-backup-a-linux-server-duply/">http://trick77.com/2010/01/01/how-to-ftp-backup-a-linux-server-duply/</a></p>
+      <pre>apt-get install duplicity gpg ncftp</pre>
+      <p> read the trick77.com page for setup</p>
+      <pre>
 /etc/duply/offsite/conf:
 {{{ 
 GPG_KEY='F61826A6' 
@@ -1060,82 +1051,71 @@ _do mysql dump before backup_
 }}} 
 /etc/cron.d/duply 
 lftp -u ***,**** ****.your-backup.de 
-</pre>
+      </pre>
+      <p>It is good to backup /etc/duply/offsite/ somewhere, if the machine crashes, there is the info to retrieve encrypted files from the backup!</p>
+      <div class="blocksubsubtitle">Restoring</div>
+      <p>To list the current backup sets on your remote backup path use the following command:</p>
+      <pre>duply offsite status</pre>
+      <p>To restore the whole &lsquo;offsite&rsquo; backup to /tmp I&#39;d use this command:</p>
+      <pre>duply offsite restore /tmp/restore</pre>
+      <p>To restore the lastest version of a file from my &lsquo;offsite&rsquo; backup to /tmp I&#39;d use this command:</p>
+      <pre>duply offsite fetch etc/myfile /tmp/restore</pre>
+      <p>To restore the version from 4 days ago of a file from my &lsquo;offsite&rsquo; backup to /tmp I&#39;d use this command:</p>
+      <pre>duply offsite fetch etc/myfile /tmp/restore 4D</pre>
+      <p>The combination of Duplicity and Duply is a very powerful solution for backups on non-trusted spaces. The setup is a piece of cake compared to other Linux based backup solutions.</p>
+      <p class="back_to_top"><a href="#top">Back to top</a></p>
+    </div>
+  </div>
 
-<p>It is good to backup /etc/duply/offsite/ somewhere, if the machine crashes, there is the info to retrieve encrypted files from the backup!</p>
+  <div class="question">
+    <div class="subtitle" id="Using_KML_Files">Using KML Files</div>
+    <div class="content">
+      <p>In GoogleEarth (GE) you can add you own Placemarks on the map and collect them into a folder. From GE you can save the folder in kml format.
+        When you have a different format you can use QGIS or other opensource software to convert to KML format. Maybe you can convert it directly to osm. You may use any format containing your POIs, if you are able to convert it to osm format.
+      </p>
+      <div class="blocksubtitle">Converting KML (or Other Formats) into osm Format</div>
+      <p>To perform this task we need to use gpsbabel. It is very useful to convert waypoints, tracks, and routes between popular GPS receivers and mapping programs. The syntax is very simple, and GPS Babel has an interface to create the syntax for you:</p>
+      <pre>$ gpsbabel -i kml -f my_places.kml -o osm,tagnd="tourism:museum",&#8203;created_by -F my_places.osm</pre>
+      <p>The generated file is like this:</p>
+      <pre>
+&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+&lt;osm version='0.5' generator='GPSBabel-1.4.0'&gt;
+  &lt;node id='-1' visible='true' lat='41.890121' lon='12.492265'&gt;
+    &lt;tag k='name' v='place01'/&gt;
+    &lt;tag k='note' v='place01'/&gt;
+    &lt;tag k='tourism' v='museum'/&gt;
+  &lt;/node&gt;
+&lt;node id='-2' visible='true' lat='41.892241' lon='12.489031'&gt;>
+    &lt;tag k='name' v='place02'/&gt;
+    &lt;tag k='note' v='place02'/&gt;
+    &lt;tag k='tourism' v='museum'/&gt;
+  &lt;/node&gt;
+&lt;/osm&gt;
+      </pre>
+      <p>All points inside the kml file are converted into osm points, assigning them some properties like tourism category and museum type. The created_by= option with missing value means that the properties will be ignored. If your poi belongs to different categories, I suggest you create multiple osm files and create OsmAnd odf files and merge them together later with OsmAndMapCreator, or create multiple obf files. </p>
+      <div class="blocksubtitle">Converting OSM Format into OBF Format</div>
+      <p>Now you are ready to perform the final step. The conversion will be done using OsmAndMapCreator. Download, unzip and run this program.</p>
+      <ul class="list">
+        <li> Deselect all choices except Build POI Index as shown:</li>
+        <li> Select the work dir (File/Specify working directory&hellip;)</li>
+        <li> Load my_places.osm (File/Select osm file&hellip;)</li>
+      </ul>
+      <p>If all is right you&#39;ll find My_places.obf into your workdir folder. Simply upload this file into your OsmAnd phone folder and you have done. </p>
+      <p>Good luck!!!</p>
+      <p class="back_to_top"><a href="#top">Back to top</a></p>
+    </div>
+  </div>
 
-<div class="blocksubsubtitle">Restoring</div>
-<p>To list the current backup sets on your remote backup path use the following command:</p>
-<pre>duply offsite status</pre>
-<p>To restore the whole offsite backup to /tmp Id use this command:</p>
-<pre>duply offsite restore /tmp/restore</pre>
-<p>To restore the lastest version of a file from my offsite backup to /tmp Id use this command:</p>
-<pre>duply offsite fetch etc/myfile /tmp/restore</pre>
-<p>To restore the version from 4 days ago of a file from my offsite backup to /tmp Id use this command:</p>
-<pre>duply offsite fetch etc/myfile /tmp/restore 4D</pre>
-<p>The combination of Duplicity and Duply is a very powerful solution for backups on non-trusted spaces. The setup is a piece of cake compared to other Linux based backup solutions.</p>
-<p class="back_to_top"><a href="#top">Back to top</a></p>
-</div>
+  <div class="question">
+    <div class="subtitle" id="How_to_produce_customized_vector_data">How to produce customized vector data</div>
+    <div class="content">
+      <p>It is possible to create a customized obf file with specific (own)  vector data (hiking paths, speed cams, transport routes debug way info), and adjust the rendere to display it.</p>
+      <p>OsmAndMapCreator can process only OSM files (osm-xml, bz2, pbf). However the set of tags can be custom. To specify what tags/values need to be indexed by Creator please download and change <a href="https://github.com/osmandapp/OsmAnd-resources/blob/master/obf_creation/rendering_types.xml">this</a> file. OsmAndMapCreator has an option to use custom rendering_types.xml in the settings. Once file is created you can double check that data is present by utility binaryInspector with &#39;-vmap&#39; argument. This utility is packaged with OsmAndMapCreator. </p>
+      <p>Once the .obf file is ready you can create custom rendering file to display missing attributes. There is a <a href="https://github.com/osmandapp/OsmAnd-resources/blob/master/rendering_styles/default.render.xml">default rendering style</a> which contains all information about rendering. It is good to have a look at it but it is very hard to open/edit it and understand. More convenient way to create your own rendering style is to create style that depends (inherits) default style. A good example of custom rendering style you can find <a href="https://github.com/osmandapp/OsmAnd-resources/blob/master/rendering_styles/Winter-and-ski.render.xml.">here</a>.</p>
+      <p>Currently OsmAndMapCreator doesn&#39;t support relation tagging. So you need to manually copy all tags from relations (like route color) to way tags by script.</p>
+    </div>
+  </div>
 
-
-<div class="subtitle" id="Using_KML_Files">Using KML Files</div>
-<div class="content">
-<p>In GoogleEarth (GE) you can add you own Placemarks on the map and collect them into a folder. From GE you can save the folder in kml format.
-When you have a different format you can use QGIS or other opensource software to convert to KML format. Maybe you can convert it directly to osm. You may use any format containing your POIs, if you are able to convert it to osm format.</p>
-
-<div class="blocksubtitle">Converting KML (or Other Formats) into osm Format</div>
-<p>To perform this task we need to use gpsbabel. It is very useful to convert waypoints, tracks, and routes between popular GPS receivers and mapping programs. The syntax is very simple, and GPS Babel has an interface to create the syntax for you:</p>
-<pre>   $ gpsbabel -i kml -f my_places.kml -o osm,tagnd="tourism:museum",&#8203;created_by -F my_places.osm</pre>
- <p>The generated file is like this:</p>
- <pre>
-   &lt;?xml version='1.0' encoding='UTF-8'?&gt;
-   &lt;osm version='0.5' generator='GPSBabel-1.4.0'&gt;
-     &lt;node id='-1' visible='true' lat='41.890121' lon='12.492265'&gt;
-       &lt;tag k='name' v='place01'/&gt;
-       &lt;tag k='note' v='place01'/&gt;
-       &lt;tag k='tourism' v='museum'/&gt;
-     &lt;/node&gt;
-   &lt;node id='-2' visible='true' lat='41.892241' lon='12.489031'&gt;>
-       &lt;tag k='name' v='place02'/&gt;
-       &lt;tag k='note' v='place02'/&gt;
-       &lt;tag k='tourism' v='museum'/&gt;
-     &lt;/node&gt;
-   &lt;/osm&gt;
-</pre>
-
-<p>All points inside the kml file are converted into osm points, assigning them some properties like tourism category and museum type. The created_by= option with missing value means that the properties will be ignored. If your poi belongs to different categories, I suggest you create multiple osm files and create OsmAnd odf files and merge them together later with OsmAndMapCreator, or create multiple obf files. </p>
-
-<div class="blocksubtitle">Converting OSM Format into OBF Format</div>
-<p>Now you are ready to perform the final step. The conversion will be done using OsmAndMapCreator. Download, unzip and run this program.</p>
-<ul class="list">
- <li> Deselect all choices except Build POI Index as shown:</li>
- <li> Select the work dir (File/Specify working directory)</li>
- <li> Load my_places.osm (File/Select osm file)</li>
-</ul>
-<p>If all is right you&#39;ll find My_places.obf into your workdir folder. Simply upload this file into your OsmAnd phone folder and you have done. </p>
-<p>Good luck!!!</p>
-<p class="back_to_top"><a href="#top">Back to top</a></p>
-</div>
-
-
-<div class="subtitle" id="How_to_produce_customized_vector_data">How to produce customized vector data</div>
-<div class="content">
-
-<p>It is possible to create a customized obf file with specific (own)  vector data (hiking paths, speed cams, transport routes debug way info), and adjust the rendere to display it.</p>
-
-<p>OsmAndMapCreator can process only OSM files (osm-xml, bz2, pbf). However the set of tags can be custom. To specify what tags/values need to be indexed by Creator please download and change <a href="https://github.com/osmandapp/OsmAnd-resources/blob/master/obf_creation/rendering_types.xml">this</a> file. OsmAndMapCreator has an option to use custom rendering_types.xml in the settings. Once file is created you can double check that data is present by utility binaryInspector with &#39;-vmap&#39; argument. This utility is packaged with OsmAndMapCreator. </p>
-
-<p>Once the .obf file is ready you can create custom rendering file to display missing attributes. There is a <a href="https://github.com/osmandapp/OsmAnd-resources/blob/master/rendering_styles/default.render.xml">default rendering style</a> which contains all information about rendering. It is good to have a look at it but it is very hard to open/edit it and understand. More convenient way to create your own rendering style is to create style that depends (inherits) default style. A good example of custom rendering style you can find <a href="https://github.com/osmandapp/OsmAnd-resources/blob/master/rendering_styles/Winter-and-ski.render.xml.">here</a>.</p>
-<p>Currently OsmAndMapCreator doesn&#39;t support relation tagging. So you need to manually copy all tags from relations (like route color) to way tags by script.</p>
-</div>
-
-
-
-<hr></hr>
-
-<h3 class="help"><a href="http://osmand.net/help/docs/Custom_Rendering_How-To.htm">Custom_Rendering_How-To.htm</a></h3>
-
+  <h3 class="help"><a href="http://osmand.net/help/docs/Custom_Rendering_How-To.htm">Custom_Rendering_How-To.htm</a></h3>
 
 </div>
-</body>
-</html>

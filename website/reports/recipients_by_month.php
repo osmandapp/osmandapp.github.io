@@ -5,10 +5,7 @@ $cnt = getCountries();
 // "All payments are done from <strong>1GRgEnKujorJJ9VBa76g8cp3sfoWtQqSs4</strong> Bitcoin address. ";
 //  "The payouts are distributed based on the ranking which is available on the OSM Contributions tab, the last ranking has weight = 1, the ranking before the last has weight = 2 and so on till the 1st ranking.<br>";
 // var rg = recipientRegionName == '' ? 'Worldwide' : recipientRegionName; 
-$explanation = "All donations are distributed between registered recipients according 
-	to their ranking based on the number of changes done in the selected region. 
-	Half of donations is distributed between all osm editors and displayed for the 'Worldwide' region. 
-	The other half is distributed between osm editors of specific regions which are selected as 'Preferred region' by supporters.";
+$explanation = "<p class='recipients-data-header'>Currently available sum:</p>";
 $visibleReg = $res->region;
 if($res->region == '') {
 	$visibleReg = "Worldwide";
@@ -22,10 +19,10 @@ if($res->region == '') {
 }
 if(is_null(getReport('getBTCValue'))) {
 	$res->message = $explanation;
-	$res->message = $res->message . "<br><br>Approximate collected sum is <strong>" . 
-					number_format($res->btc * 1000, 3) . "</strong> mBTC in total " .
-					"and specially collected for <strong>{$visibleReg}</strong> region is <strong>"  .
-				  	number_format($res->regionBtc*1000, 3) . "</strong> mBTC.<br>";
+	$res->message = $res->message . "<div class='overview overview-btc'><p>" . 
+					number_format($res->btc * 1000, 3) . " mBTC</p><span>may vary in the final report</span></div>" .
+					"<div class='overview overview-total_weight'><p>" . 
+					number_format($res->regionBtc*1000, 3) . "</p><span>currently total weight</span></div>";
 
 } else {
 	$res->message = $explanation;
