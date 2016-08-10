@@ -25,8 +25,9 @@
 	  <div class="headertext">OFFLINE MOBILE<br/> MAPS &amp; NAVIGATION</div>
 	  <ul class="badges">
 		<li class="first"><a data-gatag="googleplay" href="https://play.google.com/store/apps/details?id=net.osmand.plus">
+	  <!-- https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png -->
           <img alt="Get it on Google Play"
-          src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" />
+          src="images/en-play-badge.png" />
           </a></li>
 		  <li><a data-gatag="amazon" href="http://www.amazon.com/gp/product/B00D0SEGMC/ref=mas_pm_OsmAnd-Maps-Navigation">
           <img alt="Get it on Amazon"
