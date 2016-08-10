@@ -80,6 +80,10 @@
         $(this).next().slideToggle();
       }
     });
+    
+    $('.download-btn').on('click', function(e) {
+      e.stopPropagation();
+    });
   </script>
 </body>
 </html>
