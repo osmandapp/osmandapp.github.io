@@ -27,6 +27,7 @@
   <div class="main">
     <?php 
       $simpleheader_header = "OSM LIVE";
+      $simpleheader_header_id = "OSMLIVE";
       include 'blocks/simple_header.php';
     ?>
     <div class="nav-holder">

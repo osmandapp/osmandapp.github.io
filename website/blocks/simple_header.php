@@ -9,10 +9,10 @@
       <a href="/" class="headerlogo-link"><div class="headerlogo"></div></a>
       <ul class="menu">
         <li class="mobile-sign">Menu</li>
-        <li class="<?php if($simpleheader_header == "FEATURES") echo "activeitem" ?>"><a data-gatag="header_features" href="/features">Features</a></li>
-        <li class="<?php if($simpleheader_header == "BLOG") echo "activeitem" ?>"><a data-gatag="header_blog" href="/blog" >Blog</a></li>
-        <li class="<?php if($simpleheader_header == "OSM LIVE") echo "activeitem" ?>"><a data-gatag="header_osm_live" href="/osm_live">OSM Live</a></li>
-        <li class="<?php if($simpleheader_header == "HELP") echo "activeitem" ?>"><a data-gatag="header_help" href="/help-online">Help</a></li>
+        <li class="<?php if($simpleheader_header_id == "FEATURES") echo "activeitem" ?>"><a data-gatag="header_features" href="/features">Features</a></li>
+        <li class="<?php if($simpleheader_header_id == "BLOG") echo "activeitem" ?>"><a data-gatag="header_blog" href="/blog" >Blog</a></li>
+        <li class="<?php if($simpleheader_header_id == "OSMLIVE") echo "activeitem" ?>"><a data-gatag="header_osm_live" href="/osm_live">OSM Live</a></li>
+        <li class="<?php if($simpleheader_header_id == "HELP") echo "activeitem" ?>"><a data-gatag="header_help" href="/help-online">Help</a></li>
         <li class="<?php if($simpleheader_header_id == "DVR") echo "activeitem" ?>"><a data-gatag="header_dvr" href="/dvr">DVR</a></li>
         <li class="mobile-only <?php if($simpleheader_header == "DOWNLOADS") echo "activeitem" ?>"><a data-gatag="header_downloads" href="/downloads">Downloads</a></li>
       </ul>

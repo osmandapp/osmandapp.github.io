@@ -18,6 +18,7 @@
     <div class="main">
       <?php 
         $simpleheader_header = "HELP";
+        $simpleheader_header_id = "HELP";
         include 'blocks/simple_header.php';
       ?>
       <div class="articles">

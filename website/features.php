@@ -31,6 +31,7 @@
     <div class="main">
     <?php 
       $simpleheader_header = "FEATURES";
+      $simpleheader_header_id = "FEATURES";
       include 'blocks/simple_header.php';
     ?>
     <div class="articles">
