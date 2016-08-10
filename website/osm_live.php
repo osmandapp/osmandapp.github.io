@@ -167,7 +167,7 @@
               <div class="input-holder input-pass">
                 <input type="password" class="form-control" id="osm_pwd" name="osm_pwd">
               </div>
-              <p class="input-hint">We do not store it on servers.</p>
+              <p class="input-hint">We use it to verify that account belongs to you and do not store it on our servers.</p>
               <!-- <label for="email">Email address:</label>
               <div class="input-holder">
                 <input type="text" class="form-control" id="email" name="email">
@@ -176,7 +176,7 @@
               <div class="input-holder input-bitcoin">
                 <input type="text" class="form-control" id="bitcoin_addr" name="bitcoin_addr">
               </div>
-              <p class="input-hint">We use OpenStreetMap.org API to access user statistic.</p>
+              <p class="input-hint">This bitcoin address will be used to transfer funds to.</p>
               <button type="submit" class="btn btn-default" id="register_osm_user">Register</button>
             </form>
           </div>
