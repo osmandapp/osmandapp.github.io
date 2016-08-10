@@ -2222,3 +2222,303 @@ a,a:visited
 		
 	}
 }
+
+
+/* VICTOR */
+/************* features*****************************/
+.features {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  padding-bottom: 80px;
+  padding-top: 40px;
+}
+.features h2 {
+  text-align: center;
+  color: rgb(255, 143, 0)
+}
+.featurescontent {
+  max-width: 1180px;
+  padding: 0 40px;
+  margin: 0 auto;
+  font-size: 0;
+}
+.features .column {
+  display: inline-block;
+  vertical-align: top;
+  width: 45%;
+}
+.features .column:first-of-type {
+  margin-right: 10%;
+}
+.features ul li {
+  border-bottom: 1px solid #efefef;
+  height: 50px;
+  font-size: 18px;
+}
+.features ul li:last-child {
+  border-bottom: none;
+}
+.features .column div {
+    height: 50px;
+    display: table;
+}
+.features span {
+    display: table-cell;
+    vertical-align: middle;
+}
+.features .column div:before {
+  content: '';
+  width: 30px;
+  height: 30px;
+  background-size: contain;
+  display: inline-block;
+  margin: 10px 10px 0 0;
+}
+.features .ipad-supported:before {
+    background-image: url("images/dvr/ic_ipad_supported.png");
+}
+.features .webserver:before {
+    background-image: url("images/dvr/ic_web_server.png");
+}
+.features .carmode:before {
+    background-image: url("images/dvr/ic_carmode.png");
+}
+.features .portrait-landscape:before {
+    background-image: url("images/dvr/ic_portrait_landscape.png");
+}
+.features .gpx:before {
+    background-image: url("images/dvr/ic_gpx.png");
+}
+.features .help:before {
+    background-image: url("images/dvr/ic_help.png");
+}
+.features .videogallery:before {
+    background-image: url("images/dvr/ic_video_gallery.png");
+}
+.features .favorites:before {
+    background-image: url("images/dvr/ic_Favorites.png");
+}
+.features .photo:before {
+    background-image: url("images/dvr/ic_photo.png");
+}
+.features .ios7:before {
+    background-image: url("images/dvr/ic_ios7.png");
+}
+.features .location-reading:before {
+    background-image: url("images/dvr/ic_location_Reading.png");
+}
+.features .password-protection:before {
+    background-image: url("images/dvr/ic_Password_protection.png");
+}
+.features .power-saving:before {
+    background-image: url("images/dvr/ic_power_saving.png");
+}
+.features .recover-video-recording:before {
+    background-image: url("images/dvr/ic_Recover_video_recording.png");
+}
+.features .simple-interface:before {
+    background-image: url("images/dvr/ic_Simple_interface.png");
+}
+.features .subtitles:before {
+    background-image: url("images/dvr/ic_subtitles.png");
+}
+.features .speedlimit:before {
+    background-image: url("images/dvr/ic_speed_limit.png");
+}
+.features .map-providers:before {
+    background-image: url("images/dvr/ic_map_providers.png");
+}
+.footer {
+  position: relative;
+  background: #292f33;
+  padding: 50px;
+  font-size: 0;
+  text-align: center;
+}
+.footer-block {
+  display: inline-block;
+  vertical-align: top;
+  width: 33%;
+  font-size: 18px;
+}
+.footerlogo {
+  display: block;
+  width: 200px;
+  height: 90px;
+  margin: 0;
+  background: url('images/logo.png') center center no-repeat;
+  background-size: 100%;
+}
+.footerlinkstitle {
+    color: #698c8e;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+.footer-menu {
+  text-align: right;
+}
+.footer ul {
+    display: inline-block;
+    padding-left: 0;
+    font-size: 0.8em;
+    text-align: left;
+    list-style-type: none;
+}
+.footer ul li {
+    line-height: 31px;
+}
+.footer ul a {
+    color: #fff;
+    text-decoration: none;
+}
+.footer .footer-dvrlogo {
+    height: 100px;
+    background: url("images/osmand-dvr-logo.png") center center no-repeat;
+    background-size: contain;
+}
+/**********************slider**************************/
+.slideswrapper {
+  position: relative;
+  padding: 50px 0;
+}
+.slides {
+  position: relative;
+  z-index: 1;
+  max-width: 440px;
+  margin: 0 auto;
+}
+.wrapper-image {
+  position: absolute;
+  z-index: 0;
+  top: 30px;
+  left: 50%;
+  margin-left: -308px;
+}
+.wrapper-image img{
+  width: 616px;
+}
+.slick-dots {
+  position: absolute;
+  bottom: -50px;
+  width: 100%;
+  text-align: center;
+}
+.slick-dots li {
+  display: inline-block;
+  vertical-align: middle;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #aeaeae;
+  margin-right: 5px;
+}
+.slick-dots li.slick-active {
+  background: #ff8f00;
+}
+.slick-dots li button {
+  display: none;
+}
+
+@media screen and (max-width: 1500px) {
+  .menu {
+    right: 0;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .logoblock {
+    width: 100%;
+    margin-bottom: 40px;
+  }
+  .logoblock:after {
+    content: '';
+    display: table;
+    float: none;
+    clear: both;
+  }
+  .menublock {
+    width: 100%;
+  }
+  .features ul li {
+    font-size: 16px;
+    height: auto;
+    padding: 3px 0;
+  }
+}
+@media screen and (max-width: 900px) {
+  .menu-humburger,
+  .menu .mobile-sign {
+    display: block;
+  }
+  .menu {
+    display: none;
+    top: 0;
+    right: 0;
+    width: 100%;
+    max-width: 300px;
+    height: 100vh;
+    min-height: 800px;
+    padding: 20px 40px 0;
+    margin-top: 0;
+    background: #292f33;
+    transform: translate(100%, 0);
+    transition: all .5s;
+  }
+  .menu.active {
+    display: block;
+  }
+  .menu li {
+    display: block;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    font-weight: 400;
+  }
+}
+@media screen and (max-width: 650px) {
+  .headertext {
+    font-size: 30px;
+    margin: 110px 0 50px;
+  }
+  .menu li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 13px;
+  }
+  .wrapper-image {
+    display: none;
+  }
+  .features .column {
+    width: 100%;
+    margin-right: 0;
+  }
+  .footer-block {
+    width: 100%;
+    text-align: center
+  }
+  .footerlogo {
+    margin: 0 auto;
+  }
+  .footer .footer-dvrlogo {
+    margin: 30px 0;
+  }
+}
+@media screen and (max-width: 550px) {
+  .headerlogo {
+    width: 120px;
+  }
+  .menu li {
+    padding-right: 35px;
+  }
+  .featurescontent {
+    padding: 0 20px;
+  }
+}
+@media screen and (max-width: 360px) {
+  .menu-humburger {
+    right: 10px;
+  }
+  .headertext {
+    padding: 0 20px;
+    font-size: 24px;
+  }
+}

@@ -27,14 +27,10 @@
             <div class="modal-menu-button"></div>
             <div class="article-menu">
               <div class="acticlestitles">
-                <h2>Help</h2>
+                <h2>Downloads</h2>
                 <ul class="articlelinklist">
-                  <li><a data-gatag='faq' href="/help-online?id=faq">FAQ</a></li>
-                  <li><a data-gatag='versions' href="/downloads">Downloads</a></li>
-                  <li><a data-gatag='map-legend' href="/help-online?id=map-legend">Map legend</a></li>
-                  <li><a data-gatag='technical' href="/help-online?id=technical-articles">Technical articles</a></li>
-                  <li><a data-gatag='license' href="/help-online?id=license">License</a></li>
-                  <li><a data-gatag='about' href="/help-online?id=about">About</a></li>
+                  <li><a data-gatag='map_creator' href="http://download.osmand.net/latest-night-build/OsmAndMapCreator-main.zip">OsmAnd Map Creator (Desktop)</a></li>
+                  <li><a data-gatag="nightly_build" href="http://download.osmand.net/latest-night-build/OsmAnd-default.apk">OsmAnd Nightly Build (Android)</a></li>
                 </ul>
               </div>
             </div>

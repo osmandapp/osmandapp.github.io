@@ -16,35 +16,13 @@
 
 <div class="maincontainer">
   <div class="main">
-    <div class="header">
-      <div class="header-map"></div>
-      <div class="shadowline">
-        <div class="menu-wrapper">
-          <a href="/" class="headerlogo-link"><div class="headerlogo"></div></a>
-          <ul class="menu">
-            <li class="mobile-sign">Menu</li>
-            <li><a data-gatag="header_features" href="/features">Features</a></li>
-            <li><a data-gatag="header_blog" href="/blog" >Blog</a></li>
-            <li><a data-gatag="header_osm_live" href="/osm_live">OSM Live</a></li>
-            <li><a data-gatag="header_help" href="/help-online">Help</a></li>
-            <li><a data-gatag="header_dvr" href="/dvr">DVR</a></li>
-            <li class="mobile-only"><a data-gatag="header_downloads" href="/downloads">Downloads</a></li>
-          </ul>
-          <div class="menu-hamburger"></div>
-        </div>
-      </div>
-      <div class="header-caption">
-        <div class="headertext">Offline mobile<br/> maps &amp; navigation</div>
-        <div class="badges">
-          <!-- https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png -->
-            <a data-gatag="googleplay" href="https://play.google.com/store/apps/details?id=net.osmand.plus"><img alt="Get it on Google Play" src="images/en-play-badge.png" /></a>
-            <a data-gatag="amazon" href="http://www.amazon.com/gp/product/B00D0SEGMC/ref=mas_pm_OsmAnd-Maps-Navigation"><img alt="Get it on Amazon" src="images/amazon-apps-store.png" /></a>
-            <a data-gatag="ios" class="appstoretopbadge" href="https://itunes.apple.com/app/apple-store/id934850257?pt=2123532&ct=WebSite&mt=8"><img src="images/app-store-badge.png"/></a>
-          </li>
-        </div>
-      </div>
 
-    </div>
+     <?php
+        $simpleheader_header_id = "MAIN";
+        $simpleheader_header = "Offline mobile<br/> maps &amp; navigation";
+        include 'blocks/simple_header.php';
+      ?>
+   
   </div>
 
   <div class="features">
@@ -405,30 +383,6 @@
         $('.images.slick-slider').slick('unslick').hide();
         $('.images.' + platform).show().slick(setSliderSettings());
       }
-    });
-
-    $('.menu-hamburger').on('click', function() {
-      $('.maincontainer').toggleClass('menu-open');
-      if ($(document).width() < 321) {
-        $(this).toggleClass('in-menu');
-      }
-      if ($('.menu').hasClass('active')) {
-        setTimeout(function() {
-          $('.menu').removeClass('active')
-        }, 500)
-      } else {
-        $('.menu').addClass('active');
-      }
-    });
-
-    $('body').on('click', function() {
-      if ($('.maincontainer').hasClass('menu-open')) {
-        $('.menu-hamburger').click();
-      }
-    });
-
-    $('.menu-hamburger, .menu').on('click', function(e) {
-      e.stopPropagation();
     });
 
     $('.selectbox').on('click', function() {
