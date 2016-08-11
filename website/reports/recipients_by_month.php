@@ -18,14 +18,14 @@ if($res->region == '') {
 }
 $month = $res->month;
 if(is_null(getReport('getBTCValue'))) {
-    $res->message = "<p class='recipients-data-header overview-hint'>Currently collected in <span id='#overview-recipients_option'>" . $month . "</span> </p>";
+    $res->message = "<p class='recipients-data-header overview-hint'>Currently collected in <span id='#overview-recipients_option'></span> </p>";
     $res->message = $res->message . "<div class='overview overview-btc'><p>" . 
                     number_format($res->btc * 1000, 3) . " mBTC</p><span>total collected (may change in the final report)</span></div>" .
                     "<div class='overview overview-btc'><p>" . 
                     number_format($res->regionBtc*1000, 3) . " mBTC</p><span>collected for {$visibleReg}</span></div>";
 
 } else {
-    $res->message = "<p class='recipients-data-header overview-hint'>Totally collected in <span id='#overview-recipients_option'>".$month."</span></p>";
+    $res->message = "<p class='recipients-data-header overview-hint'>Totally collected in <span id='#overview-recipients_option'></span></p>";
     $res->message = $res->message . "<div class='overview overview-btc'><p>" . 
                     number_format($res->btc * 1000, 3) . " mBTC</p><span>total collected</span></div>" .
                     "<div class='overview overview-btc'><p>"  .
