@@ -772,25 +772,19 @@
   });
 
   function setContributorsOverviewHint() {
-    if ($('.overview-hint').is(':visible')) {
-      var currentMonth  = $("#month-selection").children("option").filter(":selected").text(),
-          currentRegion = $("#region-selection").children("option").filter(":selected").text()
-      $('#overview-contributors_options').text(currentMonth + ', ' + currentRegion);
-    }
+    var currentMonth  = $("#month-selection").children("option").filter(":selected").text(),
+        currentRegion = $("#region-selection").children("option").filter(":selected").text()
+    $('#overview-contributors_options').text(currentMonth + ', ' + currentRegion);
   }
 
-  function setSupportersOverviewHint() {
-    if ($('.overview-hint').is(':visible')) {
-      var currentMonth  = $("#donate-month-selection").children("option").filter(":selected").text();
-      $('#overview-supporters_options').text(currentMonth);
-    }
+function setSupportersOverviewHint() {
+    var currentMonth  = $("#donate-month-selection").children("option").filter(":selected").text();
+    $('#overview-supporters_options').text(currentMonth);
   }
   
-  function setRecipientOverviewHint() {
-    if ($('.overview-hint').is(':visible')) {
-      var currentMonth  = $("#recipient-month-selection").children("option").filter(":selected").text();
-      $('#overview-recipients_options').text(currentMonth);
-    }
+function setRecipientOverviewHint() {
+    var currentMonth  = $("#recipient-month-selection").children("option").filter(":selected").text();
+    $('#overview-recipients_options').text(currentMonth);
   }
 
   $('#users-table-search').on('keyup', function() {
