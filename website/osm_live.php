@@ -809,7 +809,9 @@
 
   $(document).on({
     ajaxStart: function() { 
-      $('.loading').addClass("active");
+      if (!$('#information').is(':visible')) {
+        $('.loading').addClass("active");
+      }
     },
     ajaxStop: function() { 
       $('.loading').removeClass("active");
