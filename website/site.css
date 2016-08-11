@@ -2350,9 +2350,6 @@ a,a:visited
   }
 }
 @media screen and (max-width: 450px) {
-  .plugin .buttonscontainer {
-    position: static;
-  }
   .plugin .buttons .readmore {
     border-bottom: 0 none;
     text-align: center;
