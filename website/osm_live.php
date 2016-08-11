@@ -778,8 +778,9 @@
   
   function setRecipientOverviewHint() {
     if ($('.overview-hint').is(':visible')) {
-      var currentMonth  = $("#recipient-month-selection").children("option").filter(":selected").text();
-      $('#overview-supporters_options').text(currentMonth);
+      var currentMonth  = $("#recipient-month-selection").children("option").filter(":selected").text(),
+          currentRegion = $("#recipient-region-selection").children("option").filter(":selected").text()
+      $('#overview-supporters_options').text(currentMonth + ', ' + currentRegion);
     }
   }
 
