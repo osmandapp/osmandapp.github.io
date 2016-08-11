@@ -778,6 +778,9 @@ a::-moz-focus-inner {
   margin-top: 1em;
   font-size: 18px;
 }
+.article > iframe {
+  max-width: 100%;
+}
 .article-menu {
   background: #fff;
 }
