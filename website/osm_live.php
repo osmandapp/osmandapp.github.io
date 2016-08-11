@@ -784,7 +784,7 @@ function setSupportersOverviewHint() {
   
 function setRecipientOverviewHint() {
     var currentMonth  = $("#recipient-month-selection").children("option").filter(":selected").text();
-    $('#overview-recipients_options').text(currentMonth);
+    $('#overview-recipients_option').text(currentMonth);
   }
 
   $('#users-table-search').on('keyup', function() {
