@@ -21,7 +21,7 @@ if(is_null(getReport('getBTCValue'))) {
     $res->message = $res->message . "<div class='overview overview-btc'><p>" . 
                     number_format($res->btc * 1000, 3) . " mBTC</p><span>may vary in the final report</span></div>" .
                     "<div class='overview overview-btc'><p>" . 
-                    number_format($res->regionBtc*1000, 3) . "</p><span>collected for {$visibleReg}</span></div>";
+                    number_format($res->regionBtc*1000, 3) . " mBTC</p><span>collected for {$visibleReg}</span></div>";
 
 } else {
     $res->message = "<p class='recipients-data-header overview-hint'>Totally collected in <span id='#overview-recipients_option'></span></p>";
