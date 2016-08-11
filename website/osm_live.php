@@ -426,6 +426,7 @@
               "dom": "tp"
           });
           $('.table-controls.recipients-controls').removeClass('hidden');
+          setRecipientOverviewHint();
     });
   }
   
@@ -774,6 +775,14 @@
       $('#overview-supporters_options').text(currentMonth);
     }
   }
+  
+  function setRecipientOverviewHint() {
+    if ($('.overview-hint').is(':visible')) {
+      var currentMonth  = $("#recipient-month-selection").children("option").filter(":selected").text(),
+          currentRegion = $("#recipient-region-selection").children("option").filter(":selected").text()
+      $('#overview-supporters_options').text(currentMonth + ', ' + currentRegion);
+    }
+  }
 
   $('#users-table-search').on('keyup', function() {
     reportUserDataTable.search(this.value).draw();
@@ -809,7 +818,9 @@
 
   $(document).on({
     ajaxStart: function() { 
-      $('.loading').addClass("active");
+      if (!$('#information').is(':visible')) {
+        $('.loading').addClass("active");
+      }
     },
     ajaxStop: function() { 
       $('.loading').removeClass("active");
