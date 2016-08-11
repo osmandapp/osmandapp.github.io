@@ -147,7 +147,7 @@ a::-moz-focus-inner {
 .headerlogo-link {
   display: inline-block;
   vertical-align: middle;
-  padding: 5px 40px;
+  padding: 10px 40px 5px;
 }
 .headerlogo {
   width: 176px;
@@ -2354,8 +2354,6 @@ a,a:visited
     position: static;
   }
   .plugin .buttons .readmore {
-    position: static;
-    margin-top: 30px;
     border-bottom: 0 none;
     text-align: center;
     text-decoration: underline;
