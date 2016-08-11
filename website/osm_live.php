@@ -426,6 +426,7 @@
               "dom": "tp"
           });
           $('.table-controls.recipients-controls').removeClass('hidden');
+          setRecipientOverviewHint();
     });
   }
   
@@ -771,6 +772,13 @@
   function setSupportersOverviewHint() {
     if ($('.overview-hint').is(':visible')) {
       var currentMonth  = $("#donate-month-selection").children("option").filter(":selected").text();
+      $('#overview-supporters_options').text(currentMonth);
+    }
+  }
+  
+  function setRecipientOverviewHint() {
+    if ($('.overview-hint').is(':visible')) {
+      var currentMonth  = $("#recipient-month-selection").children("option").filter(":selected").text();
       $('#overview-supporters_options').text(currentMonth);
     }
   }
