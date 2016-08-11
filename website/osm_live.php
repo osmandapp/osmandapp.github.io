@@ -712,6 +712,7 @@
           sessionStorage.supportMonthName = supportMonthName;
         }
         updateSupportByMonth();
+        setSupportersOverviewHint();
     });
     $('#recipient-month-selection').on('change', function (e) {
         var optionSelected = $("option:selected", this);
@@ -722,6 +723,7 @@
           sessionStorage.recipientMonthName = recipientMonthName;
         }
         updateRecipientsByMonth();
+        setRecipientOverviewHint();
     });
     $('#recipient-region-selection').on('change', function (e) {
         var optionSelected = $("option:selected", this);
@@ -745,6 +747,7 @@
         updateTotalChanges();
         updateRankingByMonth();
         updateUserRankingByMonth();
+        setContributorsOverviewHint();
     });
   
     $('#region-selection').on('change', function (e) {
