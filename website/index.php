@@ -321,6 +321,7 @@
           {
             breakpoint: 900,
             settings: {
+              arrows: false,
               slidesToShow: 3,
               autoplay: true
             }
