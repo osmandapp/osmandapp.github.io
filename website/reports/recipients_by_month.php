@@ -16,9 +16,9 @@ if($res->region == '') {
         }
     }
 }
-$month = $res->month
+$month = $res->month;
 if(is_null(getReport('getBTCValue'))) {
-    $res->message = "<p class='recipients-data-header overview-hint'>Currently collected in <span id='#overview-recipients_option'>".$month."</span> </p>";
+    $res->message = "<p class='recipients-data-header overview-hint'>Currently collected in <span id='#overview-recipients_option'>" . $month . "</span> </p>";
     $res->message = $res->message . "<div class='overview overview-btc'><p>" . 
                     number_format($res->btc * 1000, 3) . " mBTC</p><span>total collected (may change in the final report)</span></div>" .
                     "<div class='overview overview-btc'><p>" . 
@@ -56,10 +56,10 @@ if(is_null(getReport('getBTCValue'))) {
         $payouts = $payouts . '<a href="https://blockchain.info/tx/c0eef69d6d67a77617a3c716b0e13db49aff85868fe6b6fa2dec2122ec8bd22f">Transaction #2</a>';
         $payouts = $payouts . '<a href="https://blockchain.info/tx/1614be05444686ba2729751a839dae1e75b1c08ac737d9e0b2262ff0b4f2f616">Transaction #3</a>';
     }
-    if(!($payouts == '')) {
-        $res->message = $res->message . "<p class='recipients-data-header overview-hint'>Payouts".$payouts."</p>&nbsp;";
+    if($payouts != '') {
+        $res->message = $res->message . "<p class='recipients-data-header overview-hint'>Payouts" . $payouts . "</p>&nbsp;";
     }
-    $res->message = $res->message. '<p><a href="http://builder.osmand.net/reports/query_month_report.php?report=total&month='.$res->month.'">Download all json reports for '.$month.' </a></p>';
+    $res->message = $res->message . '<p><a href="http://builder.osmand.net/reports/query_month_report.php?report=total&month=' . $res->month . '">Download all json reports for ' . $month . ' </a></p>';
 }
         
 echo json_encode($res);
