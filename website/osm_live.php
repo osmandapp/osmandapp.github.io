@@ -654,13 +654,15 @@
             supportMonth = sessionStorage.supportMonth;
             supportMonthName = sessionStorage.supportMonthName;
             $("#donate-month-selection").val(supportMonth);
-            setSupportersOverviewHint();
+            var currentMonth  = $("#donate-month-selection").children("option").filter(":selected").text();
+            $('#overview-supporters_options').text(currentMonth);
         }
         if(sessionStorage.recipientMonth) {
             recipientMonth = sessionStorage.recipientMonth;
             recipientMonthName = sessionStorage.recipientMonthName;
             $("#recipient-month-selection").val(recipientMonth);
-            setRecipientOverviewHint();
+            var currentMonth  = $("#recipient-month-selection").children("option").filter(":selected").text();
+            $('#overview-recipients_option').text(currentMonth);
         }
         if(sessionStorage.recipientRegion) {
             recipientRegion = sessionStorage.recipientRegion;
@@ -677,7 +679,9 @@
             region = sessionStorage.region;
             regionName = sessionStorage.regionName;
             $("#region-selection").val(region);
-            setContributorsOverviewHint();
+            var currentMonth  = $("#month-selection").children("option").filter(":selected").text(),
+                currentRegion = $("#region-selection").children("option").filter(":selected").text();
+            $('#overview-contributors_options').text(currentMonth + ', ' + currentRegion);
         }
     }
   
