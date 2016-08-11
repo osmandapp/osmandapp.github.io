@@ -654,11 +654,13 @@
             supportMonth = sessionStorage.supportMonth;
             supportMonthName = sessionStorage.supportMonthName;
             $("#donate-month-selection").val(supportMonth);
+            setSupportersOverviewHint();
         }
         if(sessionStorage.recipientMonth) {
             recipientMonth = sessionStorage.recipientMonth;
             recipientMonthName = sessionStorage.recipientMonthName;
             $("#recipient-month-selection").val(recipientMonth);
+            setRecipientOverviewHint();
         }
         if(sessionStorage.recipientRegion) {
             recipientRegion = sessionStorage.recipientRegion;
@@ -675,6 +677,7 @@
             region = sessionStorage.region;
             regionName = sessionStorage.regionName;
             $("#region-selection").val(region);
+            setContributorsOverviewHint();
         }
     }
   
