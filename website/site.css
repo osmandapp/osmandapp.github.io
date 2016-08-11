@@ -147,7 +147,7 @@ a::-moz-focus-inner {
 .headerlogo-link {
   display: inline-block;
   vertical-align: middle;
-  padding: 5px 40px;
+  padding: 10px 40px 5px;
 }
 .headerlogo {
   width: 176px;
@@ -777,6 +777,9 @@ a::-moz-focus-inner {
   padding-right: 20px;
   margin-top: 1em;
   font-size: 18px;
+}
+.article > iframe {
+  max-width: 100%;
 }
 .article-menu {
   background: #fff;
@@ -2347,12 +2350,7 @@ a,a:visited
   }
 }
 @media screen and (max-width: 450px) {
-  .plugin .buttonscontainer {
-    position: static;
-  }
   .plugin .buttons .readmore {
-    position: static;
-    margin-top: 30px;
     border-bottom: 0 none;
     text-align: center;
     text-decoration: underline;
