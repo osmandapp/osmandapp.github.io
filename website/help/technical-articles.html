@@ -111,78 +111,59 @@
       <div class="blocksubtitle">Introduction</div>
       <p>The installation is not very difficult, here are the things you are required :</p>
       <ul class="list">
-        <li> Java - 1.6, 1.7 (compile target is 1.6!)</li>
-        <li> Eclipse - 3.3, 3.4, 3.5 (version is undefined, newer the better)</li>
-        <li> Android SDK + android eclipse plugin</li>
+        <li> Java - 1.6, 1.7, 1.8 (compile target is 1.6!)</li>
+        <li> Android Studio</li>
+        <li> Android SDK</li>
         <li> Optionally Andriod NDK (native code)</li>
-        <li> EGit - git plugin for eclipse (can not do everything yet)</li>
         <li> Downloads : tile maps, osm (osm.bz2) vector map depends on the area you want to work to. For country Belarus (Minsk) you can download directly from the &#34;downloads&#34;</li>
       </ul>
       <div class="blocksubtitle">Details</div>
       <p><a href="https://jdk6.dev.java.net">Java 1.6</a> is required. Download jdk to get source code of base java classes</p>
       <p><a href="http://developer.android.com/sdk/installing/index.html">Android SDK</a> is required. You will need two versions 1.6 and 2.2</p>
       <p>(Optional) <a href="http://developer.android.com/tools/sdk/ndk/index.html">Android NDK</a> is required if you want to change and compile native code.</p>
-      <p>You can download Eclipse <a href="http://www.eclipse.org/downloads">here</a>. <b>Note</b>: run the eclipse with <a href="http://wiki.eclipse.org/FAQ_How_do_I_increase_the_heap_size_available_to_Eclipse%3F">more memory</a>, 32 bit around 512MB, 64 bit around 1GB. Android tools take lot of memory to compile the project!</p>
-      <p> You will need <a href="http://developer.android.com/tools/sdk/eclipse-adt.html">Android Development Tools (ADT)</a> plugin for Eclipse.</p>
-      <p> (Optional) You can install <a href="http://www.eclipse.org/egit/">EGit</a>, Git plug-in for eclipse. Alternatively you can stick to some other Git tool.</p>
+      <p>You can download Android Studio <a href="https://developer.android.com/studio/index.html">here</a>. </p>
       <p> To see results how you are working you also need map data : </p>
       <ul class="list">
         <li>  To create tile maps you can use (MobileAtlasCreator) : create tiles for OSMtracker  tile storage (now &#39;Mapnik&#39; as source map is hardcoded), please use it.</li>
         <li>  You can find osm map for country through special sites. You can download small part of osm for town through JOSM (as example).</li>
         <li>  You also can use Internet : both swing application &#38; android application can download tiles by itself from Internet.</li>
       </ul>
-      <p>Install repo utility:</p>
+      <p>Setup the Environment Variables (e.g. in ~/.bash_profile):</p>
       <pre>
-$ curl http://commondatastorage.&#8203;googleapis.com/git-repo-downloads/repo &#62; ~/bin/repo
-$ chmod a+x ~/bin/repo
+        # The ANDROID_SDK and ANDROID_HOME are where Android studio placed stuff 
+        export ANDROID_SDK=/<your-path>/Android/sdk 
+        export ANDROID_NDK=/<your-path>/android-ndk-r10e 
+        export ANDROID_HOME=/<your-path>/Library/Android/sdk 
+        export JAVA_HOME=$(/usr/libexec/java_home -v 1.7) 
       </pre>
-      <p>Check out the project from repository:</p>
-      <pre> 
-$ repo init -u git://github.com/osmandapp/OsmAnd-manifest.git
-$ repo sync
+      
+      <p>Checkout the code and build it:</p>
+      <pre>
+        $ mkdir Osmand 
+        $ cd Osmand 
+        
+        $ git clone https://github.com/osmandapp/OsmAnd-resources.git
+        # Rename the ressources
+        mv OsmAnd-resources/ resources 
+        
+        # Checkout the Source Code
+        $ git clone https://github.com/osmandapp/Osmand.git
+        
+        # Build the repo on the commandline to make sure everything works as expected
+        $ cd OsmAnd
+        $ ./gradlew --refresh-dependencies clean assembleFullLegacyFatDebug 
+        
+        # Make sure that you see: BUILD SUCCESSFUL
       </pre>
+      <p>Finally import the build.gradle file from the OsmAnd directory into Android Studio</p>
       <p> You can make your <a href="https://help.github.com/articles/fork-a-repo">fork</a> on github and work with it and do <a href="https://help.github.com/articles/using-pull-requests">pull-requests</a> to publish your work in OsmAnd&#39;s repository.</p>
-      <p>  Import OsmAnd (from /platforms/android) and OsmAndMapCreator (from /tools/) and OsmAnd-java (from /core/) projects from  into eclipse (do not copy them to workspace). See plugins directory, where can be some plugin projects you can contribute to.</p>
-      <p>  Make sure that Eclipse Android plugin refers to android sdk path (Preferences -&#62; Android -&#62; SDK)</p>
-      <p>  (Optional, should work out of the box) Check external folder in OsmAnd project : specify that *use* refers to OsmAnd-java/src (use path variable to have common version in reposititory).</p>
-      <p> Try to compile all projects to get rid of the errors or try to run Ant script alternatively.</p>
-      <p> Configure local.properties (look at sample file) in OsmAnd project in order to run OsmAnd\build.xml. Run Ant file OsmAnd\build.xml and get OsmAnd-debug.apk ready.</p>
+      
       <div class="blocksubtitle">Config Application</div>
       <p> You can run OsmExtractionUI.class and it is OsmAndMapCreator</p>
       <p> If you want to enable logging - do not forget to put Java VM arg</p>
       <pre>-Djava.util.logging.config.file=&#8203;logging.properties</pre>
       <p>After that you can try to run Swing (standalone) application to see whatever result.</p>
       <p>After that you should have installed the development environment on your machine.</p>
-      <div class="blocksubtitle">Terminal based compilation on Linux or Mac OS X</div>
-      <p>This might work as well on windows with slightly different commands. It does not use Eclipse or any other IDE.
-        Download and install the Android SDK and NDK.
-        The commands between () are only needed on the initial setup/compilation.
-      </p>
-      <pre>
-cd /opt/software
-(mkdir osmandapp)
-cd osmandapp
-(repo init -u https://github.com/osmandapp/OsmAnd-manifest.git)
-repo sync -d
-      </pre>
-      <pre>
-export ANDROID_SDK=/opt/software/android-sdk-linux
-export ANDROID_NDK=/opt/software/android-ndk-r8e
-      </pre>
-      <pre>
-./android/OsmAnd/old-ndk-build.sh
-      </pre>
-      <p>This will build all the basic stuff, the dependencies and the native library</p>
-      <p>The above command(s)  will build the dependencies for an arm, x86 and mips combined apk, but it will not build the apk itself yet.</p>
-      <p>Make sure that the last line of your &#34;./android/OsmAnd/old-ndk-build.sh&#34; command compilation run ends with:
-      <pre>
-  Install        : libgnustl_shared.so =&#62; libs/armeabi/libgnustl_shared.so
-      </pre>
-      To compile the apk finally do:
-      <pre>
-  cd android/OsmAnd
-  ant -file build.xml -Dsdk.dir=$ANDROID_SDK -Dndk.dir=$ANDROID_NDK -Dnativeoff=false -Dmanifest="/opt/software/osmandapp/&#8203;android/OsmAnd/&#8203;AndroidManifest.xml" clean debug
-      </pre>
       <p class="back_to_top"><a href="#top">Back to top</a></p>
     </div>
   </div>
