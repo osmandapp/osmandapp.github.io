@@ -13,6 +13,7 @@
       <li><a href="#contour_lines_not_visible">Contour lines or hillshades do not show up</a></li>
       <li><a href="#countour_lines_feet">Is there a way to have contour lines displayed in feet also, instead of meters?</a></li>
       <li><a href="#installation_issue">I can't install or upgrade the app</a></li>
+      <li><a href="uninstall_issue">I can't uninstall the app</a></li>
       <li><a href="#reinstalling">I uninstalled the app/I'm using a new device. Do I have to buy OsmAnd again?</a></li>
       <li><a href="#505_on_android_5">Managing 'Error 505' on Android 5+</a></li>
       <li><a href="#restore_purchases">How to restore purchases on iOS</a></li>
@@ -186,6 +187,19 @@
       <p>To freeze a process, follow these steps: go to App Manager --> Apps tab --> filter by System Apps --> select the "Guard Provider" --> tap the Manage button (bottom right, four little squares) --> Freeze.
         To unfreeze, repeat the same procedure. Unfortunately "App Master" does not do freeze in the OsmAnd Free version. 3C Toolbox does the trick, but you will find the "Guard Provider" process as "com.securitycore.miui_t" under "Apps" with the filter on "System".
       </p>
+    </div>
+  </div>
+  
+  <div class="question">
+    <div class="subtitle" id="uninstall_issue">I can't uninstall the app</div>
+    <div class="content">
+      <p>Sometimes you might want to uninstall the app because you want to install the paid version or a nightly develompment build, and you find that the "UNINSTALL" option is inactive.
+      This is because OsmAnd has been configured as "Device Manager" by you as user.<br>
+      In hiking/cycling mode OsmAnd can be configured to switch off the screen and switch it on just before a navigational change of direction is necessary. 
+      To make this possible in Android, OsmAnd is added to the "Device administrators" section. This is the reason you can't uninstall OsmAnd.
+      </p>
+      <p>To uninstall OsmAnd in such a case you need to go to (Android) "Settings->Security->device administrators" and uncheck OsmAnd as a device administrator. 
+      After having done that you can uninstall OsmAnd. </p>
     </div>
   </div>
 
