@@ -363,12 +363,15 @@ select:-moz-focusring {
 .registration {
   display: inline-block;
   vertical-align: top;
-  width: 48.5%;
+  width: 49%;
   min-height: 420px;
   padding: 20px;
   margin-top: 20px;
   margin-right: 1%;
   background: #f2f2f2;
+}
+.registration.contributor-registration {
+  margin-right: 0;
 }
 .registration h4 {
   margin-top: 0;
