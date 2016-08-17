@@ -193,6 +193,9 @@
             <div class="btc-address">1GRgEnKujorJJ9VBa76g8cp3sfoWtQqSs4</div>
             <p>The payouts are distributed based on the ranking which is available in OSM Contributions tab, th last ranking has weight&nbsp;=&nbsp;1, the ranking before the last has weight&nbsp;=&nbsp;2 and so on till the 1st ranking.</p>
           </div>
+          <div class="full-width-banner">
+            <img src="images/Info_landscape.png" alt="">
+          </div>
         </div>
         <div id="recipients" class="tab-pane fade">
           <h2>Recipients</h2>
