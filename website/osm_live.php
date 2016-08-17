@@ -586,7 +586,7 @@
       "<h3>How it works</h3><ul>" +
       "<li> Every OSM contributor can be registered as a recipient. He just need to provide a valid Bitcoin address in the form below. " +
       "<li> Every OsmAnd user who wants to get live updates needs to subscribe to that service. " +
-      "<li> After Google and Bank deductions the whole sum is split into 2 parts (<strong>30% OsmAnd</strong> and <strong>70% Donations</strong>)"+
+      "<li> After Google and Bank deductions the whole sum is split into 2 parts (<strong>50% OsmAnd</strong> and <strong>50% Donations</strong>)"+
       "<li> All donations are exchanged into Bitcoin and distributed between OSM contributors according to their ranking."+
       "<li> Every OsmAnd user can select preferred donation region, in that case <strong>50% of donation</strong> will be distributed between editors of this region."+
       "</ul><br> Please find all rankings and formulas in the reports on OSM Live.")
