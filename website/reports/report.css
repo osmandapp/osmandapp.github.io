@@ -436,13 +436,20 @@ select:-moz-focusring {
   font-size: 14px;
   font-weight: bold;
 }
-
 #recipients-info-div {
   margin-top: 20px;
   margin-bottom: 20px;
 }
 .maincontainer {
   background-color: white;
+}
+.full-width-banner {
+  width: 100%;
+  margin: 20px auto;
+}
+.full-width-banner img {
+  display: block;
+  max-width: 100%;
 }
 
 .vlabel {
