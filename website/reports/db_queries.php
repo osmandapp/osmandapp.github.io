@@ -390,7 +390,7 @@ function getSupporters() {
         } else {
           $status = "Active";
           $activeSubscribed++;
-          if(!$row[2] || $row == 'none') {
+          if(!$row[2] || $row[2] == 'none') {
             // $res->regions['']->count ++; // should be twice if count
           } else {
             $res->regions['']->count ++; 
