@@ -360,6 +360,7 @@ function getSupporters() {
   $res->regions['']->id = '';
   $res->regions['']->name = 'Worldwide';
   $cnt = 0;
+  $activeSubscribed = 0;
   $active = 0;
   $time = time();
   if($imonth != date("Y-m")) {
@@ -388,10 +389,11 @@ function getSupporters() {
           $skip = ($time - $row[6] / 1000) > 120000;
         } else {
           $status = "Active";
-          $res->regions['']->count ++; 
-          if(!$row[2]) {
-            $res->regions['']->count ++;
+          $activeSubscribed++;
+          if(!$row[2] || $row == 'none') {
+            // $res->regions['']->count ++; // should be twice if count
           } else {
+            $res->regions['']->count ++; 
             if(!array_key_exists($row[2], $res->regions)) {
               $res->regions[$row[2]]->count = 0;
               $res->regions[$row[2]]->id = $row[2];
@@ -402,8 +404,8 @@ function getSupporters() {
               }
             }
             $res->regions[$row[2]]->count ++;
+            $active++;
           }
-          $active++;
         }
       }  
       if($skip) {
@@ -431,7 +433,7 @@ function getSupporters() {
   //if(isset($_GET['full']) && $_GET['full'] == true) {
   //  $res->rows = array_merge($res->rows, $res->notactive);
   //}
-  $res->count = $cnt;
+  $res->count = $activeSubscribed;
   $res->activeCount = $active;
   foreach ($res->regions as $key => $value) {
       if($active > 0) {
