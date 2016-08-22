@@ -384,14 +384,17 @@ function getSupporters() {
       if($row[6]) {
         $checked = $row[5];
         $autorenew = $row[8];
-        if($time * 1000 > $row[6]) {
+        if($time * 1000 > $row[6]) {  
           $status = "Expired " . floor( ($time - $row[6] / 1000) / (3600*24)) . " days ago";
           $skip = ($time - $row[6] / 1000) > 120000;
         } else {
           $status = "Active";
           $activeSubscribed++;
-          if(!$row[2] || $row[2] == 'none') {
+          if(!$row[2]) {
             // $res->regions['']->count ++; // should be twice if count
+            $res->regions['']->count ++; 
+            $res->regions['']->count ++; 
+          } else if($row[2] == 'none') {
           } else {
             $res->regions['']->count ++; 
             if(!array_key_exists($row[2], $res->regions)) {
