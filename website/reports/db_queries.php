@@ -394,6 +394,7 @@ function getSupporters() {
             // $res->regions['']->count ++; // should be twice if count
             $res->regions['']->count ++; 
             $res->regions['']->count ++; 
+            $active++;
           } else if($row[2] == 'none') {
           } else {
             $res->regions['']->count ++; 
