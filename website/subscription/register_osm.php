@@ -53,7 +53,8 @@
     $osm_usr = pg_escape_string($dbconn, $_POST["osm_usr"]);
     $osm_pwd = pg_escape_string($dbconn, $_POST["osm_pwd"]);
     $bitcoin = pg_escape_string($dbconn, $_POST["bitcoin_addr"]);
-    $email = pg_escape_string($dbconn, $_POST["email"]);
+    // $email = pg_escape_string($dbconn, $_POST["email"]);
+    $email = "";
     $time = time() * 1000;
     $basic = base64_encode($osm_usr.":".$osm_pwd);
     $options = array(
