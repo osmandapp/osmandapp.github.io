@@ -30,7 +30,7 @@ As a side note: It is not recommended at all to have/use 'obf' files of more tha
 
 1. How does mapcreator generate its list of all places that will appear later in OsmAnd's offline address search? What objects are used in detail for that? 
 What nodes with a place tag are included, and which are excluded?<br>
-<BLOCKQUOTE>All places that are visible in OsmAnd as Cities are taken from nodes that have the tag place (<a href="http://wiki.openstreetmap.org/wiki/Place" target="blank">wiki.openstreetmap.org/wiki/Place</a>).
+<BLOCKQUOTE>All places that are visible in OsmAnd as Cities are taken from nodes that have the tag place (<a href="https://wiki.openstreetmap.org/wiki/Place" target="blank">wiki.openstreetmap.org/wiki/Place</a>).
  Currently used are city, town, suburb, village, hamlet.</BLOCKQUOTE>
 
 <br>2. How does mapcreator handle an area polygon that is given via a relation with boundary=administrative? 
@@ -51,7 +51,7 @@ This because only few relations provide that information.</BLOCKQUOTE>
 <ul class="list">
 <li>The most important are places and their boundaries. To make sure that the "street management algorithm" will work correct, tmatching the place to the (multiple) boundaries should be successfull. 
 If the street belongs to many boundaries it will be registered in all appropriate places.</li>
-<li>is_in tag (<a href="http://wiki.openstreetmap.org/wiki/Key:is_in" target="blank">deprecated</a>). So if a street has the "is_in" tag, it will be parsed and splitted by comma and the street will be attached to all cities (by exact name matching). 
+<li>is_in tag (<a href="https://wiki.openstreetmap.org/wiki/Key:is_in" target="blank">deprecated</a>). So if a street has the "is_in" tag, it will be parsed and splitted by comma and the street will be attached to all cities (by exact name matching). 
 <br><i>(TO CHECK: basic check street is in city radius?)</i></li>
 <li>If the street doesn't belongs to any boundary (boundary were not properly closed could be an issue) it tries to find the closest/biggest city and register in it (sometimes it register in town for 1 km and missing 100m closest hamlet).</li>
 </ul>
@@ -98,7 +98,7 @@ Here is the order how the most important boundary is taken and associated with t
 
 <H3>4. For each boundary, make a list of cities that are in it.</H3>
 
-<H3>5. iterate all RELATIONS and find addresses</H3> (http://wiki.openstreetmap.org/wiki/Relations/Proposed/Postal_Addresses)
+<H3>5. iterate all RELATIONS and find addresses</H3> (https://wiki.openstreetmap.org/wiki/Relations/Proposed/Postal_Addresses)
 <ul class="list">
 <li>relation with "address" tag type, and is "house" or "a6" address_type</li>
 <li>search for associatedStreet relation and house members</li>
@@ -153,7 +153,7 @@ Here is the order how the most important boundary is taken and associated with t
 <li>findOrRegister streets for the street</li>
 <li>find the house number</li>
 <li>if housenumber contains '-', try to create interpolated house number (missing latlon2?)</li>
-<li>if housenumber contains '/', try to lookup second street addr:street2 (--> seems only for RU osm: http://wiki.openstreetmap.org/wiki/RU:Key:addr)<br><I>TODO: there are more variations for this: adr:housenumber2, addr2:street, addr2:housenumber etc....</i></li>
+<li>if housenumber contains '/', try to lookup second street addr:street2 (--> seems only for RU osm: https://wiki.openstreetmap.org/wiki/RU:Key:addr)<br><I>TODO: there are more variations for this: adr:housenumber2, addr2:street, addr2:housenumber etc....</i></li>
 <li>for each street, store the existing house</li>
 </ul>
 

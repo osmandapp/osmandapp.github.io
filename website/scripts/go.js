@@ -32,7 +32,7 @@ var init = function(){
 
 	map = L.map('map').setView([lat, lon], z);
 	L.tileLayer('http://tile.osmand.net/hd/{z}/{x}/{y}.png', {
-		attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
+		attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
 		maxZoom: 20,
     		maxNativeZoom: 19
 	}).addTo(map);
