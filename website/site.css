@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'Roboto Regular';
-  src: url('Roboto-Regular-webfont.eot');
-  src: url('Roboto-Regular-webfont.eot?#iefix') format('embedded-opentype'),
-       url('Roboto-Regular-webfont.woff') format('woff'),
-       url('Roboto-Regular-webfont.ttf') format('truetype'),
-       url('Roboto-Regular-webfont.svg#robotoregular') format('svg');
+  src: url('fonts/Roboto-Regular-webfont.eot');
+  src: url('fonts/Roboto-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+       url('fonts/Roboto-Regular-webfont.woff') format('woff'),
+       url('fonts/Roboto-Regular-webfont.ttf') format('truetype'),
+       url('fonts/Roboto-Regular-webfont.svg#robotoregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -412,6 +412,7 @@ a::-moz-focus-inner {
   padding-left: 70px;
   margin: 0;
   font-size: 40px;
+  line-height: 1;
 }
 .featureblocktitle.feature-opensource h2 {
   line-height: 1;
