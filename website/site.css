@@ -409,7 +409,7 @@ a::-moz-focus-inner {
   left: 0;
   transform: translate(0, -50%);
   max-width: 480px;
-  padding-left: 70px;
+  padding: 0 0 0 70px;
   margin: 0;
   font-size: 40px;
   line-height: 1;
