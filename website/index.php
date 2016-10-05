@@ -434,10 +434,19 @@
         } else {
           $('.selected-map').hide();
         }
+      
+        setSlideHeight();
 
     });
 
     setTimeout(applyPolStyles, timeout);
+    
+    function setSlideHeight() {
+	      var containerHeight = $('.slick-track').height();
+	      $('.slick-slide').css('height', containerHeight + 'px' );
+    }
+    
+    setSlideHeight();
 
   });
 </script>
