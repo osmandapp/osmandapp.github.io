@@ -54,6 +54,7 @@ a::-moz-focus-inner {
 }
 .maincontainer.menu-open {
   position: fixed;
+  -webkit-transform: translate(-300px, 0);
   transform: translate(-300px, 0);
   transition: transform .5s;
 }
@@ -179,6 +180,7 @@ a::-moz-focus-inner {
   font-family: Verdana, Arial;
   font-weight: 700;
   letter-spacing: .06em;
+  -webkit-transform: translate(0, 0);
   transform: translate(0, 0);
   text-transform: uppercase;
 }
@@ -407,6 +409,7 @@ a::-moz-focus-inner {
   position: absolute;
   top: 50%;
   left: 0;
+  -webkit-transform: translate(0, -50%);
   transform: translate(0, -50%);
   max-width: 480px;
   padding: 0 0 0 70px;
@@ -533,6 +536,7 @@ a::-moz-focus-inner {
   position: absolute;
   top: 50%;
   left: 50%;
+  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
 .sliderheader {
@@ -768,6 +772,7 @@ a::-moz-focus-inner {
   transition: transform .5s;
 }
 .modal-menu-button.active {
+  -webkit-transform: rotate(-180deg);
   transform: rotate(-180deg);
   transition: transform .5s;
 }
@@ -1962,6 +1967,7 @@ a,a:visited
   }
   .selectbox.active:after {
     transition: all .5s;
+    -webkit-transform: rotate(-180deg);
     transform: rotate(-180deg);
   }
   .selectbox .selecttitle {
@@ -2083,6 +2089,7 @@ a,a:visited
     padding: 20px 40px 0;
     margin-top: 0;
     background: #292f33;
+    -webkit-transform: translate(100%, 0);
     transform: translate(100%, 0);
     transition: all .5s;
     overflow-x: hidden;
