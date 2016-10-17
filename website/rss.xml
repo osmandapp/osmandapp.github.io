@@ -4,6 +4,29 @@
 <link>http://osmand.net/blog</link>
 <description/>
 <generator></generator>
+	
+<item>
+<title>New OsmAnd Topo map style</title>
+<link>http://osmand.net/blog?id=topo_style</link>
+<description>
+<p>Please welcome new OsmAnd Topo map style. If you are a hiker or a cyclist spending much time in the countryside, you are likely to appreciate the new style. It is designed to make your trips as convenient as possible while enjoying the nature.</p>
+<img src="images/blog/topo/topo_1.jpg"/>
+<img src="images/blog/topo/topo_2.jpg"/>
+<p>Right from the beginning, you&amp;ll notice a comparatively high contrast of the map colors. The roads are displayed in orange shades with a clear and thick black border. This increases their visibility and improves map&amp;s legibility. Also, we&amp;ve transferred cycling and pedestrian routes from default OsmAnd style to make it even more convenient. </p>
+<p>Contour lines are brown showing every 100m of altitude. You&amp;ll be able to see the names on such line presented in a dark color. The names won&amp;t resemble the shape of lines: such solution improves readability of information.</p>
+<img src="images/blog/topo/topo_5.jpg"/>
+<p>The ridges have black edges with nicks. The buildings are represented in solid black color. It reduces your chances to miss a shelter in a sparsely populated area.</p>
+<img src="images/blog/topo/topo_3.jpg"/>
+<img src="images/blog/topo/topo_4.jpg"/>
+<p>The forests are painted in a brighter shade of green. Deep rivers and lakes have deep-colored edges, while smaller rivers and other waterways are dark blue. Railroads are black and all electric railways have cross strokes, the text is mainly black with white edges.</p>
+<p>Also, some symbols are different in the topo style: &amp;surface integral rendering&amp; is made to conveniently show the surface information. You can add or remove this feature in Configure map - &amp;Details&amp; menu. The roads will be marked according to the scale presented below. Access restriction symbols have been made dark-red to prevent violation of private property or planning your route across a closed area. Spot obstacles are shown as dots on bigger scales.</p>
+<p>Linear obstacles are represented as fine lines visible from zoom level 16 or from level 13 if you enable the &amp;More details&amp; option. You can enable it in Configure map - &amp;Details&amp; menu. Main landmarks are designed to be seen from higher scale levels.</p>
+
+<img src="images/blog/topo/topo_6.jpg"/>
+<p>Enjoy your travel with OsmAnd!</p>
+</description>
+</item>
+
 <item>
 <title>OsmAnd 2.4 released</title>
 <link>http://osmand.net/blog?id=osmand-2-4-released</link>
