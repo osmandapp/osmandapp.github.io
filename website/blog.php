@@ -61,6 +61,7 @@
           <div class="acticlestitles">
             <h2>Latest articles</h2>
             <ul class="articlelinklist">
+              <li><a data-gatag='topo-style' href="http://osmand.net/blog?id=topo_style" >Topo style</a></li>
               <li><a data-gatag='osmand-2-4-released' href="http://osmand.net/blog?id=osmand-2-4-released" >OsmAnd 2.4</a></li>
               <li><a data-gatag='osmand_videos' href="http://osmand.net/blog?id=osmand_videos" >OsmAnd Videos</a></li>
               <li><a data-gatag='api_demo' href="http://osmand.net/blog?id=api_demo" >OsmAnd API Demo</a></li>
