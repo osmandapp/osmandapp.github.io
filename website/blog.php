@@ -1,6 +1,6 @@
 <?php
   if (empty($_GET['id'])) {
-    $_GET['id'] ="osmand-2-4-released";
+    $_GET['id'] ="topo_style";
   } 
 ?>          
 <!DOCTYPE html>
