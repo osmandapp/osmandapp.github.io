@@ -87,7 +87,7 @@ if(is_null(getReport('getBTCValue'))) {
     if($payouts != '') {
         $res->message = $res->message . "<p class='recipients-data-header overview-hint'>Payouts:&nbsp;" . $payouts . "</p>";
     }
-    $res->message = $res->message . '<p><a href="http://builder.osmand.net/reports/query_month_report.php?report=total&month=' . $res->month . '">Download all json reports for ' . $month . ' </a></p>';
+    $res->message = $res->message . '<p><a type="application/json" href="http://builder.osmand.net/reports/query_month_report.php?report=total&month=' . $res->month . '">Download all json reports for ' . $month . ' </a></p>';
 }
         
 echo json_encode($res);
