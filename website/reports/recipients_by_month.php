@@ -83,6 +83,7 @@ if(is_null(getReport('getBTCValue'))) {
         $payouts = $payouts . ',&nbsp;<a href="https://blockchain.info/tx/a35193847c1635c901ab8f6e0f28e28f5b0da9ff19a379ec49c0c4c44de81100">Transaction #10</a>';
         $payouts = $payouts . ',&nbsp;<a href="https://blockchain.info/tx/cd1c091f47a7b55a340abd00937c303fdbe8535bb5ec7e22d7938b72ba9fdf6d">Transaction #11</a>';
         $payouts = $payouts . ',&nbsp;<a href="https://blockchain.info/tx/dd126b052ccaa5db8bb10c027620dcf8a8da33fcc62fbf6bbe0eed211c2fc1d4">Transaction #12</a>';
+        $payouts = $payouts . ',&nbsp;<a href="https://blockchain.info/tx/5ffdeacb2f6259c12cec8e8ba53cf390ccfd56ffaf480ad4d3c94d859aed669b">Transaction #13</a>';
     }
     if($payouts != '') {
         $res->message = $res->message . "<p class='recipients-data-header overview-hint'>Payouts:&nbsp;" . $payouts . "</p>";
