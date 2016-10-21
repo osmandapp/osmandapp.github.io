@@ -61,6 +61,7 @@
           <div class="acticlestitles">
             <h2>Latest articles</h2>
             <ul class="articlelinklist">
+              <li><a data-gatag='christmas_map' href="http://osmand.net/blog?id=christmas_map" >Сhristmas POI map</a></li>
               <li><a data-gatag='topo-style' href="http://osmand.net/blog?id=topo_style" >Topo style</a></li>
               <li><a data-gatag='osmand-2-4-released' href="http://osmand.net/blog?id=osmand-2-4-released" >OsmAnd 2.4</a></li>
               <li><a data-gatag='osmand_videos' href="http://osmand.net/blog?id=osmand_videos" >OsmAnd Videos</a></li>
