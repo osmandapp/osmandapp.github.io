@@ -47,18 +47,18 @@ Just tap the widget on the map screen to start recording, set the recording inte
 <p><b>Recommendation:</b> Use 1-5 seconds for very high or high detail recordings (which may require filtering or post-processing). For backcountry hiking trips a setting like 30 seconds may suffice (for >=30 seconds we actually turn off GPS between recordings, which noticeably saves battery power!). To just capture the basics of where you were on a long driving trip, something like 5 minutes may suffice.</p>
 
 <h3>(B) Motion detection by a minimum (displacement) distance from the last recorded point:</h3>
-<p><b>Purpose:</b> Avoid duplicate points being recorded where too little actual motion may have occurrded, makes a nicer spatial appearance of tracks not post-processed later.</p>
+<p><b>Purpose:</b> Avoid duplicate points being recorded where too little actual motion may have occurred, makes a nicer spatial appearance of tracks not post-processed later.</p>
 <p><b>Side effects:</b> Periods at rest are not recorded at all or by just one point each. Small (real world) movements (e.g. sideways, to mark a possile turnoff on your trip) may be filtered out. Your file contains less information for post-processing, and has worse stats by filtering out obviously redundant points at recording time, while potentially keeping artefacts caused by bad reception or GPS chipset effects.</p>
 <p><b>Recommendation:</b> A setting of 5 meters may work well for you if you do not require to capture details finer than that, and do not want to explicitly capture data while at rest.</p>
 
 <h3>(C) Trip logging minimum speed:</h3>
-<p><b>Purpose:</b> This is a low-speed cut-off filter to not record points below a certain speed. This may make recorded tracks look smooth when viewed on the map.</p>
+<p><b>Purpose:</b> This is a low-speed cut-off filter to not record points below a certain speed. This may make recorded tracks look "smoother" when viewed on the map.</p>
 <p><b>Side effect:</b> Your track will be missing all sections where the minimum speed criterion was not met (e.g. where you push your bike up a steep hill). Also, there will be no information about periods at rest, like breaks. This has effects on any analysis or post-processing, like when trying to determine the total length of your trip, time in motion, or your average speed.</p>
 <p><b>Recommendation:</b> Try using the motion detection by minumum distance (A) first, it may produce better results, and you will lose less data. If your tracks remain noisy at low speeds, try non-zero values here. Please note that some measurements may not report any speed value at all (some network-based methods), in which case you would not record anything.</p>
 <p><b>Remark: "speed>0" check:</b>  Most GPS chipsets report a speed value only if the algorithm determines you are in motion, and none if you are not. We currently use this feature in our GPX analysis, but have no way to set a filter at recording time.</p>
 
 <h3>(D) Trip logging minimum precision:</h3>
-<p><b>Purpose:</b> This will record only points established with a minimum quality indicator as reported by your chipset. (Scale is GPS hdop: 1 is perfect, 5 is fair, >>10 is bad to useless).</p>
+<p><b>Purpose:</b> This will record only points established with a minimum quality indication as reported by your chipset. (Scale is GPS hdop: 1 is perfect, 5 is fair, >>10 is bad to useless).</p>
 <p><b>Side effect:</b> As a result of filtering by precision, points may be entirely missing for e.g. below bridges, under trees, between high buildings, or with certain weather conditions.</p>
 <p><b>Recommendation:</b> It is hard to predict what will be recorded and what not, it may be best to turn this filter off.</p>
 <p><b>Remark:</b> If GPS had been off immediately before a recording, the first point measured may have decreased precison, so in our implementation code we may want to wait a second or so before recording a point (or record the best of 3 consecutive points, etc.), but this is not yet implemented.</p>
