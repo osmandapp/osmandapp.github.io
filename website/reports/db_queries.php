@@ -395,7 +395,7 @@ function getSupporters() {
             $res->regions['']->count ++; 
             $res->regions['']->count ++; 
             $active++;
-          } else if($row[2] == 'none') {
+          } else if($row[2] == 'none' || $row[2] == '') {
           } else {
             $res->regions['']->count ++; 
             if(!array_key_exists($row[2], $res->regions)) {
