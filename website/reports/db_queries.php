@@ -356,6 +356,7 @@ function getSupporters() {
   $res->rows = array();
   $res->notactive = array();
   $res->regions = array();
+  $res->regions[''] = new stdClass();
   $res->regions['']->count = 0;
   $res->regions['']->id = '';
   $res->regions['']->name = 'Worldwide';
@@ -399,6 +400,7 @@ function getSupporters() {
           } else {
             $res->regions['']->count ++; 
             if(!array_key_exists($row[2], $res->regions)) {
+              $res->regions[$row[2]] = new stdClass();
               $res->regions[$row[2]]->count = 0;
               $res->regions[$row[2]]->id = $row[2];
               if(array_key_exists($row[2], $countryMap)) {
