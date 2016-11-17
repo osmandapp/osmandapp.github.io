@@ -12,7 +12,7 @@ function grab_dump($var)
   	$dbconn = db_conn();
     $date = date('m/d/Y h:i:s a', time());
     $dump = grab_dump($_REQUEST);
-    error_log($date." : user id '".$_REQUEST["userid"]."' token '".$_REQUEST["token"]."' ".$dump."\n", 3, "/var/log/apache2/purchased.log");
+    error_log($date." : user id '".$_REQUEST["userid"]."' token '".$_REQUEST["token"]."' ".$dump."\n", 3, "/var/log/purchased.log");
     $userid = pg_escape_string($dbconn, $_REQUEST["userid"]);
     $token = pg_escape_string($dbconn, $_REQUEST["token"]);
     $result = pg_query($dbconn, "SELECT userid, token, visiblename, useremail, preferred_region from supporters where userid = '{$userid}' and token = '{$token}';");
