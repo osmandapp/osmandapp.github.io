@@ -12,11 +12,11 @@
   <?php include 'blocks/default_links.html';  ?>
   <!-- for google+-->
   <link rel="canonical"  <?php echo 'href="http://osmand.net'.$_SERVER['REQUEST_URI'].'"'  ?> />
-  <!-- <script src="https://apis.google.com/js/platform.js" async defer></script> -->
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 <body>
   <!-- for FB-->
-  <!-- <div id="fb-root"></div>
+  <div id="fb-root"></div>
   <script>
     (function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
@@ -25,7 +25,7 @@
       js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
-  </script> -->
+  </script>
 
   <div class="maincontainer">
     <div class="main">
@@ -133,7 +133,7 @@
 </div>
 
 <!-- for twitter-->
-<!-- <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script> -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <script>
   $('.modal-menu-button').on('click', function(e) {
     e.preventDefault();
