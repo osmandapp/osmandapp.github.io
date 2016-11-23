@@ -2,14 +2,14 @@
 <html>
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>OsmAnd DVR - Car Video Recorder and Maps</title>
   <?php include 'blocks/default_links.html'; ?>
   <link rel="stylesheet" type="text/css" href="slick.css"/>
   <script type="text/javascript" src="scripts/jquery-3.1.0.min.js"></script>
   <script type="text/javascript" src="scripts/slick.min.js"></script>
-
-  <!-- <script type="text/javascript" src="scripts/ga-init.js"></script>
-  <script type="text/javascript" src="scripts/ga-home.js"></script> -->
+  <script type="text/javascript" src="scripts/ga-init.js"></script>
+  <script type="text/javascript" src="scripts/ga-home.js"></script>
 </head>
 <body>
 <div class="maincontainer">

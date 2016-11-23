@@ -184,32 +184,32 @@ select:-moz-focusring {
 .overview:before {
   content: '';
   position: absolute;
-  top: 2px;
+  top: 0;
   left: 0;
   width: 40px;
   height: 40px;
   background: url('../images/main-sprite.png') no-repeat;
 }
 .overview-changes:before {
-  background-position: -0px -285px;
+  background-position: -0px -280px;
 }
 .overview-users:before {
-  background-position: -40px -285px;
+  background-position: -40px -280px;
 }
 .overview-region:before {
-  background-position: -80px -285px;
+  background-position: -80px -280px;
 }
 .overview-active_supporters:before {
-  background-position: -40px -285px;
+  background-position: -40px -280px;
 }
 .overview-register_supporters:before {
-  background-position: -120px -285px;
+  background-position: -120px -280px;
 }
 .overview-btc:before {
-  background-position: -160px -285px;
+  background-position: -160px -280px;
 }
 .overview-total_weight:before {
-  background-position: -200px -285px;
+  background-position: -200px -280px;
 }
 .overview p {
   margin: 0;
@@ -363,12 +363,15 @@ select:-moz-focusring {
 .registration {
   display: inline-block;
   vertical-align: top;
-  width: 48.5%;
+  width: 49%;
   min-height: 420px;
   padding: 20px;
   margin-top: 20px;
   margin-right: 1%;
   background: #f2f2f2;
+}
+.registration.contributor-registration {
+  margin-right: 0;
 }
 .registration h4 {
   margin-top: 0;
@@ -436,13 +439,20 @@ select:-moz-focusring {
   font-size: 14px;
   font-weight: bold;
 }
-
 #recipients-info-div {
   margin-top: 20px;
   margin-bottom: 20px;
 }
 .maincontainer {
   background-color: white;
+}
+.full-width-banner {
+  width: 100%;
+  margin: 20px auto;
+}
+.full-width-banner img {
+  display: block;
+  max-width: 100%;
 }
 
 .vlabel {

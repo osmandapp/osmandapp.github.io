@@ -193,6 +193,9 @@
             <div class="btc-address">1GRgEnKujorJJ9VBa76g8cp3sfoWtQqSs4</div>
             <p>The payouts are distributed based on the ranking which is available in OSM Contributions tab, th last ranking has weight&nbsp;=&nbsp;1, the ranking before the last has weight&nbsp;=&nbsp;2 and so on till the 1st ranking.</p>
           </div>
+          <div class="full-width-banner">
+            <img src="images/Info_landscape.png" alt="">
+          </div>
         </div>
         <div id="recipients" class="tab-pane fade">
           <h2>Recipients</h2>
@@ -426,6 +429,7 @@
               "dom": "tp"
           });
           $('.table-controls.recipients-controls').removeClass('hidden');
+          setRecipientOverviewHint();
     });
   }
   
@@ -449,7 +453,7 @@
               "</p><span>active donors</span></div>" 
               + "<div class='overview overview-register_supporters'><p>" + data.count +"</p><span>registered supporters</span></div>" );
           var regionsList = Object.keys(data.regions).map(function(key){
-              data.regions[key].coeff = data.regions[key].percent * 100 + "%";
+              data.regions[key].coeff = Math.round(data.regions[key].percent * 10000) / 100 + "%";
               return data.regions[key];
           });
           reportSupportCountryDataTable = $('#support-country-table').DataTable({
@@ -582,7 +586,7 @@
       "<h3>How it works</h3><ul>" +
       "<li> Every OSM contributor can be registered as a recipient. He just need to provide a valid Bitcoin address in the form below. " +
       "<li> Every OsmAnd user who wants to get live updates needs to subscribe to that service. " +
-      "<li> After Google and Bank deductions the whole sum is split into 2 parts (<strong>30% OsmAnd</strong> and <strong>70% Donations</strong>)"+
+      "<li> After Google and Bank deductions the whole sum is split into 2 parts (<strong>50% OsmAnd</strong> and <strong>50% Donations</strong>)"+
       "<li> All donations are exchanged into Bitcoin and distributed between OSM contributors according to their ranking."+
       "<li> Every OsmAnd user can select preferred donation region, in that case <strong>50% of donation</strong> will be distributed between editors of this region."+
       "</ul><br> Please find all rankings and formulas in the reports on OSM Live.")
@@ -653,11 +657,15 @@
             supportMonth = sessionStorage.supportMonth;
             supportMonthName = sessionStorage.supportMonthName;
             $("#donate-month-selection").val(supportMonth);
+            var currentMonth  = $("#donate-month-selection").children("option").filter(":selected").text();
+            $('#overview-supporters_options').text(currentMonth);
         }
         if(sessionStorage.recipientMonth) {
             recipientMonth = sessionStorage.recipientMonth;
             recipientMonthName = sessionStorage.recipientMonthName;
             $("#recipient-month-selection").val(recipientMonth);
+            var currentMonth  = $("#recipient-month-selection").children("option").filter(":selected").text();
+            $('#overview-recipients_option').text(currentMonth);
         }
         if(sessionStorage.recipientRegion) {
             recipientRegion = sessionStorage.recipientRegion;
@@ -674,6 +682,9 @@
             region = sessionStorage.region;
             regionName = sessionStorage.regionName;
             $("#region-selection").val(region);
+            var currentMonth  = $("#month-selection").children("option").filter(":selected").text(),
+                currentRegion = $("#region-selection").children("option").filter(":selected").text();
+            $('#overview-contributors_options').text(currentMonth + ', ' + currentRegion);
         }
     }
   
@@ -708,6 +719,7 @@
           sessionStorage.supportMonthName = supportMonthName;
         }
         updateSupportByMonth();
+        setSupportersOverviewHint();
     });
     $('#recipient-month-selection').on('change', function (e) {
         var optionSelected = $("option:selected", this);
@@ -718,6 +730,7 @@
           sessionStorage.recipientMonthName = recipientMonthName;
         }
         updateRecipientsByMonth();
+        setRecipientOverviewHint();
     });
     $('#recipient-region-selection').on('change', function (e) {
         var optionSelected = $("option:selected", this);
@@ -741,6 +754,7 @@
         updateTotalChanges();
         updateRankingByMonth();
         updateUserRankingByMonth();
+        setContributorsOverviewHint();
     });
   
     $('#region-selection').on('change', function (e) {
@@ -761,18 +775,19 @@
   });
 
   function setContributorsOverviewHint() {
-    if ($('.overview-hint').is(':visible')) {
-      var currentMonth  = $("#month-selection").children("option").filter(":selected").text(),
-          currentRegion = $("#region-selection").children("option").filter(":selected").text()
-      $('#overview-contributors_options').text(currentMonth + ', ' + currentRegion);
-    }
+    var currentMonth  = $("#month-selection").children("option").filter(":selected").text(),
+        currentRegion = $("#region-selection").children("option").filter(":selected").text()
+    $('#overview-contributors_options').text(currentMonth + ', ' + currentRegion);
   }
 
-  function setSupportersOverviewHint() {
-    if ($('.overview-hint').is(':visible')) {
-      var currentMonth  = $("#donate-month-selection").children("option").filter(":selected").text();
-      $('#overview-supporters_options').text(currentMonth);
-    }
+function setSupportersOverviewHint() {
+    var currentMonth  = $("#donate-month-selection").children("option").filter(":selected").text();
+    $('#overview-supporters_options').text(currentMonth);
+  }
+  
+function setRecipientOverviewHint() {
+    var currentMonth  = $("#recipient-month-selection").children("option").filter(":selected").text();
+    $('#overview-recipients_option').text(currentMonth);
   }
 
   $('#users-table-search').on('keyup', function() {
@@ -809,7 +824,9 @@
 
   $(document).on({
     ajaxStart: function() { 
-      $('.loading').addClass("active");
+      if (!$('#information').is(':visible')) {
+        $('.loading').addClass("active");
+      }
     },
     ajaxStop: function() { 
       $('.loading').removeClass("active");

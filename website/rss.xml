@@ -4,7 +4,124 @@
 <link>http://osmand.net/blog</link>
 <description/>
 <generator></generator>
+<item>
+<title>OsmAnd 2.5 Released</title>
+<link>http://osmand.net/blog?id=osmand-2-5-released</link>
+<description>
+<p>OsmAnd 2.5 is now available! This time, we decided to focus on polishing the features and improving general usability of the app. We also made some cool improvements in the search area. Here are some of the changes we've made:</p>
+<h4>Clickable icons on the map</h4>
+<p>One of the key features of 2.5 that icons on the map are clickable and display POI information promptly without the necessity to enable POI Layer first. This also allows watching public transport information without any interactions with the Configure Map menu. Simply click on any icon and the information will be displayed.</p>
+<div class="centeredimageblog">
+<img src="images/blog/2.5/map_icons_1.jpg"/>
+<img src="images/blog/2.5/map_icons_2.jpg"/>
+<div style="clear:both;"></div>
+</div>
+<h4>Very detailed POI search</h4>
+<p>Another major improvement is an upgrade in the POI search function. Now, your search can be much more detailed. For example, you can search for an Italian restaurant that's open at the moment or a Spanish one that accepts Visa cards.</p>
+<p>To specify your search, please go to Search - Categories. Then select a category, for example, Cafe and restaurant. Press the Settings button in the left upper corner and you'll see a wide range of filters, from opening hours to specific diets (gluten free, vegetarian, etc.) to outdoor seating, takeaway options, wheelchair accessibility and even internet access type. After you set all the features you need, press 'Apply filters' button below. We've also improved the Quick search feature to let you find the places you need even more conveniently.</p>
+<div class="centeredimageblog">
+<img src="images/blog/2.5/search_menu_1.jpg"/>
+<img src="images/blog/2.5/search_menu_2.jpg"/>
+<div style="clear:both;"></div>
+</div>
+<h4>Hiding compass</h4>
+<p>We decided to hide the compass icon from the map screen, if the map is turned to the north, for a cleaner look. If you rotate the map, you'll notice that the icon is back. However, if you need the Compass icon to stay on screen, just edit this setting in the 'Configure screen' menu.</p>
+<div class="centeredimageblog">
+<img src="images/blog/2.5/compass_1.jpg"/>
+<img src="images/blog/2.5/compass_2.jpg"/>
+<div style="clear:both;"></div>
+</div>
+<h4>Android Wear compatibility</h4>
+<p>OsmAnd has become way friendlier towards the Android Wear. Now you can get a full navigation information including next turn, distance, and ETA. You'll get two kinds of notifications: 1) navigation related 2) trip recording related.</p>
+<h4>Topo map style</h4>
+<p>As you may have already noticed, we added a whole new map style especially helpful for cyclists and hikers. Please read the  <a href="http://osmand.net/blog?id=topo_style">detailed guide</a>to it.</p>
+<div class="centeredimageblog">
+<img src="images/blog/2.5/topo_map_5.jpg"/>
+<img src="images/blog/2.5/topo_map_7.jpg"/>
+<div style="clear:both;"></div>
+</div>
+<h4>Better trip recording</h4>
+<p>There have been some improvements around trip recording. Now you can record better quality tracks using settings like minimal distance movement, minimal speed and preferred minimal GPS precision (hdop).</p>
+</description>
+</item>	
+<item>
+<title>Christmas poins of interest in OsmAnd</title>
+<link>http://osmand.net/blog?id=christmas_map</link>
+<description>
+<p>Christmas is coming! Dive into celebrations by visiting all the best holiday-related points of interest in your town. To view all attractions on the map, just go to Configure map menu - POI and select "Christmas".</p>
+<div class="centeredimageblog">
+<img src="images/blog/christmas_map/christmas_map2.jpg"/>
+<img src="images/blog/christmas_map/christmas_map4.jpg"/>
+<div style="clear:both;"></div>
+</div>
+<p>You'll see 5 types of POI:</p>
+<ul>
+ <li><b>Christmas event.</b> These points cover all types of Christmas celebrations, shows, etc.</li>
+ <li><b>Christmas market.</b> Time to get some hot tea and ginger cookies. Use this POI to catch the most exciting markets around you.</li>
+ <li><b>Christmas pyramid and Christmas tree</b> are also points you do not want to miss. Remember to take pictures.</li>
+ <li><b>Christmas shop.</b> These POI will guide you to places where you can shop for the holiday.</li>
+</ul>
+<div class="centeredimageblog">
+<img src="images/blog/christmas_map/christmas_map1.jpg"/>
+<img src="images/blog/christmas_map/christmas_map1.jpg"/>
+<div style="clear:both;"></div>
+</div>
+<p>Hint to mappers: add more Xmas objects to the map to help people enjoy the holiday even more!</p>
+<h3>How to add Christmas POI to the map</h3>
+<p>Ready to add Christmas-related POI to the map? There are some simple rules that will help you do that the best way possible. Tag the location, and do not forget about other details like the date when the attraction will be working. Follow the <b><a href="http://wiki.openstreetmap.org/wiki/Key:xmas:feature">link</a></b> to view a detailed guide to mapping Christmas POI. You'll also find a clear template there.</p>
+<div class="centeredimageblog">
+<img src="images/blog/christmas_map/christmas_map6.jpg"/>
+<img src="images/blog/christmas_map/christmas_map7.jpg"/>
+<img src="images/blog/christmas_map/christmas_map8.jpg"/>
+<div style="clear:both;"></div>
+</div>
+<p>Remember, you can add POI to the map without leaving the app! Just to Plugins menu to activate the 'OSM editing' plugin, then return to the map, make a long press on a certain point and select 'Create POI'. Then you'll have to switch to the Advanced tab, enter the name of the POI and select its type (for example, Christmas tree) below the 'Name' line. After that, you'll be able to add any tags using the button 'Add tag'. For instance, you can write the tag 'xmas:feature' and in the 'value' field write 'tree'. This way, the people searching for Christmas trees nearby will see this one, as well.</p>
+<p>Have questions? You can always contact us at support@osmand.net or join the discussion on <a href="https://groups.google.com/forum/#!forum/osmand">OsmAnd's Google group</a>.</p>
+</description>
+</item>
+	
+<item>
+<title>New OsmAnd Topo map style</title>
+<link>http://osmand.net/blog?id=topo_style</link>
+<description>
+<p>Please welcome new OsmAnd Topo map style. If you are a hiker or a cyclist spending much time in the countryside, you are likely to appreciate the new style. It is designed to make your trips as convenient as possible while enjoying the nature.</p>
+<img src="images/blog/topo/topo_1.jpg"/>
+<img src="images/blog/topo/topo_2.jpg"/>
+<p>Right from the beginning, you&amp;ll notice a comparatively high contrast of the map colors. The roads are displayed in orange shades with a clear and thick black border. This increases their visibility and improves map&amp;s legibility. Also, we&amp;ve transferred cycling and pedestrian routes from default OsmAnd style to make it even more convenient. </p>
+<p>Contour lines are brown showing every 100m of altitude. You&amp;ll be able to see the names on such line presented in a dark color. The names won&amp;t resemble the shape of lines: such solution improves readability of information.</p>
+<img src="images/blog/topo/topo_5.jpg"/>
+<p>The ridges have black edges with nicks. The buildings are represented in solid black color. It reduces your chances to miss a shelter in a sparsely populated area.</p>
+<img src="images/blog/topo/topo_3.jpg"/>
+<img src="images/blog/topo/topo_4.jpg"/>
+<p>The forests are painted in a brighter shade of green. Deep rivers and lakes have deep-colored edges, while smaller rivers and other waterways are dark blue. Railroads are black and all electric railways have cross strokes, the text is mainly black with white edges.</p>
+<p>Also, some symbols are different in the topo style: &amp;surface integral rendering&amp; is made to conveniently show the surface information. You can add or remove this feature in Configure map - &amp;Details&amp; menu. The roads will be marked according to the scale presented below. Access restriction symbols have been made dark-red to prevent violation of private property or planning your route across a closed area. Spot obstacles are shown as dots on bigger scales.</p>
+<p>Linear obstacles are represented as fine lines visible from zoom level 16 or from level 13 if you enable the &amp;More details&amp; option. You can enable it in Configure map - &amp;Details&amp; menu. Main landmarks are designed to be seen from higher scale levels.</p>
 
+<img src="images/blog/topo/topo_6.jpg"/>
+<p>Enjoy your travel with OsmAnd!</p>
+</description>
+</item>
+
+<item>
+<title>OsmAnd 2.4 released</title>
+<link>http://osmand.net/blog?id=osmand-2-4-released</link>
+<description>
+<p>An OsmAnd update is here. We've introduced a new search interface and many fixes. Read on to find out all the details.</p>
+<h2>New quick search</h2>
+<p>A quick search was probably one of the most requested features we've received. A first version of it is included in this release. Now, you can enter almost any type of query, be it a type of POI, an address or even a link to the map and find it using the Search button on the map screen.</p>
+<img src="images/blog/2.4/search_1.jpg"/>
+<img src="images/blog/2.4/search_2.jpg"/>
+<h2>Car audio system integration</h2>
+<p>Now OsmAnd can be integrated into your car navigation system. Connect an Android device running OsmAnd via Bluetooth to a car stereo system which provides speakerphone functionality. If in OsmAnd you select Settings - General Settings - Voice guidance output - Phone call audio, OsmAnd will interrupt any music to play its navigation prompts.</p>
+<img src="images/blog/2.4/voice_guidance_integration.jpg"/>
+<h2>Helpful transport information</h2>
+<p>In the previous OsmAnd release, we introduced transport stops information. In 2.4, this has been improved. Now, you can turn them on in Configure map - Transport - Transport stops, then tap on one and see all the routes on that stop. More to come, you can tap a route to view it on the map from start to end.</p>
+<img src="images/blog/2.4/routes_1.png"/>
+<img src="images/blog/2.4/routes_2.png"/>
+<p>We reworked route guidance, voice prompting, and added new turn lane indication. The release also includes numerous fixes like improved storage management, etc. Besides that, some local languages like Sorbian have been added to the new release. Also, yu can now enjoy support of such language options as Spanish (American) and English (United Kingdom). They will be of best help as map languages in the regions to show you the geographical names in regional language. To set your chosen language as map language, please go to Configure map - Map language.</p>
+<p>Hurry to update your OsmAnd today!</p>
+</description>
+</item>
 <item>
 <title>OsmAnd API Demo</title>
 <link>http://osmand.net/blog?id=api_demo</link>

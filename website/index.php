@@ -185,7 +185,7 @@
       
       <div class="whatyousayblock">
         <div class="whatyousaymessage">
-          <span>"Great navigation app with offline maps from open street map with e.g. lane by lane navigation while driving, the UI is a bit difficult to navigate but it's a must app for vacation abroad."</span>
+          <span>"Great navigation app with offline maps from OpenStreetMap with e.g. lane by lane navigation while driving, the UI is a bit difficult to navigate but it's a must app for vacation abroad."</span>
         </div>
         <div class="signature">
           <div class="name">Jan Igerud</div>
@@ -321,6 +321,7 @@
           {
             breakpoint: 900,
             settings: {
+              arrows: false,
               slidesToShow: 3,
               autoplay: true
             }
@@ -433,10 +434,19 @@
         } else {
           $('.selected-map').hide();
         }
+      
+        setSlideHeight();
 
     });
 
     setTimeout(applyPolStyles, timeout);
+    
+    function setSlideHeight() {
+	      var containerHeight = $('.slick-track').height();
+	      $('.slick-slide').css('height', containerHeight + 'px' );
+    }
+    
+    setSlideHeight();
 
   });
 </script>

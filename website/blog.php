@@ -1,8 +1,8 @@
 <?php
-	if (empty($_GET['id'])) {
-		$_GET['id'] ="osmand-2-4-released";
-	}	
-?>		    	
+  if (empty($_GET['id'])) {
+    $_GET['id'] ="osmand-2-5-released";
+  } 
+?>          
 <!DOCTYPE html>
 <html>
 <head>
@@ -61,6 +61,9 @@
           <div class="acticlestitles">
             <h2>Latest articles</h2>
             <ul class="articlelinklist">
+              <li><a data-gatag='osmand-2-5-released' href="http://osmand.net/blog?id=osmand-2-5-released" >OsmAnd 2.5</a></li>
+              <li><a data-gatag='christmas_map' href="http://osmand.net/blog?id=christmas_map" >Сhristmas POI map</a></li>
+              <li><a data-gatag='topo-style' href="http://osmand.net/blog?id=topo_style" >Topo style</a></li>
               <li><a data-gatag='osmand-2-4-released' href="http://osmand.net/blog?id=osmand-2-4-released" >OsmAnd 2.4</a></li>
               <li><a data-gatag='osmand_videos' href="http://osmand.net/blog?id=osmand_videos" >OsmAnd Videos</a></li>
               <li><a data-gatag='api_demo' href="http://osmand.net/blog?id=api_demo" >OsmAnd API Demo</a></li>
@@ -75,24 +78,23 @@
               <li><a data-gatag='osmand_ios_1_0_2' href="http://osmand.net/blog?id=osmand-ios-1.0.2" >OsmAnd 1.0.2 (iOS)</a></li>
               <li><a data-gatag='osmand_2_0' href="http://osmand.net/blog?id=osmand-2-0-released" >OsmAnd 2.0</a></li>
               <li><a data-gatag='osmand_ios' href="http://osmand.net/blog?id=osmand-ios" >OsmAnd for iPhone is released</a></li>
-            <li><a data-gatag='nautical_charts' href="http://osmand.net/blog?id=nautical-charts" >Nautical charts</a></li>
-            <li><a data-gatag='osmand_dvr_goes_live' href="http://osmand.net/blog?id=osmand-dvr-goes-live">OsmAnd DVR goes live</a></li>
-            <li><a data-gatag='osmand_1_9' href="http://osmand.net/blog?id=osmand-1-9-released" >OsmAnd 1.9</a></li>
-            <li><a data-gatag='osmand_1_8' href="http://osmand.net/blog?id=osmand-1-8-released" >OsmAnd 1.8</a></li>
-            <li><a data-gatag='osmand_1_7' href="http://osmand.net/blog?id=osmand-1-7-released" >OsmAnd 1.7</a></li>
-            <li><a data-gatag='osmand_1_6' href="http://osmand.net/blog?id=osmand-1-6-released" >OsmAnd 1.6</a></li>
-            <li><a data-gatag='osmand_1_5' href="http://osmand.net/blog?id=osmand-1-5-released" >OsmAnd 1.5</a></li>
-            <li><a data-gatag='osmand_videos' href="http://osmand.net/blog?id=osmand_videos" >OsmAnd Videos</a></li>
-
-            <li><a data-gatag='osmand_rss' href="http://osmand.net/rss.xml" >RSS</a></li>
+              <li><a data-gatag='nautical_charts' href="http://osmand.net/blog?id=nautical-charts" >Nautical charts</a></li>
+              <li><a data-gatag='osmand_dvr_goes_live' href="http://osmand.net/blog?id=osmand-dvr-goes-live">OsmAnd DVR goes live</a></li>
+              <li><a data-gatag='osmand_1_9' href="http://osmand.net/blog?id=osmand-1-9-released" >OsmAnd 1.9</a></li>
+              <li><a data-gatag='osmand_1_8' href="http://osmand.net/blog?id=osmand-1-8-released" >OsmAnd 1.8</a></li>
+              <li><a data-gatag='osmand_1_7' href="http://osmand.net/blog?id=osmand-1-7-released" >OsmAnd 1.7</a></li>
+              <li><a data-gatag='osmand_1_6' href="http://osmand.net/blog?id=osmand-1-6-released" >OsmAnd 1.6</a></li>
+              <li><a data-gatag='osmand_1_5' href="http://osmand.net/blog?id=osmand-1-5-released" >OsmAnd 1.5</a></li>
+              <li><a data-gatag='osmand_videos' href="http://osmand.net/blog?id=osmand_videos" >OsmAnd Videos</a></li>
+              <li><a data-gatag='osmand_rss' href="http://osmand.net/rss.xml" >RSS</a></li>
             </ul>
           </div>
         </div>
       </div>
     </div>
-
-    <?php include 'blocks/footer.html'; ?>
   </div>
+
+  <?php include 'blocks/footer.html'; ?>
 </div>
 
 <!-- for twitter-->

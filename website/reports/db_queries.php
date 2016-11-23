@@ -356,10 +356,12 @@ function getSupporters() {
   $res->rows = array();
   $res->notactive = array();
   $res->regions = array();
+  $res->regions[''] = new stdClass();
   $res->regions['']->count = 0;
   $res->regions['']->id = '';
   $res->regions['']->name = 'Worldwide';
   $cnt = 0;
+  $activeSubscribed = 0;
   $active = 0;
   $time = time();
   if($imonth != date("Y-m")) {
@@ -383,16 +385,22 @@ function getSupporters() {
       if($row[6]) {
         $checked = $row[5];
         $autorenew = $row[8];
-        if($time * 1000 > $row[6]) {
+        if($time * 1000 > $row[6]) {  
           $status = "Expired " . floor( ($time - $row[6] / 1000) / (3600*24)) . " days ago";
           $skip = ($time - $row[6] / 1000) > 120000;
         } else {
           $status = "Active";
-          $res->regions['']->count ++; 
+          $activeSubscribed++;
           if(!$row[2]) {
-            $res->regions['']->count ++;
+            // $res->regions['']->count ++; // should be twice if count
+            $res->regions['']->count ++; 
+            $res->regions['']->count ++; 
+            $active++;
+          } else if($row[2] == 'none' || $row[2] == '') {
           } else {
+            $res->regions['']->count ++; 
             if(!array_key_exists($row[2], $res->regions)) {
+              $res->regions[$row[2]] = new stdClass();
               $res->regions[$row[2]]->count = 0;
               $res->regions[$row[2]]->id = $row[2];
               if(array_key_exists($row[2], $countryMap)) {
@@ -402,8 +410,8 @@ function getSupporters() {
               }
             }
             $res->regions[$row[2]]->count ++;
+            $active++;
           }
-          $active++;
         }
       }  
       if($skip) {
@@ -431,7 +439,7 @@ function getSupporters() {
   //if(isset($_GET['full']) && $_GET['full'] == true) {
   //  $res->rows = array_merge($res->rows, $res->notactive);
   //}
-  $res->count = $cnt;
+  $res->count = $activeSubscribed;
   $res->activeCount = $active;
   foreach ($res->regions as $key => $value) {
       if($active > 0) {
@@ -450,7 +458,7 @@ function getEurValue($activeCount) {
   if($finalReport != NULL) {
     return $finalReport;
   }
-  return $activeCount * 0.5 ; // 1 EUR - 30% (GPlay) - 30% (OsmAnd)
+  return $activeCount * 0.4 ; // 1 EUR - 20% (GPlay) - 50% (OsmAnd)
 }
 
 function getBTCValue($eurValue, $rate) {
@@ -710,7 +718,7 @@ function getAllReports() {
           $rw->report = getRecipients($res->eurValue, $res->btc, false); 
           for($t = 0; $t < count($rw->report->rows); $t++) {
             $rt = $rw->report->rows[$t];          
-            if($rt->btc == 0) {
+            if($rt->btc < 0.0001) {
               continue;
             }
             $rs = new stdClass();

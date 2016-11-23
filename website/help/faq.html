@@ -13,6 +13,7 @@
       <li><a href="#contour_lines_not_visible">Contour lines or hillshades do not show up</a></li>
       <li><a href="#countour_lines_feet">Is there a way to have contour lines displayed in feet also, instead of meters?</a></li>
       <li><a href="#installation_issue">I can't install or upgrade the app</a></li>
+      <li><a href="#uninstall_issue">I can't uninstall the app</a></li>
       <li><a href="#reinstalling">I uninstalled the app/I'm using a new device. Do I have to buy OsmAnd again?</a></li>
       <li><a href="#505_on_android_5">Managing 'Error 505' on Android 5+</a></li>
       <li><a href="#restore_purchases">How to restore purchases on iOS</a></li>
@@ -70,7 +71,7 @@
       <ul class="list">
         <li><a href="https://play.google.com/store/apps/details?id=net.osmand.plus">Google Play</a></li>
         <li><a href="http://www.amazon.com/OsmAnd-Maps-Navigation/dp/B00D0SEGMC">Amazon Market (depends on the country)</a></li>
-        <li><a href="http://tip4commit.com/projects/33">Bitcoin</a></li>
+        <li><a href="http://osmand.net/osm_live.php">Bitcoin</a></li>
       </ul>
     </div>
   </div>
@@ -188,6 +189,19 @@
       </p>
     </div>
   </div>
+  
+  <div class="question">
+    <div class="subtitle" id="uninstall_issue">I can't uninstall the app</div>
+    <div class="content">
+      <p>Sometimes you might want to uninstall the app because you want to install the paid version or a nightly develompment build, and you find that the "UNINSTALL" option is inactive.
+      This is because OsmAnd has been configured as "Device Manager" by you as user.<br>
+      In hiking/cycling mode OsmAnd can be configured to switch off the screen and switch it on just before a navigational change of direction is necessary. 
+      To make this possible in Android, OsmAnd is added to the "Device administrators" section. This is the reason you can't uninstall OsmAnd.
+      </p>
+      <p>To uninstall OsmAnd in such a case you need to go to (Android) "Settings->Security->device administrators" and uncheck OsmAnd as a device administrator. 
+      After having done that you can uninstall OsmAnd. </p>
+    </div>
+  </div>
 
   <div class="question">
     <div class="subtitle" id="505_on_android_5">Managing 'Error 505' on Android 5+</div>
@@ -215,7 +229,7 @@
         <li> If you use offline maps, tell us the exact name of the map file where the routing issue occurs, and its edition date.</li>
         <li> Tell us whether you have used OsmAnd's in-app offline routing, or any online routing provider like YOURS, OpenRouteService or OSRM.</li>
         <li> What routing profile is choosen in OsmAnd app (car, bike or pedestrian)?</li>
-        <li> Please specify as exactly as possible the start and end point of your route. If possible, tell us city name and street name for each. Also a <a href="http://wiki.openstreetmap.org/wiki/Permalink">Permalink</a> from openstreetmap.org can be helpful.</li>
+        <li> Please specify as exactly as possible the start and end point of your route. If possible, tell us city name and street name for each. Also a <a href="https://wiki.openstreetmap.org/wiki/Permalink">Permalink</a> from openstreetmap.org can be helpful.</li>
         <li> Tell us your expected routing, and how OsmAnd routes.</li>
       </ul>
     </div>
@@ -295,14 +309,14 @@
         <li> Choose a Street</li>
         <li> Choose a Building (not required)</li>
       </ul>
-      Please keep in mind that OsmAnd data is based on the data from OpenStreetMap. This global map is built collaboratively by Internet users. In some cases the data is not complete. If you cannot find the postcode you need, it does not always mean that the postcode is wrong. Maybe just nobody added it to the map. You can make OpenStreetMap better by adding the missing data yourself, more info is found here: <a href="http://www.openstreetmap.org">OpenStreetMap</a>.
+      Please keep in mind that OsmAnd data is based on the data from OpenStreetMap. This global map is built collaboratively by Internet users. In some cases the data is not complete. If you cannot find the postcode you need, it does not always mean that the postcode is wrong. Maybe just nobody added it to the map. You can make OpenStreetMap better by adding the missing data yourself, more info is found here: <a href="https://www.openstreetmap.org/">OpenStreetMap</a>.
     </div>
   </div>
 
   <div class="question">
     <div class="subtitle" id="offline_search_not_complete">Offline search by address does not show all streets</div>
     <div class="content">
-      <p>Most of these issues are map data issues and should be double-checked via <a href="http://www.openstreetmap.org/">OpenStreetMap</a>. If you can see that data is present there (note that it takes some time for new OSM data to appear in OsmAnd maps), then the problem is in OsmAnd's algorithm or how that data is structured.</p>
+      <p>Most of these issues are map data issues and should be double-checked via <a href="https://www.openstreetmap.org/">OpenStreetMap</a>. If you can see that data is present there (note that it takes some time for new OSM data to appear in OsmAnd maps), then the problem is in OsmAnd's algorithm or how that data is structured.</p>
       <p>The most common issue is that streets exist but are not found in a city, and this is due to missing evidence in the OSM data to what town/city the street belongs. In OsmAnd's address search you can try the button "Search in neighbouring cities" if you do not find a street as expected.</p>
       <p>To investigate this problem you can use the BinaryInspector tool from <a href="http://www.osmand.net">OsmAndMapCreator</a>, installation of which shows you exact information on what is in the obf file. Most probably you will find your street in a neighboring town. If you decide to report an issue, please specify all relevant information in its description.</p>
       <p>If you want to see more detail about why these issues occur in OsmAnd's algorithms, please read <a href="http://osmand.net/help-online?id=MapAddressDataStructure">this article</a>.</p>
@@ -314,7 +328,7 @@
     <div class="content">
       <p>OsmAnd uses OpenStreetMap (OSM) as the source of the map data.</p>
       <p>This map is built collaboratively by Internet users. There are some advantages of this approach, like changes to roads or POIs can appear very quickly. But there are also disadvantages, like missing data (house numbers as an example), as the data is not overall checked for consistency.  </p>
-      <p>You can make OpenStreetMap better by adding any missing data. Information about OSM and how to participate is published  here: <a href="http://www.openstreetmap.org">OpenStreetMap</a> and here: <a href="http://learnosm.org/">LearnOSM</a>.</p>
+      <p>You can make OpenStreetMap better by adding any missing data. Information about OSM and how to participate is published  here: <a href="https://www.openstreetmap.org/">OpenStreetMap</a> and here: <a href="http://learnosm.org/">LearnOSM</a>.</p>
     </div>
   </div>
 
@@ -337,10 +351,10 @@
       Due to the geodata taken from the OpenStreetMap project there are by now two methods how speed cameras are integrated in the raw OSM data:
       <ul>
         <li>
-          A point (called "node" in OSM terminology) of a way is tagged with "highway=speed_camera"), see OSM wiki at <a href="http://wiki.openstreetmap.org/wiki/Tag%3Ahighway%3Dspeed_camera">highway=speed_camera</a>
+          A point (called "node" in OSM terminology) of a way is tagged with "highway=speed_camera"), see OSM wiki at <a href="https://wiki.openstreetmap.org/wiki/Tag%3Ahighway%3Dspeed_camera">highway=speed_camera</a>
         </li>
         <li>
-          a group of OSM data elements are joined together in a so called "relation" that contains more elements than a single node to describe the direction that is covered by the speed trap ... see <a href="http://wiki.openstreetmap.org/wiki/Relation:enforcement">Relation:enforcement</a>
+          a group of OSM data elements are joined together in a so called "relation" that contains more elements than a single node to describe the direction that is covered by the speed trap ... see <a href="https://wiki.openstreetmap.org/wiki/Relation:enforcement">Relation:enforcement</a>
         </li>
       </ul>
       Currently, OsmAnd can only make use of the elements that consists of a single node. Analyzing of relations is to come in a future release.
