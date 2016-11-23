@@ -38,7 +38,7 @@
       <div class="articlescontainer">
 
         <div class="article">
-          <section class="api-section">
+          <section class="api-section" id="use">
             <h2>Use OsmAnd API</h2>
             <p>OsmAnd API Demo allows you to test integration with OsmAnd and funtioning of the main features</p>
             <p class="list-header">OsmAnd API features:</p>
@@ -62,7 +62,7 @@
             <div class="api-demo">
               <h2>Download Demo</h2>
               <div class="img-preview"></div>
-              <a href="#" class="api-download-btn google-play-demo"></a>
+              <a href="https://play.google.com/store/apps/details?id=net.osmand.osmandapidemo" class="api-download-btn google-play-demo"></a>
             </div>
           </section>
 
@@ -73,20 +73,20 @@
             <div class="api-sample">
               <h2>Download Sample</h2>
               <div class="img-preview"></div>
-              <a href="#" class="api-download-btn download-sample">Download</a>
+              <a href="http://download.osmand.net/latest-night-build/OsmAnd-qt-sample-armv7.apk" class="api-download-btn download-sample">Download</a>
             </div>
             <h3>License</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At facere, magni voluptate saepe, deleniti aliquid aut. Fugiat quas, <a class="mail-link" href="mailto:bussines@osmand.net">bussines@osmand.net</a> perspiciatis deserunt, ducimus ipsum eius atque ipsa aspernatur accusamus voluptatum aliquid!</p>
             <a href="https://github.com/osmandapp/Osmand/blob/master/LICENSE">https://github.com/osmandapp/Osmand/blob/master/LICENSE</a>
           </section>
 
-          <section class="api-section">
+          <section class="api-section" id="rendering">
             <h2>Create new rendering style</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, saepe error illum alias minus necessitatibus delectus officia laudantium, dignissimos adipisci tenetur quaerat suscipit consequuntur, eum rerum harum vel, consectetur quo!</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam maiores illum pariatur eos rerum omnis quos itaque sapiente nesciunt ipsam aliquid atque nam, nobis mollitia eaque natus praesentium ipsum nemo.</p>
           </section>
 
-          <section class="api-section">
+          <section class="api-section" id="routing">
             <h2>Customize routing engine</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis id vel repudiandae soluta, quaerat excepturi, doloribus quibusdam quod ducimus vitae, similique sunt perspiciatis blanditiis nobis dolores. Labore delectus natus, facere.</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique vero, recusandae perferendis enim labore laudantium quaerat culpa deserunt aperiam quisquam id maxime optio tempora nostrum saepe aliquam beatae nesciunt corporis?</p>
@@ -106,23 +106,23 @@
             <div class="acticlestitles">
               <h2>Build It</h2>
               <ul class="articlelinklist">
-                <li><a data-gatag='use' href="/build_it?id=use">Use OsmAnd API</a></li>
-                <li><a data-gatag='core' href="/build_it?id=core">Build app using OsmAnd Core</a></li>
-                <li><a data-gatag='rendering' href="/build_it?id=rendering">Create new rendering style</a></li>
-                <li><a data-gatag='routing' href="/build_it?id=routing">Customize routing engine</a></li>
-                <li><a data-gatag='license' href="/build_it?id=license">License</a></li>
+                <li><a data-gatag='use' href="use">Use OsmAnd API</a></li>
+                <li><a data-gatag='core' href="core">Build app using OsmAnd Core</a></li>
+                <li><a data-gatag='rendering' href="rendering">Create new rendering style</a></li>
+                <li><a data-gatag='routing' href="routing">Customize routing engine</a></li>
+                <li><a data-gatag='license' href="license">License</a></li>
               </ul>
             </div>
           </div>
           <div class="sidebar-holder api-demo">
             <h2>Download Demo</h2>
             <div class="img-preview"></div>
-            <a href="#" class="api-download-btn google-play-demo"></a>
+            <a href="https://play.google.com/store/apps/details?id=net.osmand.osmandapidemo" class="api-download-btn google-play-demo"></a>
           </div>
           <div class="sidebar-holder api-sample">
             <h2>Download Sample</h2>
             <div class="img-preview"></div>
-            <a href="#" class="api-download-btn download-sample">Download</a>
+            <a href="http://download.osmand.net/latest-night-build/OsmAnd-qt-sample-armv7.apk" class="api-download-btn download-sample">Download</a>
           </div>
         </div>
 
