@@ -172,6 +172,19 @@ a::-moz-focus-inner {
   text-transform: uppercase;
   text-shadow: 0 0 3px #333;
 }
+.headertext.black-friday {
+  position: relative;
+}
+.headertext.black-friday:before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 700px;
+  width: 305px;
+  height: 195px;
+  background: url('images/banner_discount.png') no-repeat center center;
+  background-size: 100%;
+}
 .menu {
   position: absolute;
   top: 50%;
@@ -2057,6 +2070,11 @@ a,a:visited
     height: auto;
     padding: 3px 0;
   }
+  .headertext.black-friday:before {
+    left: auto;
+    right: 20px;
+    width: 240px;
+  }
 }
 .tab-content {
   position: relative;
@@ -2240,6 +2258,9 @@ a,a:visited
   .map .content {
     padding: 0;
   }
+  .headertext.black-friday:before {
+    top: -100px;
+  }
 }
 @media screen and (max-width: 800px) {
   .subfeature {
@@ -2254,6 +2275,10 @@ a,a:visited
   }
   .plugin:nth-child(even) {
     margin-right: 0;
+  }
+  .headertext.black-friday:before {
+    top: -130px;
+    width: 150px;
   }
 }
 @media screen and (max-width: 650px) {
@@ -2335,6 +2360,14 @@ a,a:visited
   .selectbox {
     left: 20px;
     width: auto;
+  }
+  .headertext.black-friday {
+    margin: 120px 0 30px;
+  }
+  .headertext.black-friday:before {
+    top: -150px;
+    left: 50%;
+    margin-left: -75px;
   }
 }
 @media screen and (max-width: 470px) {

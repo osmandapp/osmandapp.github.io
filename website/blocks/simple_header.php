@@ -20,7 +20,7 @@
     </div>
   </div>
   <div class="header-caption">
-    <div class="headertext"><?php echo $simpleheader_header ?></div>
+    <div class="headertext <?php if ($simpleheader_header_id == "MAIN") echo 'black-friday' ?>"><?php echo $simpleheader_header ?></div>
 
      <?php if ($simpleheader_header_id == "MAIN") { ?>
       <div class="badges">
