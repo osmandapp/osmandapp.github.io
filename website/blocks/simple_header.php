@@ -1,6 +1,6 @@
 <div 
   class="<?php if($simpleheader_header_id == "MAIN" or $simpleheader_header_id == "DVR") 
-      echo "header"; else echo "simpleheader"; ?>">
+      echo "header"; else if($simpleheader_header_id == "API") echo "custom_build_it"; else echo "simpleheader"; ?>">
   <?php if ($simpleheader_header_id == "MAIN" or $simpleheader_header_id == "DVR")  { ?>
    <div class="header-map"></div>
   <?php } ?>
@@ -12,6 +12,7 @@
         <li class="<?php if($simpleheader_header_id == "FEATURES") echo "activeitem" ?>"><a data-gatag="header_features" href="/features">Features</a></li>
         <li class="<?php if($simpleheader_header_id == "BLOG") echo "activeitem" ?>"><a data-gatag="header_blog" href="/blog" >Blog</a></li>
         <li class="<?php if($simpleheader_header_id == "OSMLIVE") echo "activeitem" ?>"><a data-gatag="header_osm_live" href="/osm_live">OSM Live</a></li>
+        <li class="<?php if($simpleheader_header_id == "API") echo "activeitem" ?>"><a data-gatag="header_build_it" href="/build_it">Build It</a></li>
         <li class="<?php if($simpleheader_header_id == "HELP") echo "activeitem" ?>"><a data-gatag="header_help" href="/help-online">Help</a></li>
         <li class="<?php if($simpleheader_header_id == "DVR") echo "activeitem" ?>"><a data-gatag="header_dvr" href="/dvr">DVR</a></li>
         <li class="mobile-only <?php if($simpleheader_header == "DOWNLOADS") echo "activeitem" ?>"><a data-gatag="header_downloads" href="/downloads">Downloads</a></li>
@@ -19,16 +20,21 @@
       <div class="menu-hamburger"></div>
     </div>
   </div>
-  <div class="header-caption">
-    <div class="headertext"><?php echo $simpleheader_header ?></div>
+  <?php if ($simpleheader_header_id == "API") { ?>
+    <div class="api_header_holder">
+      <div class="header_img"></div>
+      <div class="headertext"><?php echo $simpleheader_header ?></div>
+    </div>
+  <?php } else { ?>
 
-     <?php if ($simpleheader_header_id == "MAIN") { ?>
-      <div class="badges">
-          <!-- https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png -->
-            <a data-gatag="googleplay" href="https://play.google.com/store/apps/details?id=net.osmand.plus"><img alt="Get it on Google Play" src="images/en-play-badge.png" /></a>
-            <a data-gatag="amazon" href="http://www.amazon.com/gp/product/B00D0SEGMC/ref=mas_pm_OsmAnd-Maps-Navigation"><img alt="Get it on Amazon" src="images/amazon-apps-store.png" /></a>
-            <a data-gatag="ios" class="appstoretopbadge" href="https://itunes.apple.com/app/apple-store/id934850257?pt=2123532&ct=WebSite&mt=8"><img src="images/app-store-badge.png"/></a>
-          </li>
+    <div class="header-caption">
+      <div class="headertext"><?php echo $simpleheader_header ?></div>
+      <?php if ($simpleheader_header_id == "MAIN") { ?>
+        <div class="badges">
+        <!-- https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png -->
+          <a data-gatag="googleplay" href="https://play.google.com/store/apps/details?id=net.osmand.plus"><img alt="Get it on Google Play" src="images/en-play-badge.png" /></a>
+          <a data-gatag="amazon" href="http://www.amazon.com/gp/product/B00D0SEGMC/ref=mas_pm_OsmAnd-Maps-Navigation"><img alt="Get it on Amazon" src="images/amazon-apps-store.png" /></a>
+          <a data-gatag="ios" class="appstoretopbadge" href="https://itunes.apple.com/app/apple-store/id934850257?pt=2123532&ct=WebSite&mt=8"><img src="images/app-store-badge.png"/></a>
         </div>
       <?php } ?>
       <?php if ($simpleheader_header_id == "DVR") { ?>
@@ -37,6 +43,7 @@
         </div>
       <?php } ?>
   </div>
+  <?php } ?>
 </div>
 
 <script>
