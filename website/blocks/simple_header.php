@@ -20,15 +20,15 @@
       <div class="menu-hamburger"></div>
     </div>
   </div>
+
   <?php if ($simpleheader_header_id == "API") { ?>
     <div class="api_header_holder">
       <div class="header_img"></div>
       <div class="headertext"><?php echo $simpleheader_header ?></div>
     </div>
   <?php } else { ?>
-
     <div class="header-caption">
-      <div class="headertext"><?php echo $simpleheader_header ?></div>
+      <div class="headertext <?php if ($simpleheader_header_id == "MAIN") echo 'black-friday' ?>"><?php echo $simpleheader_header ?></div>
       <?php if ($simpleheader_header_id == "MAIN") { ?>
         <div class="badges">
         <!-- https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png -->

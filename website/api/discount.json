@@ -9,6 +9,6 @@
   "icon" : "ic_action_gift",
   "url" :  "osmand-market-app:net.osmand.plus",
   "application" : {
-    "net.osmand.example" : true
+    "net.osmand" : true
   }
 }
