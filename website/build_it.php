@@ -40,25 +40,27 @@
         <div class="article">
           <section class="api-section" id="use">
             <h2>Use OsmAnd API</h2>
-            <p>OsmAnd API Demo allows you to test integration with OsmAnd and funtioning of the main features</p>
+            <p>OsmAnd API allows you to control installed OsmAnd app and change it for specific needs. The advantage of integrating with OsmAnd API that it is pretty easy to kick off development, could be embedded in any specific application and there is no specific requirements about Licensing of the target app. The main disadvantage user should have OsmAnd installed on a device.</p>
             <p class="list-header">OsmAnd API features:</p>
             <ul class="list">
               <li>Adding favorites and markers to the map</li>
+              <li>Navigation between locations</li>
               <li>Creating audio/video/photo notes</li>
               <li>Starting and stopping GPX track recording</li>
               <li>Importing GPX tracks into OsmAnd and navigatin along them</li>
-              <li>Navigation between locations</li>
+              <li>Other non-documented features might be already present or implemented by request</li>
             </ul>
           </section>
 
           <section class="highlighted-box sidebar-merge" id="demo-holder">
             <h3>Start your project</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore praesentium, id ut, iusto hic adipisci, possimus, accusamus iste autem sunt impedit. Officiis, repellendus, velit! Nisi dignissimos ipsum ex quam, odit!</p>
+            <p>You can build your own in any way your like. Integration with OsmAnd API is done using 2 types of intents - silent (doesn't keep OsmAnd open) and visible (brings OsmAnd to a specific screen). There are plans to add Android Interprocess Communication in future. Please take a look at source code of the OsmAnd API project.</p>
             <a href="https://github.com/osmandapp/osmand-api-demo" class="github-link">https://github.com/osmandapp/osmand-api-demo</a>
 
             <h3>License</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique harum voluptatum consequuntur architecto dolorum minus natus quod totam alias ut facilis voluptas dicta sapiente fugit, nisi, praesentium adipisci inventore quos.</p>
-            <a href="https://github.com/osmandapp/Osmand/blob/master/LICENSE">https://github.com/osmandapp/Osmand/blob/master/LICENSE</a>
+            <p>Since there is no direct code usage from the core OsmAnd project, the License is different for the OsmAnd API and for the OsmAnd Core project. Most likely application using OsmAnd API will be written from scratch and this application provided as an example won't be used at all. For OsmAnd API the least restrictive license is used, MIT license.</p>
+            https://github.com/osmandapp/osmand-api-demo/blob/master/LICENSE.md
+            <a href="https://github.com/osmand-api-demo/Osmand/blob/master/LICENSE.md">https://github.com/osmand-api-demo/Osmand/blob/master/LICENSE.md</a>
             <div class="api-demo">
               <h2>Download Demo</h2>
               <div class="img-preview"></div>
@@ -67,35 +69,35 @@
           </section>
 
           <section class="api-section sidebar-merge" id="sample-holder">
-            <h2>OsmAnd API sample</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem molestiae sapiente, eos natus atque vitae voluptate saepe! Optio porro sunt unde accusantium reprehenderit, dolor est perspiciatis ullam beatae architecto eveniet!</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, dicta accusamus, esse molestiae doloribus excepturi consectetur voluptatem totam modi asperiores fuga tempore itaque enim expedita sapiente, facere! Quasi, dignissimos, sit.</p>
+            <h2>OsmAnd Sample</h2>
+            <p>TODO</p>
+            <p>TODO</p>
             <div class="api-sample">
               <h2>Download Sample</h2>
               <div class="img-preview"></div>
               <a href="http://download.osmand.net/latest-night-build/OsmAnd-qt-sample-armv7.apk" class="api-download-btn download-sample">Download</a>
             </div>
             <h3>License</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At facere, magni voluptate saepe, deleniti aliquid aut. Fugiat quas, <a class="mail-link" href="mailto:bussines@osmand.net">bussines@osmand.net</a> perspiciatis deserunt, ducimus ipsum eius atque ipsa aspernatur accusamus voluptatum aliquid!</p>
+            <p>TODO <a class="mail-link" href="mailto:business@osmand.net">business@osmand.net</a>TODO</p>
             <a href="https://github.com/osmandapp/Osmand/blob/master/LICENSE">https://github.com/osmandapp/Osmand/blob/master/LICENSE</a>
           </section>
 
           <section class="api-section" id="rendering">
             <h2>Create new rendering style</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, saepe error illum alias minus necessitatibus delectus officia laudantium, dignissimos adipisci tenetur quaerat suscipit consequuntur, eum rerum harum vel, consectetur quo!</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam maiores illum pariatur eos rerum omnis quos itaque sapiente nesciunt ipsam aliquid atque nam, nobis mollitia eaque natus praesentium ipsum nemo.</p>
+            <p>TODO</p>
+            <p>TODO</p>
           </section>
 
           <section class="api-section" id="routing">
             <h2>Customize routing engine</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis id vel repudiandae soluta, quaerat excepturi, doloribus quibusdam quod ducimus vitae, similique sunt perspiciatis blanditiis nobis dolores. Labore delectus natus, facere.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique vero, recusandae perferendis enim labore laudantium quaerat culpa deserunt aperiam quisquam id maxime optio tempora nostrum saepe aliquam beatae nesciunt corporis?</p>
+            <p>TODO</p>
+            <p>TODO</p>
           </section>
 
           <section class="api-section">
             <div class="highlighted-box">
               <h3>Contact us for development</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis illo ipsum id natus cupiditate nobis, expedita, magnam nam dolorem <a class="mail-link" href="mailto:bussines@osmand.net">bussines@osmand.net</a>! Saepe quasi eos dolor adipisci? Numquam eveniet iure dicta delectus!</p>
+              <p>In case you have are not sure which case fits you the most or you would like to ask help from developers who has experience in building application integrated with OsmAnd, please don't hesitate to contact us <a class="mail-link" href="mailto:business@osmand.net">business@osmand.net</a>!</p>
             </div>
           </section>
         </div>
