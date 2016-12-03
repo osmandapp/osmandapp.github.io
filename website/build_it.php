@@ -59,7 +59,6 @@
 
             <h3>License</h3>
             <p>Since there is no direct code usage from the core OsmAnd project, the License is different for the OsmAnd API and for the OsmAnd Core project. Most likely application using OsmAnd API will be written from scratch and this application provided as an example won't be used at all. For OsmAnd API the least restrictive license is used, MIT license.</p>
-            https://github.com/osmandapp/osmand-api-demo/blob/master/LICENSE.md
             <a href="https://github.com/osmand-api-demo/Osmand/blob/master/LICENSE.md">https://github.com/osmand-api-demo/Osmand/blob/master/LICENSE.md</a>
             <div class="api-demo">
               <h2>Download Demo</h2>
@@ -70,28 +69,41 @@
 
           <section class="api-section sidebar-merge" id="sample-holder">
             <h2>OsmAnd Sample</h2>
-            <p>TODO</p>
-            <p>TODO</p>
+            <p>OsmAnd Sample represents a possiblity to built an application on top of OsmAnd core. OsmAnd provides an java library with lots of functions included. Please take a look at <a href="http://download.osmand.net/latest-night-build/OsmAnd-qt-sample-armv7.apk">the application</a> and at <a href="https://github.com/osmandapp/Osmand/tree/master/OsmAndCore-sample">the source code</a>. OsmAnd Sample is not an API use case and the LICENSE of OsmAnd Sample is the same as the OsmAnd application itself. It provides a possiblity to package and distribute it independently from OsmAnd.  </p>
             <div class="api-sample">
               <h2>Download Sample</h2>
               <div class="img-preview"></div>
               <a href="http://download.osmand.net/latest-night-build/OsmAnd-qt-sample-armv7.apk" class="api-download-btn download-sample">Download</a>
             </div>
             <h3>License</h3>
-            <p>TODO <a class="mail-link" href="mailto:business@osmand.net">business@osmand.net</a>TODO</p>
-            <a href="https://github.com/osmandapp/Osmand/blob/master/LICENSE">https://github.com/osmandapp/Osmand/blob/master/LICENSE</a>
+            <p>The license <a href="https://github.com/osmandapp/Osmand/blob/master/LICENSE">https://github.com/osmandapp/Osmand/blob/master/LICENSE</a>for the OsmAnd application is rather big. There are 2 important things: OsmAnd uses third-party code only with permissive licenses like (LGPL, MIT, Apache) and OsmAnd code itself copyrighted by OsmAnd BV is distributed under GPLv2 license with exception of distributing it on Google Play markets without permission. That provides a possibility to build any application for personal usage or build an opensource application under GPLv2 license (cause OsmAnd is not a platform and all the code built on top of the core must be also licensed as GPL).
+            </p>
+            <p>If you want to build an application for internal usage, please contact  <a class="mail-link" href="mailto:business@osmand.net">business@osmand.net</a>, in some cases exemption from GPLv2 cody copyrighted by OsmAnd BV are provided. For the rest of the coulde please double check the list from the <a href="https://github.com/osmandapp/Osmand/blob/master/LICENSE">LICENSE</a> which consists only of permissive licenses (LGPL, MIT, Apache). 
+            </p>
+            <p>In case of any question, please don't hesitate to contact <a class="mail-link" href="mailto:business@osmand.net">business@osmand.net</a>. We also will be happy to provide help from experienced OsmAnd developers to build a special purpose app.</p>
           </section>
 
           <section class="api-section" id="rendering">
             <h2>Create new rendering style</h2>
-            <p>TODO</p>
-            <p>TODO</p>
+            <p>Creating new rendering style is possible without any change in the program. Style definitions could be difficult if you want to write it from scratch for example <a href="https://github.com/osmandapp/OsmAnd-resources/blob/master/rendering_styles/nautical.render.xml">Nautical style</a> or <a href="https://github.com/osmandapp/OsmAnd-resources/blob/master/rendering_styles/nautical.render.xml">Default style</a> (15K lines of code). It is advised to create a dependent style so you could change start changing style by small pieces. For example <a href="https://github.com/osmandapp/OsmAnd-resources/blob/master/rendering_styles/UniRS.render.xml">UniRS</a> style contains mostly color redefinition and icon appearance. </p>
+            <p>To test rendering style you could use <a href="http://download.osmand.net/latest-night-build/OsmAndMapCreator-main.zip">OsmAndMapCreator</a>. In case you would like to use in the OsmAnd on device. You need to put the xml definition of the style into folder on sdcard ('rendering') next to other rendering styles.</p>
+            <p>All rights on the style is created belongs to the author. Though these rights could not be applied to the OsmAnd binaries and .</p>
           </section>
 
           <section class="api-section" id="routing">
             <h2>Customize routing engine</h2>
-            <p>TODO</p>
-            <p>TODO</p>
+            <p>In some cases you might want to extend or adjust routing experience of OsmAnd, so you could add extra parameters, add extra barriers or change some penalties. Please take a look at <a href="https://github.com/osmandapp/OsmAnd-resources/blob/master/routing/routing.xml">routing.xml</a>. OsmAnd routing is using 2 directional A* algorithm based on fastest time (= distance/(speed*priority) + penalties) . It is a pretty easy format. It is divided into 7 sections (evaluation groups): 
+              <ul class="list">
+                <li>access (1 allow, -1 not allow)
+                <li>speed (number that presents speed in kmh)
+                <li>priority (number between 0 and 1) - a multiplier to the speed and it is still bound to  maxSpeed, so minimum(speed * multiplier, maxSpeed) will be used for A*
+                <li>oneway (1, -1 or 0) - used to clarify access based on direction of the movement
+                <li>penalty_transition (penalty in seconds) - used to define penalty when user goes from high class road to low class road. For example, motorway - 10, trunk - 15, if user goes from trunk to motorway penalty will be 5 seconds (=15 - 10). This penalty will be used by A* algorithm. There is no penalty if user goes from trunk to motorway and there is no penalty if route continues from motorway to motorway.
+                <li>obstacle (penalty in seconds) - defines penalty which is to the routing time
+                <li>obstacle_time (penalty in seconds) - defines penalty which is displayed to the user but it is not considered by routing engine i.e. obstacle_time - 2 hours, obstacle - 1 minute, on the shortest route engine will find a route using 1 minute obstacle but user will see that route time is 2 hours.
+              </ul>
+              </p>
+            <p>In order to test routing.xml you could use <a href="http://download.osmand.net/latest-night-build/OsmAndMapCreator-main.zip">OsmAndMapCreator</a>. To test routing.xml on a device, you could just replace default routing.xml in the root OsmAnd folder on the sdcard.</p>
           </section>
 
           <section class="api-section">
@@ -108,11 +120,11 @@
             <div class="acticlestitles">
               <h2>Build It</h2>
               <ul class="articlelinklist">
-                <li><a data-gatag='use' href="use">Use OsmAnd API</a></li>
-                <li><a data-gatag='core' href="core">Build app using OsmAnd Core</a></li>
-                <li><a data-gatag='rendering' href="rendering">Create new rendering style</a></li>
-                <li><a data-gatag='routing' href="routing">Customize routing engine</a></li>
-                <li><a data-gatag='license' href="license">License</a></li>
+                <li><a data-gatag='use' href="#use">Use OsmAnd API</a></li>
+                <li><a data-gatag='core' href="#core">Build app using OsmAnd Core</a></li>
+                <li><a data-gatag='rendering' href="#rendering">Create new rendering style</a></li>
+                <li><a data-gatag='routing' href="#routing">Customize routing engine</a></li>
+                <li><a data-gatag='license' href="help-online?id=license">License</a></li>
               </ul>
             </div>
           </div>
