@@ -121,7 +121,7 @@
               <h2>Build It</h2>
               <ul class="articlelinklist">
                 <li><a data-gatag='use' href="#use">Use OsmAnd API</a></li>
-                <li><a data-gatag='core' href="#core">Build app using OsmAnd Core</a></li>
+                <li><a data-gatag='sample-holder' href="#sample-holder">Build app using OsmAnd Core</a></li>
                 <li><a data-gatag='rendering' href="#rendering">Create new rendering style</a></li>
                 <li><a data-gatag='routing' href="#routing">Customize routing engine</a></li>
                 <li><a data-gatag='license' href="help-online?id=license">License</a></li>
