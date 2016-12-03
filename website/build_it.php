@@ -188,6 +188,8 @@
     }
     if (demoHeight > demoHolderHeight) {
       demoHolder.css({'min-height': demoHeight + 30})
+    } else {
+      demo.css({'min-height':demoHolderHeight + 40})
     }
   }
 
