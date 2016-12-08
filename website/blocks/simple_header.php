@@ -32,9 +32,9 @@
       <?php if ($simpleheader_header_id == "MAIN") { ?>
         <div class="badges">
         <!-- https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png -->
-          <a data-gatag="googleplay" href="https://play.google.com/store/apps/details?id=net.osmand.plus"><img alt="Get it on Google Play" src="images/en-play-badge.png" /></a>
+          <a data-gatag="googleplay" href="https://play.google.com/store/apps/details?id=net.osmand&amp;referrer=utm_source%3Dwebsite%26utm_medium%3Dtop"><img alt="Get it on Google Play" src="images/en-play-badge.png" /></a>
           <a data-gatag="amazon" href="http://www.amazon.com/gp/product/B00D0SEGMC/ref=mas_pm_OsmAnd-Maps-Navigation"><img alt="Get it on Amazon" src="images/amazon-apps-store.png" /></a>
-          <a data-gatag="ios" class="appstoretopbadge" href="https://itunes.apple.com/app/apple-store/id934850257?pt=2123532&ct=WebSite&mt=8"><img src="images/app-store-badge.png"/></a>
+          <a data-gatag="ios" class="appstoretopbadge" href="https://itunes.apple.com/app/apple-store/id934850257?pt=2123532&amp;ct=WebSite&amp;mt=8"><img src="images/app-store-badge.png"/></a>
         </div>
       <?php } ?>
       <?php if ($simpleheader_header_id == "DVR") { ?>
