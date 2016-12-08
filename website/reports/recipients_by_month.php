@@ -100,6 +100,22 @@ if(is_null(getReport('getBTCValue'))) {
         $payouts = $payouts . ',&nbsp;<a href="https://blockchain.info/tx/c954b8dc0f84a083d87e575750766683c9590546da8e93652ec43e913288940c">Transaction #13</a>';
         $payouts = $payouts . ',&nbsp;<a href="https://blockchain.info/tx/e56e5e18e0d173deea7cdee97aee9672cbeef66fec94412b4342cb1fe1f3d7fe">Transaction #14</a>';
 
+    } else if($res->month == '2016-11') {
+        $payouts = $payouts . '<a href="https://blockchain.info/tx/0c90a96c3647172f465cb42b3c978bc9005e14a7840317e7e0637f2a777beb6c">Transaction #1</a>';
+        $payouts = $payouts . ',&nbsp;<a href="https://blockchain.info/tx/9bc9a07cfad76dc9d20d606799709560e3081d1c4f9f9bd368225ef52d5447db">Transaction #2</a>';
+        $payouts = $payouts . ',&nbsp;<a href="https://blockchain.info/tx/cd5d2209471822386ca9be39db6d4fde937aebd2688c1d284a5114432c4aa4b7">Transaction #3</a>';
+        $payouts = $payouts . ',&nbsp;<a href="https://blockchain.info/tx/f4a559486b6684477b0b4c3d2448d5b01ef35fc185cda6808e8c5e77eb458bd8">Transaction #4</a>';
+        $payouts = $payouts . ',&nbsp;<a href="https://blockchain.info/tx/7b1d3188ffac9b6766b0aac11c9aff2c9ce8b4a3fc618c52224fa9652829f8cd">Transaction #5</a>';
+        $payouts = $payouts . ',&nbsp;<a href="https://blockchain.info/tx/85a4ad18813b83f9d73341ad4fc45176f4329afcbce27ce3ec0a03ba8330b754">Transaction #6</a>';
+        $payouts = $payouts . ',&nbsp;<a href="https://blockchain.info/tx/3cfce99b9b9648a75658e3c4a86bf1bba11fb76eda01618de504b083f304b434">Transaction #7</a>';
+        $payouts = $payouts . ',&nbsp;<a href="https://blockchain.info/tx/d517fb62c49ec737bb35f73a82718a21f93cb63f82769ed03730b601d4178072">Transaction #8</a>';
+        $payouts = $payouts . ',&nbsp;<a href="https://blockchain.info/tx/1dc2bf3a64b45e56329356eb664037bd17df47b242696cb3bdf455e065feea11">Transaction #9</a>';
+        $payouts = $payouts . ',&nbsp;<a href="https://blockchain.info/tx/d50d2e02fb6efd354f06b7657d31b0f737be8f2c2155df1bdad1801bffeb2306">Transaction #10</a>';
+        $payouts = $payouts . ',&nbsp;<a href="https://blockchain.info/tx/cf0a024b5b139a349be39cf6c1d8452e426e29cea2ef9ee2e5f2fa9bcb614088">Transaction #11</a>';
+        $payouts = $payouts . ',&nbsp;<a href="https://blockchain.info/tx/37eff4dfd34fc847c374b78a65e13cef6a0c4ebab56ce8380bbccfeb5fc9324a">Transaction #12</a>';
+        $payouts = $payouts . ',&nbsp;<a href="https://blockchain.info/tx/794e862edcb17ff608a12f02d87694f2e2fd31ca72c1df3464c666053a67485d">Transaction #13</a>';
+        $payouts = $payouts . ',&nbsp;<a href="https://blockchain.info/tx/8cec76fd911f44752f4dd5d846bcbbb4254a1f982aa3f30690ff09a7980d248d">Transaction #14</a>';
+        $payouts = $payouts . ',&nbsp;<a href="https://blockchain.info/tx/92df56f859ee20d6acb137a45e686134d1e5a8b2345a08e602c9a7df820c451d">Transaction #15</a>';
     }
     if($payouts != '') {
         $res->message = $res->message . "<p class='recipients-data-header overview-hint'>Payouts:&nbsp;" . $payouts . "</p>";
