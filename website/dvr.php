@@ -46,7 +46,7 @@
           <li><div class="power-saving"><span>Power saving mode + Black screen mode</span></div></li>
           <li><div class="speedlimit"><span>Speed limit feature</span></div></li>
           <li><div class="map-providers"><span>Four Map providers, layer switching, traffic layer</span></div></li>
-          <li><div class="ios7"><span>iOS 7 supported</span></div></li>  
+          <li><div class="ios7"><span>iOS 8 supported</span></div></li>  
         </ul>
         <ul class="column">
           <li><div class="photo"><span>Still photos while recording the video</span></div></li>
