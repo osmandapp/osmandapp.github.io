@@ -183,9 +183,11 @@ a::-moz-focus-inner {
   text-transform: uppercase;
   text-shadow: 0 0 3px #333;
 }
+.headertext.new-year,
 .headertext.black-friday {
   position: relative;
 }
+.headertext.new-year:before,
 .headertext.black-friday:before {
   content: '';
   position: absolute;
@@ -193,8 +195,13 @@ a::-moz-focus-inner {
   left: 700px;
   width: 305px;
   height: 195px;
-  background: url('images/banner_discount.png') no-repeat center center;
   background-size: 100%;
+}
+.headertext.black-friday:before {
+  background: url('images/banner_discount.png') no-repeat center center;
+}
+.headertext.new-year:before {
+  background: url('images/banner_new_year.png') no-repeat center center;
 }
 .menu {
   position: absolute;
