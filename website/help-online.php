@@ -34,6 +34,7 @@
                   <li><a data-gatag='downloads' href="/downloads">Downloads</a></li>
                   <li><a data-gatag='map-legend' href="/help-online?id=map-legend">Map legend</a></li>
                   <li><a data-gatag='technical' href="/help-online?id=technical-articles">Technical articles</a></li>
+                  <li><a data-gatag='technical' href="/help-online?id=privacy-policy">Privacy Policy</a></li>
                   <li><a data-gatag='license' href="/help-online?id=license">License</a></li>
                   <li><a data-gatag='about' href="/help-online?id=about">About</a></li>
                 </ul>
