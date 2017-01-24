@@ -48,7 +48,7 @@ Just tap the widget on the map screen to start recording, set the recording inte
 
 <h3>(B) Motion detection by a minimum (displacement) distance from the last recorded point:</h3>
 <p><b>Purpose:</b> Avoid duplicate points being recorded where too little actual motion may have occurred, makes a nicer spatial appearance of tracks not post-processed later.</p>
-<p><b>Side effects:</b> Periods at rest are not recorded at all or by just one point each. Small (real world) movements (e.g. sideways, to mark a possile turnoff on your trip) may be filtered out. Your file contains less information for post-processing, and has worse stats by filtering out obviously redundant points at recording time, while potentially keeping artefacts caused by bad reception or GPS chipset effects.</p>
+<p><b>Side effects:</b> Periods at rest are not recorded at all or by just one point each. Small (real world) movements (e.g. sideways, to mark a possile turnoff on your trip) may be filtered out. Your file contains less information for post-processing, and has worse stats by filtering out obviously redundant points at recording time, while potentially keeping artifacts caused by bad reception or GPS chipset effects.</p>
 <p><b>Recommendation:</b> A setting of 5 meters may work well for you if you do not require to capture details finer than that, and do not want to explicitly capture data while at rest.</p>
 
 <h3>(C) Trip logging minimum speed:</h3>
@@ -57,11 +57,11 @@ Just tap the widget on the map screen to start recording, set the recording inte
 <p><b>Recommendation:</b> Try using the motion detection by minumum distance (A) first, it may produce better results, and you will lose less data. If your tracks remain noisy at low speeds, try non-zero values here. Please note that some measurements may not report any speed value at all (some network-based methods), in which case you would not record anything.</p>
 <p><b>Remark: "speed>0" check:</b>  Most GPS chipsets report a speed value only if the algorithm determines you are in motion, and none if you are not. We currently use this feature in our GPX analysis, but have no way to set a filter at recording time.</p>
 
-<h3>(D) Trip logging minimum precision:</h3>
-<p><b>Purpose:</b> This will record only points established with a minimum quality indication as reported by your chipset. (Scale is GPS hdop: 1 is perfect, 5 is fair, >>10 is bad to useless).</p>
-<p><b>Side effect:</b> As a result of filtering by precision, points may be entirely missing for e.g. below bridges, under trees, between high buildings, or with certain weather conditions.</p>
+<h3>(D) Trip logging minimum accuracy:</h3>
+<p><b>Purpose:</b> This will record only points measured with a minimum "accuracy" indication (in meters/feet, as reported by Android for your chipset). Accuracy refers to the scatter of repeated measurements, and is not directly related to precision, which defines how close your measurements are to your "true" position.</p>
+<p><b>Side effect:</b> As a result of filtering by accuracy, points may be entirely missing for e.g. below bridges, under trees, between high buildings, or with certain weather conditions.</p>
 <p><b>Recommendation:</b> It is hard to predict what will be recorded and what not, it may be best to turn this filter off.</p>
-<p><b>Remark:</b> If GPS had been off immediately before a recording, the first point measured may have decreased precison, so in our implementation code we may want to wait a second or so before recording a point (or record the best of 3 consecutive points, etc.), but this is not yet implemented.</p>
+<p><b>Remark:</b> If GPS had been off immediately before a recording, the first point measured may have a decreased accuracy, so in our code we may want to wait a second or so before recording a point (or record the best of 3 consecutive points, etc.), but this is not yet implemented.</p>
 
 
 <div class="subtitle" id="How_to_view_GPX_tracks"><h2>How to view GPX tracks</h2></div>
