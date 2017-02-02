@@ -41,7 +41,7 @@
 <div style="clear:both;"></div>
 </div>
 <h4>Better trip recording</h4>
-<p>There have been some improvements around trip recording. Now you can record better quality tracks using settings like minimal distance movement, minimal speed and preferred minimal GPS precision (hdop).</p>
+<p>To control the quality of your tracks, you can now apply filters before recording trip points: Use the settings "motion detection" (i.e. minimum displacement between points), preferred minimum GPS accuracy, and minimum speed.</p>
 </description>
 </item>	
 <item>
