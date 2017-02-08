@@ -7,7 +7,7 @@
   "show_day_frequency" : 1,
   "max_total_show" : 100,
   "icon" : "ic_action_gift",
-  "url" :  "osmand-market-app:net.osmand.plus",
+  "url" :  "screen:in_apps",
   "application" : {
     "net.osmand" : true
   }
