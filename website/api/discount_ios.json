@@ -8,6 +8,6 @@
   "max_total_show" : 100,
   "icon" : "ic_action_gift",
   "url" : "in_app:plugin",
-  "in_app" : "wiki"
+  "in_app" : "wiki",
   "purchased_in_apps" : []
 }
