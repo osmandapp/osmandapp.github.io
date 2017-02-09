@@ -7,7 +7,7 @@
   "show_day_frequency" : 1,
   "max_total_show" : 100,
   "icon" : "ic_action_gift",
-  "url" : "in_app:plugin",
-  "in_app" : "wiki",
-  "purchased_in_apps" : []
+  "url" : "in_app:map",
+  "in_app" : "allworld",
+  "purchased_in_apps" : ["russia", "europe", "africa", "asia", "australia", "centralamerica", "northamerica", "southamerica"]
 }
