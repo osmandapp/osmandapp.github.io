@@ -1,6 +1,6 @@
 <?php
   if (empty($_GET['id'])) {
-    $_GET['id'] ="osmand-ios-1.3-released";
+    $_GET['id'] ="osmand_youtube_channel";
   } 
 ?>          
 <!DOCTYPE html>
