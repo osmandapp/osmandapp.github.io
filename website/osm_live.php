@@ -160,7 +160,7 @@
               You successfully registered as a recipient.
             </div>
             <form role="form" action="subscription/register_osm.php" method="post" id="register_osm">
-              <label for="osm_usr">OpenStreetMap user name:</label>
+              <label for="osm_usr">OpenStreetMap nick name (not email):</label>
               <div class="input-holder input-user">
                 <input type="text" class="form-control" id="osm_usr" name="osm_usr">
               </div>
