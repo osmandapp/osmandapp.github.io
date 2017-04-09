@@ -216,17 +216,17 @@
       <div class="blocksubtitle">Prompts</div>
       <p>Let me quickly document here which prompt is played when in our voice router module:</p>
       <ol class="list">
-        <li>&#34;Route recalculated&#34;:*</li>
+        <li><b>&#34;Route recalculated&#34;:</b></li>
         <ol type="a">
           <li> Is played after the route has been recalculated, but only if the new route &#34;is useful&#34;, i.e. now guides you in &#34;forward direction&#34;</li>
           <li> Is suppressed entirely for GPX routing (as it makes no sense then)</li>
         </ol>
         <li>
-          &#34;GPS signal lost&#34;:* 
+          <b>&#34;GPS signal lost&#34;:</b>
           <p>Is played after GPS signal has been lost for continuous 20 sec and this was not caused by user action (still buggy, see Issue 893) </p>
         </li>
         <li>
-          &#34;Make a U-turn when possible&#34;:*
+          <b>&#34;Make a U-turn when possible&#34;:</b>
           <p>This prompt is an interim advice for cases where you continuously head in the wrong direction, and does only sound (once) if a new route in forward direction could not be found in x (currently 10) seconds:</p>
           <ol type="a">
             <li> When you head down a long dead end road, where the only possible route out is &#39;backwards&#39;.</li>
@@ -235,39 +235,72 @@
           </ol>
         </li>
         <li>
-          Turn instructions:* 
+          <b>Turn instructions:</b>
           <p> Are suppressed if traveling in a weird directions (account for GPS issues)</p>
         </li>
-        <li>Lead distances (lead time)</li>
-        <ol type="a">
-          <li>
-            CAR profile* (DEFAULT_SPEED = 12m/s=43km/h):
-            <p>|| (a) &#62;3000m out            || &#34;Follow the course of the road for...&#34;||
-              || (b) 3000m-2000m           || PREPARE_LONG||
-              || (c) 1500m-1200m           || PREPARE||
-              || (d) 300m-168m (or &#60;25sec) || TURN_IN||
-              || (e) &#60;60m (or &#60;5sec)       || TURN||
-            </p>
-          </li>
-          <li>
-            BICYCLE profile* (DEFAULT_SPEED = 5m/s=18 km/h):
-            <p>|| (b) 500m-300m                                      || PREPARE_LONG||
-              || (c) ~~500m-350m~~ 200m-120m                        || PREPARE||
-              || (d) ~~225m-80m (or &#60;45sec)~~ 80m-60m (or &#60;16sec)   || TURN_IN||
-              || (e) ~~&#60;45m (or &#60;9sec)~~ &#60;30m (or &#60;6sec)            || TURN||
-            </p>
-          </li>
-          <li>
-            PEDESTRIAN profile* (DEFAULT_SPEED = 2 m/s=7.2km/h):
-            <p>|| (c) ~~200m-150m~~ 100m-70m                         || PREPARE||
-              || (d) ~~100m-70m (or &#60;50sec)~~ 50m-30m (or &#60;25sec)   || TURN_IN||
-              || (e) ~~25m or (or &#60;12sec)~~  15m (or &#60;7.5sec)       || TURN||
-            </p>
-            <p>,,(Corrected values for bike and ped from forum feedback June 2013.),,</p>
-          </li>
-        </ol>
-      </ol>
-      <p class="back_to_top"><a href="#top">Back to top</a></p>
+        <li>
+			<b>Lead distances (lead time):</b></li>
+			<table style="width:100%">
+				<tr>
+					<th colspan="2"><b>1. CAR profile</b> (DEFAULT_SPEED = 12m/s=43km/h):</th>
+				</tr>
+				<tr>
+					<td> (a) &#62;3000m out</td>
+					<td> &#34;Follow the course of the road for...&#34;</td>
+				</tr>
+				<tr>
+					<td> (b) 3000m-2000m</td>
+					<td> PREPARE_LONG</td>
+				</tr>
+				<tr>
+					<td> (c) 1500m-1200m</td>
+					<td> PREPARE</td>
+				</tr>
+				<tr>
+					<td> (d) 300m-168m (or &#60;25sec)</td>
+					<td> TURN_IN</td>
+				</tr>
+				<tr>
+					<td> (e) &#60;60m (or &#60;5sec)</td>
+					<td> TURN</td>
+				</tr>
+				<tr>
+					<th colspan="2"><b>2. BICYCLE profile</b> (DEFAULT_SPEED = 5m/s=18 km/h):</th>
+				</tr>
+				<tr>
+					<td> (b) 500m-300m</td>
+					<td> PREPARE_LONG</td>
+				</tr>
+				<tr>
+					<td> (c) ~~500m-350m~~ 200m-120m</td>
+					<td> PREPARE</td>
+				</tr>
+				<tr>
+					<td> (d) ~~225m-80m (or &#60;45sec)~~ 80m-60m (or &#60;16sec)</td>
+					<td> TURN_IN</td>
+				</tr>
+				<tr>
+					<td> (e) ~~&#60;45m (or &#60;9sec)~~ &#60;30m (or &#60;6sec)</td>
+					<td> TURN</td>
+				</tr>
+				<tr>
+					<th colspan="2"><b>3. PEDESTRIAN profile</b> (DEFAULT_SPEED = 2 m/s=7.2km/h):</th>
+				</tr>
+				<tr>
+					<td> (c) ~~200m-150m~~ 100m-70m</td>
+					<td> PREPARE</td>
+				</tr>
+				<tr>
+					<td> (d) ~~100m-70m (or &#60;50sec)~~ 50m-30m (or &#60;25sec)</td>
+					<td> TURN_IN</td>
+				</tr>
+				<tr>
+					<td> (e) ~~25m or (or &#60;12sec)~~  15m (or &#60;7.5sec)</td>
+					<td> TURN</td>
+				</tr>
+			</table>
+			<p>(Corrected values for bike and ped from forum feedback June 2013.)</p>
+			<p class="back_to_top"><a href="#top">Back to top</a></p>
     </div>
   </div>
 
