@@ -5,6 +5,21 @@
 <description/>
 <generator></generator>
 <item>
+<title>OsmAnd 2.6</title>
+<link>http://osmand.net/blog?id=osmand-2-6-released</link>
+<description>
+<p>We're glad to announce the release of OsmAnd 2.6 Some of the key improvments are the following:</p>
+<h4>Quick Action Button</h4>
+	<p>Gather all your favorite features in one toolbar to use them conveniently</p>
+<h4>Elevation and Slope Profile for Calculated Routes and GPX files</h4>
+	<p>View the interactive eleation profiles of your routes on the map.</p>
+<h4>Nautical Depth Contour lines</h4>
+	<p>The contour lines representing seabed depths are now available.</p>
+<h4>New Map Style</h4>
+        <p>OsmAnd now has a completely re-worked default map style. We enhanced the visibility of key elements and added a brighter, clearer color scheme.</p>
+</description>
+</item>
+<item>
 <title>Join OsmAnd team on Youtube!</title>
 <link>http://osmand.net/blog?id=osmand_youtube_channel</link>
 <description>
