@@ -1,6 +1,6 @@
 <?php
   if (empty($_GET['id'])) {
-    $_GET['id'] ="osmand_youtube_channel";
+    $_GET['id'] ="osmand-2-6-released";
   } 
 ?>          
 <!DOCTYPE html>
@@ -60,7 +60,8 @@
         <div class="article-menu">
           <div class="acticlestitles">
             <h2>Latest articles</h2>
-            <ul class="articlelinklist">              
+            <ul class="articlelinklist">
+              <li><a data-gatag='osmand_youtube_channel' href="http://osmand.net/blog?id=osmand-2-6-released" >OsmAnd 2.6</a></li>
               <li><a data-gatag='osmand_youtube_channel' href="http://osmand.net/blog?id=osmand_youtube_channel" >OsmAnd team on Youtube</a></li>
               <li><a data-gatag='osmand-ios-1.3-released' href="http://osmand.net/blog?id=osmand-ios-1.3-released" >OsmAnd 1.3 (iOS)</a></li>
               <li><a data-gatag='osmand-2-5-released' href="http://osmand.net/blog?id=osmand-2-5-released" >OsmAnd 2.5</a></li>
