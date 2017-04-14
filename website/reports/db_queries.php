@@ -406,7 +406,7 @@ function getSupporters() {
               if(array_key_exists($row[2], $countryMap)) {
                   $res->regions[$row[2]]->name = $countryMap[$row[2]];
               } else {
-                  $res->regions[$row[2]]->name == '';
+                  $res->regions[$row[2]]->name = '';
               }
             }
             $res->regions[$row[2]]->count ++;
