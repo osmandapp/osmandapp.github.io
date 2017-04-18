@@ -65,6 +65,7 @@
                 <li><a data-gatag='osm-editing-plugin' href="/features?id=osm-editing-plugin">OSM editing</a></li>
                 <li><a data-gatag='distance-calculator-and-planning-tool' href="/features?id=distance-calculator-and-planning-tool">Distance calculator and planning tool</a></li>
                 <li><a data-gatag='parking-plugin' href="/features?id=parking-plugin" >Parking place</a></li>
+                <li><a data-gatag='development_plugin' href="/features?id=development_plugin">OsmAnd development</a></li>
               </ul>
             </div>
           </div>
