@@ -7,6 +7,7 @@
     	public $key;
     	public $url;
     	public $ca;
+    	public $username;
     	public $imageUrl;
 	} 
 
@@ -27,7 +28,7 @@
  		$e->ca = $feature->properties->ca;
  		$e->imageUrl = "https://osmand.net/api/get_photo.php?photo_id=".$e->key;
  		$e->url = "https://osmand.net/api/photo-viewier.php?photo_id=".$e->key;
- 		
+ 		$e->username = = $feature->properties->username;
  		$e->lat = $coordinates[1];
  		$e->lon = $coordinates[0];
  	 	array_push($arr, $e); 
