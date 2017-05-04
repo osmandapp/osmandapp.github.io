@@ -35,8 +35,8 @@
  	}
  }
  if(!empty($arr)) {
- 		$e = new JsFeature;
- 		$e->type = "mapilary-contribute";
+ 		$e = array();
+ 		$e["type"] = "mapilary-contribute";
  	 	array_push($arr, $e); 
  }
  $map = array();
