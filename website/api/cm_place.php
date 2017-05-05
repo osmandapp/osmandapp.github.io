@@ -17,7 +17,7 @@
 		if($angle > 360) {
 			$angle -= 360;
 		}
-		if($angle < 360) {
+		if($angle < -360) {
 			$angle += 360;
 		}
 		if(abs($angle) < $diff) {
@@ -112,6 +112,7 @@
  // $result = file_get_contents("cm_example.json");
  $json_res = json_decode($result);
  $arr = array();
+ $halfvisarr = array();
  $nonvisarr = array();
  if($json_res) {
  	foreach($json_res->features as $feature ) {
@@ -131,8 +132,10 @@
  		$distBearing = initialBearing($e->lat, $e->lon, floatval($_GET['lat']), floatval($_GET['lon']));
  	 	$e->distance = $distBearing[0];
  	 	$e->bearing = rad2deg($distBearing[1]);
- 	 	if($e->ca && angleDiff($e->bearing - $e->ca, 60)) {
+ 	 	if($e->ca && angleDiff($e->bearing - $e->ca, 30)) {
  	 		array_push($arr, $e); 
+ 	 	} else if($e->ca && angleDiff($e->bearing - $e->ca, 60)) {
+ 	 		array_push($halfvisarr, $e); 
  	 	} else {
  	 		array_push($nonvisarr, $e); 
  	 	}
@@ -141,13 +144,14 @@
  	usort($nonvisarr, "distanceTime");
  	if(empty($arr)) {
  		// don't add invisible area
- 		// $arr = array_merge($arr, $nonvisarr);
+ 		$arr = array_merge($arr, $halfvisarr);
  	}
+ 	//$arr = array_merge($arr, $nonvisarr);
  }
  if(!empty($arr)) {
- 	if(count($arr) > 5) {
- 		$arr = array_slice($arr, 0, 5) ;
- 	}
+// 	if(count($arr) > 5) {
+// 		$arr = array_slice($arr, 0, 5) ;
+// 	}
  	$e = array();
  	$e["type"] = "mapillary-contribute";
  	array_push($arr, $e); 
