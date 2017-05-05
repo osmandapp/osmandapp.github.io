@@ -27,7 +27,7 @@
  		$e->key = $feature->properties->key;
  		$e->ca = $feature->properties->ca;
  		$e->imageUrl = "https://osmand.net/api/mapillary/get_photo.php?photo_id=".$e->key;
- 		$e->url = "https://osmand.net/api/mapillary/photo-viewier.php?photo_id=".$e->key;
+ 		$e->url = "https://osmand.net/api/mapillary/photo-viewer.php?photo_id=".$e->key;
  		$e->username = $feature->properties->username;
  		$e->lat = $coordinates[1];
  		$e->lon = $coordinates[0];
