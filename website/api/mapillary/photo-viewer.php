@@ -21,7 +21,7 @@
         var mly = new Mapillary.Viewer(
             'mly',
             'LXJVNHlDOGdMSVgxZG5mVzlHQ3ZqQTo0NjE5OWRiN2EzNTFkNDg4',
-            <?php echo '"'.$_GET['photoid'].'"' ?>,
+            <?php echo '"'.$_GET['photo_id'].'"' ?>,
             {
                 component: {
                     cover: false,
