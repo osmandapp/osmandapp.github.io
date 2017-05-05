@@ -140,7 +140,8 @@
  	usort($arr, "distanceTime");
  	usort($nonvisarr, "distanceTime");
  	if(empty($arr)) {
- 		$arr = array_merge($arr, $nonvisarr);
+ 		// don't add invisible area
+ 		// $arr = array_merge($arr, $nonvisarr);
  	}
  }
  if(!empty($arr)) {
