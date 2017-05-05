@@ -78,9 +78,9 @@
             $B = ($uSquared / 1024.0) * // (4)
                 (256.0 + $uSquared *
                  (-128.0 + $uSquared * (74.0 - 47.0 * $uSquared)));
-            $C = (f / 16.0) *
+            $C = ($f / 16.0) *
                 $cosSqAlpha *
-                (4.0 + f * (4.0 - 3.0 * $cosSqAlpha)); // (10)
+                (4.0 + $f * (4.0 - 3.0 * $cosSqAlpha)); // (10)
             $cos2SMSq = $cos2SM * $cos2SM;
             $deltaSigma = $B * $sinSigma * // (6)
                 ($cos2SM + ($B / 4.0) *
