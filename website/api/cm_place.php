@@ -22,12 +22,12 @@
  		$coordinates = $feature->geometry->coordinates;
  		
  		$e = new JsFeature;
- 		$e->type = "mapilary-photo";
+ 		$e->type = "mapillary-photo";
  		$e->timestamp = $feature->properties->captured_at;
  		$e->key = $feature->properties->key;
  		$e->ca = $feature->properties->ca;
- 		$e->imageUrl = "https://osmand.net/api/mapilary/get_photo.php?photo_id=".$e->key;
- 		$e->url = "https://osmand.net/api/mapilary/photo-viewier.php?photo_id=".$e->key;
+ 		$e->imageUrl = "https://osmand.net/api/mapillary/get_photo.php?photo_id=".$e->key;
+ 		$e->url = "https://osmand.net/api/mapillary/photo-viewer.php?photo_id=".$e->key;
  		$e->username = $feature->properties->username;
  		$e->lat = $coordinates[1];
  		$e->lon = $coordinates[0];
@@ -36,7 +36,7 @@
  }
  if(!empty($arr)) {
  		$e = array();
- 		$e["type"] = "mapilary-contribute";
+ 		$e["type"] = "mapillary-contribute";
  	 	array_push($arr, $e); 
  }
  $map = array();
