@@ -28,6 +28,16 @@
                 },
             });
         
+        mly.on(
+            Mapillary.Viewer.nodechanged, 
+            function(node) {
+                if (node.latLon) {
+                    Android.onNodeChanged(node.latLon.lat, node.latLon.lon);
+                } else {
+                    Android.onNodeChanged(NaN, NaN);
+                }
+            });
+        
         // Viewer size is dynamic so resize should be called every time the window size changes
         window.addEventListener("resize", function() { mly.resize(); });
     </script>
