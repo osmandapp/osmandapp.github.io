@@ -134,7 +134,7 @@
  	 	$e->bearing = rad2deg($distBearing[1]);
  	 	if($e->ca && angleDiff($e->bearing - $e->ca, 30)) {
  	 		array_push($arr, $e); 
- 	 	} else if($e->ca && angleDiff($e->bearing - $e->ca, 60)) {
+ 	 	} else if($e->ca && angleDiff($e->bearing - $e->ca, 60) || !$e->ca) {
  	 		array_push($halfvisarr, $e); 
  	 	} else {
  	 		array_push($nonvisarr, $e); 
@@ -143,10 +143,12 @@
  	usort($arr, "distanceTime");
  	usort($nonvisarr, "distanceTime");
  	if(empty($arr)) {
- 		// don't add invisible area
  		$arr = array_merge($arr, $halfvisarr);
  	}
- 	//$arr = array_merge($arr, $nonvisarr);
+ 	if(empty($arr)) {
+ 		// don't add invisible area
+ 		// $arr = array_merge($arr, $nonvisarr);
+ 	}
  }
  if(!empty($arr)) {
 // 	if(count($arr) > 5) {
