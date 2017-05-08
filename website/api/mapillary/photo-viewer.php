@@ -32,9 +32,9 @@
             Mapillary.Viewer.nodechanged, 
             function(node) {
                 if (node.latLon) {
-                    Android.onNodeChanged(node.latLon.lat, node.latLon.lon, node.ca);
+                    Android.onNodeChanged(node.latLon.lat, node.latLon.lon, node.ca, node.key);
                 } else {
-                    Android.onNodeChanged(NaN, NaN, NaN);
+                    Android.onNodeChanged(NaN, NaN, NaN, '');
                 }
             });
         
