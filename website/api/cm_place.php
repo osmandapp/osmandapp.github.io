@@ -11,6 +11,7 @@
     	public $distance;
     	public $bearing;
     	public $imageUrl;
+    	public $imageHiresUrl;
 	} 
 
 	function angleDiff($angle, $diff) {
@@ -125,6 +126,7 @@
  		$e->key = $feature->properties->key;
  		$e->ca = $feature->properties->ca;
  		$e->imageUrl = "https://osmand.net/api/mapillary/get_photo.php?photo_id=".$e->key;
+ 		$e->imageHiresUrl = "https://osmand.net/api/mapillary/get_photo.php?hires=true&photo_id=".$e->key;
  		$e->url = "https://osmand.net/api/mapillary/photo-viewer.php?photo_id=".$e->key;
  		$e->username = $feature->properties->username;
  		$e->lat = $coordinates[1];
