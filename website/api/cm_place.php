@@ -1,17 +1,22 @@
 <?php
 	class JsFeature { 
 		public $type; 
-    	public $lat; 
-    	public $lon ; 
-    	public $timestamp;
-    	public $key;
-    	public $url;
-    	public $ca;
-    	public $username;
-    	public $distance;
-    	public $bearing;
-    	public $imageUrl;
-    	public $imageHiresUrl;
+
+	    	public $lat; 
+    		public $lon ; 
+	    	public $timestamp;
+    		public $key;
+	    	public $url;
+    		public $ca;
+	    	public $username;
+	    	public $distance;
+    		public $bearing;
+	    	public $imageUrl;
+    		public $imageHiresUrl;
+		public $topIcon;
+		public $buttonIcon;
+		public $buttonText;
+	
 	} 
 
 	function angleDiff($angle, $diff) {
