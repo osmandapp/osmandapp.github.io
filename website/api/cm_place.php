@@ -16,6 +16,9 @@
 		public $topIcon;
 		public $buttonIcon;
 		public $buttonText;
+		public $buttonIconColor; // example: #323232
+		public $buttonColor; // example: #323232
+		public $buttonTextColor; // example: #323232
 	
 	} 
 
@@ -136,6 +139,14 @@
  		$e->username = $feature->properties->username;
  		$e->lat = $coordinates[1];
  		$e->lon = $coordinates[0];
+		$e->topIcon = "ic_logo_mapillary";
+		// To test
+		$e->buttonText = "Test Mapillary";
+		$e->buttonIcon = "ic_logo_mapillary";
+		$e->buttonIconColor = "#333333";
+		$e->buttonColor = "#aaaaaa";
+		$e->buttonTextColor = "#000000";
+		
  		$distBearing = initialBearing($e->lat, $e->lon, floatval($_GET['lat']), floatval($_GET['lon']));
  	 	$e->distance = $distBearing[0];
  	 	$e->bearing = rad2deg($distBearing[1]);
@@ -163,6 +174,12 @@
 // 	}
  	$e = array();
  	$e["type"] = "mapillary-contribute";
+	$e["buttonIcon"] = "top_icon";
+	$e["buttonText"] = "Add photos";
+	$e["buttonIcon"] = "ic_logo_mapillary";
+	$e["buttonIconColor"] = "#ffffff";
+	$e["buttonTextColor"] = "#ffffff";
+	$e["buttonColor"] = "#ff0000";
  	array_push($arr, $e); 
  }
 
