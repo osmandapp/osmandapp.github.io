@@ -174,12 +174,6 @@
 // 	}
  	$e = array();
  	$e["type"] = "mapillary-contribute";
-	$e["buttonIcon"] = "top_icon";
-	$e["buttonText"] = "Add photos";
-	$e["buttonIcon"] = "ic_logo_mapillary";
-	$e["buttonIconColor"] = "#ffffff";
-	$e["buttonTextColor"] = "#ffffff";
-	$e["buttonColor"] = "#ff0000";
  	array_push($arr, $e); 
  }
 
