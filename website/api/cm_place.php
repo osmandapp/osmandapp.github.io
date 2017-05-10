@@ -141,11 +141,11 @@
  		$e->lon = $coordinates[0];
 		$e->topIcon = "ic_logo_mapillary";
 		// To test
-		$e->buttonText = "Test Mapillary";
-		$e->buttonIcon = "ic_logo_mapillary";
-		$e->buttonIconColor = "#333333";
-		$e->buttonColor = "#aaaaaa";
-		$e->buttonTextColor = "#000000";
+		$e->buttonText = "Mapillary";
+		$e->buttonIcon = "ic_action_mapillary";
+		$e->buttonIconColor = "#ffffff";
+		$e->buttonColor = "#3db878";
+		$e->buttonTextColor = "#ffffff";
 		
  		$distBearing = initialBearing($e->lat, $e->lon, floatval($_GET['lat']), floatval($_GET['lon']));
  	 	$e->distance = $distBearing[0];
