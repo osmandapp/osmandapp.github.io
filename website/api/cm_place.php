@@ -7,6 +7,7 @@
 	    	public $timestamp;
     		public $key;
 	    	public $url;
+	    	public $externalLink; // true if external browser should to be opened, open webview otherwise
     		public $ca;
 	    	public $username;
 	    	public $distance;
@@ -136,6 +137,7 @@
  		$e->imageUrl = "https://osmand.net/api/mapillary/get_photo.php?photo_id=".$e->key;
  		$e->imageHiresUrl = "https://osmand.net/api/mapillary/get_photo.php?hires=true&photo_id=".$e->key;
  		$e->url = "https://osmand.net/api/mapillary/photo-viewer.php?photo_id=".$e->key;
+		$e->externalLink = false;
  		$e->username = $feature->properties->username;
  		$e->lat = $coordinates[1];
  		$e->lon = $coordinates[0];
