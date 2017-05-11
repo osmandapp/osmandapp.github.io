@@ -1,4 +1,12 @@
 <?php
+/*
+ * Parameters: name - description (example)
+ * lat        - latitude (12.12345)
+ * lon        - longitude (-2.12345)
+ * myLocation - latitude and longitude of user's location (10.12345,-3.12345)
+ * app        - type of app. Valid values: "paid" or "free".
+ * lang       - app's locale (en) (ru) (be)
+ */
 	class JsFeature { 
 		public $type; 
 
