@@ -32,7 +32,7 @@
             Mapillary.Viewer.nodechanged, 
             function(node) {
                 if (node.latLon) {
-                    Android.onNodeChanged(node.latLon.lat, node.latLon.lon, node.ca, node.key);
+                    Android.onNodeChanged(node.originalLatLon.lat, node.originalLatLon.lon, node.ca, node.key);
                 } else {
                     Android.onNodeChanged(NaN, NaN, NaN, '');
                 }
