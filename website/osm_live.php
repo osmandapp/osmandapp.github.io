@@ -170,16 +170,18 @@
                 <input type="password" class="form-control" id="osm_pwd" name="osm_pwd">
               </div>
               <p class="input-hint">We use it to verify that account belongs to you and do not store it on our servers.</p>
-              <!-- <label for="email">Email address:</label>
+              <label for="email">Email address:</label>
               <div class="input-holder">
                 <input type="text" class="form-control" id="email" name="email">
-              </div> -->
+              </div>
+              <p class="input-hint">We can use it to confirm that account doesn't violate TOS.</p>
               <label for="bitcoin_addr">Bitcoin address:</label>
               <div class="input-holder input-bitcoin">
                 <input type="text" class="form-control" id="bitcoin_addr" name="bitcoin_addr">
               </div>
               <p class="input-hint">This bitcoin address will be used to transfer funds to.</p>
               <button type="submit" class="btn btn-default" id="register_osm_user">Register</button>
+              <p><b>Note:</b>1 user can be registered only once even if he has multiple OSM accounts.</p>
             </form>
           </div>
           <div class="registration contributor-registration" id="contributor-register-div">
