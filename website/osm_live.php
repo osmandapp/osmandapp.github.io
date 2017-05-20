@@ -171,7 +171,7 @@
               </div>
               <p class="input-hint">We use it to verify that account belongs to you and do not store it on our servers.</p>
               <label for="email">Email address:</label>
-              <div class="input-holder">
+              <div class="input-holder input-user">
                 <input type="text" class="form-control" id="email" name="email">
               </div>
               <p class="input-hint">We can use it to confirm that account doesn't violate TOS.</p>
