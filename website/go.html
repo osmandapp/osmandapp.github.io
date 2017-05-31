@@ -9,7 +9,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>OsmAnd - Offline Mobile Maps and Navigation</title>
-  <link rel="stylesheet" type="text/css" href="site.css?v=2"/>
+  <link rel="stylesheet" type="text/css" href="site.css?v=3"/>
   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
   <script type="text/javascript" src="scripts/jquery-3.1.0.min.js"></script>  
   <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script> 
@@ -20,16 +20,15 @@
     <div class="goheader">
       <a href="http://osmand.net"><img src="images/logo-grey.png" class="logo"/></a>
       <div class="coordinatescontainer">
-        <div class="coordinatetitle">LAT:<span class="coordinate latitude"></span></div>
-        <div class="coordinatetitle">LON:<span class="coordinate longitude"></span></div>
+        <div>LAT:<span class="coordinate latitude"></span></div>
+        <div>LON:<span class="coordinate longitude"></span></div>
       </div>
       <div class="clear:both;"></div>
     </div>
     <div id="map"></div>
     <div class="gofooter">
     <div class="gobadges">
-      <div class="badgescontainer">
-        <div class="badgecontainer">
+        <div class="badgecontainer google">
           <a href="https://play.google.com/store/apps/details?id=net.osmand.plus">
             <img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png">
           </a>
@@ -37,13 +36,14 @@
         <div class="badgecontainer apple">
           <a href="https://itunes.apple.com/us/app/id934850257"><img src="images/app-store-badge.png"></a>
         </div>
-        <div class="badgecontainer">
+        <div class="badgecontainer amazon">
           <a href="http://www.amazon.com/gp/product/B00D0SEGMC/ref=mas_pm_OsmAnd-Maps-Navigation">
             <img alt="Get it on Amazon" src="images/amazon-apps-store.png">
           </a>
         </div>
+		<div class="clear">
+		</div>
       </div>
-    </div>
   </div>
 </div>
 

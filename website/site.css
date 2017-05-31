@@ -1164,95 +1164,7 @@ a::-moz-focus-inner {
   width:100%;
 }
 
-.gocontainer
-{
-  height:100%;
-}
 
-.goheader
-{
-  border-bottom:1px solid #ccc;
-  width:100%;
-  -webkit-box-shadow:2px 2px 5px #CAC8C3;
-  -moz-box-shadow:2px 2px 5px #CAC8C3;
-  box-shadow:2px 2px 5px #CAC8C3;
-  position:absolute;
-  top:0;
-  height:63px;
-}
-
-.goheader img
-{
-  height:48px;
-  padding:7px 7px 5px 20px;
-}
-
-.gofooter
-{
-  position:absolute;
-  bottom:0;
-  width:100%;
-  background:#fff;
-  -webkit-box-shadow:2px -2px 5px #CAC8C3;
-  -moz-box-shadow:2px -2px 5px #CAC8C3;
-  box-shadow:2px -2px 5px #CAC8C3;
-}
-
-.coordinatescontainer
-{
-  width:100px;
-  float:right;
-  padding-top:14px;
-  padding-right:20px;
-}
-
-.coordinatescontainer .coordinatetitle
-{
-  font-size:10pt;
-  color:#9A9A9A;
-  padding-bottom:3px;
-}
-
-.coordinatescontainer .coordinate
-{
-  font-weight:700;
-  color:#000;
-  padding-left:5px;
-  font-size:12pt;
-}
-
-.gobadges
-{
-  height:50px;
-  background-color:#43464D;
-  overflow:hidden;
-}
-
-.badgescontainer {
-  width:360px;
-  margin:0 auto;
-}
-
-.gobadges .badgecontainer
-{
-  float:left;
-  width:32%;
-  max-width:120px;
-  height:50px;
-}
-
-.gobadges .badgecontainer img
-{
-  max-width: 100px;
-  height: 35px;
-  padding: 8px;
-}
-
-.gobadges .apple img
-{
-  padding-left: 1px;
-  max-width: 114px;
-}
 
 .whatyousay {
   background: #ededed;
@@ -2717,4 +2629,108 @@ a,a:visited
 	.menu {
 		
 	}
+}
+
+/***************go page ****************************/
+.gocontainer
+{
+  height:100%;
+}
+
+.gocontainer .goheader
+{
+  border-bottom:1px solid #ccc;
+  width:100%;
+  -webkit-box-shadow:2px 2px 5px #CAC8C3;
+  -moz-box-shadow:2px 2px 5px #CAC8C3;
+  box-shadow:2px 2px 5px #CAC8C3;
+  position:absolute;
+  top:0;
+  height:63px;
+}
+
+.gocontainer .goheader img
+{
+  height:100%;
+  padding:3px 7px 5px 12px;
+}
+
+.gocontainer .coordinatescontainer
+{  
+  width:auto;
+  float:right;
+  padding-top:6px;
+  padding-right:12px;
+}
+
+.gocontainer .coordinatescontainer div
+{
+  font-size:14px;
+  color:#9A9A9A;
+}
+
+.gocontainer .coordinatescontainer .coordinate
+{
+  font-weight:700;
+  color:#000;
+  padding-left:5px;
+  font-size:15px;
+  line-height:25px;
+}
+
+.gocontainer .gofooter
+{
+  position:absolute;
+  bottom:0;
+  width:100%;
+  background-color:#43464D;
+  -webkit-box-shadow:2px -2px 5px #CAC8C3;
+  -moz-box-shadow:2px -2px 5px #CAC8C3;
+  box-shadow:2px -2px 5px #CAC8C3;
+  height:50px;
+  overflow:hidden;
+}
+
+.gocontainer .gobadges
+{  
+  width:100%;
+  max-width: 360px;
+  margin: 0 auto;
+  margin-top:4px;
+}
+
+.gocontainer .badgecontainer
+{
+  float:left;
+  width:35%;
+  height:50px;
+}
+
+.gocontainer .gobadges .badgecontainer img
+{
+  max-height:100%;
+  max-width:100%;
+  padding:6px; 
+}
+
+.gocontainer .gobadges .google img
+{
+  padding:0;
+  height:44.58px;
+}
+
+.gocontainer .gobadges .apple img
+{
+  height:41.51px;
+  margin-top:1px;
+}
+
+.gocontainer .gobadges .amazon
+{
+  width:30%;
+}
+
+.gocontainer .gobadges .amazon img
+{
+  height:42.58px;
 }
