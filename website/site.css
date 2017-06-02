@@ -2665,9 +2665,18 @@ a,a:visited
 
 .gocontainer .coordinatescontainer div
 {
-  font-size:14px;
-  color:#9A9A9A;
+  position:relative;
+
 }
+
+.gocontainer .coordinatescontainer .title
+{
+  font-size:13px;
+  color:#9A9A9A;
+  position:absolute;
+  bottom:-1px;
+  left:-28px;
+} 
 
 .gocontainer .coordinatescontainer .coordinate
 {

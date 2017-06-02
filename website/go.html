@@ -16,12 +16,12 @@
   <script type="text/javascript" src="scripts/go.js"></script>
 </head>
 <body>
-  <div class="gocontainer">
+  <div class="gocontainer" id="gocontainer">
     <div class="goheader">
       <a href="http://osmand.net"><img src="images/logo-grey.png" class="logo"/></a>
       <div class="coordinatescontainer">
-        <div>LAT:<span class="coordinate latitude"></span></div>
-        <div>LON:<span class="coordinate longitude"></span></div>
+        <div><span class="title">LAT</span><span class="coordinate latitude"></span></div>
+        <div><span class="title">LON</span><span class="coordinate longitude"></span></div>
       </div>
       <div class="clear:both;"></div>
     </div>
@@ -46,29 +46,5 @@
       </div>
   </div>
 </div>
-
-<script type="text/javascript">
- 
- var iOS = /(iPad|iPhone|iPod)/g.test( navigator.userAgent );
- 
- if (iOS) {
-  document.location = 'osmandmaps://' + document.location.search;
-
-    var time = (new Date()).getTime();
-    setTimeout(function() {
-      var now = (new Date()).getTime();
-
-      if ((now - time) < 2000) {
-        document.location = 'https://itunes.apple.com/app/id934850257';
-      }
-    }, 300);
-  }
-
-  var _gomap = null;
-
-  $( document ).ready(function() {
-    _gomap = new gomap($('#map'), $('.gocontainer'), $('.gofooter'), $('.latitude'), $('.longitude'));
-  });
-</script>
 </body>
 </html>
