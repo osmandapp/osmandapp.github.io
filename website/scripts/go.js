@@ -80,12 +80,9 @@ var goMap = {
 		goMap.point = goMap.utils.getPointFromUrl();	
 
 		if (requestUtils.isIOS()){
-			try{
-				requestUtils.redirect(goMap.inapplink);
-			}catch(e){
 				goMap.timer = $.timer({action:requestUtils.redirect, actionparams:goMap.applestorelink});
 				goMap.timer.start();
-			}
+				requestUtils.redirect(goMap.inapplink);
 		}
 	},	
 	'refreshCoordinates':function(){
