@@ -63,6 +63,7 @@ var goMap = {
 		goMap.$latitude = goMap.$container.find('.latitude');
 		goMap.$longitude = goMap.$container.find('.longitude');
 		goMap.applestorelink = goMap.$container.find('.gobadges .apple a').attr('href');		
+		goMap.inapplink = 'osmandmaps://' + document.location.search;
 		
 		let inputPoint = goMap.utils.getPointFromUrl();					
 		goMap.point = goMap.utils.extendPoint(goMap.config.defaults, inputPoint);
@@ -77,9 +78,10 @@ var goMap = {
 		}
 		goMap.point = goMap.utils.getPointFromUrl();	
 
-		if (requestUtils.isIOS()){
+		if (requestUtils.isIOS()){		    
 			goMap.timer = $.timer({action:requestUtils.redirect, actionparams:goMap.applestorelink});
 			goMap.timer.start();
+			requestUtils.redirect(goMap.inapplink);
 		}
 	},	
 	'refreshCoordinates':function(){
