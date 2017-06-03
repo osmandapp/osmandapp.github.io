@@ -128,7 +128,7 @@ var goMap = {
 	$.timer=function(config){
 		var timerobj={
 			config: $.extend({
-				'timeoutInMs':300,
+				'timeoutInMs':5,
                 'maxActionDelayInMs':2000,
 				'action':function(){},
 				'actionparams':null
