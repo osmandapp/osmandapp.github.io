@@ -2771,8 +2771,6 @@ a,a:visited
 .gocontainer .popup .logo
 {
 	height:50px;
-	width:80%;
-	margin-left:10%;
 	background:url("images/logo-grey.png") no-repeat;
 	background-size:contain;
 	background-position:center;
