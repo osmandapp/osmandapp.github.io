@@ -62,8 +62,6 @@ var goMap = {
 		goMap.$footer = goMap.$container.find('.gofooter');
 		goMap.$latitude = goMap.$container.find('.latitude');
 		goMap.$longitude = goMap.$container.find('.longitude');
-		goMap.applestorelink = goMap.$container.find('.gobadges .apple a').attr('href');		
-		goMap.inapplink = 'osmandmaps://' + document.location.search;
 		
 		let inputPoint = goMap.utils.getPointFromUrl();					
 		goMap.point = goMap.utils.extendPoint(goMap.config.defaults, inputPoint);
@@ -77,12 +75,6 @@ var goMap = {
 			goMap.map.addMarker(goMap.point);
 		}
 		goMap.point = goMap.utils.getPointFromUrl();	
-
-		if (requestUtils.isIOS()){		    
-			goMap.timer = $.timer({action:requestUtils.redirect, actionparams:goMap.applestorelink});
-			goMap.timer.start();
-			requestUtils.redirect(goMap.inapplink);
-		}
 	},	
 	'refreshCoordinates':function(){
 		goMap.$latitude.text(goMap.point.lat);
@@ -164,6 +156,85 @@ var goMap = {
 	};
 })(jQuery);
 
+var iosAppRedirect = {
+	config:{
+		appPrefix:'osmandmaps://',
+		containerid:'gocontainer',
+		cookieName:'OsmAndInstalled',
+		cookieNoExpirationTimeoutInDays:30
+	},
+	init:function(config){
+		if (config && typeof (config) == 'object') {
+            $.extend(iosAppRedirect.config, config);
+        }
+		
+		if (!requestUtils.isIOS()){	
+			return;
+		}
+		iosAppRedirect.$container = $('#' + iosAppRedirect.config.containerid);
+		iosAppRedirect.$overlay = iosAppRedirect.$container.find('.overlay');
+		iosAppRedirect.$popup = iosAppRedirect.$container.find('.popup');
+		iosAppRedirect.$yesBtn =  iosAppRedirect.$container.find('.yes');
+		iosAppRedirect.$noBtn =  iosAppRedirect.$container.find('.no');
+		iosAppRedirect.$cancelBtn =  iosAppRedirect.$container.find('.cancel');
+		iosAppRedirect.applestorelink = iosAppRedirect.$container.find('.gobadges .apple a').attr('href');	
+		iosAppRedirect.applink = iosAppRedirect.config.appPrefix + document.location.search;	
+		
+				
+		if (iosAppRedirect.isAppInstalled() === "yes"){			
+			iosAppRedirect.redirectToApp();			
+			return;
+		}
+		if (iosAppRedirect.isAppInstalled() === "no"){
+			return;
+		}
+		
+		iosAppRedirect.$yesBtn.on('click', function(){		    
+			iosAppRedirect.redirectToApp();
+			iosAppRedirect.closePopup();
+		});
+		
+		iosAppRedirect.$noBtn.on('click', function(){
+			iosAppRedirect.setCookie(true);
+			iosAppRedirect.closePopup();
+			window.open(iosAppRedirect.applestorelink , '_blank');
+		});
+		
+		iosAppRedirect.$cancelBtn.on('click', function(){
+			iosAppRedirect.setCookie(false);
+			iosAppRedirect.closePopup();			
+		});
+		iosAppRedirect.openPopup();
+	},
+	isAppInstalled:function(){
+		return Cookies.get('OsmAndInstalled');		
+	},
+	redirectToApp:function(){
+		iosAppRedirect.timer = $.timer({action:iosAppRedirect.clearCookie});
+		iosAppRedirect.timer.start();
+		requestUtils.redirect(iosAppRedirect.applink);
+	},
+	setCookie:function(appInstalled){
+		if (appInstalled === true){
+			Cookies.set(iosAppRedirect.config.cookieName, "yes");
+		}else{
+			Cookies.set(iosAppRedirect.config.cookieName, "no", { expires: iosAppRedirect.config.cookieNoExpirationTimeoutInDays });
+		}
+	},	
+	clearCookie:function(){
+		Cookies.remove('OsmAndInstalled'); 
+	},
+	openPopup:function(){
+		iosAppRedirect.$overlay.show();
+		iosAppRedirect.$popup.show();
+	},
+	closePopup:function(){
+		iosAppRedirect.$overlay.hide();
+		iosAppRedirect.$popup.hide();
+	}
+};
+
  $( document ).ready(function() {
     goMap.init();
+	iosAppRedirect.init();
   });

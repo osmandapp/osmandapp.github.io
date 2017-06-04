@@ -9,11 +9,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>OsmAnd - Offline Mobile Maps and Navigation</title>
-  <link rel="stylesheet" type="text/css" href="site.css?v=3"/>
+  <link rel="stylesheet" type="text/css" href="site.css?v=4"/>
   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
   <script type="text/javascript" src="scripts/jquery-3.1.0.min.js"></script>  
   <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script> 
-  <script type="text/javascript" src="scripts/go.js?v=2"></script>
+  <script type="text/javascript" src="scripts/js.cookie.js"></script>
+  <script type="text/javascript" src="scripts/go.js?v=4"></script>
 </head>
 <body>
   <div class="gocontainer" id="gocontainer">
@@ -44,6 +45,15 @@
 		<div class="clear">
 		</div>
       </div>
+  </div>
+  <div class="overlay" style="display:none;"></div>
+  <div class="popup" style="display:none;">
+  <div class="logo"></div>
+  <h1>Did you know</h1>
+  <p>OsmAnd has an iOS application</p>
+  <a class="button yes" href="javascript:void(0);">Yep, I've already got it</a>
+  <a class="button no" href="javascript::void(0);">Nope, but I'd love to try it</a>
+  <a class="button cancel" href="javascript:void(0);">Leave me alone</a>
   </div>
 </div>
 </body>

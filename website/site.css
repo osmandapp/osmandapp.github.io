@@ -2743,3 +2743,112 @@ a,a:visited
 {
   height:42.58px;
 }
+
+.gocontainer .overlay
+{
+	width:100%;
+	height:100%;
+	background-color:rgba(200, 200, 200, 0.7);
+	z-index:1000;
+	position:absolute;
+}
+
+.gocontainer .popup
+{
+	z-index:1001;
+	background-color:#fff;
+	position:absolute;
+	width:80%;	
+	top:10%;
+	overflow:hidden;
+	text-align:center;
+	padding:7%;
+	border-radius: 15px;
+	left:10%;
+	max-height:90%;
+}
+
+.gocontainer .popup .logo
+{
+	height:50px;
+	width:80%;
+	margin-left:10%;
+	background:url("images/logo-grey.png") no-repeat;
+	background-size:contain;
+	background-position:center;
+	margin-bottom:5%;
+
+}
+.gocontainer .popup h1
+{
+	font-size:21px;
+	letter-spacing:0.07em;
+	font-family:verdana;
+	text-transform:uppercase;
+	border-top:1px solid #ccc;
+	font-weight:bold;
+	padding-bottom:5px;
+	padding-top:40px;
+}
+
+.gocontainer .popup p
+{
+	font-size:18px;
+	color:#9A9A9A;
+	font-style:italic;
+}
+
+.gocontainer .popup .button
+{
+	width:100%;
+	height:45px;
+	line-height:45px;
+	overflow:hidden;
+	color:#fff;	
+	display:inline-block;
+	margin-bottom:7px;
+	border-radius: 5px;
+	text-decoration:none;	
+}
+
+.gocontainer .popup .yes
+{
+	background-color:rgb(255, 143, 0);
+}
+
+.gocontainer .popup .no
+{
+	background-color:rgb(123, 161, 50);
+}
+
+.gocontainer .popup .cancel
+{
+	border:1px solid #ccc;
+	background-color:#fff;
+	color:#000;
+	margin-bottom:0;
+}
+@media (orientation:landscape)
+{
+	.gocontainer .popup
+	{
+		padding:4%;
+	}	
+	.gocontainer .popup .logo
+	{
+		display:none;
+	}
+	.gocontainer .popup h1
+	{
+		padding-top:0;
+		border-top:none;
+	}
+}
+
+/*.gocontainer .popup .buttons
+{
+	width:80%;
+	position:absolute;
+	bottom:5%;
+	left:10%;
+}*/
