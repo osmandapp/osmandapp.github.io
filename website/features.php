@@ -53,6 +53,7 @@
                 <li><a data-gatag='search-on-map' href="/features?id=find-something-on-map">Search on the map</a></li>
                 <li><a data-gatag='trip-planning' href="/features?id=trip-planning">Planning trip</a></li>
                 <li><a data-gatag='troubleshooting' href="/features?id=installation-and-troubleshooting">Installation &amp; troubleshoooting</a></li>
+                <li><a data-gatag='osmand_purchases' href="/features?id=osmand_purchases">OsmAnd Purchases</a></li>
               </ul>
               <h2>Plugins</h2>
               <ul class="articlelinklist">
