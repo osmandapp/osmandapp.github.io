@@ -188,6 +188,16 @@ if(is_null(getReport('getBTCValue'))) {
         $payouts = $payouts . ',&nbsp;<a href="https://blockchain.info/tx/7c6fa3a04c242eff7db553e19ef9a8aca0727b671a3966136ff7b1a084965830">Transaction #9</a>';
         $payouts = $payouts . ',&nbsp;<a href="https://blockchain.info/tx/f79ce4a46e9bf53053f81022232c288eca277a0c7ebb792fea57910fe2895a45">Transaction #10</a>';
         $payouts = $payouts . ',&nbsp;<a href="https://blockchain.info/tx/39f91f952af62b402560323ef898ce4d6dd1642658835369bab6a32b7a962ab7">Transaction #11</a>';
+    
+    } else if($res->month == '2017-05') {
+        $payouts = $payouts . '<a href="https://blockchain.info/tx/bc975fb22eeabfc3ea3ae810e5d96236ec23c2cccc21a57a5e47512e199cf4e2">Transaction #1</a>';  
+        $payouts = $payouts . ',&nbsp;<a href="https://blockchain.info/tx/9d9782ba3d36e658488bf063be9b6aa7cb8c7e262885e868a61db388bf8bbe2a">Transaction #2</a>';
+        $payouts = $payouts . ',&nbsp;<a href="https://blockchain.info/tx/7de3f9a7ca6615f3b0f03846902cdfdc2e4db2f250753df5ffce6ff20affcf6c">Transaction #3</a>';
+        $payouts = $payouts . ',&nbsp;<a href="https://blockchain.info/tx/8ef748fa8d0183fbff84d7dd8bddf77ac7d9928f53d7853b873e667f79886c83">Transaction #4</a>';
+        $payouts = $payouts . ',&nbsp;<a href="https://blockchain.info/tx/2f5a7580b582b95f0d65df0f2ae98a6dddcc6041606d17254d55f9b92f393565">Transaction #5</a>';
+        $payouts = $payouts . ',&nbsp;<a href="https://blockchain.info/tx/2d0dedb1ac210184d61ca7eae011fdaf5a74bb6793daa03131b01264a2d1dac1">Transaction #6</a>';
+        $payouts = $payouts . ',&nbsp;<a href="https://blockchain.info/tx/b9f4b8bf24f6ef3f5ffc8b1dfc287395eb8a867f94f36a9ad95340fb4824f755">Transaction #7</a>';
+        $payouts = $payouts . ',&nbsp;<a href="https://blockchain.info/tx/2f694469ecedd99a34d9d1a53f5e7c4cb8e50cec41b0a0399c43fd3d42a981e6">Transaction #8</a>';
     }
     if($payouts != '') {
         $res->message = $res->message . "<p class='recipients-data-header overview-hint'>Payouts:&nbsp;" . $payouts . "</p>";
