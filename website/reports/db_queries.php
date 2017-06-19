@@ -718,7 +718,7 @@ function getAllReports() {
           $rw->report = getRecipients($res->eurValue, $res->btc, false); 
           for($t = 0; $t < count($rw->report->rows); $t++) {
             $rt = $rw->report->rows[$t];          
-            if($rt->btc < 0.0001) {
+            if($rt->btc < 0.001*0.01) {
               continue;
             }
             $rs = new stdClass();
