@@ -46,8 +46,8 @@ Just tap the widget on the map screen to start recording, set the recording inte
 </ul>
 <p><b>Recommendation:</b> Use 1-5 seconds for very high or high detail recordings (which may require filtering or post-processing). For backcountry hiking trips a setting like 30 seconds may suffice (for >=30 seconds we actually turn off GPS between recordings, which noticeably saves battery power!). To just capture the basics of where you were on a long driving trip, something like 5 minutes may suffice.</p>
 
-<h3>(B) Motion detection by a minimum (displacement) distance from the last recorded point:</h3>
-<p><b>Purpose:</b> Avoid duplicate points being recorded where too little actual motion may have occurred, makes a nicer spatial appearance of tracks not post-processed later.</p>
+<h3>(B) Trip logging minimum displacement (from the last recorded point):</h3>
+<p><b>Purpose:</b> This filter avoids duplicate points being recorded where too little actual motion may have occurred, makes a nicer spatial appearance of tracks not post-processed later.</p>
 <p><b>Side effects:</b> Periods at rest are not recorded at all or by just one point each. Small (real world) movements (e.g. sideways, to mark a possile turnoff on your trip) may be filtered out. Your file contains less information for post-processing, and has worse stats by filtering out obviously redundant points at recording time, while potentially keeping artifacts caused by bad reception or GPS chipset effects.</p>
 <p><b>Recommendation:</b> A setting of 5 meters may work well for you if you do not require to capture details finer than that, and do not want to explicitly capture data while at rest.</p>
 
