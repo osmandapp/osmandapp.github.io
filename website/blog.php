@@ -1,6 +1,6 @@
 <?php
   if (empty($_GET['id'])) {
-    $_GET['id'] ="osmand-2-6-released";
+    $_GET['id'] ="osmand-2-7-released";
   } 
 ?>          
 <!DOCTYPE html>
