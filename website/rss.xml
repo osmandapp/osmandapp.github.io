@@ -5,6 +5,19 @@
 <description/>
 <generator></generator>
 <item>
+<title>OsmAnd 2.7</title>
+<link>http://osmand.net/blog?id=osmand-2-7-released</link>
+<description>
+<p>OsmAnd 2.7 is now available! We hope you'll like the new features.</p>
+<h4>Mapillary plugin</h4>
+	<p>Now you can view the street-level imagery in your location or anywhere in the world using the Mapillary plugin in OsmAnd.</p>
+<h4>Ruler</h4>
+	<p>Now you can use a simple ruler to measure direct distances on the map.</p>
+<h4>GPX split interval</h4>
+	<p>Split your GPX tracks into intervals to view the details of each interval.</p>
+</description>
+</item>
+<item>
 <title>OsmAnd 2.6</title>
 <link>http://osmand.net/blog?id=osmand-2-6-released</link>
 <description>
