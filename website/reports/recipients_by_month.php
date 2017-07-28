@@ -198,7 +198,18 @@ if(is_null(getReport('getBTCValue'))) {
         $payouts = $payouts . ',&nbsp;<a href="https://blockchain.info/tx/2d0dedb1ac210184d61ca7eae011fdaf5a74bb6793daa03131b01264a2d1dac1">Transaction #6</a>';
         $payouts = $payouts . ',&nbsp;<a href="https://blockchain.info/tx/b9f4b8bf24f6ef3f5ffc8b1dfc287395eb8a867f94f36a9ad95340fb4824f755">Transaction #7</a>';
         $payouts = $payouts . ',&nbsp;<a href="https://blockchain.info/tx/2f694469ecedd99a34d9d1a53f5e7c4cb8e50cec41b0a0399c43fd3d42a981e6">Transaction #8</a>';
+    } else if($res->month == '2017-06') {
+        $payouts = $payouts . '<a href="https://chain.so/tx/BTC/6cdfcb0cd64de24f0a7d56b0f958d2b4c0e8c7c00c6db68d62e4b74af1a8e392">Transaction #1</a>';        
+        $payouts = $payouts . ',&nbsp;<a href="https://chain.so/tx/BTC/5857bebaea7c433d3e46da4937ba6e7b47c343692bd3299d74100347fab2d794">Transaction #2</a>';        
+        $payouts = $payouts . ',&nbsp;<a href="https://chain.so/tx/BTC/f808188dc6f0adce1d0852eb0557833b8eea8ace7736b5c37e9d11207d9b4340">Transaction #3</a>';        
+        $payouts = $payouts . ',&nbsp;<a href="https://chain.so/tx/BTC/959ed7fc7db082755c54d572090a79ddd0db1a74c51e6a4ab54a7cdff391bfa0">Transaction #4</a>';        
+        $payouts = $payouts . ',&nbsp;<a href="https://chain.so/tx/BTC/dc48facc290b0ebb5208536dacb2494b5c6f81f042fcd23aaa0852b616ab57a1">Transaction #5</a>';        
+        $payouts = $payouts . ',&nbsp;<a href="https://chain.so/tx/BTC/55f599570f2009ceb7bb7ff9ee8327734fe69fbb32bed5638848a194a3594941">Transaction #6</a>';        
+        $payouts = $payouts . ',&nbsp;<a href="https://chain.so/tx/BTC/d966f9fac5729f225c0360deaedba4afdb07aebed8c76a3cea21b89f21b1a43c">Transaction #7</a>';      
+        $payouts = $payouts . ',&nbsp;<a href="https://chain.so/tx/BTC/c28667c62dc05997a9f840da538d4bfe42b480cf3f91e37481d5e91ad1539f2f">Transaction #8</a>';
+        $payouts = $payouts . ',&nbsp;<a href="https://chain.so/tx/BTC/d966f9fac5729f225c0360deaedba4afdb07aebed8c76a3cea21b89f21b1a43c">Transaction #9</a>';
     }
+
     if($payouts != '') {
         $res->message = $res->message . "<p class='recipients-data-header overview-hint'>Payouts:&nbsp;" . $payouts . "</p>";
     }
