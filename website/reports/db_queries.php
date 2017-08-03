@@ -22,6 +22,12 @@ if(!isset($_REQUEST['region'])) {
   $iregion = $_REQUEST['region'];
 }
 
+if(!isset($_REQUEST['user'])) {
+  $iuser = ''; 
+} else {
+  $iuser = $_REQUEST['user'];
+}
+
 // FUNCTION LIST
 // 1st step:
 // getTotalChanges - region
@@ -224,6 +230,72 @@ function calculateRanking($ireg = NULL) {
   }
   
   return $res;
+}
+
+function calculateUsersRanking() {
+  global $iregion, $imonth, $iuser, $month, $dbconn;
+  $finalReport = getReport('calculateUsersRanking', $iregion);
+  if($finalReport != NULL) {
+    return $finalReport;
+  }
+  $gar = calculateRanking('')->rows;
+  $ar = calculateRanking()->rows;
+  $region =  pg_escape_string($iregion);
+  $user =  pg_escape_string($iuser);
+  
+    
+  $result = pg_query($dbconn, "
+    SELECT  t.username, t.size changes , s.size gchanges FROM
+     ( SELECT username, count(*) size 
+        from changesets ch, changeset_country cc where ch.id = cc.changesetid 
+        and substr(ch.closed_at_day, 0, 8) = '{$month}'
+        and cc.countryid = (select id from countries where downloadname= '${region}')
+        and username= '${user}'
+        group by ch.username) t join 
+     (SELECT username, count(*) size from changesets ch where 
+      substr(ch.closed_at_day, 0, 8) = '{$month}'
+      and username= '${user}'
+      group by ch.username
+      ) s on s.username = t.username order by t.size desc;
+        ");
+  if (!$result) {
+    $res->error ='No result';
+    return $res;
+  }
+  
+  
+  $res = new stdClass();
+  $res->month = $month;
+  $res->rows = array();
+  while ($row = pg_fetch_row($result)) {
+    $rw = new stdClass();
+    array_push($res->rows, $rw);
+    $rw->user = $row[0];
+    $rw->changes = $row[1];
+    $rw->globalchanges = $row[2];
+    $rw->rank = '';
+    for($i = 0; $i < count($ar); $i++) {
+      if($ar[$i]->minChanges <= $row[1]  && $ar[$i]->maxChanges >= $row[1] ){
+        $rw->rank = $ar[$i]->rank;
+        // $rw->min = $ar[$i]->minChanges ;
+        // $rw->max = $ar[$i]->maxChanges ;
+        break;
+      }
+    }
+    $rw->grank = '';
+    for($i = 0; $i < count($gar); $i++) {
+      if($gar[$i]->minChanges <= $row[2]  && $gar[$i]->maxChanges >= $row[2] ){
+        $rw->grank = $gar[$i]->rank;
+        // $rw->gmin = $gar[$i]->minChanges ;
+        // $rw->gmax = $gar[$i]->maxChanges ;
+
+        break;
+      }
+    }
+    
+  }
+  return $res;
+
 }
 
 
