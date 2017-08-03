@@ -232,7 +232,7 @@ function calculateRanking($ireg = NULL) {
   return $res;
 }
 
-function calculateUsersRanking() {
+function calculateUserRanking() {
   global $iregion, $imonth, $iuser, $month, $dbconn;
   $finalReport = getReport('calculateUsersRanking', $iregion);
   if($finalReport != NULL) {
