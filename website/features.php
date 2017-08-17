@@ -67,6 +67,7 @@
                 <li><a data-gatag='distance-calculator-and-planning-tool' href="/features?id=distance-calculator-and-planning-tool">Distance calculator and planning tool</a></li>
                 <li><a data-gatag='parking-plugin' href="/features?id=parking-plugin" >Parking place</a></li>
                 <li><a data-gatag='development_plugin' href="/features?id=development_plugin">OsmAnd development</a></li>
+                <li><a data-gatag='mapillary' href="/features?id=mapillary">Mapillary plugin</a></li>
               </ul>
             </div>
           </div>
