@@ -19,40 +19,28 @@
 <div class="maincontainer">
   <div class="main">
     <div class="header">
-	<div class="shadowline"></div>
-	 <!-- <img src="images/logo.png" class="headerlogo"/>-->
-	 <div class="headerlogo"></div>
-	  <div class="headertext">OFFLINE MOBILE<br/> MAPS &amp; NAVIGATION</div>
-	  <ul class="badges">
-		<li class="first"><a data-gatag="googleplay" href="https://play.google.com/store/apps/details?id=net.osmand.plus">
-          <img alt="Get it on Google Play"
-          src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" />
-          </a></li>
-		  <li><a data-gatag="amazon" href="http://www.amazon.com/gp/product/B00D0SEGMC/ref=mas_pm_OsmAnd-Maps-Navigation">
-          <img alt="Get it on Amazon"
-          src="images/amazon-apps-store.png" />
-		  
-          </a></li>
-          <li><a data-gatag="ios" class="appstoretopbadge" href="https://itunes.apple.com/app/apple-store/id934850257?pt=2123532&ct=WebSite&mt=8"><img src="images/app-store-badge.png"/></a></li> 
-	  </ul>
-	  <ul class="menu">
-	  <!-- 	<nav class="menu"> -->
-	  <li class="activeitem"><a data-gatag="header_home" href="http://www.osmand.net">HOME</a></li>	  
-	  <li><a data-gatag="header_features" href="http://osmand.net/features">FEATURES</a></li>		
-	  <li><a data-gatag="header_blog" href="http://osmand.net/blog" >BLOG</a></li>
-	  <li><a data-gatag="header_help" href="http://osmand.net/help-online">HELP</a></li>		
-	  <li><a data-gatag="header_dvr" href="http://dvr.osmand.net">DVR</a></li>
-	  </ul>
+	<div class="header-map"></div>
+	<div class="shadowline">
+	 <div class="menu-wrapper">
+      <a href="/" class="headerlogo-link"><div class="headerlogo"></div></a>
+	  </div>
+	</div>	 
+	<div class="header-caption">
+	  <div class="headertext">OFFLINE MOBILE<br/> MAPS &amp; NAVIGATION</div>	  
+	  <div class="badges">
+		   <a data-gatag="googleplay" href="https://play.google.com/store/apps/details?id=net.osmand&amp;referrer=utm_source%3Dwebsite%26utm_medium%3Dtop"><img alt="Get it on Google Play" src="images/en-play-badge.png" /></a>
+          <a data-gatag="amazon" href="http://www.amazon.com/gp/product/B00D0SEGMC/ref=mas_pm_OsmAnd-Maps-Navigation"><img alt="Get it on Amazon" src="images/amazon-apps-store.png" /></a>
+          <a data-gatag="ios" class="appstoretopbadge" href="https://itunes.apple.com/app/apple-store/id934850257?pt=2123532&amp;ct=WebSite&amp;mt=8"><img src="images/app-store-badge.png"/></a>	 
+	  </div>
      </div>
     </div>
-
+  </div>
   	<?php 
   		include 'blocks/footer.html';
   	?>
 
-  </div>
-</div>
 
+  </div>
 <script type="text/javascript">
 var sl;
 var mapsel;
