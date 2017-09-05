@@ -615,7 +615,7 @@
       "</ul><br> Please find all rankings and formulas in the reports on OSM Live.")
    }
    };
-   xhttp.open("GET", "/home/osm-planet/osmlive/.proc_timestamp", true);
+   xhttp.open("GET", "../../../home/osm-planet/osmlive/.proc_timestamp", true);
    xhttp.setRequestHeader('Content-Type', 'text/plain');
    xhttp.send();
   }
