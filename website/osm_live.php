@@ -615,7 +615,7 @@
       "</ul><br> Please find all rankings and formulas in the reports on OSM Live.")
    }
    };
-   xhttp.open("GET", ".proc_timestamp", true);
+   xhttp.open("GET", "https://osmand.net/api/osmlive_status", true);
    xhttp.setRequestHeader('Content-Type', 'text/plain');
    xhttp.send();
   }
