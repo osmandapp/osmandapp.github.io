@@ -581,7 +581,28 @@
   }
   
   function updateGeneralInfo() {
-    $("#general-info").html("<h2>About OSM Live</h2>" + 
+    var responseText;
+    var xhttp = new XMLHttpRequest();
+    
+    xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+       // Typical action to be performed when the document is ready:
+       responseText = xhttp.responseText;
+       $("#general-info").html("<h2>About OSM Live</h2>" + 
+      "<p>OsmAnd heavily relies on OSM and its community. Honestly saying, OsmAnd wouldn't exist without that great community. "+
+      "When we started implementation OSM Live, we immediately decided that it should not be only a paid service, but a donation service as well. " +
+      "Thinking that OSM Live is only possible because thousands of edits every hour in many places of the world, we want to distribute a part of the income between OSM editors.</p>" +
+      "<h3>How it works</h3><ul>" +
+      "<li> Every OSM contributor can be registered as a recipient. He just need to provide a valid Bitcoin address in the form below. " +
+      "<li> Every OsmAnd user who wants to get live updates needs to subscribe to that service. " +
+      "<li> After Google and Bank deductions the whole sum is split into 2 parts (<strong>50% OsmAnd</strong> and <strong>50% Donations</strong>)"+
+      "<li> All donations are exchanged into Bitcoin and distributed between OSM contributors according to their ranking."+
+      "<li> Every OsmAnd user can select preferred donation region, in that case <strong>50% of donation</strong> will be distributed between editors of this region."+
+      "</ul><br> Please find all rankings and formulas in the reports on OSM Live."+
+      "<p><br>Current processed OSM Live date: "+ "<strong>"+ responseText+ "</strong>")
+      }
+   else {
+      $("#general-info").html("<h2>About OSM Live</h2>" + 
       "<p>OsmAnd heavily relies on OSM and its community. Honestly saying, OsmAnd wouldn't exist without that great community. "+
       "When we started implementation OSM Live, we immediately decided that it should not be only a paid service, but a donation service as well. " +
       "Thinking that OSM Live is only possible because thousands of edits every hour in many places of the world, we want to distribute a part of the income between OSM editors.</p>" +
@@ -592,6 +613,11 @@
       "<li> All donations are exchanged into Bitcoin and distributed between OSM contributors according to their ranking."+
       "<li> Every OsmAnd user can select preferred donation region, in that case <strong>50% of donation</strong> will be distributed between editors of this region."+
       "</ul><br> Please find all rankings and formulas in the reports on OSM Live.")
+   }
+   };
+   xhttp.open("GET", "http://builder.osmand.net/osmlive/.proc_timestamp", true);
+   xhttp.setRequestHeader('Content-Type', 'text/plain');
+   xhttp.send();
   }
   
   function handleRegisterOsm() {
