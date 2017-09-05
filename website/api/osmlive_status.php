@@ -15,7 +15,7 @@ while (false !== ($entry = $d->read())) {
   }
 }
 
-echo $latest_ctime
+echo date('Y-m-d H:i:s', $latest_ctime);
 
 
 ?>
