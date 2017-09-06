@@ -1,5 +1,5 @@
 <?php
-
+/*
 $path = "/home/osm-planet/osmlive/_diff"; 
 
 $latest_ctime = 0;
@@ -14,8 +14,10 @@ while (false !== ($entry = $d->read())) {
     $latest_filename = $entry;
   }
 }
-
 echo date('Y-m-d H:i:s', $latest_ctime);
+*/
+
+echo '2017-09-06 12:00:00';
 
 
 ?>
