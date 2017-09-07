@@ -1,6 +1,6 @@
 <?php
 
-echo file_get_contents('../.proc_timestamp', true);
+echo file_get_contents('./.proc_timestamp', true);
 
 /*$latest_ctime = 0;
 if (is_link($path)) {
