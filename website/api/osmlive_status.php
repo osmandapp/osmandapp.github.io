@@ -1,6 +1,8 @@
 <?php
 
-echo file_get_contents('./.proc_timestamp', true);
+$file = fopen("./.proc_timestamp","r");
+echo fgets($file);
+fclose($file);
 
 /*$latest_ctime = 0;
 if (is_link($path)) {
