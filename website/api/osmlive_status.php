@@ -1,7 +1,9 @@
 <?php
 
-$file = fopen("./.proc_timestamp","r");
-echo fgets($file);
+$file = fopen("./.proc_timestamp.txt","r");
+$date = fgets($file);
+echo $date;
+echo "test";
 fclose($file);
 
 /*$latest_ctime = 0;
