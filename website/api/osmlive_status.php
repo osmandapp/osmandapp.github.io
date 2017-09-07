@@ -1,6 +1,6 @@
 <?php
 
-$path = "/home/paul/osmand/"; 
+/*$path = "/home/paul/osmand/"; 
 
  
 $latest_ctime = 0;
@@ -15,6 +15,10 @@ while (false !== ($entry = $d->read())) {
   }
 }
 
-echo date('Y-m-d H:i:s', $latest_ctime);
+echo date('Y-m-d H:i:s', $latest_ctime);*/
+
+$file = fopen("../.proc_timestamp","r");
+echo fgets($file);
+fclose($file);
 
 ?>
