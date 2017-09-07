@@ -2,7 +2,7 @@
 error_reporting(E_ALL); 
 ini_set('display_errors','1');
 $file = fopen(__DIR__."/../.proc_timestamp","r");
-if (!$fp) {
+if (!$file) {
     echo 'Could not open file';
 }
 $date = fgets($file);
