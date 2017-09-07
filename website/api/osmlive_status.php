@@ -1,7 +1,7 @@
 <?php
 
 
-echo fgets($file);
+echo "2017-03-05 17:00:00"
 
 
 ?>
