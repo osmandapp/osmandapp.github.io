@@ -1,6 +1,6 @@
 <?php
 
-$file = fopen(__DIR__ . "/.proc_timestamp", "r");
+$file = fopen(__DIR__ . "../.proc_timestamp", "r");
 echo fgets($file);
 fclose($file);
 /*$latest_ctime = 0;
