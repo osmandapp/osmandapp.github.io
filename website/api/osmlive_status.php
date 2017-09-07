@@ -1,6 +1,7 @@
 <?php
-
-$file = fopen("./proc_timestamp.txt","r");
+error_reporting(E_ALL); 
+ini_set('display_errors','1');
+$file = fopen("./proc_timestamp","r");
 if (!$fp) {
     echo 'Could not open file';
 }
