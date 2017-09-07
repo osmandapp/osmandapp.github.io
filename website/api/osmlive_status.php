@@ -2,7 +2,7 @@
 
 $path = __DIR__ . '/../_diff'; 
 $latest_ctime = 0;
-echo "test";
+echo "test1";
 
 $files = scandir($path);
 
