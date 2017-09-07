@@ -1,6 +1,6 @@
 <?php
 
-$path = "~/../../../home/osm-planet/osmlive/_diff/"; 
+$path = "/../_diff/"; 
 $latest_ctime = 0;
 
 $files = scandir($path);
