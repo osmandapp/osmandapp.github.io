@@ -1,6 +1,6 @@
 <?php
-
-echo __FILE__;
+$str = __FILE__;
+echo $str;
 
 $path = "../_diff/"; 
 $latest_ctime = 0;
