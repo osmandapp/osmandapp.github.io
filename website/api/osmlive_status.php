@@ -1,6 +1,7 @@
 <?php
 
 $path = __DIR__ . '/../'; 
+echo $path;
 $latest_ctime = 0;
 
 $files = scandir($path);
@@ -11,7 +12,7 @@ foreach($files as $file)
   /*if (is_file($fullpath) && filemtime($fullpath) > $latest_ctime) {
     $latest_ctime = filemtime($fullpath);
   }*/
-  echo $fullpath
+  
 }
 echo date('Y-m-d H:i:s', $latest_ctime);
 
