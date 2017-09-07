@@ -1,24 +1,17 @@
 <?php
 
-/*$path = "/home/paul/osmand/"; 
-
- 
+$path = "/home/paul/osmand/"; 
 $latest_ctime = 0;
-   
 
-$d = dir($path);
-while (false !== ($entry = $d->read())) {
-  $filepath = "{$path}/{$entry}";
-  // could do also other checks than just checking whether the entry is a file
-  if (is_file($filepath) && filemtime($filepath) > $latest_ctime) {
-    $latest_ctime = filemtime($filepath);
+$files = scandir($path);
+
+foreach($files as $file) 
+{
+  $fullpath = "{$path}/{$file}";
+  if (is_file($fullpath) && filemtime($fullpath) > $latest_ctime) {
+    $latest_ctime = filemtime($fullpath);
   }
 }
-
-echo date('Y-m-d H:i:s', $latest_ctime);*/
-
-$file = fopen("../.proc_timestamp","r");
-echo fgets($file);
-fclose($file);
+echo date('Y-m-d H:i:s', $latest_ctime);
 
 ?>
