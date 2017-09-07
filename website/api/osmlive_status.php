@@ -1,7 +1,5 @@
 <?php
 
-echo $_SERVER["DOCUMENT_ROOT"];
-
 $path = "../_diff/"; 
 $latest_ctime = 0;
 
