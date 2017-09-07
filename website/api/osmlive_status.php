@@ -1,6 +1,6 @@
 <?php
 
-echo realpath(dirname(__FILE__));
+echo $_SERVER["DOCUMENT_ROOT"];
 
 $path = "../_diff/"; 
 $latest_ctime = 0;
