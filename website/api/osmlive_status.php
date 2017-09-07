@@ -1,7 +1,8 @@
 <?php
 
-$path = __DIR__ . '/../_diff'; 
+$path = __DIR__ . '/../'; 
 $latest_ctime = 0;
+echo "test";
 
 $files = scandir($path);
 
