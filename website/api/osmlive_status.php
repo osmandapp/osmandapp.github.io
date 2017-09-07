@@ -1,5 +1,7 @@
 <?php
 
+echo realpath(dirname(__FILE__));
+
 $path = "../_diff/"; 
 $latest_ctime = 0;
 
