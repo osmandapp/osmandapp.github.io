@@ -1,6 +1,9 @@
 <?php
 
 $file = fopen("./.proc_timestamp.txt","r");
+if (!$fp) {
+    echo 'Could not open file somefile.txt';
+}
 $date = fgets($file);
 echo $date;
 echo "test";
