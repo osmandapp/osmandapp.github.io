@@ -1,7 +1,6 @@
 <?php
 
-$path = __DIR__ . '/../'; 
-echo $path;
+$path = '/var/www-download/_diff'; 
 $latest_ctime = 0;
 
 $files = scandir($path);
