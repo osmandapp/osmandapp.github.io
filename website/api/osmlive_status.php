@@ -1,8 +1,7 @@
 <?php
 
-$file = fopen("../.proc_timestamp", "r");
-echo fgets($file);
-fclose($file);
+echo file_get_contents('../.proc_timestamp', true);
+
 /*$latest_ctime = 0;
 if (is_link($path)) {
   echo "is symlink";
