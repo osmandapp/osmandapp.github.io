@@ -1,7 +1,8 @@
 <?php
 error_reporting(E_ALL); 
 ini_set('display_errors','1');
-$path = "/var/www-download/_diff";
+$path = "/var/www-download/";
+print_r(scandir ($path));
 $file = fopen("../.proc_timestamp","r");
 $date = fgets($file);
 echo $date;
