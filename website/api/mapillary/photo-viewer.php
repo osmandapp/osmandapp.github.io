@@ -44,19 +44,6 @@
             }
         }
         
-        componentOptions = {
-                // Disable components requiring WebGL support
-                direction: false,
-                imagePlane: false,
-                keyboard: false,
-                mouse: false,
-                sequence: false,
-
-                // Enable fallback components
-                image: true,
-                navigation: true,
-            }
-        
         if (componentOptions === null) {
             
             // Handle the fact that MapillaryJS is not supported in a way that is
