@@ -43,9 +43,7 @@
                 navigation: true,
             }
         }
-        
-        componentOptions = { /* Default options */ };
-        
+                
         if (componentOptions === null) {
             
             // Handle the fact that MapillaryJS is not supported in a way that is
