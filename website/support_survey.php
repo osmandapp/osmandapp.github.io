@@ -19,12 +19,13 @@ $firebase = (new Factory)
 $database = $firebase->getDatabase();
 
 $currMonth = date('M Y');
+$timestamp = time();
 
 if ($_GET['answer'] == "good") {
     $newPost = $database
         ->getReference($currMonth)
         ->push([
-            'timestamp' => time(),
+            'timestamp' => $timestamp,
             'response' => 'good'
         ]);
 }
@@ -32,7 +33,7 @@ if ($_GET['answer'] == "average") {
     $newPost = $database
         ->getReference($currMonth)
         ->push([
-            'timestamp' => time(),
+            'timestamp' => $timestamp,
             'response' => 'average'
         ]);
 }
@@ -40,7 +41,7 @@ if ($_GET['answer'] == "bad") {
     $newPost = $database
         ->getReference($currMonth)
         ->push([
-            'timestamp' => time(),
+            'timestamp' => $timestamp,
             'response' => 'bad'
         ]);
 }
