@@ -4,7 +4,7 @@ require './vendor/autoload.php';
 use Kreait\Firebase\Factory;
 use Kreait\Firebase\ServiceAccount;
 
-$serviceAccount = ServiceAccount::fromJsonFile('./service.json');
+$serviceAccount = ServiceAccount::fromJsonFile('.private/service.json');
 
 $firebase = (new Factory)
 ->withServiceAccount($serviceAccount)
