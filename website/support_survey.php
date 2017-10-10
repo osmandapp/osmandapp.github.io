@@ -8,7 +8,7 @@ $serviceAccount = ServiceAccount::fromJsonFile('./service.json');
 
 $firebase = (new Factory)
 ->withServiceAccount($serviceAccount)
-->withDatabaseUri('https://supportsurvey-72364.firebaseio.com/')
+->withDatabaseUri('https://osmand-1e236.firebaseio.com/')
 ->create();
 
 $database = $firebase->getDatabase();
