@@ -86,7 +86,6 @@ elseif ($_GET["response"] == 'bad') {
       </div>
     </div>
     </div>
-    <?php include './blocks/footer.html';  ?>
   </div>
 </div>
 
