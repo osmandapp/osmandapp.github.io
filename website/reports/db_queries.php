@@ -1,6 +1,8 @@
 <?php
 include_once 'db_conn.php';
 $dbconn = db_conn();
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 if (!$dbconn) {
   echo "{'error':'No db connection'}";
   die;
