@@ -259,6 +259,7 @@ function calculateUserRanking() {
       ) s on s.username = t.username order by t.size desc;
         ");
   if (!$result) {
+    $res = new stdClass();
     $res->error ='No result';
     return $res;
   }
@@ -326,6 +327,7 @@ function calculateUsersRanking() {
       ) s on s.username = t.username order by t.size desc;
         ");
   if (!$result) {
+    $res = new stdClass();
     $res->error ='No result';
     return $res;
   }
@@ -418,6 +420,7 @@ function getSupporters() {
     where s.disable is null;
     ");
   if (!$result) {
+    $res = new stdClass();
     $res->error ='No result';
     return $res;
   }
@@ -574,6 +577,7 @@ function getRecipients($eurValue = NULL, $btc = NULL, $useReport = true ) {
       ($regionName == "" ? "" :" where t.size is not null ").
       " order by changes desc");
   if (!$result) {
+    $res = new stdClass();
     $res->error = 'No result';
     return $res;
   }
