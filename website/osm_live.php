@@ -181,7 +181,7 @@
               </div>
               <p class="input-hint">This bitcoin address will be used to transfer funds to.</p>
               <button type="submit" class="btn btn-default" id="register_osm_user">Register</button>
-              <p><b>Note:</b>1 user can be registered only once even if he has multiple OSM accounts.</p>
+              <p><b>Note:</b>1 user can be registered only once even if they have multiple OSM accounts.</p>
             </form>
           </div>
           <div class="registration contributor-registration" id="contributor-register-div">
