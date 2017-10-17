@@ -244,7 +244,12 @@
 							if (!empty($pages)) {
 								$image_info = $pages[0]->imageinfo[0];
 								if ($image_info) {
-									$title = substr($pages[0]->title, strpos($osm_image, 'File:') + 5);
+									$pos = strpos($pages[0]->title, 'File:');
+								    	if ($pos !== false) {
+									    $title = substr($pages[0]->title, $pos + 5);
+								    	} else {
+									    $title = $pages[0]->title;
+								    	}
 									$primary_image = parseWikimediaImage($lat, $lon, $file_name, $title, $image_info);
 								}
 							}
