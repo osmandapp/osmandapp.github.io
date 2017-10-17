@@ -292,10 +292,10 @@
  }
 
  if ($primary_osm_image) {
-	array_splice($arr, 0, 0, $primary_osm_image);
+	array_unshift($arr, $primary_osm_image);
  }
  if ($primary_mapillary_place) {
-	array_splice($arr, 0, 0, $primary_mapillary_place);
+	array_unshift($arr, $primary_mapillary_place);
  }
 
  if(!empty($arr)) {
