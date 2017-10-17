@@ -6,14 +6,17 @@
  * myLocation - latitude and longitude of user's location (10.12345,-3.12345)
  * app        - type of app. Valid values: "paid" or "free".
  * lang       - app's locale (en) (ru) (be)
+ * osm_image  - osm image tag value
+ * osm_mapillary_key - osm mapillary key
  */
-	class JsFeature { 
+	class Place { 
 		public $type; 
 
 	    	public $lat; 
     		public $lon ; 
 	    	public $timestamp;
     		public $key;
+    		public $title;
 	    	public $url;
 	    	public $externalLink; // true if external browser should to be opened, open webview otherwise
     		public $ca;
@@ -22,13 +25,13 @@
     		public $bearing;
 	    	public $imageUrl;
     		public $imageHiresUrl;
-		public $topIcon;
-		public $buttonIcon;
-		public $buttonText;
-		public $buttonIconColor; // example: #323232
-		public $buttonColor; // example: #323232
-		public $buttonTextColor; // example: #323232
-	
+
+			public $topIcon;
+			public $buttonIcon;
+			public $buttonText;
+			public $buttonIconColor; // example: #323232
+			public $buttonColor; // example: #323232
+			public $buttonTextColor; // example: #323232
 	} 
 
 	function angleDiff($angle, $diff) {
@@ -124,19 +127,10 @@
         return array($distance, $initialBearing);
 	}
 
- $txt = $_GET['lon'].','.$_GET['lat'];
- //echo file_get_contents("https://a.mapillary.com/v3/images/?closeto=".$txt."&radius=50&client_id=LXJVNHlDOGdMSVgxZG5mVzlHQ3ZqQTo0NjE5OWRiN2EzNTFkNDg4");
- $result = file_get_contents("https://a.mapillary.com/v3/images/?closeto=".$txt."&radius=50&client_id=LXJVNHlDOGdMSVgxZG5mVzlHQ3ZqQTo0NjE5OWRiN2EzNTFkNDg4");
- // $result = file_get_contents("cm_example.json");
- $json_res = json_decode($result);
- $arr = array();
- $halfvisarr = array();
- $nonvisarr = array();
- if($json_res) {
- 	foreach($json_res->features as $feature ) {
+	function parseMapillaryImage($feature) {
  		$coordinates = $feature->geometry->coordinates;
- 		
- 		$e = new JsFeature;
+
+		$e = new Place;
  		$e->type = "mapillary-photo";
  		$e->timestamp = $feature->properties->captured_at;
  		
@@ -156,28 +150,154 @@
 		//$e->buttonIconColor = "#ffffff";
 		//$e->buttonColor = "#3db878";
 		//$e->buttonTextColor = "#ffffff";
-		
- 		$distBearing = initialBearing($e->lat, $e->lon, floatval($_GET['lat']), floatval($_GET['lon']));
- 	 	$e->distance = $distBearing[0];
- 	 	$e->bearing = rad2deg($distBearing[1]);
- 	 	if($e->ca && angleDiff($e->bearing - $e->ca, 30)) {
- 	 		array_push($arr, $e); 
- 	 	} else if($e->ca && angleDiff($e->bearing - $e->ca, 60) || !$e->ca) {
- 	 		array_push($halfvisarr, $e); 
- 	 	} else {
- 	 		array_push($nonvisarr, $e); 
- 	 	}
- 	}
- 	usort($arr, "distanceTime");
- 	usort($nonvisarr, "distanceTime");
- 	if(empty($arr)) {
- 		$arr = array_merge($arr, $halfvisarr);
- 	}
- 	if(empty($arr)) {
- 		// don't add invisible area
- 		// $arr = array_merge($arr, $nonvisarr);
- 	}
+
+		return $e;
+	}
+
+	function processMapillaryData($lat, $lon, $primary_image_key) {
+
+		global $arr, $halfvisarr, $nonvisarr;
+
+		$txt = $lon.','.$lat;
+	 	$result = file_get_contents("https://a.mapillary.com/v3/images/?closeto=".$txt."&radius=50&client_id=LXJVNHlDOGdMSVgxZG5mVzlHQ3ZqQTo0NjE5OWRiN2EzNTFkNDg4");
+		$json_res = json_decode($result);
+
+		$primary_image = null;
+		if ($json_res) {
+		 	foreach($json_res->features as $feature) {
+		 		
+		 		$e = parseMapillaryImage($feature);
+
+				$distBearing = initialBearing($e->lat, $e->lon, floatval($lat), floatval($lon));
+		 	 	$e->distance = $distBearing[0];
+		 	 	$e->bearing = rad2deg($distBearing[1]);
+
+		 	 	if ($primary_image_key && $e->key == $primary_image_key) {
+		 	 		$primary_image = $e;
+		 	 		continue;
+		 	 	}
+
+		 	 	if($e->ca && angleDiff($e->bearing - $e->ca, 30)) {
+		 	 		array_push($arr, $e); 
+		 	 	} else if($e->ca && angleDiff($e->bearing - $e->ca, 60) || !$e->ca) {
+		 	 		array_push($halfvisarr, $e); 
+		 	 	} else {
+		 	 		array_push($nonvisarr, $e); 
+		 	 	}
+		 	}
+		}
+
+		if ($primary_image_key && !$primary_image) {
+		 	$result = file_get_contents("https://a.mapillary.com/v3/images/".$primary_image_key."?client_id=LXJVNHlDOGdMSVgxZG5mVzlHQ3ZqQTo0NjE5OWRiN2EzNTFkNDg4");
+			$json_res = json_decode($result);
+
+			if ($json_res && !isset($json_res->missing_key)) {
+
+				$e = parseMapillaryImage($json_res);
+				$distBearing = initialBearing($e->lat, $e->lon, floatval($lat), floatval($lon));
+		 	 	$e->distance = $distBearing[0];
+		 	 	$e->bearing = rad2deg($distBearing[1]);
+
+		 	 	$primary_image = $e;
+			}
+		}
+
+		return $primary_image;
+	}
+
+	function parseWikimediaImage($lat, $lon, $file_name, $title, $image_info) {
+
+		$e = new Place;
+ 		$e->type = "wikimedia-photo";
+ 		$e->timestamp = $image_info->timestamp;
+ 		
+ 		$e->key = $file_name;
+ 		$e->imageUrl = $image_info->thumburl;
+ 		$e->imageHiresUrl = $image_info->url;
+ 		$e->url = $image_info->descriptionurl;
+		$e->externalLink = false;
+ 		$e->username = $image_info->user;
+ 		$e->lat = $lat;
+ 		$e->lon = $lon;
+		//$e->topIcon = "ic_logo_mapillary";
+
+		return $e;
+	}
+
+	function processOsmImageData($lat, $lon, $osm_image) {
+
+		global $arr, $halfvisarr, $nonvisarr;
+
+		$primary_image = null;
+		if ($osm_image) {
+			// if wikimedia url
+			if (strpos($osm_image, 'File:') === 0 || ((strpos($osm_image, 'wikimedia.org') !== false || strpos($osm_image, 'wikipedia.org') !== false) && strpos($osm_image, 'File:') !== false)) {
+				$file_name = substr($osm_image, strpos($osm_image, 'File:'));
+				if (!empty($file_name)) {
+						$result = file_get_contents("https://commons.wikimedia.org/w/api.php?format=json&formatversion=2&action=query&prop=imageinfo&titles=".urlencode($file_name)."&iiprop=timestamp|user|url&iiurlwidth=576");
+						$json_res = json_decode($result);
+
+						if ($json_res && !isset($json_res->query->pages[0]->missing)) {
+
+							$pages = $json_res->query->pages;
+							if (!empty($pages)) {
+								$image_info = $pages[0]->imageinfo[0];
+								if ($image_info) {
+									$title = substr($pages[0]->title, strpos($osm_image, 'File:') + 5);
+									$primary_image = parseWikimediaImage($lat, $lon, $file_name, $title, $image_info);
+								}
+							}
+						}
+				}
+			} else {
+				$e = new Place;
+		 		$e->type = "url-photo";
+		 		$e->imageUrl = $osm_image;
+		 		$e->url = $osm_image;
+		 		$e->lat = $lat;
+		 		$e->lon = $lon;
+				//$e->topIcon = "ic_logo_mapillary";
+				$primary_image = $e;
+			}
+		}
+
+		return $primary_image;
+	}
+
+ $lat = $_GET['lat'];
+ $lon = $_GET['lon'];
+
+ if (isset($_GET['osm_image'])) {
+   $osm_image = $_GET['osm_image'];
  }
+ if (isset($_GET['osm_mapillary_key'])) {
+   $osm_mapillary_key = $_GET['osm_mapillary_key'];
+ }
+
+ $arr = array();
+ $halfvisarr = array();
+ $nonvisarr = array(); 
+  
+ $primary_osm_image = processOsmImageData($lat, $lon, $osm_image);
+ $primary_mapillary_place = processMapillaryData($lat, $lon, $osm_mapillary_key);
+
+ usort($arr, "distanceTime");
+ usort($nonvisarr, "distanceTime");
+ if(empty($arr)) {
+	 $arr = array_merge($arr, $halfvisarr);
+ }
+ if(empty($arr)) { 
+    // don't add invisible area
+    // $arr = array_merge($arr, $nonvisarr);
+ }
+
+ if ($primary_osm_image) {
+	array_splice($arr, 0, 0, $primary_osm_image);
+ }
+ if ($primary_mapillary_place) {
+	array_splice($arr, 0, 0, $primary_mapillary_place);
+ }
+
  if(!empty($arr)) {
 // 	if(count($arr) > 5) {
 // 		$arr = array_slice($arr, 0, 5) ;
@@ -190,5 +310,3 @@
  $map = array();
  $map["features"] = $arr;
  echo json_encode($map, JSON_PRETTY_PRINT);
- 
-?>
