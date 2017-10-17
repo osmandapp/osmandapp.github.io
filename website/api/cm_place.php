@@ -212,6 +212,7 @@
  		$e->timestamp = $image_info->timestamp;
  		
  		$e->key = $file_name;
+ 		$e->title = $title;
  		$e->imageUrl = $image_info->thumburl;
  		$e->imageHiresUrl = $image_info->url;
  		$e->url = $image_info->descriptionurl;
