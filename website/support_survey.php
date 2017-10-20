@@ -22,7 +22,7 @@ if ($_GET["response"] == 'good') {
      'response' => 'good',
      'timestamp' => time()
   ]);
-  $result = $firebase->get('date/good');
+  $result = $firebase->get($date.'/good');
   if (!isset($result)) {
     $result = 0;
   }
