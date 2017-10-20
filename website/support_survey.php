@@ -75,7 +75,7 @@ elseif ($_GET["response"] == 'bad') {
     }
   </style>
   <div class="content">
-      <img src="./images/img_messages.png" alt="Message" align="left" style="width:200px;height:50%;margin-right:50px;">
+      <img src="./images/img_messages.png" alt="Message" align="left" style="width:2vw;height:50%;margin-right:50px;">
       <div class="headline">
         <p>Thank you for the feedback!</p>
       </div>
@@ -89,7 +89,7 @@ elseif ($_GET["response"] == 'bad') {
         }
         ?>
       </div>
-      <img src="./images/logo-grey.png" alt="Logo" style="width:150px;height:50%;margin-top:20px">
+      <img src="./images/logo-grey.png" alt="Logo" style="width:1.5vw;height:50%;margin-top:20px">
   </div>
 </body>
 </html>
