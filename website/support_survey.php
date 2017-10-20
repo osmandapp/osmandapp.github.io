@@ -53,7 +53,7 @@ elseif ($_GET["response"] == 'bad') {
 <body>
   <style>
     .content {
-     margin-top: 5.2vw;
+     margin-top: 100px;
      margin-left: auto;
      margin-right: auto;
      width: 50em
@@ -61,7 +61,6 @@ elseif ($_GET["response"] == 'bad') {
 
     .headline {
      font-size: 35px;
-     font-size: 1.82vw;
      font-style: bold;
      margin-left: 100px;
      margin-right: 100px;
@@ -69,10 +68,6 @@ elseif ($_GET["response"] == 'bad') {
      width: 80em
     }
     
-    .main_text {
-     font-size: 16px;
-     font-size: 0.83vw;
-    }
   </style>
   <div class="content">
       <img src="./images/img_messages.png" alt="Message" align="left" style="width:6vw;height:50%;margin-right:50px;">
