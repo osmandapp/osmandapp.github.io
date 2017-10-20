@@ -53,7 +53,7 @@ elseif ($_GET["response"] == 'bad') {
 <body>
   <style>
     .content {
-     margin-top: 100px;
+     margin-top: 5.2vw;
      margin-left: auto;
      margin-right: auto;
      width: 50em
