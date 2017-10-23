@@ -4,6 +4,19 @@
 <link>http://osmand.net/blog</link>
 <description/>
 <generator></generator>
+	<item>
+<title>OsmAnd 2.8</title>
+<link>http://osmand.net/blog?id=osmand-2-8-released</link>
+<description>
+<p>OsmAnd 2.8 has been released! We're glad to share all the improvements so let's get started.</p>
+<h4>Map marker menu</h4>
+	<p>The map marker menu has been completely reworked with a whole list of new features and a convenient intuitive user interface. Plan routes using markers and sort them easily.</p>
+<h4>Measure distance</h4>
+	<p>Measuring distances on the map has never been easier. Now you can add several points and view the distance between them easily.</p>
+<h4>OsmAnd Live</h4>
+	<p>The feature offering you frequent (up to once an hour) map updates has finally come out of the beta-testing phase and is fully ready for use.</p>
+</description>
+</item>
 <item>
 <title>OsmAnd 2.7</title>
 <link>http://osmand.net/blog?id=osmand-2-7-released</link>
