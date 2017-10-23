@@ -57,51 +57,31 @@ elseif ($_GET["response"] == 'bad') {
   ]);
 }
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <?php
-    include 'blocks/default_links.html';
-  ?>
-  <title>OsmAnd Survey</title>
-</head>
-<body>
-  <style>
-    .content {
-     margin-top: 100px;
-     margin-left: auto;
-     margin-right: auto;
-     width: 50em
-    }
-
-    .headline {
-     font-size: 35px;
-     font-style: bold;
-     margin-left: 100px;
-     margin-right: 100px;
-     margin-top: 20px
-     width: 80em
-    }
-    
-  </style>
-  <div class="content">
-      <img src="./images/img_messages.png" alt="Message" align="left" style="width:6vw;height:50%;margin-right:50px;">
-      <div class="headline">
-        <p>Thank you for the feedback!</p>
-      </div>
-      <div class="main_text">
-        <?php
-        if ($_GET["response"] == 'bad') {
-          echo "<p>Oh no! Something went wrong and you did not receive proper help? Please email us (<a href=\"mailto:contactus@osmand.net\">contactus@osmand.net</a>) and we will check the issue as soon as possible.</p>";
-        }
-        else {
-          echo "<p>We are striving to make our support service better and faster!</p>";
-        }
-        ?>
-      </div>
-      <img src="./images/logo-grey.png" alt="Logo" style="width:3vw;height:50%;margin-top:20px">
-  </div>
-</body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>OsmAnd Support</title>
+ </head>
+ <body>
+  <table width="600px" cellspacing="0" cellpadding="0" border="0" style="margin:auto; padding-top:5%;">
+   <tr>
+    <td><img src="./images/img_messages.png" style="padding-top:20px;" width="130px" height="130px" alt="Message" /></td>
+    <td style="font-size:35px; font-family:arial,helvetica,sans-serif; font-weight:bold; padding-left:50px;" >Thank you for the feedback!</td>
+   </tr>
+   <tr>
+     <td></td>
+     <td style="font-size:18px; font-family:arial,helvetica,sans-serif; padding-left:50px;">
+      Oh no! Something went wrong and you did not receive proper help? Please email us
+     </td>
+   </tr>
+   <tr>
+     <td></td>
+     <td style="padding-left:50px; padding-top:10px">
+       <img src="./images/logo-grey.png" width="206px" height="90px" alt="OsmAnd Maps &amp; Navigation" />
+      </td>
+   </tr>
+  </table>
+ </body>
 </html>
