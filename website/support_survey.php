@@ -13,13 +13,28 @@ $firebase = (new Factory)
 
 $database = $firebase->getDatabase();
 
-$date = date('M Y');
+$date = date('MM Y');
+
+$ip;
+if (!empty($_SERVER['HTTP_CLIENT_IP']))   //check ip from share internet
+    {
+      $ip=$_SERVER['HTTP_CLIENT_IP'];
+    }
+    elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))   //to check ip is pass from proxy
+    {
+      $ip=$_SERVER['HTTP_X_FORWARDED_FOR'];
+    }
+    else
+    {
+      $ip=$_SERVER['REMOTE_ADDR'];
+    }
 
 if ($_GET["response"] == 'good') {
   $newPost = $database
-  ->getReference($date)
+  ->getReference('satisfaction_reports/'.$date)
   ->push([
      'response' => 'good',
+     'ip' => $ip,
      'timestamp' => time()
   ]);
 }
