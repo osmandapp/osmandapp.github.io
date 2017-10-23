@@ -73,7 +73,14 @@ elseif ($_GET["response"] == 'bad') {
    <tr>
      <td></td>
      <td style="font-size:18px; font-family:arial,helvetica,sans-serif; padding-left:50px;">
-      Oh no! Something went wrong and you did not receive proper help? Please email us
+      <?php
+        if ($_GET["response"] == 'bad') {
+          echo "Oh no! Something went wrong and you did not receive proper help? Please email us (<a href=\"mailto:contactus@osmand.net\">contactus@osmand.net</a>) and we will check the issue as soon as possible.";
+        }
+        else {
+          echo "We are striving to make our support service better and faster!";
+        }
+        ?>
      </td>
    </tr>
    <tr>
