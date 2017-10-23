@@ -61,6 +61,7 @@
           <div class="acticlestitles">
             <h2>Latest articles</h2>
             <ul class="articlelinklist">
+              <li><a data-gatag='osmand_youtube_channel' href="http://osmand.net/blog?id=osmand-2-8-released" >OsmAnd 2.8</a></li>
               <li><a data-gatag='osmand_youtube_channel' href="http://osmand.net/blog?id=osmand-2-7-released" >OsmAnd 2.7</a></li>
               <li><a data-gatag='osmand_youtube_channel' href="http://osmand.net/blog?id=osmand-2-6-released" >OsmAnd 2.6</a></li>
               <li><a data-gatag='osmand_youtube_channel' href="http://osmand.net/blog?id=osmand_youtube_channel" >OsmAnd team on Youtube</a></li>
