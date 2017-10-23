@@ -13,7 +13,7 @@ $firebase = (new Factory)
 
 $database = $firebase->getDatabase();
 
-$date = date('MM Y');
+$date = date('mm Y');
 
 $ip;
 if (!empty($_SERVER['HTTP_CLIENT_IP']))   //check ip from share internet
