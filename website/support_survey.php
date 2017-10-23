@@ -40,17 +40,19 @@ if ($_GET["response"] == 'good') {
 }
 elseif ($_GET["response"] == 'average') {
   $newPost = $database
-  ->getReference($date)
+  ->getReference('satisfaction_reports/'.$date)
   ->push([
      'response' => 'average',
+     'ip' => $ip,
      'timestamp' => time()
   ]);
 }
 elseif ($_GET["response"] == 'bad') {
   $newPost = $database
-  ->getReference($date)
+  ->getReference('satisfaction_reports/'.$date)
   ->push([
      'response' => 'bad',
+     'ip' => $ip,
      'timestamp' => time()
   ]);
 }
