@@ -1,7 +1,7 @@
 <?php
 // if(!class_exists("Memcache")) {
 if($_SERVER['SERVER_NAME'] == 'builder.osmand.net') {
-	$memcache = new Memcache;
+	$memcache = new Memcached;
 	$memcache->addServer('localhost', 11211) or die ("Can't connect");
 	$key_mem = "qreport_" . $_SERVER['QUERY_STRING'];
 	$get_result = $memcache->get($key_mem);
