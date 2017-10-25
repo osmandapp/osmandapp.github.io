@@ -2,18 +2,18 @@
 // if(!class_exists("Memcache")) {
 if($_SERVER['SERVER_NAME'] == 'builder.osmand.net') {
 	$memcache = new Memcache;
-	$memcache->connect('localhost', 11211) or die ("Can't connect");
+	$memcache->addServer('localhost', 11211) or die ("Can't connect");
 	$key_mem = "qreport_" . $_SERVER['QUERY_STRING'];
 	$get_result = $memcache->get($key_mem);
 	$timeout = 24*60*60; 
 	if(!$get_result || isset($_REQUEST['force']) ) {
   		$get_result = file_get_contents("http://builder.osmand.net/reports/".$_GET["report"].".php?".$_SERVER['QUERY_STRING']);
   		$json_res = json_decode($get_result);
-  		$json_res["timeout"] = time();
+  		$json_res->timeout = time();
   		//if($_GET["report"] == "supporters_by_month") {
   		//	$timeout = 10;
   		//}
-  		$memcache->set($key_mem, json_encode($json_res), 0, $timeout);
+  		$memcache->set($key_mem, json_encode($json_res), $timeout);
 	} else {
 		// keep 1 day at least
 		$memcache->touch($key_mem, $timeout);
