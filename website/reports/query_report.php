@@ -1,19 +1,25 @@
 <?php
-if(!class_exists("Memcache")) {
-	echo file_get_contents("http://builder.osmand.net/reports/".$_GET["report"].".php?".$_SERVER['QUERY_STRING']);
+// if(!class_exists("Memcache")) {
+if($_SERVER['SERVER_NAME'] == 'builder.osmand.net') {
+	$memcache = new Memcache;
+	$memcache->connect('localhost', 11211) or die ("Can't connect");
+	$key_mem = "qreport_" . $_SERVER['QUERY_STRING'];
+	$get_result = $memcache->get($key_mem);
+	$timeout = 24*60*60; 
+	if(!$get_result || isset($_REQUEST['force']) ) {
+  		$get_result = file_get_contents("http://builder.osmand.net/reports/".$_GET["report"].".php?".$_SERVER['QUERY_STRING']);
+  		$json_res = json_decode($get_result);
+  		$json_res["timeout"] = time();
+  		//if($_GET["report"] == "supporters_by_month") {
+  		//	$timeout = 10;
+  		//}
+  		$memcache->set($key_mem, json_encode($json_res), 0, $timeout);
+	} else {
+		// keep 1 day at least
+		$memcache->touch($key_mem, $timeout);
+	}
+	echo $get_result;
 	die;
 }
-$memcache = new Memcache;
-$memcache->connect('localhost', 11211) or die ("Can't connect");
-$get_result = $memcache->get($_SERVER['QUERY_STRING']);
-if(!$get_result) {
-  $get_result = file_get_contents("http://builder.osmand.net/reports/".$_GET["report"].".php?".$_SERVER['QUERY_STRING']);
-  $timeout = 300; 	
-  if($_GET["report"] == "supporters_by_month") {
-  	$timeout = 10;
-  }
-  $memcache->set($_SERVER['QUERY_STRING'], $get_result, 0, $timeout);
-
-}
-echo $get_result;
+echo file_get_contents("http://builder.osmand.net/reports/query_report.php?".$_SERVER['QUERY_STRING']);
 ?>
