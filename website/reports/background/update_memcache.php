@@ -9,7 +9,7 @@ $c = new Memcached();
 $c->addServer("localhost", 11211); 
 foreach($c->getAllKeys() as $key) {
 	if(startsWith($key, "qreport_")) {
-		echo substr($key, 0, strlen("qreport_"));
+		echo substr($key, strlen("qreport_")) . "\n";
 	}
 
 }
