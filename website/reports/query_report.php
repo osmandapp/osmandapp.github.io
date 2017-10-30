@@ -4,6 +4,7 @@ if($_SERVER['SERVER_NAME'] == 'builder.osmand.net') {
 	$memcache = new Memcached;
 	$memcache->addServer('localhost', 11211) or die ("Can't connect");
 	$key_mem = "qreport_" . $_SERVER['QUERY_STRING'];
+	$key_mem = str_replace("&force=true","",$key_mem);
 	$get_result = $memcache->get($key_mem);
 	$timeout = 24*60*60; 
 	if(!$get_result || isset($_REQUEST['force']) ) {
