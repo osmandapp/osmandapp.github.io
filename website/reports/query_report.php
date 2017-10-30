@@ -14,6 +14,7 @@ if($_SERVER['SERVER_NAME'] == 'builder.osmand.net') {
   		//	$timeout = 10;
   		//}
   		$memcache->set($key_mem, json_encode($json_res), $timeout);
+  		$get_result = json_encode($json_res)
 	} else {
 		// keep 1 day at least
 		$memcache->touch($key_mem, $timeout);
