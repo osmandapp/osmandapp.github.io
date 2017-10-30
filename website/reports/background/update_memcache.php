@@ -21,5 +21,5 @@ foreach($c->getAllKeys() as $key) {
 	}
 
 }
-// var_dump( $c->getAllKeys() );
+var_dump( $c->getAllKeys() );
 ?>
