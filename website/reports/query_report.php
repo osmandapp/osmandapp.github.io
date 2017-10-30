@@ -14,10 +14,13 @@ if($_SERVER['SERVER_NAME'] == 'builder.osmand.net') {
 		$get_result = file_get_contents("http://builder.osmand.net/reports/".$_GET["report"].".php?".$_SERVER['QUERY_STRING']);
 		if(!isset($_REQUEST['month']) || $_REQUEST['month'] == '' || 
 				$_REQUEST['month'] == date("Y-m")) {
+			$nextTimeout = $timeout;
+			$memcache->set($key_mem, $get_result, $timeout);
 			// cache in memcache only for current month
   			$json_res = json_decode($get_result);
   			$json_res->generationTime = $currentTime;
-  			$nextTimeout = $timeout;
+
+  			
   			if($json_prev && $json_prev->expirationTime) {
   				$nextTimeout = $json_prev->expirationTime - $currentTime;
   			}
