@@ -1,5 +1,8 @@
 <?php
 function db_conn() {
+ if(isset($_GET['dbmonth'])) {
+ 	return pg_connect("host=localhost port=5432 dbname=changeset_".str_replace("-","_", $_GET['dbmonth'])." user=*** password=***");
+ }
  if(isset($_GET['month'])) {
    date_default_timezone_set("UTC");
    $month = $_GET['month'];

@@ -693,7 +693,7 @@ function getAllReportsStage1($res) {
   $rw->region = '';
   $supporters = getSupporters();
   $rw->report = $supporters; 
-
+  echo "getSupporters $imonth ".gmdate('D, d M Y H:i:s T')
 
   for($i = 0; $i < count($countries->rows); $i++) {
       if($countries->rows[$i]->name == 'World') {
@@ -710,6 +710,7 @@ function getAllReportsStage1($res) {
       $rw->month = $imonth;
       $rw->region = $iregion;
       $rw->report = calculateUsersRanking(); 
+      echo "calculateUsersRanking $imonth $iregion".gmdate('D, d M Y H:i:s T')
 
       $rw = new stdClass();
       array_push($res->reports, $rw);
@@ -717,6 +718,7 @@ function getAllReportsStage1($res) {
       $rw->month = $imonth;
       $rw->region = $iregion;
       $rw->report = calculateRanking();
+      echo "calculateRanking $imonth $iregion".gmdate('D, d M Y H:i:s T')
 
       $rw = new stdClass();
       array_push($res->reports, $rw);
@@ -724,6 +726,7 @@ function getAllReportsStage1($res) {
       $rw->month = $imonth;
       $rw->region = $iregion;
       $rw->report = getTotalChanges(); 
+      echo "getTotalChanges $imonth $iregion".gmdate('D, d M Y H:i:s T')
   }
   
 }
@@ -794,6 +797,7 @@ function getAllReports() {
           $rw->month = $imonth;
           $rw->region = $iregion;
           $rw->report = getRecipients($res->eurValue, $res->btc, false); 
+          echo "getRecipients $imonth $iregion".gmdate('D, d M Y H:i:s T')
           for($t = 0; $t < count($rw->report->rows); $t++) {
             $rt = $rw->report->rows[$t];          
             if($rt->btc < 0.001*0.01) {
@@ -814,6 +818,7 @@ function getAllReports() {
       $rw->month = $imonth;
       $rw->region = '';
       $rw->report = $res->payouts;
+      echo "getPayouts ".gmdate('D, d M Y H:i:s T')
   }
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     saveReports($res);
