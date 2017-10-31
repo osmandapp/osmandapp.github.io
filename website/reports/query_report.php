@@ -42,8 +42,11 @@ if($_SERVER['SERVER_NAME'] == 'builder.osmand.net') {
 	} else {
 		// keep 1 day at least after request
 		$json_res = json_decode($get_result);
-  		$json_res->expirationTime = $currentTime + $timeout;
-		$memcache->set($key_mem, json_encode($json_res), $timeout);
+		if($json_res->generationTime) {
+			// do not recache empty result
+  			$json_res->expirationTime = $currentTime + $timeout;
+			$memcache->set($key_mem, json_encode($json_res), $timeout);
+		}
 	}
 	echo $get_result;
 	die;
