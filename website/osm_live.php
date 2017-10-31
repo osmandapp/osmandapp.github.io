@@ -599,7 +599,7 @@
       "<li> All donations are exchanged into Bitcoin and distributed between OSM contributors according to their ranking."+
       "<li> Every OsmAnd user can select preferred donation region, in that case <strong>50% of donation</strong> will be distributed between editors of this region."+
       "</ul><br> Please find all rankings and formulas in the reports on OSM Live."+
-      "<p><br>Current processed OSM Live date: "+ "<strong>"+ responseText+ "</strong>")
+      "<p><br>Current processed OSM Live date: <strong>"+ responseText+ " UTC </strong>")
       }
    else {
       $("#general-info").html("<h2>About OSM Live</h2>" + 
