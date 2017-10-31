@@ -12,8 +12,11 @@ foreach($c->getAllKeys() as $key) {
 		$time_start = microtime(true);
 		$query = substr($key, strlen("qreport_")) ;
 		echo "====== QUERY  $query ======\n";
-		
-		echo file_get_contents("http://builder.osmand.net/reports/query_report?".$query."&force=true");
+		$ctx = stream_context_create(array('http'=>
+    		array('timeout' => 600,  //10 Minutes
+    			)
+		));
+		echo file_get_contents("http://builder.osmand.net/reports/query_report?".$query."&force=true", false, $ctx);
 		$time_end = microtime(true);
 		$time = $time_end - $time_start;
 	

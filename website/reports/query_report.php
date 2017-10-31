@@ -15,7 +15,7 @@ if($_SERVER['SERVER_NAME'] == 'builder.osmand.net') {
 		if(!isset($_REQUEST['month']) || $_REQUEST['month'] == '' || 
 				$_REQUEST['month'] == date("Y-m")) {
 			$nextTimeout = $timeout;
-			$memcache->set($key_mem, $get_result, $timeout);
+			
 			// cache in memcache only for current month
   			$json_res = json_decode($get_result);
   			$json_res->generationTime = $currentTime;
