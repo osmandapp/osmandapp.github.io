@@ -64,7 +64,7 @@
                 <li><a data-gatag='nautical_charts' href="/features?id=nautical-charts" >Nautical charts</a></li>
                 <li><a data-gatag='audio-video-notes-plugin' href="/features?id=audio-video-notes-plugin" >Audio/video notes</a></li>
                 <li><a data-gatag='osm-editing-plugin' href="/features?id=osm-editing-plugin">OSM editing</a></li>
-                <li><a data-gatag='distance-calculator-and-planning-tool' href="/features?id=distance-calculator-and-planning-tool">Distance calculator and planning tool</a></li>
+                <li><a data-gatag='measure-distance' href="/features?id=measure-distance.html">Measure distance</a></li>
                 <li><a data-gatag='parking-plugin' href="/features?id=parking-plugin" >Parking place</a></li>
                 <li><a data-gatag='development_plugin' href="/features?id=development_plugin">OsmAnd development</a></li>
                 <li><a data-gatag='mapillary' href="/features?id=mapillary">OsmAnd+Mapillary</a></li>
