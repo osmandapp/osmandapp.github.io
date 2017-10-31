@@ -381,9 +381,11 @@
   
   
   var reportRecipientsDataTable;
+  var reportRecipientsDataInfo;
   function updateRecipientsByMonth() {
-    if(reportRecipientsDataTable) {
-      reportRecipientsDataTable.destroy();
+    if(reportRecipientsDataTable && reportRecipientsDataInfo) {
+      reportRecipientsDataTable.clear().draw();
+      $("#recipients-data-info").html("");
     }
     $.ajax({
           url: "reports/query_report.php?report=recipients_by_month&month="+recipientMonth+"&region="+recipientRegion, 
@@ -391,7 +393,7 @@
     }).done(function(res) {
           var data = jQuery.parseJSON( res );
           //$("#recipients-general-info").html(intro);
-          $("#recipients-data-info").html(data.message);
+          reportRecipientsDataInfo = $("#recipients-data-info").html(data.message);
           var list = data.rows.map(function(key){
               if(data.regionTotalWeight > 0) {
                 key.percent = key.weight + " / " + data.regionTotalWeight ;
@@ -440,8 +442,9 @@
   var reportSupportCountryDataTable;
   function updateSupportByMonth() {
     if(reportSupportDataTable) {
-      reportSupportCountryDataTable.destroy();
-      reportSupportDataTable.destroy();
+      reportSupportCountryDataTable.clear().draw();
+      reportSupportDataTable.clear().draw();
+      $('#donator-report-total').html("");
     }
     $.ajax({
           url: "reports/query_report.php?report=supporters_by_month&month="+supportMonth+"&full="+extended, 
@@ -498,7 +501,7 @@
   var reportUserDataTable;
   function updateUserRankingByMonth() {
     if(reportUserDataTable) {
-      reportUserDataTable.destroy();
+      reportUserDataTable.clear().draw();
     }
     $('#users-ranking').text("Select region to see user statistics ");
   
@@ -534,7 +537,7 @@
   var reportDataTable;
   function updateRankingByMonth() {
     if(reportDataTable) {
-      reportDataTable.destroy();
+      reportDataTable.clear().draw();
     }
     $('#report-ranking').empty();
   
