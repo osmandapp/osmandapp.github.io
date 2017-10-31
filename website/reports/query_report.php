@@ -11,12 +11,18 @@ if($_SERVER['SERVER_NAME'] == 'builder.osmand.net') {
 		if ($get_result) {
 			$json_prev = json_decode($get_result); 
 		}
-		$get_result = file_get_contents("http://builder.osmand.net/reports/".$_GET["report"].".php?".$_SERVER['QUERY_STRING']);
+		
 		if(!isset($_REQUEST['month']) || $_REQUEST['month'] == '' || 
 				$_REQUEST['month'] == date("Y-m")) {
-			$nextTimeout = $timeout;
-			
 			// cache in memcache only for current month
+			$nextTimeout = $timeout;
+			if(!$json_prev) {
+				// set something to avoid double calculation
+				$memcache->set($key_mem, "{}", $nextTimeout);
+			}
+			$ctx = stream_context_create(array('http'=> array('timeout' => 600)  ));
+			$get_result = file_get_contents("http://builder.osmand.net/reports/".$_GET["report"].".php?".$_SERVER['QUERY_STRING'], false, $ctx);
+	
   			$json_res = json_decode($get_result);
   			$json_res->generationTime = $currentTime;
 
@@ -30,10 +36,14 @@ if($_SERVER['SERVER_NAME'] == 'builder.osmand.net') {
   			$json_res->expirationTime = $currentTime + $nextTimeout;
   			$memcache->set($key_mem, json_encode($json_res), $nextTimeout);
   			$get_result = json_encode($json_res);
+  		} else {
+  			$get_result = file_get_contents("http://builder.osmand.net/reports/".$_GET["report"].".php?".$_SERVER['QUERY_STRING']);
   		}
 	} else {
 		// keep 1 day at least after request
-		$memcache->touch($key_mem, $timeout);
+		$json_res = json_decode($get_result);
+  		$json_res->expirationTime = $currentTime + $timeout;
+		$memcache->set($key_mem, json_encode($json_res), $timeout);
 	}
 	echo $get_result;
 	die;
