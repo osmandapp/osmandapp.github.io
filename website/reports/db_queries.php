@@ -88,7 +88,7 @@ function getTotalReport() {
   return $res;
 }
 
-function saveReports($res) {
+function saveReports($res, $time) {
   global  $month, $dbconn;
   for($i = 0; $i < count($res->reports); $i++) {
       $rw = $res->reports[$i];
@@ -102,8 +102,8 @@ function saveReports($res) {
       $mn = pg_escape_string($dbconn, $rw->month);
       pg_query($dbconn, "delete from final_reports where month = '${mn}' 
         and name = '${name}' and region = '${region}';");
-      pg_query($dbconn, "insert into final_reports(month, region, name, report) 
-          values('${mn}', '${region}', '${name}', '${content}');");
+      pg_query($dbconn, "insert into final_reports(month, region, name, report, time) 
+          values('${mn}', '${region}', '${name}', '${content}', $time);");
   }
 }
 
@@ -736,6 +736,7 @@ function getAllReports() {
   global $iregion, $imonth, $month, $dbconn;
   $res = new stdClass();
   $res->reports = array();
+  $currentTime = time();
 
   // 1st step:
 // getTotalChanges - region
@@ -822,7 +823,7 @@ function getAllReports() {
       echo "\ngetPayouts ".gmdate('D, d M Y H:i:s T');
   }
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    saveReports($res);
+    saveReports($res, $currentTime);
   }
   
   
