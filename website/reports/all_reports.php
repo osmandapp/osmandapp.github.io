@@ -1,4 +1,5 @@
 <?php
+// TODO move it to background folder & make not accessible
 if(isset($argv[1])) {
    $_REQUEST['month'] = $argv[1];
    $_REQUEST['dbmonth'] = $argv[1];

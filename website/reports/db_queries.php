@@ -32,14 +32,15 @@ if(!isset($_REQUEST['user'])) {
 
 // FUNCTION LIST
 // 1st step:
-// getTotalChanges - region
-// calculateRanking - region
-// calculateUsersRanking - region
-// [getSupporters, getCountries, getRegionRankingRange, getRankingRange, getMinChanges ]
+// getTotalChanges - region - {use report cache}
+// calculateRanking - region - {use report cache}
+// calculateUsersRanking - region - {use report cache}
+// [getSupporters , getCountries] - {use report cache}
+// [getRegionRankingRange, getRankingRange, getMinChanges ]
 // 2nd step:
 // ! [getBTCEurRate, getBTCValue, getEurValue] !
 // FINAL step: 
-// ! getRecipients - region
+// ! getRecipients - region - {use report cache}
 
 function getRankingRange() {
   return 20;
@@ -107,10 +108,10 @@ function saveReports($res, $time) {
   }
 }
 
-function getTotalChanges() {
+function getTotalChanges($useReport = true) {
   global $iregion, $imonth, $month, $dbconn;
   $finalReport = getReport('getTotalChanges', $iregion);
-  if($finalReport != NULL) {
+  if($finalReport != NULL && $useReport ) {
     return $finalReport;
   }
 
@@ -139,13 +140,13 @@ function getTotalChanges() {
   return $res;
 }
 
-function calculateRanking($ireg = NULL) {
+function calculateRanking($ireg = NULL, $useReport = true ) {
   global $iregion, $imonth, $month, $dbconn;
   if(is_null($ireg)) {
     $ireg = $iregion;
   }
   $finalReport = getReport('calculateRanking', $ireg);
-  if($finalReport != NULL) {
+  if($finalReport != NULL && $useReport ) {
     return $finalReport;
   }
 
@@ -234,14 +235,14 @@ function calculateRanking($ireg = NULL) {
   return $res;
 }
 
-function calculateUserRanking() {
+function calculateUserRanking($useReport = true ) {
   global $iregion, $imonth, $iuser, $month, $dbconn;
   $finalReport = getReport('calculateUsersRanking', $iregion);
-  if($finalReport != NULL) {
+  if($finalReport != NULL && $useReport ) {
     return $finalReport;
   }
-  $gar = calculateRanking('')->rows;
-  $ar = calculateRanking()->rows;
+  $gar = calculateRanking('', $useReport)->rows;
+  $ar = calculateRanking(NULL, $useReport)->rows;
   $region =  pg_escape_string($iregion);
   $user =  pg_escape_string($iuser);
   
@@ -302,10 +303,10 @@ function calculateUserRanking() {
 }
 
 
-function calculateUsersRanking() {
+function calculateUsersRanking($useReport = true) {
   global $iregion, $imonth, $month, $dbconn;
   $finalReport = getReport('calculateUsersRanking', $iregion);
-  if($finalReport != NULL) {
+  if($finalReport != NULL && $useReport) {
     return $finalReport;
   }
   $gar = calculateRanking('')->rows;
@@ -369,10 +370,10 @@ function calculateUsersRanking() {
 
 }
 
-function getCountries() {
+function getCountries($useReport = true) {
   global $iregion, $imonth, $month, $dbconn;
   $finalReport = getReport('getCountries');
-  if($finalReport != NULL) {
+  if($finalReport != NULL && $useReport ) {
     return $finalReport;
   }
   $result = pg_query($dbconn, "select id, parentid, downloadname, name, map from countries;");
@@ -403,10 +404,10 @@ function getCountryMapName() {
   return $res;
 } 
 
-function getSupporters() {
+function getSupporters($useReport = true ) {
   global $iregion, $imonth, $month, $dbconn;
   $finalReport = getReport('getSupporters');
-  if($finalReport != NULL) {
+  if($finalReport != NULL && $useReport ) {
     return $finalReport;
   }
   $result = pg_query($dbconn, "
@@ -654,17 +655,17 @@ function getRecipients($eurValue = NULL, $btc = NULL, $useReport = true ) {
   return $res;
 }
 
-function getAllReportsStage1($res) {
+function getAllReportsStage1($res, $useReport) {
   global $iregion, $imonth, $month, $dbconn;
   echo "\ngetCountries ".gmdate('D, d M Y H:i:s T');
-  $countries = getCountries();
+  $countries = getCountries($useReport);
 
   $rw = new stdClass();
   array_push($res->reports, $rw);
   $rw->name = 'getCountries';
   $rw->month = $imonth;
   $rw->region = '';
-  $rw->report = getCountries(); 
+  $rw->report = $countries;
 
   $rw = new stdClass();
   array_push($res->reports, $rw);
@@ -692,7 +693,7 @@ function getAllReportsStage1($res) {
   $rw->name = 'getSupporters';
   $rw->month = $imonth;
   $rw->region = '';
-  $supporters = getSupporters();
+  $supporters = getSupporters($useReport);
   $rw->report = $supporters; 
   echo "\ngetSupporters $imonth ".gmdate('D, d M Y H:i:s T');
 
@@ -710,7 +711,7 @@ function getAllReportsStage1($res) {
       $rw->name = 'calculateUsersRanking';
       $rw->month = $imonth;
       $rw->region = $iregion;
-      $rw->report = calculateUsersRanking(); 
+      $rw->report = calculateUsersRanking($useReport); 
       echo "\ncalculateUsersRanking $imonth $iregion ".gmdate('D, d M Y H:i:s T');
 
       $rw = new stdClass();
@@ -718,7 +719,7 @@ function getAllReportsStage1($res) {
       $rw->name = 'calculateRanking';
       $rw->month = $imonth;
       $rw->region = $iregion;
-      $rw->report = calculateRanking();
+      $rw->report = calculateRanking(NULL, $useReport);
       echo "\ncalculateRanking $imonth $iregion ".gmdate('D, d M Y H:i:s T');
 
       $rw = new stdClass();
@@ -726,7 +727,7 @@ function getAllReportsStage1($res) {
       $rw->name = 'getTotalChanges';
       $rw->month = $imonth;
       $rw->region = $iregion;
-      $rw->report = getTotalChanges(); 
+      $rw->report = getTotalChanges($useReport); 
       echo "\ngetTotalChanges $imonth $iregion ".gmdate('D, d M Y H:i:s T');
   }
   
@@ -749,7 +750,7 @@ function getAllReports() {
 // ! getRecipients - region (calculateRanking, getSupporters)
 
   if(!isset($_REQUEST['eurValue']) or isset($_REQUEST['firstStage'])) {
-      getAllReportsStage1($res);
+      getAllReportsStage1($res, false);
   } else {
       $countries = getCountries();
       $res->eurValue = floatval($_REQUEST['eurValue']);
