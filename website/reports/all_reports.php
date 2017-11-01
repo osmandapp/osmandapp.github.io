@@ -10,10 +10,9 @@ if(isset($argv[1])) {
    $_SERVER['REQUEST_METHOD'] = 'POST';
 }
 include 'db_queries.php';
-set_time_limit(900);
 echo "Generate all reports\n";
 $r = getAllReports();
-echo "Stored ".count($r->reports)." reports\n";
+echo "\nStored ".count($r->reports)." reports\n";
 if(isset($_REQUEST['eurValue'])) {
 	echo "Payouts ".json_encode($r->payouts)."\n";
 }
