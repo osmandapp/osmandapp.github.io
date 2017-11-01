@@ -733,6 +733,7 @@
     $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
         /*var target = $(e.target).attr("href") // activated tab
         window.location.hash = target;*/
+        $('.loading').removeClass("active");
         e.preventDefault();
         return false;
     });
@@ -742,6 +743,9 @@
     selectProperTab();
   
     $('#donate-month-selection').on('change', function (e) {
+        if (!$('#information').is(':visible')) {
+          $('.loading').addClass("active");
+        }
         var optionSelected = $("option:selected", this);
         supportMonth = this.value;
         supportMonthName = optionSelected.text();
@@ -753,6 +757,9 @@
         setSupportersOverviewHint();
     });
     $('#recipient-month-selection').on('change', function (e) {
+        if (!$('#information').is(':visible')) {
+          $('.loading').addClass("active");
+        }
         var optionSelected = $("option:selected", this);
         recipientMonth = this.value;
         recipientMonthName = optionSelected.text();
@@ -764,6 +771,9 @@
         setRecipientOverviewHint();
     });
     $('#recipient-region-selection').on('change', function (e) {
+        if (!$('#information').is(':visible')) {
+          $('.loading').addClass("active");
+        }
         var optionSelected = $("option:selected", this);
         recipientRegion = this.value;
         recipientRegionName = optionSelected.text();
@@ -775,6 +785,9 @@
       });
     
     $('#month-selection').on('change', function (e) {
+        if (!$('#information').is(':visible')) {
+          $('.loading').addClass("active");
+        }
         var optionSelected = $("option:selected", this);
         mid = this.value;
         midName = optionSelected.text();
@@ -789,6 +802,9 @@
     });
   
     $('#region-selection').on('change', function (e) {
+        if (!$('#information').is(':visible')) {
+          $('.loading').addClass("active");
+        }
         var optionSelected = $("option:selected", this);
         region = this.value;
         regionName = optionSelected.text();
@@ -854,11 +870,11 @@ function setRecipientOverviewHint() {
   });
 
   $(document).on({
-    ajaxStart: function() { 
-      if (!$('#information').is(':visible')) {
-        $('.loading').addClass("active");
-      }
-    },
+    //ajaxStart: function() { 
+      //if (!$('#information').is(':visible')) {
+        //$('.loading').addClass("active");
+      //}
+    //},
     ajaxStop: function() { 
       $('.loading').removeClass("active");
     }
