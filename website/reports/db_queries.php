@@ -656,6 +656,7 @@ function getRecipients($eurValue = NULL, $btc = NULL, $useReport = true ) {
 
 function getAllReportsStage1($res) {
   global $iregion, $imonth, $month, $dbconn;
+  echo "\ngetCountries ".gmdate('D, d M Y H:i:s T');
   $countries = getCountries();
 
   $rw = new stdClass();
