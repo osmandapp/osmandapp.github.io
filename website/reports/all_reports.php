@@ -1,5 +1,5 @@
 <?php
-if(isset($argv[1]) {
+if(isset($argv[1])) {
    $_REQUEST['month'] = $argv[1];
    $_REQUEST['dbmonth'] = $argv[1];
    if(isset($argv[2]) {
