@@ -733,7 +733,7 @@ function getAllReportsStage1($res, $useReport) {
   
 }
 
-function getAllReports() {
+function getAllReports($eurValue = NULL, $btcValue = NULL) {
   global $iregion, $imonth, $month, $dbconn;
   $res = new stdClass();
   $res->reports = array();
@@ -749,13 +749,13 @@ function getAllReports() {
 // FINAL step: 
 // ! getRecipients - region (calculateRanking, getSupporters)
 
-  if(!isset($_REQUEST['eurValue']) or isset($_REQUEST['firstStage'])) {
+  if($eurValue == NULL) {
       getAllReportsStage1($res, false);
   } else {
       $countries = getCountries();
-      $res->eurValue = floatval($_REQUEST['eurValue']);
-      if(isset($_REQUEST['btcValue'])) {
-        $res->btc = floatval($_REQUEST['btcValue']);
+      $res->eurValue = floatval($eurValue);
+      if($btcValue)) {
+        $res->btc = floatval($btcValue);
         $res->rate = $res->eurValue / $res->btc ;
       } else {
          $res->rate = getBTCEurRate(); 
@@ -823,11 +823,7 @@ function getAllReports() {
       $rw->report = $res->payouts;
       echo "\ngetPayouts ".gmdate('D, d M Y H:i:s T');
   }
-  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    saveReports($res, $currentTime);
-  }
-  
-  
+  saveReports($res, $currentTime);
   return $res;
 
 }
