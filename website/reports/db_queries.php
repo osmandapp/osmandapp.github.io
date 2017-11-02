@@ -763,10 +763,11 @@ function getAllReports($eurValue = NULL, $btcValue = NULL) {
             }
             $iregion = $countries->rows[$i]->downloadname;
           }
-          saveReport('getRecipients', getRecipients($res->eurValue, $res->btc, false),
+          $recipients = getRecipients($res->eurValue, $res->btc, false);
+          saveReport('getRecipients', $recipients,
                      $imonth, $iregion, $res);
-          for($t = 0; $t < count($rw->report->rows); $t++) {
-            $rt = $rw->report->rows[$t];          
+          for($t = 0; $t < count($recipients->rows); $t++) {
+            $rt = $recipients->rows[$t];          
             if($rt->btc < 0.001*0.01) {
               continue;
             }
