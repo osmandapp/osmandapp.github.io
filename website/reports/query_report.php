@@ -5,7 +5,8 @@ if($_SERVER['SERVER_NAME'] == 'builder.osmand.net') {
 	$key_mem = "qreport_" . $_SERVER['QUERY_STRING'];
 	$key_mem = str_replace("&force=true","",$key_mem);
 	$get_result = $memcache->get($key_mem);
-	$timeout = 24*60*60; 
+	//$timeout = 24*60*60; 
+	$timeout = 15;
 	$currentTime = time();
 	if(!$get_result || isset($_REQUEST['force']) ) {
 		if ($get_result) {
