@@ -147,12 +147,12 @@ function getTotalChanges($useReport = true) {
   if(isset($iregion) && strlen($iregion) > 0) {
     $reg =  pg_escape_string($dbconn, $iregion);
     $result = pg_query($dbconn, "select count(distinct ch.username) users, count(distinct ch.id) changes 
-        from changesets ch, changeset_country cc where ch.id = cc.changesetid 
+        from changesets_view ch, changeset_country_view cc where ch.id = cc.changesetid 
         and cc.countryid = (select id from countries where downloadname= '${reg}')
         and substr(ch.closed_at_day, 0, 8) = '".$month."';");
   } else {
     $result = pg_query($dbconn, "select count ( distinct username) users, count(*) changes 
-        from changesets
+        from changesets_view
         where substr(closed_at_day, 0, 8) = '".$month."';");
   }
   if (!$result) {
@@ -188,7 +188,7 @@ function calculateRanking($ireg = NULL, $useReport = true ) {
     select data.cnt changes, count(*) group_size
     from (
     SELECT username, count(*) cnt
-        from changesets ch, changeset_country cc where 
+        from changesets_view ch, changeset_country_view cc where 
         substr(ch.closed_at_day, 0, 8) = '{$month}'
         and ch.id = cc.changesetid 
         and cc.countryid = (select id from countries where downloadname= '{$region}')
@@ -203,7 +203,7 @@ function calculateRanking($ireg = NULL, $useReport = true ) {
     select data.cnt changes, count(*) group_size
     from (
     SELECT username, count(*) cnt
-        from changesets ch where 
+        from changesets_view ch where 
         substr(ch.closed_at_day, 0, 8) = '{$month}'
         group by ch.username
         having count(*) >= ".$min_changes."
@@ -279,12 +279,12 @@ function calculateUserRanking($useReport = true ) {
   $result = pg_query($dbconn, "
     SELECT  t.username, t.size changes , s.size gchanges FROM
      ( SELECT username, count(*) size 
-        from changesets ch, changeset_country cc where ch.id = cc.changesetid 
+        from changesets_view ch, changeset_country_view cc where ch.id = cc.changesetid 
         and substr(ch.closed_at_day, 0, 8) = '{$month}'
         and cc.countryid = (select id from countries where downloadname= '${region}')
         and username= '${user}'
         group by ch.username) t join 
-     (SELECT username, count(*) size from changesets ch where 
+     (SELECT username, count(*) size from changesets_view ch where 
       substr(ch.closed_at_day, 0, 8) = '{$month}'
       and username= '${user}'
       group by ch.username
@@ -347,13 +347,13 @@ function calculateUsersRanking($useReport = true) {
   $result = pg_query($dbconn, "
     SELECT  t.username, t.size changes , s.size gchanges FROM
      ( SELECT username, count(*) size 
-        from changesets ch, changeset_country cc where ch.id = cc.changesetid 
+        from changesets_view ch, changeset_country_view cc where ch.id = cc.changesetid 
         and substr(ch.closed_at_day, 0, 8) = '{$month}'
         and cc.countryid = (select id from countries where downloadname= '${region}')
         group by ch.username
         having count(*) >= {$min_changes}
         order by count(*) desc ) t join 
-     (SELECT username, count(*) size from changesets ch where 
+     (SELECT username, count(*) size from changesets_view ch where 
       substr(ch.closed_at_day, 0, 8) = '{$month}'
       group by ch.username
       ) s on s.username = t.username order by t.size desc;
@@ -600,8 +600,8 @@ function getRecipients($eurValue = NULL, $btc = NULL, $useReport = true ) {
     first_value(s.btcaddr) over (partition by osmid order by updatetime desc) btcaddr
     from osm_recipients s left join 
     (select count(*) size, ch.username
-      from changesets ch".
-      ($regionName == ""? " where " : ", changeset_country cc where ch.id = cc.changesetid  and ").
+      from changesets_view ch".
+      ($regionName == ""? " where " : ", changeset_country_view cc where ch.id = cc.changesetid  and ").
        " substr(ch.closed_at_day, 0, 8) = '${month}' ".
       ($regionName == "" ? "" :" and cc.countryid = (select id from countries where downloadname= '{$regionName}') ").
       " group by username) t 
