@@ -89,6 +89,35 @@ function getTotalReport() {
   return $res;
 }
 
+function saveReport($name, $value, $month, $region = NULL, $res = NULL) {
+  global $dbconn;
+
+  $rw = new stdClass();
+  $time = time();
+  $rw->name = $name;
+  $rw->report = $value; 
+  if(is_scalar($rw->report)){
+    $content = pg_escape_string($dbconn, $rw->report);
+  } else {
+    $content = pg_escape_string($dbconn, json_encode($rw->report));    
+  }    
+  $rw->month = $month;
+  $rw->region = $region;
+  
+  if($res) {
+    array_push($res->reports, $rw);
+    echo "\n$name $imonth $iregion ".gmdate('D, d M Y H:i:s T');
+  }
+  $region = pg_escape_string($dbconn, $rw->region);
+  $name = pg_escape_string($dbconn, $rw->name);
+  $mn = pg_escape_string($dbconn, $rw->month);
+  pg_query($dbconn, "delete from final_reports where month = '${mn}' 
+    and name = '${name}' and region = '${region}';");
+  pg_query($dbconn, "insert into final_reports(month, region, name, report, time) 
+      values('${mn}', '${region}', '${name}', '${content}', $time);");
+}
+
+
 function saveReports($res, $time) {
   global  $month, $dbconn;
   for($i = 0; $i < count($res->reports); $i++) {
@@ -655,47 +684,20 @@ function getRecipients($eurValue = NULL, $btc = NULL, $useReport = true ) {
   return $res;
 }
 
-function getAllReportsStage1($res, $useReport) {
+function getAllReportsStage1($res) {
   global $iregion, $imonth, $month, $dbconn;
+  $useReport = false;
   echo "\ngetCountries ".gmdate('D, d M Y H:i:s T');
   $countries = getCountries($useReport);
 
-  $rw = new stdClass();
-  array_push($res->reports, $rw);
-  $rw->name = 'getCountries';
-  $rw->month = $imonth;
-  $rw->region = '';
-  $rw->report = $countries;
 
-  $rw = new stdClass();
-  array_push($res->reports, $rw);
-  $rw->name = 'getRegionRankingRange';
-  $rw->month = $imonth;
-  $rw->region = '';
-  $rw->report = getRegionRankingRange(); 
+  saveReport('getCountries', $countries, $imonth, '', $res);
 
-  $rw = new stdClass();
-  array_push($res->reports, $rw);
-  $rw->name = 'getRankingRange';
-  $rw->month = $imonth;
-  $rw->region = '';
-  $rw->report = getRankingRange(); 
-
-  $rw = new stdClass();
-  array_push($res->reports, $rw);
-  $rw->name = 'getMinChanges';
-  $rw->month = $imonth;
-  $rw->region = '';
-  $rw->report = getMinChanges(); 
-
-  $rw = new stdClass();
-  array_push($res->reports, $rw);
-  $rw->name = 'getSupporters';
-  $rw->month = $imonth;
-  $rw->region = '';
+  saveReport('getRegionRankingRange', getRegionRankingRange(), $imonth, '', $res);
+  saveReport('getRankingRange', getRankingRange(), $imonth, '', $res);
+  saveReport('getMinChanges', getMinChanges(), $imonth, '', $res);
   $supporters = getSupporters($useReport);
-  $rw->report = $supporters; 
-  echo "\ngetSupporters $imonth ".gmdate('D, d M Y H:i:s T');
+  saveReport('getSupporters', $supporters, $imonth, '', $res);
 
   for($i = 0; $i < count($countries->rows); $i++) {
       if($countries->rows[$i]->name == 'World') {
@@ -706,29 +708,9 @@ function getAllReportsStage1($res, $useReport) {
         }
         $iregion = $countries->rows[$i]->downloadname;
       }
-      $rw = new stdClass();
-      array_push($res->reports, $rw);
-      $rw->name = 'calculateUsersRanking';
-      $rw->month = $imonth;
-      $rw->region = $iregion;
-      $rw->report = calculateUsersRanking($useReport); 
-      echo "\ncalculateUsersRanking $imonth $iregion ".gmdate('D, d M Y H:i:s T');
-
-      $rw = new stdClass();
-      array_push($res->reports, $rw);
-      $rw->name = 'calculateRanking';
-      $rw->month = $imonth;
-      $rw->region = $iregion;
-      $rw->report = calculateRanking(NULL, $useReport);
-      echo "\ncalculateRanking $imonth $iregion ".gmdate('D, d M Y H:i:s T');
-
-      $rw = new stdClass();
-      array_push($res->reports, $rw);
-      $rw->name = 'getTotalChanges';
-      $rw->month = $imonth;
-      $rw->region = $iregion;
-      $rw->report = getTotalChanges($useReport); 
-      echo "\ngetTotalChanges $imonth $iregion ".gmdate('D, d M Y H:i:s T');
+      saveReport('getTotalChanges', getTotalChanges($useReport), $imonth, $iregion, $res);
+      saveReport('calculateRanking', calculateRanking(NULL, $useReport), $imonth, $iregion, $res);
+      saveReport('calculateUsersRanking', calculateUsersRanking($useReport), $imonth, $iregion, $res);
   }
   
 }
@@ -737,8 +719,7 @@ function getAllReports($eurValue = NULL, $btcValue = NULL) {
   global $iregion, $imonth, $month, $dbconn;
   $res = new stdClass();
   $res->reports = array();
-  $currentTime = time();
-
+  
   // 1st step:
 // getTotalChanges - region
 // calculateRanking - region
@@ -750,7 +731,7 @@ function getAllReports($eurValue = NULL, $btcValue = NULL) {
 // ! getRecipients - region (calculateRanking, getSupporters)
 
   if($eurValue == NULL) {
-      getAllReportsStage1($res, false);
+      getAllReportsStage1($res);
   } else {
       $countries = getCountries();
       $res->eurValue = floatval($eurValue);
@@ -762,19 +743,8 @@ function getAllReports($eurValue = NULL, $btcValue = NULL) {
          $res->btc = $res->eurValue / $res->rate;
       }
       
-      $rw = new stdClass();
-      array_push($res->reports, $rw);
-      $rw->name = 'getEurValue';
-      $rw->month = $imonth;
-      $rw->region = '';
-      $rw->report = $res->eurValue;
-
-      $rw = new stdClass();
-      array_push($res->reports, $rw);
-      $rw->name = 'getBTCValue';
-      $rw->month = $imonth;
-      $rw->region = '';
-      $rw->report = $res->btc;
+      saveReport('getEurValue', $res->eurValue, $imonth, '', $res);
+      saveReport('getBTCValue', $res->btc, $imonth, '', $res);
 
       $res->payouts = new stdClass();
       $res->payouts->payoutBTCAvailable = $res->btc;
@@ -793,14 +763,8 @@ function getAllReports($eurValue = NULL, $btcValue = NULL) {
             }
             $iregion = $countries->rows[$i]->downloadname;
           }
-          
-          $rw = new stdClass();
-          array_push($res->reports, $rw);
-          $rw->name = 'getRecipients';
-          $rw->month = $imonth;
-          $rw->region = $iregion;
-          $rw->report = getRecipients($res->eurValue, $res->btc, false); 
-          echo "\ngetRecipients $imonth $iregion ".gmdate('D, d M Y H:i:s T');
+          saveReport('getRecipients', getRecipients($res->eurValue, $res->btc, false),
+                     $imonth, $iregion, $res);
           for($t = 0; $t < count($rw->report->rows); $t++) {
             $rt = $rw->report->rows[$t];          
             if($rt->btc < 0.001*0.01) {
@@ -814,16 +778,9 @@ function getAllReports($eurValue = NULL, $btcValue = NULL) {
             $res->payouts->payoutTotal += $rt->btc;
           }       
       }
-
-      $rw = new stdClass();
-      array_push($res->reports, $rw);
-      $rw->name = 'getPayouts';
-      $rw->month = $imonth;
-      $rw->region = '';
-      $rw->report = $res->payouts;
-      echo "\ngetPayouts ".gmdate('D, d M Y H:i:s T');
+      saveReport('getPayouts', $res->payouts, $imonth, '', $res);
+      
   }
-  saveReports($res, $currentTime);
   return $res;
 
 }
