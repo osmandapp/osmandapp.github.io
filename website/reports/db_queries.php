@@ -754,7 +754,7 @@ function getAllReports($eurValue = NULL, $btcValue = NULL) {
   } else {
       $countries = getCountries();
       $res->eurValue = floatval($eurValue);
-      if($btcValue)) {
+      if($btcValue) {
         $res->btc = floatval($btcValue);
         $res->rate = $res->eurValue / $res->btc ;
       } else {
