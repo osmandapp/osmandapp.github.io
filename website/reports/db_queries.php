@@ -106,7 +106,7 @@ function saveReport($name, $value, $month, $region = NULL, $res = NULL) {
   
   if($res) {
     array_push($res->reports, $rw);
-    echo "\n$name $imonth $iregion ".gmdate('D, d M Y H:i:s T');
+    echo "\n$name $month $region ".gmdate('D, d M Y H:i:s T');
   }
   $region = pg_escape_string($dbconn, $rw->region);
   $name = pg_escape_string($dbconn, $rw->name);
