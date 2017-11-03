@@ -729,6 +729,10 @@ function getAllReports($eurValue = NULL, $btcValue = NULL) {
 // ! [getBTCEurRate, getEurValue, getBTCValue] !
 // FINAL step: 
 // ! getRecipients - region (calculateRanking, getSupporters)
+  pg_query($dbconn, "REFRESH MATERIALIZED VIEW  changesets_view");
+  echo "\nREFRESH MATERIALIZED VIEW  changesets_view ".gmdate('D, d M Y H:i:s T');
+  pg_query($dbconn, "REFRESH MATERIALIZED VIEW  changeset_country_view");
+  echo "\nREFRESH MATERIALIZED VIEW  changeset_country_view ".gmdate('D, d M Y H:i:s T');
 
   if($eurValue == NULL) {
       getAllReportsStage1($res);
@@ -745,7 +749,9 @@ function getAllReports($eurValue = NULL, $btcValue = NULL) {
       
       saveReport('getEurValue', $res->eurValue, $imonth, '', $res);
       saveReport('getBTCValue', $res->btc, $imonth, '', $res);
+  }
 
+  // $res->btc, $res->eurValue - NULL in case it is empty report 
       $res->payouts = new stdClass();
       $res->payouts->payoutBTCAvailable = $res->btc;
       $res->payouts->payoutEurAvailable = $res->eurValue;
@@ -779,7 +785,10 @@ function getAllReports($eurValue = NULL, $btcValue = NULL) {
             $res->payouts->payoutTotal += $rt->btc;
           }       
       }
+
+    if($eurValue != NULL) {
       saveReport('getPayouts', $res->payouts, $imonth, '', $res);
+    }
       
   }
   return $res;
