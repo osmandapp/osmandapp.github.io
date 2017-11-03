@@ -734,10 +734,13 @@ function getAllReports($eurValue = NULL, $btcValue = NULL) {
   pg_query($dbconn, "REFRESH MATERIALIZED VIEW  changeset_country_view");
   echo "\nREFRESH MATERIALIZED VIEW  changeset_country_view ".gmdate('D, d M Y H:i:s T');
 
+  
   if($eurValue == NULL) {
       getAllReportsStage1($res);
+      $res->eurValue = NULL;
+      $res->btc = NULL;
+      $res->rate = NULL;
   } else {
-      $countries = getCountries();
       $res->eurValue = floatval($eurValue);
       if($btcValue) {
         $res->btc = floatval($btcValue);
@@ -746,49 +749,46 @@ function getAllReports($eurValue = NULL, $btcValue = NULL) {
          $res->rate = getBTCEurRate(); 
          $res->btc = $res->eurValue / $res->rate;
       }
-      
       saveReport('getEurValue', $res->eurValue, $imonth, '', $res);
       saveReport('getBTCValue', $res->btc, $imonth, '', $res);
   }
-
+  
+  $countries = getCountries();
+  $res->payouts = new stdClass();
   // $res->btc, $res->eurValue - NULL in case it is empty report 
-      $res->payouts = new stdClass();
-      $res->payouts->payoutBTCAvailable = $res->btc;
-      $res->payouts->payoutEurAvailable = $res->eurValue;
-      $res->payouts->rate = $res->rate;
-      $res->payouts->payoutTotal = 0;
-      $res->payouts->payments = array();
-
-      $res->payoutTotal = 0;
-      for($i = 0; $i < count($countries->rows); $i++) {
-          if($countries->rows[$i]->name == 'World') {
-             $iregion = '';
-          } else {
-            if($countries->rows[$i]->map == '0') {
-              continue;
-            }
-            $iregion = $countries->rows[$i]->downloadname;
-          }
-          $recipients = getRecipients($res->eurValue, $res->btc, false);
-          saveReport('getRecipients', $recipients,
-                     $imonth, $iregion, $res);
-          for($t = 0; $t < count($recipients->rows); $t++) {
-            $rt = $recipients->rows[$t];          
-            if($rt->btc < 0.001*0.01) {
-              continue;
-            }
-            $rs = new stdClass();
-            array_push($res->payouts->payments, $rs);
-            $rs->btc = $rt->btc;
-            $rs->osmid = $rt->osmid;
-            $rs->btcaddress = $rt->btcaddress;
-            $res->payouts->payoutTotal += $rt->btc;
-          }       
+  $res->payouts->payoutBTCAvailable = $res->btc;
+  $res->payouts->payoutEurAvailable = $res->eurValue;
+  $res->payouts->rate = $res->rate;
+  $res->payouts->payoutTotal = 0;
+  $res->payouts->payments = array();
+  for($i = 0; $i < count($countries->rows); $i++) {
+      if($countries->rows[$i]->name == 'World') {
+          $iregion = '';
+      } else {
+        if($countries->rows[$i]->map == '0') {
+          continue;
+        }
+        $iregion = $countries->rows[$i]->downloadname;
       }
+      $recipients = getRecipients($res->eurValue, $res->btc, false);
+      saveReport('getRecipients', $recipients, $imonth, $iregion, $res);
+      for($t = 0; $t < count($recipients->rows); $t++) {
+        $rt = $recipients->rows[$t];          
+        if($rt->btc < 0.001*0.01) {
+          continue;
+        }
+        $rs = new stdClass();
+        array_push($res->payouts->payments, $rs);
+        $rs->btc = $rt->btc;
+        $rs->osmid = $rt->osmid;
+        $rs->btcaddress = $rt->btcaddress;
+        $res->payouts->payoutTotal += $rt->btc;
+      }       
+  }
 
-    if($eurValue != NULL) {
-      saveReport('getPayouts', $res->payouts, $imonth, '', $res);
-    }
+  if($eurValue != NULL) {
+    saveReport('getPayouts', $res->payouts, $imonth, '', $res);
+  }
       
   
   return $res;
