@@ -1,5 +1,6 @@
 <?php
 if($_SERVER['SERVER_NAME'] == 'builder.osmand.net') {
+	/*
 	$memcache = new Memcached;
 	$memcache->addServer('localhost', 11211) or die ("Can't connect");
 	$key_mem = "qreport_" . $_SERVER['QUERY_STRING'];
@@ -48,7 +49,9 @@ if($_SERVER['SERVER_NAME'] == 'builder.osmand.net') {
   			$json_res->expirationTime = $currentTime + $timeout;
 			$memcache->set($key_mem, json_encode($json_res), $timeout);
 		}
-	}
+	}*/
+	$ctx = stream_context_create(array('http'=> array('timeout' => 600)  ));
+	$get_result = file_get_contents("http://builder.osmand.net/reports/".$_GET["report"].".php?".$_SERVER['QUERY_STRING'], false, $ctx);
 	echo $get_result;
 	die;
 }
