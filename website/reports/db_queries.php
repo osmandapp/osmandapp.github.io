@@ -790,7 +790,7 @@ function getAllReports($eurValue = NULL, $btcValue = NULL) {
       saveReport('getPayouts', $res->payouts, $imonth, '', $res);
     }
       
-  }
+  
   return $res;
 
 }
