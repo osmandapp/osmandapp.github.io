@@ -348,9 +348,11 @@
         url: "reports/query_report.php?report=total_changes_by_month&month="+mid+"&region="+region, 
         async: true
       }).done(function(res) {
-        // var resLen = res.length;
+        var resLen = res.length;
         // TODO: remove test date when real date is added
-        //res = res.slice(0, resLen - 1) + ",\"date\":\"15.01.2017 15:34:50\"" + res.slice(resLen - 1, resLen);
+        var currTime = new Date().getTime();
+        var currTimeString = (new Date(currTime)).toUTCString();
+        res = res.slice(0, resLen - 1) + ",\"date\":\"" + currTimeString + "\"" + res.slice(resLen - 1, resLen);
         var data = jQuery.parseJSON( res );
         var html = "<div class='overview overview-changes'><p>" + data.changes + "</p><span>changes</span></div>" 
           + "<div class='overview overview-users'><p>" + data.users   + "</p><span>contributors</span></div>";
@@ -359,7 +361,7 @@
         }
         if (data.date != null || data.date != undefined) {
           if (data.date.length > 0) {
-            html += "<div class='overview overview-region'><p>" + data.date + "</p><span>Generation Time</span></div>";
+            html += "<div class='overview overview-region'><p style=\"font-size:20px\">" + data.date + "</p><span>Generation Time</span></div>";
           }
         }  
         $('#report-total').html(html);
