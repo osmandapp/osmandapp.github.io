@@ -10,6 +10,7 @@
       <li><a href="#change_maps_dir">How to move OsmAnd's home (maps) folder to the external SD card?</a></li>
       <li><a href="#failed_to_use_sdcard_on_4_4">How do I use my SD card with OsmAnd under Android 4.4+ and 5?</a></li>
       <li><a href="#osmand_installation_failed">OsmAnd+ installation on the SD card fails</a></li>
+      <li><a href="#reset_without_data_loss">Uninstalling or Resetting OsmAnd without Losing Your Data</a></li>
       <li><a href="#importing_gpx">I have a GPX file, how do I get it into OsmAnd?</a></li>
       <li><a href="#contour_lines_not_visible">Contour lines or hillshades do not show up</a></li>
       <li><a href="#countour_lines_feet">Is there a way to have contour lines displayed in feet also, instead of meters?</a></li>
@@ -153,6 +154,25 @@
         <li> Re-install the app</li>
       </ul>
       <p>Because this issue happens before the OsmAnd app even starts, this issue cannot be fixed in OsmAnd, but needs to be fixed by Google Play. Please turn to Google Play &#8212; Help &#8212; Contact Us and report the issue there so Google can fix it. (The issue happens only for some devices and Android versions.) </p>
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="subtitle" id="reset_without_data_loss">Uninstalling or Resetting OsmAnd without Losing Your Data</div>
+    <div class="content">
+      Please note tha most versions of Android also remove an app's data folder when you uninstall an app (or when in Android's app manager settings you tap 'Clear data' to reset the app settings to default). If no precautions are taken, this will for OsmAnd mean you <b>lose all downloaded maps as well as any stored Favortes, GPX tracks, etc.(!)</b>
+      <p>
+      On most systems the following procedure can be used to reset or uninstall/reinstall OsmAnd while preserving the original app data on the SD card:
+      <ul class="list">
+        <li>Before any Uninstall or Clear data operation, <b>rename the app data folder</b>, e.g. from <i>net.osmand.plus</i> to <i>net.osmand.plus0</i></li>
+        <li>Then in the Android App manager either: force stop / clear cache / clear data to reset the app, or uninstall/reinstall OsmAnd, as desired</li>
+        <li>Start OsmAnd</li>
+        <li>On the 'First Start' screen tap: Get started -> Change data folder to SD -> Skip -> Skip downloading maps</li>
+        <li>Force-stop OsmAnd</li>
+        <li>Using a file manager app, delete the newly created (almost empty) OsmAnd data folder, and rename your old (preserved) data folder back</li>
+        <li>Restart OsmAnd</li>
+        <li>Go to Settings / Download maps: Your maps should now be listed on tab Local. Go to the tab Update and tap the refresh icon, this should make OsmAnd finally aware maps are already present and can be used.</li>
+      </ul>
     </div>
   </div>
 
