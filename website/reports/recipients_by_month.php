@@ -236,6 +236,14 @@ if(is_null(getReport('getBTCValue'))) {
         $payouts = $payouts . ',&nbsp;<a href="https://chain.so/tx/BTC/71662828b3e7aec088b52c035ae58f03d311264f5fd3198a7ab260d03b45748c">Transaction #4</a>';
         $payouts = $payouts . ',&nbsp;<a href="https://chain.so/tx/BTC/e9ce8856599bc958d9e2623705726d21a78894d496abd2ede0efb0ca7f4334f4">Transaction #5</a>';
         $payouts = $payouts . ',&nbsp;<a href="https://chain.so/tx/BTC/59703a0e48d1a03031dcc769689f27eb3f8a5480a6dffdd896975b3d994c9b26">Transaction #6</a>';
+    
+    } else if($res->month == '2017-10') {
+        $payouts = $payouts . '<a href="https://chain.so/tx/BTC/e2fe2da862383d316c912b218f388981472d901f8a0686d77029fa1c2e040ff7">Transaction #1</a>';
+        $payouts = $payouts . ',&nbsp;<a href="https://chain.so/tx/BTC/c25797a198b5b1ac844b6cb548f8495497e18a3a8882dfa0c867dea0b5907726">Transaction #2</a>';
+        $payouts = $payouts . ',&nbsp;<a href="https://chain.so/tx/BTC/657ca6538664be0bd49e4f14456d4471499586c50d5edbd88eba67d52592713e">Transaction #3</a>';
+        $payouts = $payouts . ',&nbsp;<a href="https://chain.so/tx/BTC/fea43642d83c6637852d4caf35ec980a5742518aab5ff9a336ff059a6629b5e7">Transaction #4</a>';
+        $payouts = $payouts . ',&nbsp;<a href="https://chain.so/tx/BTC/a8dd2577d91e7d0fb9ce59906327483343b5476e49feaa819be5b4ae506a008d">Transaction #5</a>';
+        $payouts = $payouts . ',&nbsp;<a href="https://chain.so/tx/BTC/8cdab517c82698ac9ecb52e2332393135e7502c4d449a3841e1d79d80ba46651">Transaction #6</a>';
     }
 
     if($payouts != '') {
