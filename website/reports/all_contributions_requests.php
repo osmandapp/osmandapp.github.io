@@ -5,6 +5,6 @@ include_once 'db_queries.php';
 //$secondMerge = array_merge($firstMerge, (array) getTotalChanges());
 echo json_encode(getTotalChanges())."\n";
 echo json_encode(calculateRanking())."\n";
-echo json_encode(calculateUserRanking());
+echo json_encode(calculateUsersRanking());
 
 ?>
