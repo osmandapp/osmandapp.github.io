@@ -11,7 +11,7 @@
         <li class="mobile-sign">Menu</li>
         <li class="<?php if($simpleheader_header_id == "FEATURES") echo "activeitem" ?>"><a data-gatag="header_features" href="/features">Features</a></li>
         <li class="<?php if($simpleheader_header_id == "BLOG") echo "activeitem" ?>"><a data-gatag="header_blog" href="/blog" >Blog</a></li>
-        <li class="<?php if($simpleheader_header_id == "OSMLIVE") echo "activeitem" ?>"><a data-gatag="header_osm_live" href="/osm_live">OSM Live</a></li>
+        <li class="<?php if($simpleheader_header_id == "OSMLIVE") echo "activeitem" ?>"><a data-gatag="header_osm_live" href="/osm_live">OsmAnd Live</a></li>
         <li class="<?php if($simpleheader_header_id == "API") echo "activeitem" ?>"><a data-gatag="header_build_it" href="/build_it">Build It</a></li>
         <li class="<?php if($simpleheader_header_id == "HELP") echo "activeitem" ?>"><a data-gatag="header_help" href="/help-online">Help</a></li>
         <li class="<?php if($simpleheader_header_id == "DVR") echo "activeitem" ?>"><a data-gatag="header_dvr" href="/dvr">DVR</a></li>

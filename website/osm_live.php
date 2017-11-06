@@ -26,7 +26,7 @@
 <div class="maincontainer">
   <div class="main">
     <?php 
-      $simpleheader_header = "OSM LIVE";
+      $simpleheader_header = "OSMAND LIVE";
       $simpleheader_header_id = "OSMLIVE";
       include 'blocks/simple_header.php';
     ?>
@@ -59,7 +59,7 @@
           </div>
           <div class="report-total-div">
             <div class="overview-body">
-              <p class='overview-hint'>Overview for: <span id="overview-contributors_options"></span></p>
+              <p class='overview-hint'>Overview for <span id="overview-contributors_options"></span></p>
               <div id="report-total" class="infobox"></div>
             </div>
           </div>
@@ -99,7 +99,7 @@
             </div>
             <div class="supporters-total" id="donator-report-total-div">
               <div class="panel-body">
-                <p class='overview-hint'>Overview for: <span id="overview-supporters_options"></span></p>
+                <p class='overview-hint'>Overview for <span id="overview-supporters_options"></span></p>
                 <div id="donator-report-total" class="infobox"></div>
               </div>
             </div>
@@ -124,7 +124,7 @@
             </div>
           </div>
           <table id="support-country-table" class="table table-bordered" cellspacing="0" width="100%"></table>
-          <h4 class="vlabel" for="support-table" id="support-table-header">OSM Live supporters</h4>
+          <h4 class="vlabel" for="support-table" id="support-table-header">OsmAnd Live supporters</h4>
           <div class="table-controls support-controls hidden">
             <div class="tc search">
               <input type="search" class="form-control" aria-control="support-table" id="support-table-search" placeholder="Search">
@@ -186,7 +186,7 @@
           </div>
           <div class="registration contributor-registration" id="contributor-register-div">
             <h4 class="vlabel" for="recipients-register-div">Register as a contributor</h4 >
-            <p>If you want support OSM buy OsmAnd OSM Live Subscription, you can do it directly in application.</p>
+            <p>If you want support OSM buy OsmAnd Live Subscription, you can do it directly in application.</p>
             <div class="registration-badges">
               <a data-gatag="googleplay" href="https://play.google.com/store/apps/details?id=net.osmand.plus"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" /></a>
             </div>
@@ -341,29 +341,30 @@
       }
     });
   }
-  // TODO: merge this request with other Contributions requests
+  
   function updateTotalChanges() {
     $('#report-total').empty();
     $.ajax({
         url: "reports/query_report.php?report=total_changes_by_month&month="+mid+"&region="+region, 
         async: true
       }).done(function(res) {
-        //var resLen = res.length;
+        var resLen = res.length;
         // TODO: remove test date when real date is added
-        //var currTime = new Date().getTime();
-        //var currTimeString = (new Date(currTime)).toUTCString();
-        //res = res.slice(0, resLen - 1) + ",\"date\":\"" + currTimeString + "\"" + res.slice(resLen - 1, resLen);
+        var currTime = new Date().getTime();
+        var currTimeString = (new Date(currTime)).toUTCString();
+        currTimeString = currTimeString.substring(0, currTimeString.lastIndexOf(" ") + 1);
+        res = res.slice(0, resLen - 1) + ",\"date\":\"" + currTimeString + "\"" + res.slice(resLen - 1, resLen);
         var data = jQuery.parseJSON( res );
         var html = "<div class='overview overview-changes'><p>" + data.changes + "</p><span>changes</span></div>" 
           + "<div class='overview overview-users'><p>" + data.users   + "</p><span>contributors</span></div>";
         if(regionName.length > 0) {
            html = html + "<div class='overview overview-region'><p>" + regionName + "</p><span>country</span></div>";
         }
-        //if (data.date != null || data.date != undefined) {
-          //if (data.date.length > 0) {
-            //html += "<div class='overview overview-region'><p style=\"font-size:20px\">" + data.date + "</p><span>Generation Time</span></div>";
-          //}
-        //}  
+        if (data.date != null || data.date != undefined) {
+          if (data.date.length > 0) {
+            html += "<p class=\"overview-hint\">Generation date: " + "<span id=\"overview-date\">" + data.date + "</span></p>";
+          }
+        }  
         $('#report-total').html(html);
         setContributorsOverviewHint();
     });
@@ -507,7 +508,7 @@
     });
   }
   
-  // TODO: merge this request with other Contributions requests
+  
   var reportUserDataTable;
   function updateUserRankingByMonth() {
     if(reportUserDataTable) {
@@ -543,7 +544,7 @@
       });
     }
   }
-  // TODO: merge this request with other Contributions requests
+  
   var reportDataTable;
   function updateRankingByMonth() {
     if(reportDataTable) {
@@ -601,31 +602,31 @@
     if (this.readyState == 4 && this.status == 200) {
        // Typical action to be performed when the document is ready:
        responseText = xhttp.responseText;
-       $("#general-info").html("<h2>About OSM Live</h2>" + 
+       $("#general-info").html("<h2>About OsmAnd Live</h2>" + 
       "<p>OsmAnd heavily relies on OSM and its community. Honestly saying, OsmAnd wouldn't exist without that great community. "+
-      "When we started implementation OSM Live, we immediately decided that it should not be only a paid service, but a donation service as well. " +
-      "Thinking that OSM Live is only possible because thousands of edits every hour in many places of the world, we want to distribute a part of the income between OSM editors.</p>" +
+      "When we started implementing OsmAnd Live, we immediately decided that it should not be only a paid service, but a donation service as well. " +
+      "Thinking that OsmAnd Live is only possible because thousands of edits every hour in many places of the world, we want to distribute a part of the income between OSM editors.</p>" +
       "<h3>How it works</h3><ul>" +
       "<li> Every OSM contributor can be registered as a recipient. He just need to provide a valid Bitcoin address in the form below. " +
       "<li> Every OsmAnd user who wants to get live updates needs to subscribe to that service. " +
       "<li> After Google and Bank deductions the whole sum is split into 2 parts (<strong>50% OsmAnd</strong> and <strong>50% Donations</strong>)"+
       "<li> All donations are exchanged into Bitcoin and distributed between OSM contributors according to their ranking."+
       "<li> Every OsmAnd user can select preferred donation region, in that case <strong>50% of donation</strong> will be distributed between editors of this region."+
-      "</ul><br> Please find all rankings and formulas in the reports on OSM Live."+
-      "<p><br>Current processed OSM Live date: <strong>"+ responseText+ " UTC </strong>")
+      "</ul><br> Please find all rankings and formulas in the reports on OsmAnd Live. Note that the sum less than 0.0001 BTC will be not be payed."+
+      "<p><br>Current processed OsmAnd Live date: <strong>"+ responseText+ " UTC </strong>")
       }
    else {
-      $("#general-info").html("<h2>About OSM Live</h2>" + 
+      $("#general-info").html("<h2>About OsmAnd Live</h2>" + 
       "<p>OsmAnd heavily relies on OSM and its community. Honestly saying, OsmAnd wouldn't exist without that great community. "+
-      "When we started implementation OSM Live, we immediately decided that it should not be only a paid service, but a donation service as well. " +
-      "Thinking that OSM Live is only possible because thousands of edits every hour in many places of the world, we want to distribute a part of the income between OSM editors.</p>" +
+      "When we started implementation OsmAnd Live, we immediately decided that it should not be only a paid service, but a donation service as well. " +
+      "Thinking that OsmAnd Live is only possible because thousands of edits every hour in many places of the world, we want to distribute a part of the income between OSM editors.</p>" +
       "<h3>How it works</h3><ul>" +
       "<li> Every OSM contributor can be registered as a recipient. He just need to provide a valid Bitcoin address in the form below. " +
       "<li> Every OsmAnd user who wants to get live updates needs to subscribe to that service. " +
       "<li> After Google and Bank deductions the whole sum is split into 2 parts (<strong>50% OsmAnd</strong> and <strong>50% Donations</strong>)"+
       "<li> All donations are exchanged into Bitcoin and distributed between OSM contributors according to their ranking."+
       "<li> Every OsmAnd user can select preferred donation region, in that case <strong>50% of donation</strong> will be distributed between editors of this region."+
-      "</ul><br> Please find all rankings and formulas in the reports on OSM Live.")
+      "</ul><br> Please find all rankings and formulas in the reports on OsmAnd Live. Note that the sum less than 0.0001 BTC will be not be payed.")
    }
    };
    xhttp.open("GET", "/api/osmlive_status", true);
