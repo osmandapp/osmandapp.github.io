@@ -345,16 +345,18 @@
   function updateTotalChanges() {
     $('#report-total').empty();
     $.ajax({
-        url: "reports/query_report.php?report=total_changes_by_month&month="+mid+"&region="+region, 
+        url: "reports/query_report.php?report=all_contributions_requests&month="+mid+"&region="+region, 
         async: true
       }).done(function(res) {
-        var resLen = res.length;
+        var resultArray = res.split("\n");
+        var totalChanges = resultArray[0];
+        var resLen = totalChanges.length;
         // TODO: remove test date when real date is added
         var currTime = new Date().getTime();
         var currTimeString = (new Date(currTime)).toUTCString();
         currTimeString = currTimeString.substring(0, currTimeString.lastIndexOf(" ") + 1);
-        res = res.slice(0, resLen - 1) + ",\"date\":\"" + currTimeString + "\"" + res.slice(resLen - 1, resLen);
-        var data = jQuery.parseJSON( res );
+        totalChanges = totalChanges.slice(0, resLen - 1) + ",\"date\":\"" + currTimeString + "\"" + totalChanges.slice(resLen - 1, resLen);
+        var data = jQuery.parseJSON( totalChanges );
         var html = "<div class='overview overview-changes'><p>" + data.changes + "</p><span>changes</span></div>" 
           + "<div class='overview overview-users'><p>" + data.users   + "</p><span>contributors</span></div>";
         if(regionName.length > 0) {
@@ -367,6 +369,11 @@
         }  
         $('#report-total').html(html);
         setContributorsOverviewHint();
+        updateRankingByMonth(resultArray[1]);
+        
+        if (resultArray.length > 2) {
+          updateUserRankingByMonth(resultArray[2]);
+        }
     });
   }
   
@@ -448,7 +455,7 @@
     });
   }
   
-  
+
   var reportSupportDataTable;
   var reportSupportCountryDataTable;
   function updateSupportByMonth() {
@@ -508,20 +515,17 @@
     });
   }
   
-  
+
   var reportUserDataTable;
-  function updateUserRankingByMonth() {
+  function updateUserRankingByMonth(resource) {
     if(reportUserDataTable) {
       reportUserDataTable.clear().draw();
     }
     $('#users-ranking').text("Select region to see user statistics ");
   
     if(region.length > 0 ) {
-      $.ajax({
-          url: "reports/query_report.php?report=ranking_users_by_month&month="+mid+"&region="+region, 
-          async: true
-        }).done(function(res) {
-          var data = jQuery.parseJSON( res );
+      
+          var data = jQuery.parseJSON(resource);
           $('#users-ranking').text("Ranking of contributors");
           reportUserDataTable = $('#users-table').DataTable({
               data: data.rows,
@@ -541,22 +545,17 @@
               "dom": 'tp'
           });
           $('.table-controls').removeClass('hidden');
-      });
+
     }
   }
-  
+
   var reportDataTable;
-  function updateRankingByMonth() {
+  function updateRankingByMonth(resource) {
     if(reportDataTable) {
       reportDataTable.clear().draw();
     }
     $('#report-ranking').empty();
-  
-    $.ajax({
-        url: "reports/query_report.php?report=ranking_by_month&month="+mid+"&region="+region, 
-        async: true
-      }).done(function(res) {
-        var data = jQuery.parseJSON( res );
+    var data = jQuery.parseJSON(resource);
         $('#report-ranking').html("Ranking of contributors by " + data.rows.length + " groups <span>(made more than 3 changes)</span>");
         reportDataTable = $('#report-table').DataTable({
             data: data.rows,
@@ -576,7 +575,6 @@
             "searching": false,
             "dom": "t",
         });
-    });
   }
 
   
@@ -738,8 +736,6 @@
     updateRecipientsByMonth();
     
     updateTotalChanges();
-    updateRankingByMonth();
-    updateUserRankingByMonth();
     
     $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
         /*var target = $(e.target).attr("href") // activated tab
@@ -807,8 +803,6 @@
           sessionStorage.monthName = midName;
         }
         updateTotalChanges();
-        updateRankingByMonth();
-        updateUserRankingByMonth();
         setContributorsOverviewHint();
     });
   
@@ -825,8 +819,6 @@
         }
         
         updateTotalChanges();
-        updateRankingByMonth();
-        updateUserRankingByMonth();
       });
     
      
