@@ -353,9 +353,9 @@
         //var currTime = new Date().getTime();
         //var currTimeString = (new Date(currTime)).toUTCString();
         //res = res.slice(0, resLen - 1) + ",\"date\":\"" + currTimeString + "\"" + res.slice(resLen - 1, resLen);
-        //var data = jQuery.parseJSON( res );
-        //var html = "<div class='overview overview-changes'><p>" + data.changes + "</p><span>changes</span></div>" 
-          //+ "<div class='overview overview-users'><p>" + data.users   + "</p><span>contributors</span></div>";
+        var data = jQuery.parseJSON( res );
+        var html = "<div class='overview overview-changes'><p>" + data.changes + "</p><span>changes</span></div>" 
+          + "<div class='overview overview-users'><p>" + data.users   + "</p><span>contributors</span></div>";
         if(regionName.length > 0) {
            html = html + "<div class='overview overview-region'><p>" + regionName + "</p><span>country</span></div>";
         }
