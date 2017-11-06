@@ -341,29 +341,29 @@
       }
     });
   }
-  
+  // TODO: merge this request with other Contributions requests
   function updateTotalChanges() {
     $('#report-total').empty();
     $.ajax({
         url: "reports/query_report.php?report=total_changes_by_month&month="+mid+"&region="+region, 
         async: true
       }).done(function(res) {
-        var resLen = res.length;
+        //var resLen = res.length;
         // TODO: remove test date when real date is added
-        var currTime = new Date().getTime();
-        var currTimeString = (new Date(currTime)).toUTCString();
-        res = res.slice(0, resLen - 1) + ",\"date\":\"" + currTimeString + "\"" + res.slice(resLen - 1, resLen);
-        var data = jQuery.parseJSON( res );
-        var html = "<div class='overview overview-changes'><p>" + data.changes + "</p><span>changes</span></div>" 
-          + "<div class='overview overview-users'><p>" + data.users   + "</p><span>contributors</span></div>";
+        //var currTime = new Date().getTime();
+        //var currTimeString = (new Date(currTime)).toUTCString();
+        //res = res.slice(0, resLen - 1) + ",\"date\":\"" + currTimeString + "\"" + res.slice(resLen - 1, resLen);
+        //var data = jQuery.parseJSON( res );
+        //var html = "<div class='overview overview-changes'><p>" + data.changes + "</p><span>changes</span></div>" 
+          //+ "<div class='overview overview-users'><p>" + data.users   + "</p><span>contributors</span></div>";
         if(regionName.length > 0) {
            html = html + "<div class='overview overview-region'><p>" + regionName + "</p><span>country</span></div>";
         }
-        if (data.date != null || data.date != undefined) {
-          if (data.date.length > 0) {
-            html += "<div class='overview overview-region'><p style=\"font-size:20px\">" + data.date + "</p><span>Generation Time</span></div>";
-          }
-        }  
+        //if (data.date != null || data.date != undefined) {
+          //if (data.date.length > 0) {
+            //html += "<div class='overview overview-region'><p style=\"font-size:20px\">" + data.date + "</p><span>Generation Time</span></div>";
+          //}
+        //}  
         $('#report-total').html(html);
         setContributorsOverviewHint();
     });
@@ -507,7 +507,7 @@
     });
   }
   
-  
+  // TODO: merge this request with other Contributions requests
   var reportUserDataTable;
   function updateUserRankingByMonth() {
     if(reportUserDataTable) {
@@ -543,7 +543,7 @@
       });
     }
   }
-  
+  // TODO: merge this request with other Contributions requests
   var reportDataTable;
   function updateRankingByMonth() {
     if(reportDataTable) {
