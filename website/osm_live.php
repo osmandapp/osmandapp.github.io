@@ -59,7 +59,8 @@
           </div>
           <div class="report-total-div">
             <div class="overview-body">
-              <p class='overview-hint'>Overview for <span id="overview-contributors_options"></span></p>
+              <p class='overview-hint'><span style="color:black;float:left;">Overview for <span id="overview-contributors_options">
+              </span></span><span style="color:black;float:right;">Generation date <span id="overview-date"></span></span></p>
               <div id="report-total" class="infobox"></div>
             </div>
           </div>
@@ -364,7 +365,8 @@
         }
         if (data.date != null || data.date != undefined) {
           if (data.date.length > 0) {
-            html += "<p class=\"overview-hint\">Generation date: " + "<span id=\"overview-date\">" + data.date + "</span></p>";
+            //html += "<p class=\"overview-hint\">Generation date: " + "<span id=\"overview-date\">" + data.date + "</span></p>";
+            $('#overview-date').text(data.date);
           }
         }  
         $('#report-total').html(html);
@@ -736,6 +738,8 @@
     updateRecipientsByMonth();
     
     updateTotalChanges();
+    //updateRankingByMonth();
+    //updateUserRankingByMonth();
     
     $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
         /*var target = $(e.target).attr("href") // activated tab
@@ -803,6 +807,8 @@
           sessionStorage.monthName = midName;
         }
         updateTotalChanges();
+        //updateRankingByMonth();
+        //updateUserRankingByMonth();
         setContributorsOverviewHint();
     });
   
@@ -819,6 +825,8 @@
         }
         
         updateTotalChanges();
+        //updateRankingByMonth();
+        //updateUserRankingByMonth();
       });
     
      
