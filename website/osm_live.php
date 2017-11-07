@@ -351,12 +351,9 @@
       }).done(function(res) {
         var resultArray = res.split("\n");
         var totalChanges = resultArray[0];
-        var resLen = totalChanges.length;
-        // TODO: remove test date when real date is added
-        var currTime = new Date().getTime();
+        var currTime = data.date;
         var currTimeString = (new Date(currTime)).toUTCString();
-        currTimeString = currTimeString.substring(0, currTimeString.lastIndexOf(" ") + 1);
-        totalChanges = totalChanges.slice(0, resLen - 1) + ",\"date\":\"" + currTimeString + "\"" + totalChanges.slice(resLen - 1, resLen);
+        currTimeString = currTimeString.substring(0, currTimeString.lastIndexOf(":"));
         var data = jQuery.parseJSON( totalChanges );
         var html = "<div class='overview overview-changes'><p>" + data.changes + "</p><span>changes</span></div>" 
           + "<div class='overview overview-users'><p>" + data.users   + "</p><span>contributors</span></div>";
@@ -366,7 +363,7 @@
         if (data.date != null || data.date != undefined) {
           if (data.date.length > 0) {
             //html += "<p class=\"overview-hint\">Generation date: " + "<span id=\"overview-date\">" + data.date + "</span></p>";
-            $('#overview-date').text(data.date);
+            $('#overview-date').text(currTimeString);
           }
         }  
         $('#report-total').html(html);
