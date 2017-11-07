@@ -67,7 +67,7 @@ function getReport($name, $ireg = NULL) {
     return NULL;
   }
   $row = pg_fetch_row($result);
-  return json_decode($row[0]);
+  return json_decode($row[0].$row[1]);
 }
 
 function getTotalReport() {
