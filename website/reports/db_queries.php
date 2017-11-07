@@ -61,7 +61,7 @@ function getReport($name, $ireg = NULL) {
   } else {
     $rregion = pg_escape_string($dbconn, $ireg);
   }
-  $result = pg_query($dbconn, "select report from final_reports where month = '${month}'
+  $result = pg_query($dbconn, "select report, time from final_reports where month = '${month}'
         and region = '${rregion}' and name='${name}';");
   if (!$result) {
     return NULL;
