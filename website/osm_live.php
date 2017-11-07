@@ -59,8 +59,8 @@
           </div>
           <div class="report-total-div">
             <div class="overview-body">
-              <p class='overview-hint'><span style="color:black;float:left;">Overview for <span id="overview-contributors_options">
-              </span></span><span style="color:black;float:right;">Generation date <span id="overview-date"></span></span></p>
+              <p class='overview-hint' >Overview for <span id="overview-contributors_options">
+              </span><span id='overview-id' style="color:black;float:right;"></span></p>
               <div id="report-total" class="infobox"></div>
             </div>
           </div>
@@ -100,7 +100,7 @@
             </div>
             <div class="supporters-total" id="donator-report-total-div">
               <div class="panel-body">
-                <p class='overview-hint'>Overview for <span id="overview-supporters_options"></span></p>
+                <p class='overview-hint'>Overview for <span id="overview-supporters_options"></span><span id='overview-supporters-span' style="color:black;float:right;"></span></p>
                 <div id="donator-report-total" class="infobox"></div>
               </div>
             </div>
@@ -352,9 +352,6 @@
         var resultArray = res.split("\n");
         var totalChanges = resultArray[0];
         var data = jQuery.parseJSON( totalChanges );
-        var currTime = parseInt(data.date, 10);
-        var currTimeString = (new Date(currTime*1000)).toUTCString();
-        currTimeString = currTimeString.substring(currTimeString.indexOf(" "), currTimeString.lastIndexOf(":"));
         var html = "<div class='overview overview-changes'><p>" + data.changes + "</p><span>changes</span></div>" 
           + "<div class='overview overview-users'><p>" + data.users   + "</p><span>contributors</span></div>";
         if(regionName.length > 0) {
@@ -363,9 +360,12 @@
         if (data.date != null || data.date != undefined) {
           if (data.date.length > 0) {
             //html += "<p class=\"overview-hint\">Generation date: " + "<span id=\"overview-date\">" + data.date + "</span></p>";
-            $('#overview-date').text(currTimeString);
+            $('#overview-id').html("Generation date <span>"+ formatDate(data.date) + "</span>");
           }
-        }  
+        }
+        else {
+           $('#overview-id').html("Generation date <span>"+ mid + "</span>");
+        } 
         $('#report-total').html(html);
         setContributorsOverviewHint();
         updateRankingByMonth(resultArray[1]);
@@ -374,6 +374,12 @@
           updateUserRankingByMonth(resultArray[2]);
         }
     });
+  }
+
+  function formatDate(timestampString) {
+   var currTime = parseInt(timestampString, 10);
+   var currTimeString = (new Date(currTime*1000)).toUTCString();
+   return currTimeString.substring(currTimeString.indexOf(" "), currTimeString.lastIndexOf(":"));
   }
   
   function skuApp(value) {
@@ -470,6 +476,11 @@
           var data = jQuery.parseJSON( res );
           if(extended) {
             data.rows.push.apply(data.rows, data.notactive)
+          }
+          if (data.date != null && data.date != undefined) {
+            $('#overview-supporters-span').html("Generation date <span>"+ formatDate(data.date) + "</span>");
+          } else { 
+            $('#overview-supporters-span').html("Generation date <span>"+ supportMonth + "</span>"); 
           }
           $('#donator-report-total').html("<div class='overview overview-active_supporters'><p>" + data.activeCount + 
               "</p><span>active donors</span></div>" 
