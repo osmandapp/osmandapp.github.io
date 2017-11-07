@@ -353,7 +353,7 @@
         var totalChanges = resultArray[0];
         var data = jQuery.parseJSON( totalChanges );
         var currTime = parseInt(data.date, 10);
-        var currTimeString = (new Date(currTime)).toUTCString();
+        var currTimeString = (new Date(currTime*1000)).toUTCString();
         currTimeString = currTimeString.substring(0, currTimeString.lastIndexOf(":"));
         var html = "<div class='overview overview-changes'><p>" + data.changes + "</p><span>changes</span></div>" 
           + "<div class='overview overview-users'><p>" + data.users   + "</p><span>contributors</span></div>";
