@@ -61,14 +61,26 @@ function getReport($name, $ireg = NULL) {
   } else {
     $rregion = pg_escape_string($dbconn, $ireg);
   }
-  $result = pg_query($dbconn, "select report, time from final_reports where month = '${month}'
-        and region = '${rregion}' and name='${name}';");
-  if (!$result) {
-    return NULL;
+  if ($month == "2017-11") {
+
+    $result = pg_query($dbconn, "select report, time from final_reports where month = '${month}'
+          and region = '${rregion}' and name='${name}';");
+    if (!$result) {
+      return NULL;
+    }
+    $row = pg_fetch_row($result);
+    $finalres = substr_replace($row[0], ",\"date\":\"".$row[1]."\"", strlen($row[0]) - 1, 0);
+    return json_decode($finalres);
   }
-  $row = pg_fetch_row($result);
-  $finalres = substr_replace($row[0], ",\"date\":\"".$row[1]."\"", strlen($row[0]) - 1, 0);
-  return json_decode($finalres);
+  else {
+    $result = pg_query($dbconn, "select report from final_reports where month = '${month}'
+          and region = '${rregion}' and name='${name}';");
+    if (!$result) {
+      return NULL;
+    }
+    $row = pg_fetch_row($result);
+    return json_decode($row[0]);
+  }
 }
 
 function getTotalReport() {
