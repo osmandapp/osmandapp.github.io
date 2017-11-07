@@ -353,10 +353,8 @@
         var totalChanges = resultArray[0];
         var data = jQuery.parseJSON( totalChanges );
         var currTime = parseInt(data.date, 10);
-        var currDate = new Date(currTime*1000);
-        var dateFormat = require('dateformat');
-        var currTimeString = dateFormat(currDate, "dd mmm yyyy h:MM");
-        
+        var currTimeString = (new Date(currTime*1000)).toUTCString();
+        currTimeString = currTimeString.substring(currTimeString.indexOf(" "), currTimeString.lastIndexOf(":"));
         var html = "<div class='overview overview-changes'><p>" + data.changes + "</p><span>changes</span></div>" 
           + "<div class='overview overview-users'><p>" + data.users   + "</p><span>contributors</span></div>";
         if(regionName.length > 0) {
