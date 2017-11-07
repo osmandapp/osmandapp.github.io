@@ -67,8 +67,7 @@ function getReport($name, $ireg = NULL) {
     return NULL;
   }
   $row = pg_fetch_row($result);
-  $finalres = substr_replace($row[0], $row[1], strlen($row[0]) - 1, 0);
-  echo $finalres;
+  $finalres = substr_replace($row[0], ",\"date\":\"".$row[1]."\"", strlen($row[0]) - 1, 0);
   return json_decode($finalres);
 }
 
