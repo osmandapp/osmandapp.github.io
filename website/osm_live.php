@@ -364,7 +364,7 @@
           }
         }
         else {
-           $('#overview-id').html("Generation date <span>"+ mid + "</span>");
+           $('#overview-id').html("");
         } 
         $('#report-total').html(html);
         setContributorsOverviewHint();
@@ -480,7 +480,7 @@
           if (data.date != null && data.date != undefined) {
             $('#overview-supporters-span').html("Generation date <span>"+ formatDate(data.date) + "</span>");
           } else { 
-            $('#overview-supporters-span').html("Generation date <span>"+ supportMonth + "</span>"); 
+            $('#overview-supporters-span').html(""); 
           }
           $('#donator-report-total').html("<div class='overview overview-active_supporters'><p>" + data.activeCount + 
               "</p><span>active donors</span></div>" 
