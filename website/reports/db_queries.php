@@ -68,7 +68,7 @@ function getReport($name, $ireg = NULL) {
   }
   $row = pg_fetch_row($result);
   if ($name == 'getRecipients') {
-    $finalres = substr_replace($row[0], ",\"date\":\"".$row[1]."\"", strlen($row[0]) - 2, 0);
+    $finalres = substr_replace($row[0], ",\"date\":\"".$row[1]."\"", strlen($row[0]), 0);
   }
   else {
     $finalres = substr_replace($row[0], ",\"date\":\"".$row[1]."\"", strlen($row[0]) - 1, 0);
