@@ -351,10 +351,10 @@
       }).done(function(res) {
         var resultArray = res.split("\n");
         var totalChanges = resultArray[0];
+        var data = jQuery.parseJSON( totalChanges );
         var currTime = data.date;
         var currTimeString = (new Date(currTime)).toUTCString();
         currTimeString = currTimeString.substring(0, currTimeString.lastIndexOf(":"));
-        var data = jQuery.parseJSON( totalChanges );
         var html = "<div class='overview overview-changes'><p>" + data.changes + "</p><span>changes</span></div>" 
           + "<div class='overview overview-users'><p>" + data.users   + "</p><span>contributors</span></div>";
         if(regionName.length > 0) {
