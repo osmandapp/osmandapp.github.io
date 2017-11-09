@@ -62,7 +62,14 @@ function getReport($name, $ireg = NULL) {
     $rregion = pg_escape_string($dbconn, $ireg);
   }
   if ($month == date("Y-m")) {
-
+    // TODO: change the behavior of the quety depending on the accesstime
+    $accesstime = pg_query($dbconn, "select accesstime from final_reports where month = '${month}'
+          and region = '${rregion}' and name='${name}';");
+    $accesres = pg_fetch_row($accesstime);
+    if ((time() - $accessres[0])/60 > 30) {
+      pg_query($dbconn, "update final_reports set accesstime=".time()." where month = '${month}'
+          and region = '${rregion}' and name='${name}';");
+    } 
     $result = pg_query($dbconn, "select report, time from final_reports where month = '${month}'
           and region = '${rregion}' and name='${name}';");
     if (!$result) {
