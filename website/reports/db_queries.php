@@ -1,5 +1,6 @@
 <?php
 include_once 'db_conn.php';
+define('REFRESH_ACCESSTIME_IN_MINUTES', '30');
 $dbconn = db_conn();
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
@@ -69,7 +70,7 @@ function getReport($name, $ireg = NULL) {
     }
     $row = pg_fetch_row($result);
     // set current time if a report was not accessed more than 30 minutes
-    if ((time() - $row[2])/60 > 30) {
+    if ((time() - $row[2])/60 > REFRESH_ACCESSTIME_IN_MINUTES) {
       pg_query($dbconn, "update final_reports set accesstime=".time()." where month = '${month}'
           and region = '${rregion}' and name='${name}';");
     } 
