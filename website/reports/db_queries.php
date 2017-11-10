@@ -1,6 +1,7 @@
 <?php
 include_once 'db_conn.php';
 define('REFRESH_ACCESSTIME_IN_MINUTES', '30');
+define('DAYS_BEFORE_DELETING', '2');
 $dbconn = db_conn();
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
@@ -726,9 +727,29 @@ function getAllReportsStage1($res) {
         }
         $iregion = $countries->rows[$i]->downloadname;
       }
-      saveReport('getTotalChanges', getTotalChanges($useReport), $imonth, $iregion, $res);
-      saveReport('calculateRanking', calculateRanking(NULL, $useReport), $imonth, $iregion, $res);
-      saveReport('calculateUsersRanking', calculateUsersRanking($useReport), $imonth, $iregion, $res);
+      $result = pg_query($dbconn, "select name, accesstime from final_reports where month = '${imonth}'
+          and region = '${iregion}';");
+      if (!$result) {
+        continue;
+      }
+      $row = pg_fetch_all($result);
+      // ignore the report if it was not accessed for more than two days
+      foreach ($row as $curr_row) {
+        $curr_name = $curr_row["name"];
+        $accesstime = $curr_row["accesstime"];
+        if ($curr_name == 'getTotalChanges' && (time() - $accesstime)/60/1440 < DAYS_BEFORE_DELETING) {
+          saveReport('getTotalChanges', getTotalChanges($useReport), $imonth, $iregion, $res);
+        } 
+        else if ($curr_name == 'calculateRanking' && (time() - $accesstime)/60/1440 < DAYS_BEFORE_DELETING) {
+          saveReport('calculateRanking', calculateRanking(NULL, $useReport), $imonth, $iregion, $res);
+        } 
+        else if ($curr_name == 'calculateUsersRanking' && (time() - $accesstime)/60/1440 < DAYS_BEFORE_DELETING) {
+          saveReport('calculateUsersRanking', calculateUsersRanking($useReport), $imonth, $iregion, $res);
+        }
+      }
+      //saveReport('getTotalChanges', getTotalChanges($useReport), $imonth, $iregion, $res);
+      //saveReport('calculateRanking', calculateRanking(NULL, $useReport), $imonth, $iregion, $res);
+      //saveReport('calculateUsersRanking', calculateUsersRanking($useReport), $imonth, $iregion, $res);
   }
   
 }
