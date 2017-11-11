@@ -110,7 +110,14 @@ function getTotalReport() {
 
 function saveReport($name, $value, $month, $region = NULL, $time = 0) {
   global $dbconn;
-
+  if($time != 0) {
+    echo "\nSave report $name $month $region $time ".gmdate('D, d M Y H:i:s T');
+  } else {
+    $time = time();
+  }
+  if(!is_scalar($value)){
+    $value->date = $time;
+  }
   $rw = new stdClass();
   $rw->name = $name;
   $rw->report = $value; 
@@ -125,12 +132,8 @@ function saveReport($name, $value, $month, $region = NULL, $time = 0) {
   $region = pg_escape_string($dbconn, $rw->region);
   $name = pg_escape_string($dbconn, $rw->name);
   $mn = pg_escape_string($dbconn, $rw->month);
-  if($time != 0) {
-    echo "\nSave report $name $month $region $time ".gmdate('D, d M Y H:i:s T');
-  } else {
-    $time = time();
-  }
-  $rw->report->date = $time;
+  
+  
   pg_query($dbconn, "delete from final_reports where month = '${mn}' 
     and name = '${name}' and region = '${region}';");
   pg_query($dbconn, "insert into final_reports(month, region, name, report, time) 
