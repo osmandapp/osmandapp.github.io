@@ -121,15 +121,14 @@ function saveReport($name, $value, $month, $region = NULL, $time = 0) {
   }    
   $rw->month = $month;
   $rw->region = $region;
-  
-  if($time != 0) {
-    echo "\n$name $month $region ".gmdate('D, d M Y H:i:s T');
-  } else {
-    $time = time();
-  }
   $region = pg_escape_string($dbconn, $rw->region);
   $name = pg_escape_string($dbconn, $rw->name);
   $mn = pg_escape_string($dbconn, $rw->month);
+  if($time != 0) {
+    echo "\nSave report $name $month $region $time ".gmdate('D, d M Y H:i:s T');
+  } else {
+    $time = time();
+  }
   pg_query($dbconn, "delete from final_reports where month = '${mn}' 
     and name = '${name}' and region = '${region}';");
   pg_query($dbconn, "insert into final_reports(month, region, name, report, time) 
@@ -606,11 +605,14 @@ function getBTCEurRate() {
 }
 
 
-function getRecipients($eurValue = NULL, $btc = NULL, $useReport = true ) {
+function getRecipients($eurValue = NULL, $btc = NULL, $useReport = true, $saveReport = 0 ) {
   global $iregion, $imonth, $month, $dbconn;
   $finalReport = getReport('getRecipients', $iregion);
   if($finalReport != NULL && $useReport) {
     return $finalReport;
+  }
+  if($saveReport = 0) {
+    $saveReport = time();
   }
 
   $regionName =  pg_escape_string($dbconn, $iregion);
@@ -699,6 +701,9 @@ function getRecipients($eurValue = NULL, $btc = NULL, $useReport = true ) {
       } else {
         $rw->btc = 0;
       }
+  }
+  if($saveReport > 0) {
+    saveReport('getRecipients', $res, $imonth, $iregion, $saveReport);
   }
   return $res;
 }
@@ -838,8 +843,7 @@ function getAllReports($eurValue = NULL, $btcValue = NULL) {
         }
         $iregion = $countries->rows[$i]->downloadname;
       }
-      $recipients = getRecipients($res->eurValue, $res->btc, false);
-      saveReport('getRecipients', $recipients, $imonth, $iregion, $saveReport);
+      $recipients = getRecipients($res->eurValue, $res->btc, false, $saveReport);
       for($t = 0; $t < count($recipients->rows); $t++) {
         $rt = $recipients->rows[$t];          
         if($rt->btc < 0.001*0.01) {
