@@ -2,10 +2,9 @@
 include_once 'db_conn.php';
 class Constants 
 { 
-  // const REFRESH_ACCESSTIME = 30 * 60; // 30 minutes
-  // const REPORTS_DELETE_DEPRECATED = 2 * 24 * 60 * 60;
-  const REFRESH_ACCESSTIME = 30; // 30 minutes
-  const REPORTS_DELETE_DEPRECATED = 50;
+  const REFRESH_ACCESSTIME = 15 * 60; // 30 minutes
+  const REPORTS_DELETE_DEPRECATED = 1 * 24 * 60 * 60; // 1 day
+  
 }
 $dbconn = db_conn();
 ini_set('display_errors', 1);
