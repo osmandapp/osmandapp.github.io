@@ -137,6 +137,7 @@ function saveReport($name, $value, $month, $region = NULL, $time = 0) {
   
   $result = pg_query($dbconn, "select accesstime from final_reports where month = '${mn}' 
     and name = '${name}' and region = '${region}';");
+  $accesstime = 0;
   if ($result) {
     $row = pg_fetch_row($result);
     $accesstime = $row[0];
