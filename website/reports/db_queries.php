@@ -111,7 +111,7 @@ function getTotalReport() {
 function saveReport($name, $value, $month, $region = NULL, $time = 0) {
   global $dbconn;
   if($time != 0) {
-    echo "\nSave report $name $month $region $time ".gmdate('D, d M Y H:i:s T');
+    echo "\nSave report $name '${region}' $month $time ".gmdate('D, d M Y H:i:s T');
   } else {
     $time = time();
   }
@@ -716,9 +716,7 @@ function getRecipients($eurValue = NULL, $btc = NULL, $useReport = true, $saveRe
 function regenerateAllReports($res, $timeReport) {
   global $iregion, $imonth, $month, $dbconn;
   $useReport = false;
-  echo "\ngetCountries ".gmdate('D, d M Y H:i:s T');
   $countries = getCountries($useReport);
-
   saveReport('getCountries', $countries, $imonth, '', $timeReport);
   saveReport('getRegionRankingRange', getRegionRankingRange(), $imonth, '', $timeReport);
   saveReport('getRankingRange', getRankingRange(), $imonth, '', $timeReport);
@@ -733,10 +731,13 @@ function regenerateAllReports($res, $timeReport) {
   if ($result) {
     $row = pg_fetch_all($result);
     foreach ($row as $rw) {
-        
       $name = $rw["name"];
       $accesstime = $rw["accesstime"];
       $region = $rw["region"];
+      if($name == 'getSupporters' || $name == 'getCountries'
+              || $name == 'getMinChanges' || $name == 'getRankingRange' || $name == 'getRegionRankingRange' ) {    
+          continue;
+      } 
       if(time() - $accesstime > Constants::REPORTS_DELETE_DEPRECATED) {
         pg_query($dbconn, "delete from final_reports where month = '${imonth}' and name = '${name}' and region = '${region}';");
       } else {
@@ -748,9 +749,6 @@ function regenerateAllReports($res, $timeReport) {
           calculateUsersRanking($useReport, $timeReport);
         } else if($name == 'getRecipients') {  
           getRecipients($eurValue, $btc, $useReport, $timeReport);
-        } else if($name == 'getSupporters' || $name == 'getCountries'
-              || $name == 'getMinChanges' || $name == 'getRankingRange' || $name == 'getRegionRankingRange' ) {    
-          // skip
         } else {
           echo "\nUNKNOWN REPORT $name $month $region ";
         }
