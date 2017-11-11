@@ -349,9 +349,10 @@
         url: "reports/query_report.php?report=all_contributions_requests&month="+mid+"&region="+region, 
         async: true
       }).done(function(res) {
-        var resultArray = res.split("\n");
+        // var resultArray = res.split("\n");
+        var resultArray = jQuery.parseJSON(res);
         var totalChanges = resultArray[0];
-        var data = jQuery.parseJSON( totalChanges );
+        var data = totalChanges; //jQuery.parseJSON( totalChanges );
         var html = "<div class='overview overview-changes'><p>" + data.changes + "</p><span>changes</span></div>" 
           + "<div class='overview overview-users'><p>" + data.users   + "</p><span>contributors</span></div>";
         if(regionName.length > 0) {
@@ -535,7 +536,7 @@
   
     if(region.length > 0 ) {
       
-          var data = jQuery.parseJSON(resource);
+          var data = resource;
           $('#users-ranking').text("Ranking of contributors");
           reportUserDataTable = $('#users-table').DataTable({
               data: data.rows,
@@ -565,7 +566,7 @@
       reportDataTable.clear().draw();
     }
     $('#report-ranking').empty();
-    var data = jQuery.parseJSON(resource);
+    var data = resource; //jQuery.parseJSON(resource);
         $('#report-ranking').html("Ranking of contributors by " + data.rows.length + " groups <span>(made more than 3 changes)</span>");
         reportDataTable = $('#report-table').DataTable({
             data: data.rows,

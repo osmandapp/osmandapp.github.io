@@ -113,7 +113,7 @@ function saveReport($name, $value, $month, $region = NULL, $time = 0) {
   global $dbconn;
   
   if(!is_scalar($value)){
-    $value->date = $time;
+    $value->date = $time > 0 ? $time : time();
   }
   $rw = new stdClass();
   $rw->name = $name;
