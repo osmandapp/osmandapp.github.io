@@ -359,10 +359,8 @@
            html = html + "<div class='overview overview-region'><p>" + regionName + "</p><span>country</span></div>";
         }
         if (data.date != null || data.date != undefined) {
-          if (data.date.length > 0) {
-            //html += "<p class=\"overview-hint\">Generation date: " + "<span id=\"overview-date\">" + data.date + "</span></p>";
-            $('#overview-id').html("Generation date <span>"+ formatDate(data.date) + "</span>");
-          }
+          //html += "<p class=\"overview-hint\">Generation date: " + "<span id=\"overview-date\">" + data.date + "</span></p>";
+          $('#overview-id').html("Generation date <span>"+ formatDate(data.date) + "</span>");
         }
         else {
            $('#overview-id').html("");
