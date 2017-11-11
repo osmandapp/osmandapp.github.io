@@ -135,12 +135,12 @@ function saveReport($name, $value, $month, $region = NULL, $time = 0) {
   $accessTime = 0;
   if ($result) {
     $row = pg_fetch_row($result);
-    $accessTime = $row[0];
+    // $accessTime = $row[0];
     pg_query($dbconn, "delete from final_reports where month = '${mn}' 
         and name = '${name}' and region = '${region}';");
   }
   if($time != 0) {
-    echo "\nSave report $name ${region} $accessTime $month $time ".gmdate('D, d M Y H:i:s T');
+    echo "\nSave report '${name}' '${region}' $accessTime '${mn}' $time " . gmdate('D, d M Y H:i:s T');
   } else {
     $time = time();
   }
