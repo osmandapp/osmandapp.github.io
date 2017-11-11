@@ -136,9 +136,6 @@ function saveReport($name, $value, $month, $region = NULL, $time = 0) {
   if ($result) {
     $row = pg_fetch_row($result);
     $accessTime = $row[0];
-    if($time != 0) {
-       echo "$row ---- ". $row[0]. " + " . $row[1];
-    }
     pg_query($dbconn, "delete from final_reports where month = '${mn}' and name = '${name}' and region = '${region}';");
   }
   if($accessTime == '') {
