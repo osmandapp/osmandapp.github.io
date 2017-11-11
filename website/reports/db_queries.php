@@ -717,14 +717,21 @@ function regenerateAllReports($res, $timeReport) {
   $useReport = false;
   $countries = getCountries($useReport);
   saveReport('getCountries', $countries, $imonth, '', $timeReport);
-  saveReport('getRegionRankingRange', getRegionRankingRange(), $imonth, '', $timeReport);
-  saveReport('getRankingRange', getRankingRange(), $imonth, '', $timeReport);
-  saveReport('getMinChanges', getMinChanges(), $imonth, '', $timeReport);
+  // saveReport('getRegionRankingRange', getRegionRankingRange(), $imonth, '', $timeReport);
+  // saveReport('getRankingRange', getRankingRange(), $imonth, '', $timeReport);
+  // saveReport('getMinChanges', getMinChanges(), $imonth, '', $timeReport);
   $supporters = getSupporters($useReport);
   saveReport('getSupporters', $supporters, $imonth, '', $timeReport);
   $eurValue = getEurValue($supporters->activeCount);
   $rate = getBTCEurRate();
   $btc = getBTCValue($eurValue, $rate);
+
+  // global region
+  $iregion = '';
+  getTotalChanges($useReport, $timeReport);
+  calculateRanking('', $useReport, $timeReport);
+  calculateUsersRanking($useReport, $timeReport);
+  getRecipients($eurValue, $btc, $useReport, $timeReport);
 
   $result = pg_query($dbconn, "select name, accesstime, region, time from final_reports where month = '${imonth}';");
   if ($result) {
@@ -733,8 +740,9 @@ function regenerateAllReports($res, $timeReport) {
       $name = $rw["name"];
       $accesstime = $rw["accesstime"];
       $region = $rw["region"];
-      if($name == 'getSupporters' || $name == 'getCountries'
-              || $name == 'getMinChanges' || $name == 'getRankingRange' || $name == 'getRegionRankingRange' ) {    
+      $iregion = $region;
+      if($region == '' || $name == 'getSupporters' || $name == 'getCountries'
+              || $name == 'getMinChanges' || $name == 'getRankingRange' || $name == 'getRegionRankingRange') {    
           continue;
       } 
       if(time() - $accesstime > Constants::REPORTS_DELETE_DEPRECATED) {
