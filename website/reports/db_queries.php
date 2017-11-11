@@ -1,5 +1,7 @@
 <?php
 include_once 'db_conn.php';
+define('REFRESH_ACCESSTIME_IN_MINUTES', '30');
+define('DAYS_BEFORE_DELETING', '2');
 $dbconn = db_conn();
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
@@ -62,13 +64,17 @@ function getReport($name, $ireg = NULL) {
     $rregion = pg_escape_string($dbconn, $ireg);
   }
   if ($month == date("Y-m")) {
-
-    $result = pg_query($dbconn, "select report, time from final_reports where month = '${month}'
+    $result = pg_query($dbconn, "select report, time, accesstime from final_reports where month = '${month}'
           and region = '${rregion}' and name='${name}';");
     if (!$result) {
       return NULL;
     }
     $row = pg_fetch_row($result);
+    // set current time if a report was not accessed more than 30 minutes
+    if ((time() - $row[2])/60 > REFRESH_ACCESSTIME_IN_MINUTES) {
+      pg_query($dbconn, "update final_reports set accesstime=".time()." where month = '${month}'
+          and region = '${rregion}' and name='${name}';");
+    } 
     $finalres = substr_replace($row[0], ",\"date\":\"".$row[1]."\"", strlen($row[0]) - 1, 0);
     return json_decode($finalres);
   }
@@ -721,9 +727,29 @@ function getAllReportsStage1($res) {
         }
         $iregion = $countries->rows[$i]->downloadname;
       }
-      saveReport('getTotalChanges', getTotalChanges($useReport), $imonth, $iregion, $res);
-      saveReport('calculateRanking', calculateRanking(NULL, $useReport), $imonth, $iregion, $res);
-      saveReport('calculateUsersRanking', calculateUsersRanking($useReport), $imonth, $iregion, $res);
+      $result = pg_query($dbconn, "select name, accesstime from final_reports where month = '${imonth}'
+          and region = '${iregion}';");
+      if (!$result) {
+        continue;
+      }
+      $row = pg_fetch_all($result);
+      // ignore the report if it was not accessed for more than two days
+      foreach ($row as $curr_row) {
+        $curr_name = $curr_row["name"];
+        $accesstime = $curr_row["accesstime"];
+        if ($curr_name == 'getTotalChanges' && (time() - $accesstime)/60/1440 < DAYS_BEFORE_DELETING) {
+          saveReport('getTotalChanges', getTotalChanges($useReport), $imonth, $iregion, $res);
+        } 
+        else if ($curr_name == 'calculateRanking' && (time() - $accesstime)/60/1440 < DAYS_BEFORE_DELETING) {
+          saveReport('calculateRanking', calculateRanking(NULL, $useReport), $imonth, $iregion, $res);
+        } 
+        else if ($curr_name == 'calculateUsersRanking' && (time() - $accesstime)/60/1440 < DAYS_BEFORE_DELETING) {
+          saveReport('calculateUsersRanking', calculateUsersRanking($useReport), $imonth, $iregion, $res);
+        }
+      }
+      //saveReport('getTotalChanges', getTotalChanges($useReport), $imonth, $iregion, $res);
+      //saveReport('calculateRanking', calculateRanking(NULL, $useReport), $imonth, $iregion, $res);
+      //saveReport('calculateUsersRanking', calculateUsersRanking($useReport), $imonth, $iregion, $res);
   }
   
 }
