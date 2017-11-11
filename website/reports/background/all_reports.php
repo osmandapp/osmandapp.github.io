@@ -8,7 +8,6 @@ if(isset($argv[1])) {
 include '../db_queries.php';
 echo "Generate all reports\n";
 $r = getAllReports($argv[2], $argv[3]);
-echo "\nStored ".count($r->reports)." reports\n";
 if(isset($r->payouts)) {
 	echo "Payouts ".json_encode($r->payouts)."\n";
 }

@@ -1,7 +1,10 @@
 <?php
 include_once 'db_conn.php';
-define('REFRESH_ACCESSTIME_IN_MINUTES', '30');
-define('DAYS_BEFORE_DELETING', '2');
+class Constants 
+{ 
+  const REFRESH_ACCESSTIME = 30 * 60; // 30 minutes
+  const REPORTS_DELETE_DEPRECATED = 2 * 24 * 60 * 60;
+}
 $dbconn = db_conn();
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
@@ -11,14 +14,12 @@ if (!$dbconn) {
 }
 if(!isset($_REQUEST['month']) || $_REQUEST['month'] == '') {
   $imonth = date("Y-m"); 
+  $icurrentMonth = "";
 } else {
   $imonth = $_REQUEST["month"];
+  $icurrentMonth = $imonth;
 }
-if(!isset($imonth)) {
-  $month = date("Y-m"); 
-} else {
-  $month = pg_escape_string($dbconn, $imonth);
-}
+$month = pg_escape_string($dbconn, $imonth);
 
 if(!isset($_REQUEST['region'])) {
   $iregion = ''; 
@@ -70,15 +71,14 @@ function getReport($name, $ireg = NULL) {
       return NULL;
     }
     $row = pg_fetch_row($result);
-    // set current time if a report was not accessed more than 30 minutes
-    if ((time() - $row[2])/60 > REFRESH_ACCESSTIME_IN_MINUTES) {
+    // set current time if a report was not accessed more than X minutes
+    if ((time() - $row[2]) > Constants::REFRESH_ACCESSTIME) {
       pg_query($dbconn, "update final_reports set accesstime=".time()." where month = '${month}'
           and region = '${rregion}' and name='${name}';");
     } 
-    $finalres = substr_replace($row[0], ",\"date\":\"".$row[1]."\"", strlen($row[0]) - 1, 0);
-    return json_decode($finalres);
-  }
-  else {
+    // $finalres = substr_replace($row[0], ",\"date\":\"".$row[1]."\"", strlen($row[0]) - 1, 0);
+    return json_decode($row[0]);
+  } else {
     $result = pg_query($dbconn, "select report from final_reports where month = '${month}'
           and region = '${rregion}' and name='${name}';");
     if (!$result) {
@@ -108,11 +108,10 @@ function getTotalReport() {
   return $res;
 }
 
-function saveReport($name, $value, $month, $region = NULL, $res = NULL) {
+function saveReport($name, $value, $month, $region = NULL, $time = 0) {
   global $dbconn;
 
   $rw = new stdClass();
-  $time = time();
   $rw->name = $name;
   $rw->report = $value; 
   if(is_scalar($rw->report)){
@@ -123,9 +122,10 @@ function saveReport($name, $value, $month, $region = NULL, $res = NULL) {
   $rw->month = $month;
   $rw->region = $region;
   
-  if($res) {
-    array_push($res->reports, $rw);
+  if($time != 0) {
     echo "\n$name $month $region ".gmdate('D, d M Y H:i:s T');
+  } else {
+    $time = time();
   }
   $region = pg_escape_string($dbconn, $rw->region);
   $name = pg_escape_string($dbconn, $rw->name);
@@ -137,27 +137,11 @@ function saveReport($name, $value, $month, $region = NULL, $res = NULL) {
 }
 
 
-function saveReports($res, $time) {
-  global  $month, $dbconn;
-  for($i = 0; $i < count($res->reports); $i++) {
-      $rw = $res->reports[$i];
-      if(is_scalar($rw->report)){
-        $content = pg_escape_string($dbconn, $rw->report);
-      } else {
-        $content = pg_escape_string($dbconn, json_encode($rw->report));    
-      }    
-      $region = pg_escape_string($dbconn, $rw->region);
-      $name = pg_escape_string($dbconn, $rw->name);
-      $mn = pg_escape_string($dbconn, $rw->month);
-      pg_query($dbconn, "delete from final_reports where month = '${mn}' 
-        and name = '${name}' and region = '${region}';");
-      pg_query($dbconn, "insert into final_reports(month, region, name, report, time) 
-          values('${mn}', '${region}', '${name}', '${content}', $time);");
-  }
-}
-
-function getTotalChanges($useReport = true) {
+function getTotalChanges($useReport = true, $saveReport = 0) {
   global $iregion, $imonth, $month, $dbconn;
+  if($saveReport == 0) {
+    $saveReport = time();
+  }
   $finalReport = getReport('getTotalChanges', $iregion);
   if($finalReport != NULL && $useReport ) {
     return $finalReport;
@@ -185,11 +169,17 @@ function getTotalChanges($useReport = true) {
   $res->month = $month;
   $res->users = $row[0];
   $res->changes = $row[1];
+  if($saveReport > 0) {
+    saveReport('getTotalChanges', $res, $imonth, $iregion, $saveReport);
+  }
   return $res;
 }
 
-function calculateRanking($ireg = NULL, $useReport = true ) {
+function calculateRanking($ireg = NULL, $useReport = true, $saveReport = 0 ) {
   global $iregion, $imonth, $month, $dbconn;
+  if($saveReport == 0) {
+    $saveReport = time();
+  }
   if(is_null($ireg)) {
     $ireg = $iregion;
   }
@@ -279,18 +269,20 @@ function calculateRanking($ireg = NULL, $useReport = true ) {
     $rw->maxChanges = $row->max;
     $rw->avgChanges = $row->changes / $row->count;
   }
-  
+  if($saveReport > 0) {
+    saveReport('calculateRanking', $res, $imonth, $iregion, $saveReport);
+  }
   return $res;
 }
 
-function calculateUserRanking($useReport = true ) {
+function calculateUserRanking($useReport = true, $saveReport = 0 ) {
   global $iregion, $imonth, $iuser, $month, $dbconn;
-  $finalReport = getReport('calculateUsersRanking', $iregion);
+  $finalReport = getReport('calculateUserRanking', $iregion);
   if($finalReport != NULL && $useReport ) {
     return $finalReport;
   }
-  $gar = calculateRanking('', $useReport)->rows;
-  $ar = calculateRanking(NULL, $useReport)->rows;
+  $gar = calculateRanking('', $useReport, -1)->rows;
+  $ar = calculateRanking(NULL, $useReport, -1)->rows;
   $region =  pg_escape_string($iregion);
   $user =  pg_escape_string($iuser);
   
@@ -344,21 +336,26 @@ function calculateUserRanking($useReport = true ) {
         break;
       }
     }
-    
+  }
+  if($saveReport > 0) {
+    saveReport('calculateUserRanking', $res, $imonth, $iregion, $timeReport);
   }
   return $res;
 
 }
 
 
-function calculateUsersRanking($useReport = true) {
+function calculateUsersRanking($useReport = true, $saveReport = 0) {
   global $iregion, $imonth, $month, $dbconn;
+  if($saveReport == 0) {
+    $saveReport = time();
+  }
   $finalReport = getReport('calculateUsersRanking', $iregion);
   if($finalReport != NULL && $useReport) {
     return $finalReport;
   }
-  $gar = calculateRanking('')->rows;
-  $ar = calculateRanking()->rows;
+  $gar = calculateRanking('', true, -1)->rows;
+  $ar = calculateRanking(NULL, true, -1)->rows;
   $region =  pg_escape_string($iregion);
   $min_changes = getMinChanges();
   
@@ -413,6 +410,9 @@ function calculateUsersRanking($useReport = true) {
       }
     }
     
+  }
+  if($saveReport > 0) {
+    saveReport('calculateUsersRanking', $res, $imonth, $iregion, $saveReport);
   }
   return $res;
 
@@ -633,7 +633,7 @@ function getRecipients($eurValue = NULL, $btc = NULL, $useReport = true ) {
     return $res;
   }
   
-  $ranking = calculateRanking();
+  $ranking = calculateRanking(NULL, true, -1);
   
   $supporters = getSupporters();
 
@@ -703,20 +703,66 @@ function getRecipients($eurValue = NULL, $btc = NULL, $useReport = true ) {
   return $res;
 }
 
-function getAllReportsStage1($res) {
+function regenerateAllReports($res, $timeReport) {
   global $iregion, $imonth, $month, $dbconn;
   $useReport = false;
   echo "\ngetCountries ".gmdate('D, d M Y H:i:s T');
   $countries = getCountries($useReport);
 
-
-  saveReport('getCountries', $countries, $imonth, '', $res);
-
-  saveReport('getRegionRankingRange', getRegionRankingRange(), $imonth, '', $res);
-  saveReport('getRankingRange', getRankingRange(), $imonth, '', $res);
-  saveReport('getMinChanges', getMinChanges(), $imonth, '', $res);
+  saveReport('getCountries', $countries, $imonth, '', $timeReport);
+  saveReport('getRegionRankingRange', getRegionRankingRange(), $imonth, '', $timeReport);
+  saveReport('getRankingRange', getRankingRange(), $imonth, '', $timeReport);
+  saveReport('getMinChanges', getMinChanges(), $imonth, '', $timeReport);
   $supporters = getSupporters($useReport);
-  saveReport('getSupporters', $supporters, $imonth, '', $res);
+  saveReport('getSupporters', $supporters, $imonth, '', $timeReport);
+  $eurValue = getEurValue($supporters->activeCount);
+  $rate = getBTCEurRate();
+  $btc = getBTCValue($eurValue, $rate);
+
+  $result = pg_query($dbconn, "select name, accesstime, region, time from final_reports where month = '${imonth}';");
+  if ($result) {
+    $row = pg_fetch_all($result);
+    foreach ($row as $rw) {
+        
+      $name = $rw["name"];
+      $accesstime = $rw["accesstime"];
+      $region = $rw["region"];
+      if(time() - $accesstime > Constants::REPORTS_DELETE_DEPRECATED) {
+        pg_query($dbconn, "delete from final_reports where month = '${imonth}' and name = '${name}' and region = '${region}';");
+      } else {
+        if($name == 'getTotalChanges') {
+          getTotalChanges($useReport, $timeReport);
+        } else if($name == 'calculateRanking') {
+          calculateRanking($region, $useReport, $timeReport);
+        } else if($name == 'calculateUsersRanking') {
+          calculateUsersRanking($useReport, $timeReport);
+        } else if($name == 'getRecipients') {  
+          getRecipients($eurValue, $btc, $useReport, $timeReport);
+        } else if($name == 'getSupporters' || $name == 'getCountries'
+              || $name == 'getMinChanges' || $name == 'getRankingRange' || $name == 'getRegionRankingRange' ) {    
+          // skip
+        } else {
+          echo "\nUNKNOWN REPORT $name $month $region ";
+        }
+      }
+
+    }
+  }        
+}
+
+function getAllReportsStage1($res, $saveReport) {
+  global $iregion, $imonth, $month, $dbconn;
+  $useReport = false;
+  echo "\ngetCountries ".gmdate('D, d M Y H:i:s T');
+  $countries = getCountries($useReport);
+
+  
+  saveReport('getCountries', $countries, $imonth, '', $saveReport);
+  saveReport('getRegionRankingRange', getRegionRankingRange(), $imonth, '', $saveReport);
+  saveReport('getRankingRange', getRankingRange(), $imonth, '', $saveReport);
+  saveReport('getMinChanges', getMinChanges(), $imonth, '', $saveReport);
+  $supporters = getSupporters($useReport);
+  saveReport('getSupporters', $supporters, $imonth, '', $saveReport);
 
   for($i = 0; $i < count($countries->rows); $i++) {
       if($countries->rows[$i]->name == 'World') {
@@ -727,38 +773,16 @@ function getAllReportsStage1($res) {
         }
         $iregion = $countries->rows[$i]->downloadname;
       }
-      $result = pg_query($dbconn, "select name, accesstime from final_reports where month = '${imonth}'
-          and region = '${iregion}';");
-      if (!$result) {
-        continue;
-      }
-      $row = pg_fetch_all($result);
-      // ignore the report if it was not accessed for more than two days
-      foreach ($row as $curr_row) {
-        $curr_name = $curr_row["name"];
-        $accesstime = $curr_row["accesstime"];
-        if ($curr_name == 'getTotalChanges' && (time() - $accesstime)/60/1440 < DAYS_BEFORE_DELETING) {
-          saveReport('getTotalChanges', getTotalChanges($useReport), $imonth, $iregion, $res);
-        } 
-        else if ($curr_name == 'calculateRanking' && (time() - $accesstime)/60/1440 < DAYS_BEFORE_DELETING) {
-          saveReport('calculateRanking', calculateRanking(NULL, $useReport), $imonth, $iregion, $res);
-        } 
-        else if ($curr_name == 'calculateUsersRanking' && (time() - $accesstime)/60/1440 < DAYS_BEFORE_DELETING) {
-          saveReport('calculateUsersRanking', calculateUsersRanking($useReport), $imonth, $iregion, $res);
-        }
-      }
-      //saveReport('getTotalChanges', getTotalChanges($useReport), $imonth, $iregion, $res);
-      //saveReport('calculateRanking', calculateRanking(NULL, $useReport), $imonth, $iregion, $res);
-      //saveReport('calculateUsersRanking', calculateUsersRanking($useReport), $imonth, $iregion, $res);
+      getTotalChanges($useReport, $saveReport);
+      calculateRanking(NULL, $useReport, $saveReport);
+      calculateUsersRanking($useReport, $saveReport);  
   }
   
 }
 
 function getAllReports($eurValue = NULL, $btcValue = NULL) {
-  global $iregion, $imonth, $month, $dbconn;
+  global $iregion, $imonth, $month, $dbconn, $icurrentMonth;
   $res = new stdClass();
-  $res->reports = array();
-  
   // 1st step:
 // getTotalChanges - region
 // calculateRanking - region
@@ -772,10 +796,15 @@ function getAllReports($eurValue = NULL, $btcValue = NULL) {
   echo "\nREFRESH MATERIALIZED VIEW  changesets_view ".gmdate('D, d M Y H:i:s T');
   pg_query($dbconn, "REFRESH MATERIALIZED VIEW  changeset_country_view");
   echo "\nREFRESH MATERIALIZED VIEW  changeset_country_view ".gmdate('D, d M Y H:i:s T');
-
+  $saveReport = time();
+  if($icurrentMonth == "") {
+    regenerateAllReports($res, $saveReport);
+    return $res;
+  }
+  
   
   if($eurValue == NULL) {
-      getAllReportsStage1($res);
+      getAllReportsStage1($res, $saveReport);
       $res->eurValue = NULL;
       $res->btc = NULL;
       $res->rate = NULL;
@@ -788,8 +817,8 @@ function getAllReports($eurValue = NULL, $btcValue = NULL) {
          $res->rate = getBTCEurRate(); 
          $res->btc = $res->eurValue / $res->rate;
       }
-      saveReport('getEurValue', $res->eurValue, $imonth, '', $res);
-      saveReport('getBTCValue', $res->btc, $imonth, '', $res);
+      saveReport('getEurValue', $res->eurValue, $imonth, '', $saveReport);
+      saveReport('getBTCValue', $res->btc, $imonth, '', $saveReport);
   }
   
   $countries = getCountries();
@@ -810,7 +839,7 @@ function getAllReports($eurValue = NULL, $btcValue = NULL) {
         $iregion = $countries->rows[$i]->downloadname;
       }
       $recipients = getRecipients($res->eurValue, $res->btc, false);
-      saveReport('getRecipients', $recipients, $imonth, $iregion, $res);
+      saveReport('getRecipients', $recipients, $imonth, $iregion, $saveReport);
       for($t = 0; $t < count($recipients->rows); $t++) {
         $rt = $recipients->rows[$t];          
         if($rt->btc < 0.001*0.01) {
@@ -826,7 +855,7 @@ function getAllReports($eurValue = NULL, $btcValue = NULL) {
   }
 
   if($eurValue != NULL) {
-    saveReport('getPayouts', $res->payouts, $imonth, '', $res);
+    saveReport('getPayouts', $res->payouts, $imonth, '', $saveReport);
   }
       
   
