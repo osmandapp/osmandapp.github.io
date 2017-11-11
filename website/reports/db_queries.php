@@ -140,7 +140,6 @@ function saveReport($name, $value, $month, $region = NULL, $time = 0) {
   if ($result) {
     $row = pg_fetch_row($result);
     $accesstime = $row[0];
-    return $res;
   }
 
   pg_query($dbconn, "insert into final_reports(month, region, name, report, time, accesstime) 
