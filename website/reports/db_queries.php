@@ -111,7 +111,8 @@ function getTotalReport() {
 function saveReport($name, $value, $month, $region = NULL, $time = 0) {
   global $dbconn;
   if($time != 0) {
-    echo "\nSave report $name '${region}' $month $time ".gmdate('D, d M Y H:i:s T');
+    $reg = pg_escape_string($dbconn, $region);
+    echo "\nSave report $name $reg $month $time ".gmdate('D, d M Y H:i:s T');
   } else {
     $time = time();
   }
@@ -134,14 +135,15 @@ function saveReport($name, $value, $month, $region = NULL, $time = 0) {
   $mn = pg_escape_string($dbconn, $rw->month);
   
   
-  $result = pg_query($dbconn, "delete from final_reports where month = '${mn}' 
-    and name = '${name}' and region = '${region}' returning accesstime;");
-  $accesstime = 0;
+  $result = pg_query($dbconn, "select accesstime from final_reports where month = '${mn}' 
+    and name = '${name}' and region = '${region}';");
   if ($result) {
     $row = pg_fetch_row($result);
-    $accesstime = $row[1];
+    $accesstime = $row[0];
+    pg_query($dbconn, "delete from final_reports where month = '${mn}' 
+        and name = '${name}' and region = '${region}';");
   }
-
+  
   pg_query($dbconn, "insert into final_reports(month, region, name, report, time, accesstime) 
       values('${mn}', '${region}', '${name}', '${content}', $time, $accesstime);");
 }
