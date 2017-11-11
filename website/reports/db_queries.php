@@ -134,10 +134,17 @@ function saveReport($name, $value, $month, $region = NULL, $time = 0) {
   $mn = pg_escape_string($dbconn, $rw->month);
   
   
-  pg_query($dbconn, "delete from final_reports where month = '${mn}' 
-    and name = '${name}' and region = '${region}';");
-  pg_query($dbconn, "insert into final_reports(month, region, name, report, time) 
-      values('${mn}', '${region}', '${name}', '${content}', $time);");
+  $result = pg_query($dbconn, "delete from final_reports where month = '${mn}' 
+    and name = '${name}' and region = '${region}' returning accesstime;");
+  $accesstime = 0;
+  if ($result) {
+    $row = pg_fetch_row($result);
+    $accesstime = $row[0];
+    return $res;
+  }
+
+  pg_query($dbconn, "insert into final_reports(month, region, name, report, time, accesstime) 
+      values('${mn}', '${region}', '${name}', '${content}', $time, $accesstime);");
 }
 
 
