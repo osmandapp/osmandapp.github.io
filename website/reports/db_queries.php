@@ -114,6 +114,7 @@ function saveReport($name, $value, $month, $region = NULL, $time = 0) {
   $rw = new stdClass();
   $rw->name = $name;
   $rw->report = $value; 
+
   if(is_scalar($rw->report)){
     $content = pg_escape_string($dbconn, $rw->report);
   } else {
@@ -129,6 +130,7 @@ function saveReport($name, $value, $month, $region = NULL, $time = 0) {
   } else {
     $time = time();
   }
+  $rw->report->date = $time;
   pg_query($dbconn, "delete from final_reports where month = '${mn}' 
     and name = '${name}' and region = '${region}';");
   pg_query($dbconn, "insert into final_reports(month, region, name, report, time) 
