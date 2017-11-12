@@ -384,7 +384,7 @@
 
   function formatDate(timestampString) {
    var currTime = parseInt(timestampString, 10);
-   var currTimeString = (new Date(currTime*1000)).toUTCString();
+   var currTimeString = (new Date(currTime*1000)).toString();
    return currTimeString.substring(currTimeString.indexOf(" "), currTimeString.lastIndexOf(":"));
   }
   
