@@ -345,6 +345,13 @@
   
   function updateTotalChanges() {
     $('#report-total').empty();
+    if(reportUserDataTable) {
+      reportUserDataTable.clear().draw();
+    }
+    if(reportDataTable) {
+      reportDataTable.clear().draw();
+    }
+    $('#report-ranking').empty();
     $.ajax({
         url: "reports/query_report.php?report=all_contributions_requests&month="+mid+"&region="+region, 
         async: true
@@ -527,9 +534,7 @@
 
   var reportUserDataTable;
   function updateUserRankingByMonth(resource) {
-    if(reportUserDataTable) {
-      reportUserDataTable.clear().draw();
-    }
+    
     $('#users-ranking').text("Select region to see user statistics ");
   
     if(region.length > 0 ) {
@@ -560,10 +565,6 @@
 
   var reportDataTable;
   function updateRankingByMonth(resource) {
-    if(reportDataTable) {
-      reportDataTable.clear().draw();
-    }
-    $('#report-ranking').empty();
     var data = resource; //jQuery.parseJSON(resource);
         $('#report-ranking').html("Ranking of contributors by " + data.rows.length + " groups <span>(made more than 3 changes)</span>");
         reportDataTable = $('#report-table').DataTable({
