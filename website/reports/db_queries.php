@@ -3,7 +3,7 @@ include_once 'db_conn.php';
 class Constants 
 { 
   const REFRESH_ACCESSTIME = 15 * 60; // 30 minutes
-  const REPORTS_DELETE_DEPRECATED = 1 * 24 * 60 * 60; // 1 day
+  const REPORTS_DELETE_DEPRECATED = 6 * 60 * 60; // 6 hours
   
 }
 $dbconn = db_conn();
