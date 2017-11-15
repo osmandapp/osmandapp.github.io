@@ -857,9 +857,9 @@ function getAllReports($eurValue = NULL, $btcValue = NULL) {
       $recipients = getRecipients($res->eurValue, $res->btc, false, $saveReport);
       for($t = 0; $t < count($recipients->rows); $t++) {
         $rt = $recipients->rows[$t];          
-        if($rt->btc < 0.001*0.01) {
-          continue;
-        }
+        //if($rt->btc < 0.001*0.01) {
+          //continue;
+        //}
         $rs = new stdClass();
         array_push($res->payouts->payments, $rs);
         $rs->btc = $rt->btc;
@@ -873,9 +873,7 @@ function getAllReports($eurValue = NULL, $btcValue = NULL) {
     saveReport('getPayouts', $res->payouts, $imonth, '', $saveReport);
   }
       
-  
   return $res;
-
 }
 
 ?>
