@@ -40,21 +40,21 @@
         <div class="article">
           <section class="api-section" id="use">
             <h2>Use OsmAnd API</h2>
-            <p>OsmAnd API allows you to control installed OsmAnd app and change it for specific needs. The advantage of integrating with OsmAnd API that it is pretty easy to kick off development, could be embedded in any specific application and there is no specific requirements about Licensing of the target app. The main disadvantage user should have OsmAnd installed on a device.</p>
+            <p>OsmAnd API allows you to control the installed OsmAnd app. Starting development via the API is easy and straightforward and can be embedded in any application, without licensing requirements of the target app. The only drawback is that the user should have OsmAnd installed</p>
             <p class="list-header">OsmAnd API features:</p>
             <ul class="list">
               <li>Adding favorites and markers to the map</li>
               <li>Navigation between locations</li>
-              <li>Creating audio/video/photo notes</li>
+              <li>Creating audio, video and photo notes</li>
               <li>Starting and stopping GPX track recording</li>
               <li>Importing GPX tracks into OsmAnd and navigatin along them</li>
-              <li>Other non-documented features might be already present or implemented by request</li>
+              <li>Many other features are already present or can be implemented by request</li>
             </ul>
           </section>
 
           <section class="highlighted-box sidebar-merge" id="demo-holder">
             <h3>Start your project</h3>
-            <p>You can build your own in any way your like. Integration with OsmAnd API is done using 2 types of intents - silent (doesn't keep OsmAnd open) and visible (brings OsmAnd to a specific screen). There are plans to add Android Interprocess Communication in future. Please take a look at source code of the OsmAnd API project.</p>
+            <p>You can build your own project in any way your like. Integration with OsmAnd API is done using two types of intents: silent or visible. A silent intent  doesn't keep OsmAnd open, whereas a visible intent brings OsmAnd to a specific screen. There are plans to add Android Interprocess Communication in future. Please take a look at source code of the OsmAnd API project.</p>
             <a href="https://github.com/osmandapp/osmand-api-demo" class="github-link">https://github.com/osmandapp/osmand-api-demo</a>
 
             <h3>License</h3>
