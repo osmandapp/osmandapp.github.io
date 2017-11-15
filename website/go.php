@@ -1,8 +1,9 @@
 <?php
-$zoom = 15;
-$lat = $_GET['lat'];
-$lon = $_GET['lon'];
-$zoom = $_GET['z'];
 header('HTTP/1.1 302 Found');
-header('Location: http://maps.google.com/maps?q=loc:'.$lat.','.$lon.'&z='.$zoom);
+if ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
+    || $_SERVER['SERVER_PORT'] == 443) {
+  header('Location: https://'.$_SERVER['SERVER_NAME'].'/go.html?'.$_SERVER['QUERY_STRING']);
+} else {
+  header('Location: http://'.$_SERVER['SERVER_NAME'].'/go.html?'.$_SERVER['QUERY_STRING']);
+}
 ?>
