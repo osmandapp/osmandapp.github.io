@@ -130,7 +130,12 @@ function saveReport($name, $value, $month, $region = NULL, $time = 0) {
   $name = pg_escape_string($dbconn, $rw->name);
   $mn = pg_escape_string($dbconn, $rw->month);
   
-  
+  if ($time == 0) {
+    pg_query($dbconn, "delete from final_reports where month = '${mn}' and name = '${name}' and region = '${region}';");
+    pg_query($dbconn, "insert into final_reports(month, region, name, report) 
+      values('${mn}', '${region}', '${name}', '${content}');");
+    return;
+  }
   $result = pg_query($dbconn, "select accesstime from final_reports where month = '${mn}' 
     and name = '${name}' and region = '${region}';");
   
@@ -874,6 +879,42 @@ function getAllReports($eurValue = NULL, $btcValue = NULL) {
   }
       
   return $res;
+}
+
+function generatePayoutReport($month) {
+  global $iregion, $imonth, $month, $dbconn, $icurrentMonth;
+  $res = new stdClass();
+  $countries = getCountries();
+  $res->payouts = new stdClass();
+  $res->payouts->payoutBTCAvailable = getBTCValue(0, 0);
+  $res->payouts->payoutEurAvailable = getEurValue(0);
+  $res->payouts->rate = getBTCEurRate();
+  $res->payouts->payoutTotal = 0;
+  $res->payouts->payments = array();
+  for($i = 0; $i < count($countries->rows); $i++) {
+      if($countries->rows[$i]->name == 'World') {
+          $iregion = '';
+      } else {
+        if($countries->rows[$i]->map == '0') {
+          continue;
+        }
+        $iregion = $countries->rows[$i]->downloadname;
+      }
+      $recipients = getRecipients(getEurValue(0), getBTCValue(0, 0), false, 0);
+      for($t = 0; $t < count($recipients->rows); $t++) {
+        $rt = $recipients->rows[$t];
+        if($rt->btc == 0) {
+          continue;
+        }          
+        $rs = new stdClass();
+        array_push($res->payouts->payments, $rs);
+        $rs->btc = $rt->btc;
+        $rs->osmid = $rt->osmid;
+        $rs->btcaddress = $rt->btcaddress;
+        $res->payouts->payoutTotal += $rt->btc;
+      }       
+  }
+  return $res;  
 }
 
 ?>
