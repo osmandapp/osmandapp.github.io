@@ -870,6 +870,7 @@ function calculatePayouts($payouts, $btc, $eurValue, $saveReport) {
   }
   $payouts->payoutTotal = 0;
   $payouts->payments = array();
+  $countries = getCountries();
   for($i = 0; $i < count($countries->rows); $i++) {
       if($countries->rows[$i]->name == 'World') {
           $iregion = '';
