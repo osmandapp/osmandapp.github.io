@@ -17,6 +17,6 @@ if($argv[2] == 'getPayouts') {
 	$btc = getReport('getBTCValue');
 	$eurValue = getReport('getEurValue');
 	calculatePayouts($payouts, $btc, $eurValue, $saveReport);
-	echo "Payouts $btc $eurValue : \n".json_encode($r->payouts)."\n";
+	echo "Payouts $btc $eurValue : \n".json_encode($payouts)."\n";
 }
 ?>
