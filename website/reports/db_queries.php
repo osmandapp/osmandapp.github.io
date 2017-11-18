@@ -110,7 +110,7 @@ function getTotalReport() {
 }
 
 function saveReport($name, $value, $month, $region = NULL, $time = 0) {
-  global $dbconn;
+  global $dbconn, $imonth, $icurrentMonth;
   
   if(!is_scalar($value)){
     $value->date = $time > 0 ? $time : time();
@@ -130,7 +130,12 @@ function saveReport($name, $value, $month, $region = NULL, $time = 0) {
   $name = pg_escape_string($dbconn, $rw->name);
   $mn = pg_escape_string($dbconn, $rw->month);
   
-  
+  if ($time == 0 && !($icurrentMonth == "" && $imonth == date("Y-m"))) {
+    pg_query($dbconn, "delete from final_reports where month = '${mn}' and name = '${name}' and region = '${region}';");
+    pg_query($dbconn, "insert into final_reports(month, region, name, report) 
+      values('${mn}', '${region}', '${name}', '${content}');");
+    return;
+  }
   $result = pg_query($dbconn, "select accesstime from final_reports where month = '${mn}' 
     and name = '${name}' and region = '${region}';");
   
@@ -808,11 +813,18 @@ function getAllReports($eurValue = NULL, $btcValue = NULL) {
 // ! [getBTCEurRate, getEurValue, getBTCValue] !
 // FINAL step: 
 // ! getRecipients - region (calculateRanking, getSupporters)
-  pg_query($dbconn, "REFRESH MATERIALIZED VIEW  changesets_view");
-  echo "\nREFRESH MATERIALIZED VIEW  changesets_view ".gmdate('D, d M Y H:i:s T');
-  pg_query($dbconn, "REFRESH MATERIALIZED VIEW  changeset_country_view");
-  echo "\nREFRESH MATERIALIZED VIEW  changeset_country_view ".gmdate('D, d M Y H:i:s T');
-  $saveReport = time();
+  $isCurrentMonth = $icurrentMonth == "" && $imonth == date("Y-m");
+  $saveReport;
+  if ($isCurrentMonth) {
+    pg_query($dbconn, "REFRESH MATERIALIZED VIEW  changesets_view");
+    echo "\nREFRESH MATERIALIZED VIEW  changesets_view ".gmdate('D, d M Y H:i:s T');
+    pg_query($dbconn, "REFRESH MATERIALIZED VIEW  changeset_country_view");
+    echo "\nREFRESH MATERIALIZED VIEW  changeset_country_view ".gmdate('D, d M Y H:i:s T');
+    $saveReport = time();
+  } 
+  else {
+    $saveReport = 0;
+  }
   if($icurrentMonth == "") {
     regenerateAllReports($res, $saveReport);
     return $res;
@@ -854,10 +866,10 @@ function getAllReports($eurValue = NULL, $btcValue = NULL) {
         }
         $iregion = $countries->rows[$i]->downloadname;
       }
-      $recipients = getRecipients($res->eurValue, $res->btc, false, $saveReport);
+      $recipients = getRecipients($res->eurValue, $res->btc, !$isCurrentMonth, $saveReport);
       for($t = 0; $t < count($recipients->rows); $t++) {
         $rt = $recipients->rows[$t];          
-        if($rt->btc < 0.001*0.01) {
+        if($rt->btc <= 0) {
           continue;
         }
         $rs = new stdClass();
@@ -873,9 +885,7 @@ function getAllReports($eurValue = NULL, $btcValue = NULL) {
     saveReport('getPayouts', $res->payouts, $imonth, '', $saveReport);
   }
       
-  
   return $res;
-
 }
 
 ?>
