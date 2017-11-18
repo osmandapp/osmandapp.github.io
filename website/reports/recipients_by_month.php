@@ -31,7 +31,7 @@ if(is_null(getReport('getBTCValue'))) {
                     "<div class='overview overview-btc'><p>"  .
                     number_format($res->regionBtc*1000, 3) . " mBTC</p><span>collected for {$visibleReg}</span></div>";
     $payouts = '';       
-    $transactions = json_decode(file_get_contents("transations.json"), true);
+    $transactions = json_decode(file_get_contents("transactions.json"), true);
     $transactionsMonth = $transactions[$res->month];
     if($transactionsMonth && $transactionsMonth->transactions) {
         $id = 1;
