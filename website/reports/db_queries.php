@@ -712,9 +712,9 @@ function getRecipients($eurValue = NULL, $btc = NULL, $useReport = true, $saveRe
         $rw->btc = 0;
       }
   }
-  if($saveReport >= 0) {
-    saveReport('getRecipients', $res, $imonth, $iregion, $saveReport);
-  }
+  //if($saveReport >= 0) {
+    //saveReport('getRecipients', $res, $imonth, $iregion, $saveReport);
+  //}
   return $res;
 }
 
@@ -813,11 +813,18 @@ function getAllReports($eurValue = NULL, $btcValue = NULL) {
 // ! [getBTCEurRate, getEurValue, getBTCValue] !
 // FINAL step: 
 // ! getRecipients - region (calculateRanking, getSupporters)
-  pg_query($dbconn, "REFRESH MATERIALIZED VIEW  changesets_view");
-  echo "\nREFRESH MATERIALIZED VIEW  changesets_view ".gmdate('D, d M Y H:i:s T');
-  pg_query($dbconn, "REFRESH MATERIALIZED VIEW  changeset_country_view");
-  echo "\nREFRESH MATERIALIZED VIEW  changeset_country_view ".gmdate('D, d M Y H:i:s T');
-  $saveReport = time();
+  $isCurrentMonth = $icurrentMonth == "" && $imonth == date("Y-m");
+  $saveReport;
+  if ($isCurrentMonth) {
+    pg_query($dbconn, "REFRESH MATERIALIZED VIEW  changesets_view");
+    echo "\nREFRESH MATERIALIZED VIEW  changesets_view ".gmdate('D, d M Y H:i:s T');
+    pg_query($dbconn, "REFRESH MATERIALIZED VIEW  changeset_country_view");
+    echo "\nREFRESH MATERIALIZED VIEW  changeset_country_view ".gmdate('D, d M Y H:i:s T');
+    $saveReport = time();
+  } 
+  else {
+    $saveReport = 0;
+  }
   if($icurrentMonth == "") {
     regenerateAllReports($res, $saveReport);
     return $res;
@@ -859,12 +866,12 @@ function getAllReports($eurValue = NULL, $btcValue = NULL) {
         }
         $iregion = $countries->rows[$i]->downloadname;
       }
-      $recipients = getRecipients($res->eurValue, $res->btc, false, $saveReport);
+      $recipients = getRecipients($res->eurValue, $res->btc, !$isCurrentMonth, $saveReport);
       for($t = 0; $t < count($recipients->rows); $t++) {
         $rt = $recipients->rows[$t];          
-        //if($rt->btc < 0.001*0.01) {
-          //continue;
-        //}
+        if($rt->btc <= 0) {
+          continue;
+        }
         $rs = new stdClass();
         array_push($res->payouts->payments, $rs);
         $rs->btc = $rt->btc;
@@ -879,42 +886,6 @@ function getAllReports($eurValue = NULL, $btcValue = NULL) {
   }
       
   return $res;
-}
-
-function generatePayoutReport($month) {
-  global $iregion, $imonth, $month, $dbconn, $icurrentMonth;
-  $res = new stdClass();
-  $countries = getCountries();
-  $res->payouts = new stdClass();
-  $res->payouts->payoutBTCAvailable = getBTCValue(0, 0);
-  $res->payouts->payoutEurAvailable = getEurValue(0);
-  $res->payouts->rate = getBTCEurRate();
-  $res->payouts->payoutTotal = 0;
-  $res->payouts->payments = array();
-  for($i = 0; $i < count($countries->rows); $i++) {
-      if($countries->rows[$i]->name == 'World') {
-          $iregion = '';
-      } else {
-        if($countries->rows[$i]->map == '0') {
-          continue;
-        }
-        $iregion = $countries->rows[$i]->downloadname;
-      }
-      $recipients = getRecipients(getEurValue(0), getBTCValue(0, 0), false, 0);
-      for($t = 0; $t < count($recipients->rows); $t++) {
-        $rt = $recipients->rows[$t];
-        if($rt->btc == 0) {
-          continue;
-        }          
-        $rs = new stdClass();
-        array_push($res->payouts->payments, $rs);
-        $rs->btc = $rt->btc;
-        $rs->osmid = $rt->osmid;
-        $rs->btcaddress = $rt->btcaddress;
-        $res->payouts->payoutTotal += $rt->btc;
-      }       
-  }
-  return $res;  
 }
 
 ?>
