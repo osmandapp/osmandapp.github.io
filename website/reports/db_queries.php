@@ -110,7 +110,7 @@ function getTotalReport() {
 }
 
 function saveReport($name, $value, $month, $region = NULL, $time = 0) {
-  global $dbconn;
+  global $dbconn, $imonth, $icurrentMonth;
   
   if(!is_scalar($value)){
     $value->date = $time > 0 ? $time : time();
