@@ -838,13 +838,8 @@ function getAllReports($eurValue = NULL, $btcValue = NULL) {
   }
   
   $countries = getCountries();
-  $res->payouts = new stdClass();
-  // $res->btc, $res->eurValue - NULL in case it is empty report 
-  $res->payouts->payoutBTCAvailable = $res->btc;
-  $res->payouts->payoutEurAvailable = $res->eurValue;
-  $res->payouts->rate = $res->rate;
-  $res->payouts->payoutTotal = 0;
-  $res->payouts->payments = array();
+  
+  // calculate recipients
   for($i = 0; $i < count($countries->rows); $i++) {
       if($countries->rows[$i]->name == 'World') {
           $iregion = '';
@@ -854,28 +849,52 @@ function getAllReports($eurValue = NULL, $btcValue = NULL) {
         }
         $iregion = $countries->rows[$i]->downloadname;
       }
-      $recipients = getRecipients($res->eurValue, $res->btc, false, $saveReport);
-      for($t = 0; $t < count($recipients->rows); $t++) {
-        $rt = $recipients->rows[$t];          
-        if($rt->btc < 0.001*0.01) {
+      getRecipients($res->eurValue, $res->btc, false, $saveReport);
+  }
+  $res->payouts = new stdClass();
+  $reportTime = -1;
+  if($eurValue != NULL) {
+    $reportTime = $saveReport;
+  }
+  calculatePayouts($res->payouts, $res->btc, $res->eurValue, $reportTime);
+  return $res;
+}
+
+function calculatePayouts($payouts, $btc, $eurValue, $saveReport) {
+  global $iregion, $imonth, $month, $dbconn;
+  // $res->btc, $res->eurValue - NULL in case it is empty report 
+  $payouts->payoutBTCAvailable = $btc;
+  $payouts->payoutEurAvailable = $eurValue;
+  if($btc > 0) {
+    $payouts->rate = $eurValue / $btc;
+  }
+  $payouts->payoutTotal = 0;
+  $payouts->payments = array();
+  for($i = 0; $i < count($countries->rows); $i++) {
+      if($countries->rows[$i]->name == 'World') {
+          $iregion = '';
+      } else {
+        if($countries->rows[$i]->map == '0') {
           continue;
         }
+        $iregion = $countries->rows[$i]->downloadname;
+      }
+      $recipients = getRecipients($eurValue, $btc);
+      for($t = 0; $t < count($recipients->rows); $t++) {
+        $rt = $recipients->rows[$t];          
         $rs = new stdClass();
-        array_push($res->payouts->payments, $rs);
+        array_push($payouts->payments, $rs);
         $rs->btc = $rt->btc;
         $rs->osmid = $rt->osmid;
         $rs->btcaddress = $rt->btcaddress;
-        $res->payouts->payoutTotal += $rt->btc;
+        $payouts->payoutTotal += $rt->btc;
       }       
   }
 
-  if($eurValue != NULL) {
-    saveReport('getPayouts', $res->payouts, $imonth, '', $saveReport);
+  if($saveReport >= 0) {
+    saveReport('getPayouts', $payouts, $imonth, '', $saveReport);
   }
-      
-  
-  return $res;
-
+  return $payouts;  
 }
 
 ?>
