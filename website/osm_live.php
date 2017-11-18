@@ -607,10 +607,7 @@
     var xhttp = new XMLHttpRequest();
     
     xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-       // Typical action to be performed when the document is ready:
-       responseText = xhttp.responseText;
-       $("#general-info").html("<h2>About OsmAnd Live</h2>" + 
+      var text = "<h2>About OsmAnd Live</h2>" + 
       "<p>OsmAnd heavily relies on OSM and its community. Honestly saying, OsmAnd wouldn't exist without that great community. "+
       "When we started implementing OsmAnd Live, we immediately decided that it should not be only a paid service, but a donation service as well. " +
       "Thinking that OsmAnd Live is only possible because thousands of edits every hour in many places of the world, we want to distribute a part of the income between OSM editors.</p>" +
@@ -620,22 +617,13 @@
       "<li> After Google and Bank deductions the whole sum is split into 2 parts (<strong>50% OsmAnd</strong> and <strong>50% Donations</strong>)"+
       "<li> All donations are exchanged into Bitcoin and distributed between OSM contributors according to their ranking."+
       "<li> Every OsmAnd user can select preferred donation region, in that case <strong>50% of donation</strong> will be distributed between editors of this region."+
-      "</ul><br> Please find all rankings and formulas in the reports on OsmAnd Live. Note that the sum less than 0.0001 BTC will be not be payed."+
-      "<p><br>Current processed OsmAnd Live date: <strong>"+ responseText+ " UTC </strong>")
+      "</ul><br> Please find all rankings and formulas in the reports on OsmAnd Live. Note that if the Bitcoin transaction cost exceeds 10% of the payment it not be payed immiediately, currently it is equal to 0.5 mBTC (price 1 mBtc/KB, tx size 0.05 KB). We plan soon to introduce cumulative report through all months, so all underpaid accounts will be paid if the threshold is exceeded.";
+      if (this.readyState == 4 && this.status == 200) {
+        // Typical action to be performed when the document is ready:
+         responseText = xhttp.responseText;
+          text = text +"<p><br>Current processed OsmAnd Live date: <strong>"+ responseText+ " UTC </strong>";
       }
-   else {
-      $("#general-info").html("<h2>About OsmAnd Live</h2>" + 
-      "<p>OsmAnd heavily relies on OSM and its community. Honestly saying, OsmAnd wouldn't exist without that great community. "+
-      "When we started implementation OsmAnd Live, we immediately decided that it should not be only a paid service, but a donation service as well. " +
-      "Thinking that OsmAnd Live is only possible because thousands of edits every hour in many places of the world, we want to distribute a part of the income between OSM editors.</p>" +
-      "<h3>How it works</h3><ul>" +
-      "<li> Every OSM contributor can be registered as a recipient. He just need to provide a valid Bitcoin address in the form below. " +
-      "<li> Every OsmAnd user who wants to get live updates needs to subscribe to that service. " +
-      "<li> After Google and Bank deductions the whole sum is split into 2 parts (<strong>50% OsmAnd</strong> and <strong>50% Donations</strong>)"+
-      "<li> All donations are exchanged into Bitcoin and distributed between OSM contributors according to their ranking."+
-      "<li> Every OsmAnd user can select preferred donation region, in that case <strong>50% of donation</strong> will be distributed between editors of this region."+
-      "</ul><br> Please find all rankings and formulas in the reports on OsmAnd Live. Note that the sum less than 0.0001 BTC will be not be payed.")
-   }
+      $("#general-info").html(text);
    };
    xhttp.open("GET", "/api/osmlive_status", true);
    xhttp.setRequestHeader('Content-Type', 'text/plain');
