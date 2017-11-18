@@ -130,7 +130,7 @@ function saveReport($name, $value, $month, $region = NULL, $time = 0) {
   $name = pg_escape_string($dbconn, $rw->name);
   $mn = pg_escape_string($dbconn, $rw->month);
   
-  if ($time == 0) {
+  if ($time == 0 && !($icurrentMonth == "" && $imonth == date("Y-m"))) {
     pg_query($dbconn, "delete from final_reports where month = '${mn}' and name = '${name}' and region = '${region}';");
     pg_query($dbconn, "insert into final_reports(month, region, name, report) 
       values('${mn}', '${region}', '${name}', '${content}');");
