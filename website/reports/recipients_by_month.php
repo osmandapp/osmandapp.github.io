@@ -35,7 +35,7 @@ if(is_null(getReport('getBTCValue'))) {
     $transactionsMonth = $transactions[$res->month];
     if($transactionsMonth && $transactionsMonth["transactions"]) {
         $id = 1;
-        foreach ($res->regions as $key) {
+        foreach ($transactionsMonth["transactions"] as $key) {
             $payouts = $payouts .  '<a href="https://blockchain.info/tx/'.$key.'">Transaction '.$id.'</a>';      
             $id = $id + 1;
         }
