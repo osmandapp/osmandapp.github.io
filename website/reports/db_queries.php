@@ -712,9 +712,9 @@ function getRecipients($eurValue = NULL, $btc = NULL, $useReport = true, $saveRe
         $rw->btc = 0;
       }
   }
-  //if($saveReport >= 0) {
-    //saveReport('getRecipients', $res, $imonth, $iregion, $saveReport);
-  //}
+  if($saveReport >= 0) {
+    saveReport('getRecipients', $res, $imonth, $iregion, $saveReport);
+  }
   return $res;
 }
 
