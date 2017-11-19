@@ -617,7 +617,7 @@
       "<li> After Google and Bank deductions the whole sum is split into 2 parts (<strong>50% OsmAnd</strong> and <strong>50% Donations</strong>)"+
       "<li> All donations are exchanged into Bitcoin and distributed between OSM contributors according to their ranking."+
       "<li> Every OsmAnd user can select preferred donation region, in that case <strong>50% of donation</strong> will be distributed between editors of this region."+
-      "</ul><br> Please find all rankings and formulas in the reports on OsmAnd Live. Note that if the Bitcoin transaction cost exceeds 10% of the payment it not be payed immiediately, currently it is equal to 0.5 mBTC (price 1 mBtc/KB, tx size 0.05 KB). We plan soon to introduce cumulative report through all months, so all underpaid accounts will be paid if the threshold is exceeded.";
+      "</ul><br> Please find all rankings and formulas in the reports on OsmAnd Live. Note that if the Bitcoin transaction cost exceeds 10% of the payment it not be payed immiediately, currently it is equal to 0.5 mBTC (price 1 mBtc/KB, tx size 0.05 KB). Cumulative report of non-paid transactions will be generated monthly on the recipients page. So all underpaid accounts will be paid if the total sum exceeds 10%-fee threshold.";
       if (this.readyState == 4 && this.status == 200) {
         // Typical action to be performed when the document is ready:
          responseText = xhttp.responseText;
