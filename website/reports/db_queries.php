@@ -838,9 +838,11 @@ function getAllReports($eurValue = NULL, $btcValue = NULL) {
   }
   
   $countries = getCountries();
-  
-  // calculate recipients
-  for($i = 0; $i < count($countries->rows); $i++) {
+  $reportTime = -1;
+  if($eurValue != NULL) {
+    $reportTime = $saveReport;
+    // calculate recipients
+    for($i = 0; $i < count($countries->rows); $i++) {
       if($countries->rows[$i]->name == 'World') {
           $iregion = '';
       } else {
@@ -849,13 +851,11 @@ function getAllReports($eurValue = NULL, $btcValue = NULL) {
         }
         $iregion = $countries->rows[$i]->downloadname;
       }
-      getRecipients($res->eurValue, $res->btc, false, $saveReport);
+      getRecipients($res->eurValue, $res->btc, false, $reportTime);
+    }
   }
   $res->payouts = new stdClass();
-  $reportTime = -1;
-  if($eurValue != NULL) {
-    $reportTime = $saveReport;
-  }
+  
   calculatePayouts($res->payouts, $res->btc, $res->eurValue, $reportTime);
   return $res;
 }
