@@ -59,11 +59,11 @@ function dwFile($filename,$query,$type) {
     if($type == "wiki" or $type == "" or $type == "road") {
       	$simple = true;
     }
-    $helpServers= array("212.47.229.82", "51.15.209.253");
-    $helpServersUS= array();
+    $helpServers = array("dl4.osmand.net", "dl5.osmand.net");
+    $helpServersUS = array("dl4.osmand.net", "dl5.osmand.net");
     $mainServers = array("dl2.osmand.net"); //  "dl3.osmand.net"
-    $mainServersLoad = 30;
-    $mainServersUSLoad = 100;
+    $mainServersLoad = 10;
+    $mainServersUSLoad = 10;
 
 
     $helpServersCount = count($helpServers);
