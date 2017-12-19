@@ -61,6 +61,7 @@
           <div class="acticlestitles">
             <h2>Latest articles</h2>
             <ul class="articlelinklist">
+              <li><a data-gatag='osmand-ios-2-0-released' href="/blog?id=osmand-ios-2-0-released" >OsmAnd 2.0 for iOS has been released</a></li>
               <li><a data-gatag='osmand-2-8-released' href="/blog?id=osmand-2-8-released" >OsmAnd 2.8</a></li>
               <li><a data-gatag='osmand-2-7-released' href="/blog?id=osmand-2-7-released" >OsmAnd 2.7</a></li>
               <li><a data-gatag='osmand-2-6-released' href="/blog?id=osmand-2-6-released" >OsmAnd 2.6</a></li>
