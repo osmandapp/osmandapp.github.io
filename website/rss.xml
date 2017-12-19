@@ -4,6 +4,21 @@
 <link>http://osmand.net/blog</link>
 <description/>
 <generator></generator>
+		<item>
+<title>OsmAnd 2.0 (iOS)</title>
+<link>http://osmand.net/blog?id=osmand-ios-2-0-released</link>
+<description>
+<p>New OsmAnd for the iOS platform has been released!</p>
+<h4>Navigation</h4>
+	<p>The app now offers navigation between two points. Creating routes is easy: just press the navigation button on the map screen or in the main menu, then select the starting point and the destination. After the route is created, press 'Go'.</p>
+<h4>New interface</h4>
+	<p>OsmAnd now has a new interface style with a minimalistic white and grey palette for your utmost comfort. The Settings menu now has 2 submenus allowing you to adjust general and navigation settings.</p>
+<h4>Widgets</h4>
+	<p>OsmAnd 2.0 now has the widget system similar to the one presented in the Android version. Go to 'Configure screen' menu to enable the ones that are relevant to you. Some of them only appear during navigation, like Destination, Arrival time, Speed limit, Speed, etc. Others stay on the map screen all the time. Those are Relative bearing, Altitude, Current time, Battery level.</p>
+<h4>Day and night map modes</h4>
+<p>We also added a new feature created to support eye comfort: the 'day' and 'night' modes of the map. The night mode has lower contrast and a darker theme to prevent eye strain. You can switch between the modes manually in Map > Application mode. The modes also switch automatically at the times of sunrise and sunset in your time zone.</p>
+</description>
+</item>
 	<item>
 <title>OsmAnd 2.8</title>
 <link>http://osmand.net/blog?id=osmand-2-8-released</link>
