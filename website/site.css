@@ -124,7 +124,7 @@ a::-moz-focus-inner {
   top: 0;
   bottom: 0;
   width: 100%;
-  background: #ededed url('images/header_image.jpg') center center no-repeat;
+  background: #ededed url('images/header_image_ny.jpg') center center no-repeat;
   background-size: cover;
 }
 
@@ -318,7 +318,7 @@ a::-moz-focus-inner {
 
 .simpleheader {
   color: #fff;
-  background: url('images/header_image.jpg') center top no-repeat;
+  background: url('images/header_image_ny.jpg') center top no-repeat;
   background-size: cover;
 }
 
