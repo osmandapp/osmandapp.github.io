@@ -182,7 +182,7 @@
               </div>
               <p class="input-hint">This bitcoin address will be used to transfer funds to.</p>
               <button type="submit" class="btn btn-default" id="register_osm_user">Register</button>
-              <p><b>Note:</b>1 user can be registered only once even if they have multiple OSM accounts.</p>
+              <p><b>Important:</b> Registration temporarily suspended. Read <a href="https://www.osmand.net/blog?id=osmand_payouts_suspended_01_2018">this article</a> for more information.</p>
             </form>
           </div>
           <div class="registration contributor-registration" id="contributor-register-div">
@@ -228,6 +228,7 @@
               <div id="recipients-data-info" class="infobox"></div>
             </div>
           </div>
+          <p><b>Important:</b> Registration temporarily suspended. Read <a href="https://www.osmand.net/blog?id=osmand_payouts_suspended_01_2018">this article</a> for more information.</p>
           <h4 class="vlabel" for="recipients-table" id="recipients-table-header">OSM Recipients</h4>
           <div class="table-controls recipients-controls hidden">
             <div class="tc search">
@@ -631,7 +632,7 @@
   }
   
   function handleRegisterOsm() {
-  
+
     $( "#register_osm" ).submit(function( event ) {
         event.preventDefault();
           if($("#bitcoin_addr").val() == "") {
@@ -671,6 +672,11 @@
     } 
   }
   $(document).ready(function(){
+    document.getElementById("osm_usr").disabled = true;
+    document.getElementById("osm_pwd").disabled = true;
+    document.getElementById("email").disabled = true;
+    document.getElementById("bitcoin_addr").disabled = true;
+    document.getElementById("register_osm_user").disabled = true;
     var currentTime = new Date();
     var month = currentTime.getMonth() + 1;
     var day = currentTime.getDate();
