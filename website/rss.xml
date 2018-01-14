@@ -5,6 +5,34 @@
 <description/>
 <generator></generator>
 		<item>
+<title>OsmAnd Live payouts suspended</title>
+<link>https://osmand.net/blog?id=osmand_payouts_suspended_01_2018</link>
+<description>
+<p>
+Hi All,
+Through 2 complete years we've been using Bitcoin to facilitate direct donations to mappers. Though it was always discussible idea whether it could work or not, I could say I'm happy how it was going. Last year something crazy started happening around Bitcoin and the price of it increased almost 10 times. Actually we've been mostly intersted in Bitcoin as a technology and not using it for speculative growth. Meanwhile Bitcoin popularity became a serious issue cause the transaction cost increased almost by 100 times. Last 3 months we were constantly working on implementing new features: to lower transaction fees, to find the direct time spot to send transactions, to prepare special rules and not to make payments where transaction fees where higher than transactions, but I should admit we temporarily failed. So we need to open discussion and come up with more stable approach.</p>
+<p>
+Today with price 100 satoshi per byte, the transaction fee (200 bytes to withdraw to stock + 100 bytes to send) is at least 5$. We follow the rule that transaction fee is not higher than 10% of the value and today no transaction could pass that threshold! I'm welcoming to comment on AltCoins and future payments here <a href="https://github.com/osmandapp/Osmand/issues/4871">Github #4871</a>. </p>
+<p>
+Another reason we need to postpone payouts is understanding our mapping community (KYM - Know your mapper). With increasing popularity of Bitcoin we noticed couple of fake accounts with fake edits. Of course 1 payout is quite small to do any crazy stuff but multiplying it by 10 by generating new OSM users, it makes the whole system vulnerable. Fortunately, we traced mostly fake users &amp; fake changes but harmless for OpenStreetMap! The solution we see is to identify our mappers signed by up by that program, after new program launch we will request more information about our users:</p>
+<ul class="textlist">
+<li>OSM User name </li>
+<li>Email (new, in order to send out emails about similar announcements)</li>
+<li>Phone number (to verify person uniqueness)</li>
+</ul>
+<p>I personally concerned that some mappers will not provide enough information and the payouts to them will be suspended even if they are producing the changes. I still believe that all changes are much more valuable than any payouts and participating the OpenStreetMap mapping game gives more fun, for us strict registration is an only way to maintain community 1200 registered OSM users.</p>
+<p>
+We think implementing new rules could take 1-2 months and this period payouts and registration will be frozen. Though we will accumulate for that period (likely in EUR and not BTC) and we will make payout once the platform launches.</p>
+<p>Happy Mapping!</p>
+<p>
+OsmAnd CEO,
+Victor Shcherb
+</p>
+</description>
+</item>
+
+
+		<item>
 <title>OsmAnd 2.0 (iOS)</title>
 <link>http://osmand.net/blog?id=osmand-ios-2-0-released</link>
 <description>
