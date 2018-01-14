@@ -1,6 +1,6 @@
 <?php
   if (empty($_GET['id'])) {
-    $_GET['id'] ="osmand-ios-2-0-released";
+    $_GET['id'] ="osmand_payouts_suspended_01_2018";
   } 
 ?>          
 <!DOCTYPE html>
@@ -61,6 +61,8 @@
           <div class="acticlestitles">
             <h2>Latest articles</h2>
             <ul class="articlelinklist">
+              .html
+              <li><a data-gatag='osmand-ios-2-0-released' href="/blog?id=osmand_payouts_suspended_01_2018" >OsmAnd Live payouts suspended</a></li>
               <li><a data-gatag='osmand-ios-2-0-released' href="/blog?id=osmand-ios-2-0-released" >OsmAnd 2.0 (iOS)</a></li>
               <li><a data-gatag='osmand-2-8-released' href="/blog?id=osmand-2-8-released" >OsmAnd 2.8</a></li>
               <li><a data-gatag='osmand-2-7-released' href="/blog?id=osmand-2-7-released" >OsmAnd 2.7</a></li>
