@@ -28,7 +28,7 @@
     </div>
   <?php } else { ?>
     <div class="header-caption">
-      <div class="headertext <?php if ($simpleheader_header_id == "MAIN") echo 'new-year' ?>"><?php echo $simpleheader_header ?></div>
+      <div class="headertext <?php if ($simpleheader_header_id == "MAIN") echo '' ?>"><?php echo $simpleheader_header ?></div>
       <?php if ($simpleheader_header_id == "MAIN") { ?>
         <div class="badges">
         <!-- https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png -->
