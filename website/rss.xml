@@ -4,6 +4,26 @@
 <link>http://osmand.net/blog</link>
 <description/>
 <generator></generator>
+	<item>
+<title>OsmAnd 2.9</title>
+<link>https://osmand.net/blog?id=osmand-2-9-released</link>
+<description>
+<p>
+OsmAnd 2.9 is here!</p>
+<h4>New context menu</h4>
+<p>
+From now on, you can easily view all the essential information about a point of interest. Opening hours are shown in a more intuitive format, for example: 'Open till 7:00'. Also, you'll be able to check all details (phone number of a facility, opening hours, website, etc.) by pressing the 'Description' button.</p>
+<h4>Transport routes</h4>
+<p>
+If you press on a transport stop, you'll see the information about the transport routes available at this particular stop. Color-coded icons at the top of the menu provide a list of routes, and if you scroll down, you'll see a fuller info about each of them.</p>
+<h4>Route preparation</h4>
+<p>Sometimes we get to our destination and then need to go back. This has just become much easier. Press the '⇅' button to instantly build a route in the opposite direction.</p>
+<h4>OSM Editing</h4>
+<p>Editing OpenStreetMap in OsmAnd has become even more convenient. Long tap on the map and select 'Actions' to add a new POI or leave a note to mappers. You'll also see the status of the points — Removed/Edited/Added.</p>
+<h4>New coordinate input</h4>
+<p>Searching for a point by its coordinates can be done in seconds. Just go to Map markers > More > 'Coordinate input' and enter the latitude and longitude. Name your marker for convenience. Also, the 'Options' button in 'Coordinate input' menu will help you adjust the format.</p>
+</description>
+</item>
 		<item>
 <title>OsmAnd Live payouts suspended</title>
 <link>https://osmand.net/blog?id=osmand_payouts_suspended_01_2018</link>
