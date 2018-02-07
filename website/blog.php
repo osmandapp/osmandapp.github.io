@@ -1,6 +1,6 @@
 <?php
   if (empty($_GET['id'])) {
-    $_GET['id'] ="osmand_payouts_suspended_01_2018";
+    $_GET['id'] ="osmand-2-9-released";
   } 
 ?>          
 <!DOCTYPE html>
