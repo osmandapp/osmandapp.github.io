@@ -21,6 +21,12 @@
         $simpleheader_header_id = "HELP";
         include 'blocks/simple_header.php';
       ?>
+      <div id="google_translate_element"></div><script type="text/javascript">
+          function googleTranslateElementInit() {
+          new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
+      }
+      </script>
+      <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
       <div class="articles">
         <div class="articlescontainer">
           <div class="article"><?php echo file_get_contents("help/".$_GET['id'].".html");?></div>
