@@ -23,13 +23,12 @@
       ?>
       <div class="articles">
         <div class="articlescontainer">
-          <div id="google_translate_element"></div><script type="text/javascript">
+          <div class="article"><div id="google_translate_element"></div><script type="text/javascript">
           function googleTranslateElementInit() {
           new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
           }
           </script>
-          <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-          <div class="article"><?php echo file_get_contents("help/".$_GET['id'].".html");?></div>
+          <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script><?php echo file_get_contents("help/".$_GET['id'].".html");?></div>
           <div class="article-menu-wrapper">
             <div class="modal-menu-button"></div>
             <div class="article-menu">
