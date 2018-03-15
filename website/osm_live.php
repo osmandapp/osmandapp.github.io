@@ -182,7 +182,14 @@
               </div>
               <p class="input-hint">This bitcoin address will be used to transfer funds to.</p>
               <button type="submit" class="btn btn-default" id="register_osm_user">Register</button>
-              <p><b>Important:</b> Registration temporarily suspended. Read <a href="https://www.osmand.net/blog?id=osmand_payouts_suspended_01_2018">this article</a> for more information.</p>
+              <p>By registering, <b>I accept the following:</b>
+              <ul>
+                <li>The payments made to mappers within OsmAnd Live project are considered donations for their contributions, not remuneration of labor;</li>
+                <li>OsmAnd is not obliged to make payments; the company can suspend payouts and/or remove accounts of certain users if their work is not beneficial to the project;</li>
+                <li>The project allows only 1 payment per 1 individual at a time;</li>
+                <li>The payments can be suspended in case of unexpected emergencies.</li>
+              </ul>
+              </p>
             </form>
           </div>
           <div class="registration contributor-registration" id="contributor-register-div">
