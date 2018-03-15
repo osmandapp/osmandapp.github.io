@@ -624,7 +624,7 @@ function getRecipients($eurValue = NULL, $btc = NULL, $useReport = true, $saveRe
   $result = pg_query($dbconn, "
     select distinct s.osmid, t.size changes,
     first_value(s.btcaddr) over (partition by osmid order by updatetime desc) btcaddr
-    from osm_recipients s left join 
+    from osm_recipients where s.btcaddr <> '' s left join 
     (select count(*) size, ch.username
       from changesets_view ch".
       ($regionName == ""? " where " : ", changeset_country_view cc where ch.id = cc.changesetid  and ").
