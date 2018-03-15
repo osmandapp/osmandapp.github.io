@@ -7,6 +7,9 @@
     return $needle === "" || strrpos($haystack, $needle, -strlen($haystack)) !== false;
   }	
   function checkAddress($address) {
+    if (strlen($address) == 0) {
+      return true;
+    }
     $origbase58 = $address;
     $dec = "0";
     for ($i = 0; $i < strlen($address); $i++)
