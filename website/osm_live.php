@@ -183,7 +183,7 @@
               <p class="input-hint">This bitcoin address will be used to transfer funds to.</p>
               <button type="submit" class="btn btn-default" id="register_osm_user">Register</button>
               <p style="font-size:15px;">By registering, <b>I accept the following:</b>
-              <ul>
+              <ul style="font-size:15px;">
                 <li>- The payments made to mappers within OsmAnd Live project are considered donations for their contributions, not remuneration for labor;</li>
                 <li>- OsmAnd is not obliged to make payments; the company can suspend payouts and/or remove accounts of certain users if their work is not beneficial to the project;</li>
                 <li>- The project allows only 1 payment per 1 individual at a time;</li>
