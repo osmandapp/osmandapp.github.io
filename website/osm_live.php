@@ -671,6 +671,11 @@
             $("#osm_register_failed").fadeIn(100);
             return;
           }
+          if (!$("#agree_osm_live").is(':checked')) {
+            $("#osm_register_failed").html("You must agree to the tems of use.");
+            $("#osm_register_failed").fadeIn(100);
+            return;
+          }
   
         $.post("subscription/register_osm.php", $("#register_osm").serialize(), function(res) {
             if (res == "OK") {
