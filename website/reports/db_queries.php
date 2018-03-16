@@ -631,8 +631,8 @@ function getRecipients($eurValue = NULL, $btc = NULL, $useReport = true, $saveRe
        " substr(ch.closed_at_day, 0, 8) = '${month}' ".
       ($regionName == "" ? "" :" and cc.countryid = (select id from countries where downloadname= '{$regionName}') ").
       " group by username) t 
-      on t.username = s.osmid ".
-      ($regionName == "" ? "" :" where t.size is not null ").
+      on t.username = s.osmid where btcaddr is not null and btcaddr <> '' ".
+      ($regionName == "" ? "" :" and t.size is not null ").
       " order by changes desc");
   if (!$result) {
     $res = new stdClass();
