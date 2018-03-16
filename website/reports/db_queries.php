@@ -631,8 +631,8 @@ function getRecipients($eurValue = NULL, $btc = NULL, $useReport = true, $saveRe
        " substr(ch.closed_at_day, 0, 8) = '${month}' ".
       ($regionName == "" ? "" :" and cc.countryid = (select id from countries where downloadname= '{$regionName}') ").
       " group by username) t 
-      on t.username = s.osmid where btcaddr is not null and btcaddr <> '' ".
-      ($regionName == "" ? "" :" and t.size is not null ").
+      on t.username = s.osmid".
+      ($regionName == "" ? "" :" where t.size is not null ").
       " order by changes desc");
   if (!$result) {
     $res = new stdClass();
@@ -665,16 +665,19 @@ function getRecipients($eurValue = NULL, $btc = NULL, $useReport = true, $saveRe
   $totalWeight = 0;
   while ($row = pg_fetch_row($result)) {
       $rw = new stdClass();
-      array_push($res->rows, $rw);
       $rw->osmid = $row[0];
       $rw->changes = $row[1];
       $rw->btcaddress = $row[2];
       $rw->rank = 0;
       $rw->weight = 0;
+      if(is_null($rw->btcaddress) or $rw->btcaddress == "" ) {
+        continue;
+      }
+      array_push($res->rows, $rw);
       $cnt ++;
       for ($i = 0; $i < count($ranking->rows) ; ++$i) {
         if(!is_null($rw->changes) and $rw->changes >= $ranking->rows[$i]->minChanges and 
-          $rw->changes <= $ranking->rows[$i]->maxChanges and !is_null($rw->btcaddress) and $rw->btcaddress != "" ) {
+          $rw->changes <= $ranking->rows[$i]->maxChanges ) {
           $rw->rank = $ranking->rows[$i]->rank;
           if($regionName == '') {
               $rw->weight = getRankingRange() + 1 - $rw->rank;
