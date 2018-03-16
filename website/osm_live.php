@@ -240,11 +240,6 @@
                 cursor: pointer;
               }
 
-              body.modal-open {
-                overflow: hidden;
-                position: fixed;
-              }
-
               .modal-header {
                 padding: 2px 16px;
                 background-color: #ff8f00;
