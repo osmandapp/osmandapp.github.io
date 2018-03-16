@@ -160,7 +160,7 @@
               <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> 
               You successfully registered as a recipient.
             </div>
-            <!--<form role="form" action="subscription/register_osm.php" method="post" id="register_osm">-->
+            <form role="form" action="subscription/register_osm.php" method="post" id="register_osm">
               <label for="osm_usr">OpenStreetMap nick name (not email):</label>
               <div class="input-holder input-user">
                 <input type="text" class="form-control" id="osm_usr" name="osm_usr">
@@ -186,18 +186,10 @@
                   <input type="checkbox" id="agree_osm_live" name="agree_osm_live">
                   <label for="agree_osm_live" class="agree_osm_live_label">I Agree with OSM Live program</label><a class="vlabel" id="myBtn"> rules.</a>
               </div>
-
-
               <button type="submit" class="btn btn-default" id="register_osm_user">Register</button>
-
               <p style="font-size:12px; line-height:1.3em; padding-top:20px">To update BTC address - follow the registration proccess, to delete account - enter empty BTC address.</p>
-
-              <style>
-             
-            </style>
             <!-- The Modal -->
             <div id="myModal" class="modal">
-
               <!-- Modal content -->
               <div class="modal-content">
                 <div class="modal-header">
