@@ -391,6 +391,22 @@ select:-moz-focusring {
 .recipient-registration .input-holder {
   position: relative;
 }
+
+#agree_osm_live {
+  margin-left: 5px;
+  margin-top: 3px;
+}
+.agree_osm_live_label {
+  position: relative;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 7px;
+  margin-bottom: 15px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
 .recipient-registration .input-holder:before {
   content: '';
   position: absolute;

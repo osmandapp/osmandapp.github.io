@@ -181,7 +181,16 @@
                 <input type="text" class="form-control" id="bitcoin_addr" name="bitcoin_addr">
               </div>
               <p class="input-hint">This bitcoin address will be used to transfer funds to.</p>
+              
+              <div class="input-agree">
+                  <input type="checkbox" id="agree_osm_live" name="agree_osm_live">
+                  <label for="agree_osm_live" class="agree_osm_live_label">I Agree with OSM Live program <a href="#rules">rules</a>.</label>
+              </div>
+
               <button type="submit" class="btn btn-default" id="register_osm_user">Register</button>
+
+              <p style="font-size:12px; line-height:1.3em; padding-top:20px">To update BTC address - follow the registration proccess, to delete account - enter empty BTC address.
+
               <p style="font-size:15px; padding-top:20px">By registering, <b>I accept the following:</b>
               <ul style="font-size:15px; line-height:1.3em;">
                 <li>- The payments made to mappers within OsmAnd Live project are considered donations for their contributions, not remuneration for labor;</li>
