@@ -624,7 +624,7 @@ function getRecipients($eurValue = NULL, $btc = NULL, $useReport = true, $saveRe
   $result = pg_query($dbconn, "
     select distinct s.osmid, t.size changes,
     first_value(s.btcaddr) over (partition by osmid order by updatetime desc) btcaddr
-    from osm_recipients where s.btcaddr <> '' s left join 
+    from osm_recipients s left join 
     (select count(*) size, ch.username
       from changesets_view ch".
       ($regionName == ""? " where " : ", changeset_country_view cc where ch.id = cc.changesetid  and ").
@@ -674,7 +674,7 @@ function getRecipients($eurValue = NULL, $btc = NULL, $useReport = true, $saveRe
       $cnt ++;
       for ($i = 0; $i < count($ranking->rows) ; ++$i) {
         if(!is_null($rw->changes) and $rw->changes >= $ranking->rows[$i]->minChanges and 
-          $rw->changes <= $ranking->rows[$i]->maxChanges) {
+          $rw->changes <= $ranking->rows[$i]->maxChanges and !is_null($rw->btcaddress) and $rw->btcaddress != "" ) {
           $rw->rank = $ranking->rows[$i]->rank;
           if($regionName == '') {
               $rw->weight = getRankingRange() + 1 - $rw->rank;
