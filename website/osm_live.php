@@ -160,7 +160,7 @@
               <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> 
               You successfully registered as a recipient.
             </div>
-            <form role="form" action="subscription/register_osm.php" method="post" id="register_osm">
+            <!--<form role="form" action="subscription/register_osm.php" method="post" id="register_osm">-->
               <label for="osm_usr">OpenStreetMap nick name (not email):</label>
               <div class="input-holder input-user">
                 <input type="text" class="form-control" id="osm_usr" name="osm_usr">
@@ -184,21 +184,112 @@
               
               <div class="input-agree">
                   <input type="checkbox" id="agree_osm_live" name="agree_osm_live">
-                  <label for="agree_osm_live" class="agree_osm_live_label">I Agree with OSM Live program <a href="#rules">rules</a>.</label>
+                  <label for="agree_osm_live" class="agree_osm_live_label">I Agree with OSM Live program</label><a class="vlabel" id="myBtn"> rules.</a>
               </div>
+
 
               <button type="submit" class="btn btn-default" id="register_osm_user">Register</button>
 
-              <p style="font-size:12px; line-height:1.3em; padding-top:20px">To update BTC address - follow the registration proccess, to delete account - enter empty BTC address.
+              <p style="font-size:12px; line-height:1.3em; padding-top:20px">To update BTC address - follow the registration proccess, to delete account - enter empty BTC address.</p>
 
-              <p style="font-size:15px; padding-top:20px">By registering, <b>I accept the following:</b>
-              <ul style="font-size:15px; line-height:1.3em;">
-                <li>- The payments made to mappers within OsmAnd Live project are considered donations for their contributions, not remuneration for labor;</li>
-                <li>- OsmAnd is not obliged to make payments; the company can suspend payouts and/or remove accounts of certain users if their work is not beneficial to the project;</li>
-                <li>- The project allows only 1 payment per 1 individual at a time;</li>
-                <li>- The payments can be suspended in case of unexpected emergencies.</li>
-              </ul>
-              </p>
+              <style>
+              body {font-family: Arial, Helvetica, sans-serif;}
+
+              /* The Modal (background) */
+              .modal {
+                display: none; /* Hidden by default */
+                position: fixed; /* Stay in place */
+                z-index: 1; /* Sit on top */
+                left: 0;
+                top: 0;
+                width: 100%; /* Full width */
+                height: 100%; /* Full height */
+                overflow: auto; /* Enable scroll if needed */
+                background-color: rgb(0,0,0); /* Fallback color */
+                background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+                -webkit-animation-name: fadeIn; /* Fade in the background */
+                -webkit-animation-duration: 0.4s;
+                animation-name: fadeIn;
+                animation-duration: 0.4s
+              }
+
+              /* Modal Content */
+              .modal-content {
+                position: fixed;
+                bottom: 0;
+                background-color: #fefefe;
+                width: 100%;
+                -webkit-animation-name: slideIn;
+                -webkit-animation-duration: 0.4s;
+                animation-name: slideIn;
+                animation-duration: 0.4s
+              }
+
+              /* The Close Button */
+              .close {
+                color: white;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+              }
+
+              .close:hover,
+              .close:focus {
+                color: #000;
+                text-decoration: none;
+                cursor: pointer;
+              }
+
+              .modal-header {
+                padding: 2px 16px;
+                background-color: #ff8f00;
+                color: white;
+              }
+
+              .modal-body {padding: 2px 16px;}
+
+              /* Add Animation */
+              @-webkit-keyframes slideIn {
+                from {bottom: -300px; opacity: 0} 
+                to {bottom: 0; opacity: 1}
+              }
+
+              @keyframes slideIn {
+                from {bottom: -300px; opacity: 0}
+                to {bottom: 0; opacity: 1}
+              }
+
+              @-webkit-keyframes fadeIn {
+                from {opacity: 0} 
+                to {opacity: 1}
+              }
+
+              @keyframes fadeIn {
+                from {opacity: 0} 
+                to {opacity: 1}
+              }
+            </style>
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+              <!-- Modal content -->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <span class="close">&times;</span>
+                  <h2>Program Rules</h2>
+                </div>
+                <div class="modal-body">
+                  <p style="font-size:15px; padding-top:20px">By registering, <b>you accept the following:</b>
+                    <ul style="font-size:15px; line-height:1.3em;">
+                      <li>- The payments made to mappers within OsmAnd Live project are considered donations for their contributions, not remuneration for labor;</li>
+                      <li>- OsmAnd is not obliged to make payments; the company can suspend payouts and/or remove accounts of certain users if their work is not beneficial to the project;</li>
+                      <li>- The project allows only 1 payment per 1 individual at a time;</li>
+                      <li>- The payments can be suspended in case of unexpected emergencies.</li>
+                    </ul>
+                  </p>
+                </div>
+              </div>
+            </div>
             </form>
           </div>
           <div class="registration contributor-registration" id="contributor-register-div">
@@ -272,6 +363,32 @@
   </div>
 </div>
 <script>
+
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
   $.urlParam = function(name){
       var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
       if (results==null){
@@ -659,7 +776,7 @@
   
   function handleRegisterOsm() {
 
-    $( "#register_osm" ).submit(function( event ) {
+    $("#register_osm_user").click(function( event ) {
         event.preventDefault();
           // if($("#bitcoin_addr").val() == "") {
           //   $("#osm_register_failed").html("Please specify correct bitcoin address");
