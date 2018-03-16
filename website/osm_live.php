@@ -193,81 +193,7 @@
               <p style="font-size:12px; line-height:1.3em; padding-top:20px">To update BTC address - follow the registration proccess, to delete account - enter empty BTC address.</p>
 
               <style>
-              body {font-family: Arial, Helvetica, sans-serif;}
-
-              /* The Modal (background) */
-              .modal {
-                display: none; /* Hidden by default */
-                position: fixed; /* Stay in place */
-                z-index: 1; /* Sit on top */
-                left: 0;
-                top: 0;
-                width: 100%; /* Full width */
-                height: 100%; /* Full height */
-                overflow: auto; /* Enable scroll if needed */
-                background-color: rgb(0,0,0); /* Fallback color */
-                background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-                -webkit-animation-name: fadeIn; /* Fade in the background */
-                -webkit-animation-duration: 0.4s;
-                animation-name: fadeIn;
-                animation-duration: 0.4s
-              }
-
-              /* Modal Content */
-              .modal-content {
-                position: fixed;
-                bottom: 0;
-                background-color: #fefefe;
-                width: 100%;
-                -webkit-animation-name: slideIn;
-                -webkit-animation-duration: 0.4s;
-                animation-name: slideIn;
-                animation-duration: 0.4s
-              }
-
-              /* The Close Button */
-              .close {
-                color: white;
-                float: right;
-                font-size: 28px;
-                font-weight: bold;
-              }
-
-              .close:hover,
-              .close:focus {
-                color: #000;
-                text-decoration: none;
-                cursor: pointer;
-              }
-
-              .modal-header {
-                padding: 2px 16px;
-                background-color: #ff8f00;
-                color: white;
-              }
-
-              .modal-body {padding: 2px 16px;}
-
-              /* Add Animation */
-              @-webkit-keyframes slideIn {
-                from {bottom: -300px; opacity: 0} 
-                to {bottom: 0; opacity: 1}
-              }
-
-              @keyframes slideIn {
-                from {bottom: -300px; opacity: 0}
-                to {bottom: 0; opacity: 1}
-              }
-
-              @-webkit-keyframes fadeIn {
-                from {opacity: 0} 
-                to {opacity: 1}
-              }
-
-              @keyframes fadeIn {
-                from {opacity: 0} 
-                to {opacity: 1}
-              }
+             
             </style>
             <!-- The Modal -->
             <div id="myModal" class="modal">
@@ -275,7 +201,7 @@
               <!-- Modal content -->
               <div class="modal-content">
                 <div class="modal-header">
-                  <span class="close">&times;</span>
+                  <span class="close-params">&times;</span>
                   <h2>Program Rules</h2>
                 </div>
                 <div class="modal-body">
@@ -371,7 +297,7 @@ var modal = document.getElementById('myModal');
 var btn = document.getElementById("myBtn");
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+var span = document.getElementsByClassName("close-params")[0];
 
 // When the user clicks the button, open the modal 
 btn.onclick = function() {
