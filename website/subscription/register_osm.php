@@ -60,7 +60,7 @@
     $bitcoin = pg_escape_string($dbconn, $_POST["bitcoin_addr"]);
 //    $email = "";
     $time = time() * 1000;
-    $basic = base64_encode($osm_usr.":".$osm_pwd);
+    $basic = base64_encode(urlencode($osm_usr).":".$osm_pwd);
     $options = array(
           'http' => array(
               'header'  => "Content-type: application/x-www-form-urlencoded\r\nAuthorization: Basic {$basic}",
