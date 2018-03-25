@@ -56,7 +56,7 @@
     $osm_usr = pg_escape_string($dbconn, $_POST["osm_usr"]);
     $ind = strpos($osm_usr, '\'');
     if ($ind != false) {
-       // $osm_usr = substr($osm_usr ,0 , $ind)."%27".substr($osm_usr, $ind + 2);
+       $osm_usr = substr($osm_usr ,0 , $ind).substr($osm_usr, $ind + 1);
        echo $osm_usr;
     }
     $osm_pwd = pg_escape_string($dbconn, $_POST["osm_pwd"]);
