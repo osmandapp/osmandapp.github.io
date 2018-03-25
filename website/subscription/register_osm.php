@@ -55,8 +55,9 @@
 
     $osm_usr = pg_escape_string($dbconn, $_POST["osm_usr"]);
     $ind = strpos($osm_usr, '\'');
+    $fixedUname = NULL;
     if ($ind != false) {
-       $osm_usr = substr($osm_usr ,0 , $ind).substr($osm_usr, $ind + 1);
+       $fixedUname = substr($osm_usr ,0 , $ind).substr($osm_usr, $ind + 1);
        echo $osm_usr;
     }
     $osm_pwd = pg_escape_string($dbconn, $_POST["osm_pwd"]);
@@ -65,7 +66,7 @@
     $bitcoin = pg_escape_string($dbconn, $_POST["bitcoin_addr"]);
 //    $email = "";
     $time = time() * 1000;
-    $basic = base64_encode($osm_usr.":".$osm_pwd);
+    $basic = $fixedUname == NULL ? base64_encode($osm_usr.":".$osm_pwd) : base64_encode($fixedUname.":".$osm_pwd);
     $options = array(
           'http' => array(
               'header'  => "Content-type: application/x-www-form-urlencoded\r\nAuthorization: Basic {$basic}",
