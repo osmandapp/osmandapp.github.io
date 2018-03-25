@@ -219,7 +219,7 @@
             <h5 class="vlabel">Donate without any extra charges:</h5>
             <p>If you want to donate without any extra charges and directly to OSM contributors please transfer funds to this Bitcoin address</p>
             <div class="btc-address">1GRgEnKujorJJ9VBa76g8cp3sfoWtQqSs4</div>
-            <p>The payouts are distributed based on the ranking which is available in OSM Contributions tab, th last ranking has weight&nbsp;=&nbsp;1, the ranking before the last has weight&nbsp;=&nbsp;2 and so on till the 1st ranking.</p>
+            <p>The payouts are distributed based on the ranking which is available in OSM Contributions tab, the last ranking has weight&nbsp;=&nbsp;1, the ranking before the last has weight&nbsp;=&nbsp;2 and so on till the 1st ranking.</p>
           </div>
           <div class="full-width-banner">
             <img src="images/Info_landscape.png" alt="">

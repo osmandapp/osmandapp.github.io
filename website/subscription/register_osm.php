@@ -54,6 +54,11 @@
   	$dbconn = db_conn();
 
     $osm_usr = pg_escape_string($dbconn, $_POST["osm_usr"]);
+    $ind = strpos($osm_usr, '\'';
+    if ($ind != false) {
+       $osm_usr = substr($osm_usr ,0 , $ind - 1)."\\".substr($osm_usr , $ind - 1);
+       echo $osm_usr;
+    }
     $osm_pwd = pg_escape_string($dbconn, $_POST["osm_pwd"]);
     $email = pg_escape_string($dbconn, $_POST["email"]);	  
 	  
