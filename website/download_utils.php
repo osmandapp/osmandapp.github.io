@@ -122,10 +122,14 @@ function loadIndexesFromDir($output, $outputIndexes, $dir, $elementName, $ftype)
     				continue;
 				}
 
-				if(endsWith($file, ".sqlitedb") or endsWith($file, ".sqlite")) {
+				if(endsWith($file, ".sqlitedb")) {
 					$date= date('d.m.Y',filemtime($filename));
 					$timestamp = filemtime($filename);
 					$description = str_replace("_", " ", substr($file, 0, -9));
+				} else if(endsWith($file, ".sqlite")) {
+					$date= date('d.m.Y',filemtime($filename));
+					$timestamp = filemtime($filename);
+					$description = str_replace("_", " ", substr($file, 0, -7));
 				} else {
 					if ($zip->open($filename,ZIPARCHIVE::CHECKCONS)!==TRUE) {
 						// echo exit("cannot open <$filename>\n");
