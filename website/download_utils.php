@@ -122,7 +122,7 @@ function loadIndexesFromDir($output, $outputIndexes, $dir, $elementName, $ftype)
     				continue;
 				}
 
-				if(endsWith($file, ".sqlitedb")) {
+				if(endsWith($file, ".sqlitedb") or endsWith($file, ".sqlite")) {
 					$date= date('d.m.Y',filemtime($filename));
 					$timestamp = filemtime($filename);
 					$description = str_replace("_", " ", substr($file, 0, -9));

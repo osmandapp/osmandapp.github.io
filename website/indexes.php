@@ -78,6 +78,18 @@
     }
   }     
 ?>
+<h1><?php echo "Table of wikivoyage hosted on osmand.net"; ?></h1>
+<table border="1">
+<?php
+   $res = $xpath->query('//wikivoyage');
+   if($res && $res->length > 0) {
+    foreach($res as $node) {
+      if (file_exists('wikivoyage/'.$node->getAttribute('name'))) {
+            printNode($node);
+      }
+    }
+  }     
+?>
 </table>
 </body>
 </html>
