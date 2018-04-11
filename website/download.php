@@ -66,10 +66,10 @@ use UnitedPrototype\GoogleAnalytics;
     dwFile('wiki/'.$file, 'wiki=yes&file='.$file, "wiki");
  } else if(isset($_GET['hillshade'])){
     dwFile('hillshade/'.$file, 'hillshade=yes&file='.$file, "hillshade");
- } else if(isset($_GET['tour'])){
-    dwFile('tours/'.$file, 'tour=yes&file='.$file, "tour");
  } else if(isset($_GET['inapp'])){
     dwFile('indexes/inapp/'.$_GET['inapp'].'/'.$file, 'inapp='.$_GET['inapp'].'&file='.$file, "inapp");   
+ } else if(isset($_GET['wikivoyage'])){
+    dwFile('wiki/'.$file, 'wikivoyage=yes&file='.$file, "wikivoyage");
  } else if(isset($_GET['fonts'])){
     dwFile('indexes/fonts/'.$file, 'fonts=yes&file='.$file, "fonts");      
  } else if (count($res) > 0) {

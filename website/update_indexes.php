@@ -35,6 +35,7 @@ function updateIndexes($update=false) {
     loadIndexesFromDir($output, $outputIndexes, 'indexes/inapp/depth/', 'inapp', 'depth');
 
     loadIndexesFromDir($output, $outputIndexes, 'wiki/', 'wiki', 'wikimap');
+    loadIndexesFromDir($output, $outputIndexes, 'wikivoyage/', 'wikivoyage', 'wikivoyage');
     loadIndexesFromDir($output, $outputIndexes, 'road-indexes/', 'road_region', 'road_map');
     loadIndexesFromDir($output, $outputIndexes, 'srtm-countries/', 'srtmcountry', 'srtm_map');
     loadIndexesFromDir($output, $outputIndexes, 'hillshade/', 'hillshade', 'hillshade');
