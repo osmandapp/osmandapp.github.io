@@ -5,6 +5,23 @@
 <description/>
 <generator></generator>
 	<item>
+<title>OsmAnd 2.1 (iOS)</title>
+<link>http://osmand.net/blog?id=osmand-ios-2-1-released</link>
+<description>
+<p>OsmAnd 2.1 is now available!</p>
+<h4>New context menu</h4>
+<p>The context menu of a point has been updated to a new convenient design. Also, it now shows Wikipedia articles about the nearby objects. A great feature for travelers.</p>
+<h4>Intermediate waypoints</h4>
+<p>
+Navigation routes became the number one feature of the last release. This time, we're adding the ability to add intermediate waypoints along the route. Now you can plan your entire route for the day at once instead of making a new one after every stop.
+To try it, build a route, then make a long tap on the map and choose 'Route'.</p>
+<h4>Navigation features</h4>
+<p>We added several updates related to navigation. First, OsmAnd now offers the widget that shows you an optimal lane for your current position on the route. The app also shows you important alarms: speed limit. etc., in the lower-left corner of the map screen. Also, the new version of OsmAnd helps you avoid certain roads during navigation. You may know that there's bad road quality or that road is stuck in traffic at the moment. Select to avoid that road by pressing the settings button in the navigation context menu and going to Avoid roads > Select on map. Then tap on the street you'd like to avoid. To stop avoiding that street, please press on the road works sign and choose 'Dismiss'.</p>
+<h4>Contour lines color</h4>
+<p>Using contour lines for hiking or just to get information about the area? Select the color that is convenient to you in Map > Contour lines color scheme.</p>
+</description>
+</item>
+	<item>
 <title>OsmAnd 2.9</title>
 <link>https://osmand.net/blog?id=osmand-2-9-released</link>
 <description>
