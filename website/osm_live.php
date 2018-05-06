@@ -253,7 +253,7 @@
               <div id="recipients-data-info" class="infobox"></div>
             </div>
           </div>
-          <p><b>Important:</b> Registration temporarily suspended. Read <a href="https://www.osmand.net/blog?id=osmand_payouts_suspended_01_2018">this article</a> for more information.</p>
+<!--          <p><b>Important:</b> Registration temporarily suspended. Read <a href="https://www.osmand.net/blog?id=osmand_payouts_suspended_01_2018">this article</a> for more information.</p> -->
           <h4 class="vlabel" for="recipients-table" id="recipients-table-header">OSM Recipients</h4>
           <div class="table-controls recipients-controls hidden">
             <div class="tc search">
