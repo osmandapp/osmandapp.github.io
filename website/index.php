@@ -33,7 +33,7 @@
     <div class="featurescontainer">
       <div class="featureblock">  
         <div class="featureblocktitle feature-nav"> 
-          <h2>Navigation <span class="warning">(Android only)</span></h2>
+          <h2>Navigation</h2>
         </div>
         <ul class="categorydescription">
           <li>Works totally offline (no roaming charges when you are abroad) but also has a (fast) online option </li>
@@ -149,7 +149,7 @@
         </div>
         <div class="signature">
           <div class="name">Michelle Ann Levine</div>
-          <div class="source">Play Market</div>
+          <div class="source">Google Play</div>
         </div>
       </div>
       
@@ -159,7 +159,7 @@
         </div>
         <div class="signature">
           <div class="name">Fran&#231;ois-Xavier Thomas</div>
-          <div class="source">Play Market</div>
+          <div class="source">Google Play</div>
         </div>
       </div>
 
@@ -179,7 +179,7 @@
         </div>
         <div class="signature">
           <div class="name">Sonny Lacanlale</div>
-          <div class="source">Play Market</div>
+          <div class="source">Google Play</div>
         </div>
       </div>
       
@@ -189,7 +189,7 @@
         </div>
         <div class="signature">
           <div class="name">Jan Igerud</div>
-          <div class="source">Play Market</div>
+          <div class="source">Google Play</div>
         </div>
       </div>
 
