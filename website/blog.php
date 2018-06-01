@@ -78,7 +78,7 @@
               <li><a data-gatag='osmand-2-4-released' href="/blog?id=osmand-2-4-released" >OsmAnd 2.4</a></li>
               <li><a data-gatag='osmand_videos' href="/blog?id=osmand_videos" >OsmAnd Videos</a></li>
               <li><a data-gatag='api_demo' href="/blog?id=api_demo" >OsmAnd API Demo</a></li>
-              <li><a data-gatag='osm-live' href="/blog?id=osm-live" >OSM Live</a></li>
+              <li><a data-gatag='osm-live' href="/blog?id=osm-live" >OsmAnd Live</a></li>
               <li><a data-gatag='osmand-2-3-released' href="/blog?id=osmand-2-3-released" >OsmAnd 2.3</a></li>
               <li><a data-gatag='osmand_google_comparison' href="/blog?id=osmand_google_comparison" >Google maps vs. OsmAnd maps  & navigation</a></li>
               <li><a data-gatag='osmand-2-2-released' href="/blog?id=osmand-2-2-released" >OsmAnd 2.2</a></li>
