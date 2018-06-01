@@ -61,6 +61,7 @@
           <div class="acticlestitles">
             <h2>Latest articles</h2>
             <ul class="articlelinklist">
+              <li><a data-gatag='8-years' href="/blog?id=8-years">OsmAnd turns 8</a></li>
               <li><a data-gatag='osmand-3-0-released' href="/blog?id=osmand-3-0-released">OsmAnd 3.0</a></li>
               <li><a data-gatag='osmand-ios-2-1-released' href="/blog?id=osmand-ios-2-1-released">OsmAnd 2.1 (iOS)</a></li>
               <li><a data-gatag='osmand-2-9-released' href="/blog?id=osmand-2-9-released">OsmAnd 2.9</a></li>
