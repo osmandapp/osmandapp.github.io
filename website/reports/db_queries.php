@@ -901,4 +901,10 @@ function calculatePayouts($payouts, $btc, $eurValue, $saveReport) {
   return $payouts;  
 }
 
+function insertIntoUnsubscribed($email, $channel) {
+  $timestamp = time();
+  pg_query($dbconn, "insert into email_unsubscribed(email, channel, timestamp) 
+      values('${email}', '${channel}', $time );");
+}
+
 ?>
