@@ -907,8 +907,8 @@ function insertIntoUnsubscribed($email, $channel) {
   $timestamp = time();
   
   pg_query($dbconn, "INSERT INTO email_unsubscribed(email, channel, timestamp) 
-     VALUES('${email}', '${channel}', $timestamp);");
-   
+    SELECT '${email}', '${channel}', $timestamp 
+    WHERE NOT EXISTS (SELECT  FROM email WHERE email='${email}');");
 }
 
 ?>
