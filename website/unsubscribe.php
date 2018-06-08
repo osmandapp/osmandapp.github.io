@@ -1,6 +1,12 @@
 <?php
 include 'reports/db_queries.php';
-insertIntoUnsubscribed(base64_decode( urldecode( $_GET["id"] ) ), $_GET["group"]);
+if($_SERVER['SERVER_NAME'] != 'builder.osmand.net') {
+  file_get_contents("http://builder.osmand.net/unsubscribe?id=".$_GET["id"]."&group=".$_GET["group"]);
+}
+else
+{
+  insertIntoUnsubscribed(base64_decode( urldecode( $_GET["id"] ) ), $_GET["group"]);
+}
 
 ?>
 
