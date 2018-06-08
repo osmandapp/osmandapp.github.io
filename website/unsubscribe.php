@@ -6,7 +6,8 @@ ini_set('display_errors', 1);
         insertIntoUnsubscribed(base64_decode( urldecode( $_GET["id"] ) ), $_GET["group"]);
     }
     else {
-        file_get_contents("http://builder.osmand.net/unsubscribe?".$_SERVER['QUERY_STRING']);
+        $ctx = stream_context_create(array('http'=> array('timeout' => 600)  ));
+        file_get_contents("http://builder.osmand.net/unsubscribe?".$_SERVER['QUERY_STRING'], false, $ctx);
     }
 ?>
 
