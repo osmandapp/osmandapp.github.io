@@ -5,6 +5,15 @@
 <description/>
 <generator></generator>
 	<item>
+<title>Travel guides in OsmAnd</title>
+<link>http://osmand.net/blog?id=travel</link>
+<description>
+<p>We always strived to make OsmAnd not just your navigator, but your all-around travel guide. That's why, in version 3.0, the 'Travel guides' option has been added.</p>
+<p>To start using the feature, please go to OsmAnd > 'Travel guides' and enter the name of the city into the search field. As soon as you open the article, you'll see the information on topics like 'Understand' 'Talk', 'Get in', 'Get Around', etc. </p>
+<p>Besides the city guides, you can read about regions or countries, and even scroll through special guides like the list of UNESCO Global Geoparks Network or even a phrasebook of a country you're visiting.</p>
+</description>
+</item>
+	<item>
 <title>OsmAnd turns 8!</title>
 <link>http://osmand.net/blog?id=8-years</link>
 <description>
