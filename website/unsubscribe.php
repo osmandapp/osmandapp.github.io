@@ -1,8 +1,8 @@
 <?php
-include 'reports/db_queries.php';
-    error_reporting(E_ALL);
+error_reporting(E_ALL);
 ini_set('display_errors', 1);
     if($_SERVER['SERVER_NAME'] == 'builder.osmand.net') {
+        include 'reports/db_queries.php';
         insertIntoUnsubscribed(base64_decode( urldecode( $_GET["id"] ) ), $_GET["group"]);
     }
     else {
