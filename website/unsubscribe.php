@@ -7,7 +7,7 @@ ini_set('display_errors', 1);
     }
     else {
         $ctx = stream_context_create(array('http'=> array('timeout' => 600)  ));
-        echo file_get_contents("http://builder.osmand.net/unsubscribe?".$_SERVER['QUERY_STRING'], false, $ctx);
+        file_get_contents("http://builder.osmand.net/unsubscribe?".$_SERVER['QUERY_STRING'], false, $ctx);
     }
 ?>
 
