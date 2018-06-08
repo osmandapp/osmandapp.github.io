@@ -913,7 +913,7 @@ function insertIntoUnsubscribed($email, $channel) {
 
 function removeFromUnsubscribed($email) {
   global $dbconn; 
-  pg_query($dbconn, "DELETE FROM email_unsubscribed WHERE email='${email}');");
+  pg_query($dbconn, "DELETE FROM email_unsubscribed WHERE email='${email}';");
 }
 
 ?>
