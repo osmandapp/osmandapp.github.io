@@ -3,7 +3,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
     if($_SERVER['SERVER_NAME'] == 'builder.osmand.net') {
         include 'reports/db_queries.php';
-        removeFromUnsubscribed(base64_decode( urldecode( $_GET["id"] ) ) );
+        removeFromUnsubscribed(base64_decode( urldecode( $_GET["id"] ) ), $_GET["group"]);
     }
     else {
         $ctx = stream_context_create(array('http'=> array('timeout' => 600)  ));
