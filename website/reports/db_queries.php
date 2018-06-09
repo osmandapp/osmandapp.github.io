@@ -911,9 +911,9 @@ function insertIntoUnsubscribed($email, $channel) {
     WHERE NOT EXISTS (SELECT email FROM email_unsubscribed WHERE email='${email}' AND channel='${channel}');");
 }
 
-function removeFromUnsubscribed($email) {
+function removeFromUnsubscribed($email, $channel) {
   global $dbconn; 
-  pg_query($dbconn, "DELETE FROM email_unsubscribed WHERE email='${email}';");
+  pg_query($dbconn, "DELETE FROM email_unsubscribed WHERE email='${email}' AND channel='${channel}';");
 }
 
 ?>
