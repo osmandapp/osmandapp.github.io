@@ -1,6 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
+if (!empty($_SERVER['QUERY_STRING'])) {
     if($_SERVER['SERVER_NAME'] == 'builder.osmand.net') {
         include 'reports/db_queries.php';
         insertIntoUnsubscribed(base64_decode( urldecode( $_GET["id"] ) ), $_GET["group"]);
@@ -9,6 +10,7 @@ ini_set('display_errors', 1);
         $ctx = stream_context_create(array('http'=> array('timeout' => 600)  ));
         file_get_contents("http://builder.osmand.net/unsubscribe?".$_SERVER['QUERY_STRING'], false, $ctx);
     }
+}
 ?>
 
 <div style="width:75%; margin: auto; padding-top: 2%; background:#ffffff;">
