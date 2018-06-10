@@ -1,14 +1,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>OsmAnd blog</title>
-		<link>http://osmand.net/blog</link>
+		<link>https://osmand.net/blog</link>
 		<atom:link href="https://osmand.net/rss.xml" rel="self" type="application/rss+xml" />
 		<description/>
 		<generator></generator>
 		<item>
 			<title>Travel guides in OsmAnd</title>
-			<link>http://osmand.net/blog?id=travel</link>
-			<guid isPermaLink="true">http://osmand.net/blog?id=travel</guid>
+			<link>https://osmand.net/blog?id=travel</link>
+			<guid isPermaLink="true">https://osmand.net/blog?id=travel</guid>
 			<description><![CDATA[
 				<p>We always strived to make OsmAnd not just your navigator, but your all-around travel guide. That's why, in version 3.0, the 'Travel guides' option has been added.</p>
 				<p>To start using the feature, please go to OsmAnd > 'Travel guides' and enter the name of the city into the search field. As soon as you open the article, you'll see the information on topics like 'Understand' 'Talk', 'Get in', 'Get Around', etc. </p>
@@ -18,8 +18,8 @@
 		</item>
 		<item>
 			<title>OsmAnd turns 8!</title>
-			<link>http://osmand.net/blog?id=8-years</link>
-			<guid isPermaLink="true">http://osmand.net/blog?id=8-years</guid>
+			<link>https://osmand.net/blog?id=8-years</link>
+			<guid isPermaLink="true">https://osmand.net/blog?id=8-years</guid>
 			<description><![CDATA[
 				<p>Thank you for being with us, for supporting the project and helping us grow. We're happy to share this journey with you.</p>
 				<p>But how did it all begin? Let's take a walk down the memory lane to remember the main OsmAnd milestones.</p>
@@ -29,8 +29,8 @@
 		</item>
 		<item>
 			<title>OsmAnd 3.0</title>
-			<link>http://osmand.net/blog?id=osmand-3-0-released</link>
-			<guid isPermaLink="true">http://osmand.net/blog?id=osmand-3-0-released</guid>
+			<link>https://osmand.net/blog?id=osmand-3-0-released</link>
+			<guid isPermaLink="true">https://osmand.net/blog?id=osmand-3-0-released</guid>
 			<description><![CDATA[
 				<p>OsmAnd has reached the 3.0 milestone!</p>
 				<h4>Travel menu and WikiVoyage</h4>
@@ -51,8 +51,8 @@
 		</item>
 		<item>
 			<title>OsmAnd 2.1 (iOS)</title>
-			<link>http://osmand.net/blog?id=osmand-ios-2-1-released</link>
-			<guid isPermaLink="true">http://osmand.net/blog?id=osmand-ios-2-1-released</guid>
+			<link>https://osmand.net/blog?id=osmand-ios-2-1-released</link>
+			<guid isPermaLink="true">https://osmand.net/blog?id=osmand-ios-2-1-released</guid>
 			<description><![CDATA[
 				<p>OsmAnd 2.1 is now available!</p>
 				<h4>New context menu</h4>
@@ -122,8 +122,8 @@
 
 		<item>
 			<title>OsmAnd 2.0 (iOS)</title>
-			<link>http://osmand.net/blog?id=osmand-ios-2-0-released</link>
-			<guid isPermaLink="true">http://osmand.net/blog?id=osmand-ios-2-0-released</guid>
+			<link>https://osmand.net/blog?id=osmand-ios-2-0-released</link>
+			<guid isPermaLink="true">https://osmand.net/blog?id=osmand-ios-2-0-released</guid>
 			<description><![CDATA[
 				<p>New OsmAnd for the iOS platform has been released!</p>
 				<h4>Navigation</h4>
@@ -139,8 +139,8 @@
 		</item>
 		<item>
 			<title>OsmAnd 2.8</title>
-			<link>http://osmand.net/blog?id=osmand-2-8-released</link>
-			<guid isPermaLink="true">http://osmand.net/blog?id=osmand-2-8-released</guid>
+			<link>https://osmand.net/blog?id=osmand-2-8-released</link>
+			<guid isPermaLink="true">https://osmand.net/blog?id=osmand-2-8-released</guid>
 			<description><![CDATA[
 				<p>OsmAnd 2.8 has been released! We're glad to share all the improvements so let's get started.</p>
 				<h4>Map marker menu</h4>
@@ -154,8 +154,8 @@
 		</item>
 		<item>
 			<title>OsmAnd 2.7</title>
-			<link>http://osmand.net/blog?id=osmand-2-7-released</link>
-			<guid isPermaLink="true">http://osmand.net/blog?id=osmand-2-7-released</guid>
+			<link>https://osmand.net/blog?id=osmand-2-7-released</link>
+			<guid isPermaLink="true">https://osmand.net/blog?id=osmand-2-7-released</guid>
 			<description><![CDATA[
 				<p>OsmAnd 2.7 is now available! We hope you'll like the new features.</p>
 				<h4>Mapillary plugin</h4>
@@ -169,8 +169,8 @@
 		</item>
 		<item>
 			<title>OsmAnd 2.6</title>
-			<link>http://osmand.net/blog?id=osmand-2-6-released</link>
-			<guid isPermaLink="true">http://osmand.net/blog?id=osmand-2-6-released</guid>
+			<link>https://osmand.net/blog?id=osmand-2-6-released</link>
+			<guid isPermaLink="true">https://osmand.net/blog?id=osmand-2-6-released</guid>
 			<description><![CDATA[
 				<p>We're glad to announce the release of OsmAnd 2.6 Some of the key improvments are the following:</p>
 				<h4>Quick Action Button</h4>
@@ -186,11 +186,11 @@
 		</item>
 		<item>
 			<title>Join OsmAnd team on Youtube!</title>
-			<link>http://osmand.net/blog?id=osmand_youtube_channel</link>
-			<guid isPermaLink="true">http://osmand.net/blog?id=osmand_youtube_channel</guid>
+			<link>https://osmand.net/blog?id=osmand_youtube_channel</link>
+			<guid isPermaLink="true">https://osmand.net/blog?id=osmand_youtube_channel</guid>
 			<description><![CDATA[
 				<p>Yes, we're developing a fully functional <a href="https://www.youtube.com/channel/UC88mwfoC2RySqIOEvxJIv0A">Youtube channel</a> to provide you with the most interesting information about OsmAnd, mapping and using the power of OSM in your daily life.</p>
-				<p>You may remember that we've <a href="http://osmand.net/blog?id=osmand_videos">started the channel</a> a while ago, but back than it was mainly a collection of the videos from other users. Now, we are starting the creation of our own content to give the most fresh and accurate information first-hand. We'll be making tutorials on some basic features and uncovering some not-so-obvious ways to use the app.  You'll see the features before their official release and will be able to discuss them with the team direcly in the comments.</p>
+				<p>You may remember that we've <a href="https://osmand.net/blog?id=osmand_videos">started the channel</a> a while ago, but back than it was mainly a collection of the videos from other users. Now, we are starting the creation of our own content to give the most fresh and accurate information first-hand. We'll be making tutorials on some basic features and uncovering some not-so-obvious ways to use the app.  You'll see the features before their official release and will be able to discuss them with the team direcly in the comments.</p>
 				<p>Please subscribe, share your thoughts and let us know which videos are the most interesting to you. </p>
 				<p>See you on <a href="https://www.youtube.com/channel/UC88mwfoC2RySqIOEvxJIv0A">OsmAnd Channel</a>.</p>
 				]]>
@@ -199,8 +199,8 @@
 
 		<item>
 			<title>OsmAnd 2.5 Released</title>
-			<link>http://osmand.net/blog?id=osmand-2-5-released</link>
-			<guid isPermaLink="true">http://osmand.net/blog?id=osmand-2-5-released</guid>
+			<link>https://osmand.net/blog?id=osmand-2-5-released</link>
+			<guid isPermaLink="true">https://osmand.net/blog?id=osmand-2-5-released</guid>
 			<description><![CDATA[
 				<p>OsmAnd 2.5 is now available! This time, we decided to focus on polishing the features and improving general usability of the app. We also made some cool improvements in the search area. Here are some of the changes we've made:</p>
 				<h4>Clickable icons on the map</h4>
@@ -228,7 +228,7 @@
 				<h4>Android Wear compatibility</h4>
 				<p>OsmAnd has become way friendlier towards the Android Wear. Now you can get a full navigation information including next turn, distance, and ETA. You'll get two kinds of notifications: 1) navigation related 2) trip recording related.</p>
 				<h4>Topo map style</h4>
-				<p>As you may have already noticed, we added a whole new map style especially helpful for cyclists and hikers. Please read the  <a href="http://osmand.net/blog?id=topo_style">detailed guide</a>to it.</p>
+				<p>As you may have already noticed, we added a whole new map style especially helpful for cyclists and hikers. Please read the  <a href="https://osmand.net/blog?id=topo_style">detailed guide</a>to it.</p>
 				<div class="centeredimageblog">
 					<img src="https://osmand.net/images/blog/2.5/topo_map_5.jpg"/>
 					<img src="https://osmand.net/images/blog/2.5/topo_map_7.jpg"/>
@@ -241,8 +241,8 @@
 		</item>	
 		<item>
 			<title>Christmas poins of interest in OsmAnd</title>
-			<link>http://osmand.net/blog?id=christmas_map</link>
-			<guid isPermaLink="true">http://osmand.net/blog?id=christmas_map</guid>
+			<link>https://osmand.net/blog?id=christmas_map</link>
+			<guid isPermaLink="true">https://osmand.net/blog?id=christmas_map</guid>
 			<description><![CDATA[
 				<p>Christmas is coming! Dive into celebrations by visiting all the best holiday-related points of interest in your town. To view all attractions on the map, just go to Configure map menu - POI and select "Christmas".</p>
 				<div class="centeredimageblog">
@@ -264,7 +264,7 @@
 				</div>
 				<p>Hint to mappers: add more Xmas objects to the map to help people enjoy the holiday even more!</p>
 				<h3>How to add Christmas POI to the map</h3>
-				<p>Ready to add Christmas-related POI to the map? There are some simple rules that will help you do that the best way possible. Tag the location, and do not forget about other details like the date when the attraction will be working. Follow the <b><a href="http://wiki.openstreetmap.org/wiki/Key:xmas:feature">link</a></b> to view a detailed guide to mapping Christmas POI. You'll also find a clear template there.</p>
+				<p>Ready to add Christmas-related POI to the map? There are some simple rules that will help you do that the best way possible. Tag the location, and do not forget about other details like the date when the attraction will be working. Follow the <b><a href="https://wiki.openstreetmap.org/wiki/Key:xmas:feature">link</a></b> to view a detailed guide to mapping Christmas POI. You'll also find a clear template there.</p>
 				<div class="centeredimageblog">
 					<img src="https://osmand.net/images/blog/christmas_map/christmas_map6.jpg"/>
 					<img src="https://osmand.net/images/blog/christmas_map/christmas_map7.jpg"/>
@@ -279,8 +279,8 @@
 
 		<item>
 			<title>New OsmAnd Topo map style</title>
-			<link>http://osmand.net/blog?id=topo_style</link>
-			<guid isPermaLink="true">http://osmand.net/blog?id=topo_style</guid>
+			<link>https://osmand.net/blog?id=topo_style</link>
+			<guid isPermaLink="true">https://osmand.net/blog?id=topo_style</guid>
 			<description><![CDATA[
 				<p>Please welcome new OsmAnd Topo map style. If you are a hiker or a cyclist spending much time in the countryside, you are likely to appreciate the new style. It is designed to make your trips as convenient as possible while enjoying the nature.</p>
 				<img src="https://osmand.net/images/blog/topo/topo_1.jpg"/>
@@ -303,8 +303,8 @@
 
 		<item>
 			<title>OsmAnd 2.4 released</title>
-			<link>http://osmand.net/blog?id=osmand-2-4-released</link>
-			<guid isPermaLink="true">http://osmand.net/blog?id=osmand-2-4-released</guid>
+			<link>https://osmand.net/blog?id=osmand-2-4-released</link>
+			<guid isPermaLink="true">https://osmand.net/blog?id=osmand-2-4-released</guid>
 			<description><![CDATA[
 				<p>An OsmAnd update is here. We've introduced a new search interface and many fixes. Read on to find out all the details.</p>
 				<h2>New quick search</h2>
@@ -325,8 +325,8 @@
 		</item>
 		<item>
 			<title>OsmAnd API Demo</title>
-			<link>http://osmand.net/blog?id=api_demo</link>
-			<guid isPermaLink="true">http://osmand.net/blog?id=api_demo</guid>
+			<link>https://osmand.net/blog?id=api_demo</link>
+			<guid isPermaLink="true">https://osmand.net/blog?id=api_demo</guid>
 			<pubDate>6 May 2016 00:00:00 GMT</pubDate>
 			<description><![CDATA[
 				<p>OsmAnd API Demo allows you to test integration with OsmAnd and functioning of the main features.</p>
@@ -342,15 +342,15 @@
 				<img src="https://osmand.net/images/blog/api_demo_osmand/api_d2.jpg"/>
 				<p>More about features and how to work with them: <a href="https://github.com/osmandapp/osmand-api-demo">https://github.com/osmandapp/osmand-api-demo</a></p>
 
-				<p>To test OsmAnd API Demo options, you need to install one of <a href="http://osmand.net/help/changes.html">OsmAnd Maps versions</a>.</p>
+				<p>To test OsmAnd API Demo options, you need to install one of <a href="https://osmand.net/help/changes.html">OsmAnd Maps versions</a>.</p>
 				]]>
 			</description>
 		</item>
 
 		<item>
 			<title>OSM Live</title>
-			<link>http://osmand.net/blog?id=osm-live</link>
-			<guid isPermaLink="true">http://osmand.net/blog?id=osm-live</guid>
+			<link>https://osmand.net/blog?id=osm-live</link>
+			<guid isPermaLink="true">https://osmand.net/blog?id=osm-live</guid>
 			<description><![CDATA[
 				<p>
 					Hi All,
@@ -361,7 +361,7 @@
 				<br/>
 				<p>OsmAnd users pay in order to get hourly map updates. This money is split into 2 parts and one goes to OsmAnd developers while the other goes to mappers around the world. Today we've already processed three monthly payments started January 2016. We still add some funds to the mappers part, so the payouts look reasonable.</p>
 				<br/>
-				<p>From the beginning, we wanted to make the system as transparent as possible. So please find everything on the page <a href="http://osmand.net/osm_live">http://osmand.net/osm_live</a>. Essentially, we are trying to build a crowdfunding (donation) for OSM and we want to use all modern technologies to make the process as much visible as possible. One of that technology is Bitcoin. Bitcoin lets us show how collected money is sent to mappers, for example, <a href="https://blockchain.info/tx-index/138988481">https://blockchain.info/tx-index/138988481</a>.</p>
+				<p>From the beginning, we wanted to make the system as transparent as possible. So please find everything on the page <a href="https://osmand.net/osm_live">https://osmand.net/osm_live</a>. Essentially, we are trying to build a crowdfunding (donation) for OSM and we want to use all modern technologies to make the process as much visible as possible. One of that technology is Bitcoin. Bitcoin lets us show how collected money is sent to mappers, for example, <a href="https://blockchain.info/tx-index/138988481">https://blockchain.info/tx-index/138988481</a>.</p>
 				<br/>
 				<p>After we launched OSM Live, many people supported the initiative, but they had some concerns and questions. This is why we decided to respond to them publicly so that everybody could find the answers.</p>
 				<h4>Financials</h4>
@@ -377,7 +377,7 @@
 				<h4>Mappers</h4>
 				<ul >
 					<li>Important: OsmAnd doesn't store any OSM passwords on the website! You can double check the code <a href="https://github.com/osmandapp/osmandapp.github.io/blob/master/website/osm_live.php">here</a>. We are searching for a more convenient method and would like to switch to OAuth or just sending a private confirmation link/message to OSM user. There were discussions with contributors about it and we hope to get a pull-request with that code.</li>
-					<li>In order to get a minimal payout, the mapper should make at least 3 changes (changesets) a month. That's not much and we think to increase that number to 5-6. You can see the according statistics on the first page <a href="http://osmand.net/osm_live">OSM Live</a> that gives a threshold of 50% monthly contributors.</li>
+					<li>In order to get a minimal payout, the mapper should make at least 3 changes (changesets) a month. That's not much and we think to increase that number to 5-6. You can see the according statistics on the first page <a href="https://osmand.net/osm_live">OSM Live</a> that gives a threshold of 50% monthly contributors.</li>
 					<li>All mappers are divided into 20 groups (worldwide) and 7 groups (each region). Based on the group, each mapper ends with a rank assigned. The 1st ranking is assigned to the group of people who did the most changes. We intentionally divided the users into groups so people from the first group wouldn't compete for the top 1 place and feel reasonable with assigned ranking.</li>
 					<li>Each ranking is transformed into weight by simple formula Weight = Groups (20 or 7) + 1 - Rank. The total amount is divided equally with weight multiplier.</li>
 					<li>We came up with the idea to have regional preferences and regional payouts for changes made in a specific region. So far it is pretty much equally distributed everywhere and doesn't give any reasonable effect in payout.</li>
@@ -398,8 +398,8 @@
 
 		<item>
 			<title>OsmAnd 2.3</title>
-			<link>http://osmand.net/blog?id=osmand-2-3-released</link>
-			<guid isPermaLink="true">http://osmand.net/blog?id=osmand-2-3-released</guid>
+			<link>https://osmand.net/blog?id=osmand-2-3-released</link>
+			<guid isPermaLink="true">https://osmand.net/blog?id=osmand-2-3-released</guid>
 			<description><![CDATA[
 				<p>OsmAnd 2.3 is on its way! Get ready for a brand new route preparation interface, improved UI, and more. We also added a revolutionary feature for you to try.</p>
 				<h2>OSM Live Beta</h2>
@@ -417,8 +417,8 @@
 		</item>
 		<item>
 			<title>OsmAnd 2.2</title>
-			<link>http://osmand.net/blog?id=osmand-2-2-released</link>
-			<guid isPermaLink="true">http://osmand.net/blog?id=osmand-2-2-released</guid>
+			<link>https://osmand.net/blog?id=osmand-2-2-released</link>
+			<guid isPermaLink="true">https://osmand.net/blog?id=osmand-2-2-released</guid>
 			<description><![CDATA[
 				<p>New OsmAnd 2.2 has been released. Fuller POI information, restructured downloads and a brand-new UI are some of the main things to see. Get the update now!</p>
 				<h2>Reworked context-sensitive UI</h2>
@@ -442,8 +442,8 @@
 		</item>
 		<item>
 			<title>OsmAnd 1.2.2 for iOS is now released</title>
-			<link>http://osmand.net/blog?id=osmand-ios-1.2.2-released</link>
-			<guid isPermaLink="true">http://osmand.net/blog?id=osmand-ios-1.2.2-released</guid>
+			<link>https://osmand.net/blog?id=osmand-ios-1.2.2-released</link>
+			<guid isPermaLink="true">https://osmand.net/blog?id=osmand-ios-1.2.2-released</guid>
 			<description><![CDATA[
 				<p>The new OsmAnd release has a list of new features that are waiting to be tried out. You can now use shading on the map to see the relief, plan trips and search for points of interest in a handy way. Let's get to details.</p>
 				<h2>POI on the map</h2>
@@ -470,8 +470,8 @@
 
 		<item>
 			<title>OsmAnd 1.1.1. for iOS released</title>
-			<link>http://osmand.net/blog?id=osmand-ios-1.1.1-released</link>
-			<guid isPermaLink="true">http://osmand.net/blog?id=osmand-ios-1.1.1-released</guid>
+			<link>https://osmand.net/blog?id=osmand-ios-1.1.1-released</link>
+			<guid isPermaLink="true">https://osmand.net/blog?id=osmand-ios-1.1.1-released</guid>
 			<description><![CDATA[
 				<p>A new OsmAnd version for iOS is here! The update includes a convenient plugin, more improvements in the POI area and a nicer UI.</p>
 				<h2>Offline Contour Lines Maps</h2>
@@ -491,8 +491,8 @@
 
 		<item>
 			<title>5 years with OsmAnd!</title>
-			<link>http://osmand.net/blog?id=5_years</link>
-			<guid isPermaLink="true">http://osmand.net/blog?id=5_years</guid>
+			<link>https://osmand.net/blog?id=5_years</link>
+			<guid isPermaLink="true">https://osmand.net/blog?id=5_years</guid>
 			<description><![CDATA[
 				<p>5 years with OsmAnd!</p>
 				<img src="https://osmand.net/5years_blog.png" />
@@ -512,8 +512,8 @@
 		<item>
 
 			<title>OsmAnd 2.1</title>
-			<link>http://osmand.net/blog?id=osmand-osmand-2-1-released</link>
-			<guid isPermaLink="true">http://osmand.net/blog?id=osmand-osmand-2-1-released</guid>
+			<link>https://osmand.net/blog?id=osmand-osmand-2-1-released</link>
+			<guid isPermaLink="true">https://osmand.net/blog?id=osmand-osmand-2-1-released</guid>
 			<description><![CDATA[
 				<p>OsmAnd 2.1 release is out! This time, we focused on improving POI search and making your trips even more interactive through new Wikipedia data sorted by country.</p>
 				]]>
@@ -523,8 +523,8 @@
 
 		<item>
 			<title>OsmAnd 1.0.2 (iOS)</title>
-			<link>http://osmand.net/blog?id=osmand-ios-1.0.2</link>
-			<guid isPermaLink="true">http://osmand.net/blog?id=osmand-ios-1.0.2</guid>
+			<link>https://osmand.net/blog?id=osmand-ios-1.0.2</link>
+			<guid isPermaLink="true">https://osmand.net/blog?id=osmand-ios-1.0.2</guid>
 			<description><![CDATA[
 				<p>We are glad to announce that iOS version of OsmAnd is becoming better over time. We put significant efforts and managed to finish lots of useful features in a short period of time. Here is the short list of achievements.</p>
 				<ul>
@@ -543,8 +543,8 @@
 
 		<item>
 			<title>OsmAnd 2.0</title>
-			<link>http://osmand.net/blog?id=osmand-2-0-released</link>
-			<guid isPermaLink="true">http://osmand.net/blog?id=osmand-2-0-released</guid>
+			<link>https://osmand.net/blog?id=osmand-2-0-released</link>
+			<guid isPermaLink="true">https://osmand.net/blog?id=osmand-2-0-released</guid>
 			<description><![CDATA[
 				<p>We are glad to announce that OsmAnd 2.0 is coming to devices. We expect to finish the rollout on this week. This has been a while we had to admit that OsmAnd didn't follow the guidelines and had an inconsistent UI. This major release we fully focused to put the most trending UI, Material Design, in place. Meanwhile we considered dozens interactive patterns to improve the usability of various features in OsmAnd and came up with a Dashboard screen, which provides a balanced solution between Search &amp; Map display. Please help us by giving your feedback to make the product better.</p>
 				]]>
@@ -555,8 +555,8 @@
 
 		<item>
 			<title>OsmAnd for iPhone</title>
-			<guid isPermaLink="true">http://osmand.net/blog?id=osmand-ios</guid>
-			<link>http://osmand.net/blog?id=osmand-ios</link>
+			<guid isPermaLink="true">https://osmand.net/blog?id=osmand-ios</guid>
+			<link>https://osmand.net/blog?id=osmand-ios</link>
 			<description><![CDATA[
 				<p>We are glad to announce that iPhone version of OsmAnd is released.</p>
 				<p>This version contains the most used functionality of Android version together with significantly improved user interface, which we believe is a good combination.</p>
@@ -569,14 +569,14 @@
 
 		<item>
 			<title>Nautical charts</title>
-			<guid isPermaLink="true">http://osmand.net/blog?id=nautical-charts</guid>
-			<link>http://osmand.net/blog?id=nautical-charts</link>
+			<guid isPermaLink="true">https://osmand.net/blog?id=nautical-charts</guid>
+			<link>https://osmand.net/blog?id=nautical-charts</link>
 			<description><![CDATA[
 				<p>OsmAnd 2.0 is coming soon. One of the new features of the version will be Nautical Charts plugin.</p>
 				<p>Nautical Chart is a detailed graphical representation of oceans, seas, coastal areas and rivers.</p>
 				<p>Nautical Charts are made for people who drive any kind of vehicle on water: from professional sailors to people who rented a boat to make a tour over city canals. The charts can contain various information like sailing routes, navigation lights, dangerous areas, areas where it&apos;s allowed or not allowed to sail or dock, etc.</p>
 				<p>All the professional sailors are obliged to have official nautical charts on their ships. These charts are published by authorized agencies and cost quite some money. Agencies are investing a lot in keeping the charts up to date. They release updates for the charts on regular basis, but because of the fact that reviewing the information and processing the updates takes quite some time the nautical charts are never completely up-to-date. </p>
-				<a href="http://osmand.net/blog?id=nautical-charts">Read more</a>
+				<a href="https://osmand.net/blog?id=nautical-charts">Read more</a>
 				]]>
 			</description>
 			<pubDate>20 Mar 2015 18:30:40 GMT</pubDate>
