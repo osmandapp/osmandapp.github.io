@@ -8,8 +8,7 @@
   <link rel="stylesheet" type="text/css" href="slick.css"/>
   <script type="text/javascript" src="scripts/jquery-3.1.0.min.js"></script>
   <script type="text/javascript" src="scripts/slick.min.js"></script>
-  <script type="text/javascript" src="scripts/ga-init.js"></script>
-  <script type="text/javascript" src="scripts/ga-home.js"></script>
+  
 </head>
 <body>
 <div class="maincontainer">

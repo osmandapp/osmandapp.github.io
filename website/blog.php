@@ -15,25 +15,9 @@
   <meta property="og:image"         content="https://osmand.net/images/logo-grey.png" />
   <title>OsmAnd - Offline Mobile Maps and Navigation</title>
   <?php include 'blocks/default_links.html'; ?>
-  <!-- for google+-->
-  <link rel="canonical" <?php echo 'href="https://osmand.net'.$_SERVER['REQUEST_URI'].'"'  ?>  />
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
-  <script type="text/javascript" src="scripts/ga-init.js"></script>
-  <script type="text/javascript" src="scripts/ga-blog.js"></script>
   <link rel="alternate" type="application/rss+xml" title="OsmAnd Blog" href="/rss.xml">
 </head>
 <body>
-<!-- for FB-->
-<div id="fb-root"></div>
-<script>
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-</script>
 
 <div class="maincontainer">
   <div class="main">
@@ -109,8 +93,6 @@
   <?php include 'blocks/footer.html'; ?>
 </div>
 
-<!-- for twitter-->
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></div>
 
 <script>
   $('.modal-menu-button').on('click', function(e) {

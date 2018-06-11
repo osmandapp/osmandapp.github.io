@@ -19,6 +19,9 @@ function loadUpdatesFromDir($output, $outputIndexes, $dir, $fileFilter, $timesta
             $timestampF = filemtime($filename);
             if($timestampF > intval(substr($timestamp, 0, -3))) {
               $out = $output->createElement('update');
+            } else {
+              $out = $output->createElement('outdate');
+            }
               $outputIndexes->appendChild($out);
               $out -> setAttribute("updateDate", substr($file, -strlen('.obf.gz') - 8, -strlen('.obf.gz')));
               $out -> setAttribute("containerSize", $containerSize);
@@ -27,7 +30,7 @@ function loadUpdatesFromDir($output, $outputIndexes, $dir, $fileFilter, $timesta
               $out -> setAttribute("date", $date);
               $out -> setAttribute("size", $size);
               $out -> setAttribute("name", $indexName);
-            }
+            
         }
       }
       closedir($dh);
