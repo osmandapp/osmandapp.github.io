@@ -4,6 +4,9 @@ require './vendor/autoload.php';
 use Kreait\Firebase\Factory;
 use Kreait\Firebase\ServiceAccount;
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 $serviceAccount = ServiceAccount::fromJsonFile('./private/service.json');
 
 $firebase = (new Factory)
