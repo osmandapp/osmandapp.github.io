@@ -7,6 +7,7 @@ use GuzzleHttp\Exception\RequestException;
 use Kreait\Firebase\Util\JSON;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
+use Throwable;
 
 class ApiException extends \RuntimeException implements FirebaseException
 {
@@ -20,33 +21,23 @@ class ApiException extends \RuntimeException implements FirebaseException
      */
     private $response;
 
-    public static function wrapThrowable(\Throwable $e): ApiException
+    public function __construct(RequestInterface $request, string $message = '', int $code = 0, Throwable $previous = null)
     {
-        if ($e instanceof self) {
-            return $e;
-        }
+        parent::__construct($message, $code, $previous);
 
-        if (!($e instanceof RequestException)) {
-            return new self($e->getMessage(), $e->getCode(), $e);
-        }
+        $this->request = $request;
+    }
 
+    public static function wrapRequestException(RequestException $e): self
+    {
         $request = $e->getRequest();
         $response = $e->getResponse();
-        $message = $e->getMessage();
+        $message = self::getPreciseMessage($response, $default = $e->getMessage());
         $code = $e->getCode();
 
-        if (in_array($code, [StatusCode::STATUS_UNAUTHORIZED, StatusCode::STATUS_FORBIDDEN], true)) {
-            $class = PermissionDenied::class;
-        } else {
-            $class = static::class;
-        }
+        $class = self::getTargetClassFromStatusCode($code);
 
-        if ($response) {
-            $message = JSON::decode((string) $response->getBody(), true)['error'] ?? $message;
-        }
-
-        $instance = new $class($message, $code, $e);
-        $instance->request = $request;
+        $instance = new $class($request, $message, $code, $e);
         $instance->response = $response;
 
         return $instance;
@@ -63,5 +54,25 @@ class ApiException extends \RuntimeException implements FirebaseException
     public function getResponse()
     {
         return $this->response;
+    }
+
+    private static function getTargetClassFromStatusCode($code): string
+    {
+        if (\in_array($code, [StatusCode::STATUS_UNAUTHORIZED, StatusCode::STATUS_FORBIDDEN], true)) {
+            return PermissionDenied::class;
+        }
+
+        return static::class;
+    }
+
+    private static function getPreciseMessage(ResponseInterface $response = null, string $default = ''): string
+    {
+        $message = $default;
+
+        if ($response && JSON::isValid($responseBody = (string) $response->getBody())) {
+            $message = JSON::decode($responseBody, true)['error'] ?? null;
+        }
+
+        return $message;
     }
 }

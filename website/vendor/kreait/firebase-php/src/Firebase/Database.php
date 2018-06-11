@@ -2,13 +2,13 @@
 
 namespace Kreait\Firebase;
 
-use GuzzleHttp\Psr7;
 use Kreait\Firebase\Database\ApiClient;
 use Kreait\Firebase\Database\Reference;
+use Kreait\Firebase\Database\RuleSet;
 use Kreait\Firebase\Exception\InvalidArgumentException;
 use Kreait\Firebase\Exception\OutOfRangeException;
-use Kreait\Firebase\Http\Auth;
 use Psr\Http\Message\UriInterface;
+use function GuzzleHttp\Psr7\uri_for;
 
 /**
  * The Firebase Realtime Database.
@@ -40,18 +40,6 @@ class Database
     {
         $this->uri = $uri;
         $this->client = $client;
-    }
-
-    /**
-     * Returns a new Database instance with the given authentication override.
-     *
-     * @param Auth $auth
-     *
-     * @return Database
-     */
-    public function withCustomAuth(Auth $auth): Database
-    {
-        return new self($this->uri, $this->client->withCustomAuth($auth));
     }
 
     /**
@@ -89,7 +77,7 @@ class Database
     public function getReferenceFromUrl($uri): Reference
     {
         try {
-            $uri = Psr7\uri_for($uri);
+            $uri = uri_for($uri);
         } catch (\InvalidArgumentException $e) {
             // Wrap exception so that everything stays inside the Firebase namespace
             throw new InvalidArgumentException($e->getMessage(), $e->getCode());
@@ -103,5 +91,33 @@ class Database
         }
 
         return $this->getReference($uri->getPath());
+    }
+
+    /**
+     * Retrieve Firebase Database Rules.
+     *
+     * @see https://firebase.google.com/docs/database/rest/app-management#retrieving-firebase-realtime-database-rules
+     *
+     * @return RuleSet
+     */
+    public function getRules(): RuleSet
+    {
+        /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
+        $rules = $this->client->get($this->uri->withPath('.settings/rules'));
+
+        return RuleSet::fromArray($rules);
+    }
+
+    /**
+     * Update Firebase Database Rules.
+     *
+     * @see https://firebase.google.com/docs/database/rest/app-management#updating-firebase-realtime-database-rules
+     *
+     * @param RuleSet $ruleSet
+     */
+    public function updateRules(RuleSet $ruleSet)
+    {
+        /* @noinspection ExceptionsAnnotatingAndHandlingInspection */
+        $this->client->set($this->uri->withPath('.settings/rules'), $ruleSet);
     }
 }

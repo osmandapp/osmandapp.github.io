@@ -1,8 +1,285 @@
 # CHANGELOG
 
+## 4.9.0 - 2018-06-09
+
+* Added a flag to `Kreait\Firebase\Auth::verifyIdToken()` to ignore `IssuedInTheFuture` exceptions
+  ([Documentation](https://firebase-php.readthedocs.io/en/latest/authentication.html#verify-a-firebase-id-token))
+
+## 4.8.0 - 2018-05-25
+
+### New features
+
+* Added support for FCM Topic management ([Documentation](https://firebase-php.readthedocs.io/en/latest/cloud-messaging.html#topic-management))
+  * `Kreait\Firebase\Messaging::subscribeToTopic($topic, $registrationTokens)`
+  * `Kreait\Firebase\Messaging::unsubscribeFromTopic($topic, $registrationTokens)`
+
+### Changes
+
+* Made `Kreait\Firebase\Factory` extensible so that it can be extended by libraries that want to build on it.
+  * [morrislaptop/firestore-php](https://github.com/morrislaptop/firestore-php) is a new project that aims to
+    provide support for the Firestore without the need to install the `grpc` PHP extension.
+
+## 4.7.1 - 2018-05-09
+
+### Bugfixes
+
+* Fixed marking disabled users as enabled when using arrays ([#196](https://github.com/kreait/firebase-php/issues/196))
+
+## 4.7.0 - 2018-05-08
+
+### New features
+
+* Added support to unlink identity providers from a user
+  * `Kreait\Firebase\Auth::unlinkProvider($uid, $provider)` (`$provider` can be a string or an array of strings)
+* Added support to remove the phone number from a user ([#195](https://github.com/kreait/firebase-php/issues/195))
+  * When you update a user ([Documentation](https://firebase-php.readthedocs.io/en/latest/user-management.html#update-a-user)), you can now 
+    * set `phoneNumber` to `null`
+    * set `deletePhoneNumber` to `true`
+    * set `deleteProvider` to `['phone']`
+
+## 4.6.0 - 2018-04-27
+
+### New features
+
+* Added support for FCM message configurations (Android, APNS, WebPush) (initiated by [@Casperhr](https://github.com/Casperhr), thanks!)
+
+## 4.5.0 - 2018-04-16
+
+### New Features
+
+* Added support for Firebase Cloud Messaging ([Documentation](https://firebase-php.readthedocs.io/en/latest/cloud-messaging.html))
+
+### Changes
+
+* Empty properties in a ProviderData object are now filtered out 
+  (e.g. the "phone" provider never includes a photo or an email)
+
+## 4.4.0 - 2018-04-07
+
+### New Features
+
+* Added support for setting custom attributes/claims on users
+  ([Documentation](https://firebase-php.readthedocs.io/en/latest/user-management.html#set-custom-attributes),
+  [Official Firebase documentation](https://firebase.google.com/docs/auth/admin/custom-claims))
+  * `Kreait\Firebase\Auth::setCustomUserAttributes($uid, array $attributes)`
+
+### Bugfixes
+
+* Removed PHP 7.0 incompatible `void` return types
+
+## 4.3.0 - 2018-03-29
+
+### New features
+
+* Added support for the Firebase Remote Config ([Documentation](https://firebase-php.readthedocs.io/en/latest/remote-config.html))
+
+## 4.2.3 - 2018-03-27
+
+- Handle non-existing users consistently ([#186](https://github.com/kreait/firebase-php/issues/186))
+
+## 4.2.2 - 2018-03-27
+
+### Bugfix
+
+- Fixed setting email verification flags ([#183](https://github.com/kreait/firebase-php/issues/183)) 
+
+## 4.2.1 - 2018-03-14
+
+### Bugfix
+
+- Renamed method with typo `Storage::getFileystem()` to the correct `Storage::getFilesystem()` 
+  ([#182](https://github.com/kreait/firebase-php/issues/182))
+
+## 4.2.0 - 2018-03-08
+
+### New features
+
+* Added support to create and update users with properties 
+  ([Documentation](https://firebase-php.readthedocs.io/en/latest/user-management.html#create-a-user))
+  * `Kreait\Firebase\Auth::createUser($properties)`
+  * `Kreait\Firebase\Auth::updateUser($uid, $properties)`
+* Added `Kreait\Firebase\Auth::getUserByPhoneNumber($phoneNumber)`
+* Added method to verify the password of an account provided by the email/password provider 
+  ([Documentation](https://firebase-php.readthedocs.io/en/latest/user-management.html#verify-a-password))
+
+### Bugfixes
+
+* `Kreait\Firebase\Auth::getUser()` and `Kreait\Firebase\Auth::getUser()` were throwing a TypeError
+  when trying to create a user record from an empty data set (the Firebase API returns an empty 
+  response when no user is found). Now, a `Kreait\Firebase\Exception\UserNotFound` exception
+  is thrown instead.
+
+### Deprecations
+
+* `Kreait\Firebase\Auth\ApiClient::signupNewUser()`
+* `Kreait\Firebase\Auth\ApiClient::enableUser()`
+* `Kreait\Firebase\Auth\ApiClient::disableUser()`
+* `Kreait\Firebase\Auth\ApiClient::changeUserPassword()`
+* `Kreait\Firebase\Auth\ApiClient::changeUserEmail()`
+
+## 4.1.2 - 2018-02-25
+
+### Bugfixes
+
+* `Kreait\Firebase\Storage::getFilesystem()` was using/overwriting the configured buckets
+* Added simple integration test to ensure that file operations work as excpected
+
+## 4.1.1 - 2018-02-25
+
+### Bugfixes
+
+* Due to improper caching in the Firebase Factory, configuring a new Firebase instance with another 
+  service account would have used a wrongly configured storage.
+
+## 4.1.0 - 2018-02-24
+
+### New features
+
+* Added support for the Firebase Cloud Storage
+  ([Documentation](https://firebase-php.readthedocs.io/en/latest/storage.html))
+
+## 4.0.2 - 2018-02-22
+
+* Guess incoming timestamps more reliably and ensure UTC Timezones on all returned DateTime properties 
+
+## 4.0.1 - 2018-02-15
+
+### Bugfix
+
+* Fix Undefined index "users" while retrieving list of users ([#168](https://github.com/kreait/firebase-php/pull/168))
+
+## 4.0.0 - 2018-02-14
+
+#### Changes
+
+* All deprecated methods and classes have been removed.
+* `Kreait\Firebase\Auth\User` has been replaced with `Kreait\Firebase\Auth\UserRecord`
+* All methods that required an instance of `User` now accept UIDs only.
+* Added methods
+  * `Kreait\Firebase\Auth::getUserByEmail(string $email)`
+* Removed methods
+  * `Kreait\Firebase\Auth::getUserByEmailAndPassword()`
+  * `Kreait\Firebase\Auth::getUserInfo()`
+
+#### Authentication overrides
+
+Since 4.0, defining authentication overrides is only possible when creating a new `Firebase` instance via
+the factory (see [Authenticate with limited privileges](https://firebase-php.readthedocs.io/en/latest/authentication.html#authenticate-with-limited-privileges)).
+Thus, the following methods have been removed:
+
+  * `Kreait\Firebase::asUser()`
+  * `Kreait\Firebase::asUserWithClaims()`
+  * `Kreait\Firebase\Database::withCustomAuth()`
+  * `Kreait\Firebase\Database\ApiClient::withCustomAuth()`
+
+#### Token generation and verification
+
+The SDK now makes full use of the [kreait/firebase-tokens](https://github.com/kreait/firebase-tokens-php) library and
+throws its exceptions when an ID token is considered invalid.
+
+Also, the option to specify a custom expiration time when creating custom tokens has been removed. 
+Following the official Firebase SDKs, the lifetime of a custom token is one hour.
+
+Added documentation: 
+([Troubleshooting: ID Tokens are issued in the future](https://firebase-php.readthedocs.io/en/latest/troubleshooting.html#id-tokens-are-issued-in-the-future)) 
+
+## 3.9.3 - 2018-01-23
+
+### Bugfixes
+* When deleting a user account, an empty account was created with the same UID ([#156](https://github.com/kreait/firebase-php/pull/156))
+* Travis CI builds now also work for pull requests
+
+## 3.9.2 - 2018-01-20
+
+### Bugfixes
+* A Database API Exception did not always include a request ([#155](https://github.com/kreait/firebase-php/issues/155))
+
+### Other
+* Added more integration tests
+
+## 3.9.1 - 2018-01-19
+
+* Reverted deprecations of `Kreait\Firebase\Factory::withTokenHandler()` and `\Kreait\Firebase\Auth\ApiClient::sendEmailVerification()`
+
+## 3.9.0 - 2018-01-19
+
+* Added `Kreait\Firebase\Auth::getUserInfo(string $uid): array`
+  ([Documentation](https://firebase-php.readthedocs.io/en/latest/user-management.html#get-information-about-a-specific-user))
+* Added `Kreait\Firebase\Auth::disableUser(string $uid)`
+  ([Documentation](https://firebase-php.readthedocs.io/en/latest/user-management.html#disable-a-user))
+* Added `Kreait\Firebase\Auth::enableUser(string $uid)`
+  ([Documentation](https://firebase-php.readthedocs.io/en/latest/user-management.html#enable-a-user))
+* Added `Kreait\Firebase\Auth::revokeRefreshTokens(string $uid)`
+  ([Documentation](https://firebase-php.readthedocs.io/en/latest/user-management.html#invalidate-user-sessions))
+* Added check for revoked ID tokens to `Kreait\Firebase\Auth::verifyIdToken()`
+  ([Documentation](https://firebase-php.readthedocs.io/en/latest/authentication.html#verify-a-firebase-id-token))
+* Deprecated the usage of the `Kreait\Firebase\Auth\User` object
+* Deprecated `Kreait\Firebase\Auth::sendEmailVerification(Kreait\Firebase\Auth\User\User $user)`
+* Full rewrite of the [Authentication documentation](https://firebase-php.readthedocs.io/en/latest/authentication.html)
+
+## 3.8.2 - 2018-01-16
+
+* Bugfix: `Kreait\Firebase\Exception\InvalidIdToken` was not able to hold every invalid ID token ([#152](https://github.com/kreait/firebase-php/pull/152))
+
+## 3.8.1 - 2018-01-16
+
+* Bugfix: Ensure that ID tokens are verified fully and completely (discovered by [@hernandev](https://github.com/hernandev), thanks!)
+
+## 3.8.0 - 2018-01-12
+
+* Added `Kreait\Firebase\Auth::listUsers(int $maxResults = 1000, int $batchSize = 1000): \Generator`
+  ([Documentation](https://firebase-php.readthedocs.io/en/latest/user-management.html#list-users))
+* Auth: Fixed creation of new users (anonymous, email/password)
+* Auth: Fixed changing emails and password
+* Auth: Removed need for the project's web API key and deprecated related methods
+* Added integration tests for database operations
+* Restructured tests for clean separation of unit/integration tests
+* Enhanced Travis CI build performance
+* Ensured support for PHP 7.2
+
+## 3.7.1 - 2018-01-07
+
+* Fixes bug that not more than one custom token could be created at a time.
+
+## 3.7.0 - 2017-12-08
+
+* Enable ordering by nested childs ([#135](https://github.com/kreait/firebase-php/pull/135))
+
+## 3.6.0 - 2017-12-08
+
+* When an ID Token verification has failed, the resulting exception now includes the token.
+  ([#139](https://github.com/kreait/firebase-php/issues/139), [#140](https://github.com/kreait/firebase-php/issues/140))
+
+## 3.5.0 - 2017-11-27
+
+* Add support for getting and updating Realtime Database Rules 
+  ([#136](https://github.com/kreait/firebase-php/pull/136)) 
+  ([Documentation](https://firebase-php.readthedocs.io/en/latest/realtime-database.html#database-rules))
+* Handle non-JSON responses better.
+
+## 3.4.2 - 2017-11-08
+
+* Restore PHP 7.0 compatibility
+
+## 3.4.1 - 2017-11-08
+
+* Avoid OutOfBoundsException when a user's email is not set
+
+## 3.4.0 - 2017-11-07
+
+* Added `Kreait\Firebase\Auth\User::getEmail()`
+* Added `Kreait\Firebase\Auth\User::hasVerifiedEmail()`
+* Added `Kreait\Firebase\Auth::sendPasswordResetEmail($userOrEmail)`
+  ([Documentation](https://firebase-php.readthedocs.io/en/latest/user-management.html#send-a-password-reset-email))
+
+## 3.3.3 - 2017-11-01
+
+* Fixed Travis CI builds for pull requests
+* Fixed class/namespace collisions in certain PHP versions.
+
 ## 3.3.2 - 2017-10-23
 
-- Only classes implementing an interface should be final.
+* Only classes implementing an interface should be final.
 
 ## 3.3.1 - 2017-10-21
 

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 1.7.1 - 2018-01-07
+
+- Fix bug that not more than one custom token could be created at a time.
+
+## 1.7.0 - 2018-01-03
+
+- Cache results from the HTTP Key Store in a PSR-16 cache (default: in memory)
+- Deprecated `Firebase\Auth\Token\Handler`.
+
 ## 1.6.1 - 2017-07-12
 
 - Add missing `$expiresAt` parameter when creating a custom token with the Handler.

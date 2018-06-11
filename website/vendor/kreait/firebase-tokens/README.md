@@ -2,10 +2,13 @@
 
 [![Latest Stable Version](https://poser.pugx.org/kreait/firebase-tokens/v/stable)](https://packagist.org/packages/kreait/firebase-tokens)
 [![Total Downloads](https://poser.pugx.org/kreait/firebase-tokens/downloads)](https://packagist.org/packages/kreait/firebase-tokens)
+[![Build Status](https://travis-ci.org/kreait/firebase-tokens-php.svg?branch=master)](https://travis-ci.org/kreait/firebase-tokens-php)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/kreait/firebase-tokens-php/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/kreait/firebase-tokens-php/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/kreait/firebase-tokens-php/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/kreait/firebase-tokens-php/?branch=master)
 
-A library to work with [Google Firebase](https://firebase.google.com>) tokens. You can use it to 
+A library to work with [Google Firebase](https://firebase.google.com) tokens. You can use it to 
 [create custom tokens](https://firebase.google.com/docs/auth/admin/create-custom-tokens) and 
-[verify ID Tokens](https://firebase.google.com/docs/auth/admin/verify-id-tokens).
+[verify ID Tokens](https://firebase.google.com/docs/auth/admin/verify-id-tokens). 
 
 ## Installation
 
@@ -50,15 +53,23 @@ try {
 }
 ```
 
-## Firebase Token Handler
+### Cache results from the Google Secure Token Store
 
-`Firebase\Auth\Token\Handler` combines the Generator and the Verifier:
+In order to verify ID tokens, the verifier makes a call to fetch Firebase's currently available public
+keys. The keys are cached in memory by default.
+
+If you want to cache the public keys more effectively, you can use any [implementation of 
+psr/simple-cache](https://packagist.org/providers/psr/simple-cache-implementation).
+
+Example using the [Symfony Cache Component](https://symfony.com/doc/current/components/cache.html)
 
 ```php
-use Firebase\Auth\Token\Handler;
+use Firebase\Auth\Token\HttpKeyStore;
+use Firebase\Auth\Token\Verifier;
+use Symfony\Component\Cache\Simple\FilesystemCache;
 
-$handler = new Handler($projectId, $clientEmail, $privateKey);
+$cache = new FilesystemCache();
+$keyStore = new HttpKeyStore(null, $cache);
 
-$customToken = $handler->createCustomToken($uid, $claims);
-$verifiedIdToken = $handler->verifyIdToken($idTokenString);
+$verifier = new Verifier($projectId, $keyStore); 
 ```

@@ -24,14 +24,14 @@ final class OrderByChild implements Sorter
 
     public function modifyValue($value)
     {
-        if (!is_array($value)) {
+        if (!\is_array($value)) {
             return $value;
         }
 
-        $childKey = $this->childKey;
+        $expression = implode('.', explode('/', $this->childKey));
 
-        uasort($value, function ($a, $b) use ($childKey) {
-            return ($a[$childKey] ?? null) <=> $b[$childKey] ?? null;
+        uasort($value, function ($a, $b) use ($expression) {
+            return \JmesPath\search($expression, $a) <=> \JmesPath\search($expression, $b);
         });
 
         return $value;

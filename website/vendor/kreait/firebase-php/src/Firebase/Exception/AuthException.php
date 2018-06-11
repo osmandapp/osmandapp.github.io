@@ -10,7 +10,9 @@ use Kreait\Firebase\Exception\Auth\InvalidCustomToken;
 use Kreait\Firebase\Exception\Auth\InvalidPassword;
 use Kreait\Firebase\Exception\Auth\MissingPassword;
 use Kreait\Firebase\Exception\Auth\OperationNotAllowed;
+use Kreait\Firebase\Exception\Auth\PhoneNumberExists;
 use Kreait\Firebase\Exception\Auth\UserDisabled;
+use Kreait\Firebase\Exception\Auth\UserNotFound;
 use Kreait\Firebase\Exception\Auth\WeakPassword;
 use Kreait\Firebase\Util\JSON;
 
@@ -25,7 +27,9 @@ class AuthException extends \RuntimeException implements FirebaseException
         MissingPassword::IDENTIFIER => MissingPassword::class,
         OperationNotAllowed::IDENTIFER => OperationNotAllowed::class,
         UserDisabled::IDENTIFER => UserDisabled::class,
+        UserNotFound::IDENTIFIER => UserNotFound::class,
         WeakPassword::IDENTIFIER => WeakPassword::class,
+        PhoneNumberExists::IDENTIFIER => PhoneNumberExists::class,
     ];
 
     /**
@@ -37,17 +41,12 @@ class AuthException extends \RuntimeException implements FirebaseException
     {
         $message = $e->getMessage();
 
-        if (!($response = $e->getResponse())) {
-            return new static($message, $e->getCode(), $e);
+        /* @noinspection NullPointerExceptionInspection */
+        if ($e->getResponse() && JSON::isValid($responseBody = (string) $e->getResponse()->getBody())) {
+            /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
+            $errors = JSON::decode($responseBody, true);
+            $message = $errors['error']['message'] ?? $message;
         }
-
-        try {
-            $errors = JSON::decode((string) $response->getBody(), true);
-        } catch (\InvalidArgumentException $jsonDecodeException) {
-            return new static('Invalid JSON: The API returned an invalid JSON string.', $e->getCode(), $e);
-        }
-
-        $message = $errors['error']['message'] ?? $message;
 
         $candidates = array_filter(array_map(function ($key, $class) use ($message, $e) {
             return false !== stripos($message, $key)
@@ -55,7 +54,7 @@ class AuthException extends \RuntimeException implements FirebaseException
                 : null;
         }, array_keys(self::$errors), self::$errors));
 
-        $fallback = new static(sprintf('Unknown error: "%s"', $message), $e->getCode(), $e);
+        $fallback = new static($message, $e->getCode(), $e);
 
         return array_shift($candidates) ?? $fallback;
     }
