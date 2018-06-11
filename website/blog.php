@@ -1,6 +1,6 @@
 <?php
   if (empty($_GET['id'])) {
-    $_GET['id'] ="8-years";
+    $_GET['id'] ="travel";
   } 
 ?>          
 <!DOCTYPE html>
@@ -8,18 +8,19 @@
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:url"        <?php  echo 'content="http://osmand.net'.$_SERVER['REQUEST_URI'].'"'  ?> /> 
+  <meta property="og:url"        <?php  echo 'content="https://osmand.net'.$_SERVER['REQUEST_URI'].'"'  ?> /> 
   <meta property="og:type"          content="website" />
   <meta property="og:title"         content="OsmAnd - Offline Mobile Maps and Navigation" />
   <meta property="og:description"   content="" />
-  <meta property="og:image"         content="http://osmand.net/images/logo-grey.png" />
+  <meta property="og:image"         content="https://osmand.net/images/logo-grey.png" />
   <title>OsmAnd - Offline Mobile Maps and Navigation</title>
   <?php include 'blocks/default_links.html'; ?>
   <!-- for google+-->
-  <link rel="canonical" <?php echo 'href="http://osmand.net'.$_SERVER['REQUEST_URI'].'"'  ?>  />
+  <link rel="canonical" <?php echo 'href="https://osmand.net'.$_SERVER['REQUEST_URI'].'"'  ?>  />
   <script src="https://apis.google.com/js/platform.js" async defer></script>
   <script type="text/javascript" src="scripts/ga-init.js"></script>
   <script type="text/javascript" src="scripts/ga-blog.js"></script>
+  <link rel="alternate" type="application/rss+xml" title="OsmAnd Blog" href="/rss.xml">
 </head>
 <body>
 <!-- for FB-->
@@ -49,18 +50,18 @@
 
     <div class="articles">
       <div class="articlescontainer">
-        
-      
+
       <div class="article">
         <?php echo file_get_contents("blog_articles/".$_GET['id'].".html"); ?>      
-      </div>    
-      
+      </div>
+
       <div class="article-menu-wrapper">
         <div class="modal-menu-button"></div>
         <div class="article-menu">
           <div class="acticlestitles">
             <h2>Latest articles</h2>
             <ul class="articlelinklist">
+              <li><a data-gatag='travel' href="/blog?id=8-years">Travel guides</a></li>
               <li><a data-gatag='8-years' href="/blog?id=8-years">OsmAnd turns 8</a></li>
               <li><a data-gatag='osmand-3-0-released' href="/blog?id=osmand-3-0-released">OsmAnd 3.0</a></li>
               <li><a data-gatag='osmand-ios-2-1-released' href="/blog?id=osmand-ios-2-1-released">OsmAnd 2.1 (iOS)</a></li>
