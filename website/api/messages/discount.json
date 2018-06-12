@@ -1,8 +1,6 @@
 {
   "message" : "Unlimited map downloads -50%!",
   "description" : "Get Ready for Summer!",
-  "start" : "24-05-2018 00:00",
-  "end" : "29-05-2018 23:59",
   "show_start_frequency" : 3,
   "show_day_frequency" : 1,
   "max_total_show" : 100,
