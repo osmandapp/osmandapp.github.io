@@ -1,0 +1,16 @@
+{
+  "message" : "Try new global offline travel guides",
+  "description" : "Read about World cup 2018 from Wikivoyage!",
+  "start" : "10-06-2018 00:00",
+  "end" : "30-06-2018 23:59",
+  "show_start_frequency" : 5,
+  "show_day_frequency" : 1,
+  "max_total_show" : 10,
+  "icon" : "ic_action_travel",
+  "url" : "https://osmand.net/travel?title=World_Cup_2018&lang=en",
+  "application" : {
+    "net.osmand" : true,
+    "net.osmand.plus" : true
+
+  }
+}
