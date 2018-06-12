@@ -10,7 +10,7 @@
   "url" : "https://osmand.net/travel?title=World_Cup_2018&lang=en",
   "application" : {
     "net.osmand" : true,
-    "net.osmand.plus" : true
-
+    "net.osmand.plus" : true,
+    "net.osmand.dev" : true
   }
 }
