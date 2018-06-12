@@ -30,8 +30,10 @@ if(isset($_SERVER['REMOTE_ADDR']) && $_SERVER['REMOTE_ADDR'] == $TEST_IP) {
 	$json->start = $start;
 	$json->end = $end;
 	echo json_encode($json);
-} else if(!$iosVersion) {
+} else if(!$iosVersion && $appVersion3) {
 	echo file_get_contents("messages/top_wikivoyage.json");		
+} else {
+	echo "{}"
 }
 
 ?>
