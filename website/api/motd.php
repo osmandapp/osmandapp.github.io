@@ -1,7 +1,7 @@
 <?php
 // lang, version
 if(isset($_SERVER['REMOTE_ADDR']) && $_SERVER['REMOTE_ADDR'] == '82.217.128.95' && 
-   isset($_REQUEST['version']) && substr($_REQUEST['version'] , 0, 1 ) == '3' ) {
+   isset($_REQUEST['version']) && strpos($_REQUEST['version'] , '3.' ) !== false ) {
 	echo file_get_contents("messages/top_wikivoyage.json");	
 } else if(isset($_GET['os']) && $_GET['os'] == 'ios') {
   // url supported: 
