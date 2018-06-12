@@ -33,7 +33,7 @@ if(isset($_SERVER['REMOTE_ADDR']) && $_SERVER['REMOTE_ADDR'] == $TEST_IP) {
 } else if(!$iosVersion && $appVersion3) {
 	echo file_get_contents("messages/top_wikivoyage.json");		
 } else {
-	echo "{}"
+	echo "{}";
 }
 
 ?>
