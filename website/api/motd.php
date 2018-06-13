@@ -10,7 +10,9 @@ $iosVersion  = isset($_GET['os']) && $_GET['os'] == 'ios';
 $appVersion3 = isset($_REQUEST['version']) && (strpos($_REQUEST['version'] , '3.') ) !== false;
 $today = date("Y-m-d H:i");
 
-if(isset($_SERVER['REMOTE_ADDR']) && $_SERVER['REMOTE_ADDR'] == $TEST_IP) {
+if(isset($_REQUEST['discount']) && $_REQUEST['discount'] == 'test') {
+	echo "{ 'start' : '$DISCOUNT_START', 'start' : '$DISCOUNT_END'}";
+} else if(isset($_SERVER['REMOTE_ADDR']) && $_SERVER['REMOTE_ADDR'] == $TEST_IP) {
 	echo file_get_contents("messages/test_motd.json");	
 } else if($today > $DISCOUNT_START && $today < $DISCOUNT_END) {
 	$start = date("d-m-Y H:i", strtotime($DISCOUNT_START));
