@@ -11,7 +11,7 @@ $appVersion3 = isset($_REQUEST['version']) && (strpos($_REQUEST['version'] , '3.
 $today = date("Y-m-d H:i");
 
 if(isset($_REQUEST['discount']) && $_REQUEST['discount'] == 'test') {
-	echo "{ 'start' : '$DISCOUNT_START', 'start' : '$DISCOUNT_END'}";
+	echo "{ 'discount-start' : '$DISCOUNT_START', 'discount-end' : '$DISCOUNT_END'}";
 } else if(isset($_SERVER['REMOTE_ADDR']) && $_SERVER['REMOTE_ADDR'] == $TEST_IP) {
 	echo file_get_contents("messages/test_motd.json");	
 } else if($today > $DISCOUNT_START && $today < $DISCOUNT_END) {
