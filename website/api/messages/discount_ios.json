@@ -3,7 +3,7 @@
   "description" : "Get Ready for Summer!",
   "show_start_frequency" : 3,
   "show_day_frequency" : 1,
-  "max_total_show" : 100,
+  "max_total_show" : 10,
   "icon" : "ic_action_gift",
   "url" : "in_app:map",
   "in_app" : "allworld",
