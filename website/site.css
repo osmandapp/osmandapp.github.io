@@ -988,6 +988,7 @@ a::-moz-focus-inner {
   font-family: 'Roboto Bold';
   letter-spacing: 0.05em;
   padding-top: 20px;
+  color: #333333;
 }
 .article > iframe {
   max-width: 100%;
