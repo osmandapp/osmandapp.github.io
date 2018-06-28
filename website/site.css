@@ -2917,6 +2917,12 @@ a,a:visited
 	}
 }
 
+.quote {
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 1em;
+}
+
 /*.gocontainer .popup .buttons
 {
 	width:80%;
