@@ -1,6 +1,6 @@
 <?php
   if (empty($_GET['id'])) {
-    $_GET['id'] ="travel";
+    $_GET['id'] ="mission";
   } 
 ?>          
 <!DOCTYPE html>
