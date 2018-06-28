@@ -984,6 +984,11 @@ a::-moz-focus-inner {
   margin-top: 1em;
   font-size: 18px;
 }
+.article h3 {
+  font-family: 'Roboto Bold';
+  letter-spacing: 0.05em;
+  padding-top: 20px;
+}
 .article > iframe {
   max-width: 100%;
 }
