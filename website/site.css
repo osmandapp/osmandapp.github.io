@@ -2918,9 +2918,11 @@ a,a:visited
 }
 
 .quote {
-  font-size: 1em;
+  font-size: 1.8em;
   font-weight: bold;
-  line-height: 1em;
+  color: #212121;
+  line-height: 1.3em;
+  letter-spacing: 0.02em;
 }
 
 /*.gocontainer .popup .buttons
