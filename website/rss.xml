@@ -6,6 +6,23 @@
 		<description/>
 		<generator></generator>
 		<item>
+			<title>OsmAnd Mission</title>
+			<link>https://osmand.net/blog?id=mission</link>
+			<guid isPermaLink="true">https://osmand.net/blog?id=mission</guid>
+			<description><![CDATA[
+				<p>OsmAnd team has been working on open-source maps mobile application and getting support from our community for quite a while. The time has come to create a manifest that describes our place in the big IT world and explains why we prefer one solutions/products/technologies over the others.</p>
+				<p>Our main goal is to create universally helpful open-source offline travel tools and to encourage crowdsourcing initiatives worldwide. </p>
+				<p>We strongly believe that open-source applications make the world better by not competing for the revenue, but competing for making the best product. </p>
+<p>We recognize the geolocation data as a very sensitive personal information; that’s why we neither store nor share it with any third parties. Collection of certain data like the screen resolution, IP, etc., turned out to be a dangerous problem in the XXI century. Global services collecting such information could easily make a digital footprint and then start using it for tracking users and delivering personalized ads. We avoid using such services and transferring any data to the third parties altogether.</p>
+<p>We aim at making the best application possible and want to be sure it runs smoothly in any conditions. So we might collect anonymous and geo-imprecise information only for internal purposes. Of course, we always provide a way to opt out.</p>
+<p>Again, in the spirit of protecting privacy, we don’t have any plans to show ads in OsmAnd. We strongly rely on the 'pay for app' model as a sustainable and reliable solution.</p>
+
+
+				]]>
+			</description>
+			<pubDate>09 Jun 2018 00:00:00 GMT</pubDate>
+		</item>
+		<item>
 			<title>Travel guides in OsmAnd</title>
 			<link>https://osmand.net/blog?id=travel</link>
 			<guid isPermaLink="true">https://osmand.net/blog?id=travel</guid>
