@@ -1037,11 +1037,12 @@ a::-moz-focus-inner {
 }
 
 .acticlestitles h2 {
-  padding: 0 0 15px;
+  padding: 0 0 22px;
   border-bottom: 4px solid #f80;
-  font-size:.9em;
+  font-size:1.2em;
   font-family: 'Roboto Bold';
   letter-spacing:.2em;
+  font-variant: small-caps;
 }
 .acticlestitles h2:not(:first-child) {
   padding-top: 15px;
