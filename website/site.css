@@ -35,7 +35,6 @@ body {
 ul li {
   margin:0;
   padding:0;
-  padding-top: 15px;
 }
 h1, h2 {
   -webkit-margin-before:0;
@@ -989,6 +988,11 @@ a::-moz-focus-inner {
   letter-spacing: 0.05em;
   padding-top: 20px;
   color: #333333;
+}
+.article ul, .article li {
+  margin:0;
+  padding:0;
+  padding-top: 15px;
 }
 .article > iframe {
   max-width: 100%;
