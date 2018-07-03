@@ -15,7 +15,7 @@
          url('fonts/Roboto-Bold-webfont.woff') format('woff'),
          url('fonts/Roboto-Bold-webfont.ttf') format('truetype'),
          url('fonts/Roboto-Bold-webfont.svg#robotobold') format('svg');
-    font-weight: 700;
+    font-family: 'Roboto Bold';
     font-style: normal;
 
 }
@@ -97,7 +97,7 @@ a::-moz-focus-inner {
 .downloads .version-num {
   color: #000;
   font-size: 34px;
-  font-weight: bold;
+  font-family: 'Roboto Bold';
 }
 .downloads .date-stamp {
   display: block;
@@ -113,7 +113,7 @@ a::-moz-focus-inner {
   background: #ff8f00;
   color: #fff;
   font-size: 14px;
-  font-weight: bold;
+  font-family: 'Roboto Bold';
   text-decoration: none;
 }
 .downloads ul {
@@ -183,7 +183,7 @@ a::-moz-focus-inner {
   padding: 0 40px;
   font-size:50px;
   line-height:1.6em;
-  font-weight: bold;
+  font-family: 'Roboto Bold';
   letter-spacing:.06em;
   text-transform: uppercase;
   text-shadow: 0 0 3px #333;
@@ -214,7 +214,7 @@ a::-moz-focus-inner {
   right: -182px;
   margin-top: -12px;
   font-family: Verdana, Arial;
-  font-weight: 700;
+  font-family: 'Roboto Bold';
   letter-spacing: .06em;
   -webkit-transform: translate(0, 0);
   transform: translate(0, 0);
@@ -377,7 +377,7 @@ a::-moz-focus-inner {
   padding-right: 20px;
 }
 .api_main .list-header {
-  font-weight: 700;
+  font-family: 'Roboto Bold';
 }
 .api_main .list {
   margin-bottom: 30px;
@@ -438,7 +438,7 @@ a::-moz-focus-inner {
 .api_main .api-sample h2 {
   font-size: 0.9em;
   font-family: 'Roboto Bold';
-  font-weight: 700;
+  font-family: 'Roboto Bold';
   letter-spacing: 8px;
   text-align: center;
   text-transform: uppercase;
@@ -680,7 +680,7 @@ a::-moz-focus-inner {
   padding: 19px 5px 6px;
   color: #2196F3;
   font-size: 14px;
-  font-weight: 700;
+  font-family: 'Roboto Bold';
 }
 .selectbox .selecttitle.first {
   padding-top:2px;
@@ -934,7 +934,7 @@ a::-moz-focus-inner {
   border-bottom: 1px solid #2f4445;
   color: #698d8f;
   font-size: .7em;
-  font-weight: 700;
+  font-family: 'Roboto Bold';
   text-transform: uppercase;
 }
 
@@ -1465,7 +1465,7 @@ a::-moz-focus-inner {
   display: inline-block;
   padding: 0 19px;
   background: #fff;
-  font-weight: 700;
+  font-family: 'Roboto Bold';
   letter-spacing: .3em;
 }
 
@@ -1555,13 +1555,13 @@ a::-moz-focus-inner {
   margin-top: 10px;
   margin-bottom: 15px;
   font-size: 1.2em;
-  font-weight: 700;
+  font-family: 'Roboto Bold';
 }
 
 .blocksubsubtitle {
   margin-top: 10px;
   font-size: 1.1em;
-  font-weight: 700;
+  font-family: 'Roboto Bold';
 }
 
 .content {
@@ -2127,7 +2127,7 @@ a,a:visited
     margin: 0;
     color: #000;
     font-size: 18px;
-    font-weight: 700;
+    font-family: 'Roboto Bold';
     text-transform: uppercase;
   }
   .selectbox ul {
@@ -2526,11 +2526,11 @@ a,a:visited
   }
   .feature .description h2 {
     font-size: 22px;
-    font-weight: 700;
+    font-family: 'Roboto Bold';
   }
   .subfeature .subfeatureheader {
     font-size: 24px;
-    font-weight: 700;
+    font-family: 'Roboto Bold';
   }
   .dvr-featurescontent {
     padding: 0 20px;
@@ -2862,7 +2862,7 @@ a,a:visited
                 color: white;
                 float: right;
                 font-size: 28px;
-                font-weight: bold;
+                font-family: 'Roboto Bold';
               }
 
               .close-params:hover,
@@ -2936,7 +2936,7 @@ a,a:visited
 
 .quote {
   font-size: 1.8em;
-  font-weight: bold;
+  font-family: 'Roboto Bold';
   color: #212121;
   line-height: 1.3em;
   letter-spacing: 0.02em;
