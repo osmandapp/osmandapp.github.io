@@ -33,7 +33,7 @@
           <div class="modal-menu-button"></div>
           <div class="article-menu">
             <div class="acticlestitles">
-              <h2>Features</h2>
+              <h2>features</h2>
               <ul class="articlelinklist">
                 <li><div id="google_translate_element"></div><script type="text/javascript">
                     function googleTranslateElementInit() {
@@ -49,7 +49,7 @@
                 <li><a data-gatag='troubleshooting' href="/features?id=installation-and-troubleshooting">Installation &amp; troubleshoooting</a></li>
                 <li><a data-gatag='osmand_purchases' href="/features?id=osmand_purchases">OsmAnd Purchases</a></li>
               </ul>
-              <h2>Plugins</h2>
+              <h2>plugins</h2>
               <ul class="articlelinklist">
                 <li><a data-gatag='online-maps-plugin' href="/features?id=online-maps-plugin">Online maps</a></li>
                 <li><a data-gatag='contour-lines-plugin' href="/features?id=contour-lines-plugin" >Contour lines and Hillshade map</a></li>
