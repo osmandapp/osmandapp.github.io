@@ -43,7 +43,7 @@
         <div class="modal-menu-button"></div>
         <div class="article-menu">
           <div class="acticlestitles">
-            <h2>Latest articles</h2>
+            <h2>latest articles</h2>
             <ul class="articlelinklist">
               <li><a data-gatag='travel' href="/blog?id=mission">OsmAnd mission</a></li>
               <li><a data-gatag='travel' href="/blog?id=travel">Travel guides</a></li>
