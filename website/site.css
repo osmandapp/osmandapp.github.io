@@ -281,7 +281,7 @@ a::-moz-focus-inner {
   background-color:#ff8f00;
   color:#fff;
   text-align:center;
-  font-weight:700;
+  font-family: 'Roboto Bold';
   max-width:20%;
   overflow:hidden;
   -webkit-border-radius:10px;
@@ -549,7 +549,7 @@ a::-moz-focus-inner {
 .specialevent .headertitletext
 {
   letter-spacing:0;
-  font-weight:700;
+  font-family: 'Roboto Bold';
 }
 
 .headertitletext {
@@ -1040,7 +1040,7 @@ a::-moz-focus-inner {
   padding: 0 0 15px;
   border-bottom: 4px solid #f80;
   font-size:.9em;
-  font-weight:700;
+  font-family: 'Roboto Bold';
   letter-spacing:.2em;
 }
 .acticlestitles h2:not(:first-child) {
@@ -1409,7 +1409,7 @@ a::-moz-focus-inner {
   vertical-align: middle;
   background-color:#ededed;
   color:#9a9a9a;
-  font-weight:700;
+  font-family: 'Roboto Bold';
   padding:10px 15px;
   margin-right: -6px;
 }
@@ -1431,7 +1431,7 @@ a::-moz-focus-inner {
 
 .plugin .buttons .getbutton a {
   color:#fff;
-  font-weight:700;
+  font-family: 'Roboto Bold';
   text-decoration:none;
 }
 
@@ -1544,7 +1544,7 @@ a::-moz-focus-inner {
 .subtitle h2 {
   font-size:1.3em;
   margin-top:10px;
-  font-weight:700;
+  font-family: 'Roboto Bold';
 }
 .subtitle.mobile-subtitle {
   display: none;
@@ -1758,7 +1758,7 @@ h1.sub small
   width:130px;
   font-size:18px;
   color:#fff;
-  font-weight:700;
+  font-family: 'Roboto Bold';
   border:none;
   background-color:#619CD4;
   border-radius:5px;
@@ -1837,7 +1837,7 @@ a,a:visited
 
 .specialeventtext .signature,.about .surname,.definition
 {
-  font-weight:700;
+  font-family: 'Roboto Bold';
 }
 
 .specialeventlist,.features .categorydescription
@@ -2696,7 +2696,7 @@ a,a:visited
 
 .gocontainer .coordinatescontainer .coordinate
 {
-  font-weight:700;
+  font-family: 'Roboto Bold';
   color:#000;
   padding-left:5px;
   font-size:15px;
