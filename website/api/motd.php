@@ -1,7 +1,7 @@
 <?php
 // lang is also passwed
-$DISCOUNT_START = "2018-06-21 00:00";
-$DISCOUNT_END = "2018-06-26 00:00";
+$DISCOUNT_START = "2018-07-25 00:00";
+$DISCOUNT_END = "2018-07-31 00:00";
 
 $TEST_IP = '82.217.128.95';
 
