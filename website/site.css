@@ -989,6 +989,15 @@ a::-moz-focus-inner {
   padding-top: 20px;
   color: #333333;
 }
+.article h1, .article h2 {
+  letter-spacing: 0.04em;
+}
+.article p {
+  line-height: 1.7em;
+}
+.article a {
+  color: #454ade;
+}
 .article ul, .article li {
   margin:0;
   padding:0;
