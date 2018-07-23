@@ -273,9 +273,11 @@
  $lat = $_GET['lat'];
  $lon = $_GET['lon'];
 
+ $osm_image;
  if (isset($_GET['osm_image'])) {
    $osm_image = $_GET['osm_image'];
  }
+ $osm_mapillary_key;
  if (isset($_GET['osm_mapillary_key'])) {
    $osm_mapillary_key = $_GET['osm_mapillary_key'];
  }
