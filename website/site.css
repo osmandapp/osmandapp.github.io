@@ -1093,6 +1093,7 @@ a::-moz-focus-inner {
   text-align: center;
 }
 
+
 .article .centeredimageblog img {
   max-width: 300px;
   padding: 10px;
@@ -1106,6 +1107,23 @@ a::-moz-focus-inner {
   width: auto;
   height: 300px;
 }
+
+/* Add style for new image block in blog */
+.article .blogimageblock {
+  margin: 30px auto 0;
+  text-align: center;
+  border-radius: 6px;
+  background-color: #f4f4f4;
+}
+
+.article .blogimageblock img {
+  max-width: 300px;
+  padding: 10px;
+  margin-top: 20px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
+
 
 .article .noborder img {
   padding: 0;
