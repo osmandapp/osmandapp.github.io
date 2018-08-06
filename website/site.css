@@ -1113,7 +1113,8 @@ a::-moz-focus-inner {
   margin: 30px auto 0;
   text-align: center;
   border-radius: 6px;
-  background-color: #f4f4f4;
+  background-color: #fafafa;
+  border: 1px solid #e6e6e6;
 }
 
 .article .blogimageblock img {
