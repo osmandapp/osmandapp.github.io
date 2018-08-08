@@ -45,7 +45,7 @@
           <div class="acticlestitles">
             <h2>latest articles</h2>
             <ul class="articlelinklist">
-              <li><a data-gatag='osmand-3-1-released' href="/blog?id=osmand-3-1-released">OsmAnd 3.0</a></li>
+              <li><a data-gatag='osmand-3-1-released' href="/blog?id=osmand-3-1-released">OsmAnd 3.1</a></li>
               <li><a data-gatag='travel' href="/blog?id=mission">OsmAnd mission</a></li>
               <li><a data-gatag='travel' href="/blog?id=travel">Travel guides</a></li>
               <li><a data-gatag='8-years' href="/blog?id=8-years">OsmAnd turns 8</a></li>
