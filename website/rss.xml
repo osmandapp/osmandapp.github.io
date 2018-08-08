@@ -6,6 +6,25 @@
 		<description/>
 		<generator></generator>
 		<item>
+			<title>OsmAnd 3.1 is here!</title>
+			<link>https://osmand.net/blog?id=osmand-3-1-released</link>
+			<guid isPermaLink="true">https://osmand.net/blog?id=osmand-3-1-released</guid>
+			<description><![CDATA[
+					<h3>Wikipedia and Wikivoyage</h3>
+					<p>We have significantly improved the Parsing algorithms of Wikipedia articles, fixed the problems with  French and Italian languages in which there were practically no articles.
+									The mistakes in the articles content processing in Wikivoyage have also been eliminated. 
+									The updated Wikipedia and Wikivoyage files are already available.</p>
+					<h3>OpenStreetMap editing</h3>
+					<p>Some great news for	<a href="https://www.openstreetmap.org">OpenStreetMap.org</a> contributors who use OsmAnd.
+								We have added synchronization of OSM Edit to Google App Backup, so now in the case of OsmAnd reinstallation, all your OSM edits that have not been uploaded yet will not be lost.
+						<p>We have corrected the error in the map notes. If the author of the note was anonymous, OsmAnd did not display the names of all the commentators.</p>
+						<p>The most important innovation for contributors: we have added the ability to edit tags for non-point objects and ways.</p>
+					</p>
+				]]>
+			</description>
+			<pubDate>08 Aug 2018 00:00:00 GMT</pubDate>
+		</item>
+		<item>
 			<title>OsmAnd Mission</title>
 			<link>https://osmand.net/blog?id=mission</link>
 			<guid isPermaLink="true">https://osmand.net/blog?id=mission</guid>
