@@ -1,10 +1,18 @@
-{   
-    "2018-06":{
-        "transactions":[
-        "062d548d41dc480867333dc6b4a2e8011b8ee8f8a94df15828d627b01cc31c6f",
-        "66850d1ef31d708564d3ecb110ea60548397909af1f060cc1edf1b7fc3941a3e"
-        ]
-    },
+{  
+   "2018-07":{
+      "transactions":[
+         "2bff8c79702f5ee2ac215469bb564ac9d55512f8ed5741bca938ae673f905d3b",
+         "1e2dde548adab2ec4a35681568402d9b982a0fc304047826f7207f3ba0033ab8",
+         "0faf6bffbb4d77c60cd2bc2f20c0aa36fecda0e5d95e28799140b89297fe80d8",
+         "4342171a43d2bdf7396a6c9f5074eba35bd3ec6ecd2a81487a54c7e0ab95ce39"
+      ]
+   }, 
+   "2018-06":{
+      "transactions":[
+         "062d548d41dc480867333dc6b4a2e8011b8ee8f8a94df15828d627b01cc31c6f",
+         "66850d1ef31d708564d3ecb110ea60548397909af1f060cc1edf1b7fc3941a3e"
+      ]
+   },
    "2018-05":{
       "transactions":[
          "f319e6e3e10107338710ffa8370046c77dc15ace20b08504e89fd55909201904",
