@@ -250,7 +250,11 @@
   <div class="blogcontainerwrap">
     <div class="blogcontainer">
       <div>
-        <?php include 'blocks/main_news.html'; ?>
+        <h2>Twitter</h2>
+        <a class="twitter-timeline" href="https://twitter.com/osmandapp" data-widget-id="598236050113372160" height="502">Tweets by @osmandapp</a>
+        <script>
+          !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+        </script>
       </div>
       <div>
         <?php include 'blocks/main_poll.html';?>
@@ -258,36 +262,6 @@
     </div>
   </div>
 
-  <div id="fb-root"></div>
-  <script>
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_EN/sdk.js#xfbml=1&version=v2.3";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-  </script>
-
-  <div class="blogcontainerwrap social-widgets">
-    <div class="blogcontainer">
-      <div>
-        <h2>Facebook</h2>
-        <div class="fb-page" data-href="https://www.facebook.com/osmandapp" data-hide-cover="false" data-show-facepile="true" data-show-posts="true"  data-width="500" >
-          <div class="fb-xfbml-parse-ignore">
-            <blockquote cite="https://www.facebook.com/osmandapp"><a href="https://www.facebook.com/facebook">OsmAnd</a></blockquote>
-          </div>
-        </div>
-      </div>
-      <div>
-        <h2>Twitter</h2>
-        <a class="twitter-timeline" href="https://twitter.com/osmandapp" data-widget-id="598236050113372160" height="502">Tweets by @osmandapp</a>
-        <script>
-          !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-        </script>
-      </div>
-    </div>
-  </div>
 
   <?php include 'blocks/footer.html';?>
 
