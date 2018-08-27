@@ -89,7 +89,7 @@ var goMap = {
 				'mapid':'map',
                 'maxzoom':20,
 				'maxnativezoom':19,
-				'sourceurl':'http://tile.osmand.net/hd/{z}/{x}/{y}.png',
+				'sourceurl':'https://tile.osmand.net/hd/{z}/{x}/{y}.png',
 				'attribution':'&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
             }, config),
 			init:function(){
