@@ -47,8 +47,8 @@ if(is_null(getReport('getBTCValue'))) {
     if($payouts != '') {
         $res->message = $res->message . "<p class='recipients-data-header overview-hint'>Payouts:&nbsp;" . $payouts . "</p>";
     }
-    $res->message = $res->message . '<p><a type="application/json" href="http://builder.osmand.net/reports/query_month_report.php?report=total&month=' . $res->month . '"  download="report-'. $res->month .'.json" >Download all json reports for ' . $month . ' </a>.'.
-                    '&nbsp; <a type="application/json" href="http://builder.osmand.net/reports/report_underpaid.json.html">Cumulative underpaid report</a></p>';
+    $res->message = $res->message . '<p><a type="application/json" href="/reports/query_month_report.php?report=total&month=' . $res->month . '"  download="report-'. $res->month .'.json" >Download all json reports for ' . $month . ' </a>.'.
+                    '&nbsp; <a type="application/json" href="https://builder.osmand.net/reports/report_underpaid.json.html">Cumulative underpaid report</a></p>';
 }
         
 echo json_encode($res);
