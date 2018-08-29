@@ -52,8 +52,6 @@ function url_exists($url) {
 } 
 
 function dwFile($filename,$query,$type) {
-  if($_SERVER['SERVER_NAME'] == 'download.osmand.net') {
-    header('HTTP/1.1 302 Found');
     $var = rand(0, 99);
     $simple = false;
     if($type == "wiki" or $type == "" or $type == "road" or $type == "wikivoyage") {
@@ -77,19 +75,20 @@ function dwFile($filename,$query,$type) {
    } else if($record and $record['country_code'] == 'US' and 
 		$helpServersUSCount > 0 and $simple and $var < (100 - $mainServersUSLoad)) {
 		$url = $helpServersUS[$var % $helpServersUSCount];
+		header('HTTP/1.1 302 Found');
     	header('Location: http://'.$url.'/download.php?'.$query);
    } else if($helpServersCount > 0 and $simple and $var < (100 - $mainServersLoad)) {
     	$url = $helpServers[$var % $helpServersCount];
+    	header('HTTP/1.1 302 Found');
     	header('Location: http://'.$url.'/download.php?'.$query);
     } else if($mainServersCount > 0) {
     	$url = $mainServers[$var % $mainServersCount];
+    	header('HTTP/1.1 302 Found');
     	header('Location: http://'.$url.'/download.php?'.$query);
     } else {
         downloadFile($filename);
     }
-  } else {
-    	downloadFile($filename);
-  }
+
 }
 
 function endsWith($haystack, $needle)
