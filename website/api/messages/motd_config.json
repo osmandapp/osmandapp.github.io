@@ -2,7 +2,6 @@
 	"settings": [
 		{
 			"condition": {
-				"type" : "ip",
 				"ip": "82.217.128.95"
 			},
 			"file": "test_motd.json",
@@ -10,7 +9,6 @@
 		},
 		{
 			"condition": {
-				"type" : "date",
 				"start_date": "2018-08-08 00:00",
 				"end_date": "2018-08-31 00:00"
 			},
@@ -25,7 +23,6 @@
 		},
 		{
 			"condition": {
-				"type" : "version",
 				"version": "3"
 			},
 			"file": "top_wikivoyage.json"
