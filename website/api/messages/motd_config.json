@@ -26,7 +26,8 @@
 			"condition": {
 				"version": "3"
 			},
-			"file": "top_wikivoyage.json"
+			"file": "top_wikivoyage.json",
+			"fields" : {}
 		}
 	]
 }

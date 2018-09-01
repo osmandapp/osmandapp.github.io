@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Info</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	
+	<h1>Version info:</h1>
+	<p>Server version: <span th:text="${server_commit}"></span></p>
+	<p>Web version: <span th:text="${web_commit}"></span></p>
+	<p>Updated: <b><span th:text="${update_status}+'.'"></span></b> <span th:text="${update_message} "></span> <span th:text="${update_errors}"></span></p>
+
+	<h1>Settings message of the day (promo):</h1>
+	<table border="1">
+		<tr>
+			<th>Active</th>
+			<th>File</th>
+			<th>Filter</th>
+			<th>Messages</th>
+		</tr>
+        <tr th:each="di : ${motdSettings.getDiscountSettings()}">
+        	<td th:text="${di.discountCondition.checkActiveDate(new java.util.Date()) ? 'yes' : 'no'}"></td>
+        	<td th:text="${di.file}"></td>
+        	<td th:text="${di.discountCondition.getFilterCondition()}"></td>
+        	<td th:text="${di.fields}"></td>
+        </tr>
+    </table>
+	<h1>Reload settings from git:</h1>
+    <div class="reload">
+    	<form action="/admin/publish" method="get">
+    		<input type="submit" value="Reload web configuration"  />
+		</form>
+	</div>
+
+</body>
+</html>
