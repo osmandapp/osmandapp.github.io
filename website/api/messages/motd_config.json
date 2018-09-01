@@ -2,7 +2,8 @@
 	"settings": [
 		{
 			"condition": {
-				"ip": "82.217.128.95"
+				"ip": "",
+				"ip_disabled": "82.217.128.95"
 			},
 			"file": "test_motd.json",
 			"fields": {}
