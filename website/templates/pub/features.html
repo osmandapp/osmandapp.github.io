@@ -1,33 +1,24 @@
-<?php
-  if (empty($_GET['id'])) {
-    $_GET['id'] ="main";
-  } 
-?>          
 <!DOCTYPE html>
 <html>
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>OsmAnd - Offline Mobile Maps and Navigation</title>
-  <?php include 'blocks/default_links.html';  ?>
-  <!-- for google+-->
-  <link rel="canonical"  <?php echo 'href="http://osmand.net'.$_SERVER['REQUEST_URI'].'"'  ?> />
+  <script th:replace="pub/fragments/default_links"></script>
+
+
 </head>
 <body>
   
   <div class="maincontainer">
-    <div class="main">
-    <?php 
-      $simpleheader_header = "FEATURES";
-      $simpleheader_header_id = "FEATURES";
-      include 'blocks/simple_header.php';
-    ?>
+    <div class="main" th:include="pub/fragments/simple_header :: header('FEATURES', 'FEATURES' ) " >
+    </div>
     <div class="articles">
       <div class="articlescontainer">
-    
-      <?php if ( true || $_GET['id'] != 'main') { ?>
+      
 
-        <div class="article"><?php echo file_get_contents("feature_articles/".$_GET['id'].".html"); ?></div>
+        <div class="article" th:include="@{'feature_articles/' + ${article}}">
+        </div>
 
         <div class="article-menu-wrapper">
           <div class="modal-menu-button"></div>
@@ -66,13 +57,9 @@
             </div>
           </div>
         </div>
-    
-      <?php } else { 
-        echo file_get_contents("feature_articles/".$_GET['id'].".html"); 
-      } ?>
       </div>
     </div>
-    <?php include 'blocks/footer.html';  ?>
+    <div th:replace="pub/fragments/footer"/>
   </div>
 </div>
 
