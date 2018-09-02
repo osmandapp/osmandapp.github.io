@@ -27,6 +27,20 @@
         	<td th:text="${di.fields}"></td>
         </tr>
     </table>
+	<h1>Download servers:</h1>
+	<table border="1">
+		<tr>
+			<th>Name</th>
+			<th>Maps+Wiki</th>
+			<th>SRTM+Hillshade</th>
+		</tr>
+        <tr th:each="di : ${downloadServers}">
+        	<td th:text="${di.name}"></td>
+        	<td th:text="${di.mainLoad}"></td>
+        	<td th:text="${di.srtmLoad}"></td>
+        </tr>
+    </table>
+
 	<h1>Reload settings from git:</h1>
     <div class="reload">
     	<form action="/admin/publish" method="post">
