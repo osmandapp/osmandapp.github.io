@@ -29,8 +29,9 @@
     </table>
 	<h1>Reload settings from git:</h1>
     <div class="reload">
-    	<form action="/admin/publish" method="get">
+    	<form action="/admin/publish" method="post">
     		<input type="submit" value="Reload web configuration"  />
+    		<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 		</form>
 	</div>
 
