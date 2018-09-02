@@ -1,3 +1,3 @@
 <?php
-	echo file_get_contents(".proc_timestamp");
+	echo file_get_contents("../.proc_timestamp");
 ?>
