@@ -10,9 +10,9 @@
 </head>
 <body>
   
-  <div class="maincontainer">
-    <div class="main" th:include="pub/fragments/simple_header :: header('FEATURES', 'FEATURES' ) " >
-    </div>
+<div class="maincontainer">
+  <div class="main" >
+    <div th:replace="pub/fragments/simple_header :: header('FEATURES', 'FEATURES' ) " />
     <div class="articles">
       <div class="articlescontainer">
       
@@ -23,7 +23,7 @@
         <div class="article-menu-wrapper">
           <div class="modal-menu-button"></div>
           <div class="article-menu">
-            <div class="acticlestitles">
+            <div class="acticlestitles"> 
               <h2>features</h2>
               <ul class="articlelinklist">
                 <li><div id="google_translate_element"></div><script type="text/javascript">
@@ -54,11 +54,11 @@
                 <li><a data-gatag='development_plugin' href="/features/development_plugin">OsmAnd development</a></li>
                 <li><a data-gatag='mapillary' href="/features/mapillary">OsmAnd+Mapillary</a></li>
               </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+            </div> <!-- acticlestitles -->
+          </div> <!-- article-menu -->
+        </div> <!-- article-menu-wrapper -->
+      </div> <!-- articlescontainer -->
+    </div> <!-- articles -->
     <div th:replace="pub/fragments/footer"/>
   </div>
 </div>

@@ -9,9 +9,9 @@
 </head>
 <body>
   
-  <div class="maincontainer">
-    <div class="main" th:include="pub/fragments/simple_header :: header('API', 'Use OsmAnd power<br/>for your needs' ) " >
-    </div>
+<div class="maincontainer">
+  <div class="main">
+    <div th:replace= "pub/fragments/simple_header :: header('API', 'Use OsmAnd power<br/>for your needs' ) "></div>
     <div class="articles api_main">
       <div class="articlescontainer">
 
@@ -117,7 +117,6 @@
             <a href="http://download.osmand.net/latest-night-build/OsmAnd-qt-sample-armv7.apk" class="api-download-btn download-sample">Download</a>
           </div>
         </div>
-
       </div>
     </div>
     <div th:replace="pub/fragments/footer"/>
