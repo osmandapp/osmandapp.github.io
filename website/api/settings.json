@@ -4,6 +4,6 @@
 			"main" : ["dl1.osmand.net", "dl6.osmand.net"],
 			"help" : ["dl4.osmand.net"]
 		},
-		"main_load" : 55
+		"main_load" : 60
 	}
 }
