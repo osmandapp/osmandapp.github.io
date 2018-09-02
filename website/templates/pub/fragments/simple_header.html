@@ -1,0 +1,81 @@
+<div th:fragment="header (header_id, header_title)">
+
+<div
+  th:classappend="${header_id == 'MAIN' || header_id == 'DVR'}?'header':(${header_id == 'API'}?'custom_build_it':'simpleheader')">
+  <div class="header-map" th:if="${header_id == 'MAIN' || header_id == 'DVR'}"></div>
+  <div class="shadowline">
+    <div class="menu-wrapper">
+      <a href="/" class="headerlogo-link"><div class="headerlogo"></div></a>
+      <ul class="menu">
+        <li class="mobile-sign">Menu</li>
+        <li th:classappend="${header_id == 'FEATURES'}?'activeitem'"><a data-gatag="header_features" href="/features">Features</a></li>
+        <li th:classappend="${header_id == 'BLOG'}?'activeitem'"><a data-gatag="header_blog" href="/blog" >Blog</a></li>
+        <li th:classappend="${header_id == 'OSMLIVE'}?'activeitem'"><a data-gatag="header_osm_live" href="/osm_live">OsmAnd Live</a></li>
+        <li th:classappend="${header_id == 'API'}?'activeitem'"><a data-gatag="header_build_it" href="/build_it">Build It</a></li>
+        <li th:classappend="${header_id == 'HELP'}?'activeitem'"><a data-gatag="header_help" href="/help-online">Help</a></li>
+        <li th:classappend="${header_id == 'DVR'}?'activeitem'"><a data-gatag="header_dvr" href="/dvr">DVR</a></li>
+        <li class="mobile-only" th:if="${header_title == 'DOWNLOADS'}"><a data-gatag="header_downloads" href="/downloads">Downloads</a></li>
+      </ul>
+      <div class="menu-hamburger"></div>
+    </div>
+  </div>
+
+    <div class="api_header_holder" th:if="${header_id == 'API'}">
+      <div class="header_img"></div>
+      <div class="headertext" th:utext="${header_title}">API</div>
+    </div>
+    <div class="header-caption" th:if="${header_id != 'API'}">
+        <div class="headertext" th:utext="${header_title}">Main</div>
+        
+        <div class="badges" th:if="${header_id == 'MAIN'}">
+        <!-- https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png -->
+          <a data-gatag="googleplay" href="https://play.google.com/store/apps/details?id=net.osmand&amp;referrer=utm_source%3Dwebsite%26utm_medium%3Dtop"><img alt="Get it on Google Play" src="images/en-play-badge.png" /></a>
+          <a data-gatag="amazon" href="http://www.amazon.com/gp/product/B00D0SEGMC/ref=mas_pm_OsmAnd-Maps-Navigation"><img alt="Get it on Amazon" src="images/amazon-apps-store.png" /></a>
+          <a data-gatag="ios" class="appstoretopbadge" href="https://itunes.apple.com/app/apple-store/id934850257?pt=2123532&amp;ct=WebSite&amp;mt=8"><img src="images/app-store-badge.png"/></a>
+        </div>
+       <div class="badges" th:if="${header_id == 'DVR'}">
+          <a class="appstoretopbadge" href="http://itunes.apple.com/us/app/id963873905"><img src="images/app-store-badge.png"></a>
+        </div>
+  </div>
+  
+</div>
+
+<script>
+  $('.menu-hamburger').on('click', function() {
+    $('.maincontainer').toggleClass('menu-open');
+    if ($(document).width() < 321) {
+      $(this).toggleClass('in-menu');
+    }
+    if ($('.menu').hasClass('active')) {
+      setTimeout(function() {
+        $('.menu').removeClass('active')
+      }, 500)
+    } else {
+      $('.menu').addClass('active');
+    }
+  });
+
+  $(window).on('resize', function(){
+
+    if (!$('.menu-hamburger').is(':visible')) {
+      $('.menu').removeClass('active');
+      $('.maincontainer').removeClass('menu-open');
+    }
+
+  });
+
+  $('body').on('click', function() {
+    if ($('.maincontainer').hasClass('menu-open')) {
+      $('.menu-hamburger').click();
+    }
+  });
+
+  $('.menu-hamburger, .menu').on('click', function(e) {
+    e.stopPropagation();
+  });
+  
+  $('.download-btn').on('click', function(e) {
+    e.stopPropagation();
+  });
+</script>
+</div>

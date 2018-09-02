@@ -25,11 +25,7 @@
 <body>
 <div class="maincontainer">
   <div class="main">
-    <?php 
-      $simpleheader_header = "OSMAND LIVE";
-      $simpleheader_header_id = "OSMLIVE";
-      include 'blocks/simple_header.php';
-    ?>
+    <div class="main" th:include="pub/fragments/simple_header :: header('OSMLIVE', 'OSMAND LIVE' ) ">
     <div class="nav-holder">
       <ul class="navigation">
         <li class="active"><a data-toggle="tab" href="#information">Information</a></li>
@@ -277,7 +273,7 @@
         </div>
       </div>
     </div>
-    <?php include 'blocks/footer.html'; ?>
+    <div th:replace="pub/fragments/footer"/>
   </div>
 </div>
 <script>
