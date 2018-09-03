@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>OsmAnd blog</title>
+		<link>https://osmand.net/blog</link>
+		<atom:link href="https://osmand.net/rss.xml" rel="self" type="application/rss+xml" />
+		<description/>
+		<generator></generator>
+		<item th:each="art : ${articles}">
+			<title th:text="${art.title}"></title>
+			<link th:text="${'https://osmand.net/'+art.url}">https://osmand.net/blog/osmand-3-1-released</link>
+			<guid isPermaLink="true" th:text="${'https://osmand.net/'+art.url}">https://osmand.net/blog/osmand-3-1-released</guid>
+			<description th:utext="${'<![CDATA['+art.content+']]>'}"></description>
+			<pubDate th:text="${art.dateRSS}">08 Aug 2018 00:00:00 GMT</pubDate>
+		</item>
+	</channel>
+</rss>
+
