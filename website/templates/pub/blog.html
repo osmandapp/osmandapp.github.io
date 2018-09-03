@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OsmAnd - Offline Mobile Maps and Navigation</title>
+  <script th:replace="pub/fragments/default_links.html"></script>
+  <link rel="alternate" type="application/rss+xml" title="OsmAnd Blog" href="/rss.xml">
+</head>
+<body>
+
+<div class="maincontainer">
+  <div class="main">
+    <div  th:replace= "pub/fragments/simple_header :: header('BLOG', 'BLOG' ) ">
+    </div>
+    <div class="articles">
+      <div class="articlescontainer">
+
+        <div class="article" th:include="@{'blog_articles/' + ${article}}">
+        </div>
+      
+        <div class="article-menu-wrapper">
+          <div class="modal-menu-button"></div>
+          <div class="article-menu">
+            <div class="acticlestitles">
+              <h2>latest articles</h2>
+              <ul class="articlelinklist">
+                <li><a  href="/blog/osmand-3-1-released">OsmAnd 3.1</a></li>
+                <li><a  href="/blog/mission">OsmAnd mission</a></li>
+                <li><a  href="/blog/travel">Travel guides</a></li>
+                <li><a  href="/blog/8-years">OsmAnd turns 8</a></li>
+                <li><a  href="/blog/osmand-3-0-released">OsmAnd 3.0</a></li>
+                <li><a  href="/blog/osmand-ios-2-1-released">OsmAnd 2.1 (iOS)</a></li>
+                <li><a  href="/blog/osmand-2-9-released">OsmAnd 2.9</a></li>
+                <li><a  href="/blog/osmand_payouts_suspended_01_2018">OsmAnd Live payouts suspended</a></li>
+                <li><a  href="/blog/osmand-ios-2-0-released" >OsmAnd 2.0 (iOS)</a></li>
+                <li><a  href="/blog/osmand-2-8-released" >OsmAnd 2.8</a></li>
+                <li><a  href="/blog/osmand-2-7-released" >OsmAnd 2.7</a></li>
+                <li><a  href="/blog/osmand-2-6-released" >OsmAnd 2.6</a></li>
+                <li><a  href="/blog/osmand_youtube_channel" >OsmAnd team on Youtube</a></li>
+                <li><a  href="/blog/osmand-ios-1.3-released" >OsmAnd 1.3 (iOS)</a></li>
+                <li><a  href="/blog/osmand-2-5-released" >OsmAnd 2.5</a></li>
+                <li><a  href="/blog/christmas_map" >Сhristmas POI map</a></li>
+                <li><a  href="/blog/topo_style" >Topo style</a></li>
+                <li><a  href="/blog/osmand-2-4-released" >OsmAnd 2.4</a></li>
+                <li><a  href="/blog/osmand_videos" >OsmAnd Videos</a></li>
+                <li><a  href="/blog/api_demo" >OsmAnd API Demo</a></li>
+                <li><a  href="/blog/osm-live" >OsmAnd Live</a></li>
+                <li><a  href="/blog/osmand-2-3-released" >OsmAnd 2.3</a></li>
+                <li><a  href="/blog/osmand_google_comparison" >Google maps vs. OsmAnd maps  &amp; navigation</a></li>
+                <li><a  href="/blog/osmand-2-2-released" >OsmAnd 2.2</a></li>
+                <li><a  href="/blog/osmand-ios-1.2.2-released" >OsmAnd 1.2.2 (iOS)</a></li>
+                <li><a  href="/blog/osmand-ios-1.1.1-released" >OsmAnd 1.1.1 (iOS)</a></li>
+                <li><a  href="/blog/5_years" >5 years!</a></li>
+                <li><a  href="/blog/osmand-2-1-released" >OsmAnd 2.1</a></li>
+                <li><a  href="/blog/osmand-ios-1.0.2" >OsmAnd 1.0.2 (iOS)</a></li>
+                <li><a  href="/blog/osmand-2-0-released" >OsmAnd 2.0</a></li>
+                <li><a  href="/blog/osmand-ios" >OsmAnd for iPhone is released</a></li>
+                <li><a  href="/blog/nautical-charts" >Nautical charts</a></li>
+                <li><a  href="/blog/osmand-dvr-goes-live">OsmAnd DVR goes live</a></li>
+                <li><a  href="/blog/osmand-1-9-released" >OsmAnd 1.9</a></li>
+                <li><a  href="/blog/osmand-1-8-released" >OsmAnd 1.8</a></li>
+                <li><a  href="/blog/osmand-1-7-released" >OsmAnd 1.7</a></li>
+                <li><a  href="/blog/osmand-1-6-released" >OsmAnd 1.6</a></li>
+                <li><a  href="/blog/osmand-1-5-released" >OsmAnd 1.5</a></li>
+                
+                <li><a  href="/blog/osmand_videos" >OsmAnd Videos</a></li>
+                <li><a  href="/rss.xml" >RSS</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div th:replace="pub/fragments/footer"/>
+</div>
+
+
+<script>
+  $('.modal-menu-button').on('click', function(e) {
+    e.preventDefault();
+    $(this).toggleClass('active');
+    $('.article-menu').slideToggle();
+  });
+
+  $('body').on('click', function() {
+    if ($('.modal-menu-button').hasClass('active')) {
+      $('.modal-menu-button').toggleClass('active');
+      $('.article-menu').slideToggle();
+    }
+  });
+
+  $('.article-menu-wrapper').on('click', function(e) {
+    e.stopPropagation();
+  });
+
+  $(window).on('resize', function() {
+    if ($(document).width() > 900) {
+      $('.article-menu').attr('style', false);
+    }
+  });
+</script>
+</body>
+
+</html>
