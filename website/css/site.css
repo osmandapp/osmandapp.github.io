@@ -1,20 +1,20 @@
 @font-face {
   font-family: 'Roboto Regular';
-  src: url('fonts/Roboto-Regular-webfont.eot');
-  src: url('fonts/Roboto-Regular-webfont.eot?#iefix') format('embedded-opentype'),
-       url('fonts/Roboto-Regular-webfont.woff') format('woff'),
-       url('fonts/Roboto-Regular-webfont.ttf') format('truetype'),
-       url('fonts/Roboto-Regular-webfont.svg#robotoregular') format('svg');
+  src: url('/fonts/Roboto-Regular-webfont.eot');
+  src: url('/fonts/Roboto-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+       url('/fonts/Roboto-Regular-webfont.woff') format('woff'),
+       url('/fonts/Roboto-Regular-webfont.ttf') format('truetype'),
+       url('/fonts/Roboto-Regular-webfont.svg#robotoregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
     font-family: 'Roboto Bold';
-    src: url('fonts/Roboto-Bold-webfont.eot');
-    src: url('fonts/Roboto-Bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/Roboto-Bold-webfont.woff') format('woff'),
-         url('fonts/Roboto-Bold-webfont.ttf') format('truetype'),
-         url('fonts/Roboto-Bold-webfont.svg#robotobold') format('svg');
+    src: url('/fonts/Roboto-Bold-webfont.eot');
+    src: url('/fonts/Roboto-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/Roboto-Bold-webfont.woff') format('woff'),
+         url('/fonts/Roboto-Bold-webfont.ttf') format('truetype'),
+         url('/fonts/Roboto-Bold-webfont.svg#robotobold') format('svg');
     font-family: 'Roboto Bold';
     font-style: normal;
 
@@ -129,7 +129,7 @@ a::-moz-focus-inner {
   top: 0;
   bottom: 0;
   width: 100%;
-  background: #ededed url('images/header_image.jpg') center center no-repeat;
+  background: #ededed url('/images/header_image.jpg') center center no-repeat;
   background-size: cover;
 }
 
@@ -169,7 +169,7 @@ a::-moz-focus-inner {
 .headerlogo {
   width: 176px;
   height: 77px;
-  background: url('images/logo.png') center center no-repeat;
+  background: url('/images/logo.png') center center no-repeat;
   background-size: 100%;
 }
 .header-caption {
@@ -203,10 +203,10 @@ a::-moz-focus-inner {
   background-size: 100%;
 }
 .headertext.black-friday:before {
-  background: url('images/banner_discount.png') no-repeat center center;
+  background: url('/images/banner_discount.png') no-repeat center center;
 }
 .headertext.new-year:before {
-  background: url('images/banner_new_year.png') no-repeat center center;
+  background: url('/images/banner_new_year.png') no-repeat center center;
 }
 .menu {
   position: absolute;
@@ -226,7 +226,7 @@ a::-moz-focus-inner {
   top: 30px;
   right: 30px;
   padding: 20px;
-  background: url('images/main-sprite.png') no-repeat -260px -60px;
+  background: url('/images/main-sprite.png') no-repeat -260px -60px;
   cursor: pointer;
 }
 .menu .mobile-sign {
@@ -323,7 +323,7 @@ a::-moz-focus-inner {
 
 .simpleheader {
   color: #fff;
-  background: url('images/header_image.jpg') center top no-repeat;
+  background: url('/images/header_image.jpg') center top no-repeat;
   background-size: cover;
 }
 
@@ -336,7 +336,7 @@ a::-moz-focus-inner {
   position: relative;
   min-height: 730px;
   color: #fff;
-  background: url('images/build_it_banner.jpg') center bottom no-repeat;
+  background: url('/images/build_it_banner.jpg') center bottom no-repeat;
   background-size: cover;
 }
 
@@ -357,7 +357,7 @@ a::-moz-focus-inner {
   bottom: 0;
   width: 320px;
   height: 520px;
-  background: url('images/nexus_on_banner.png') 0 0 no-repeat;
+  background: url('/images/nexus_on_banner.png') 0 0 no-repeat;
 }
 
 .api_header_holder .headertext {
@@ -417,7 +417,7 @@ a::-moz-focus-inner {
   width: 25px;
   height: 25px;
   margin-right: 10px;
-  background: url('images/github-link-ico.jpg') no-repeat 0 0;
+  background: url('/images/github-link-ico.jpg') no-repeat 0 0;
 }
 .sidebar-holder.api-demo {
   border-radius: 0 5px 5px 0;
@@ -451,11 +451,11 @@ a::-moz-focus-inner {
   margin: 0 22px;
 }
 .api-demo .img-preview {
-  background: url('images/api_phone_demo.png') no-repeat center top;
+  background: url('/images/api_phone_demo.png') no-repeat center top;
   background-size: 100%;
 }
 .api-sample .img-preview {
-  background: url('images/api_phone_sample.png') no-repeat center top;
+  background: url('/images/api_phone_sample.png') no-repeat center top;
   background-size: 100%;
 }
 .api-demo .img-preview:before,
@@ -478,7 +478,7 @@ a::-moz-focus-inner {
   margin: 30px auto 0;
 }
 .google-play-demo {
-  background: url('images/en-play-badge.png') no-repeat center center;
+  background: url('/images/en-play-badge.png') no-repeat center center;
   background-size: 100%;
 }
 .download-sample {
@@ -632,7 +632,7 @@ a::-moz-focus-inner {
   width: 60px;
   height: 60px;
   margin-right: 15px;
-  background: url('images/main-sprite.png') no-repeat 0 0;
+  background: url('/images/main-sprite.png') no-repeat 0 0;
 }
 .featureblocktitle.feature-map:before {
   background-position: -80px 0;
@@ -661,7 +661,7 @@ a::-moz-focus-inner {
 
 .mapcontainer {
   position: relative;
-  background: url('images/cycling-default.png') center center no-repeat;
+  background: url('/images/cycling-default.png') center center no-repeat;
   height: 450px;
   background-size: cover;
   margin: 0 auto 40px;
@@ -788,11 +788,11 @@ a::-moz-focus-inner {
 }
 .slick-arrow.slick-prev {
   left: -50px;
-  background: url('images/main-sprite.png') no-repeat -80px -100px;
+  background: url('/images/main-sprite.png') no-repeat -80px -100px;
 }
 .slick-arrow.slick-next {
   right: -50px;
-  background: url('images/main-sprite.png') no-repeat -120px -100px;
+  background: url('/images/main-sprite.png') no-repeat -120px -100px;
 }
 .blogcontainerwrap {
   background: #fff;
@@ -902,7 +902,7 @@ a::-moz-focus-inner {
   display: block;
   width:200px;
   height:77px;
-  background:url('images/logo.png') center -10px no-repeat;
+  background:url('/images/logo.png') center -10px no-repeat;
   background-size: 100%;
 }
 
@@ -927,7 +927,7 @@ a::-moz-focus-inner {
   height: 20px;
   margin-right: 20px;
   margin-bottom: -2px;
-  background: url('images/main-sprite.png') no-repeat -160px -57px;
+  background: url('/images/main-sprite.png') no-repeat -160px -57px;
 }
 
 .footerlinkstitle {
@@ -966,7 +966,7 @@ a::-moz-focus-inner {
   right: 10px;
   width: 40px;
   height: 40px;
-  background: url('images/main-sprite.png') no-repeat -40px -100px;
+  background: url('/images/main-sprite.png') no-repeat -40px -100px;
   cursor: pointer;
   transition: transform .5s;
 }
@@ -1315,11 +1315,11 @@ a::-moz-focus-inner {
 }
 
 .feature.firstusage {
-  background-image:url('images/features/first_usage.jpg');
+  background-image:url('/images/features/first_usage.jpg');
 }
 
 .feature.navigation {
-  background-image:url('images/features/navigation.jpg');
+  background-image:url('/images/features/navigation.jpg');
 }
 
 .feature .description {
@@ -1499,43 +1499,43 @@ a::-moz-focus-inner {
 }
 
 .plugin .onlinemaps {
-  background-image: url('images/features/online_maps_main.png');
+  background-image: url('/images/features/online_maps_main.png');
 }
 
 .plugin .contourlines {
-  background-image: url('images/features/contour_lines_main.png');
+  background-image: url('/images/features/contour_lines_main.png');
 }
 
 .plugin .triprecordingtool {
-  background-image: url('images/features/trip_recording_tool_main.png');
+  background-image: url('/images/features/trip_recording_tool_main.png');
 }
 
 .plugin .skimaps {
-  background-image: url('images/features/ski_maps_main.png');
+  background-image: url('/images/features/ski_maps_main.png');
 }
 
 .plugin .nauticalcharts {
-  background-image: url('images/features/nautical_charts_main.png');
+  background-image: url('/images/features/nautical_charts_main.png');
 }
 
 .plugin .audiovideo {
-  background-image: url('images/features/audio_video_note_main.png');
+  background-image: url('/images/features/audio_video_note_main.png');
 }
 
 .plugin .osmediting {
-  background-image: url('images/features/osm_editing_main.png');
+  background-image: url('/images/features/osm_editing_main.png');
 }
 
 .plugin .planningtool {
-  background-image: url('images/features/planning_tool_main.png');
+  background-image: url('/images/features/planning_tool_main.png');
 }
 
 .plugin .parking {
-  background-image: url('images/features/parking_main.png');
+  background-image: url('/images/features/parking_main.png');
 }
 
 .plugin .development {
-  background-image: url('images/features/development_main.png');
+  background-image: url('/images/features/development_main.png');
 }
 
 .subfeature .subfeatureheader:before {
@@ -1545,7 +1545,7 @@ a::-moz-focus-inner {
   left: -50px;
   width: 30px;
   height: 30px;
-  background:url('images/main-sprite.png') no-repeat 0 0;
+  background:url('/images/main-sprite.png') no-repeat 0 0;
 }
 .subfeature .install .subfeatureheader:before {
   background-position: -5px -66px;
@@ -1961,7 +1961,7 @@ a,a:visited
   height: 30px;
   display: inline-block;
   margin: 10px 10px 0 0;
-  background: url('images/main-sprite.png') no-repeat;
+  background: url('/images/main-sprite.png') no-repeat;
 }
 .dvr-features .column .ipad-supported:before {
     background-position: -205px -165px;
@@ -2132,7 +2132,7 @@ a,a:visited
     right: 20px;
     width: 20px;
     height: 20px;
-    background: url('images/main-sprite.png') no-repeat -160px -80px;
+    background: url('/images/main-sprite.png') no-repeat -160px -80px;
     transition: all .5s;
   }
   .selectbox.active:after {
@@ -2244,7 +2244,7 @@ a,a:visited
   width: 60px;
   height: 60px;
   margin-left: -30px;
-  background: url('images/spinner.gif') no-repeat center center;
+  background: url('/images/spinner.gif') no-repeat center center;
 }
 .loading.active {
   display: block;
@@ -2422,7 +2422,7 @@ a,a:visited
     left: 0;
     width: 20px;
     height: 20px;
-    background: url('images/main-sprite.png') no-repeat -180px -62px;
+    background: url('/images/main-sprite.png') no-repeat -180px -62px;
   }
   .question.active .subtitle:before {
     background-position: -200px -62px;
@@ -2532,7 +2532,7 @@ a,a:visited
     top: 25px;
     width: 40px;
     height: 40px;
-    background: url('images/main-sprite.png') no-repeat 0 0;
+    background: url('/images/main-sprite.png') no-repeat 0 0;
     background-size: 205px;
   }
   .featureblocktitle.feature-map:before {

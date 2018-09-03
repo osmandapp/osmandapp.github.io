@@ -8,7 +8,7 @@
   <script type="text/javascript" src="scripts/slick.min.js"></script>
   <script type="text/javascript" src="scripts/mapselector.js"></script>
   <script type="text/javascript" src="scripts/poll.js"></script>
-  <link rel="stylesheet" type="text/css" href="slick.css"/>
+  <link rel="stylesheet" type="text/css" href="/css/slick.css"/>
 </head>
 <body>
 
