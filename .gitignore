@@ -1,5 +1,20 @@
-
 indexes
-gen
+gen/
+
 night-builds
+latest-night-build/
+releases/
+osm-releases/
+srtm-countries/
+
+# files for builder
+wikivoyage/
+legacy-dependencies-mirror/
+binaries/
+wikigen/
+srtm/
+basemap/
+osm-extract/
+terrain-aster-srtm-eudem/
+
 .DS_Store
