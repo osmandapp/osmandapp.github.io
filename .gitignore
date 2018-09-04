@@ -1,20 +1,27 @@
 indexes
 gen
+.proc_timestamp
 
 night-builds
 latest-night-build
 releases
 osm-releases
 srtm-countries
+hillshade
+osmlive
+road-indexes
+wiki
 
 # files for builder
-wikivoyage
+
 legacy-dependencies-mirror
 binaries
+dependencies-mirror
 wikigen
 srtm
 basemap
 osm-extract
 terrain-aster-srtm-eudem
+wikivoyage
 
 .DS_Store
