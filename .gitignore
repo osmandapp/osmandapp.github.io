@@ -11,6 +11,7 @@ hillshade
 osmlive
 road-indexes
 wiki
+.well-known
 
 # files for builder
 ivy
