@@ -1,4 +1,4 @@
-osmandapp.github.io
-===================
+OsmAnd WEB SITE and API
+=============================
 
-github pages
+This project represents web content for OsmAnd web site and api.
