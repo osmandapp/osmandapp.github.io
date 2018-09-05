@@ -35,15 +35,15 @@
 		{
 			"condition": {
 				"version": "3",
-				"start_date": "10-06-2018 00:00",
-				"end_date": "30-08-2018 23:59",
+				"start_date": "06-09-2018 00:00",
+				"end_date": "12-09-2018 23:59",
 				"os": "android"
 			},
 			"file": "top_wikivoyage.json",
 			"fields" : {
-				"message" : "Try new global offline travel guides",
-			    "description" : "Wikivoyage about World cup 2018!",
-				"url" : "https://osmand.net/travel?title=World_Cup_2018&lang=en"
+				"message" : "Get ready for the Oktoberfest 2018",
+			    "description" : "Read travel tips about Munich",
+				"url" : "https://osmand.net/travel?title=Munich&lang=en"
 			}
 			
 		}
