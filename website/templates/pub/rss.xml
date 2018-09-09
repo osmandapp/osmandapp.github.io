@@ -8,10 +8,10 @@
 		<generator></generator>
 		<item th:each="art : ${articles}">
 			<title th:text="${art.title}"></title>
-			<link th:text="${'https://osmand.net/'+art.url}">https://osmand.net/blog/osmand-3-1-released</link>
-			<guid isPermaLink="true" th:text="${'https://osmand.net/'+art.url}">https://osmand.net/blog/osmand-3-1-released</guid>
+			<link th:text="${'https://osmand.net'+art.url}"></link>
+			<guid isPermaLink="true" th:text="${'https://osmand.net'+art.url}"></guid>
 			<description th:utext="${'<![CDATA['+art.content+']]>'}"></description>
-			<pubDate th:text="${art.dateRSS}">08 Aug 2018 00:00:00 GMT</pubDate>
+			<pubDate th:text="${art.dateRSS}"></pubDate>
 		</item>
 	</channel>
 </rss>
