@@ -47,7 +47,9 @@ function grab_dump($var)
     $time = time() * 1000;
     
     $result = pg_query($dbconn, "INSERT INTO supporters_device_sub(userid, sku, purchasetoken, timestamp) 
-      VALUES('{$userid}','{$sku}','{$purchaseToken}',to_timestamp(${time}));");
+      VALUES('{$userid}','{$sku}','{$purchaseToken}',to_timestamp(${time})) 
+      WHERE not exists (SELECT 1 from supporters_device_sub
+             WHERE userid = '{$userid}' and sku='{$sku}' and purchasetoken='{$purchaseToken}');");
   	if(!$result) {
   		$res = array();        
   		$res['error'] = "Error";
