@@ -16,7 +16,6 @@
       <li><a href="#OsmAnd_Data_Structure">OsmAnd data structure</a></li>
       <li><a href="#How_To_Inspect_an_obf_Binary_File">How to inspect an obf binary file</a></li>
       <li><a href="#OBF_routing_debugging_on_a_PC_with_OSM_map_display">OBF routing debugging on a PC with OSM map display</a></li>
-      <li><a href="#OsmAnd_Server_Configuration">OsmAnd server configuration</a></li>
       <li><a href="#Using_KML_Files">Using KML files</a></li>
       <li><a href="#How_to_produce_customized_vector_data">How to produce customized vector data</a></li>
       <li><a href="#OsmAnd_SQLite_Spec">Specification of OsmAnd's SQLite format</a></li>
@@ -57,7 +56,8 @@
   <div class="question">
     <div class="subtitle" id="How_to_Translate_.60OsmAnd.60_-_We_Need_Your_Assistance.21">How to translate OsmAnd - we need your assistance!</div>
     <div class="content">
-      <p>We very much appreciate your help providing translations for OsmAnd! Provideing translations is not very complicated, the preferred way to provide string transaltions is described here: <a href="http://translate.osmand.net/">translate.osmand.net</a>.</p>
+      <p>We very much appreciate your help providing translations for OsmAnd! Provideing translations is not very complicated, the preferred way to provide string transaltions is described here: <a href="http://translate.
+	      /">translate.osmand.net</a>.</p>
       <div class="blocksubtitle">Additional Information</div>
       <ul class="list">
         <li> All translated strings are stored in  <a href="https://github.com/osmandapp/Osmand/tree/master/OsmAnd/res">resources</a>, where you can check if there is already a &#39;values-{language}&#39; directory for your language, e.g. &#39;values-sk&#39; for Slovak.
@@ -304,7 +304,7 @@
     <div class="subtitle" id="Installation_of_Different_Builds">Installation of different builds</div>
     <div class="content">
       <p>Different builds of OsmAnd should install over any other build of the same strain (older or newer) without any issues, and with all Offline data being preserved.</p>
-      <p>The latest development build (not necessarily stable !) for testing can be found <a href="http://download.osmand.net/latest-night-build/OsmAnd-default.apk">here</a>.</p>
+      <p>The latest development build (not necessarily stable !) for testing can be found <a href="https://download.osmand.net/latest-night-build/OsmAnd-default.apk">here</a>.</p>
       <p>This will update over any more recent existing development build with no problems at all. Should trying to update produce a signing or &#34;not installed&#34; error (like if you currently use the market or a very old dev build), please</p>
       <ul class="list">
         <li> export your Favorites first (Menu/Export in the fav list)</li>
@@ -317,63 +317,7 @@
     </div>
   </div>
 
-  <div class="question">
-    <div class="subtitle" id="Map_Generation_Process">The map generation process</div>
-    <div class="content">
-      <div class="blocksubtitle">Introduction</div>
-      <p>Since OsmAnd has its own binary map format it is an OsmAnd initiative to generate/support and distribute these maps. OsmAnd can not update the maps frequently because it takes 2 weeks to process the whole world and only 1 out of 3 generations is successful. Most people are looking for a solution providing local maps.</p>
-      <p>The tool OsmAndMapCreator helps to create maps in a non-automated way. This is only to process user-defined OSM maps or to use maps for your own purpose.</p>
-      <p>On this page two methods will be described:</p>
-      <ul class="list">
-        <li> A fully automated way to update local maps frequently with the possibility to upload local generated maps to osmand.net to simplify life for others.</li>
-        <li> An automated way to create offline maps for yourself.</li>
-      </ul>
-      <div class="blocksubtitle">Complete automated workflow with upload possibilities</div>
-      <div class="blocksubsubtitle">Prerequisites</div>
-      <p>Prerequisites : *Jenkins*, *Java*, *Ant*.</p>
-      <p>Automation is provided by  the continuous integration tool called <a href="http://jenkins-ci.org/">Jenkins</a>. It will allow you to schedule jobs at whatever time you like and to utilize a lot of useful Jenkins plugins.</p>
-      <p>Please configure Jenkins so that it is allowed to use Java and Ant from your machine. Don&#39;t forget to install the GIT plugin for Jenkins and to specify user.name and user.email.</p>
-      <div class="blocksubsubtitle">Steps overview</div>
-      <p>There are 2 main steps : GenerateIndexes and UploadIndexes. You can have a look at <a href="http://new.osmand.net:8080/">continuous integration</a>. GenerateIndexes downloads OSM files from different sources (defined in regions.xml) and generates OsmAnd files. After that, successfully generated files are moved to the indexes directory. UploadIndexes verifies generated files from *indexes* dir, moves them into the *uploaded* dir and uploads them through *ssh* to a specified server.</p>
-      <p><a href="http://new.osmand.net:8080/">OsmAnd continuous generation</a> has the same steps except that it uploads to a different *ssh* (production) server. And there is also an additional step to move all uploaded files to a backup and start a completely new index generation. It is used when all indexes are generated.</p>
-      <p>To monitor the whole process you can use the logs from this <a href="http://new.osmand.net:8080/job/GenerateIndexes">site</a>. You can also see what files are currently generated <a href="http://new.osmand.net:8080/job/GenerateIndexes/ws/.work/">work folder</a>. You can see what files are about to be verified and uploaded <a href="http://new.osmand.net:8080/job/GenerateIndexes/ws/indexes/">dir</a> and which have already been uploaded in the <a href="http://new.osmand.net:8080/job/GenerateIndexes/ws/indexes/uploaded">uploaded directory</a>.</p>
-      <div class="blocksubsubtitle">Configure GenerateIndexes</div>
-      <p>Schedule : Depends on you. You can run it every day 0 12 * * * or manually.</p>
-      <p>SCM (source control) : _git://github.com/osmandapp/Osmand.git_ and Branch Specifier _origin/master_.</p>
-      <p>Steps :</p>
-      <ul class="list">
-        <li> ant *clean compile jar* . Advanced DataExtractionOSM/build.xml. </li>
-        <li>
-          Shell script
-          <pre>
-mkdir ~/indexes && mkdir ~/indexes/uploaded
-
-rm -rf .work && mkdir .work &&  mkdir .work/osm
-
-if [ -z $INDEXES_FILE ]; then INDEXES_FILE="build-scripts/regions/indexes.xml"; echo "$INDEXES_FILE"; fi
-
-java -XX:+UseParallelGC -Xmx2048M -Xmn256M -Djava.util.logging.config.file=&#8203;build-scripts/batch-logging.properties -cp "DataExtractionOSM&#8203;/OsmAndMapCreator.jar&#8203;:DataExtractionOSM&#8203;/lib/*.jar" net.osmand.data.&#8203;index.IndexBatchCreator build-scripts/indexes-batch-generate.xml "$INDEXES_FILE"
-          </pre>
-        </li>
-      </ul>
-      <p>You can point $INDEXES_FILE to any indexes.xml and leave only regions you want to generate. Please also copy build-scripts/indexes-batch-generate.xml and update it to your local settings and replace _java_ program parameter to your local file.</p>
-      <div class="blocksubsubtitle">Configure UploadIndexes</div>
-      <p>It is highly appreciated if you want to share generated indexes with others. You need to send your public key (id_rsa.pub) generated by ssh-keygen to the community (<a href="http://groups.google.com/group/osmand">Google Groups</a>). After that you will be authorized to *ssh jenkins@new.osmand.net* (to a master jenkins continuous generation). I think it would also be good to register at Jenkins through UI.</p>
-      <p>Schedule : every 15 minutes to monitor indexes folder constantly for changes */15 * * * *.</p>
-      <p>SCM (source control) : _git://github.com/osmandapp/Osmand.git_ and Branch Specifier _origin/master_.</p>
-      <p>Steps :</p>
-      <pre>
-ant *compile jar*. Advanced DataExtractionOSM/build.xml.
-      </pre>
-      <pre>
-java -cp "DataExtractionOSM&#8203;/OsmAndMapCreator.jar&#8203;:DataExtractionOSM&#8203;/lib/*.jar" net.osmand.data&#8203;.index.IndexUploader /home/.../indexes /home/.../indexes/uploaded -ssh --url=ssh://... --user=jenkins --privKey=/home/.../.ssh/id_rsa --path=/var/lib/jenkins/indexes/
-      </pre>
-      <p>The 1st argument is where the indexes to upload are laid, 2nd argument if the upload success where the files will be moved. Specify private key to authorize through ssh --privKey.</p>
-      <p class="back_to_top"><a href="#top">Back to top</a></p>
-    </div>
-  </div>
-
-  <div class="question">
+	  <div class="question">
     <div class="subtitle" id="Create_offline_maps_for_yourself">Create offline maps for yourself</div>
     <div class="content">
       <p>OsmAndMapCreator can also be used to create maps for yourself if you want maps that are more up-to-date then the ones you can download from OsmAnd.
@@ -570,7 +514,7 @@ _echo date > endtime.txt_
           create raw data map of Paris from the ile-de-france map and the Paris poly like
           <pre> $ osmconvert ile-de-france.osm.pbf -B=paris.poly --out-pbf > Paris.osm.pbf</pre>
         </li>
-        <li> Download the OsmAndMapCreator application from <a class="externallink" href="http://download.osmand.net/latest-night-build/" rel="nofollow" title="http://download.osmand.net/latest-night-build/">download.osmand.net/latest-night-build/</a></li>
+        <li> Download the OsmAndMapCreator application from <a class="externallink" href="http://download.osmand.net/latest-night-build/" rel="nofollow" title="https://download.osmand.net/latest-night-build/">download.osmand.net/latest-night-build/</a></li>
         <li> create your OsmAnd obf map from the Paris.osm.pbf data map using OsmAndMapCreator.</li>
       </ul>
       <p class="back_to_top"><a href="#top">Back to top</a></p>
@@ -791,7 +735,7 @@ _echo date > endtime.txt_
   <div class="question">
     <div class="subtitle" id="How_To_Inspect_an_obf_Binary_File">How to inspect an obf binary file</div>
     <div class="content">
-      <p>If you want inspect the content of obf file, you need to download  <a href="http://download.osmand.net/latest-night-build/OsmAndMapCreator-development.zip">OsmAndMapCreator</a>. There you can find a console application BinaryInspector (.sh, .bat). This console application has optional parameters [-vmap, -vaddress, -vtransport] and one required parameter (input obf file). By specifying optional parameters  you could trace the whole information from obf file (be aware it could be huge!).</p>
+      <p>If you want inspect the content of obf file, you need to download  <a href="https://download.osmand.net/latest-night-build/OsmAndMapCreator-development.zip">OsmAndMapCreator</a>. There you can find a console application BinaryInspector (.sh, .bat). This console application has optional parameters [-vmap, -vaddress, -vtransport] and one required parameter (input obf file). By specifying optional parameters  you could trace the whole information from obf file (be aware it could be huge!).</p>
       <p>Example and step-by-step for Windows users:</p>
       <ul class="list">
         <li> have Java Runtime Environment installed</li>
@@ -814,7 +758,7 @@ _echo date > endtime.txt_
     <div class="content">
       <div class="blocksubtitle">How-to</div>
       <ul class="list">
-        <li> go to <a class="externallink" href="http://osmand.net" rel="nofollow" title="http://osmand.net">http://osmand.net</a> and download OsmandMapCreator.zip from the link on the right screen side, and unzip it, </li>
+        <li> go to <a class="externallink" href="https://osmand.net" rel="nofollow" title="https://osmand.net">https://osmand.net</a> and download OsmandMapCreator.zip from the link on the right screen side, and unzip it, </li>
         <li> copy the obf file from your phone or tablet into that folder,</li>
         <li> start OsmandMapCreator via bat file or sh file,</li>
         <li> be sure to have an internet connection so that mapcreator can download map tiles, check all menus and settings inside mapcreator,</li>
@@ -825,7 +769,7 @@ _echo date > endtime.txt_
       <div class="blocksubtitle">Find the place name to what a street is associated in offline OBF maps</div>
       <ul class="list">
         <li> Have a Java framework installed on your desktop computer.</li>
-        <li> Download Osmand&#39;s Mapcreator, for example from <a href="http://download.osmand.net/releases/">download.osmand.net/releases</a> and unzip it to your PC.</li>
+        <li> Download Osmand&#39;s Mapcreator, for example from <a href="https://download.osmand.net/releases/">download.osmand.net/releases</a> and unzip it to your PC.</li>
         <li> Take any map file with extensiuon OBF and put it in the same folder where all files from mapcreator are located.</li>
         <li> Start Mapcreator on your PC by clicking OsmAndMapCreator.bat or OsmAndMapCreator.sh</li>
         <li> Be sure that you have internet access on your PC, and Mapcreator&#39;s settings are that tiles are downloaded when you drag and zoom the map to your location where your issue is located.</li>
@@ -835,273 +779,6 @@ _echo date > endtime.txt_
       <p class="back_to_top"><a href="#top">Back to top</a></p>
     </div>
   </div>
-
-  <div class="question">
-    <div class="subtitle" id="OsmAnd_Server_Configuration">OsmAnd Server Configuration</div>
-    <div class="content">
-      <div class="blocksubtitle">Introduction</div>
-      <p>This document describes the steps needed to fully setup OsmAnd server for services needed by osmand and relateds stuff to it.</p>
-      <div class="blocksubtitle">Mail</div>
-      <pre>
-#Optionally remove the sendmail if present
-apt-get purge sendmail-base
-apt-get purge sendmail-bin
-#Install the postfix and utilities
-apt-get install postfix
-apt-get install mailutils
-      </pre>
-      <p>Postfix setup: <a href="https://help.ubuntu.com/community/PostfixBasicSetupHowto">PostfixBasicSetupHowto</a> or dpkg-reconfigure postix and setup the mail</p>
-      <div class="blocksubtitle">jenkins.osmand.net: Jenkins - builds and indexes</div>
-      <pre>
-apt-get install jenkins
-apt-get install openjdk6
-      </pre>
-      <p>Plugins needed in jenkins: (todo list)</p>
-      <p>/var/lib/jenkins</p>
-      <p>In case of existing jenkins site, complete jenkins configuration can be copied: (link on jenkins wiki)</p>
-      <p>install android sdk - /var/lib/android-sdk-linux (steps)</p>
-      <p> on 64 bit system install 32 libs: apt-get install ia32-libs</p>
-      <p> maybe you will need to change jenkins jobs configuration to point the builds to android-sdk-linux location using the sdk.dir variable</p>
-      <p>Copy debug.keystore to /var/lib/jenkins/.android/debug.keystore take it from git: (link)</p>
-      <p>add jenkins to group www-data</p>
-      <div class="blocksubtitle">Apache</div>
-      <pre>
-apt-get install libapache2-mod-php5
-apt-get install php5-mysql
-cd /etc/apache2/mods-enabled
-ln -s ../mods-available/rewrite.load
-ln -s ../mods-available/proxy.load
-ln -s ../mods-available/proxy.conf
-ln -s ../mods-available/proxy_balancer.load
-ln -s ../mods-available/proxy_balancer.conf
-! copy sites (git, todo...)
-cd /etc/apache2/sites-enabled
-ln -s ../sites-available/*
-service apache2 restart
-      </pre>
-      <p>! apache configuration is not yet in git, should be there !</p>
-      <p>For putting jenkins under ssl:</p>
-      <ul class="list">
-        <li> a2enmod ssl</li>
-        <li> a2enmod headers</li>
-        <li> a2enmod proxy_http</li>
-        <li> create self signed cert: 
-          <pre>make-ssl-cert /usr/share/ssl-cert/ssleay.cnf /etc/ssl/private/jenkins.crt</pre>
-        </li>
-        <li> the ssl virtual host can server as jenkins.osmand.net</li>
-        <li> change the ssl file in the ssl virtual host conf:
-          <pre>
-#SSLCertificateFile    /etc/ssl/certs/ssl-cert-snakeoil.pem
-#SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key
-SSLCertificateFile /etc/ssl/private/jenkins.crt
-          </pre>
-        </li>
-        <li> see <a href="https://wiki.jenkins-ci.org/display/JENKINS/Running+Jenkins+behind+Apache">this</a> to bind apache to jenkins</li>
-        <li>
-          add this to ssl site config:
-          <pre>
-ProxyRequests     Off
-ProxyPreserveHost On
-
-<Proxy http://localhost:8080/*>
-  Order deny,allow
-  Allow from all
-</Proxy>
-
-ProxyPass         /  http://localhost:8080/
-ProxyPassReverse  /  http://localhost:8080/
-ProxyPassReverse  /  http://jenkins.osmand.net/
-          </pre>
-        </li>
-        <li> the default site can have ServerAlias on jenkins.osmand.net and rewrite rule:
-          <pre>
-RewriteEngine On
-RewriteCond %{HTTPS} off
-RewriteCond %{HTTP_HOST} jenkins.osmand.net
-RewriteRule (.*) https://jenkins.osmand.net%{REQUEST_URI}
-          </pre>
-        </li>
-      </ul>
-      <div class="blocksubtitle">download.osmand.net</div>
-      <p>If migrating from existing server:</p>
-      <pre>
-copy /var/www/www-download completely to the new server (note, this location is used by scripts, do not change!)
-      </pre>
-      <p>Or, create from scratch:</p>
-      <pre>
-copy from git config/site to /var/www/www-download
-      </pre>
-      <div class="blocksubtitle">www.osmand.net (joomla)</div>
-      <pre>
-copy /var/www/www-joomla completely to the new server
-(todo)
-      </pre>
-      <p><a href="http://docs.joomla.org/Copying_a_Joomla_website">Copying a Joomla website</a></p>
-      <pre>
-tar cvfz joomlabackup.tar.gz /path-to-joomla
-scp joomlaback.tar.gz someuser@remote.machine.etc
-mysqldump -u joomla -p joomla > joomladb.out
-scp joomladb.out someuser@remote.machine.etc
-      </pre>
-      <p>On remote machine:</p>
-      <pre>
-apt-get install mysql-server mysql-client //don't forget the password for mysql root user
-mysqladmin -u root -p create joomla
-mysql -u root -p mysql //we are going to create joomla user
-mysql> {{{ GRANT ALL PRIVILEGES ON joomla.* TO joomla@localhost IDENTIFIED BY 'password'; }}} //use the password configured for joomla, configuration.php
-mysql>  flush privileges;
-mysql -u joommla -p joomla < joomladb.out
-cd /var/www-joomla/
-tar xvfz joomlabackup.tar.gz
-      </pre>
-      <div class="blocksubtitle">Awstats</div>
-      <pre>
-apt-get install awstats
-copy /etc/awstats/* or get it from git
-copy /var/lib/awstats/* to new server to preserve data
-cd /etc/apache2/conf.d/
-cp /usr/share/doc/awstats/examples/&#8203;apache.conf awstats.conf
-      </pre>
-      <p> read also: <a href="http://www.debianhelp.co.uk/awstats.htm">http://www.debianhelp.co.uk/awstats.htm</a></p>
-      <p> !change permissions of apache logs so that awstats can read them!</p>
-      <p> put a prerotate script to apache2 in /etc/logrotate.d/</p>
-      <pre>
-prerotate
-if [ -x /usr/share/awstats/tools/update.sh ]; then
- su - -c /usr/share/awstats/tools/update.sh www-data
-fi
-endscript
-      </pre>
-      <pre>
-service apache2 restart
-      </pre>
-      <div class="blocksubtitle">Geo::IP instalation for awstats</div>
-      <p> overview: <a href="http://www.maxmind.com/app/installation">http://www.maxmind.com/app/installation</a></p>
-      <pre>
-apt-get install geoip-database
-apt-get install libgeo-ip-perl
-      </pre>
-      <p>Now see: <a href="http://the.new.site/cgi-bin/awstats.pl">http://the.new.site/cgi-bin/awstats.pl</a></p>
-      <div class="blocksubtitle">uiman</div>
-      <ul class="list">
-        <li> adduser uiman //and password!</li>
-        <li> copy /home/uiman/* to new server</li>
-        <li> edit uiman&#39;s crontab</li>
-        <li> crontab:
-          <pre>
-MAILTO=&#8203;pavol.zibrita+uiman@gmail.com,&#8203;victor.shcherb+uiman@gmail.com
-/1 * * * * /home/uiman/uiChanges.sh
-          </pre>
-        </li>
-        <li>
-          <pre>cd /home/uiman; ln -s uiChanges-git/OsmAnd/ repository</pre>
-        </li>
-      </ul>
-      <div class="blocksubtitle">DNS</div>
-      <p>if needed, change the dns settings accordingly on the new server provider (currently <a href="https://robot.your-server.de/">https://robot.your-server.de/</a>)</p>
-      <div class="blocksubtitle">translate.osmand.net</div>
-      <ul class="list">
-        <li>user www-data (?)</li>
-        <li>cd /var/www/</li>
-        <li>git clone https://github.com/nijel/weblate weblate-git</li>
-        <li>ln -s weblate weblate-git</li>
-        <li>cd weblate</li>
-        <li> vim weblate/settings.py
-          <pre>
-...
-ADMINS = (
-   ('Pavol Zibrita', 'pavol.zibrita+weblate@gmail.com'),
-) ... 'ENGINE': 'django.db.backends.mysql' ... SERVER_EMAIL = 'pavol.zibrita+&#8203;weblateadmin@gmail.com' ... DEFAULT_FROM_EMAIL = 'pavol.zibrita+&#8203;weblateadmin@gmail.com' ...
-          </pre>
-        </li>
-        <li> git commit (currently the changes are commited, doing rebase for new releases)</li>
-        <li> install, what is needed in INSTALL</li>
-        <li> ./manage.py syncdb</li>
-        <li> ./manage.py migrate (needed when upgrading, read the DOCS!!!)</li>
-        <li> use apache config found in the project</li>
-        <li> install apache wsgi gateway</li>
-        <li> create apache virtual server for weblate, like translate.osmand.net</li>
-      </ul>
-      <div class="blocksubtitle">Backup</div>
-      <p><a href="http://duply.net/?title=Main_Page">http://duply.net/?title=Main_Page</a></p>
-      <p><a href="http://trick77.com/2010/01/01/how-to-ftp-backup-a-linux-server-duply/">http://trick77.com/2010/01/01/how-to-ftp-backup-a-linux-server-duply/</a></p>
-      <pre>apt-get install duplicity gpg ncftp</pre>
-      <p> read the trick77.com page for setup</p>
-      <pre>
-/etc/duply/offsite/conf:
-{{{ 
-GPG_KEY='F61826A6' 
-GPG_PW='*******' 
-TARGET='ftp://*****:******@****.<wbr>your-backup.de/dailybackup' 
-SOURCE='/' 
-MAX_AGE=2M 
-MAX_FULLBKP_AGE=1M 
-DUPL_PARAMS="$DUPL_PARAMS --full-if-older-than $MAX_FULLBKP_AGE" 
-VOLSIZE=100 
-DUPL_PARAMS="$DUPL_PARAMS --volsize $VOLSIZE " 
-}}} 
-/etc/duply/offsite/exclude: 
-{{{ 
-/bin 
-/boot 
-/dev 
-/lib 
-/lib32 
-/lib64 
-/lost+found 
-/media 
-/mnt 
-/opt 
-/proc 
-/sbin 
-/srv 
-/sys 
-/tmp 
-/usr 
-/run 
-/selinux 
-- /var/lib/jenkins/backup 
-- /var/lib/jenkins/backup_old 
-- /var/lib/jenkins/indexes 
-- /var/lib/jenkins/uploaded 
-- /var/lib/jenkins/wiki/work 
-- /var/lib/jenkins/srtm-osm 
-- /var/lib/jenkins/srtm-proccess 
-- /var/lib/jenkins/workspace 
-+ /var/lib/jenkins 
-+ /var/lib/awstats/ 
-- /var/www/www-download/indexes 
-- /var/www/www-download/night-builds 
-- /var/www/www-download/php_errors.log 
-- /var/www/www-download/latest-night-build 
-+ /var/www 
-- /var
-/home/zibrita 
-- /root/nobakcup 
-}}} 
-_do mysql dump before backup_ 
-/etc/duply/offsite/pre 
-{{{ 
-/usr/bin/mysqldump --all-databases -u root -p***** > /home/mysqldump_all.sql 
-}}} 
-/etc/cron.d/duply 
-lftp -u ***,**** ****.your-backup.de 
-      </pre>
-      <p>It is good to backup /etc/duply/offsite/ somewhere, if the machine crashes, there is the info to retrieve encrypted files from the backup!</p>
-      <div class="blocksubsubtitle">Restoring</div>
-      <p>To list the current backup sets on your remote backup path use the following command:</p>
-      <pre>duply offsite status</pre>
-      <p>To restore the whole &lsquo;offsite&rsquo; backup to /tmp I&#39;d use this command:</p>
-      <pre>duply offsite restore /tmp/restore</pre>
-      <p>To restore the lastest version of a file from my &lsquo;offsite&rsquo; backup to /tmp I&#39;d use this command:</p>
-      <pre>duply offsite fetch etc/myfile /tmp/restore</pre>
-      <p>To restore the version from 4 days ago of a file from my &lsquo;offsite&rsquo; backup to /tmp I&#39;d use this command:</p>
-      <pre>duply offsite fetch etc/myfile /tmp/restore 4D</pre>
-      <p>The combination of Duplicity and Duply is a very powerful solution for backups on non-trusted spaces. The setup is a piece of cake compared to other Linux based backup solutions.</p>
-      <p class="back_to_top"><a href="#top">Back to top</a></p>
-    </div>
-  </div>
-
   <div class="question">
     <div class="subtitle" id="Using_KML_Files">Using KML Files</div>
     <div class="content">
@@ -1225,6 +902,6 @@ lftp -u ***,**** ****.your-backup.de
     </div>
   </div>
 
-  <h3 class="help"><a href="http://osmand.net/help/docs/Custom_Rendering_How-To.htm">Custom_Rendering_How-To.htm</a></h3>
+  <h3 class="help"><a href="https://osmand.net/help/docs/Custom_Rendering_How-To.htm">Custom_Rendering_How-To.htm</a></h3>
 
 </div>
