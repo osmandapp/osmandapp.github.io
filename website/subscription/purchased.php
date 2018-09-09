@@ -22,6 +22,8 @@ function grab_dump($var)
     if($result) {
       $row = pg_fetch_row($result);
       if($row) {
+        # TODO return visibleName, email, preferredCountry only if token provided correctly
+        # TODO if token is not provided or provided wrong store in redis for later investigation
         $ok = $row[0] == $_REQUEST["userid"];
         $res['visibleName'] = $row[2]; 
         $res['email'] = $row[3]; 
@@ -44,18 +46,20 @@ function grab_dump($var)
     $sku = pg_escape_string($dbconn, $_POST["sku"]);
     $purchaseToken = pg_escape_string($dbconn, $_POST["purchaseToken"]);
     // $email = pg_escape_string($dbconn, $_POST["email"]);
-    $time = time() * 1000;
-    
+    $time = time();
+
     $result = pg_query($dbconn, "INSERT INTO supporters_device_sub(userid, sku, purchasetoken, timestamp) 
-      VALUES('{$userid}','{$sku}','{$purchaseToken}',to_timestamp(${time})) 
+      SELECT '{$userid}','{$sku}','{$purchaseToken}',to_timestamp(${time})
       WHERE not exists (SELECT 1 from supporters_device_sub
              WHERE userid = '{$userid}' and sku='{$sku}' and purchasetoken='{$purchaseToken}');");
-  	if(!$result) {
-  		$res = array();        
-  		$res['error'] = "Error";
-  		echo json_encode($res);
-  		die;
-  	}
+#   if(!$result) {
+#       $res = array();        
+#       $res['error'] = "Error";
+#       echo json_encode($res);
+#       die;
+#   }
+
+
     
     $res['status'] = 'OK';
 	  echo json_encode($res);
