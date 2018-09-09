@@ -46,8 +46,8 @@ function grab_dump($var)
     // $email = pg_escape_string($dbconn, $_POST["email"]);
     $time = time() * 1000;
     
-    $result = pg_query($dbconn, "INSERT INTO supporters_subscription(userid, sku, purchasetoken, checktime) 
-      VALUES('{$userid}','{$sku}','{$purchaseToken}',${time});");
+    $result = pg_query($dbconn, "INSERT INTO supporters_device_sub(userid, sku, purchasetoken, timestamp) 
+      VALUES('{$userid}','{$sku}','{$purchaseToken}',to_timestamp(${time}));");
   	if(!$result) {
   		$res = array();        
   		$res['error'] = "Error";
