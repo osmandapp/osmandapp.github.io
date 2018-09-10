@@ -10,14 +10,14 @@
   		" where userid = '{$userid}' and token='{$token}' RETURNING userid;");
   	if(!$result) {
   		$res = array();        
-  		$res['error'] = "Error";
+  		$res['error'] = "can't update - token {$token} userid {$userid} {$result}";
   		echo json_encode($res);
   		die;
   	}
   	$row = pg_fetch_row($result);
     if(!$row) {
       $res = array();        
-      $res['error'] = "Error";
+      $res['error'] = "can't load - token {$token} userid {$userid} {$result}";
       echo json_encode($res);
       die;
     }
