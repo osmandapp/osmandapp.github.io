@@ -466,17 +466,20 @@ function getSupporters($useReport = true ) {
     return $finalReport;
   }
   $result = pg_query($dbconn, "
-    select s.userid, s.visiblename, s.preferred_region, s.useremail, 
-    t.sku, t.checktime, t.expiretime, t.starttime, t.autorenewing from supporters s left join 
-    (select distinct userid, sku, 
-    first_value(checktime) OVER(partition by userid, sku order by checktime desc) checktime,
-    first_value(starttime) OVER(partition by userid, sku order by checktime desc) starttime,
-    first_value(expiretime) OVER(partition by userid, sku order by checktime desc) expiretime,
-    first_value(autorenewing) OVER(partition by userid, sku order by checktime desc) autorenewing
-    from supporters_subscription ) t on  
-    s.userid = t.userid
-    where s.disable is null;
+    select s.userid, s.visiblename, s.preferred_region, s.useremail,
+           t.sku, t.checktime, t.starttime, t.expiretime from supporters s join 
+    (select userid, sku, 
+    max(checktime) checktime, max(starttime) starttime,
+    max(expiretime) expiretime
+    from supporters_device_sub
+    where expiretime is not null and expiretime > now()
+    group by userid, sku) t on  
+    s.userid = t.userid 
+    where s.preferred_region is not null and s.preferred_region <> 'none'
+    order by s.userid;
     ");
+  // select s.userid, s.visiblename, s.preferred_region, s.useremail, 
+  //        t.sku, t.checktime, t.expiretime, t.starttime, t.autorenewing from supporters s left join  
   if (!$result) {
     $res = new stdClass();
     $res->error ='No result';
@@ -493,13 +496,8 @@ function getSupporters($useReport = true ) {
   $res->regions['']->count = 0;
   $res->regions['']->id = '';
   $res->regions['']->name = 'Worldwide';
-  $cnt = 0;
   $activeSubscribed = 0;
   $active = 0;
-  $time = time();
-  if($imonth != date("Y-m")) {
-    $time = strtotime($imonth."-28"); 
-  }
   while ($row = pg_fetch_row($result)) {
     $rw = new stdClass();
     
@@ -510,68 +508,36 @@ function getSupporters($useReport = true ) {
     $sku = '';
     $autorenew = '';
     $status = "Not purchased";
-    $checked = 0;
-    if($row[4] && strlen($row[4]) > 0) {
-      $status = "Pending verification";
-      $sku = $row[4];
-      $skip = false;
-      if($row[6]) {
-        $checked = $row[5];
-        $autorenew = $row[8];
-        if($time * 1000 > $row[6]) {  
-          $status = "Expired " . floor( ($time - $row[6] / 1000) / (3600*24)) . " days ago";
-          $skip = ($time - $row[6] / 1000) > 120000;
-        } else {
-          $status = "Active";
-          $activeSubscribed++;
-          if(!$row[2]) {
-            // $res->regions['']->count ++; // should be twice if count
-            $res->regions['']->count ++; 
-            $res->regions['']->count ++; 
-            $active++;
-          } else if($row[2] == 'none' || $row[2] == '') {
-          } else {
-            $res->regions['']->count ++; 
-            if(!array_key_exists($row[2], $res->regions)) {
-              $res->regions[$row[2]] = new stdClass();
-              $res->regions[$row[2]]->count = 0;
-              $res->regions[$row[2]]->id = $row[2];
-              if(array_key_exists($row[2], $countryMap)) {
-                  $res->regions[$row[2]]->name = $countryMap[$row[2]];
-              } else {
-                  $res->regions[$row[2]]->name = '';
-              }
-            }
-            $res->regions[$row[2]]->count ++;
-            $active++;
-          }
-        }
-      }  
-      if($skip) {
-        array_push($res->notactive, $rw);
-      } else {
-        array_push($res->rows, $rw);
-      }
-    } else {
-     array_push($res->notactive, $rw);
-    }
-  
-    $cnt++;
     $rw->user = $visiblename;
-    $rw->status = $status;
-    $rw->checked = $checked;
-    $rw->region = $row[2];
-    if(array_key_exists($row[2], $countryMap)) {
-      $rw->regionName = $countryMap[$row[2]];
+    $rw->status = "Active";
+    $reg = $row[2];
+    $rw->region = $reg;
+    if(array_key_exists($reg, $countryMap)) {
+        $rw->regionName = $countryMap[$reg;
     } else {
-       $rw->regionName = '';
+        $rw->regionName = $reg;
     }
+    if(!$rw->region || $rw->region == '') {
+        // $res->regions['']->count ++; // should be twice if count
+        $res->regions['']->count ++; 
+        $res->regions['']->count ++; 
+        $active++;
+    } else if($rw->region == 'none') {
+    } else {
+        $res->regions['']->count ++; 
+        if(!array_key_exists($reg, $res->regions)) {
+          $res->regions[$reg] = new stdClass();
+          $res->regions[$reg]->count = 0;
+          $res->regions[$reg]->id = $reg;
+          $res->regions[$reg]->name = $rw->regionName;
+        }
+        $res->regions[$reg]->count ++;
+        $active++;
+    }
+    array_push($res->rows, $rw);
+    $activeSubscribed++;
     $rw->sku = $sku;
-    $rw->autorenew = $autorenew;
   }
-  //if(isset($_GET['full']) && $_GET['full'] == true) {
-  //  $res->rows = array_merge($res->rows, $res->notactive);
-  //}
   $res->count = $activeSubscribed;
   $res->activeCount = $active;
   foreach ($res->regions as $key => $value) {
