@@ -714,9 +714,7 @@ window.onclick = function(event) {
             if (res == "OK") {
               $("#osm_register_success").fadeIn(100);
             }
-            $("#osm_register_failed").html(res);
-            $("#osm_register_failed").fadeIn(100);
-            var data = jQuery.parseJSON( res );
+            var data = res;
             if (data.error) {
               $("#osm_register_failed").fadeIn(100);
               $("#osm_register_failed").html(data.error);
