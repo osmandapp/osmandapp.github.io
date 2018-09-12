@@ -513,7 +513,7 @@ function getSupporters($useReport = true ) {
     $reg = $row[2];
     $rw->region = $reg;
     if(array_key_exists($reg, $countryMap)) {
-        $rw->regionName = $countryMap[$reg;
+        $rw->regionName = $countryMap[$reg];
     } else {
         $rw->regionName = $reg;
     }
