@@ -998,7 +998,7 @@ a::-moz-focus-inner {
 .article a {
   color: #454ade;
 }
-.article ul {
+.article ul, article li {
   margin:0;
   padding:0;
   padding-top: 15px;
