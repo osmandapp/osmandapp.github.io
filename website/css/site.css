@@ -1002,6 +1002,8 @@ a::-moz-focus-inner {
   margin:0;
   padding:0;
   padding-top: 15px;
+  list-style-type:disc;
+  padding-left:25px;
 }
 .article > iframe {
   max-width: 100%;
