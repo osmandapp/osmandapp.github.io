@@ -998,14 +998,16 @@ a::-moz-focus-inner {
 .article a {
   color: #454ade;
 }
-.article ul, .article li {
+.article ul {
   margin:0;
   padding:0;
   padding-top: 15px;
-  list-style-type:disc;
   padding-left:15px;
 }
 
+.article li {
+  list-style-type:disc;
+}
 .article > iframe {
   max-width: 100%;
 }
