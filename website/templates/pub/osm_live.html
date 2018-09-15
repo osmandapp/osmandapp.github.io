@@ -357,7 +357,7 @@ window.onclick = function(event) {
     $("#region-selection").append("<option value=''>Worldwide</option>"); 
     $("#recipient-region-selection").append("<option value=''>Worldwide</option>"); 
     $.ajax({
-        url: "reports/query_report?report=all_countries", 
+        url: "reports/query_report_new?report=all_countries", 
         async: true
       }).done(function(res) {
         var data = jQuery.parseJSON( res );
@@ -405,7 +405,7 @@ window.onclick = function(event) {
     }
     $('#report-ranking').empty();
     $.ajax({
-        url: "reports/query_report?report=all_contributions_requests&month="+mid+"&region="+region, 
+        url: "reports/query_report_new?report=all_contributions_requests&month="+mid+"&region="+region, 
         async: true
       }).done(function(res) {
         // var resultArray = res.split("\n");
@@ -469,7 +469,7 @@ window.onclick = function(event) {
       $("#recipients-data-info").html("");
     }
     $.ajax({
-          url: "reports/query_report?report=recipients_by_month&month="+recipientMonth+"&region="+recipientRegion, 
+          url: "reports/query_report_new?report=recipients_by_month&month="+recipientMonth+"&region="+recipientRegion, 
           async: true
     }).done(function(res) {
           var data = jQuery.parseJSON( res );
@@ -528,7 +528,7 @@ window.onclick = function(event) {
       $('#donator-report-total').html("");
     }
     $.ajax({
-          url: "reports/query_report?report=supporters_by_month&month="+supportMonth+"&full="+extended, 
+          url: "reports/query_report_new?report=supporters_by_month&month="+supportMonth+"&full="+extended, 
           async: true
     }).done(function(res) {
           var data = jQuery.parseJSON( res );
