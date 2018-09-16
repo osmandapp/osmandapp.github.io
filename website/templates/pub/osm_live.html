@@ -493,7 +493,7 @@ window.onclick = function(event) {
           var data = jQuery.parseJSON( res );
           var recipients = data.recipients;
           //$("#recipients-general-info").html(intro);
-          reportRecipientsDataInfo = $("#recipients-data-info").html(data.message);
+          // reportRecipientsDataInfo = $("#recipients-data-info").html(data.message);
           if (recipients.date != null && recipients.date != undefined) {
             $("#recipients-gen-date").html("Generation date " + formatDate(recipients.date));
           } else {
