@@ -494,7 +494,7 @@ window.onclick = function(event) {
           var recipients = data.recipients;
           //$("#recipients-general-info").html(intro);
           reportRecipientsDataInfo = $("#recipients-data-info").html(data.message);
-          if(recipients.date) {
+          if (recipients.date != null && recipients.date != undefined) {
             $("#recipients-gen-date").html("Generation date " + formatDate(recipients.date));
           } else {
             $("#recipients-gen-date").html("");
