@@ -366,21 +366,24 @@ window.onclick = function(event) {
           var row = data.rows[i];
           regionsmap[data.rows[i].id] = data.rows[i];
           if(row.downloadname && row.map == "1" ) {
-  
             var name = row.name;
-            var depth = regionDepth(row, regionsmap);
-            if(depth > 2 || (depth == 2 && regionsmap[row.parentid].name == "Russia")) {
-              var parent = regionsmap[row.parentid];
-              var parentparent = regionsmap[parent.parentid];
-              if(depth == 3) {
-                if(parentparent.name == "Russia") {
-                  name = parentparent.name + " " + name;
-                } else if(parent.name != "United Kingdom"){
+            if(row.visiblename) {
+                name = row.visiblename;
+            } else { 
+              var depth = regionDepth(row, regionsmap);
+              if(depth > 2 || (depth == 2 && regionsmap[row.parentid].name == "Russia")) {
+                var parent = regionsmap[row.parentid];
+                var parentparent = regionsmap[parent.parentid];
+                if(depth == 3) {
+                  if(parentparent.name == "Russia") {
+                    name = parentparent.name + " " + name;
+                  } else if(parent.name != "United Kingdom"){
+                    name = parent.name + " " + name;
+                  }
+                } else {
+                  // only england
                   name = parent.name + " " + name;
                 }
-              } else {
-                // only england
-                name = parent.name + " " + name;
               }
             } 
             namemap[name] = row.downloadname;
