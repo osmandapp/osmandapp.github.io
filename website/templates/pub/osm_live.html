@@ -494,7 +494,11 @@ window.onclick = function(event) {
           var recipients = data.recipients;
           //$("#recipients-general-info").html(intro);
           reportRecipientsDataInfo = $("#recipients-data-info").html(data.message);
-          $("#recipients-gen-date").html(recipients.date);
+          if(recipients.date) {
+            $("#recipients-gen-date").html("Generation date " + formatDate(recipients.date));
+          } else {
+            $("#recipients-gen-date").html("");
+          }
           $("#recipients-world-collected").html(data.worldCollectedMessage);
           $("#recipients-region-collected").html(data.regionCollectedMessage);
           $("#recipients-payouts").html(data.payouts);
