@@ -501,7 +501,7 @@ window.onclick = function(event) {
           }
           $("#recipients-world-collected").html(data.worldCollectedMessage);
           $("#recipients-region-collected").html(data.regionCollectedMessage +
-                  '<span>' + countryName(recipientRegion)+'</span>');
+                  '<span> ' + countryName(recipientRegion)+'</span>');
           $("#recipients-payouts").html(data.payouts);
           $("#recipients-reports").html(data.reports);
           var list = recipients.rows.map(function(key){
