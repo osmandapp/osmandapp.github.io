@@ -627,8 +627,10 @@ window.onclick = function(event) {
                   { "data": "rank", title: "Region rank"},
                   { "data": "grank", title: "World rank"},
                   { "data": "user", title: "User name"},        
-                  { "data": "changes", title: "Region changes"},
-                  { "data": "globalchanges", title: "All changes"}
+                  { "data": "changes", title: "Changes"},
+                  { "data": "atomchanges", title: "Objects changed"},
+                  { "data": "globalchanges", title: "Worldwide changes"},
+                  { "data": "atomglobalchanges", title: "Worldwide objects changed"}
               ],
               "paging":   true,
               "ordering": true,
@@ -655,7 +657,8 @@ window.onclick = function(event) {
                 { "data": "countUsers", title: "Contributors <span>in group</span>"},
                 { "data": "minChanges", title: "Minimum changes <span>in group</span>"},
                 { "data": "maxChanges", title: "Maximum changes <span>in group</span>"},
-                { "data": "avgChanges", title: "Average changes <span>in group</span>", render:floatFormat}
+                { "data": "totalChanges", title: "Total changes <span>by group</span>"}, //, render:floatFormat
+                { "data": "atomTotalChanges", title: "Total edited objects <span>by group</span>"}
             ],
             "paging":   false,
             "ordering": true,
