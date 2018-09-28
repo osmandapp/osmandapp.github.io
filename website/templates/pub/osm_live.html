@@ -620,18 +620,20 @@ window.onclick = function(event) {
       
           var data = resource;
           $('#users-ranking').text("Ranking of contributors");
-          reportUserDataTable = $('#users-table').DataTable({
-              data: data.rows,
-              destroy: true,
-              columns: [
+          var columns = [
                   { "data": "rank", title: "Region rank"},
                   { "data": "grank", title: "World rank"},
                   { "data": "user", title: "User name"},        
-                  { "data": "changes", title: "Changes"},
-                  { "data": "atomchanges", title: "Objects changed"},
-                  { "data": "globalchanges", title: "Worldwide changes"}
-                  //{ "data": "atomglobalchanges", title: "Worldwide objects changed"}
-              ],
+                  { "data": "changes", title: "Changes"}
+          ];
+          if(mid >= '2018-09') {
+              columns.push({ "data": "atomchanges", title: "Objects changed"});
+              columns.push({ "data": "globalchanges", title: "Worldwide changes"});
+          }
+          reportUserDataTable = $('#users-table').DataTable({
+              data: data.rows,
+              destroy: true,
+              columns: columns,
               "paging":   true,
               "ordering": true,
               "iDisplayLength": 50,
@@ -647,26 +649,30 @@ window.onclick = function(event) {
   var reportDataTable;
   function updateRankingByMonth(resource) {
     var data = resource; //jQuery.parseJSON(resource);
-        $('#report-ranking').html("Ranking of contributors by " + data.rows.length + " groups <span>(made more than 3 changes)</span>");
-        reportDataTable = $('#report-table').DataTable({
-            data: data.rows,
-            destroy: true,
-            columns: [
-  
+    $('#report-ranking').html("Ranking of contributors by " + data.rows.length + " groups <span>(made more than 3 changes)</span>");
+    var columns = [
                 { "data": "rank", title: "Rank"},
                 { "data": "countUsers", title: "Contributors <span>in group</span>"},
                 { "data": "minChanges", title: "Minimum changes <span>in group</span>"},
                 { "data": "maxChanges", title: "Maximum changes <span>in group</span>"},
                 { "data": "totalChanges", title: "Total changes <span>by group</span>"}, //, render:floatFormat
                 { "data": "atomTotalChanges", title: "Total edited objects <span>by group</span>"}
-            ],
+    ];
+    if(mid >= '2018-09') {
+        columns.push({ "data": "totalChanges", title: "Total changes <span>by group</span>"}); //, render:floatFormat
+        columns.push({ "data": "atomTotalChanges", title: "Total edited objects <span>by group</span>"});
+    }
+      reportDataTable = $('#report-table').DataTable({
+            data: data.rows,
+            destroy: true,
+            columns: columns,
             "paging":   false,
             "ordering": true,
             //"iDisplayLength": 20,
             "info":     false,
             "searching": false,
             "dom": "t",
-        });
+      });
   }
 
   
