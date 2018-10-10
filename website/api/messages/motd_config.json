@@ -10,26 +10,26 @@
 		},
 		{
 			"condition": {
-				"start_date": "20-09-2018 00:00",
-				"end_date": "26-09-2018 00:00",
+				"start_date": "11-10-2018 00:00",
+				"end_date": "16-10-2018 00:00",
 				"os": "android"
 			},
 			"file": "discount.json",
 			"fields": {
 				"message": "Get OsmAnd Unlimited -50%",
-				"description": "September Sale!"
+				"description": "Cozy autumn sale!"
 			}
 		},
 		{
 			"condition": {
-				"start_date": "20-09-2018 00:00",
-				"end_date": "26-09-2018 00:00",
+				"start_date": "11-10-2018 00:00",
+				"end_date": "16-10-2018 00:00",
 				"os": "ios"
 			},
 			"file": "discount_ios.json",
 			"fields": {
 				"message": "All World Maps -50%",
-				"description": "September Sale!"
+				"description": "Cozy autumn sale!"
 			}
 		},
 		{
