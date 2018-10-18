@@ -11,4 +11,4 @@ Documentation about motd_config.json
 
 ----------------------------------
 
-# Test file test_motd.json (Android)
+# Motd json properties (Android / IOs)
