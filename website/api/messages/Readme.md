@@ -25,6 +25,19 @@ After true condition is found, the 'fields' property is tested for presence of a
 
 
 # Motd json properties (Android / IOs)
-
+- **message** - notification title.
+- **description** - notification description.
+- **start** - start of the period in which the notification will be active.
+- **end** - end of the period in which the notification will be active.
+- **show_start_frequency** - number of app starts in which one notification will be shown.
+- **show_day_frequency** - number of days in which one notification will be shown.
+- **max_total_show** - total amount of displays of this specific notification.
+- **icon** - id of the icon for the notification.
+- **icon_color** - color (6 digit hex code) for the 'icon'. Optional parameter.
+- **bg_color** - color (6 digit hex code) for the notification background. Optional parameter.
+- **title_color** - color (6 digit hex code) for the 'message' text. Optional parameter.
+- **description_color** - color (6 digit hex code) for the 'description' text. Optional parameter.
+- **url** - url, that will be opened on notification click.
+- **application** - JSON object that specifies which applications must show notification.
 
 # Procedure to deploy changes
