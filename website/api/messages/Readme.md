@@ -17,6 +17,8 @@ The true condition is condition which has all true properties. True property is 
 
 All 'condition' are processed in order from top to bottom to the first true conditon.
 
+After true condition is found, the 'fields' property is tested for presence of any key-value pairs. If 'fields' property is not empty then properties from 'fields' property is used for modifying original message designated by 'file' property otherwise the original message is returned without modification.
+
 # Example with test ip
 
 
