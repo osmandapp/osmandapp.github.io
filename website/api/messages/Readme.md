@@ -9,6 +9,9 @@ Documentation about motd_config.json
 
 # Example with test ip
 
-----------------------------------
+
 
 # Motd json properties (Android / IOs)
+
+
+# Procedure to deploy changes
