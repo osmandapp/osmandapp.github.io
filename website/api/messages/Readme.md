@@ -39,5 +39,6 @@ After true condition is found, the 'fields' property is tested for presence of a
 - **description_color** - color (6 digit hex code) for the 'description' text. Optional parameter.
 - **url** - url, that will be opened on notification click.
 - **application** - JSON object that specifies which applications must show notification.
+- **show_christmas_dialog** - specify if the Christmas dialog should be displayed instead of notification. Optional parameter.
 
 # Procedure to deploy changes
