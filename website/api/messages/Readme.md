@@ -26,19 +26,37 @@ After true condition is found, the 'fields' property is tested for presence of a
 
 # Motd json properties (Android / IOs)
 - **message** - notification title.
+  - "message" : "Some title"
 - **description** - notification description.
+  - "description" : "Some description"
 - **start** - start of the period in which the notification will be active.
+  - "start" : "10-06-2018 00:00"
 - **end** - end of the period in which the notification will be active.
+  - "end" : "30-06-2018 23:59"
 - **show_start_frequency** - number of app starts in which one notification will be shown.
+  - "show_start_frequency" : 3 - once per three app starts
 - **show_day_frequency** - number of days in which one notification will be shown.
+  - "show_day_frequency" : 2 - once per two days
 - **max_total_show** - total amount of displays of this specific notification.
+  - "max_total_show" : 10
 - **icon** - id of the icon for the notification.
+  - "icon" : "ic_action_travel"
 - **icon_color** - color (6 digit hex code) for the 'icon'. Optional parameter.
+  - "icon_color" : "#ffffff"
 - **bg_color** - color (6 digit hex code) for the notification background. Optional parameter.
+  - "bg_color" : "#fec601"
 - **title_color** - color (6 digit hex code) for the 'message' text. Optional parameter.
+  - "title_color" : "#000000"
 - **description_color** - color (6 digit hex code) for the 'description' text. Optional parameter.
+  - "description_color" : "#000000"
 - **url** - url, that will be opened on notification click.
+  - "url" : "https://osmand.net/travel?title=World_Cup_2018&lang=en" - to open travel article
+  - "url" : "osmand-market-app:net.osmand.plus" - to open available market with specified app
+  - "url" : "osmand-in-app:osmand_full_version_price" - to purchase full version
+  - "url" : "osmand-in-app:osm_live_subscription_2,osm_free_live_subscription_2" - to open choose plan screen
 - **application** - JSON object that specifies which applications must show notification.
+  -   "application" : { "net.osmand" : true, "net.osmand.plus" : false } - notification will be shown only in the free app
 - **show_christmas_dialog** - specify if the Christmas dialog should be displayed instead of notification. Optional parameter.
+  - "show_christmas_dialog" : true
 
 # Procedure to deploy changes
