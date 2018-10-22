@@ -54,6 +54,7 @@ After true condition is found, the 'fields' property is tested for presence of a
   - "url" : "osmand-market-app:net.osmand.plus" - to open available market with specified app
   - "url" : "osmand-in-app:osmand_full_version_price" - to purchase full version
   - "url" : "osmand-in-app:osm_live_subscription_2,osm_free_live_subscription_2" - to open choose plan screen
+  - "url" : "osmand-search-query:test query" - to open search with "test query" phrase
 - **application** - JSON object that specifies which applications must show notification.
   -   "application" : { "net.osmand" : true, "net.osmand.plus" : false } - notification will be shown only in the free app
 - **show_christmas_dialog** - specify if the Christmas dialog should be displayed instead of notification. Optional parameter.
