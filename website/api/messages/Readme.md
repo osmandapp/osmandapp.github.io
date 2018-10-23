@@ -41,10 +41,16 @@ After true condition is found, the 'fields' property is tested for presence of a
 
 
 # Motd json properties (Android / IOs)
-- **message** - notification title.
-  - "message" : "Some title"
-- **description** - notification description.
-  - "description" : "Some description"
+```
+"message" : "Some title"
+```
+**message** - notification title.
+
+```
+"description" : "Some description"
+```
+**description** - notification description.
+
 - **start** - start of the period in which the notification will be active.
   - "start" : "10-06-2018 00:00"
 - **end** - end of the period in which the notification will be active.
