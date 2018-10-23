@@ -1,6 +1,6 @@
 Documentation about motd_config.json
 ================================
-# Conditions properties
+# Condition properties
 ### IP  
   Desired IP Address of client that should receive the message
 ### OS  
