@@ -14,7 +14,7 @@ Documentation about motd_config.json
   - "lang" : "uk"
 - **File** - contains the json file's name which contains base [motd json properties](#motd-json-properties-android--ios).
   - "file": "discount.json"
-- **Fields** - contains the key-value list of properties. The main purpose of this property is to modify properties in the motd message based on the file designated by 'file' property without altering the that file. Each key in the list should match with the property name from [motd json properties](#motd-json-properties-android--ios). In the example below the properties 'message' and 'description' in the file designated by the 'file' property will be substituted by values from the 'fields' property.
+- **Fields** - contains the key-value list of properties. The main purpose of this property is to modify properties in the motd message based on the file designated by 'file' property without altering the 'file'. Each key in the list should match with the property name from [motd json properties](#motd-json-properties-android--ios). In the example below the properties 'message' and 'description' in the file designated by the 'file' property will be substituted by values from the 'fields' property.
   - "fields": {
 				"message": "Get OsmAnd Unlimited -50%",
 				"description": "Cozy autumn sale!"
