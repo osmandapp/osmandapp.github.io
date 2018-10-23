@@ -87,6 +87,8 @@ After true condition is found, the 'fields' property is tested for presence of a
   - "title_color" : "#000000"
 - **description_color** - color (6 digit hex code) for the 'description' text. Optional parameter.
   - "description_color" : "#000000"
+- **status_bar_color** - color (6 digit hex code) for the status bar. Optional parameter.
+  - "status_bar_color" : "#fec601"
 - **url** - url, that will be opened on notification click.
   - "url" : "https://osmand.net/travel?title=World_Cup_2018&lang=en" - to open travel article
   - "url" : "osmand-market-app:net.osmand.plus" - to open available market with specified app
