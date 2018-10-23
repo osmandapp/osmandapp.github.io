@@ -2,14 +2,22 @@ Documentation about motd_config.json
 ================================
 # Condition properties
 - **IP** - desired IP Address of client that should receive the message.
-  - "ip" : "37.57.120.65"
+```
+"ip" : "37.57.120.65"
+```
 - **OS** - defines platform, should be "ios" or "android".   
-  - "os": "android"
+```
+"os": "android"
+```
 - **Date range** - consists of two properties: 'start_data' and 'end_date'. Defines start and end date of the sale.
-  - "start_date": "11-10-2018 00:00"
-  - "end_date": "16-10-2018 00:00"
+```
+"start_date": "11-10-2018 00:00"
+"end_date": "16-10-2018 00:00"
+```
 - **OsmAnd Version** - corresponds to 'version' property. Contains version of application.
-  - "version": "3"
+```
+"version": "3"
+```
 - **Langauge** - corresponds to 'lang' property. Contains selected in application or provided by platform two-letter codes of language.
   - "lang" : "uk"
 - **File** - contains the json file's name which contains base [motd json properties](#motd-json-properties-android--ios).
