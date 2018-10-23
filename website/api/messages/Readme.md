@@ -2,20 +2,21 @@ Documentation about motd_config.json
 ================================
 # Condition properties
 - **IP** - desired IP Address of client that should receive the message.
-  - 
+  - "ip" : "37.57.120.65"
 - **OS** - defines platform, should be "ios" or "android".   
-  - 
+  - "os": "android"
 - **Date range** - consists of two properties: 'start_data' and 'end_date'. Defines start and end date of the sale.
-  - 
+  - "start_date": "11-10-2018 00:00"
+  - "end_date": "16-10-2018 00:00"
 - **OsmAnd Version** - corresponds to 'version' property. Contains version of application.
-  - 
-- **Langauge** - corresponds to 'lang' property. Contains selected application or default platform language.
-  - 
+  - "version": "3"
+- **Langauge** - corresponds to 'lang' property. Contains selected in application or provided by platform two-letter codes of language.
+  - "lang" : "uk"
 
 ### True condition
 The true condition is condition which has all true properties. True property is property which is equal to request parameter or starts with/contains request parameter or in case of date range the request parameter satisfies the expression: start_date > date from request < end_date.
 
-All 'condition' are processed in order from top to bottom to the first true conditon.
+All 'condition' are processed in order from beginning to the end of file to the first true conditon.
 
 ### Message modifying
 After true condition is found, the 'fields' property is tested for presence of any key-value pairs. If 'fields' property is not empty then properties from 'fields' property is used for modifying original message designated by 'file' property otherwise the original message is returned without modification.
