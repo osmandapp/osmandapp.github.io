@@ -12,7 +12,7 @@ Documentation about motd_config.json
   - "version": "3"
 - **Langauge** - corresponds to 'lang' property. Contains selected in application or provided by platform two-letter codes of language.
   - "lang" : "uk"
-- **File** - contains the json file's name which contains base [motd json properties](#motd-json-properties) (Android/iOs).  
+- **File** - contains the json file's name which contains base [motd json properties](motd-json-properties-android--ios) (Android/iOs).  
 
 ### True condition
 The true condition is condition which has all true properties. True property is property which is equal to request parameter or starts with/contains request parameter or in case of date range the request parameter satisfies the expression: start_date > date from request < end_date.
