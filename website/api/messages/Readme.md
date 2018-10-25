@@ -100,5 +100,9 @@ After true condition is found, the 'fields' property is tested for presence of a
   -   "application" : { "net.osmand" : true, "net.osmand.plus" : false } - notification will be shown only in the free app
 - **show_christmas_dialog** - specify if the Christmas dialog should be displayed instead of notification. Optional parameter.
   - "show_christmas_dialog" : true
+- **button_title** - button title.
+  - "button_title" : "Some title"
+- **button_title_color** - color (6 digit hex code) for the 'button_title' text. Optional parameter.
+  - "button_title_color" : "#fec601"
 
 # Procedure to deploy changes
