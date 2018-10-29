@@ -96,6 +96,7 @@ After true condition is found, the 'fields' property is tested for presence of a
   - "url" : "osmand-in-app:osm_live_subscription_2,osm_free_live_subscription_2" - to open choose plan screen
   - "url" : "osmand-search-query:test query" - to open search with "test query" phrase
   - "url" : "osmand-show-poi:bank,tourism" - to show poi overlay on the map
+  - "url" : "open_activity" - to open activity specified in the "activity" JSON object
 - **application** - JSON object that specifies which applications must show notification.
   -   "application" : { "net.osmand" : true, "net.osmand.plus" : false } - notification will be shown only in the free app
 - **show_christmas_dialog** - specify if the Christmas dialog should be displayed instead of notification. Optional parameter.
@@ -104,5 +105,7 @@ After true condition is found, the 'fields' property is tested for presence of a
   - "button_title" : "Some title"
 - **button_title_color** - color (6 digit hex code) for the 'button_title' text. Optional parameter.
   - "button_title_color" : "#fec601"
+- **activity** - JSON object that specifies which activity will be shown.
+  - "activity" : { "activity_name" : "net.osmand.plus.myplaces.FavoritesActivity", "SOME_BOOLEAN_EXTRA" : true } - Favorites activity will be shown. Specified extras will be passed to intent.
 
 # Procedure to deploy changes
