@@ -10,6 +10,14 @@
 		},
 		{
 			"condition": {
+				"ip": "185.173.113.147",
+				"ip_disabled": "82.217.128.95"
+			},
+			"file": "test_motd_subscription.json",
+			"fields": {}
+		},
+		{
+			"condition": {
 				"start_date": "26-10-2018 00:00",
 				"end_date": "29-10-2018 00:00",
 				"os": "android"
