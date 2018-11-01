@@ -1,0 +1,14 @@
+{
+  "message" : "Try new global offline travel guides (TEST)",
+  "description" : "Read Wikivoyage article about World cup 2018!",
+  "start" : "01-11-2018 00:00",
+  "end" : "10-11-2018 23:59",
+  "show_start_frequency" : 1,
+  "show_day_frequency" : 1,
+  "max_total_show" : 100,
+  "url" : "osmand-in-app:osm_live_subscription_annual_free_v1",
+  "application" : {
+    "net.osmand" : true,
+    "net.osmand.plus" : true
+  }
+}
