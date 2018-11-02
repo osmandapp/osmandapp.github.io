@@ -41,6 +41,7 @@
         </tr>
     </table>
 
+
 	<h1>Reload settings from git:</h1>
     <div class="reload">
     	<form action="/admin/publish" method="post">
@@ -48,6 +49,20 @@
     		<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 		</form>
 	</div>
+
+    <h1>Usage reports:</h1>
+	<table border="1">
+		<tr>
+			<th>Name</th>
+			<th>Update date</th>
+			<th>SRTM+Hillshade</th>
+		</tr>
+        <tr th:each="di : ${reports}">
+        	<td><a th:text="${di.name}" th:href="/admin/report?file=${di.fullname}" href="">Report name</td>
+        	<td th:text="${di.date}">01.01.2018 00:00</td>
+        </tr>
+    </table>
+
 
 </body>
 </html>
