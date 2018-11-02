@@ -58,7 +58,7 @@
 			<th>SRTM+Hillshade</th>
 		</tr>
         <tr th:each="di : ${reports}">
-        	<td><a th:text="${di.name}" th:href="/admin/report?file=${di.fullname}" href="">Report name</td>
+        	<td><a th:text="${di.name}" th:href="'/admin/report?file='+${di.fullname}" href="">Report name</td>
         	<td th:text="${di.date}">01.01.2018 00:00</td>
         </tr>
     </table>
