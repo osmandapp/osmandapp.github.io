@@ -6,11 +6,18 @@
 </head>
 <body>
 	
-	<h1>Version info:</h1>
+	<h1>Web configuration info:</h1>
 	<p>Server version: <span th:text="${server_commit}"></span></p>
 	<p>Web version: <span th:text="${web_commit}"></span></p>
 	<p>Server started: <span th:text="${server_startup}"><span></p>
-	<p>Updated: <b><span th:text="${update_status}+'.'"></span></b> <span th:text="${update_message} "></span> <span th:text="${update_errors}"></span></p>
+	<p>Web updated: <b><span th:text="${update_status}+'.'"></span></b> <span th:text="${update_message} "></span> <span th:text="${update_errors}"></span></p>
+	<div class="reload">
+    	<form action="/admin/publish" method="post">
+    		<input type="submit" value="Refresh web configuration from https://github.com/osmandapp/osmandapp.github.io"  />
+    		<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+		</form>
+	</div>
+
 
 	<h1>Settings message of the day (promo):</h1>
 	<table border="1">
@@ -41,14 +48,6 @@
         </tr>
     </table>
 
-
-	<h1>Reload settings from git:</h1>
-    <div class="reload">
-    	<form action="/admin/publish" method="post">
-    		<input type="submit" value="Reload web configuration"  />
-    		<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-		</form>
-	</div>
 
     <h1>Reports:</h1>
 	<table border="1">
