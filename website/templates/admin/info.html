@@ -60,7 +60,31 @@
         	<td th:text="${di.date}">01.01.2018 00:00</td>
         </tr>
     </table>
+    <h3>Support survey:</h3>
+	<table border="1">
+		<tr>
+			<th>Week</th>
+			<th>Response</th>
+			<th>Count</th>
+		</tr>
+        <tr th:each="di : ${surveyReports}">
+        	<td th:text="${di.date}">01.01.2018</td>
+        	<td th:text="${di.response}"></td>
+        	<td th:text="${di.count}">/td>
+        </tr>
+    </table>
 
+ 	<h3>Subscriptions:</h3>
+	<table border="1">
+		<tr>
+			<th>Subscriptions</th>
+			<th>Month</th>
+		</tr>
+        <tr th:each="di : ${subscriptionReports}">
+        	<td th:text="${di.count}">1000/td>
+        	<td th:text="${di.date}">01.01.2018 00:00</td>
+        </tr>
+    </table>
 
 </body>
 </html>
