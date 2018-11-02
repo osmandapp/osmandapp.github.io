@@ -67,7 +67,7 @@
 			<th>Response</th>
 			<th>Count</th>
 		</tr>
-        <tr th:each="di : ${surveyReports}">
+        <tr th:each="di : ${surveyReport}">
         	<td th:text="${di.date}">01.01.2018</td>
         	<td th:text="${di.response}"></td>
         	<td th:text="${di.count}">/td>
@@ -80,7 +80,7 @@
 			<th>Subscriptions</th>
 			<th>Month</th>
 		</tr>
-        <tr th:each="di : ${subscriptionReports}">
+        <tr th:each="di : ${subscriptionsReport}">
         	<td th:text="${di.count}">1000/td>
         	<td th:text="${di.date}">01.01.2018 00:00</td>
         </tr>
