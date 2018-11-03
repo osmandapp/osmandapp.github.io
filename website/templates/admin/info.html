@@ -64,13 +64,17 @@
 	<table border="1">
 		<tr>
 			<th>Week</th>
-			<th>Response</th>
+			<th>Good</th>
+			<th>Average</th>
+			<th>Bad</th>
 			<th>Count</th>
 		</tr>
         <tr th:each="di : ${surveyReport}">
         	<td th:text="${di.date}">01.01.2018</td>
-        	<td th:text="${di.response}"></td>
-        	<td th:text="${di.count}">/td>
+        	<td th:text="${di.goodCount}"></td>
+        	<td th:text="${di.averageCount}"></td>
+        	<td th:text="${di.badCount}"></td>
+        	<td th:text="${di.badCount + di.goodCount + di.averageCount}">/td>
         </tr>
     </table>
 
