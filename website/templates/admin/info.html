@@ -78,6 +78,27 @@
         </tr>
     </table>
 
+	<h3>Email database:</h3>
+	<span>You can use automated tool to send emails to the database <a href="https://builder.osmand.net:8080/view/WebSite/job/Website_SendMail/">Send Emails</a>.</span>
+	<table border="1">
+		<tr>
+			<th>Category name</th>
+			<th>Category id</th>
+			<th>Total population</th>
+			<th>Available for Marketing</th>
+			<th>Available for OsmAnd Live</th>
+			<th>Available for News</th>
+		</tr>
+        <tr th:each="di : ${emailsReport}">
+        	<td th:text="${di.category}">1000/td>
+        	<td th:text="${di.categoryId}">1000/td>
+        	<td th:text="${di.totalCount}">1000/td>
+        	<td th:text="${di.activeMarketing}">1000/td>
+			<td th:text="${di.activeOsmAndLive}">1000/td>
+        	<td th:text="${di.activeNews}">1000/td>
+        </tr>
+    </table>
+
  	<h3>Subscriptions:</h3>
 	<table border="1">
 		<tr>
