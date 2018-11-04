@@ -72,7 +72,8 @@
         	<td th:text="${di.key}">website</td>
         	<td th:text="${di.value.pubdate}">01.01.2018</td>
         	<td th:text="${di.value.polldaddyid}"></td>
-        	<td th:text="${di.value.title}"></td>
+        	<td >
+        		<a th:text="${di.value.title}" th:href="'https://app.crowdsignal.com/polls/'+${di.value.polldaddyid}+'/results"></a></td>
         </tr>
     </table>
 
