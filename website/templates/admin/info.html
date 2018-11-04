@@ -60,6 +60,23 @@
         	<td th:text="${di.date}">01.01.2018 00:00</td>
         </tr>
     </table>
+	<h3>Audience surveys (polls):</h3>
+	<table border="1">
+		<tr>
+			<th>Channel</th>
+			<th>Publish date</th>
+			<th>Id</th>
+			<th>Title</th>
+		</tr>
+        <tr th:each="di : ${polls}">
+        	<td th:text="${di.key}">website</td>
+        	<td th:text="${di.value.pubdate}">01.01.2018</td>
+        	<td th:text="${di.value.polldaddyid}"></td>
+        	<td th:text="${di.value.title}"></td>
+        </tr>
+    </table>
+
+
     <h3>Support survey:</h3>
 	<table border="1">
 		<tr>

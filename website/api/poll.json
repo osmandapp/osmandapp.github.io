@@ -1,0 +1,17 @@
+{
+	"website" : {
+		"pubdate" : "23.06.2018",
+		"title" : "Have you tried the 'Travel' feature? Please share your thoughts",
+		"polldaddyid" : "10012432"
+	},
+	"android" : {
+		"pubdate" : "23.06.2018",
+		"title" : "Have you tried the 'Travel' feature? Please share your thoughts",
+		"polldaddyid" : "10012432"
+	},
+	"ios" : {
+		"pubdate" : "26.10.2017",
+		"title" : "What do you think of OsmAnd search?",
+		"polldaddyid" : "9860611"
+	}
+}
