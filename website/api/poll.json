@@ -1,17 +1,17 @@
 {
 	"website" : {
-		"pubdate" : "23.06.2018",
-		"title" : "Have you tried the 'Travel' feature? Please share your thoughts",
-		"polldaddyid" : "10012432"
+		"pubdate" : "06.11.2018",
+		"title" : "How would you like to support OsmAnd development?",
+		"polldaddyid" : "10156560"
 	},
 	"android" : {
-		"pubdate" : "23.06.2018",
-		"title" : "Have you tried the 'Travel' feature? Please share your thoughts",
-		"polldaddyid" : "10012432"
+		"pubdate" : "06.11.2018",
+		"title" : "How would you like to support OsmAnd development?",
+		"polldaddyid" : "10156560"
 	},
 	"ios" : {
-		"pubdate" : "26.10.2017",
-		"title" : "What do you think of OsmAnd search?",
-		"polldaddyid" : "9860611"
+		"pubdate" : "06.11.2018",
+		"title" : "How would you like to support OsmAnd development?",
+		"polldaddyid" : "10156560"
 	}
 }
