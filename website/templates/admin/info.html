@@ -30,7 +30,7 @@
 		</tr>
         <tr th:each="di : ${motdSettings.getDiscountSettings()}">
         	<td th:text="${di.discountCondition.checkActiveDate(new java.util.Date()) ? 'yes' : 'no'}"></td>
-        	<td th:text="${di.file}"></td>
+        	<td><a  th:text="${di.file}" th:href="'https://github.com/osmandapp/osmandapp.github.io/blob/master/website/api/messages/' + ${di.file}"></a></td>
         	<td th:text="${di.discountCondition.getFilterCondition()}"></td>
         	<td th:text="${di.fields}"></td>
         </tr>
