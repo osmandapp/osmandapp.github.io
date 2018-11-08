@@ -1,8 +1,8 @@
 {
-  "message" : "Try new global offline travel guides (TEST)",
-  "description" : "Read Wikivoyage article about World cup 2018!",
-  "start" : "10-06-2018 00:00",
-  "end" : "30-06-2018 23:59",
+  "message" : "New poll",
+  "description" : "New poll for Iran",
+  "start" : "07-11-2018 00:00",
+  "end" : "09-11-2018 23:59",
   "show_start_frequency" : 15,
   "show_day_frequency" : 10,
   "max_total_show" : 10,
@@ -11,7 +11,7 @@
   "bg_color" : "#fec601",
   "title_color" : "#000000",
   "description_color" : "#000000", 
-  "url" : "https://osmand.net/travel?title=World_Cup_2018&lang=en",
+  "url" : "https://poll.fm/10159035",
   "application" : {
     "net.osmand" : true,
     "net.osmand.plus" : true
