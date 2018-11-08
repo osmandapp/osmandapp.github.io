@@ -55,6 +55,14 @@
 				"url" : "https://osmand.net/travel?title=Munich&lang=en"
 			}
 			
+		},
+		{
+			"condition": {
+				"lang" : "fa"
+				
+			},
+			"file": "poll.json",
+			"fields": {}
 		}
 	]
 }
