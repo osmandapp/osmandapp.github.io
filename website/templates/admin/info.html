@@ -121,7 +121,7 @@
         </tr>
     </table>
 
- 	<h3>Subscriptions:</h3>
+ 	<h3>Active Subscriptions:</h3>
 	<table border="1">
 		<tr>
 			<th>Subscriptions</th>
@@ -132,6 +132,22 @@
         	<td th:text="${di.date}">01.01.2018 00:00</td>
         </tr>
     </table>
+
+
+ 	<h3>New Subscriptions:</h3>
+	<table border="1">
+		<tr>
+			<th>Subscriptions</th>
+			<th>Month</th>
+		</tr>
+        <tr th:each="di : ${newSubsReport}">
+        	<td th:text="${di.date}">01.01.2018 00:00</td>
+        	<td th:text="${di.monthCount}">1000/td>
+        	<td th:text="${di.annualCount}">1000/td>
+        	
+        </tr>
+    </table>
+
 
 </body>
 </html>
