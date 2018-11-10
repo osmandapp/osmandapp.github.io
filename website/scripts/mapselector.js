@@ -13,7 +13,7 @@ $cnt.find("label").on('click', function(){
 		var selectedMap = getSelectedMap().val();
 		if (selectedStyle && selectedMap){
 			var imageName = selectedMap + "-" +  selectedStyle + ".png";
-			$cnt.css('background-image', "url('images/" + imageName + "')");
+			$cnt.css('background-image', "url('/images/" + imageName + "')");
 		}
 	}
 

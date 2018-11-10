@@ -16,7 +16,7 @@
     <div class="articles">
       <div class="articlescontainer">
 
-        <div class="article" th:include="@{'blog_articles/' + ${article}}">
+        <div class="article" th:include="@{'blog_articles/' + ${locale_path} + ${article}}">
         </div>
       
         <div class="article-menu-wrapper">
