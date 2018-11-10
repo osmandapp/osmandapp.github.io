@@ -14,7 +14,7 @@ function contactus() {
         </div>
         <div class="menublock">
             <div class="footerlinks">
-                <div class="footerlinkstitle">Website</div>
+                <div class="footerlinkstitle" th:text="#{top_website}">Website</div>
                 <ul>
                     <li><a data-gatag="home" href="/" th:href="'/'+${locale_path}" th:text="#{top_home}">Home</a></li>
                     <li><a data-gatag="features" href="/features" th:href="'/'+${locale_path}+'features'" th:text="#{top_features}">Features</a></li>
@@ -26,7 +26,7 @@ function contactus() {
                 </ul>
             </div>
             <div class="footerlinks">
-                <div class="footerlinkstitle">External links</div>
+                <div class="footerlinkstitle"  th:text="#{top_externallinks}">External links</div>
                 <ul>
                     <li><a data-gatag="osm" href="https://www.openstreetmap.org/">OpenStreetMap</a></li>
                     <li><a data-gatag="fb" href="https://www.facebook.com/osmandapp">OsmAnd Facebook</a></li>
