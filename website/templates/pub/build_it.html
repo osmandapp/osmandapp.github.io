@@ -11,7 +11,7 @@
   
 <div class="maincontainer">
   <div class="main">
-    <div th:replace= "pub/fragments/simple_header :: header('API', 'Use OsmAnd power<br/>for your needs' ) "></div>
+    <div th:replace= "pub/fragments/simple_header :: header('API', ${#messages.msg('index_osm_live')}) "></div>
     <div class="articles api_main">
       <div class="articlescontainer">
 
