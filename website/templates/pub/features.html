@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>OsmAnd - Offline Mobile Maps and Navigation</title>
+  <title th:text="#{top_title}">OsmAnd - Offline Mobile Maps and Navigation</title>
   <script th:replace="pub/fragments/default_links"></script>
 
 
@@ -17,14 +17,14 @@
       <div class="articlescontainer">
       
 
-        <div class="article" th:include="@{'feature_articles/' + ${article}}">
+        <div class="article" th:include="@{'' + ${article_template}}">
         </div>
 
         <div class="article-menu-wrapper">
           <div class="modal-menu-button"></div>
           <div class="article-menu">
             <div class="acticlestitles"> 
-              <h2>features</h2>
+              <h2  th:text="#{top_features}">features</h2>
               <ul class="articlelinklist">
                 <li><div id="google_translate_element"></div><script type="text/javascript">
                     function googleTranslateElementInit() {
@@ -32,27 +32,27 @@
                 }
                 </script>
                 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script></li>
-                <li><a data-gatag='start' href="/features/start">Begin with OsmAnd</a></li>
-                <li><a data-gatag='navigation' href="/features/navigation">Navigation</a></li>
-                <li><a data-gatag='map-viewing' href="/features/map-viewing">Map Viewing</a></li>
-                <li><a data-gatag='search-on-map' href="/features/find-something-on-map">Search on the map</a></li>
-                <li><a data-gatag='trip-planning' href="/features/trip-planning">Planning trip</a></li>
-                <li><a data-gatag='troubleshooting' href="/features/installation-and-troubleshooting">Installation &amp; troubleshoooting</a></li>
-                <li><a data-gatag='osmand_purchases' href="/features/osmand_purchases">OsmAnd Purchases</a></li>
+                <li><a data-gatag='start' th:href="'/'+${locale_path} +'features/start'" th:text="#{feature_begin}">Begin with OsmAnd</a></li>
+                <li><a data-gatag='navigation' th:href="'/'+${locale_path} +'features/navigation'" th:text="#{feature_navigation}">Navigation</a></li>
+                <li><a data-gatag='map-viewing' th:href="'/'+${locale_path} +'features/map-viewing'" th:text="#{feature_map_viewing}">Map Viewing</a></li>
+                <li><a data-gatag='search-on-map' th:href="'/'+${locale_path} +'features/find-something-on-map'" th:text="#{feature_search}">Search on the map</a></li>
+                <li><a data-gatag='trip-planning' th:href="'/'+${locale_path} +'features/trip-planning'" th:text="#{feature_planning}">Planning trip</a></li>
+                <li><a data-gatag='troubleshooting' th:href="'/'+${locale_path} +'features/installation-and-troubleshooting'" th:text="#{feature_install}">Installation &amp; troubleshoooting</a></li>
+                <li><a data-gatag='osmand_purchases' th:href="'/'+${locale_path} +'features/osmand_purchases'" th:text="#{feature_purchases}">OsmAnd Purchases</a></li>
               </ul>
-              <h2>plugins</h2>
+              <h2  th:text="#{top_plugins}">plugins</h2>
               <ul class="articlelinklist">
-                <li><a data-gatag='online-maps-plugin' href="/features/online-maps-plugin">Online maps</a></li>
-                <li><a data-gatag='contour-lines-plugin' href="/features/contour-lines-plugin" >Contour lines and Hillshade map</a></li>
-                <li><a data-gatag='trip-recording-plugin' href="/features/trip-recording-plugin" >Trip recording</a></li>
-                <li><a data-gatag='ski-plugin' href="/features/ski-plugin" >Ski maps</a></li>
-                <li><a data-gatag='nautical_charts' href="/features/nautical-charts" >Nautical charts</a></li>
-                <li><a data-gatag='audio-video-notes-plugin' href="/features/audio-video-notes-plugin" >Audio/video notes</a></li>
-                <li><a data-gatag='osm-editing-plugin' href="/features/osm-editing-plugin">OSM editing</a></li>
-                <li><a data-gatag='measure-distance' href="/features/measure-distance">Measure distance</a></li>
-                <li><a data-gatag='parking-plugin' href="/features/parking-plugin" >Parking place</a></li>
-                <li><a data-gatag='development_plugin' href="/features/development_plugin">OsmAnd development</a></li>
-                <li><a data-gatag='mapillary' href="/features/mapillary">OsmAnd+Mapillary</a></li>
+                <li><a data-gatag='online-maps-plugin' th:href="'/'+${locale_path} +'features/online-maps-plugin'" th:text="#{feature_online}">Online maps</a></li>
+                <li><a data-gatag='contour-lines-plugin' th:href="'/'+${locale_path} +'/features/contour-lines-plugin'" th:text="#{feature_contour}">Contour lines and Hillshade map</a></li>
+                <li><a data-gatag='trip-recording-plugin' th:href="'/'+${locale_path} +'features/trip-recording-plugin'" th:text="#{feature_trip_rcord}" >Trip recording</a></li>
+                <li><a data-gatag='ski-plugin' th:href="'/'+${locale_path} +'features/ski-plugin'" th:text="#{feature_ski_maps}" >Ski maps</a></li>
+                <li><a data-gatag='nautical_charts' th:href="'/'+${locale_path} +'features/nautical-charts'" th:text="#{feature_naoutical_charts}">Nautical charts</a></li>
+                <li><a data-gatag='audio-video-notes-plugin' th:href="'/'+${locale_path} +'features/audio-video-notes-plugin'" th:text="#{feature_av_notes}" >Audio/video notes</a></li>
+                <li><a data-gatag='osm-editing-plugin' th:href="'/'+${locale_path} +'features/osm-editing-plugin'" th:text="#{feature_osm_editing}">OSM editing</a></li>
+                <li><a data-gatag='measure-distance' th:href="'/'+${locale_path} +'features/measure-distance'" th:text="#{feature_measure}">Measure distance</a></li>
+                <li><a data-gatag='parking-plugin' th:href="'/'+${locale_path} +'features/parking-plugin'" th:text="#{feature_parking}" >Parking place</a></li>
+                <li><a data-gatag='development_plugin' th:href="'/'+${locale_path} +'features/development_plugin'" th:text="#{feature_dev}">OsmAnd development</a></li>
+                <li><a data-gatag='mapillary' th:href="'/'+${locale_path} +'features/mapillary'" th:text="#{feature_mapillary}">OsmAnd+Mapillary</a></li>
               </ul>
             </div> <!-- acticlestitles -->
           </div> <!-- article-menu -->
