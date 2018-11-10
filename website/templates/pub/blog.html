@@ -11,12 +11,12 @@
 
 <div class="maincontainer">
   <div class="main">
-    <div  th:replace= "pub/fragments/simple_header :: header('BLOG', 'BLOG' ) ">
+    <div  th:replace= "pub/fragments/simple_header :: header('BLOG', ${#messages.msg('top_blog')} ) ">
     </div>
     <div class="articles">
       <div class="articlescontainer">
 
-        <div class="article" th:include="@{'blog_articles/' + ${locale_path} + ${article}}">
+        <div class="article" th:include="@{'' + ${article_template}}">
         </div>
       
         <div class="article-menu-wrapper">
@@ -25,7 +25,7 @@
             <div class="acticlestitles">
               <h2>latest articles</h2>
               <ul class="articlelinklist">
-                <li th:each="art : ${articles}"><a th:href="${art.url}" th:text="${art.shortTitle}"></a></li>
+                <li th:each="art : ${articles}"><a th:href="'/'+${locale_path} + ${art.url}" th:text="${art.shortTitle}"></a></li>
                 <li><a  href="/blog/osmand_videos" >OsmAnd Videos</a></li>
                 <li><a  href="/rss.xml" >RSS</a></li>
               </ul>

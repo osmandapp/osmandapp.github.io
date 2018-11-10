@@ -12,7 +12,7 @@
   
 <div class="maincontainer">
   <div class="main" >
-    <div th:replace="pub/fragments/simple_header :: header('FEATURES', 'FEATURES' ) " />
+    <div th:replace="pub/fragments/simple_header :: header('FEATURES', ${#messages.msg('top_features')}  ) " />
     <div class="articles">
       <div class="articlescontainer">
       
