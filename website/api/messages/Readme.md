@@ -13,20 +13,29 @@ Documentation about motd_config.json
 ```
 
 
-**Date range** - consists of two properties: 'start_data' and 'end_date'. Defines start and end date of the sale.
+**Date range** - consists of two properties: 'start_date' and 'end_date'. Defines start and end date of the sale.
 ```
 "start_date": "11-10-2018 00:00"
 "end_date": "16-10-2018 00:00"
 ```
+Important: Date fields will be propagated to the file itself and override start/end dates in the file.
 
-
-**OsmAnd Version** - corresponds to 'version' property. Contains version of application. Travel links will be work only from version 3.
+**OsmAnd Version** - corresponds to 'version' property. Contains version of application. For example, Travel links will be work only from version 3.
 ```
 "version": "3"
 ```
 
+**Country** - corresponds to 'country' property. Filters by specified country, country is detected from IP.
+```
+"country" : "Netherlands"
+```
 
-**Langauge** - corresponds to 'lang' property. Contains selected in application or provided by platform two-letter codes of language.
+**City** - corresponds to 'city' property. Filters by specified city, city is detected from IP.
+```
+"city" : "Minsk"
+```
+
+**Language** - corresponds to 'lang' property. Contains selected in application or provided by platform two-letter codes of language.
 ```
 "lang" : "uk"
 ```
@@ -52,7 +61,6 @@ All 'conditions' are processed in order from beginning to the end of file to the
 ### Message modifying
 After true condition is found, the 'fields' property is tested for presence of any key-value pairs. If 'fields' property is not empty then properties from 'fields' property is used for modifying original message designated by 'file' property otherwise the original message is returned without modification.
 
-# Example with test ip
 
 
 
