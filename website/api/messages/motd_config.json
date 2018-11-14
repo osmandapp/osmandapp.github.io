@@ -2,19 +2,9 @@
 	"settings": [
 		{
 			"condition": {
-				"ip": "93.73.244.11",
-				"lang" : "fa"
-				
+				"ip": "93.73.244.11"				
 			},
 			"file": "test_motd.json",
-			"fields": {}
-		},
-		{
-			"condition": {
-				"ip": "185.173.113.147",
-				"ip_disabled": "82.217.128.95"
-			},
-			"file": "test_motd_subscription.json",
 			"fields": {}
 		},
 		{
@@ -58,8 +48,7 @@
 		},
 		{
 			"condition": {
-				"lang" : "fa"
-				
+				"city" : "Amstelveen"
 			},
 			"file": "poll.json",
 			"fields": {}
