@@ -1,0 +1,12 @@
+{
+	"monthly" : {
+		  "sku": "osm_live_subscription_monthly_full_v1"
+	},
+	"quarterly" : {
+		  "sku": "osm_live_subscription_3_months_full_v1"
+	},
+	"annual" : {
+		  "sku": "osm_live_subscription_annual_full_v1"
+	}
+
+}
