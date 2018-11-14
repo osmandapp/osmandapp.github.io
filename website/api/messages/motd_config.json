@@ -48,7 +48,7 @@
 		},
 		{
 			"condition": {
-				"city" : "Amstelveen"
+				"city" : "Amsterdam"
 			},
 			"file": "poll.json",
 			"fields": {}
