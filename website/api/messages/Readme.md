@@ -79,10 +79,11 @@ After true condition is found, the 'fields' property is tested for presence of a
   - "start" : "10-06-2018 00:00"
 - **end** - end of the period in which the notification will be active.
   - "end" : "30-06-2018 23:59"
-- **show_start_frequency** - number of app starts in which one notification will be shown.
+- **show_start_frequency** - the notification will be shown after *X* application starts ignoring **show_day_frequency** but it won't exceed **max_total_show**. 
   - "show_start_frequency" : 3 - once per three app starts
-- **show_day_frequency** - number of days in which one notification will be shown.
+- **show_day_frequency** - the number is double,  the notification will be shown after *X* days starts ignoring **show_start_frequency** but it won't exceed **max_total_show**. 
   - "show_day_frequency" : 2 - once per two days
+  - "show_day_frequency" : 0.5 - 2 times a day
 - **max_total_show** - total amount of displays of this specific notification.
   - "max_total_show" : 10
 - **icon** - id of the icon for the notification.
