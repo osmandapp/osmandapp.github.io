@@ -134,17 +134,25 @@
     </table>
 
 
- 	<h3>New Subscriptions:</h3>
+ 	<h3>New/Cancel Subscriptions:</h3>
 	<table border="1">
 		<tr>
 			<th>Date</th>
-			<th>Month</th>
-			<th>Year</th>
+			<th>New Month</th>
+			<th>New Year</th>
+			<th>+Total</th>
+			<th>Cancel Month</th>
+			<th>Cancel Year</th>
+			<th>-Total</th>
 		</tr>
         <tr th:each="di : ${newSubsReport}">
         	<td th:text="${di.date}">01.01.2018 00:00</td>
         	<td th:text="${di.monthCount}">1000/td>
         	<td th:text="${di.annualCount}">1000/td>
+        	<td th:text="${di.totalCount}">1000/td>
+        	<td th:text="${di.cancelMonthCount}">1000/td>
+        	<td th:text="${di.cancelAnnualCount}">1000/td>
+        	<td th:text="${di.cancelTotal}">1000/td>
         	
         </tr>
     </table>
