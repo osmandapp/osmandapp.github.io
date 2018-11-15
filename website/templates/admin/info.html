@@ -144,6 +144,7 @@
 			<th>-Month</th>
 			<th>-Year</th>
 			<th>-Total</th>
+			<th>Delta</th>
 		</tr>
         <tr th:each="di : ${newSubsReport}">
         	<td th:text="${di.date}">01.01.2018 00:00</td>
@@ -153,6 +154,7 @@
         	<td th:text="${di.cancelMonthCount}">1000</td>
         	<td th:text="${di.cancelAnnualCount}">1000</td>
         	<td th:text="${di.cancelTotal}">1000</td>
+        	<td th:text="${di.delta}">1000</td>
         	
         </tr>
     </table>
