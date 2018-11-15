@@ -1,8 +1,6 @@
 {
   "message" : "How do you want OsmAnd to be improved?",
   "description" : "Poll for Minsk users",
-  "start" : "12-11-2018 00:00",
-  "end" : "13-11-2018 23:59",
   "show_start_frequency" : 1,
   "show_day_frequency" : 0,
   "max_total_show" : 100,
