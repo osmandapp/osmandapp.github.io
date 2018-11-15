@@ -1,8 +1,8 @@
 {
   "message" : "How do you want OsmAnd to be improved?",
   "description" : "Poll for Minsk users",
-  "start" : "07-11-2018 00:00",
-  "end" : "09-11-2018 23:59",
+  "start" : "15-11-2018 00:00",
+  "end" : "16-11-2018 23:59",
   "show_start_frequency" : 1,
   "show_day_frequency" : 0,
   "max_total_show" : 100,
@@ -13,7 +13,7 @@
   "description_color" : "#000000", 
   "button_title" : "Some title",
   "button_title_color" : "#000000",
-  "url" : "https://osmand.typeform.com/to/T55V5l",
+  "url" : "https://osmand.typeform.com/to/IVk0Pf",
   "application" : {
     "net.osmand" : true,
     "net.osmand.plus" : true
