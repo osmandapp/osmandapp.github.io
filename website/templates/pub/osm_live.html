@@ -29,26 +29,26 @@
     </div>
     <div class="nav-holder">
       <ul class="navigation">
-        <li class="active"><a data-toggle="tab" href="#information">Information</a></li>
-        <li><a data-toggle="tab" href="#report">OSM Contributions</a></li>
-        <li><a data-toggle="tab" href="#donate">Supporters</a></li>
-        <li><a data-toggle="tab" href="#recipients">Recipients</a></li>
+        <li class="active"><a data-toggle="tab" href="#information" th:text="#{osmlive_info}">Information</a></li>
+        <li><a data-toggle="tab" href="#report" th:text="#{osmlive_contributions}">OSM Contributions</a></li>
+        <li><a data-toggle="tab" href="#donate" th:text="#{osmlive_supporters}">Supporters</a></li>
+        <li><a data-toggle="tab" href="#recipients" th:text="#{osmlive_recipients}">Recipients</a></li>
       </ul>
     </div>
     <div class="container">
       <div class="tab-content">
         <div class="loading"></div>
         <div id="report" class="tab-pane fade">
-          <h2>OSM Contributions</h2>
+          <h2 th:text="#{osmlive_contributions}">OSM Contributions</h2>
           <div class="report-period-group">
             <div class="report-group period">
-              <h4 class="vlabel" for="month-selection">Report period</h4>
+              <h4 class="vlabel" for="month-selection" th:text="#{osmlive_period}">Report period</h4>
               <div class="styled-select">
                 <select class="form-control" id="month-selection"></select>
               </div>
             </div>
             <div class="report-group region">
-              <h4 class="vlabel" for="region-selection">Region</h4>
+              <h4 class="vlabel" for="region-selection" th:text="#{osmlive_region}">Region</h4>
               <div class="styled-select">
                 <select class="form-control" id="region-selection"></select>
               </div>
@@ -56,7 +56,7 @@
           </div>
           <div class="report-total-div">
             <div class="overview-body">
-              <p class='overview-hint' >Overview for <span id="overview-contributors_options">
+              <p class='overview-hint' ><span th:text="#{osmlive_overview}">Overview for</span> <span id="overview-contributors_options">
               </span><span id='overview-id' style="color:black;float:right;"></span></p>
               <div id="report-total" class="infobox"></div>
             </div>
@@ -85,11 +85,11 @@
           <table id="users-table" class="table table-bordered" cellspacing="0" width="100%"></table>
         </div>
         <div id="donate" class="tab-pane fade ">
-          <h2>Supporters</h2>
+          <h2 th:text="#{osmlive_supporters}">Supporters</h2>
           <div class="supporters-total-holder">
             <div class="report-period-group supporters">
               <div class="report-group period">
-                <h4 class="vlabel" for="donate-month-selection">Report period</h4>
+                <h4 class="vlabel" for="donate-month-selection" th:text="#{osmlive_period}">Report period</h4>
                 <div class="styled-select">
                   <select class="form-control osm-live-month-select" id="donate-month-selection"></select>
                 </div>
@@ -97,12 +97,13 @@
             </div>
             <div class="supporters-total" id="donator-report-total-div">
               <div class="panel-body">
-                <p class='overview-hint'>Overview for <span id="overview-supporters_options"></span><span id='overview-supporters-span' style="color:black;float:right;"></span></p>
+                <p class='overview-hint'><span th:text="#{osmlive_overview}">Overview for</span> <span id="overview-supporters_options"></span><span id='overview-supporters-span' style="color:black;float:right;"></span></p>
                 <div id="donator-report-total" class="infobox"></div>
               </div>
             </div>
           </div>
-          <h4 class="vlabel" for="support-country-table" id="support-country-table-header">Supported countries</h4>
+          <h4 class="vlabel" for="support-country-table" id="support-country-table-header" 
+          th:text="#{osmlive_supported_countries}">Supported countries</h4>
           <div class="table-controls support-country-controls hidden">
             <div class="tc search">
               <input type="search" class="form-control" aria-control="support-country-table" id="support-country-table-search" placeholder="Search">
@@ -223,7 +224,7 @@
           </div>
         </div>
         <div id="recipients" class="tab-pane fade">
-          <h2>Recipients</h2>
+          <h2 th:text="#{osmlive_recipients}">Recipients</h2>
           <!--
             <h4 class="vlabel" for="recipients-info-div">Information</h4 >
               <div class="panel panel-default" id="recipients-info-div">
@@ -233,13 +234,13 @@
           -->
           <div class="report-period-group">
             <div class="report-group period">
-              <h4 class="vlabel" for="recipient-month-selection">Report period</h4>
+              <h4 class="vlabel" for="recipient-month-selection" th:text="#{osmlive_period}">Report period</h4>
               <div class="styled-select">
                 <select class="form-control osm-live-month-select" id="recipient-month-selection"></select>
               </div>
             </div>
             <div class="report-group region">
-              <h4 class="vlabel" for="recipient-region-selection">Region</h4>
+              <h4 class="vlabel" for="recipient-region-selection" th:text="#{osmlive_region}">Region</h4>
               <div class="styled-select">
                 <select class="form-control" id="recipient-region-selection"></select>
               </div>
@@ -372,7 +373,7 @@ window.onclick = function(event) {
     $("#region-selection").append("<option value=''>Worldwide</option>"); 
     $("#recipient-region-selection").append("<option value=''>Worldwide</option>"); 
     $.ajax({
-        url: "reports/query_report?report=all_countries", 
+        url: "/reports/query_report?report=all_countries", 
         async: true
       }).done(function(res) {
         var data = jQuery.parseJSON( res );
@@ -423,7 +424,7 @@ window.onclick = function(event) {
     }
     $('#report-ranking').empty();
     $.ajax({
-        url: "reports/query_report?report=all_contributions_requests&month="+mid+"&region="+region, 
+        url: "/reports/query_report?report=all_contributions_requests&month="+mid+"&region="+region, 
         async: true
       }).done(function(res) {
         // var resultArray = res.split("\n");
@@ -458,15 +459,6 @@ window.onclick = function(event) {
    return currTimeString.substring(currTimeString.indexOf(" "), currTimeString.lastIndexOf(":"));
   }
   
-  function skuApp(value) {
-    if(value == "osm_live_subscription_1" || value == "osm_live_subscription_2") {
-      return "OsmAnd+";
-    }
-    if(value == "osm_free_live_subscription_1" || value == "osm_free_live_subscription_2") {
-      return "OsmAnd";
-    }
-    return "-";
-  }
   
   function countryName(value) {
     if(value == '') {
@@ -487,7 +479,7 @@ window.onclick = function(event) {
       $("#recipients-data-info").html("");
     }
     $.ajax({
-          url: "reports/query_report?report=recipients_by_month&month="+recipientMonth+"&region="+recipientRegion, 
+          url: "/reports/query_report?report=recipients_by_month&month="+recipientMonth+"&region="+recipientRegion, 
           async: true
     }).done(function(res) {
           var data = jQuery.parseJSON( res );
@@ -557,7 +549,7 @@ window.onclick = function(event) {
       $('#donator-report-total').html("");
     }
     $.ajax({
-          url: "reports/query_report?report=supporters_by_month&month="+supportMonth+"&full="+extended, 
+          url: "/reports/query_report?report=supporters_by_month&month="+supportMonth+"&full="+extended, 
           async: true
     }).done(function(res) {
           var data = jQuery.parseJSON( res );

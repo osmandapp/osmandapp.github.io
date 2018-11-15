@@ -23,7 +23,7 @@
           <div class="modal-menu-button"></div>
           <div class="article-menu">
             <div class="acticlestitles">
-              <h2>latest articles</h2>
+              <h2 th:text="#{blog_latest_articles}">latest articles</h2>
               <ul class="articlelinklist">
                 <li th:each="art : ${articles}"><a th:href="'/'+${locale_path} + ${art.url}" th:text="${art.shortTitle}"></a></li>
                 <li><a  href="/blog/osmand_videos" >OsmAnd Videos</a></li>
