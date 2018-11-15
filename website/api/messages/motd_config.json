@@ -16,7 +16,7 @@
 			"file": "discount.json",
 			"fields": {
 				"message": "Unlimited map downloads and annual subscription -50%",
-				"description": "Black Friday sale is here!"
+				"description": "The Black Friday sale is here!"
 			}
 		},
 		{
@@ -28,7 +28,7 @@
 			"file": "discount_ios.json",
 			"fields": {
 				"message": "All World Maps -50%",
-				"description": "Black Friday sale is here!"
+				"description": "The Black Friday sale is here!"
 			}
 		},
 		{
