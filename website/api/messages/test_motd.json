@@ -1,6 +1,6 @@
 {
-  "message" : "How do you want OsmAnd to be improved? (چگونه می خواهید OsmAnd بهبود یابد؟)",
-  "description" : "Poll for iranian users  (نظرسنجی برای کاربران ایرانی)",
+  "message" : "How do you want OsmAnd to be improved?",
+  "description" : "Poll for Minsk users",
   "start" : "07-11-2018 00:00",
   "end" : "09-11-2018 23:59",
   "show_start_frequency" : 1,
