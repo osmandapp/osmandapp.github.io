@@ -17,10 +17,20 @@
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "Unlimited map downloads and annual subscription -50%",
-				"description": "The Black Friday sale is here!",
 				"message": "Карты без ограничений и годовая подписка -50%",
 				"description": "Чёрная пятница уже здесь!"
+			}
+		},
+		{
+			"condition": {
+				"start_date": "22-11-2018 00:00",
+				"end_date": "26-11-2018 00:00",
+				"os": "android"
+			},
+			"file": "discount.json",
+			"fields": {
+				"message": "Unlimited map downloads and annual subscription -50%",
+				"description": "The Black Friday sale is here!"
 			}
 		},
 		{
@@ -45,7 +55,7 @@
 			"file": "top_wikivoyage.json",
 			"fields" : {
 				"message" : "Get ready for the Oktoberfest 2018",
-			    "description" : "Read travel tips about Munich",
+			    	"description" : "Read travel tips about Munich",
 				"url" : "https://osmand.net/travel?title=Munich&lang=en"
 			}
 			
