@@ -1,9 +1,9 @@
 {
   "message" : "All World Maps -50%",
   "description" : "The Black Friday sale is here!",
-  "show_start_frequency" : 3,
+  "show_start_frequency" : 4,
   "show_day_frequency" : 1,
-  "max_total_show" : 10,
+  "max_total_show" : 3,
   "icon" : "ic_action_gift",
   "url" : "in_app:map",
   "in_app" : "allworld",
