@@ -2,7 +2,7 @@
 	"settings": [
 		{
 			"condition": {
-				"ip": "93.73.244.11"				
+				"city" : "Minsk"				
 			},
 			"file": "test_motd.json",
 			"fields": {}
