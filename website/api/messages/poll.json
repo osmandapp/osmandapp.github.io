@@ -1,8 +1,6 @@
 {
   "message" : "How do you want OsmAnd to be improved? (¿Cómo quieres que se mejore OsmAnd?)",
   "description" : "Poll for cuban users  (Encuesta para usuarios cubanos)",
-  "start" : "16-11-2018 00:00",
-  "end" : "19-11-2018 23:59",
   "show_start_frequency" : 50,
   "show_day_frequency" : 50,
   "max_total_show" : 1,
