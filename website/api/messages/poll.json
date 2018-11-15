@@ -1,8 +1,8 @@
 {
   "message" : "How do you want OsmAnd to be improved? (¿Cómo quieres que se mejore OsmAnd?)",
   "description" : "Poll for cuban users  (Encuesta para usuarios cubanos)",
-  "show_start_frequency" : 50,
-  "show_day_frequency" : 50,
+  "show_start_frequency" : 10,
+  "show_day_frequency" : 2,
   "max_total_show" : 1,
   "icon" : "ic_action_help",
   "status_bar_color": "#fec601",
