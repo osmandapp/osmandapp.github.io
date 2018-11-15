@@ -18,7 +18,9 @@
 			"file": "discount.json",
 			"fields": {
 				"message": "Unlimited map downloads and annual subscription -50%",
-				"description": "The Black Friday sale is here!"
+				"description": "The Black Friday sale is here!",
+				"message": "Карты без ограничений и годовая подписка -50%",
+				"description": "Чёрная пятница уже здесь!"
 			}
 		},
 		{
