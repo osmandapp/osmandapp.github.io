@@ -8,10 +8,10 @@
 		},
 		{
 			"condition": {
-				"country" : "Netherlands",
-				"app_package" : "net.osmand.plus"
+				"country" : "Amstelveen",
+				"app_package" : "net.osmand"
 			},
-			"file": "free.json"
+			"file": "paid.json"
 		},
 		{
 			"condition": {},
