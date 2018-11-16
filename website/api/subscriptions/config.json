@@ -4,13 +4,17 @@
 			"condition": {
 				"app_package" : "net.osmand.plus"
 			},
-			"file": "paid.json",
-			"fields": {}
+			"file": "paid.json"
+		},
+		{
+			"condition": {
+				"app_package" : "net.osmand.plus.nightly"
+			},
+			"file": "paid.json"
 		},
 		{
 			"condition": {},
-			"file": "free.json",
-			"fields": {}
+			"file": "free.json"
 		}
 	]
 }
