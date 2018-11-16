@@ -13,6 +13,19 @@
 			"condition": {
 				"start_date": "22-11-2018 00:00",
 				"end_date": "26-11-2018 00:00",
+				"app_version": "OsmAnd+",
+				"lang" :"ru"
+			},
+			"file": "discount_paid.json",
+			"fields": {
+				"message": "Годовая подписка -50%",
+				"description": "Чёрная пятница уже здесь!"
+			}
+		},
+		{
+			"condition": {
+				"start_date": "22-11-2018 00:00",
+				"end_date": "26-11-2018 00:00",
 				"os": "android",
 				"lang" :"ru"
 			},
