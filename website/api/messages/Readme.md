@@ -101,7 +101,7 @@ After true condition is found, the 'fields' property is tested for presence of a
 - **url** - url, that will be opened on notification click.
   - "url" : "https://osmand.net/travel?title=World_Cup_2018&lang=en" - to open travel article
   - "url" : "osmand-market-app:net.osmand.plus" - to open available market with specified app
-  - "url" : "osmand-in-app:osmand_full_version_price" - to purchase full version
+  - "url" : "osmand-in-app:osmand_full_version_price" - to purchase full version (starts purchasing immediately)
   - "url" : "osmand-in-app:osm_live_subscription_2,osm_free_live_subscription_2" - to open choose plan screen
   - "url" : "osmand-search-query:test query" - to open search with "test query" phrase
   - "url" : "osmand-show-poi:bank,tourism" - to show poi overlay on the map
