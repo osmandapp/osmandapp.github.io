@@ -8,7 +8,7 @@
 		},
 		{
 			"condition": {
-				"city" : "Amstelveen",
+				"country" : "Netherlands",
 				"app_package" : "net.osmand.plus"
 			},
 			"file": "free.json"
