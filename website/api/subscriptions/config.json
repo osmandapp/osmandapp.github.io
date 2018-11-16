@@ -8,9 +8,10 @@
 		},
 		{
 			"condition": {
-				"app_package" : "net.osmand.plus.nightly"
+				"city" : "Amstelveen",
+				"app_package" : "net.osmand.plus"
 			},
-			"file": "paid.json"
+			"file": "free.json"
 		},
 		{
 			"condition": {},
