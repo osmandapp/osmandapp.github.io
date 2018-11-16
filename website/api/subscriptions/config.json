@@ -7,13 +7,6 @@
 			"file": "paid.json"
 		},
 		{
-			"condition": {
-				"city" : "Amstelveen",
-				"app_package" : "net.osmand"
-			},
-			"file": "paid.json"
-		},
-		{
 			"condition": {},
 			"file": "free.json"
 		}
