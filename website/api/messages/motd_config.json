@@ -26,6 +26,19 @@
 			"condition": {
 				"start_date": "22-11-2018 00:00",
 				"end_date": "26-11-2018 00:00",
+				"os": "android",
+				"lang" :"de"
+			},
+			"file": "discount.json",
+			"fields": {
+				"message": "Unbegrenzte Karten-Downloads und Jahresabonnement -50%",
+				"description": "Der Black Friday-Verkauf ist da!"
+			}
+		},
+		{
+			"condition": {
+				"start_date": "22-11-2018 00:00",
+				"end_date": "26-11-2018 00:00",
 				"os": "android"
 			},
 			"file": "discount.json",
