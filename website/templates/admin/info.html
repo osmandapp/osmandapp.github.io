@@ -36,6 +36,21 @@
         </tr>
     </table>
 
+    <h1>Active subscription:</h1>
+	<span>You can change it by modifying json file at <a href="https://github.com/osmandapp/osmandapp.github.io/blob/master/website/api/subscriptions/config.json">Github</a> and don't forget to click button reload configuration.</span>
+	<table border="1">
+		<tr>
+			<th>Active</th>
+			<th>File</th>
+			<th>Filter</th>
+		</tr>
+        <tr th:each="di : ${subSettings.getDiscountSettings()}">
+        	<td th:text="${di.discountCondition.checkActiveDate(new java.util.Date()) ? 'yes' : 'no'}"></td>
+        	<td><a  th:text="${di.file}" th:href="'https://github.com/osmandapp/osmandapp.github.io/blob/master/website/api/subscriptions/' + ${di.file}"></a></td>
+        	<td th:text="${di.discountCondition.getFilterCondition()}"></td>
+        </tr>
+    </table>
+
 	<h1>Download servers:</h1>
 	<span>You can change it by modifying json file at <a href="https://github.com/osmandapp/osmandapp.github.io/blob/master/website/api/settings.json">Github</a> and don't forget to click button reload configuration.</span>
 	<table border="1">
