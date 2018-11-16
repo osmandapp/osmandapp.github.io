@@ -44,7 +44,7 @@
 				"os": "android",
 				"lang" :"de"
 			},
-			"file": "discount.json",
+			"file": "discount_paid.json",
 			"fields": {
 				"message": "Jahresabonnement -50%",
 				"description": "Der Black Friday-Verkauf ist da!"
@@ -70,7 +70,7 @@
 				"app_version": "OsmAnd+",
 				"os": "android"
 			},
-			"file": "discount.json",
+			"file": "discount_paid.json",
 			"fields": {
 				"message": "Annual subscription -50%",
 				"description": "The Black Friday sale is here!"
