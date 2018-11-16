@@ -8,7 +8,7 @@
 		},
 		{
 			"condition": {
-				"country" : "Amstelveen",
+				"city" : "Amstelveen",
 				"app_package" : "net.osmand"
 			},
 			"file": "paid.json"
