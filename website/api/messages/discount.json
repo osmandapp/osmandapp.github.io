@@ -5,12 +5,11 @@
   "show_day_frequency" : 1,
   "max_total_show" : 3,
   "icon" : "ic_action_gift",
-  "url" : "osmand-in-app:osmand_full_version_price",
+  "url" : "osmand-in-app:osm_live_subscription_annual_free_v2",
   "url_1" :  "osmand-market-app:net.osmand.plus",
   "url_2" : "osmand-in-app:osmand_full_version_price",
   "url_3" : "osmand-in-app:osm_live_subscription_2,osm_free_live_subscription_2",
   "application" : {
-    "net.osmand" : true,
-    "net.osmand.plus" : true
+    "net.osmand" : true
   }
 }
