@@ -175,5 +175,16 @@
     </table>
 
 
+ 	<h3>Future expire subscriptions date:</h3>
+	<table border="1">
+		<tr>
+			<th>Date</th>
+			<th>Subs to expire</th>
+		</tr>
+        <tr th:each="di : ${futureCancelReport}">
+        	<td th:text="${di.date}">01.01.2018 00:00</td>
+        	<td th:text="${di.cancelMonthCount}">1000</td>
+        </tr>
+    </table>
 </body>
 </html>
