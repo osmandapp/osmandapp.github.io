@@ -20,7 +20,7 @@
 			"file": "discount_paid.json",
 			"fields": {
 				"message": "Suscripción anual -50%",
-				"description": "El Viernes negro esta aqui!"
+				"description": "Black Friday esta aqui!"
 			}
 		},
 		{
@@ -33,7 +33,34 @@
 			"file": "discount.json",
 			"fields": {
 				"message": "Tarjetas ilimitadas y suscripción anual -50%",
-				"description": "El Viernes negro esta aqui!"
+				"description": "Black Friday esta aqui!"
+			}
+		},
+		{
+			"condition": {
+				"start_date": "22-11-2018 00:00",
+				"end_date": "26-11-2018 00:00",
+				"app_version": "OsmAnd+",
+				"os": "android",
+				"lang" :"fr"
+			},
+			"file": "discount_paid.json",
+			"fields": {
+				"message": "Abonnement annuel -50%",
+				"description": "Black Friday est arrivé!"
+			}
+		},
+		{
+			"condition": {
+				"start_date": "22-11-2018 00:00",
+				"end_date": "26-11-2018 00:00",
+				"os": "android",
+				"lang" :"fr"
+			},
+			"file": "discount.json",
+			"fields": {
+				"message": "Cartes illimitées et abonnement annuel -50%",
+				"description": "Black Friday est arrivé!"
 			}
 		},
 		{
