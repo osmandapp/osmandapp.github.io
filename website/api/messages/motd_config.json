@@ -2,9 +2,10 @@
 	"settings": [
 		{
 			"condition": {
-				"city" : "Minsk",
+				"ip" : "93.73.244.11",
 				"start_date": "10-11-2018 00:00",
-				"end_date": "11-11-2018 00:00"
+				"end_date": "11-11-2018 00:00",
+				"os": "ios"
 			},
 			"file": "test_motd.json",
 			"fields": {}
