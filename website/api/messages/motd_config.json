@@ -102,7 +102,7 @@
 			"file": "discount_paid.json",
 			"fields": {
 				"message": "Jahresabonnement -50%",
-				"description": "Der Black Friday-Verkauf ist da!"
+				"description": "Black Friday-Verkauf ist da!"
 			}
 		},
 		{
@@ -115,7 +115,7 @@
 			"file": "discount.json",
 			"fields": {
 				"message": "Unbegrenzte Karten-Downloads und Jahresabonnement -50%",
-				"description": "Der Black Friday-Verkauf ist da!"
+				"description": "Black Friday-Verkauf ist da!"
 			}
 		},
 		{
@@ -128,7 +128,7 @@
 			"file": "discount_paid.json",
 			"fields": {
 				"message": "Annual subscription -50%",
-				"description": "The Black Friday sale is here!"
+				"description": "Black Friday sale is here!"
 			}
 		},
 		{
@@ -140,7 +140,7 @@
 			"file": "discount.json",
 			"fields": {
 				"message": "Unlimited map downloads and annual subscription -50%",
-				"description": "The Black Friday sale is here!"
+				"description": "Black Friday sale is here!"
 			}
 		},
 		{
@@ -152,7 +152,7 @@
 			"file": "discount_ios.json",
 			"fields": {
 				"message": "All World Maps -50%",
-				"description": "The Black Friday sale is here!"
+				"description": "Black Friday sale is here!"
 			}
 		},
 		{
