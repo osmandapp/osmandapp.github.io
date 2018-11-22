@@ -97,6 +97,33 @@
 				"end_date": "26-11-2018 00:00",
 				"app_version": "OsmAnd+",
 				"os": "android",
+				"lang" :"nl"
+			},
+			"file": "discount_paid.json",
+			"fields": {
+				"message": "Jaarlijks abonnement -50% Korting",
+				"description": "Black Friday is hier!"
+			}
+		},
+		{
+			"condition": {
+				"start_date": "22-11-2018 00:00",
+				"end_date": "26-11-2018 00:00",
+				"os": "android",
+				"lang" :"nl"
+			},
+			"file": "discount.json",
+			"fields": {
+				"message": "Onbeperkte kaarten en jaarabonnement -50% Korting!",
+				"description": "Black Friday is hier!"
+			}
+		},
+		{
+			"condition": {
+				"start_date": "22-11-2018 00:00",
+				"end_date": "26-11-2018 00:00",
+				"app_version": "OsmAnd+",
+				"os": "android",
 				"lang" :"it"
 			},
 			"file": "discount_paid.json",
