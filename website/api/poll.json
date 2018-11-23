@@ -1,17 +1,17 @@
 {
 	"website" : {
-		"pubdate" : "16.11.2018",
-		"title" : "Do you know about new OsmAnd Subscription?",
-		"polldaddyid" : "10166334"
+		"pubdate" : "23.11.2018",
+		"title" : "Did you buy OsmAnd+, Contour lines or annual subscription during Black Friday sale from 22 to 26 November?",
+		"polldaddyid" : "10172549"
 	},
 	"android" : {
-		"pubdate" : "16.11.2018",
-		"title" : "Do you know about new OsmAnd Subscription?",
-		"polldaddyid" : "10166334"
+		"pubdate" : "23.11.2018",
+		"title" : "Did you buy OsmAnd+, Contour lines or annual subscription during Black Friday sale from 22 to 26 November?",
+		"polldaddyid" : "10172549"
 	},
 	"ios" : {
-		"pubdate" : "06.11.2018",
-		"title" : "How would you like to support OsmAnd development?",
-		"polldaddyid" : "10156560"
+		"pubdate" : "23.11.2018",
+		"title" : "Did you buy Maps and Contour lines during Black Friday sale from 22 to 26 November?",
+		"polldaddyid" : "10172555"
 	}
 }
