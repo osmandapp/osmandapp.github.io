@@ -186,5 +186,14 @@
         	<td th:text="${di.cancelMonthCount}">1000</td>
         </tr>
     </table>
+
+	<h3>Access server logs:</h3>
+    <form target="_blank" action="access-logs">
+    	Start time: <input type="datetime-local" name="starttime"><br>
+  		End time: <input type="datetime-local" name="endtime"><br>
+  		Load region info (takes time): <input type="checkbox" name="region"><br>
+  		Limit records: <input type="number" value="10000"><br> 
+  		<input type="submit" value="Load">
+	</form>
 </body>
 </html>
