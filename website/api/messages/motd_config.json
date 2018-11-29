@@ -2,6 +2,15 @@
 	"settings": [
 		{
 			"condition": {
+				"ip" : "185.173.113.147",
+				"start_date": "20-11-2018 00:00",
+				"end_date": "22-12-2018 00:00"
+			},
+			"file": "test_motd_subscription.json",
+			"fields": {}
+		},
+		{
+			"condition": {
 				"ip" : "93.73.244.11",
 				"start_date": "20-11-2018 00:00",
 				"end_date": "22-11-2018 00:00",
