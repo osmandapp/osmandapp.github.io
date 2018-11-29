@@ -11,7 +11,7 @@
   "bg_color" : "#fec601",
   "title_color" : "#000000",
   "description_color" : "#000000",
-  "url" : "show-choose-plan:hillshade",
+  "url" : "show-choose-plan:wikipedia",
   "application" : {
     "net.osmand" : true,
     "net.osmand.plus" : true
