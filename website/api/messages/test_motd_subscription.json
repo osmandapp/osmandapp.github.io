@@ -20,7 +20,7 @@
                       { "purchased_subscription" : "osm_live_subscription_monthly_free_v1" } ]
 		},
 	  {
-		  "condition" : [ { "purchased_inapp" : "osmand_full_version_price" }, 
+		  "condition" : [ { "not_purchased_inapp" : "osmand_full_version_price" }, 
                       { "not_purchased_inapp" : "net.osmand.seadepth" }, 
                       { "not_purchased_inapp" : "net.osmand.contourlines" } ]
 		},
