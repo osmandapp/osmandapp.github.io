@@ -11,7 +11,7 @@
   "bg_color" : "#fec601",
   "title_color" : "#000000",
   "description_color" : "#000000",
-  "url" : "osmand-in-app:osm_live_subscription_annual_free_v2",
+  "url" : "show-choose-plan:hillshade",
   "application" : {
     "net.osmand" : true,
     "net.osmand.plus" : true
