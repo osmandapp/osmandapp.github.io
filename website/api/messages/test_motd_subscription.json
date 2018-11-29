@@ -11,7 +11,7 @@
   "bg_color" : "#fec601",
   "title_color" : "#000000",
   "description_color" : "#000000",
-  "url" : "show-choose-plan:wikipedia",
+  "url" : "show-choose-plan:sea-depth",
   "application" : {
     "net.osmand" : true,
     "net.osmand.plus" : true
