@@ -12,6 +12,24 @@
   "title_color" : "#000000",
   "description_color" : "#000000",
   "url" : "show-choose-plan:sea-depth",
+  "oneOfConditions" : [
+	  {
+		  "condition" : [ { "not_purchased_subscription" : "osm_free_live_subscription_2" }, 
+                      { "not_purchased_subscription" : "osm_live_subscription_annual_free_v1" }, 
+                      { "not_purchased_subscription" : "osm_live_subscription_3_months_free_v1" }, 
+                      { "purchased_subscription" : "osm_live_subscription_monthly_free_v1" } ]
+		},
+	  {
+		  "condition" : [ { "purchased_inapp" : "osmand_full_version_price" }, 
+                      { "not_purchased_inapp" : "net.osmand.seadepth" }, 
+                      { "not_purchased_inapp" : "net.osmand.contourlines" } ]
+		},
+	  {
+		  "condition" : [ { "not_purchased_plugin" : "nauticalPlugin.plugin" }, 
+                      { "not_purchased_plugin" : "skimaps.plugin" }, 
+                      { "purchased_plugin" : "osmand.srtm" } ]
+		}
+	],
   "application" : {
     "net.osmand" : true,
     "net.osmand.plus" : true
