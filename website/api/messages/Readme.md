@@ -122,5 +122,18 @@ After true condition is found, the 'fields' property is tested for presence of a
   - "button_title_color" : "#fec601"
 - **activity** - JSON object that specifies which activity will be shown.
   - "activity" : { "activity_name" : "net.osmand.plus.myplaces.FavoritesActivity", "SOME_BOOLEAN_EXTRA" : true } - Favorites activity will be shown. Specified extras will be passed to intent.
-
+- **oneOfConditions** - JSON array that specifies number of conditions to check if notification will be shown.
+  - "oneOfConditions" : [
+  - { "condition" : [ { "not_purchased_subscription" : "sku1" }, { "purchased_subscription" : "sku2" } ] },
+  - { "condition" : [ { "not_purchased_inapp" : "sku3" }, { "not_purchased_inapp" : "sku4" } ] },
+  - { "condition" : [ { "not_purchased_plugin" : "nauticalPlugin.plugin" }, { "purchased_plugin" : "osmand.srtm" } ] }
+  - ]  
+	Checks if (subscription sku1 is not purchased AND sku2 is purchased) OR (inapp sku3 is not purchased AND inapp sku4 is also not purchased) OR (plugin nauticalPlugin.plugin is not purchased AND plugin osmand.srtm is purchased))
+	So array of oneOfConditions is combined with OR and array of "condition" with AND.
+	- Possible conditions: 
+	- type: "**not_purchased_subscription**" or "**purchased_subscription**", value: **SKU** of subscription
+	- type: "**not_purchased_inapp**" or "**purchased_inapp**", value: **SKU** of inapp
+	- type: "**not_purchased_plugin**" or "**purchased_plugin**", value: "**nauticalPlugin.plugin**" or "**osmand.parking.position**" or "**skimaps.plugin**" or "**osmand.srtm**"
+	
+  
 # Procedure to deploy changes
