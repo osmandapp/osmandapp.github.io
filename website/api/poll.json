@@ -1,5 +1,10 @@
 {
-	"website" : {
+	"website_1" : {
+		"pubdate" : "23.11.2018",
+		"title" : "Did you buy OsmAnd+, Contour lines or annual subscription during Black Friday sale from 22 to 26 November?",
+		"polldaddyid" : "10172549"
+	},
+	"website_2" : {
 		"pubdate" : "23.11.2018",
 		"title" : "Did you buy OsmAnd+, Contour lines or annual subscription during Black Friday sale from 22 to 26 November?",
 		"polldaddyid" : "10172549"
