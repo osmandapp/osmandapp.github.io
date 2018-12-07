@@ -1334,6 +1334,10 @@ a::-moz-focus-inner {
   background-image:url('/images/features/navigation.jpg');
 }
 
+.feature.subscription {
+  background-image:url('/images/features/features_osmand_live.jpg');
+}
+
 .feature .description {
   position: absolute;
   top: 0;
