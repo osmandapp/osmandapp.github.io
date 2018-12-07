@@ -1112,6 +1112,14 @@ a::-moz-focus-inner {
   height: 300px;
 }
 
+.article .imageblog img {
+  max-width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
+
 /* Add style for new image block in blog */
 .article .blogimageblock {
   margin: 30px auto 0;
@@ -1324,6 +1332,10 @@ a::-moz-focus-inner {
 
 .feature.navigation {
   background-image:url('/images/features/navigation.jpg');
+}
+
+.feature.subscription {
+  background-image:url('/images/features/features_osmand_live.jpg');
 }
 
 .feature .description {
