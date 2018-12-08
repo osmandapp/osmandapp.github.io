@@ -12,6 +12,7 @@
  "title_color" : "#000000",
  "description_color" : "#000000",
  "show_christmas_dialog" : true,
+ "url" : "",
  "application" : {
    "net.osmand" : true,
    "net.osmand.plus" : true
