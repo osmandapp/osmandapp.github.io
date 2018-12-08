@@ -2,12 +2,15 @@
 	"settings": [
 		{
 			"condition": {
-				"ip" : "46.56.231.114",
-				"start_date": "20-11-2018 00:00",
-				"end_date": "01-12-2018 00:00"
+				"ip" : "46.53.209.12",
+				"start_date": "08-12-2018 00:00",
+				"end_date": "09-12-2018 00:00"
 			},
-			"file": "test_motd_subscription.json",
-			"fields": {}
+			"show_christmas_dialog" : true,
+			"fields": {
+				"message": "Christmas",
+				"description": "Holidays!"
+			}
 		},
 		{
 			"condition": {
