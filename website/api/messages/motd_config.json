@@ -7,8 +7,7 @@
 				"end_date": "09-12-2018 00:00"
 			},
 			"file": "test_motd_subscription.json",
-			"show_christmas_dialog" : true,
-			"fields": {
+						"fields": {
 				"message": "Christmas",
 				"description": "Holidays!"
 			}
