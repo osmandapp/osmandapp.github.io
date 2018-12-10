@@ -19,10 +19,7 @@
 				"end_date": "12-12-2018 00:00"
 			},
 			"file": "christmas.json",
-						"fields": {				
-				"message": "Christmas",
-				"description": "Holidays!"
-			}
+						"fields": {}
 		},
 		{
 			"condition": {
