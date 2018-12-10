@@ -3,8 +3,8 @@
 		{
 			"condition": {
 				"ip" : "46.53.209.12",
-				"start_date": "10-12-2018 00:00",
-				"end_date": "12-12-2018 00:00"
+				"start_date": "08-12-2018 00:00",
+				"end_date": "09-12-2018 00:00"
 			},
 			"file": "test_motd_subscription.json",
 						"fields": {
@@ -19,10 +19,7 @@
 				"end_date": "12-12-2018 00:00"
 			},
 			"file": "christmas.json",
-						"fields": {
-				"message": " ",
-				"description": " "
-			}
+						"fields": {}
 		},
 		{
 			"condition": {
