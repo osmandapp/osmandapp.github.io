@@ -35,9 +35,11 @@ Important: Date fields will be propagated to the file itself and override start/
 "city" : "Minsk"
 ```
 
-**Language** - corresponds to 'lang' property. Contains selected in application or provided by platform two-letter codes of language.
+**Language** - corresponds to 'lang' property. Contains selected in application or provided by platform two-letter codes of language. https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
 ```
 "lang" : "uk"
+or
+"lang" : "ru, de, en"
 ```
 
 
