@@ -6,7 +6,6 @@
   "max_total_show" : 100,
   "icon" : "ic_action_gift",
   "url" : "show-choose-plan:osmand-live",
-  "url" : "osmand-in-app:osm_live_subscription_annual_free_v1",
   "url_1" :  "osmand-market-app:net.osmand.plus",
   "url_2" : "osmand-in-app:osmand_full_version_price",
   "url_3" : "osmand-in-app:osm_live_subscription_2,osm_free_live_subscription_2",
