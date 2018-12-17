@@ -33,29 +33,29 @@
 		},
 		{
 			"condition": {
-				"ip" : "93.73.244.11",
-				"start_date": "15-12-2018 00:00",
-				"end_date": "16-12-2018 00:00",
+				"ip" : "46.53.209.12",
+				"start_date": "17-12-2018 00:00",
+				"end_date": "18-12-2018 00:00",
 				"app_version": "OsmAnd+",
 				"os": "android"
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "Annual subscription - discount",
-				"description": "Black Friday sale is here!"
+				"message": "Checkout our 60% sales for year subscription!",
+				"description": "Christmas SALE!"
 			}
 		},
 		{
 			"condition": {
-				"ip" : "93.73.244.11",
-				"start_date": "15-12-2018 00:00",
-				"end_date": "16-12-2018 00:00",
+				"ip" : "46.53.209.12",
+				"start_date": "17-12-2018 00:00",
+				"end_date": "18-12-2018 00:00",
 				"os": "android"
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "Unlimited map downloads and annual subscription -50%",
-				"description": "Cyber monday sale is here!"
+				"message": "Unlimited map downloads and annual subscription - 50%",
+				"description": "Christmas SALE!"
 			}
 		},
 		{
@@ -67,7 +67,7 @@
 			"file": "discount_ios.json",
 			"fields": {
 				"message": "All World Maps -50%",
-				"description": "Cyber monday sale is here!"
+				"description": "Christmas SALE!"
 			}
 		},
 		{
