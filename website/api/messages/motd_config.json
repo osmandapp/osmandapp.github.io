@@ -42,7 +42,7 @@
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "Unlimited card download and annual subscription with a discount of up to 50%",
+				"message": "Unlimited map downloads and annual subscription -50%!",
 				"description": "Christmas SALE!"
 			}
 		},
@@ -71,6 +71,141 @@
 			"fields": {
 				"message": "Карты без ограничений и годовая подписка -50%",
 				"description": "Рождественская распродажа!"
+			}
+		},
+		{
+			"condition": {
+				"start_date": "21-12-2018 00:00",
+				"end_date": "26-12-2018 23:59",
+				"app_version": "OsmAnd+",
+				"os": "android",
+				"lang" :"es"
+			},
+			"file": "discount_paid.json",
+			"fields": {
+				"message": "Obtenga su suscripción anual con un -50% de descuento!",
+				"description": "Venta de navidad"
+			}
+		},
+		{
+			"condition": {
+				"start_date": "21-12-2018 00:00",
+				"end_date": "26-12-2018 23:59",
+				"os": "android",
+				"lang" :"es"
+			},
+			"file": "discount.json",
+			"fields": {
+				"message": "Tarjetas ilimitadas y suscripción anual -50%",
+				"description": "Venta de navidad"
+			}
+		},
+		{
+			"condition": {
+				"start_date": "21-12-2018 00:00",
+				"end_date": "26-12-2018 23:59",
+				"app_version": "OsmAnd+",
+				"os": "android",
+				"lang" :"fr"
+			},
+			"file": "discount_paid.json",
+			"fields": {
+				"message": "Obtenez votre abonnement annuel avec un rabais de -50%!",
+				"description": "Vente de Noël!"
+			}
+		},
+		{
+			"condition": {
+				"start_date": "21-12-2018 00:00",
+				"end_date": "26-12-2018 23:59",
+				"os": "android",
+				"lang" :"fr"
+			},
+			"file": "discount.json",
+			"fields": {
+				"message": "Cartes illimitées et abonnement annuel -50%",
+				"description": "Vente de Noël!"
+			}
+		},
+		{
+			"condition": {
+				"start_date": "21-12-2018 00:00",
+				"end_date": "26-12-2018 23:59",
+				"app_version": "OsmAnd+",
+				"os": "android",
+				"lang" :"nl"
+			},
+			"file": "discount_paid.json",
+			"fields": {
+				"message": "Krijg uw jaarabonnement met een korting van -50%!",
+				"description": "Kerst verkoop!"
+			}
+		},
+		{
+			"condition": {
+				"start_date": "21-12-2018 00:00",
+				"end_date": "26-12-2018 23:59",
+				"os": "android",
+				"lang" :"nl"
+			},
+			"file": "discount.json",
+			"fields": {
+				"message": "Onbeperkte kaarten en jaarabonnement -50% Korting!",
+				"description": "Kerst verkoop!"
+			}
+		},
+		{
+			"condition": {
+				"start_date": "21-12-2018 00:00",
+				"end_date": "26-12-2018 23:59",
+				"app_version": "OsmAnd+",
+				"os": "android",
+				"lang" :"it"
+			},
+			"file": "discount_paid.json",
+			"fields": {
+				"message": "Ottieni il tuo abbonamento annuale con uno sconto del -50%!",
+				"description": "Vendita di Natale!"
+			}
+		},
+		{
+			"condition": {
+				"start_date": "21-12-2018 00:00",
+				"end_date": "26-12-2018 23:59",
+				"os": "android",
+				"lang" :"it"
+			},
+			"file": "discount.json",
+			"fields": {
+				"message": "Carte illimitate e abbonamento annuale -50%",
+				"description": "Vendita di Natale!"
+			}
+		},
+		{
+			"condition": {
+				"start_date": "21-12-2018 00:00",
+				"end_date": "26-12-2018 23:59",
+				"app_version": "OsmAnd+",
+				"os": "android",
+				"lang" :"de"
+			},
+			"file": "discount_paid.json",
+			"fields": {
+				"message": "Erhalten Sie Ihr Jahresabonnement mit einem Rabatt von -50%!",
+				"description": "Weihnachtsverkauf!"
+			}
+		},
+		{
+			"condition": {
+				"start_date": "21-12-2018 00:00",
+				"end_date": "26-12-2018 23:59",
+				"os": "android",
+				"lang" :"de"
+			},
+			"file": "discount.json",
+			"fields": {
+				"message": "Unbegrenzte Karten-Downloads und Jahresabonnement -50%",
+				"description": "Weihnachtsverkauf!"
 			}
 		},
 		{
