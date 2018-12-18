@@ -1,0 +1,11 @@
+{
+  "monthly": {
+      "sku": "net.osmand.maps.subscription.osm_live.monthly_v1"
+  },
+  "quarterly": {
+      "sku": "net.osmand.maps.subscription.osm_live.3months_v1"
+  },
+   "annual": {
+      "sku": "net.osmand.maps.subscription.osm_live.annual_v1"
+   }
+}
