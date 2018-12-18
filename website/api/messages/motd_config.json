@@ -23,39 +23,54 @@
 		},
 		{
 			"condition": {
-				"ip" : "93.73.244.11",
-				"start_date": "20-11-2018 00:00",
-				"end_date": "22-11-2018 00:00",
-				"os": "ios"
-			},
-			"file": "discount_ios.json",
-			"fields": {}
-		},
-		{
-			"condition": {
-				"ip" : "46.53.209.12",
-				"start_date": "17-12-2018 00:00",
-				"end_date": "18-12-2018 00:00",
+				"start_date": "21-12-2018 00:00",
+				"end_date": "26-12-2018 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android"
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "Checkout our 60% sales for year subscription!",
+				"message": "Checkout our -50% sales for year subscription!",
 				"description": "Christmas SALE!"
 			}
 		},
 		{
 			"condition": {
-				"ip" : "46.53.209.12",
-				"start_date": "17-12-2018 00:00",
-				"end_date": "18-12-2018 00:00",
+				"start_date": "21-12-2018 00:00",
+				"end_date": "26-12-2018 23:59",
 				"os": "android"
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "Unlimited card download and annual subscription with a discount of up to 60%",
+				"message": "Unlimited card download and annual subscription with a discount of up to 50%",
 				"description": "Christmas SALE!"
+			}
+		},
+		{
+			"condition": {
+				"start_date": "21-12-2018 00:00",
+				"end_date": "26-12-2018 23:59",
+				"app_version": "OsmAnd+",
+				"os": "android",
+				"lang" :"ru"
+			},
+			"file": "discount_paid.json",
+			"fields": {
+				"message": "Оформите годовую подписку со скидкой -50%!",
+				"description": "Рождественская распродажа!"
+			}
+		},
+		{
+			"condition": {
+				"start_date": "21-12-2018 00:00",
+				"end_date": "26-12-2018 23:59",
+				"os": "android",
+				"lang" :"ru"
+			},
+			"file": "discount.json",
+			"fields": {
+				"message": "Карты без ограничений и годовая подписка -50%",
+				"description": "Рождественская распродажа!"
 			}
 		},
 		{
