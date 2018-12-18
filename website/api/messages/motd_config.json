@@ -233,7 +233,6 @@
 			    	"description" : "Read travel tips about Munich",
 				"url" : "https://osmand.net/travel?title=Munich&lang=en"
 			}
-			
 		},
 		{
 			"condition": {
