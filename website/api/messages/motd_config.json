@@ -24,7 +24,7 @@
 		},
 		{
 			"condition": {
-				"start_date": "21-12-2018 00:00",
+				"start_date": "20-12-2018 23:00",
 				"end_date": "26-12-2018 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android"
@@ -37,7 +37,7 @@
 		},
 		{
 			"condition": {
-				"start_date": "21-12-2018 00:00",
+				"start_date": "20-12-2018 23:00",
 				"end_date": "26-12-2018 23:59",
 				"os": "android"
 			},
@@ -49,7 +49,7 @@
 		},
 		{
 			"condition": {
-				"start_date": "21-12-2018 00:00",
+				"start_date": "20-12-2018 23:00",
 				"end_date": "26-12-2018 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
@@ -63,7 +63,7 @@
 		},
 		{
 			"condition": {
-				"start_date": "21-12-2018 00:00",
+				"start_date": "20-12-2018 23:00",
 				"end_date": "26-12-2018 23:59",
 				"os": "android",
 				"lang" :"ru"
@@ -76,7 +76,7 @@
 		},
 		{
 			"condition": {
-				"start_date": "21-12-2018 00:00",
+				"start_date": "20-12-2018 23:00",
 				"end_date": "26-12-2018 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
@@ -90,7 +90,7 @@
 		},
 		{
 			"condition": {
-				"start_date": "21-12-2018 00:00",
+				"start_date": "20-12-2018 23:00",
 				"end_date": "26-12-2018 23:59",
 				"os": "android",
 				"lang" :"es"
@@ -103,7 +103,7 @@
 		},
 		{
 			"condition": {
-				"start_date": "21-12-2018 00:00",
+				"start_date": "20-12-2018 23:00",
 				"end_date": "26-12-2018 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
@@ -117,7 +117,7 @@
 		},
 		{
 			"condition": {
-				"start_date": "21-12-2018 00:00",
+				"start_date": "20-12-2018 23:00",
 				"end_date": "26-12-2018 23:59",
 				"os": "android",
 				"lang" :"fr"
@@ -130,7 +130,7 @@
 		},
 		{
 			"condition": {
-				"start_date": "21-12-2018 00:00",
+				"start_date": "20-12-2018 23:00",
 				"end_date": "26-12-2018 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
@@ -144,7 +144,7 @@
 		},
 		{
 			"condition": {
-				"start_date": "21-12-2018 00:00",
+				"start_date": "20-12-2018 23:00",
 				"end_date": "26-12-2018 23:59",
 				"os": "android",
 				"lang" :"nl"
@@ -157,7 +157,7 @@
 		},
 		{
 			"condition": {
-				"start_date": "21-12-2018 00:00",
+				"start_date": "20-12-2018 23:00",
 				"end_date": "26-12-2018 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
@@ -171,7 +171,7 @@
 		},
 		{
 			"condition": {
-				"start_date": "21-12-2018 00:00",
+				"start_date": "20-12-2018 23:00",
 				"end_date": "26-12-2018 23:59",
 				"os": "android",
 				"lang" :"it"
@@ -184,7 +184,7 @@
 		},
 		{
 			"condition": {
-				"start_date": "21-12-2018 00:00",
+				"start_date": "20-12-2018 23:00",
 				"end_date": "26-12-2018 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
@@ -198,7 +198,7 @@
 		},
 		{
 			"condition": {
-				"start_date": "21-12-2018 00:00",
+				"start_date": "20-12-2018 23:00",
 				"end_date": "26-12-2018 23:59",
 				"os": "android",
 				"lang" :"de"
