@@ -27,31 +27,6 @@
 				"start_date": "20-12-2018 20:00",
 				"end_date": "26-12-2018 23:59",
 				"app_version": "OsmAnd+",
-				"os": "android"
-			},
-			"file": "discount_paid.json",
-			"fields": {
-				"message": "Checkout our -50% sales for year subscription!",
-				"description": "Christmas SALE!"
-			}
-		},
-		{
-			"condition": {
-				"start_date": "20-12-2018 20:00",
-				"end_date": "26-12-2018 23:59",
-				"os": "android"
-			},
-			"file": "discount.json",
-			"fields": {
-				"message": "Unlimited map downloads and annual subscription -50%!",
-				"description": "Christmas SALE!"
-			}
-		},
-		{
-			"condition": {
-				"start_date": "20-12-2018 20:00",
-				"end_date": "26-12-2018 23:59",
-				"app_version": "OsmAnd+",
 				"os": "android",
 				"lang" :"ru"
 			},
@@ -207,6 +182,31 @@
 			"fields": {
 				"message": "Unbegrenzte Karten-Downloads und Jahresabonnement -50%",
 				"description": "Weihnachtsverkauf!"
+			}
+		},
+		{
+			"condition": {
+				"start_date": "20-12-2018 20:00",
+				"end_date": "26-12-2018 23:59",
+				"app_version": "OsmAnd+",
+				"os": "android"
+			},
+			"file": "discount_paid.json",
+			"fields": {
+				"message": "Checkout our -50% sales for year subscription!",
+				"description": "Christmas SALE!"
+			}
+		},
+		{
+			"condition": {
+				"start_date": "20-12-2018 20:00",
+				"end_date": "26-12-2018 23:59",
+				"os": "android"
+			},
+			"file": "discount.json",
+			"fields": {
+				"message": "Unlimited map downloads and annual subscription -50%!",
+				"description": "Christmas SALE!"
 			}
 		},
 		{
