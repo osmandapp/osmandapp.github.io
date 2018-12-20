@@ -4,7 +4,7 @@
   "show_start_frequency" : 4,
   "show_day_frequency" : 1,
   "max_total_show" : 3,
-  "icon" : "ic_action_gift",
+  "icon" : "ic_action_postcode",
   "url" : "in_app:map",
   "in_app" : "allworld",
   "lang" : "de",
