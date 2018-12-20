@@ -7,6 +7,10 @@
   "icon" : "ic_action_postcode",
   "url" : "in_app:map",
   "in_app" : "allworld",
-  "lang" : "de",
+  "bg_color" : "#ff00d8",
+  "title_color" : "#fcff00",
+  "description_color" : "#00ffea",
+  "button_title" : "Hello, Paul",
+  "button_title_color" : "#ffffff",
   "purchased_in_apps" : ["russia", "europe", "africa", "asia", "australia", "centralamerica", "northamerica", "southamerica"]
 }
