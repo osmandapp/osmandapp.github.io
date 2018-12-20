@@ -7,6 +7,6 @@
   "icon" : "ic_action_gift",
   "url" : "in_app:map",
   "in_app" : "allworld",
-  "land" : "de",
+  "lang" : "de",
   "purchased_in_apps" : ["russia", "europe", "africa", "asia", "australia", "centralamerica", "northamerica", "southamerica"]
 }
