@@ -4,9 +4,11 @@
 			"condition": {
 				"ip" : "93.73.244.11",
 				"start_date": "20-12-2018 00:00",
-				"end_date": "22-12-2018 00:00"
+				"end_date": "22-12-2018 00:00",
+				"lang" :"de",
+				"os": "ios"
 			},
-			"file": "discount.json",
+			"file": "discount_ios.json",
 				"fields": {
 				"message": "Christmas",
 				"description": "Holidays!"
