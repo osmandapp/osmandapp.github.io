@@ -1,22 +1,22 @@
 {
 	"website_1" : {
 		"pubdate" : "21.12.2018",
-		"title" : "What do you use for writing reviews?",
+		"title" : "Would you like to use a cycling GPS unit with OsmAnd installed?",
 		"polldaddyid" : "10196249"
 	},
 	"website_2" : {
 		"pubdate" : "21.12.2018",
-		"title" : "Will you participate in reviews if you get reward?",
+		"title" : "Would you like to use a cycling GPS unit with OsmAnd installed?",
 		"polldaddyid" : "10196249"
 	},
 	"android" : {
 		"pubdate" : "21.12.2018",
-		"title" : "Will you participate in reviews if you get reward?",
+		"title" : "Would you like to use a cycling GPS unit with OsmAnd installed?",
 		"polldaddyid" : "10196249"
 	},
 	"ios" : {
 		"pubdate" : "21.12.2018",
-		"title" : "Will you participate in reviews if you get reward?",
+		"title" : "Would you like to use a cycling GPS unit with OsmAnd installed?",
 		"polldaddyid" : "10196249"
 	}
 }
