@@ -262,7 +262,10 @@
           roundValue == '' ? undefined : giveawayData.rounds[roundValue]);
         setParticipantsOverviewHint();
     });
-    
+    $('#support-table-search').on('keyup', function() {
+      reportSupportDataTable.search(this.value).draw();
+  });
+
   });
 
   function setParticipantsOverviewHint() {
