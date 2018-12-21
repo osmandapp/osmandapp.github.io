@@ -132,7 +132,8 @@
         "<div class='overview overview-register_supporters'>"+
           "<p>" + roundParticipants.length +"</p><span>participants</span></div>" +
         "<div class='overview overview-region'>"+
-          "<p><a href='https://www.blockchain.com/btc/block/" + rnd.seed +"'>"+(rnd.selection+1)+"</a></p><span>random seed (bitcoin block)</span></div>"
+          "<p><a href='https://www.blockchain.com/btc/block/" + rnd.seed +"'>"+rnd.seedInteger+"</a> % "+
+            roundParticipants.length + ' + 1 = ' + (rnd.selection+1)+"</p><span>random seed (bitcoin block)</span></div>"
         );
         tableData = [];
         for(var ri = 0; ri < roundParticipants.length; ri++) {
