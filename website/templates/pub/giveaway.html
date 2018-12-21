@@ -77,13 +77,13 @@
           <h4 class="vlabel" for="support-table" id="support-table-header">Giveaway participants</h4>
           <div class="table-controls support-controls">
             <div class="tc search">
-              <input type="search" class="form-control" aria-control="support-table" id="support-table-search" placeholder="Search">
+              <input type="search" class="form-control" aria-control="support-table" id="giveaway-table-search" placeholder="Search">
             </div>
             <div class="tc entries">
               <label>
               <span>Show entries</span>
               <div class="styled-select">
-                <select name="support-table_length" aria-controls="support-table" class="form-control" id="support-table-select">
+                <select name="support-table_length" aria-controls="support-table" class="form-control" id="giveaway-table-select">
                   <option value="10">10</option>
                   <option value="25">25</option>
                   <option value="50" selected>50</option>
@@ -102,7 +102,7 @@
 <script>
   var supportMonth = "";
   var supportMonthName = "";
-  var reportSupportDataTable;
+  var reportDataTable;
   var giveawayData = undefined;
 
   var floatFormat = function (o) { 
@@ -118,10 +118,10 @@
   
 
   function updateGiveawayByRound(data, rnd) {
-    if(reportSupportDataTable) {
-      reportSupportDataTable.clear().draw();
+    if(reportDataTable) {
+      reportDataTable.clear().draw();
     }
-    $("#support-table-search").val('');
+    $("#giveaway-table-search").val('');
     $("#general-info-participate").text("");
     var tableData = data.users;
     if(rnd != undefined ) {
@@ -153,7 +153,7 @@
         );
     }
     $('.table-controls.support-country-controls').removeClass('hidden');
-    reportSupportDataTable = $('#support-table').DataTable({
+    reportDataTable = $('#support-table').DataTable({
         data: tableData,
         destroy: true,
         columns: [
@@ -173,8 +173,8 @@
 
 
   function updateGiveawayByMonth() {
-    if(reportSupportDataTable) {
-      reportSupportDataTable.clear().draw();
+    if(reportDataTable) {
+      reportDataTable.clear().draw();
       $('#report-total').html("");
     }
     var args = "?month="+supportMonth;
@@ -266,9 +266,13 @@
           roundValue == '' ? undefined : giveawayData.rounds[roundValue]);
         setParticipantsOverviewHint();
     });
-    $('#support-table-search').on('keyup', function() {
-      reportSupportDataTable.search(this.value).draw();
-  });
+    $('#giveaway-table-search').on('keyup', function() {
+      reportDataTable.search(this.value).draw();
+    });
+
+    $('#giveaway-table-select').on('change', function() {
+      reportDataTable.page.len(this.value).draw();
+    });
 
   });
 
