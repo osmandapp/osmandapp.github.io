@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OsmAnd Live</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel='stylesheet' href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel='stylesheet' href="/css/site.css">
+  <link rel='stylesheet' href="/css/report.css">
+  <link rel='stylesheet' href="https://cdn.datatables.net/1.10.10/css/dataTables.bootstrap.min.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/images/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/images/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/images/favicons/manifest.json">
+  <link rel="mask-icon" href="/images/favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/images/favicons/favicon.ico">
+  <meta name="msapplication-config" content="/images/favicons/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+<div class="maincontainer">
+  <div class="main">
+    <div th:replace="pub/fragments/simple_header :: header('GIVEAWAY', ${#messages.msg('top_give_away')} ) ">
+    </div>
+    <div class="container">
+
+        <div class="loading"></div>
+        <div id="donate">
+          <h2 ><span th:text="#{giveaway_participants}">OsmAnd+ Give away</span> - <a href="#general-info" id="read_more">Read more</a></h2>
+          <div >
+            <div class="infobox" >
+              <h2 id="general-info-participate" style="display:none"></h2>
+            </div>
+            <div id="general-info" class="infobox" style="display:none">
+              <h2>About OsmAnd giveaway</h2>
+              <p>We know that not everybody is able to purchase OsmAnd on Google Play / Amazon store due to other reasons though he would like to support application by using it and spreading it around the world. We also feel proud to give away OsmAnd license for your support. The number of promocodes we can run is limited and we would like to organize a small entertaining game, so it feels more interesting.</p>
+              <h3>How it works</h3>
+              <li>You sbuscribe by email in the OsmAnd free version in downloads to get extra maps and receive notification about sales.
+              <li>Once a month you receive a notification by email to participate in a give away campaign
+              <li>For several days every 1 hour (randomly) 1 promocode is distributed between participants
+              <li>The algorithm runs every hour and picks latest <a href="https://blockchair.com/">Bitcoin Block hash</a> as a random seed. Bitcoin block hash number is divided by number of participants and the remainder is claimed as a winner.
+              <li>All numbers are published here, so everybody can verify process transparency
+              <li>You need to subscribe every month in case you want to participate it 
+              <li>If you like how it is organized, please feel free to share it with your social connections :)
+              <br>
+              <br>
+            </div>
+          </div>
+            <div class="report-period-group period">
+              <div class="report-group period">
+                <h4 class="vlabel" for="giveaway-month-selection" th:text="#{osmlive_period}">Report period</h4>
+                <div class="styled-select">
+                  <select class="form-control osm-live-month-select" id="giveaway-month-selection"></select>
+                </div>
+              </div>
+              <div class="report-group round">
+              <h4 class="vlabel" for="giveaway-round-selection">Round</h4>
+              <div class="styled-select">
+                <select class="form-control osm-live-month-select" id="giveaway-round-selection"></select>
+              </div>
+            </div>
+            </div>
+          <div class="report-total-div">
+              <div class="overview-body">
+              <p class='overview-hint' ><span>Overview for</span> <span id="overview-giveaway_options">
+              </span><span id='overview-id' style="color:black;float:right;"></span></p>
+              <div id="report-total" class="infobox"></div>
+              </div>
+          </div>
+          
+          <table id="support-country-table" class="table table-bordered" cellspacing="0" width="100%"></table>
+          <h4 class="vlabel" for="support-table" id="support-table-header">Giveaway participants</h4>
+          <div class="table-controls support-controls">
+            <div class="tc search">
+              <input type="search" class="form-control" aria-control="support-table" id="support-table-search" placeholder="Search">
+            </div>
+            <div class="tc entries">
+              <label>
+              <span>Show entries</span>
+              <div class="styled-select">
+                <select name="support-table_length" aria-controls="support-table" class="form-control" id="support-table-select">
+                  <option value="10">10</option>
+                  <option value="25">25</option>
+                  <option value="50" selected>50</option>
+                  <option value="100">100</option>
+                </select>
+              </div>
+              </label>
+            </div>
+          </div>
+          <table id="support-table" class="table table-bordered" cellspacing="0" width="100%"></table>
+        </div>
+    </div>
+    <div th:replace="pub/fragments/footer"></div>
+  </div>
+</div>
+<script>
+    var supportMonth = "";
+  var supportMonthName = "";
+  var reportSupportDataTable;
+  var giveawayData = undefined;
+
+  var floatFormat = function (o) { 
+      var fl = parseFloat(o) * 100;
+      return Math.round(fl) / 100.;
+  }
+  
+  function formatDate(timestampString) {
+   var currTime = parseInt(timestampString, 10);
+   var currTimeString = (new Date(currTime*1000)).toString();
+   return currTimeString.substring(currTimeString.indexOf(" "), currTimeString.lastIndexOf(":"));
+  }
+  
+
+  function updateGiveawayByRound(data, rnd) {
+    if(reportSupportDataTable) {
+      reportSupportDataTable.clear().draw();
+    }
+    $("#general-info-participate").text("");
+    var tableData = data.users;
+    if(rnd != undefined ) {
+      var roundParticipants = rnd.participants.split(',');
+      $('#report-total').html(
+        "<div class='overview overview-active_supporters'>"+
+            "<p>" + rnd.winner.split(',').length +  "</p><span>winners</span></div>" + 
+        "<div class='overview overview-register_supporters'>"+
+          "<p>" + roundParticipants.length +"</p><span>participants</span></div>" +
+        "<div class='overview overview-region'>"+
+          "<p><a href='https://www.blockchain.com/btc/block/" + rnd.seed +"'>"+(rnd.selection+1)+"</a></p><span>random seed (bitcoin block)</span></div>"
+        );
+        tableData = [];
+        for(var ri = 0; ri < roundParticipants.length; ri++) {
+          var person = {hashcode:roundParticipants[ri], 
+              status:rnd.winner == roundParticipants[ri] ? 'Winner' : 'Participated'};
+          tableData.push(person);
+        }
+    } else {
+      $('#report-total').html(
+        "<div class='overview overview-active_supporters'>"+
+            "<p>" + data.winners +  "</p><span>winners</span></div>" + 
+        "<div class='overview overview-register_supporters'>"+
+          "<p>" + data.activeParticipants +"</p><span>participants</span></div>" +
+        "<div class='overview overview-region'>"+
+          "<p>" + data.rounds.length +"</p><span>rounds</span></div>"
+        );
+    }
+    $('.table-controls.support-country-controls').removeClass('hidden');
+    reportSupportDataTable = $('#support-table').DataTable({
+        data: tableData,
+        destroy: true,
+        columns: [
+            { "data": "hashcode", "title": "User"},
+            { "data": "status", "title": "Status"}
+        ],
+        "paging":   true,
+        "ordering": false,
+        "iDisplayLength": 50,
+        "info":     false,
+        "searching": true,
+        "dom": "tp"
+    });
+    $('.table-controls.support-controls').removeClass('hidden');
+        
+  }
+
+
+  function updateGiveawayByMonth() {
+    if(reportSupportDataTable) {
+      reportSupportDataTable.clear().draw();
+      $('#report-total').html("");
+    }
+    var args = "?month="+supportMonth;
+    if(supportMonth == '') {
+      args = window.location.search;
+    }
+    $.ajax({
+          url: "/giveaway/list"+args, 
+          async: true
+    }).done(function(res) {
+          var data = res;
+          giveawayData = res;
+          if (data.date != null && data.date != undefined) {
+            $('#overview-supporters-span').html("Generation date <span>"+ formatDate(data.date) + "</span>");
+          } else { 
+            $('#overview-supporters-span').html(""); 
+          }
+          updateGiveawayByRound(data, undefined);
+           if(data.message == "") {
+            $("#general-info-participate").hide();  
+          } else {
+            $("#general-info-participate").show();
+            $("#general-info-participate").text(data.message);
+          }
+          $("#giveaway-round-selection").empty();
+          $("#giveaway-round-selection").append( "<option value='' class='selected'>Overview</option>");
+          for(mi = 0; mi < data.rounds.length; mi++) {
+            var rnd = data.rounds[mi];
+            // ' selected':''
+            $("#giveaway-round-selection").
+                append( "<option value='" + mi + "'>" + 
+                    rnd.message + "</option>");
+          }
+          setParticipantsOverviewHint();
+    });
+  }
+  
+  function formatYearMonthHuman(year, month) {
+    var monthNames = ["January", "February", "March", "April", "May", "June",
+          "July", "August", "September", "October", "November", "December"];
+    return monthNames[month - 1] + " " + year;
+  }
+  
+  function formatYearMonth(year, month) {
+    if(month < 10) {
+      return year +"-0" +month;
+    } else {
+      return year +"-" +month;
+    }
+  }
+  $(document).ready(function(){
+    var currentTime = new Date();
+    var month = currentTime.getMonth() + 1;
+    var day = currentTime.getDate();
+    var year = currentTime.getFullYear();
+    mid = formatYearMonth(year, month);
+    for(yi = 2018; yi <= year; yi++) {
+      stmonth = yi == 2018? 11 : 1;
+      endmonth = yi == year? month : 12;
+      for(mi = stmonth; mi <= endmonth; mi++) {
+        $("#giveaway-month-selection").prepend("<option value='"+formatYearMonth(yi,mi)+"'"+((mi==endmonth&&yi==year)?' selected':'')+">"+formatYearMonthHuman(yi,mi)+"</option>");
+      }
+    }
+    
+    updateGiveawayByMonth();
+    
+    $('#giveaway-month-selection').on('change', function (e) {
+        if (!$('#information').is(':visible')) {
+          $('.loading').addClass("active");
+        }
+        var optionSelected = $("option:selected", this);
+        supportMonth = this.value;
+        supportMonthName = optionSelected.text();
+        updateGiveawayByMonth();
+        setParticipantsOverviewHint();
+    });
+
+    $('#read_more').on('click', function() {
+      $('#general-info').show();
+
+    });
+    
+    $('#giveaway-round-selection').on('change', function (e) {
+       
+        var optionSelected = $("option:selected", this);
+        var roundValue = this.value;
+        updateGiveawayByRound(giveawayData, 
+          roundValue == '' ? undefined : giveawayData.rounds[roundValue]);
+        setParticipantsOverviewHint();
+    });
+    
+  });
+
+  function setParticipantsOverviewHint() {
+    var rnd = $("#giveaway-round-selection").children("option").filter(":selected").attr('value');
+    var currentMonth  = $("#giveaway-month-selection").children("option").filter(":selected").text();
+    if(rnd == "" ) {
+      $('#overview-giveaway_options').text(currentMonth);
+    } else {
+      $('#overview-giveaway_options').text(currentMonth + " - Round " + (rnd+1));
+    }
+  }
+  
+
+  $(document).on({
+    //ajaxStart: function() { 
+      //if (!$('#information').is(':visible')) {
+        //$('.loading').addClass("active");
+      //}
+    //},
+    ajaxStop: function() { 
+      $('.loading').removeClass("active");
+    }
+  });
+  
+</script>
+</body>
+</html>

@@ -134,6 +134,10 @@ h2, h3 {
 .report-group.region .styled-select:before {
   background-position: -290px -110px;
 }
+.report-group.round .styled-select:before {
+  background-position: -290px -110px;
+}
+
 .styled-select select {
   position: relative;
   z-index: 1;
