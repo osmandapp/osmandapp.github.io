@@ -229,7 +229,7 @@
     var year = currentTime.getFullYear();
     mid = formatYearMonth(year, month);
     for(yi = 2018; yi <= year; yi++) {
-      stmonth = yi == 2018? 11 : 1;
+      stmonth = yi == 2018? 12 : 1;
       endmonth = yi == year? month : 12;
       for(mi = stmonth; mi <= endmonth; mi++) {
         $("#giveaway-month-selection").prepend("<option value='"+formatYearMonth(yi,mi)+"'"+((mi==endmonth&&yi==year)?' selected':'')+">"+formatYearMonthHuman(yi,mi)+"</option>");
