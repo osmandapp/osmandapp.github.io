@@ -100,7 +100,7 @@
   </div>
 </div>
 <script>
-    var supportMonth = "";
+  var supportMonth = "";
   var supportMonthName = "";
   var reportSupportDataTable;
   var giveawayData = undefined;
@@ -132,8 +132,8 @@
         "<div class='overview overview-register_supporters'>"+
           "<p>" + roundParticipants.length +"</p><span>participants</span></div>" +
         "<div class='overview overview-region'>"+
-          "<p><a href='https://www.blockchain.com/btc/block/" + rnd.seed +"' val='" + rnd.seedInteger+ "'>...."+
-            rnd.seedInteger.substring(44)+"</a> % "+
+          "<p><a href='https://www.blockchain.com/btc/block/" + rnd.seed +"' data-toggle='tooltip' "+
+            "title='" + rnd.seedInteger+ " 10-radix'>...."+ rnd.seedInteger.substring(44)+"</a> % "+
             roundParticipants.length + ' + 1 = ' + (rnd.selection+1)+"</p><span>random seed (bitcoin block)</span></div>"
         );
         tableData = [];
@@ -256,9 +256,10 @@
       $('#general-info').show();
 
     });
+    $('[data-toggle="tooltip"]').tooltip(); 
+
     
     $('#giveaway-round-selection').on('change', function (e) {
-       
         var optionSelected = $("option:selected", this);
         var roundValue = this.value;
         updateGiveawayByRound(giveawayData, 
