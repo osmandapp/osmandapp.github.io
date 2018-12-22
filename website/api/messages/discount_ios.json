@@ -13,5 +13,8 @@
   "button_title" : "Click me, i am the button, wiht long name",
   "button_title_color" : "#ffffff",
   "url" : "osmand-search-query:kyiv",
-  "purchased_in_apps" : ["russia", "europe", "africa", "asia", "australia", "centralamerica", "northamerica", "southamerica"]
+  "purchased_in_apps" : ["russia", "europe", "africa", "asia", "australia", "centralamerica", "northamerica", "southamerica"],
+  "oneOfConditions" : [
+    { "condition" : [ { "not_purchased_inapp" : "russia" }, { "not_purchased_inapp" : "australia" } ] }
+  ]
 }
