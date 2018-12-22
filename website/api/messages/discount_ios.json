@@ -15,6 +15,7 @@
   "url" : "osmand-search-query:kyiv",
   "purchased_in_apps" : ["russia", "europe", "africa", "asia", "australia", "centralamerica", "northamerica", "southamerica"],
   "oneOfConditions" : [
-    { "condition" : [ { "not_purchased_inapp" : "russia" }, { "not_purchased_inapp" : "australia" } ] }
+    { "condition" : [ { "not_purchased_inapp" : "russia" }, { "not_purchased_inapp" : "australia" } ] },
+    { "condition" : [ { "not_purchased_inapp" : "asia" }, { "not_purchased_inapp" : "northamerica" } ] }
   ]
 }
