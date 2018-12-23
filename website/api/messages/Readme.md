@@ -66,7 +66,7 @@ After true condition is found, the 'fields' property is tested for presence of a
 
 
 
-# Motd json properties (Android / IOs)
+# Motd json properties (Android / iOS)
 ```
 "message" : "Some title"
 ```
@@ -102,18 +102,25 @@ After true condition is found, the 'fields' property is tested for presence of a
   - "status_bar_color" : "#fec601"
 - **url** - url, that will be opened on notification click.
   - "url" : "https://osmand.net/travel?title=World_Cup_2018&lang=en" - to open travel article
-  - "url" : "osmand-market-app:net.osmand.plus" - to open available market with specified app
-  - "url" : "osmand-in-app:osmand_full_version_price" - to purchase full version (starts purchasing immediately)
-  - "url" : "osmand-in-app:osm_live_subscription_2,osm_free_live_subscription_2" - to open choose plan screen
-  - "url" : "osmand-search-query:test query" - to open search with "test query" phrase
-  - "url" : "osmand-show-poi:bank,tourism" - to show poi overlay on the map
-  - "url" : "open_activity" - to open activity specified in the "activity" JSON object
-  - "url" : "show-choose-plan:free-version" - to show choose plan (Free version type)
-  - "url" : "show-choose-plan:osmand-live" - to show choose plan (OsmAnd Live type)
-  - "url" : "show-choose-plan:sea-depth" - to show choose plan (Sea depth type)
-  - "url" : "show-choose-plan:hillshade" - to show choose plan (Hillshade type)
-  - "url" : "show-choose-plan:wikipedia" - to show choose plan (Wikipedia type)
-  - "url" : "show-choose-plan:wikivoyage" - to show choose plan (Wikivoyage type)
+  - **ANDROID**
+  	- "url" : "osmand-market-app:net.osmand.plus" - to open available market with specified app
+   	- "url" : "osmand-in-app:osmand_full_version_price" - to purchase full version (starts purchasing immediately)
+   	- "url" : "osmand-in-app:osm_live_subscription_2,osm_free_live_subscription_2" - to open choose plan screen
+   	- "url" : "osmand-search-query:test query" - to open search with "test query" phrase
+   	- "url" : "osmand-show-poi:bank,tourism" - to show poi overlay on the map
+	- "url" : "open_activity" - to open activity specified in the "activity" JSON object
+   	- "url" : "show-choose-plan:free-version" - to show choose plan (Free version type)
+   	- "url" : "show-choose-plan:osmand-live" - to show choose plan (OsmAnd Live type)
+   	- "url" : "show-choose-plan:sea-depth" - to show choose plan (Sea depth type)
+   	- "url" : "show-choose-plan:hillshade" - to show choose plan (Hillshade type)
+   	- "url" : "show-choose-plan:wikipedia" - to show choose plan (Wikipedia type)
+   	- "url" : "show-choose-plan:wikivoyage" - to show choose plan (Wikivoyage type)
+  - **iOS**
+  	- "url" : "in-app:plugin" - to open available plugin of in-app defined in "in-app:" field
+  	- "url" : "in-app:map" - to open Maps & Resources screen
+	- "url" : "osmand-search-query:test query" - to open search with "test query" phrase
+   	- "url" : "osmand-show-poi:bank,tourism" - to show poi overlay on the map
+	- "url" : "show-choose-plan:osmlive" - to show choose plan (OsmAnd Live version type). The all available types: skimap, nautical, track_recording, parking, wiki, srtm, allworld, africa, russia, asia, australia, europe, centralamerica, northamerica, southamerica.
 - **application** - JSON object that specifies which applications must show notification.
   -   "application" : { "net.osmand" : true, "net.osmand.plus" : false } - notification will be shown only in the free app
 - **show_christmas_dialog** - specify if the Christmas dialog should be displayed instead of notification. Optional parameter.
