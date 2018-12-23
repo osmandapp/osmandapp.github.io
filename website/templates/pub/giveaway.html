@@ -278,11 +278,12 @@
 
   function setParticipantsOverviewHint() {
     var rnd = $("#giveaway-round-selection").children("option").filter(":selected").attr('value');
+    var rndtxt = $("#giveaway-round-selection").children("option").filter(":selected").text();
     var currentMonth  = $("#giveaway-month-selection").children("option").filter(":selected").text();
     if(rnd == "" ) {
       $('#overview-giveaway_options').text(currentMonth);
     } else {
-      $('#overview-giveaway_options').text(currentMonth + " - Round " + (rnd+1));
+      $('#overview-giveaway_options').text(currentMonth + " - " + rndtxt);
     }
   }
   
