@@ -4,18 +4,8 @@
   "show_start_frequency" : 4,
   "show_day_frequency" : 1,
   "max_total_show" : 3,
-  "icon" : "ic_action_postcode",
+  "icon" : "ic_action_gift",
   "url" : "in_app:map",
   "in_app" : "allworld",
-  "bg_color" : "#ff00d8",
-  "title_color" : "#fcff00",
-  "description_color" : "#00ffea",
-  "button_title" : "Click me, i am the button, wiht long name",
-  "button_title_color" : "#ffffff",
-  "url" : "osmand-search-query:kyiv",
-  "purchased_in_apps" : ["russia", "europe", "africa", "asia", "australia", "centralamerica", "northamerica", "southamerica"],
-  "oneOfConditions" : [
-    { "condition" : [ { "not_purchased_inapp" : "russia" }, { "not_purchased_inapp" : "australia" } ] },
-    { "condition" : [ { "not_purchased_inapp" : "asia" }, { "not_purchased_inapp" : "northamerica" } ] }
-  ]
+  "purchased_in_apps" : ["russia", "europe", "africa", "asia", "australia", "centralamerica", "northamerica", "southamerica"]
 }
