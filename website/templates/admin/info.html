@@ -139,12 +139,17 @@
  	<h3>Active Subscriptions:</h3>
 	<table border="1">
 		<tr>
+			<th>Date</th>
 			<th>Subscriptions</th>
-			<th>Month</th>
+			<th>Annual</th>
+			<th>Monthly</th>
+			
 		</tr>
         <tr th:each="di : ${subscriptionsReport}">
-        	<td th:text="${di.count}">1000/td>
         	<td th:text="${di.date}">01.01.2018 00:00</td>
+        	<td th:text="${di.count}">1000</td>
+        	<td th:text="${di.annualCount}">500</td>
+        	<td th:text="${di.monthCount}">500</td>
         </tr>
     </table>
 
