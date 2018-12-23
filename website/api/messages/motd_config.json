@@ -2,12 +2,12 @@
 	"settings": [
 		{
 			"condition": {
-				"ip" : "93.73.244.11",
+				"ip" : "93.73.244.11, 185.173.113.147",
 				"start_date": "20-12-2018 00:00",
-				"end_date": "22-12-2018 00:00",
+				"end_date": "29-12-2018 00:00",
 				"os": "ios"
 			},
-			"file": "discount_ios.json",
+			"file": "test_discount_ios.json",
 				"fields": {
 				"message": "Christmas",
 				"description": "Holidays!"
