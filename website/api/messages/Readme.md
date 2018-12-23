@@ -120,7 +120,7 @@ After true condition is found, the 'fields' property is tested for presence of a
   	- "url" : "in-app:map" - to open Maps & Resources screen
 	- "url" : "osmand-search-query:test query" - to open search with "test query" phrase
    	- "url" : "osmand-show-poi:bank,tourism" - to show poi overlay on the map
-	- "url" : "show-choose-plan:osmlive" - to show choose plan (OsmAnd Live version type). The all available types: skimap, nautical, track_recording, parking, wiki, srtm, allworld, africa, russia, asia, australia, europe, centralamerica, northamerica, southamerica.
+	- "url" : "show-choose-plan:osmlive" - to show choose plan (OsmAnd Live version type). The all available types: osmlive, skimap, nautical, track_recording, parking, wiki, srtm, allworld, africa, russia, asia, australia, europe, centralamerica, northamerica, southamerica.
 - **application** - JSON object that specifies which applications must show notification.
   -   "application" : { "net.osmand" : true, "net.osmand.plus" : false } - notification will be shown only in the free app
 - **show_christmas_dialog** - specify if the Christmas dialog should be displayed instead of notification. Optional parameter.
