@@ -140,10 +140,11 @@
 	<table border="1">
 		<tr>
 			<th>Date</th>
-			<th>Subscriptions</th>
+			<th>All</th>
 			<th>Yearly</th>
 			<th>Y -50%</th>
 			<th>Monthly</th>
+			<th>Virtual M</th>
 			
 		</tr>
         <tr th:each="di : ${subscriptionsReport}">
@@ -152,6 +153,7 @@
         	<td th:text="${di.annualCount}">500</td>
         	<td th:text="${di.annualDiscountCount}">300</td>
         	<td th:text="${di.monthCount}">500</td>
+        	<td th:text="${di.monthCount + di.annualDiscountCount/4 + di.annualCount/2}">700</td>
         </tr>
     </table>
 
