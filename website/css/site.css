@@ -3021,12 +3021,12 @@ a,a:visited
 
 .form-left {
   float: left;
-  width: 50%;
+  width: 80%;
 }
 
 .button-right {
   float: right;
-  width: 50%;
+  width: 20%;
 }
 
 /* Clear floats after the columns */
