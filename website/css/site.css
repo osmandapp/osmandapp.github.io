@@ -2996,14 +2996,14 @@ a,a:visited
 }*/
 
 .giveaway {
-  border:1px solid #e6e6e6;
+
   position: relative;
   max-width: 1100px;
   margin: 50px auto;
   font-size: 16px;
-  text-align: center;
 }
 .giveaway .left {
+  border: 1px solid #e6e6e6;
   float: left;
   width: 50%;
 }
@@ -3011,6 +3011,17 @@ a,a:visited
 .giveaway .right {
   float: right;
   width: 50%;
+}
+
+.giveaway h4 {
+  font-size: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .input-form {
