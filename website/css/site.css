@@ -3023,6 +3023,7 @@ a,a:visited
 .form-left {
   float: left;
   width: 80%;
+  background-color: #f2f2f2;
 }
 
 .button-right {
@@ -3035,6 +3036,11 @@ a,a:visited
   content: "";
   display: table;
   clear: both;
+}
+
+.giveaway a {
+  display: inline-block;
+  vertical-align: left;
 }
 
 .giveaway button {
