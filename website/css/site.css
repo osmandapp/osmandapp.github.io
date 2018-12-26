@@ -3026,6 +3026,13 @@ a,a:visited
   clear: both;
 }
 
+.giveaway button {
+  background: #575bde;
+  border: 1px solid #3d42bf;
+  color: #fff;
+  font-weight: bold;
+}
+
 .form-control {
   margin: 0;
   border-radius: 2px;
