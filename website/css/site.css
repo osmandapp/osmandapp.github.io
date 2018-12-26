@@ -3002,8 +3002,10 @@ a,a:visited
   margin: 50px auto;
   font-size: 16px;
 }
-.giveaway .left {
+.left {
   float: left;
+}
+.giveaway .left {
   width: 50%;
 }
 
