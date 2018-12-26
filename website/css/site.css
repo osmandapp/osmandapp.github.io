@@ -3023,9 +3023,9 @@ a,a:visited
   letter-spacing: 0.04em;
 }
 
-.form-left {
+.giveaway-form {
   float: left;
-  width: 80%;
+  width: 100%;
   background-color: #f2f2f2;
   padding: 20px 30px 25px 30px;
 }
