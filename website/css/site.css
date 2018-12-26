@@ -2997,12 +2997,12 @@ a,a:visited
 
 .giveaway {
   position: relative;
+  border: 1px solid #e6e6e6;
   max-width: 1100px;
   margin: 50px auto;
   font-size: 16px;
 }
 .giveaway .left {
-  border: 1px solid #e6e6e6;
   float: left;
   width: 50%;
 }
@@ -3010,6 +3010,11 @@ a,a:visited
 .giveaway .right {
   float: right;
   width: 50%;
+}
+
+.giveaway img {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .giveaway-content {
