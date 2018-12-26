@@ -2997,7 +2997,7 @@ a,a:visited
 
 .giveaway {
   position: relative;
-  /*border: 1px solid #e6e6e6; */
+  border: 1px solid #e6e6e6;
   max-width: 1100px;
   margin: 50px auto;
   font-size: 18px;
