@@ -2994,3 +2994,12 @@ a,a:visited
 	bottom:5%;
 	left:10%;
 }*/
+
+.giveaway {
+  border:1px solid #e6e6e6;
+  position: relative;
+  max-width: 1100px;
+  margin: 50px auto;
+  font-size: 0;
+  text-align: center;
+}
