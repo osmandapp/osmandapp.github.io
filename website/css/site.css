@@ -3019,8 +3019,13 @@ a,a:visited
   padding-top: 14px;
 }
 
-.giveaway-form {
+.form-left {
   float: left;
+  width: 50%;
+}
+
+.button-right {
+  float: right;
   width: 50%;
 }
 
