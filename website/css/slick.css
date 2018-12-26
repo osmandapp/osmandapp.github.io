@@ -115,14 +115,3 @@
 .slick-arrow.slick-hidden {
     display: none;
 }
-
-.giveaway {
-    display: inline-block;
-    vertical-align: top;
-    width: 49%;
-    min-height: 420px;
-    padding: 20px;
-    margin-top: 20px;
-    margin-right: 1%;
-    background: #f2f2f2;
-}
