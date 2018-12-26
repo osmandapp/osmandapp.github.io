@@ -3039,7 +3039,6 @@ a,a:visited
 
 .giveaway button {
   background: #575bde;
-  border: 1px solid #3d42bf;
   color: #fff;
   font-weight: bold;
   display: inline-block;
@@ -3059,19 +3058,16 @@ a,a:visited
   -ms-user-select: none;
   user-select: none;
   background-image: none;
-  border: 1px solid transparent;
+  border: 1px solid #3d42bf;
   border-radius: 4px;
+  max-height: 42px;
 }
 
 .form-control {
   margin: 0;
-  border-radius: 2px;
   height: 42px;
-  padding-left: 40px;
-
   display: block;
   width: 95%;
-  height: 34px;
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.42857143;
@@ -3079,4 +3075,5 @@ a,a:visited
   background-color: #fff;
   background-image: none;
   border: 1px solid #ccc;
+  border-radius: 2px;
 }
