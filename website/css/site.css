@@ -3005,13 +3005,10 @@ a,a:visited
   font-size: 18px;
 }
 
-<<<<<<< HEAD
 .right {
   float: right;
 }
 
-=======
->>>>>>> 85b92f91b5ee8d1c769b1c0141194ad3adc2cc34
 .giveaway .left {
   width: 50%;
   float: left;
@@ -3028,12 +3025,6 @@ a,a:visited
   max-height: 100%;
 }
 
-<<<<<<< HEAD
-#giveaway_image {
-  background-image: url(/images/giveaway_image.jpg);
-  background-repeat: no-repeat;
-  background-size: contain;
-=======
 @media screen and (max-width: 1100px) {
   .giveaway .right {
     width: 100%;
@@ -3044,7 +3035,6 @@ a,a:visited
   .giveaway {
     margin: 0px auto;
   }
->>>>>>> 85b92f91b5ee8d1c769b1c0141194ad3adc2cc34
 }
 
 .giveaway-content {
