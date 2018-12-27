@@ -10,8 +10,7 @@
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
-	<ul class="nav nav-tabs">
+	<ul class="nav nav-tabs" id="tabspanel">
   		<li class="active"><a data-toggle="tab" href="#home">Status</a></li>
   		<li><a data-toggle="tab" href="#motd">Push</a></li>
   		<li><a data-toggle="tab" href="#subs">Subscriptions</a></li>
@@ -125,11 +124,11 @@
 					<td th:text="${di.date}">01.01.2018 00:00</td>
 					<td th:text="${di.monthCount}">1000</td>
 					<td th:text="${di.annualCount}">1000</td>
-					<td th:text="${di.total}">1000</td>
+					<td><b th:text="${di.total}">1000</b></td>
 					<td th:text="${di.cancelMonthCount}">1000</td>
 					<td th:text="${di.cancelAnnualCount}">1000</td>
-					<td th:text="${di.cancelTotal}">1000</td>
-					<td th:text="${di.delta}">1000</td>
+					<td><b th:text="${di.cancelTotal}">1000</b></td>
+					<td><b th:text="${di.delta}">1000</b></td>
 				</tr>
 			</table>
 
@@ -154,95 +153,106 @@
 
 
 
-		<h3>Reports:</h3>
-		<table border="1">
-			<tr>
-				<th>Name</th>
-				<th>Update date</th>
-			</tr>
-			<tr th:each="di : ${reports}">
-				<td><a th:text="${di.name}" th:href="'/admin/report?file='+${di.fullname}" href="">Report name</td>
-				<td th:text="${di.date}">01.01.2018 00:00</td>
-			</tr>
-		</table>
+			<h3>Audience surveys (polls):</h3>
+			<span>You can change it by modifying json file at <a href="https://github.com/osmandapp/osmandapp.github.io/blob/master/website/api/poll.json">Github</a> and don't forget to click button reload configuration. </span>
+			<table border="1">
+				<tr>
+					<th>Channel</th>
+					<th>Publish date</th>
+					<th>Id</th>
+					<th>Title</th>
+				</tr>
+				<tr th:each="di : ${polls}">
+					<td th:text="${di.key}">website</td>
+					<td th:text="${di.value.pubdate}">01.01.2018</td>
+					<td th:text="${di.value.polldaddyid}"></td>
+					<td >
+				<a th:text="${di.value.title}" th:href="'https://app.crowdsignal.com/polls/'+${di.value.	polldaddyid}+'/results'"></a></td>
+				</tr>
+			</table>
 
-		<h3>Audience surveys (polls):</h3>
-		<span>You can change it by modifying json file at <a href="https://github.com/osmandapp/osmandapp.github.io/blob/master/website/api/poll.json">Github</a> and don't forget to click button reload configuration.</span>
-		<table border="1">
-			<tr>
-				<th>Channel</th>
-				<th>Publish date</th>
-				<th>Id</th>
-				<th>Title</th>
-			</tr>
-			<tr th:each="di : ${polls}">
-				<td th:text="${di.key}">website</td>
-				<td th:text="${di.value.pubdate}">01.01.2018</td>
-				<td th:text="${di.value.polldaddyid}"></td>
-				<td >
-				<a th:text="${di.value.title}" th:href="'https://app.crowdsignal.com/polls/'+${di.value.polldaddyid}+'/results'"></a></td>
-			</tr>
-		</table>
-
-
-		<h3>Support survey:</h3>
-		<table border="1">
-			<tr>
-				<th>Week</th>
-				<th>Good</th>
-				<th>Average</th>
-				<th>Bad</th>
-				<th>Count</th>
-			</tr>
-			<tr th:each="di : ${surveyReport}">
-				<td th:text="${di.date}">01.01.2018</td>
-				<td th:text="${di.goodCount}"></td>
-				<td th:text="${di.averageCount}"></td>
-				<td th:text="${di.badCount}"></td>
-				<td th:text="${di.badCount + di.goodCount + di.averageCount}">/td>
-			</tr>
-		</table>
-
-		<h3>Email database:</h3>
-		<span>You can use automated tool to send emails to the database <a href="https://builder.osmand.net:8080/view/WebSite/job/Website_SendMail/">Send Emails</a>.</span>
-		<table border="1">
-			<tr>
-				<th>Category name</th>
-				<th>Category id</th>
-				<th>Total population</th>
-				<th>Available for Marketing</th>
-				<th>Available for OsmAnd Live</th>
-				<th>Available for News</th>
-			</tr>
-			<tr th:each="di : ${emailsReport}">
-				<td th:text="${di.category}">1000/td>
-				<td th:text="${di.categoryId}">1000/td>
-				<td th:text="${di.totalCount}">1000/td>
-				<td th:text="${di.activeMarketing}">1000/td>
-				<td th:text="${di.activeOsmAndLive}">1000/td>
-				<td th:text="${di.activeNews}">1000/td>
-			</tr>
-		</table>
+			<h3>Email database:</h3>
+			<span>You can use automated tool to send emails to the database <a href="https://builder.osmand.net:8080/view/WebSite/job/Website_SendMail/">Send Emails</a>.</span>
+			<table border="1">
+				<tr>
+					<th>Category name</th>
+					<th>Category id</th>
+					<th>Total population</th>
+					<th>Available for Marketing</th>
+					<th>Available for OsmAnd Live</th>
+					<th>Available for News</th>
+				</tr>
+				<tr th:each="di : ${emailsReport}">
+					<td th:text="${di.category}">1000/td>
+					<td th:text="${di.categoryId}">1000/td>
+					<td th:text="${di.totalCount}">1000/td>
+					<td th:text="${di.activeMarketing}">1000/td>
+					<td th:text="${di.activeOsmAndLive}">1000/td>
+					<td th:text="${di.activeNews}">1000/td>
+				</tr>
+			</table>
 
 
+			<h3>Support survey:</h3>
+			<table border="1">
+				<tr>
+					<th>Week</th>
+					<th>Good</th>
+					<th>Average</th>
+					<th>Bad</th>
+					<th>Count</th>
+				</tr>
+				<tr th:each="di : ${surveyReport}">
+					<td th:text="${di.date}">01.01.2018</td>
+					<td th:text="${di.goodCount}"></td>
+					<td th:text="${di.averageCount}"></td>
+					<td th:text="${di.badCount}"></td>
+					<td th:text="${di.badCount + di.goodCount + di.averageCount}">/td>
+				</tr>
+			</table>
 
 
-		<h3>Access server logs:</h3>
-		<form target="_blank" action="access-logs">
-			Start time: <input type="datetime-local" name="starttime"><br>
-			End time: <input type="datetime-local" name="endtime"><br>
-			Filter urls: <input type="text" name="filter"><br>
-			Load region info (takes time): <input type="checkbox" name="region"><br>
-			Download as file: <input type="checkbox" name="gzip"><br> 
-			Limit records: <input type="number" value="10000" name="limit"><br> 
-			<input type="submit" value="Load">
-		</form>
+			<h3>Reports:</h3>
+			<table border="1">
+				<tr>
+					<th>Name</th>
+					<th>Update date</th>
+				</tr>
+				<tr th:each="di : ${reports}">
+				<td><a th:text="${di.name}" th:href="'/admin/report?file='+${di.fullname}" href="">
+					Report name </td>
+					<td th:text="${di.date}">01.01.2018 00:00</td>
+				</tr>
+			</table>
+			<h3>Access server logs:</h3>
+			<form target="_blank" action="access-logs">
+				Start time: <input type="datetime-local" name="starttime"><br>
+				End time: <input type="datetime-local" name="endtime"><br>
+				Filter urls: <input type="text" name="filter"><br>
+				Load region info (takes time): <input type="checkbox" name="region"><br>
+				Download as file: <input type="checkbox" name="gzip"><br> 
+				Limit records: <input type="number" value="10000" name="limit"><br> 
+				<input type="submit" value="Load">
+			</form>
 
 
 
 
 		</div>
   	</div>
-	
+	<script type="text/javascript">
+	$(document).ready(function() {
+    	if (location.hash) {
+        	$("a[href='" + location.hash + "']").tab("show");
+    	}
+    	$(document.body).on("click", "a[data-toggle]", function(event) {
+        	location.hash = this.getAttribute("href");
+    	});
+	});
+	$(window).on("popstate", function() {
+    	var anchor = location.hash || $("a[data-toggle='tab']").first().attr("href");
+    	$("a[href='" + anchor + "']").tab("show");
+	});
+	</script>
 </body>
 </html>
