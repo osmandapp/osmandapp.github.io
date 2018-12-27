@@ -1,211 +1,247 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Info</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Info</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="/css/admin.css?v=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+
+	<ul class="nav nav-tabs">
+  		<li class="active"><a data-toggle="tab" href="#home">Status</a></li>
+  		<li><a data-toggle="tab" href="#motd">Push</a></li>
+  		<li><a data-toggle="tab" href="#subs">Subscriptions</a></li>
+  		<li><a data-toggle="tab" href="#audience">Audience</a></li>
+	</ul>
 	
-	<h1>Web configuration info:</h1>
-	<p>Server version: <span th:text="${server_commit}"></span></p>
-	<p>Web version: <span th:text="${web_commit}"></span></p>
-	<p>Server started: <span th:text="${server_startup}"><span></p>
-	<p>Web updated: <b><span th:text="${update_status}+'.'"></span></b> <span th:text="${update_message} "></span> <span th:text="${update_errors}"></span></p>
-	<div class="reload">
-    	<form action="/admin/publish" method="post">
-    		<input type="submit" value="Refresh web configuration from https://github.com/osmandapp/osmandapp.github.io"  />
-    		<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+	<div class="tab-content">
+  		<div id="home" class="tab-pane fade in active">
+			<h3>Status</h3>
+				<p>Server version (java): <span th:text="${server_commit}"></span></p>
+				<p>Web version (html + configs): <span th:text="${web_commit}"></span></p>
+				<p>Server started: <span th:text="${server_startup}"><span></p>
+				<p>Web updated: <b><span th:text="${update_status}+'.'"></span></b> <span th:text="${update_message} "></span> <span th:text="${update_errors}"></span></p>
+				<div class="reload">
+					<form action="/admin/publish" method="post">
+						<input type="submit" value="Pull web configuration from Github"  />
+						<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+					</form>
+				</div>
+
+			<h3>Download servers:</h3>
+			<span>You can change it by modifying json file at <a href="https://github.com/osmandapp/osmandapp.github.io/blob/master/website/api/settings.json">Github</a> and don't forget to click button reload configuration.</span>
+			<table border="1">
+				<tr>
+					<th>Name</th>
+					<th>Maps+Wiki</th>
+					<th>SRTM+Hillshade</th>
+				</tr>
+			<tr th:each="di : ${downloadServers}">
+				<td th:text="${di.name}"></td>
+				<td th:text="${di.mainLoad}"></td>
+				<td th:text="${di.srtmLoad}"></td>
+			</tr>
+			</table>
+  		</div>
+  		
+
+
+  		<div id="motd" class="tab-pane fade">
+			<h3>Push / promo (message of the day)</h3>
+
+			<span>You can change it by modifying json file at <a href="https://github.com/osmandapp/osmandapp.github.io/blob/master/website/api/messages/motd_config.json">Github</a> and don't forget to click button reload configuration. The documentation of configuration is present at <a href="https://github.com/osmandapp/osmandapp.github.io/blob/master/website/api/messages/Readme.md">Readme</a></span>
+			<table border="1">
+				<tr>
+					<th>Active</th>
+					<th>File</th>
+					<th>Filter</th>
+					<th>Messages</th>
+				</tr>
+			<tr th:each="di : ${motdSettings.getDiscountSettings()}">
+				<td th:text="${di.discountCondition.checkActiveDate(new java.util.Date()) ? 'yes' : 'no'}"></td>
+				<td><a  th:text="${di.file}" th:href="'https://github.com/osmandapp/osmandapp.github.io/blob/master/website/api/messages/' + ${di.file}"></a></td>
+				<td th:text="${di.discountCondition.getFilterCondition()}"></td>
+				<td th:text="${di.fields}"></td>
+			</tr>
+			</table>
+  		</div>
+
+
+		<div id="subs" class="tab-pane fade">
+			<h3>Current subscriptions config:</h3>
+			<span>You can change it by modifying json file at <a href="https://github.com/osmandapp/osmandapp.github.io/blob/master/website/api/subscriptions/config.json">Github</a> and don't forget to click button reload 	configuration.</span>
+			<table border="1">
+				<tr>
+					<th>Active</th>
+					<th>File</th>
+					<th>Filter</th>
+				</tr>
+				<tr th:each="di : ${subSettings.getDiscountSettings()}">
+					<td th:text="${di.discountCondition.checkActiveDate(new java.util.Date()) ? 'yes' : 'no'}"></td>
+					<td><a  th:text="${di.file}" th:href="'https://github.com/osmandapp/osmandapp.github.	io/blob/master/website/api/subscriptions/' + ${di.file}"></a></td>
+					<td th:text="${di.discountCondition.getFilterCondition()}"></td>
+				</tr>
+			</table>
+
+
+			<h3>Active Subscriptions:</h3>
+			<table border="1">
+				<tr>
+					<th>Date</th>
+					<th>All</th>
+					<th>Yearly</th>
+					<th>Y -50%</th>
+					<th>Monthly</th>
+					<th>Virtual M</th>
+				</tr>
+				<tr th:each="di : ${subscriptionsReport}">
+					<td th:text="${di.date}">01.01.2018 00:00</td>
+					<td th:text="${di.count}">1000</td>
+					<td th:text="${di.annualCount}">500</td>
+					<td th:text="${di.annualDiscountCount}">300</td>
+					<td th:text="${di.monthCount}">500</td>
+					<td th:text="${di.monthCount + di.annualDiscountCount/4 + di.annualCount/2}">700</td>
+				</tr>
+			</table>
+
+
+			<h3>New/Cancel Subscriptions:</h3>
+			<table border="1">
+				<tr>
+					<th>Date</th>
+					<th>+Month</th>
+					<th>+Year</th>
+					<th>+Total</th>
+					<th>-Month</th>
+					<th>-Year</th>
+					<th>-Total</th>
+					<th>Delta</th>
+				</tr>
+				<tr th:each="di : ${newSubsReport}">
+					<td th:text="${di.date}">01.01.2018 00:00</td>
+					<td th:text="${di.monthCount}">1000</td>
+					<td th:text="${di.annualCount}">1000</td>
+					<td th:text="${di.total}">1000</td>
+					<td th:text="${di.cancelMonthCount}">1000</td>
+					<td th:text="${di.cancelAnnualCount}">1000</td>
+					<td th:text="${di.cancelTotal}">1000</td>
+					<td th:text="${di.delta}">1000</td>
+				</tr>
+			</table>
+
+
+			<h3>Future expire subscriptions date:</h3>
+			<table border="1">
+				<tr>
+					<th>Date</th>
+					<th>Subs to expire</th>
+				</tr>
+				<tr th:each="di : ${futureCancelReport}">
+					<td th:text="${di.date}">01.01.2018 00:00</td>
+					<td th:text="${di.cancelMonthCount}">1000</td>
+				</tr>
+			</table>
+
+		</div>
+
+
+		<div id="audience" class="tab-pane fade">
+
+
+
+
+		<h3>Reports:</h3>
+		<table border="1">
+			<tr>
+				<th>Name</th>
+				<th>Update date</th>
+			</tr>
+			<tr th:each="di : ${reports}">
+				<td><a th:text="${di.name}" th:href="'/admin/report?file='+${di.fullname}" href="">Report name</td>
+				<td th:text="${di.date}">01.01.2018 00:00</td>
+			</tr>
+		</table>
+
+		<h3>Audience surveys (polls):</h3>
+		<span>You can change it by modifying json file at <a href="https://github.com/osmandapp/osmandapp.github.io/blob/master/website/api/poll.json">Github</a> and don't forget to click button reload configuration.</span>
+		<table border="1">
+			<tr>
+				<th>Channel</th>
+				<th>Publish date</th>
+				<th>Id</th>
+				<th>Title</th>
+			</tr>
+			<tr th:each="di : ${polls}">
+				<td th:text="${di.key}">website</td>
+				<td th:text="${di.value.pubdate}">01.01.2018</td>
+				<td th:text="${di.value.polldaddyid}"></td>
+				<td >
+				<a th:text="${di.value.title}" th:href="'https://app.crowdsignal.com/polls/'+${di.value.polldaddyid}+'/results'"></a></td>
+			</tr>
+		</table>
+
+
+		<h3>Support survey:</h3>
+		<table border="1">
+			<tr>
+				<th>Week</th>
+				<th>Good</th>
+				<th>Average</th>
+				<th>Bad</th>
+				<th>Count</th>
+			</tr>
+			<tr th:each="di : ${surveyReport}">
+				<td th:text="${di.date}">01.01.2018</td>
+				<td th:text="${di.goodCount}"></td>
+				<td th:text="${di.averageCount}"></td>
+				<td th:text="${di.badCount}"></td>
+				<td th:text="${di.badCount + di.goodCount + di.averageCount}">/td>
+			</tr>
+		</table>
+
+		<h3>Email database:</h3>
+		<span>You can use automated tool to send emails to the database <a href="https://builder.osmand.net:8080/view/WebSite/job/Website_SendMail/">Send Emails</a>.</span>
+		<table border="1">
+			<tr>
+				<th>Category name</th>
+				<th>Category id</th>
+				<th>Total population</th>
+				<th>Available for Marketing</th>
+				<th>Available for OsmAnd Live</th>
+				<th>Available for News</th>
+			</tr>
+			<tr th:each="di : ${emailsReport}">
+				<td th:text="${di.category}">1000/td>
+				<td th:text="${di.categoryId}">1000/td>
+				<td th:text="${di.totalCount}">1000/td>
+				<td th:text="${di.activeMarketing}">1000/td>
+				<td th:text="${di.activeOsmAndLive}">1000/td>
+				<td th:text="${di.activeNews}">1000/td>
+			</tr>
+		</table>
+
+
+
+
+		<h3>Access server logs:</h3>
+		<form target="_blank" action="access-logs">
+			Start time: <input type="datetime-local" name="starttime"><br>
+			End time: <input type="datetime-local" name="endtime"><br>
+			Filter urls: <input type="text" name="filter"><br>
+			Load region info (takes time): <input type="checkbox" name="region"><br>
+			Download as file: <input type="checkbox" name="gzip"><br> 
+			Limit records: <input type="number" value="10000" name="limit"><br> 
+			<input type="submit" value="Load">
 		</form>
-	</div>
 
 
-	<h1>Settings message of the day (promo):</h1>
-	<span>You can change it by modifying json file at <a href="https://github.com/osmandapp/osmandapp.github.io/blob/master/website/api/messages/motd_config.json">Github</a> and don't forget to click button reload configuration. The documentation of configuration is present at <a href="https://github.com/osmandapp/osmandapp.github.io/blob/master/website/api/messages/Readme.md">Readme</a></span>
-	<table border="1">
-		<tr>
-			<th>Active</th>
-			<th>File</th>
-			<th>Filter</th>
-			<th>Messages</th>
-		</tr>
-        <tr th:each="di : ${motdSettings.getDiscountSettings()}">
-        	<td th:text="${di.discountCondition.checkActiveDate(new java.util.Date()) ? 'yes' : 'no'}"></td>
-        	<td><a  th:text="${di.file}" th:href="'https://github.com/osmandapp/osmandapp.github.io/blob/master/website/api/messages/' + ${di.file}"></a></td>
-        	<td th:text="${di.discountCondition.getFilterCondition()}"></td>
-        	<td th:text="${di.fields}"></td>
-        </tr>
-    </table>
-
-    <h1>Active subscriptions:</h1>
-	<span>You can change it by modifying json file at <a href="https://github.com/osmandapp/osmandapp.github.io/blob/master/website/api/subscriptions/config.json">Github</a> and don't forget to click button reload configuration.</span>
-	<table border="1">
-		<tr>
-			<th>Active</th>
-			<th>File</th>
-			<th>Filter</th>
-		</tr>
-        <tr th:each="di : ${subSettings.getDiscountSettings()}">
-        	<td th:text="${di.discountCondition.checkActiveDate(new java.util.Date()) ? 'yes' : 'no'}"></td>
-        	<td><a  th:text="${di.file}" th:href="'https://github.com/osmandapp/osmandapp.github.io/blob/master/website/api/subscriptions/' + ${di.file}"></a></td>
-        	<td th:text="${di.discountCondition.getFilterCondition()}"></td>
-        </tr>
-    </table>
-
-	<h1>Download servers:</h1>
-	<span>You can change it by modifying json file at <a href="https://github.com/osmandapp/osmandapp.github.io/blob/master/website/api/settings.json">Github</a> and don't forget to click button reload configuration.</span>
-	<table border="1">
-		<tr>
-			<th>Name</th>
-			<th>Maps+Wiki</th>
-			<th>SRTM+Hillshade</th>
-		</tr>
-        <tr th:each="di : ${downloadServers}">
-        	<td th:text="${di.name}"></td>
-        	<td th:text="${di.mainLoad}"></td>
-        	<td th:text="${di.srtmLoad}"></td>
-        </tr>
-    </table>
 
 
-    <h1>Reports:</h1>
-	<table border="1">
-		<tr>
-			<th>Name</th>
-			<th>Update date</th>
-		</tr>
-        <tr th:each="di : ${reports}">
-        	<td><a th:text="${di.name}" th:href="'/admin/report?file='+${di.fullname}" href="">Report name</td>
-        	<td th:text="${di.date}">01.01.2018 00:00</td>
-        </tr>
-    </table>
-	<h3>Audience surveys (polls):</h3>
-	<span>You can change it by modifying json file at <a href="https://github.com/osmandapp/osmandapp.github.io/blob/master/website/api/poll.json">Github</a> and don't forget to click button reload configuration.</span>
-	<table border="1">
-		<tr>
-			<th>Channel</th>
-			<th>Publish date</th>
-			<th>Id</th>
-			<th>Title</th>
-		</tr>
-        <tr th:each="di : ${polls}">
-        	<td th:text="${di.key}">website</td>
-        	<td th:text="${di.value.pubdate}">01.01.2018</td>
-        	<td th:text="${di.value.polldaddyid}"></td>
-        	<td >
-        		<a th:text="${di.value.title}" th:href="'https://app.crowdsignal.com/polls/'+${di.value.polldaddyid}+'/results'"></a></td>
-        </tr>
-    </table>
-
-
-    <h3>Support survey:</h3>
-	<table border="1">
-		<tr>
-			<th>Week</th>
-			<th>Good</th>
-			<th>Average</th>
-			<th>Bad</th>
-			<th>Count</th>
-		</tr>
-        <tr th:each="di : ${surveyReport}">
-        	<td th:text="${di.date}">01.01.2018</td>
-        	<td th:text="${di.goodCount}"></td>
-        	<td th:text="${di.averageCount}"></td>
-        	<td th:text="${di.badCount}"></td>
-        	<td th:text="${di.badCount + di.goodCount + di.averageCount}">/td>
-        </tr>
-    </table>
-
-	<h3>Email database:</h3>
-	<span>You can use automated tool to send emails to the database <a href="https://builder.osmand.net:8080/view/WebSite/job/Website_SendMail/">Send Emails</a>.</span>
-	<table border="1">
-		<tr>
-			<th>Category name</th>
-			<th>Category id</th>
-			<th>Total population</th>
-			<th>Available for Marketing</th>
-			<th>Available for OsmAnd Live</th>
-			<th>Available for News</th>
-		</tr>
-        <tr th:each="di : ${emailsReport}">
-        	<td th:text="${di.category}">1000/td>
-        	<td th:text="${di.categoryId}">1000/td>
-        	<td th:text="${di.totalCount}">1000/td>
-        	<td th:text="${di.activeMarketing}">1000/td>
-			<td th:text="${di.activeOsmAndLive}">1000/td>
-        	<td th:text="${di.activeNews}">1000/td>
-        </tr>
-    </table>
-
- 	<h3>Active Subscriptions:</h3>
-	<table border="1">
-		<tr>
-			<th>Date</th>
-			<th>All</th>
-			<th>Yearly</th>
-			<th>Y -50%</th>
-			<th>Monthly</th>
-			<th>Virtual M</th>
-			
-		</tr>
-        <tr th:each="di : ${subscriptionsReport}">
-        	<td th:text="${di.date}">01.01.2018 00:00</td>
-        	<td th:text="${di.count}">1000</td>
-        	<td th:text="${di.annualCount}">500</td>
-        	<td th:text="${di.annualDiscountCount}">300</td>
-        	<td th:text="${di.monthCount}">500</td>
-        	<td th:text="${di.monthCount + di.annualDiscountCount/4 + di.annualCount/2}">700</td>
-        </tr>
-    </table>
-
-
- 	<h3>New/Cancel Subscriptions:</h3>
-	<table border="1">
-		<tr>
-			<th>Date</th>
-			<th>+Month</th>
-			<th>+Year</th>
-			<th>+Total</th>
-			<th>-Month</th>
-			<th>-Year</th>
-			<th>-Total</th>
-			<th>Delta</th>
-		</tr>
-        <tr th:each="di : ${newSubsReport}">
-        	<td th:text="${di.date}">01.01.2018 00:00</td>
-        	<td th:text="${di.monthCount}">1000</td>
-        	<td th:text="${di.annualCount}">1000</td>
-        	<td th:text="${di.total}">1000</td>
-        	<td th:text="${di.cancelMonthCount}">1000</td>
-        	<td th:text="${di.cancelAnnualCount}">1000</td>
-        	<td th:text="${di.cancelTotal}">1000</td>
-        	<td th:text="${di.delta}">1000</td>
-        	
-        </tr>
-    </table>
-
-
- 	<h3>Future expire subscriptions date:</h3>
-	<table border="1">
-		<tr>
-			<th>Date</th>
-			<th>Subs to expire</th>
-		</tr>
-        <tr th:each="di : ${futureCancelReport}">
-        	<td th:text="${di.date}">01.01.2018 00:00</td>
-        	<td th:text="${di.cancelMonthCount}">1000</td>
-        </tr>
-    </table>
-
-	<h3>Access server logs:</h3>
-    <form target="_blank" action="access-logs">
-    	Start time: <input type="datetime-local" name="starttime"><br>
-  		End time: <input type="datetime-local" name="endtime"><br>
-  		Filter urls: <input type="text" name="filter"><br>
-  		Load region info (takes time): <input type="checkbox" name="region"><br>
-  		Download as file: <input type="checkbox" name="gzip"><br> 
-  		Limit records: <input type="number" value="10000" name="limit"><br> 
-
-  		<input type="submit" value="Load">
-	</form>
+		</div>
+  	</div>
+	
 </body>
 </html>
