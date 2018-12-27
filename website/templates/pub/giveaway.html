@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel='stylesheet' href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel='stylesheet' href="/css/site.css">
-  <link rel='stylesheet' href="/css/report.css">
+  <link rel='stylesheet' href="/css/report.css?v=2">
   <link rel='stylesheet' href="https://cdn.datatables.net/1.10.10/css/dataTables.bootstrap.min.css">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon.png">
   <link rel="icon" type="image/png" href="/images/favicons/favicon-32x32.png" sizes="32x32">
@@ -53,15 +53,15 @@
           </div>
             <div class="report-period-group period">
               <div class="report-group period">
-                <h4 class="vlabel" for="giveaway-month-selection" th:text="#{osmlive_period}">Report period</h4>
+                <h4 class="vlabel" for="giveaway-series-selection" th:text="#{osmlive_period}">Report period</h4>
                 <div class="styled-select">
-                  <select class="form-control osm-live-month-select" id="giveaway-month-selection"></select>
+                  <select class="form-control osm-live-series-select" id="giveaway-series-selection"></select>
                 </div>
               </div>
               <div class="report-group round">
               <h4 class="vlabel" for="giveaway-round-selection">Round</h4>
               <div class="styled-select">
-                <select class="form-control osm-live-month-select" id="giveaway-round-selection"></select>
+                <select class="form-control osm-live-series-select" id="giveaway-round-selection"></select>
               </div>
             </div>
             </div>
@@ -100,8 +100,8 @@
   </div>
 </div>
 <script>
-  var supportMonth = "";
-  var supportMonthName = "";
+  var currentSeries = "";
+  var defaultSeries = "";
   var reportDataTable;
   var giveawayData = undefined;
 
@@ -149,7 +149,7 @@
         "<div class='overview overview-register_supporters'>"+
           "<p>" + data.participants +"</p><span>participants</span></div>" +
         "<div class='overview overview-region'>"+
-          "<p>" + data.rounds.length +"</p><span>rounds</span></div>"
+          "<p>" + data.rounds.length +" / " + data.totalRounds + "</p><span>rounds</span></div>"
         );
     }
     $('.table-controls.support-country-controls').removeClass('hidden');
@@ -177,9 +177,13 @@
       reportDataTable.clear().draw();
       $('#report-total').html("");
     }
-    var args = "?month="+supportMonth;
-    if(supportMonth == '') {
-      args = window.location.search;
+    var args = "?series="+defaultSeries;
+    if(currentSeries == '') {
+        if(window.location.search != '') {
+            args = window.location.search;
+        }
+    } else {
+        args = "?series="+currentSeries;
     }
     $.ajax({
           url: "/giveaway/list"+args, 
@@ -226,31 +230,35 @@
     }
   }
   $(document).ready(function(){
-    var currentTime = new Date();
-    var month = currentTime.getMonth() + 1;
-    var day = currentTime.getDate();
-    var year = currentTime.getFullYear();
-    mid = formatYearMonth(year, month);
-    for(yi = 2018; yi <= year; yi++) {
-      stmonth = yi == 2018? 12 : 1;
-      endmonth = yi == year? month : 12;
-      for(mi = stmonth; mi <= endmonth; mi++) {
-        $("#giveaway-month-selection").prepend("<option value='"+formatYearMonth(yi,mi)+"'"+((mi==endmonth&&yi==year)?' selected':'')+">"+formatYearMonthHuman(yi,mi)+"</option>");
+     $.ajax({
+          url: "/giveaway/series" ,
+          async: true
+    }).done(function(res) {
+      for(var i = 0; i < res.seriesList.length; i++ ) {
+          var nm = res.seriesList[i].name;
+          // formatYearMonth(yi,mi)
+          if(i == 0) {
+              defaultSeries = nm;  
+          }
+          $("#giveaway-series-selection").append("<option value='" + nm + "'"+
+                (i == 0? ' selected':'')+">" + nm + "</option>");
       }
-    }
+      updateGiveawayByMonth();
+
     
-    updateGiveawayByMonth();
-    
-    $('#giveaway-month-selection').on('change', function (e) {
+      $('#giveaway-series-selection').on('change', function (e) {
         if (!$('#information').is(':visible')) {
           $('.loading').addClass("active");
         }
         var optionSelected = $("option:selected", this);
-        supportMonth = this.value;
-        supportMonthName = optionSelected.text();
+        currentSeries = this.value;
+        // supportMonthName = optionSelected.text();
         updateGiveawayByMonth();
         setParticipantsOverviewHint();
+      });
+
     });
+
 
     $('#read_more').on('click', function() {
       $('#general-info').show();
@@ -279,11 +287,11 @@
   function setParticipantsOverviewHint() {
     var rnd = $("#giveaway-round-selection").children("option").filter(":selected").attr('value');
     var rndtxt = $("#giveaway-round-selection").children("option").filter(":selected").text();
-    var currentMonth  = $("#giveaway-month-selection").children("option").filter(":selected").text();
+    var currentS  = $("#giveaway-series-selection").children("option").filter(":selected").text();
     if(rnd == "" ) {
-      $('#overview-giveaway_options').text(currentMonth);
+      $('#overview-giveaway_options').text(currentS);
     } else {
-      $('#overview-giveaway_options').text(currentMonth + " - " + rndtxt);
+      $('#overview-giveaway_options').text(currentS + " - " + rndtxt);
     }
   }
   

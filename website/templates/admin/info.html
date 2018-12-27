@@ -14,6 +14,7 @@
   		<li class="active"><a data-toggle="tab" href="#home">Status</a></li>
   		<li><a data-toggle="tab" href="#motd">Push</a></li>
   		<li><a data-toggle="tab" href="#subs">Subscriptions</a></li>
+  		<li><a data-toggle="tab" href="#giveaway">Giveaway</a></li>
   		<li><a data-toggle="tab" href="#audience">Audience</a></li>
 	</ul>
 	
@@ -60,12 +61,12 @@
 					<th>Filter</th>
 					<th>Messages</th>
 				</tr>
-			<tr th:each="di : ${motdSettings.getDiscountSettings()}">
-				<td th:text="${di.discountCondition.checkActiveDate(new java.util.Date()) ? 'yes' : 'no'}"></td>
-				<td><a  th:text="${di.file}" th:href="'https://github.com/osmandapp/osmandapp.github.io/blob/master/website/api/messages/' + ${di.file}"></a></td>
-				<td th:text="${di.discountCondition.getFilterCondition()}"></td>
-				<td th:text="${di.fields}"></td>
-			</tr>
+				<tr th:each="di : ${motdSettings.getDiscountSettings()}">
+					<td th:text="${di.discountCondition.checkActiveDate(new java.util.Date()) ? 'yes' : 'no'}"></td>
+					<td><a  th:text="${di.file}" th:href="'https://github.com/osmandapp/osmandapp.github.io/blob/master/website/api/messages/' + ${di.file}"></a></td>
+					<td th:text="${di.discountCondition.getFilterCondition()}"></td>
+					<td th:text="${di.fields}"></td>
+				</tr>
 			</table>
   		</div>
 
@@ -148,9 +149,77 @@
 		</div>
 
 
+		<div id="giveaway" class="tab-pane fade">
+
+			<h3>Giveaway campaigns:</h3>
+			<span>Create giveaway campaign public or nonpublic and change status to run. You need to send out email with participation links with <a href="https://builder.osmand.net:8080/view/WebSite/job/Website_SendMail/">Send mail</a> utility.</span>
+			<table border="1">
+				<tr>
+					<th>Name</th>
+					<th>Type</th>
+					<th>Rounds</th>
+					<th>Used / Promos</th>
+					<th>Status</th>
+					<th>Email template</th>
+					<th>Update date</th>
+				</tr>
+				<tr th:each="di : ${giveaways}">
+					<td th:text="${di.name}">name</td>
+					<td th:text="${di.type}">type</td>
+					<td th:text="${di.rounds}">0</td>
+					<td th:text="${di.usedPromocodes() + ' / ' + di.promocodesSize()}">dss</td>
+					<td>
+						<form action="update-giveaway-status" method="post">
+							<input type="hidden" name="name" th:value="${di.name}"/>
+							<select name="status">
+								<option th:text="${di.status}" value=""></option>
+								<option value="NOTPUBLIC">* NOTPUBLIC</option>
+								<option value="DRAFT">* DRAFT</option>
+								<option value="PREPARE">* PREPARE</option>
+								<option value="RUNNING">* RUNNING</option>
+								<option value="FINISHED">* FINISHED</option>
+							</select>
+							<input type="submit" name="upvote" value="update"/>
+						</form>
+					</td>
+					<td th:text="${di.emailTemplate}"></td>
+					<td th:text="${#dates.format(di.updateTime, 'dd-MM-yyyy HH:mm')}"></td>
+				
+				</tr>
+			</table>
+			<div class="register-giveaway"> 
+				<form action="register-giveaway" method="post">
+				<ul class="wrapper">
+    				<li class="form-row">
+						<label for="name">Name (suffix):</label>
+						<input type="text" name="name">
+					</li>
+					<li class="form-row">
+						<label for="type">Type ('osmand+', 'ios-world'):</label>
+						<input type="text" name="type">
+					</li>
+					<li class="form-row">
+						<label for="promocodes">Promocodes (split by ','):</label> 
+						<input type="textarea" name="promocodes">
+					</li>
+					<li class="form-row">
+						<label for="public">Email template (sendgrid):</label> 
+						<input type="text" name="emailTemplate">
+					</li>
+					<li class="form-row">
+						<label for="public">Public (visible on web):</label> 
+						<input type="checkbox" name="public">
+					</li>
+					<li class="form-row">
+						<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+						<button type="submit"> Create new giveaway</button>
+					</li>
+				
+				</form>
+			</div>
+		</div>
+
 		<div id="audience" class="tab-pane fade">
-
-
 
 
 			<h3>Audience surveys (polls):</h3>
