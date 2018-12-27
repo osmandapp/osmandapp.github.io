@@ -3025,6 +3025,12 @@ a,a:visited
   max-height: 100%;
 }
 
+#giveaway_image {
+  background-image: url(/images/giveaway_image.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 @media screen and (max-width: 1100px) {
   .giveaway .right {
     width: 100%;
