@@ -138,8 +138,11 @@
         );
         tableData = [];
         for(var ri = 0; ri < roundParticipants.length; ri++) {
-          var person = {hashcode:roundParticipants[ri], 
-              status:rnd.winner == roundParticipants[ri] ? 'Winner' : 'Participated'};
+          var person = {
+              hashcode : roundParticipants[ri], 
+              status : rnd.winner == roundParticipants[ri] ? 'Winner' : 'Participated',
+              date : ''
+            };
           tableData.push(person);
         }
     } else {
