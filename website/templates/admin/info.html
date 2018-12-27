@@ -5,7 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/css/admin.css?v=3">
+	<link rel="stylesheet" href="/css/admin.css?v=4">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
@@ -213,6 +213,29 @@
 					<li class="form-row">
 						<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 						<button type="submit"> Create new giveaway</button>
+					</li>
+				
+				</form>
+			</div>
+
+			<div class="send-private-giveaway"> 
+				<form action="send-private-giveaway" method="post">
+				<ul class="wrapper">
+    				<li class="form-row">
+						<label for="name">Private giveaway name:</label>
+						<input type="text" name="name">
+					</li>
+					<li class="form-row">
+						<label for="email">Email/emails:</label>
+						<input type="text" name="email">
+					</li>
+					<li class="form-row">
+						<label for="promocodes">Amount promocodes:</label> 
+						<input type="number" name="promocodes">
+					</li>
+					<li class="form-row">
+						<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+						<button type="submit"> Send promocodes</button>
 					</li>
 				
 				</form>
