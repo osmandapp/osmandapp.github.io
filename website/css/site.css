@@ -3005,10 +3005,6 @@ a,a:visited
   font-size: 18px;
 }
 
-.right {
-  float: right;
-}
-
 .giveaway .left {
   width: 50%;
   float: left;
@@ -3023,12 +3019,6 @@ a,a:visited
 .giveaway img {
   max-width: 100%;
   max-height: 100%;
-}
-
-#giveaway_image {
-  background-image: url(/images/giveaway_image.jpg);
-  background-repeat: no-repeat;
-  background-size: contain;
 }
 
 @media screen and (max-width: 1100px) {
