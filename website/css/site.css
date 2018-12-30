@@ -3091,6 +3091,20 @@ a,a:visited
   cursor: pointer;
 }
 
+.giveaway-submit-disabled {
+   background: #666;
+}
+
+.giveaway-submit-success {
+   background: green;
+}
+
+#register_giveaway_success, #register_giveaway_failed {
+  margin-top: 8px;
+  font-weight: 400;
+}
+
+
 .giveaway-email {
   flex-grow:1;
   margin-right:24px;

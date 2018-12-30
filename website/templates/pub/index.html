@@ -267,13 +267,16 @@
               <label for="giveaway-ios">iOS</label>
             </div>
           </div>
-          <div class="giveaway-form-subtitle">Enter your email address:</div>
+          <div class="giveaway-form-subtitle">Enter your email address to participate:</div>
           <div class="giveaway-form-user">
             <input type="text" class="giveaway-email" id="email" name="email">
-            <button type="submit" id="register_giveaway" class="giveaway-submit">Subscribe</button>
+            <button type="submit" id="register_giveaway" class="giveaway-submit giveaway-submit-disabled" disabled>Subscribe</button>
           </div>
         </form>
+        <div id="register_giveaway_failed" style="display:none">Registration has failed :(</div>
+        <div id="register_giveaway_success" style="display:none">Thank you for your subscription :)</div>
       </div>
+
     </div>
     <div class="giveaway-picture">
       </div> 
@@ -392,6 +395,35 @@
 
     $('.selectbox').on('click', function() {
       $(this).toggleClass('active');
+    });
+
+
+    $("#register_email").on('input', function() {
+      var email = $("#email").val();
+      if(email != "" && email.indexOf('@') != -1 && email.indexOf('.') != -1) {
+          $("#register_giveaway").removeAttr( "disabled" );
+          $("#register_giveaway").removeClass("giveaway-submit-disabled");
+      } else {
+          $("#register_giveaway").prop( "disabled", true );
+          $("#register_giveaway").addClass("giveaway-submit-disabled");
+      }
+    });
+    $("#register_giveaway").click(function( event ) {
+      event.preventDefault(); 
+      $.post("/subscription/register_email", $("#register_email").serialize(), function(res) {
+          var data = res;
+          if (data.error) {
+            $("#register_giveaway_failed").fadeIn(100);
+            $("#register_giveaway_failed").html(data.error);
+          } else {
+            $("#register_giveaway_failed").fadeOut(0);
+            $("#register_giveaway_success").fadeIn(100); 
+            $("#register_giveaway").text("\u2714\uFE0F"); 
+            $("#register_giveaway").addClass( "giveaway-submit-success");
+            $("#register_giveaway").prop( "disabled", true );
+
+          }     
+      });
     });
 
     if ($(window).width() < 1100) {
