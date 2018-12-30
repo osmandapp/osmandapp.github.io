@@ -247,27 +247,36 @@
     <h2>OsmAnd Giveaway</h2>
   </div>
   <div class="giveaway">
-    <div class="right">
-      <img src="/images/giveaway_image.jpg">
-    </div> 
-    <div class="left">
+    <div class="giveaway-message">
       <div class="giveaway-content">
           <p>We know that not everyone is able to purchase OsmAnd on Google Play / Amazon store due to various reasons, but many of you would still like to support the application by using it and spreading it around the world. 
           <br>
           <br>We are proud of our community, so we have decided to give away OsmAnd licenses as part of small entertaining game. </p>
           <a href="https://osmand.net/giveaway">Read more</a>
       </div>
-      <!-- 
       <div class="giveaway-form">
-        <form role="form" action="subscription/register_osm" method="post" id="register_osm" style="float:left;">
-          <label for="osm_usr">Enter your email address:</label>
-          <input type="text" class="form-control" id="osm_usr" name="osm_usr">
-          </form>
-          <button type="submit" id="register_giveaway" class="button-right" style="float: right;">Confirm</button>
+        <form role="form" action="subscription/register_email" method="post" id="register_email">
+          <div class="giveaway-form-subtitle first-subtitle">I'm using OsmAnd on:</div>
+          <div class="giveaway-form-devices">
+            <div class="giveaway-form-device">
+              <input type="radio" id="giveaway-android" name="os" value="android"/>
+              <label for="giveaway-android">Android</label>
+            </div>
+            <div class="giveaway-form-device">
+              <input type="radio" id="giveaway-android" name="os" value="ios"/>
+              <label for="giveaway-ios">iOS</label>
+            </div>
+          </div>
+          <div class="giveaway-form-subtitle">Enter your email address:</div>
+          <div class="giveaway-form-user">
+            <input type="text" class="giveaway-email" id="email" name="email">
+            <button type="submit" id="register_giveaway" class="giveaway-submit">Subscribe</button>
+          </div>
+        </form>
       </div>
-      -->
     </div>
-    
+    <div class="giveaway-picture">
+      </div> 
   </div>
 
   <div class="blogcontainerwrap">
