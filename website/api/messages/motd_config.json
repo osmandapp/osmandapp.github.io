@@ -38,15 +38,15 @@
 		},
 		{
 			"condition": {
-				"start_date": "20-12-2018 20:00",
-				"end_date": "25-12-2018 23:59",
+				"start_date": "30-12-2018 00:00",
+				"end_date": "31-12-2018 02:59",
 				"os": "android",
 				"lang" :"ru"
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "Карты без ограничений и годовая подписка -50%",
-				"description": "Рождественская распродажа!"
+				"message": "Годовая подписка -50%",
+				"description": "Новогодняя распродажа на годовую подписку!"
 			}
 		},
 		{
@@ -65,15 +65,15 @@
 		},
 		{
 			"condition": {
-				"start_date": "20-12-2018 20:00",
-				"end_date": "25-12-2018 23:59",
+				"start_date": "30-12-2018 00:00",
+				"end_date": "31-12-2018 02:59",
 				"os": "android",
 				"lang" :"es"
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "Tarjetas ilimitadas y suscripción anual -50%",
-				"description": "Venta de navidad"
+				"message": "Suscripción anual -50%",
+				"description": "¡Venta navideña para una suscripción anual!"
 			}
 		},
 		{
@@ -92,15 +92,15 @@
 		},
 		{
 			"condition": {
-				"start_date": "20-12-2018 20:00",
-				"end_date": "25-12-2018 23:59",
+				"start_date": "30-12-2018 00:00",
+				"end_date": "31-12-2018 02:59",
 				"os": "android",
 				"lang" :"fr"
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "Cartes illimitées et abonnement annuel -50%",
-				"description": "Vente de Noël!"
+				"message": "Abonnement annuel -50%",
+				"description": "Vente de Noël pour un abonnement annuel!"
 			}
 		},
 		{
@@ -119,15 +119,15 @@
 		},
 		{
 			"condition": {
-				"start_date": "20-12-2018 20:00",
-				"end_date": "25-12-2018 23:59",
+				"start_date": "30-12-2018 00:00",
+				"end_date": "31-12-2018 02:59",
 				"os": "android",
 				"lang" :"nl"
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "Onbeperkte kaarten en jaarabonnement -50% Korting!",
-				"description": "Kerst verkoop!"
+				"message": "Jaarabonnement -50% Korting!",
+				"description": "Kerstverkoop voor een jaarabonnement!"
 			}
 		},
 		{
@@ -146,15 +146,15 @@
 		},
 		{
 			"condition": {
-				"start_date": "20-12-2018 20:00",
-				"end_date": "25-12-2018 23:59",
+				"start_date": "30-12-2018 00:00",
+				"end_date": "31-12-2018 02:59",
 				"os": "android",
 				"lang" :"it"
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "Carte illimitate e abbonamento annuale -50%",
-				"description": "Vendita di Natale!"
+				"message": "Abbonamento annuale -50%",
+				"description": "Vendita natalizia per un abbonamento annuale!"
 			}
 		},
 		{
@@ -173,15 +173,15 @@
 		},
 		{
 			"condition": {
-				"start_date": "20-12-2018 20:00",
-				"end_date": "25-12-2018 23:59",
+				"start_date": "30-12-2018 00:00",
+				"end_date": "31-12-2018 02:59",
 				"os": "android",
 				"lang" :"de"
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "Unbegrenzte Karten-Downloads und Jahresabonnement -50%",
-				"description": "Weihnachtsverkauf!"
+				"message": "Jahresabonnement -50%",
+				"description": "Weihnachtsverkauf für ein Jahresabonnement!"
 			}
 		},
 		{
@@ -199,14 +199,14 @@
 		},
 		{
 			"condition": {
-				"start_date": "20-12-2018 20:00",
-				"end_date": "25-12-2018 23:59",
+				"start_date": "30-12-2018 20:00",
+				"end_date": "31-12-2018 02:59",
 				"os": "android"
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "Unlimited map downloads and annual subscription -50%!",
-				"description": "Christmas SALE!"
+				"message": "Annual subscription -50%!",
+				"description": "New Year sale for an annual subscription!"
 			}
 		},
 		{
