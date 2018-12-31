@@ -26,7 +26,7 @@
 			"condition": {
 				"ip" : "46.53.209.12",
 				"start_date": "31-12-2018 05:00",
-				"end_date": "31-12-2018 15:00",
+				"end_date": "31-12-2018 15:00"
 							},
 			"file": "quiz.json",
 			"fields": {}
