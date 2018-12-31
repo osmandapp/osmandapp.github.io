@@ -1,0 +1,19 @@
+{
+  "message" : "OsmAnd New Year Quiz",
+  "description" : "Try to our quiz and win promocode of OsmAnd",
+  "show_start_frequency" : 1,
+  "show_day_frequency" : 1,
+  "max_total_show" : 1,
+  "icon" : "ic_action_help",
+  "status_bar_color": "#fec601",
+  "icon_color" : "#ffffff",
+  "bg_color" : "#fec601",
+  "title_color" : "#000000",
+  "description_color" : "#000000", 
+  "url" : "https://goo.gl/forms/TXI0p9X5MxrmdtIs2",
+  "application" : {
+    "net.osmand" : true,
+    "net.osmand.plus" : true
+
+  }
+}
