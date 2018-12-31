@@ -25,7 +25,7 @@
 		{
 			"condition": {
 				"start_date": "31-12-2018 05:00",
-				"end_date": "31-12-2018 17:00",
+				"end_date": "31-12-2018 16:00",
 				"lang" :"en"
 							},
 			"file": "quiz.json",
