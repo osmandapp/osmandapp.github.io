@@ -227,7 +227,9 @@
 				<ul class="wrapper">
     				<li class="form-row">
 						<label for="name">Private giveaway name:</label>
-						<input type="text" name="name" th:value="${giveaways.size() > 0 ? giveaways[0].name : ''}"></input>
+						<select name="name" th:each="di : ${giveaways}">
+							<option value="${di.name}" th:text="${di.name}"> </option>
+						</select>
 					</li>
 					<li class="form-row">
 						<label for="email">Email/emails:</label>
