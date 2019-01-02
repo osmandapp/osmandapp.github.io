@@ -227,7 +227,7 @@
 				<ul class="wrapper">
     				<li class="form-row">
 						<label for="name">Private giveaway name:</label>
-						<input type="text" name="name" th:value="${giveaways.size() > 0 ? giveaways[0].name : ''}"></input>
+						<input type="text" name="name" th:value="${giveaways.size() > 0 }? ${giveaways[0].name} : ''}"></input>
 					</li>
 					<li class="form-row">
 						<label for="email">Email/emails:</label>
