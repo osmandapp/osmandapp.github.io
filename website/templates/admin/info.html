@@ -228,7 +228,7 @@
     				<li class="form-row">
 						<label for="name">Private giveaway name:</label>
 						<select name="name" >
-							<option th:each="di,iter : ${giveaways}" value="${di.name}" th:text="${di.name}"
+							<option th:each="di,iter : ${giveaways}" th:value="${di.name}" th:text="${di.name}"
 							th:selected="${iter.index == 0}"> </option>
 						</select>
 					</li>
