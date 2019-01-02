@@ -227,19 +227,19 @@
 				<ul class="wrapper">
     				<li class="form-row">
 						<label for="name">Private giveaway name:</label>
-						<input type="text" name="name">
+						<input type="text" name="name" >${giveaways[0].name}</input>
 					</li>
 					<li class="form-row">
 						<label for="email">Email/emails:</label>
-						<input type="text" name="email">
+						<input type="text" name="email" />
 					</li>
 					<li class="form-row">
 						<label for="promocodes">Amount promocodes:</label> 
-						<input type="number" name="promocodes">
+						<input type="number" name="promocodes">1</input>
 					</li>
 					<li class="form-row">
 						<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-						<button type="submit"> Send promocodes</button>
+						<button type="submit">Send promocodes</button>
 					</li>
 				
 				</form>
