@@ -227,7 +227,7 @@
 				<ul class="wrapper">
     				<li class="form-row">
 						<label for="name">Private giveaway name:</label>
-						<select name="name" >
+						<select name="name" form="send-private-giveaway" >
 							<option th:each="di : ${giveaways}" value="${di.name}" th:text="${di.name}"> </option>
 						</select>
 					</li>
