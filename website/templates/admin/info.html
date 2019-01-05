@@ -369,17 +369,18 @@
 				
 			</div>
 
-			<div style="display:none;margin-bottom:250px" id="display-users-report-div">
+			<div style="display:none;margin-bottom:500px" id="display-users-report-div">
 				<h3><input type="submit" value="<" id="prev-user" ></input>
 					User <span id="user-report-index" ></span> of <span id="user-report-length" ></span> 
 					<input type="submit" value=">" id="next-user" ></input>
 				</h3>
+				<p>Performed <span id="user-report-actions"></span> at <span id="user-report-start-time"></span></span>
 				<table border="1" id ="user-report-table">
 					<tr>
 						<th>Time</th>
 						<th>Ip</th>
-						<th>Action</th>
 						<th>Region</th>
+						<th>Action</th>
 						<th>Params</th>
 					</tr>
 				</table>
@@ -395,6 +396,8 @@
 		  $("#user-report-table").find("tr:gt(0)").remove();
 		  if(index < people.length) {
 		  		var p = people[index];
+		  		$("#user-report-actions").text(p.actions.length);
+		  		$("#user-report--start-time").text(p.actions[0].timeFormat);
 		  		for(var i = 0; i < p.actions.length; i++) {
 		  			var action = p.actions[i];
 		  		
