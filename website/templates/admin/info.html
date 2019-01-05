@@ -327,8 +327,8 @@
 			
 			<h3>Access server logs:</h3>
 			<div class="access-server-logs"> 
-				<form target="_blank" action="access-logs">
-					<ul class="wrapper">
+				<ul class="wrapper">
+					<form target="_blank" action="access-logs" id="logs-form">
 						<li class="form-row">
 							<label for="name">Start time:</label>
 					 		<input type="datetime-local" name="starttime"/>
@@ -361,18 +361,86 @@
 							<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 							<input type="submit" value="Load"></input>
 						</li>
-					</ul>
-				</form>
+					</form>
+					<li class="form-row">
+						<input type="submit" value="Display users" id="display-report"></input>
+					</li>
+				</ul>
+				
+			</div>
+
+			<div style="display:none;margin-bottom:250px" id="display-users-report-div">
+				<h3><input type="submit" value="<" id="prev-user" ></input>
+					User <span id="user-report-index" ></span> of <span id="user-report-length" ></span> 
+					<input type="submit" value=">" id="next-user" ></input>
+				</h3>
+				<table border="1" id ="user-report-table">
+					<tr>
+						<th>Time</th>
+						<th>Ip</th>
+						<th>Action</th>
+						<th>Region</th>
+						<th>Params</th>
+					</tr>
+				</table>
 			</div>
 		</div>
   	</div>
 	<script type="text/javascript">
+	var people = [];
+	var index = 0;
+	function updatePerson() {
+		  $("#user-report-index").text(index + 1);
+		  $("#user-report-length").text(people.length);
+		  $("#user-report-table").find("tr:gt(0)").remove();
+		  if(index < people.length) {
+		  		var p = people[index];
+		  		for(var i = 0; i < p.actions.length; i++) {
+		  			var action = p.actions[i];
+		  		
+		  			var markup = "<tr>"+
+		  					"<td>"+action.timeFormat + "</td>"+
+		  					"<td>"+action.ip+"</td>"+
+		  					"<td>"+action.region + "</td>"+
+		  					"<td>"+action.uri + "</td>"+
+		  					"<td>" + JSON.stringify(action.params) + "</td>"+
+		  					"</tr>";
+            		$("#user-report-table").append(markup);
+            	}
+		  }
+	}
+
 	$(document).ready(function() {
     	if (location.hash) {
         	$("a[href='" + location.hash + "']").tab("show");
     	}
     	$(document.body).on("click", "a[data-toggle]", function(event) {
         	location.hash = this.getAttribute("href");
+    	});
+
+    	$("#next-user").on("click", function() {
+    		if(index + 1 < people.length) {
+    			index = index + 1;
+    			updatePerson();
+    		}
+    	});
+
+    	$("#prev-user").on("click", function() {
+    		if(index > 0) {
+    			index = index - 1;
+    			updatePerson();
+    		}
+    	});
+    	$("#display-report").on("click", function() {
+			$.ajax({
+  				url: "access-logs?" + $("#logs-form").serialize() + "&behavior=on"
+			}).done(function(res) {
+				var r = jQuery.parseJSON(res);
+				$("#display-users-report-div").show();
+				people = r.accounts;
+				index = 0;
+				updatePerson();
+			});
     	});
 	});
 	$(window).on("popstate", function() {
