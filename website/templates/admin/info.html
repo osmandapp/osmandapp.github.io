@@ -374,7 +374,7 @@
 					User <span id="user-report-index" ></span> of <span id="user-report-length" ></span> 
 					<input type="submit" value=">" id="next-user" ></input>
 				</h3>
-				<p>Performed <span id="user-report-actions"></span> at <span id="user-report-start-time"></span></span>
+				<p>User <span id="user-report-id"></span> performed <span id="user-report-actions"></span> actions at <span id="user-report-start-time"></span> for <span id="user-report-duration"></span>.</p>
 				<table border="1" id ="user-report-table">
 					<tr>
 						<th>Time</th>
@@ -397,7 +397,9 @@
 		  if(index < people.length) {
 		  		var p = people[index];
 		  		$("#user-report-actions").text(p.actions.length);
-		  		$("#user-report--start-time").text(p.actions[0].timeFormat);
+		  		$("#user-report-id").text(p.aid);
+		  		$("#user-report-start-time").text(p.actions[0].timeFormat);
+		  		$("#user-report-duration").text(p.duration);
 		  		for(var i = 0; i < p.actions.length; i++) {
 		  			var action = p.actions[i];
 		  		
