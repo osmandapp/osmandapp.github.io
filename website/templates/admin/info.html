@@ -370,7 +370,7 @@
 
 			<div style="display:none;margin-bottom:500px" id="display-users-report-div">
 				<h3><input type="submit" value="<" id="prev-user" ></input>
-					User <span id="user-report-index" ></span> of <span id="user-report-length" ></span> 
+					<span id="user-report-header" ></span>
 					<input type="submit" value=">" id="next-user" ></input>
 				</h3>
 				<p>User <span id="user-report-id"></span> performed <span id="user-report-actions"></span> actions at <span id="user-report-start-time"></span> for <span id="user-report-duration"></span>.</p>
@@ -386,7 +386,7 @@
 			</div>
 
 			<div style="display:none;margin-bottom:500px" id="display-stats-report-div">
-				<h3>Stats</h3>
+				<h3 id="stats-header">Stats</h3>
 				
 				<table border="1" id ="stats-report-table">
 					<tr>
@@ -404,11 +404,13 @@
 
 	var people = [];
 	var index = 0;
+	var begin = '';
+	var end = '';
 	var stats = {};
 
 	function updatePerson() {
-		$("#user-report-index").text(index + 1);
-		$("#user-report-length").text(people.length);
+		$("#user-report-header").text( 'User ' + (index + 1) + 
+			' of ' + people.length + ' ( ' + begin + ' - ' + end + ' ) ' );
 		$("#user-report-table").find("tr:gt(0)").remove();
 		if(index < people.length) {
 			var p = people[index];
@@ -432,7 +434,7 @@
 
 	function updateStats() {
 		$("#stats-report-table").find("tr:gt(0)").remove();
-
+		$("#stats-header").text( 'Statistics ' + stats.length + ' ( ' + begin + ' - ' + end + ' ) ' );
 		for (var k in stats) {
 			var v = stats[k];
 			var fw = '';
@@ -478,7 +480,10 @@
 			$.ajax({
   				url: "access-logs?" + $("#logs-form").serialize() + "&stats=on"
 			}).done(function(res) {
-				stats = jQuery.parseJSON(res);
+				var r = jQuery.parseJSON(res);
+				stats = r.stats;
+				begin = r.begin;
+				end = r.end;
 				$("#display-stats-report-div").show();
 				updateStats();
 			});
@@ -490,6 +495,8 @@
 				var r = jQuery.parseJSON(res);
 				$("#display-users-report-div").show();
 				people = r.accounts;
+				begin = r.begin;
+				end = r.end;
 				index = 0;
 				updatePerson();
 			});
