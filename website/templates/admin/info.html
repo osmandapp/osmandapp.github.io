@@ -365,6 +365,9 @@
 					<li class="form-row">
 						<input type="submit" value="Display users" id="display-report"></input>
 					</li>
+					<li class="form-row">
+						<input type="submit" value="Display stats" id="display-stats"></input>
+					</li>
 				</ul>
 				
 			</div>
@@ -385,34 +388,69 @@
 					</tr>
 				</table>
 			</div>
+
+			<div style="display:none;margin-bottom:500px" id="display-stats-report-div">
+				<h3>Stats</h3>
+				
+				<table border="1" id ="stats-report-table">
+					<tr>
+						<th>Action</th>
+						<th>Count</th>
+						<th>Unique count</th>
+						<th>Follow ups</th>
+					</tr>
+				</table>
+			</div>
 		</div>
   	</div>
 	<script type="text/javascript">
+
 	var people = [];
 	var index = 0;
+	var stats = {};
+
 	function updatePerson() {
-		  $("#user-report-index").text(index + 1);
-		  $("#user-report-length").text(people.length);
-		  $("#user-report-table").find("tr:gt(0)").remove();
-		  if(index < people.length) {
-		  		var p = people[index];
-		  		$("#user-report-actions").text(p.actions.length);
-		  		$("#user-report-id").text(p.aid);
-		  		$("#user-report-start-time").text(p.actions[0].timeFormat);
-		  		$("#user-report-duration").text(p.duration);
-		  		for(var i = 0; i < p.actions.length; i++) {
-		  			var action = p.actions[i];
-		  		
-		  			var markup = "<tr>"+
-		  					"<td>"+action.timeFormat + "</td>"+
-		  					"<td>"+action.ip+"</td>"+
-		  					"<td>"+action.region + "</td>"+
-		  					"<td>"+action.uri + "</td>"+
-		  					"<td>" + JSON.stringify(action.params) + "</td>"+
-		  					"</tr>";
-            		$("#user-report-table").append(markup);
-            	}
-		  }
+		$("#user-report-index").text(index + 1);
+		$("#user-report-length").text(people.length);
+		$("#user-report-table").find("tr:gt(0)").remove();
+		if(index < people.length) {
+			var p = people[index];
+			$("#user-report-actions").text(p.actions.length);
+			$("#user-report-id").text(p.aid);
+			$("#user-report-start-time").text(p.actions[0].timeFormat);
+			$("#user-report-duration").text(p.duration);
+			for(var i = 0; i < p.actions.length; i++) {
+				var action = p.actions[i];
+				var markup = "<tr>"+
+						"<td>"+action.timeFormat + "</td>"+
+						"<td>"+action.ip+"</td>"+
+						"<td>"+action.region + "</td>"+
+						"<td>"+action.uri + "</td>"+
+						"<td>" + JSON.stringify(action.params) + "</td>"+
+						"</tr>";
+				$("#user-report-table").append(markup);
+			}
+		}
+	}
+
+	function updateStats() {
+		$("#stats-report-table").find("tr:gt(0)").remove();
+
+		for (var k in stats) {
+			var v = stats[k];
+			var fw = '';
+			for (var ks in v.followUps) {
+				fw = fw + ks + ' ' + (v.followUps[ks]/10.0) + '% <br>';
+			}
+			var markup = "<tr>"+
+				"<td>"+v.uri + "</td>"+
+				"<td>"+v.count+"</td>"+
+				"<td>"+v.uniqueCount + "</td>"+
+				"<td>" + fw + "</td>"+
+				"</tr>";
+			$("#stats-report-table").append(markup);
+		}
+
 	}
 
 	$(document).ready(function() {
@@ -435,6 +473,15 @@
     			index = index - 1;
     			updatePerson();
     		}
+    	});
+    	$("#display-stats").on("click", function() {
+			$.ajax({
+  				url: "access-logs?" + $("#logs-form").serialize() + "&stats=on"
+			}).done(function(res) {
+				stats = jQuery.parseJSON(res);
+				$("#display-stats-report-div").show();
+				updateStats();
+			});
     	});
     	$("#display-report").on("click", function() {
 			$.ajax({
