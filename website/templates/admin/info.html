@@ -5,7 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/css/admin.css?v=6">
+	<link rel="stylesheet" href="/css/admin.css?v=7">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
@@ -364,6 +364,9 @@
 					<li class="form-row">
 						<input type="submit" value="Display stats" id="display-stats"></input>
 					</li>
+					<li class="form-row">
+						<div id="loading-progress" class="loader" style="display:none"></div>
+					</li>
 				</ul>
 				
 			</div>
@@ -408,9 +411,10 @@
 	var end = '';
 	var stats = {};
 
+
 	function updatePerson() {
 		$("#user-report-header").text( 'User ' + (index + 1) + 
-			' of ' + people.length + ' ( ' + begin + ' - ' + end + ' ) ' );
+			' of ' + people.length + ' (' + begin + ' - ' + end + ') ' );
 		$("#user-report-table").find("tr:gt(0)").remove();
 		if(index < people.length) {
 			var p = people[index];
@@ -434,7 +438,7 @@
 
 	function updateStats() {
 		$("#stats-report-table").find("tr:gt(0)").remove();
-		$("#stats-header").text( 'Statistics ' + stats.length + ' ( ' + begin + ' - ' + end + ' ) ' );
+		$("#stats-header").text( 'Statistics ' + Object.keys(stats).length + ' (' + begin + ' - ' + end + ')' );
 		for (var k in stats) {
 			var v = stats[k];
 			var fw = '';
@@ -477,9 +481,11 @@
     		}
     	});
     	$("#display-stats").on("click", function() {
+    		$('#loading-progress').show();
 			$.ajax({
   				url: "access-logs?" + $("#logs-form").serialize() + "&stats=on"
-			}).done(function(res) {
+			}).done(function(res) {				
+				$('#loading-progress').hide();
 				var r = jQuery.parseJSON(res);
 				stats = r.stats;
 				begin = r.begin;
@@ -489,9 +495,11 @@
 			});
     	});
     	$("#display-report").on("click", function() {
+    		$('#loading-progress').show();
 			$.ajax({
   				url: "access-logs?" + $("#logs-form").serialize() + "&behavior=on"
 			}).done(function(res) {
+				$('#loading-progress').hide();
 				var r = jQuery.parseJSON(res);
 				$("#display-users-report-div").show();
 				people = r.accounts;
