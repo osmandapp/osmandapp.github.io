@@ -350,10 +350,6 @@
 							<input type="checkbox" name="gzip" />
 						</li>
 						<li class="form-row">
-							<label for="name">Behavior analysis:</label>
-							<input type="checkbox" name="behavior" />
-						</li>
-						<li class="form-row">
 							<label for="name">Limit records: </label>
 							<input type="number" value="10000" name="limit" />
 						</li>
@@ -397,6 +393,7 @@
 						<th>Action</th>
 						<th>Count</th>
 						<th>Unique count</th>
+						<th>Session after</th>
 						<th>Follow ups</th>
 					</tr>
 				</table>
@@ -440,12 +437,15 @@
 			var v = stats[k];
 			var fw = '';
 			for (var ks in v.followUps) {
-				fw = fw + ks + ' ' + (v.followUps[ks]/10.0) + '% <br>';
+				fw = fw + ' ' + ks + ' (' + (v.followUps[ks]/10.0) + '%, ';
+				fw = fw + (v.followUpTimes[ks]) + ' sec)';
+				fw = fw + ';&nbsp;&nbsp;';
 			}
 			var markup = "<tr>"+
 				"<td>"+v.uri + "</td>"+
 				"<td>"+v.count+"</td>"+
 				"<td>"+v.uniqueCount + "</td>"+
+				"<td>"+v.session + " sec</td>"+
 				"<td>" + fw + "</td>"+
 				"</tr>";
 			$("#stats-report-table").append(markup);
