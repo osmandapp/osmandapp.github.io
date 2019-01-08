@@ -367,6 +367,9 @@
 					<li class="form-row">
 						<div id="loading-progress" class="loader" style="display:none"></div>
 					</li>
+					<li class="form-row">
+						<span id="loaded-info" style="display:none"></span>
+					</li>
 				</ul>
 				
 			</div>
@@ -413,8 +416,7 @@
 
 
 	function updatePerson() {
-		$("#user-report-header").text( 'User ' + (index + 1) + 
-			' of ' + people.length + ' (' + begin + ' - ' + end + ') ' );
+		$("#user-report-header").text( 'User ' + (index + 1) + ' of ' + people.length );
 		$("#user-report-table").find("tr:gt(0)").remove();
 		if(index < people.length) {
 			var p = people[index];
@@ -436,9 +438,15 @@
 		}
 	}
 
+	function updateLoadedInfo(r) {
+		$('#loaded-info').show();
+		$('#loaded-info').html("Scanned <b>" + r.rows + "</b> (" + r.errors + " errors) from <b>" 
+			+ r.begin + "</b> to <b>" +r.end + "</b>");
+	}
+
 	function updateStats() {
 		$("#stats-report-table").find("tr:gt(0)").remove();
-		$("#stats-header").text( 'Statistics ' + Object.keys(stats).length + ' (' + begin + ' - ' + end + ')' );
+		$("#stats-header").text( 'Statistics ' + Object.keys(stats).length);
 		for (var k in stats) {
 			var v = stats[k];
 			var fw = '';
@@ -482,11 +490,13 @@
     	});
     	$("#display-stats").on("click", function() {
     		$('#loading-progress').show();
+    		$('#loaded-info').hide();
 			$.ajax({
   				url: "access-logs?" + $("#logs-form").serialize() + "&stats=on"
 			}).done(function(res) {				
 				$('#loading-progress').hide();
 				var r = jQuery.parseJSON(res);
+				updateLoadedInfo(r);
 				stats = r.stats;
 				begin = r.begin;
 				end = r.end;
@@ -496,11 +506,13 @@
     	});
     	$("#display-report").on("click", function() {
     		$('#loading-progress').show();
+    		$('#loaded-info').hide();
 			$.ajax({
   				url: "access-logs?" + $("#logs-form").serialize() + "&behavior=on"
 			}).done(function(res) {
 				$('#loading-progress').hide();
 				var r = jQuery.parseJSON(res);
+				updateLoadedInfo(r);
 				$("#display-users-report-div").show();
 				people = r.accounts;
 				begin = r.begin;
