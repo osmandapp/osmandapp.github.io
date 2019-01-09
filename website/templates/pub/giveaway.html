@@ -73,7 +73,6 @@
               </div>
           </div>
           
-          <table id="support-country-table" class="table table-bordered" cellspacing="0" width="100%"></table>
           <h4 class="vlabel" for="support-table" id="support-table-header">Giveaway participants</h4>
           <div class="table-controls support-controls">
             <div class="tc search">
@@ -116,6 +115,21 @@
    return currTimeString.substring(currTimeString.indexOf(" "), currTimeString.lastIndexOf(":"));
   }
   
+  
+  function ordinal_suffix_of(i) {
+    var j = i % 10,
+        k = i % 100;
+    if (j == 1 && k != 11) {
+        return i + "st";
+    }
+    if (j == 2 && k != 12) {
+        return i + "nd";
+    }
+    if (j == 3 && k != 13) {
+        return i + "rd";
+    }
+    return i + "th";
+  }
 
   function updateGiveawayByRound(data, rnd) {
     if(reportDataTable) {
@@ -124,17 +138,35 @@
     $("#giveaway-table-search").val('');
     $("#general-info-participate").text("");
     var tableData = data.users;
+    var tableColumns =  [
+            { 
+              "data": "hashcode", "title": "Position", 
+              "render": function  ( data, type, row, meta ) { 
+                return meta.row + 1; 
+              }
+            },
+            { "data": "hashcode", "title": "User"},
+            { "data": "status", "title": "Status"},
+            { "data": "date", "title": "Activation date"}
+        ];
     if(rnd != undefined ) {
       var roundParticipants = rnd.participants.split(',');
+      // rnd.seed - 16x radix, rnd.seedInteger - 10-radix
+      let validateLink = "<a target='_blank' href='https://www.wolframalpha.com/input/?i=(0x"+rnd.seed + 
+            " mod " + roundParticipants.length +")+%2B+1+%3D'>"+ ordinal_suffix_of(rnd.selection + 1)+ " is Winner</a>";
+      let linkToBicoinHash = "<a href='https://www.blockchain.com/btc/block/" + rnd.seed + 
+              "' data-toggle='tooltip' target='_blank' " +
+              "title='Bitcoin hash block " + rnd.seed + " 16-radix'>...." + rnd.seed.substring(52) + "</a>";
       $('#report-total').html(
         "<div class='overview overview-active_supporters'>"+
             "<p>" + rnd.winner.split(',').length +  "</p><span>winners</span></div>" + 
         "<div class='overview overview-register_supporters'>"+
           "<p>" + roundParticipants.length +"</p><span>participants</span></div>" +
-        "<div class='overview overview-region'>"+
-          "<p><a href='https://www.blockchain.com/btc/block/" + rnd.seed +"' data-toggle='tooltip' "+
-            "title='" + rnd.seedInteger+ " 10-radix'>...."+ rnd.seedInteger.substring(44)+"</a> % "+
-            roundParticipants.length + ' + 1 = ' + (rnd.selection+1)+"</p><span>random seed (bitcoin block)</span></div>"
+          "<div class='overview overview-region'>" +
+            "<p>" + linkToBicoinHash + "&nbsp;&rarr;&nbsp; " + roundParticipants.length + " = " + 
+                    validateLink + 
+              "</p>" +
+          "<span>random seed (bitcoin block)</span></div>"
         );
         tableData = [];
         for(var ri = 0; ri < roundParticipants.length; ri++) {
@@ -145,6 +177,7 @@
             };
           tableData.push(person);
         }
+        tableColumns.pop(); 
     } else {
       $('#report-total').html(
         "<div class='overview overview-active_supporters'>"+
@@ -156,14 +189,14 @@
         );
     }
     $('.table-controls.support-country-controls').removeClass('hidden');
+    if(reportDataTable) {
+      reportDataTable.destroy();
+      $('#support-table').empty();
+    } 
     reportDataTable = $('#support-table').DataTable({
         data: tableData,
         destroy: true,
-        columns: [
-            { "data": "hashcode", "title": "User"},
-            { "data": "status", "title": "Status"},
-            { "data": "date", "title": "Date"}
-        ],
+        columns: tableColumns,
         "paging":   true,
         "ordering": false,
         "iDisplayLength": $('#giveaway-table-select').val(),
