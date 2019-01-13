@@ -1,7 +1,7 @@
 {
 	"website_1" : {
 		"pubdate" : "14.01.2019",
-		"title" : "Would you like to participate at our giveaway? (look at down first page of www.osmand.net)",
+		"title" : "Would you like to participate at our giveaway? (look at down the first page of www.osmand.net)",
 		"polldaddyid" : "10212717"
 	},
 	"website_2" : {
@@ -11,12 +11,12 @@
 	},
 	"android" : {
 		"pubdate" : "14.01.2019",
-		"title" : "Would you like to participate at our giveaway? (look at down first page of www.osmand.net)",
+		"title" : "Would you like to participate at our giveaway? (look at down the first page of www.osmand.net)",
 		"polldaddyid" : "10212717"
 	},
 	"ios" : {
 		"pubdate" : "14.01.2019",
-		"title" : "Would you like to participate at our giveaway? (look at down first page of www.osmand.net)",
+		"title" : "Would you like to participate at our giveaway? (look at down the first page of www.osmand.net)",
 		"polldaddyid" : "10212717"
 	}
 }
