@@ -74,29 +74,29 @@
 <p>Вы можете просматривать свои треки GPX в OsmAnd или в другой специализированной программе. Также сам трек может быть создан вами или импортирован из внешних ресурсов. Например, из <a href="https://www.openstreetmap.org/">openstreetmap.org</a>, своего туристического форума или любого другого места.</p>
 <p>Простейший способ просмотреть скачанный трек - кликнуть на него в файловом менеджере вашего устройства и выбрать - открыть с помощью OsmAnd. После этого вы увидите трек в меню “Мои места” - “Треки” или “Панель управления” - “Треки”. Чтобы увидеть выбранный трек на карте -  войдите в “Треки” и включите “Показать на карте”.</p>
 <p>Для того, чтобы просмотреть трек в Google Earth, выберите Файл> Открыть> Тип файла GPS (* .gpx,...). Выберите свой трек и откройте его.</p>
-<div class="blocksubsubtitle">View OsmAnd GPX tracks in Garmin software</div>
-<p>Because OsmAnd GPX format differs from the Garmin one, you will need to convert your OsmAnd track into the Garmin format.</p>
-<p>Download and install GPSBabel from gpsbabel.org</p>
-<p>To be safe, make a copy of the GPX file to work with.</p>
-<p>Open GPSBabel and use the following settings:</p>
+<div class="blocksubsubtitle">Просмотр OsmAnd треков GPX  в приложениях Garmin</div>
+<p>Поскольку формат OsmAnd GPX отличается от формата Garmin, вам необходимо преобразовать ваш OsmAnd трек  в формат Garmin..</p>
+<p>Загрузите и установите GPSBabel с gpsbabel.org</p>
+<p>На всякий случай сделайте рабочую копию файла GPX.</p>
+<p>Откройте GPSBabel и установите следующие настройки:</p>
 <ul class="textlist">
-        <li>Input format: "GPX XML"</li>
-        <li>Source file: Copied file as discussed above</li>
-        <li>Output format: "Garmin MapSource - gdb"</li>
-        <li>Output file same name as input file (i.e. overwrite source - Answer Yes when prompted to over-write)</li>
-		<li>Run GPSBabel ("Apply" button). If the translation has worked the log screen will say "Translation successful"</li>
+        <li>Формат ввода: “GPX XML”</li>
+        <li>Исходный файл: скопированный файл, указанный выше</li>
+        <li>Формат вывода: "Garmin MapSource - GDB"</li>
+        <li>Имя выходного файла совпадает с именем входного файла (при запросе перезаписать файл - ответьте “Да”)</li>
+		<li>Запустите GPSBabel (кнопка “Применить”). Если преобразование успешно, то на на экране появится окно с надписью “Преобразование выполнено успешно”</li>
 </ul>
-<p>Open the converted file in Garmin software (!MapSource, !BaseCamp) in your usual way.</p>
-<div class="blocksubsubtitle">View (and edit/convert) OsmAnd GPX tracks in RouteConverter</div>
+<p>Теперь можно открыть преобразованный файл в приложении Garmin (! MapSource,! BaseCamp).</p>
+<div class="blocksubsubtitle">Просмотр (редактирование / преобразование) OsmAnd треков GPX в RouteConverter</div>
 
-<p>Download RouteConverter from <a href="https://routeconverter.de">routeconverter.de</a>.</p>
-<p>RouteConverter can edit and convert GPX tracks and tracks from many other formats. It can be used to create a route and save that as a GPX track, as well.</p>
-<p>You can also save your every navigation trip as a GPX track automatically. To do that, go to Plugins - Trip recording - Settings and choose 'Auto-record track during navigation'. After you do that, your every navigation trip will be saved as a GPX track in the tracks folder.</p>
-<p>Take OsmAnd Trip recording plugin with you on your trip to make an informative track.</p>
-<b>CAUTION</b> Recording a track impacts the battery life: even if the screen is off, it continues to run. Check it using the notification that OsmAnd is running in the background in your status bar. 
-<p>Increasing battery life</p>
-<p>Hint: Before putting the device to sleep mode on a long hike, press the home button so the OsmAnd app goes to the background. If OsmAnd remains in the foreground and the device is often turned on even briefly (maybe even accidentally, like by shifting in your pocket or backpack), then GPS would be activated each time with very noticeable impact on your battery life. In remote areas with bad or no cell reception, you can also set the device to "Flight mode" (but with GPS on) to save the battery by preventing the cell phone using high transmission power to look for transmission towers. You can get good 20 hours of recording GPX tracks on hikes with the above parameters.</p>
-<div class="subtitle" id="Online_tracking"><h2>Online tracking</h2></div>
+<p>Скачайте RouteConverter с <a href="https://routeconverter.de">routeconverter.de</a>.</p>
+<p>RouteConverter умеет редактировать и конвертировать треки GPX, а также треки других форматов. Его также можно использовать для создания маршрута и сохранения его как трека GPX.</p>
+<p>Вы также можете автоматически сохранять каждый маршрут навигации как трек GPX. Для этого перейдите в Plugins - Trip recording - Settings  и выберите “Auto-record track during navigation”. После этого каждое ваше путешествие будет сохранено в виде трека GPX в папке с треками.</p>
+<p>Возьмите с собой плагин OsmAnd Запись поездки в путешествие, чтобы сделать информативный трек.</p>
+<b>ВНИМАНИЕ</b> Запись трека влияет на потребление энергии: даже если экран выключен, запись продолжает работать. Обязательно проверьте, что OsmAnd работает в фоновом режиме в строке состояния. 
+<p>Увеличение срока службы батареи</p>
+<p>Подсказка: прежде чем переводить устройство в спящий режим во время длительного похода, нажмите кнопку “Домой” для того, чтобы приложение OsmAnd перешло в фоновый режим. Если OsmAnd остается на переднем плане, а устройство часто включается даже на короткое время (возможно, даже случайно, например, при смещении в кармане или в рюкзаке), тогда GPS будет активироваться каждый раз, что очень сильно влияет на разряд аккумулятора. В удаленных районах с плохим приемом или отсутствием сотового приема вы также можете установить устройство в “Режим полета” (но с включенным GPS), чтобы сэкономить заряд батареи, не позволяя телефону разряжаться при постоянном поиске сотовых вышек. С такими настройками вы можете записать до 20 часов трека GPX в походе.</p>
+<div class="subtitle" id="Online_tracking"><h2>Онлайн трекинг</h2></div>
 <div class="blocksubtitle">Android</div>
 <p>You can set up your phone to track its location. To do that, go to Plugins - Trip recording and tap Settings, then choose Online Tracking. To make it possible, you also have to provide a valid link.</p>
 <p>Make a Google Spreadsheet and name it. Then go to Tools - Scrip Editor - Create script for  - Blank project. In your spreadsheet, copy the key from the URL field. It is a set of numbers like this: </p>
