@@ -93,20 +93,20 @@
 <p>RouteConverter умеет редактировать и конвертировать треки GPX, а также треки других форматов. Его также можно использовать для создания маршрута и сохранения его как трека GPX.</p>
 <p>Вы также можете автоматически сохранять каждый маршрут навигации как трек GPX. Для этого перейдите в Plugins - Trip recording - Settings  и выберите “Auto-record track during navigation”. После этого каждое ваше путешествие будет сохранено в виде трека GPX в папке с треками.</p>
 <p>Возьмите с собой плагин OsmAnd Запись поездки в путешествие, чтобы сделать информативный трек.</p>
-<b>ВНИМАНИЕ</b> Запись трека влияет на потребление энергии: даже если экран выключен, запись продолжает работать. Обязательно проверьте, что OsmAnd работает в фоновом режиме в строке состояния. 
+<b>ВНИМАНИЕ</b> Запись трека влияет на потребление энергии: даже если экран выключен, запись продолжает работать. Обязательно проверьте в строке состояния, что OsmAnd работает в фоновом режиме. 
 <p>Увеличение срока службы батареи</p>
 <p>Подсказка: прежде чем переводить устройство в спящий режим во время длительного похода, нажмите кнопку “Домой” для того, чтобы приложение OsmAnd перешло в фоновый режим. Если OsmAnd остается на переднем плане, а устройство часто включается даже на короткое время (возможно, даже случайно, например, при смещении в кармане или в рюкзаке), тогда GPS будет активироваться каждый раз, что очень сильно влияет на разряд аккумулятора. В удаленных районах с плохим приемом или отсутствием сотового приема вы также можете установить устройство в “Режим полета” (но с включенным GPS), чтобы сэкономить заряд батареи, не позволяя телефону разряжаться при постоянном поиске сотовых вышек. С такими настройками вы можете записать до 20 часов трека GPX в походе.</p>
 <div class="subtitle" id="Online_tracking"><h2>Онлайн трекинг</h2></div>
 <div class="blocksubtitle">Android</div>
-<p>You can set up your phone to track its location. To do that, go to Plugins - Trip recording and tap Settings, then choose Online Tracking. To make it possible, you also have to provide a valid link.</p>
-<p>Make a Google Spreadsheet and name it. Then go to Tools - Scrip Editor - Create script for  - Blank project. In your spreadsheet, copy the key from the URL field. It is a set of numbers like this: </p>
+<p>Вы можете настроить свой телефон для отслеживания его местоположения. Для этого перейдите в “Плагины” - “Запись поездки” и нажмите “Настройки”, затем выберите “Онлайн слежение”. Чтобы сделать это возможным, вы также должны предоставить действительную ссылку.</p>
+<p>Создайте Google таблицу, назовите ее . Затем перейдите в “Инструменты” - “Редактор скриптов”. Из вашей Google таблицы скопируйте ключ из поля URL. Это набор чисел, например как тут:</p>
 <p>https://docs.google.com/spreadsheets/d/<wbr><b>1ev_1UaENcl7ukWsE-tnO6ixVxFdn0OlNhTHKAHUHjEg</b>/edit#gid=0</p>
-<p>Go back to the script.</p>
-<p>Delete everything. Insert this code:</p>
+<p>Вернитесь к скрипту.</p>
+<p>Удалить все. Вставьте этот код:</p>
 <xmp>
 This is some text!
 function doGet(e) {
-  var app = UiApp.createApplication();
+  var app=HtmlService.createHtmlOutput();
   var sp = SpreadsheetApp.openById("0Ana......");
   sp.insertRowBefore(1);
   if(e) {
@@ -121,13 +121,15 @@ function doGet(e) {
   return app;
 }
 </xmp>
-<p>Paste your Spreadsheet key instead of <b>0Ana......</b></p>
-<p>Save and go to Publish - Deploy as web app - set access as Anyone, even anonymous.</p>
-<p>Now your movements will be exported to that spreadsheet as coordinates. You'll find speed information in the document. You can also set tracking interval.</p>
-<p>Setup own server: because Google deprecates lots of stuff, please think of own server <a href="http://www.heise.de/ct/projekte/machmit/mylieu/browser/Server">machmit/mylieu/browser/Server ksmapper.blogspot.co.at</a> or end to end solution like <a href="http://osmodroid.ru/">http://osmodroid.ru/</a></p>
-<div class="subtitle" id="Save_navigation_to_GPX_tracks"><h2>Save navigation routes as GPX tracks</h2></div>
+<p>Вставьте ключ своей Google таблицы вместо <b>0Ana......</b></p>
+<p>Сохраните и перейдите в “Опубликовать” - “Развернуть как веб-приложение” - установите доступ как “Все, включая анонимных пользователей”.</p>
+<p>Теперь ваши данные по перемещению будут экспортированы в эту таблицу в виде координат, также вы найдете информацию о скорости. Дополнительно можно указать интервал и временный буфер для онлайн слежения (хранение местоположений при отсутствии подключения к сети).</p>
+<p>Настройте собственный сервер: так как Google не поддерживает ряд возможностей, подумайте о собственном сервере <a href="http://www.heise.de/ct/projekte/machmit/mylieu/browser/Server">machmit/mylieu/browser/Server ksmapper.blogspot.co.at</a> или воспользуйтесь end to end решением, например <a href="http://osmodroid.ru/">http://osmodroid.ru/</a></p>
+<p>Настройте собственный сервер: так как Google не поддерживает ряд возможностей, подумайте о собственном сервере <a href="http://www.heise.de/ct/projekte/machmit/mylieu/browser/Server"> machmit / mylieu / browser / Сервер ksmapper.blogspot.co.at </a> или воспользуйтесь end to end решением, например <a href="http://osmodroid.ru/">http://osmodroid.ru/</a></p>
+<p>Также воспользуйтесь собственной разработкой OsmAnd GPS online Tracker. Наше приложение многофункционально, работает в том числе в зоне нестабильного интернет соединения. Все, что вам нужно - это иметь аккаунт в Telegram, дополнительно установить приложение <a href="https://play.google.com/store/apps/details?id=net.osmand.telegram&hl">OsmAnd GPS online Tracker</a>. Больше информации: что это такое и как пользоваться, читайте  <a href="https://play.google.com/store/apps/details?id=net.osmand.telegram&hl">здесь</a></p>
+<div class="subtitle" id="Save_navigation_to_GPX_tracks"><h2>Сохранение навигационных маршрутов как треков GPX</h2></div>
 <div class="blocksubtitle">Android</div>
-<p>You can save your navigation route as a GPX track. It will be done automatically every time you use navigation. Just go to Plugins - Trip recording - Settings. Choose 'Auto-record track during navigation'. You'll see your tracks in 'My tracks' section and in your osmand/tracks folder.</p>
+<p>Вы можете сохранить свой навигационный маршрут как трек GPX. Сохранение будет происходить автоматически, когда вы используете навигацию. Для этого зайдите в меню “Плагины” - “Запись поездки” - “Настройки”. Выберите “Автозапись трека во время навигации”. Треки доступны в меню “Мои места” - “Треки” и в папке osmand / track.</p>
 <div class="centeredimageblog">
 <img src="/images/features/navigation_15.jpg" alt="(Image not available offline)"/>
 <img src="/images/features/navigation_13.jpg" alt="(Image not available offline)"/>

@@ -107,7 +107,7 @@ Just tap the widget on the map screen to start recording, set the recording inte
 <xmp>
 This is some text!
 function doGet(e) {
-  var app = UiApp.createApplication();
+  var app=HtmlService.createHtmlOutput();
   var sp = SpreadsheetApp.openById("0Ana......");
   sp.insertRowBefore(1);
   if(e) {
