@@ -2,7 +2,6 @@
 <div class="toc">
 <ul class="list">
 <li><a href="#How_to_use_it">Как этим пользоваться</a></li>
-<li><a href="#Trip_Logging:_Some_Basics_on_Parameters_and_Filtering">Журнал поэтапной регистрации: некоторые основы параметров и фильтрации</a></li>
 <li><a href="#How_to_view_GPX_tracks">Как просматривать треки GPX</a></li>
 <li><a href="#Online_tracking">Онлайн трекинг</a></li>
 <li><a href="#Save_navigation_to_GPX_tracks">Сохранение навигационных маршрутов как треков GPX</a></li>
@@ -32,42 +31,11 @@
 <div style="clear:both;"></div>
 </div>
 <div class="blocksubtitle">iOS</div>
-<p>Для того, чтобы включить плагин, зайдите в “Карты и ресурсы” - “Плагины” - “Запись поездки”. Далее нажмите на флажок рядом с ним. Плагин активирован. Теперь нажмите на виджет на экране карты, чтобы начать запись, установить интервал записи. Когда вам уже надо остановить запись трека, то просто нажмите виджет снова. Вы также можете начать новый сегмент или просмотреть информацию о треке в том же меню.</p>
+<p>Для того, чтобы включить плагин, зайдите в “Карты и ресурсы” - “Плагины” - “Запись поездки”. Далее нажмите на флажок рядом с ним. Плагин активирован. Теперь нажмите на виджет на экране карты, чтобы начать запись, установить интервал записи. Когда вам уже надо остановить запись трека, нажмите виджет снова. Вы также можете начать новый сегмент или просмотреть информацию о треке в том же меню.</p>
 <div class="centeredimageblog">
 <img src="/images/features/ios_trips.jpg" alt="(Image not available offline)"/>
 <div style="clear:both;"></div>
 </div>
-
-<div class="subtitle" id="Trip_Logging:_Some_Basics_on_Parameters_and_Filtering"><h2>Trip Logging: Some Basics on Parameters and Filtering</h2></div>
-<p><i>(Hardy, 2016-11-07)</i></p>
-
-<h3>(A) Trip logging time interval:</h3>
-<p><b>Purpose:</b> This basic parameter defines how often (after what time period since the last attempt) you try to record a point at all (often called "sampling rate)". This has decisive impact on the file size of a recording.</p>
-<p><b>Side effects:</b>
-<ul class="list">
-<li>Longer time intervals will record fewer points, hence you record less detail. With very long intervals your recordimg may cut curves or bends (in the spatial dimension), and may not reflect all your speed changes, or may not cover periods at rest well. Due to the curve-cutting, very long time intervals may make the apparent recorded track length shorter than your actual trip in the real world.</li>
-<li>Very short time intervals, on the other hand, will record many points closer together. While this improves statistics for any post-processing, viewing the as-recorded files may exhibit spatial noise like points recorded close together showing a noise motion which was not actually present in the real world. As a result, your apparent track length may exceed your actual real-world trip length.</li>
-</ul>
-<p><b>Recommendation:</b> Use 1-5 seconds for very high or high detail recordings (which may require filtering or post-processing). For backcountry hiking trips a setting like 30 seconds may suffice (for >=30 seconds we actually turn off GPS between recordings, which noticeably saves battery power!). To just capture the basics of where you were on a long driving trip, something like 5 minutes may suffice.</p>
-<p><b>TODO:</b> For tracks recorded with an interval >=30sec we turn off GPS between measurements to noticeably save power. In this mode, for each recorded point we re-activate GPS again and then use the very first GPS fix found, which creates slightly noisier tracks. We may think about e.g. waiting 3 sec each, evaluating 3 consecutve fixes, and then use the best one to log the point, this may reduce noise significantly.</p>
-
-<h3>(B) Filter: Trip logging minimum displacement (from the last recorded point):</h3>
-<p><b>Purpose:</b> This filter avoids duplicate points being recorded where too little actual motion may have occurred, makes a nicer spatial appearance of tracks not post-processed later.</p>
-<p><b>Side effects:</b> Periods at rest are not recorded at all or by just one point each. Small (real world) movements (e.g. sideways, to mark a possile turnoff on your trip) may be filtered out. Your file contains less information for post-processing, and has worse stats by filtering out obviously redundant points at recording time, while potentially keeping artifacts caused by bad reception or GPS chipset effects.</p>
-<p><b>Recommendation:</b> A setting of 5 meters may work well for you if you do not require to capture details finer than that, and do not want to explicitly capture data while at rest.</p>
-
-<h3>(C) Filter: Trip logging minimum speed:</h3>
-<p><b>Purpose:</b> This is a low-speed cut-off filter to not record points below a certain speed. This may make recorded tracks look "smoother" when viewed on the map.</p>
-<p><b>Side effect:</b> Your track will be missing all sections where the minimum speed criterion was not met (e.g. where you push your bike up a steep hill). Also, there will be no information about periods at rest, like breaks. This has effects on any analysis or post-processing, like when trying to determine the total length of your trip, time in motion, or your average speed.</p>
-<p><b>Recommendation:</b> Try using the motion detection via the "logging minumum displacement" filter (B) first, it may produce better results, and you will lose less data. If your tracks remain noisy at low speeds, try non-zero values here. Please note that some measurements may not report any speed value at all (some network-based methods), in which case you would not record anything.</p>
-<p><b>Remark: "speed > 0" check:</b>  Most GPS chipsets report a speed value only if the algorithm determines you are in motion, and none if you are not. Hence using the "> 0" setting in this filter in a sense uses the motion detection of the GPS chipset. But even if not filtered here at recording time, we still use this feature in our GPX analysis to determine the "Distance corrected", i.e. the value displayed in that field is the "distance recorded while in motion".</p>
-
-<h3>(D) Filter: Trip logging minimum accuracy:</h3>
-<p><b>Purpose:</b> This will record only points measured with a minimum "accuracy" indication (in meters/feet, as reported by Android for your chipset). Accuracy refers to the scatter of repeated measurements, and is not directly related to precision, which defines how close your measurements are to your "true" position.</p>
-<p><b>Side effect:</b> As a result of filtering by accuracy, points may be entirely missing for e.g. below bridges, under trees, between high buildings, or with certain weather conditions.</p>
-<p><b>Recommendation:</b> It is hard to predict what will be recorded and what not, it may be best to turn this filter off.</p>
-<p><b>Remark:</b> If GPS had been off immediately before a recording, the first point measured may have a decreased accuracy, so in our code we may want to wait a second or so before recording a point (or record the best of 3 consecutive points, etc.), but this is not yet implemented.</p>
-
 
 <div class="subtitle" id="How_to_view_GPX_tracks"><h2>Как просматривать треки GPX</h2></div>
 <div class="blocksubtitle">Android</div>
@@ -124,8 +92,8 @@ function doGet(e) {
 <p>Вставьте ключ своей Google таблицы вместо <b>0Ana......</b></p>
 <p>Сохраните и перейдите в “Опубликовать” - “Развернуть как веб-приложение” - установите доступ “Все, включая анонимных пользователей”.</p>
 <p>Теперь ваши данные по перемещению будут экспортированы в эту таблицу в виде координат, также вы найдете информацию о скорости. Дополнительно можно указать интервал и временный буфер для онлайн слежения (хранение местоположений при отсутствии подключения к сети).</p>
-<p>Настройте собственный сервер: так как Google не поддерживает ряд возможностей, подумайте о собственном сервере <a href="http://www.heise.de/ct/projekte/machmit/mylieu/browser/Server">machmit/mylieu/browser/Server ksmapper.blogspot.co.at</a> или воспользуйтесь end to end решением, например <a href="http://osmodroid.ru/">http://osmodroid.ru/</a></p>
-<p>Также воспользуйтесь собственной разработкой OsmAnd online GPS Tracker. Наше приложение многофункционально, работает в том числе в зоне нестабильного интернет соединения. Все, что вам нужно - это иметь аккаунт в Telegram, дополнительно установить приложение <a href="https://play.google.com/store/apps/details?id=net.osmand.telegram&hl">OsmAnd online GPS Tracker</a>. Больше информации: что это такое и как пользоваться, читайте  <a href="https://play.google.com/store/apps/details?id=net.osmand.telegram&hl">здесь</a></p>
+
+<p>Также воспользуйтесь собственной разработкой OsmAnd online GPS Tracker. Наше приложение многофункционально, работает в том числе в зоне нестабильного интернет соединения. Все, что вам нужно - это иметь аккаунт в Telegram, дополнительно установить приложение <a href="https://play.google.com/store/apps/details?id=net.osmand.telegram&hl">OsmAnd online GPS Tracker</a> и теперь вы можете смотреть за перемещением каждого члена вашей группой, а они смогут видеть вас на карте в реальном времени. Больше информации: что это такое и как пользоваться, читайте  <a href="https://play.google.com/store/apps/details?id=net.osmand.telegram&hl">здесь</a></p>
 <div class="subtitle" id="Save_navigation_to_GPX_tracks"><h2>Сохранение навигационных маршрутов как треков GPX</h2></div>
 <div class="blocksubtitle">Android</div>
 <p>Вы можете сохранить свой навигационный маршрут как трек GPX. Сохранение будет происходить автоматически, когда вы используете навигацию. Для этого зайдите в меню “Плагины” - “Запись поездки” - “Настройки”. Выберите “Автозапись трека во время навигации”. Также есть возможность сохранить действующий маршрут как трек GPX через меню в Навигации: кликните на детализацию маршрута и в правом верхнем углу нажмите сохранить. Треки доступны в меню “Мои места” - “Треки” и в папке osmand / track.</p>
