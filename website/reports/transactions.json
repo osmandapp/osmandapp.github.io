@@ -1,4 +1,13 @@
 {  
+   
+   "2019-01":{
+      "transactions":[
+         "af4b721e63fae9b6109aded4c8a345b84b540cca76bad5f356e7e098a0db0107",
+         "c1233541a4c0e6b3e7ca838feb20920e54519537839e3641b5e99e644b13ac56",
+         "15743fa44a157bd97ebc7909637a7cad31211fbf3c368684316bd3f95a6c5d73"
+      ]
+   },
+
    "2018-12":{
       "transactions":[
          "658d57a9eb8bcf45f4f4ad8d3795dc23bbc0d5465c58dc5cc5fc8a1869e44c2a",
