@@ -1337,6 +1337,9 @@ a::-moz-focus-inner {
 .feature.subscription {
   background-image:url('/images/features/features_osmand_live.jpg');
 }
+.feature.ruler {
+  background-image:url('/images/features/ruler.png');
+}
 
 .feature .description {
   position: absolute;
