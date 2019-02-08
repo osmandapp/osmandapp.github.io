@@ -224,7 +224,7 @@
    				"start_date": "08-02-2019 00:00",
    				"end_date": "08-02-2019 23:59",
 				"os": "ios",
-				"lang" :"ru"
+				"lang" :"en"
 			},
 			"file": "discount_ios.json",
 			"fields": {
