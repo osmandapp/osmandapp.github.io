@@ -1,11 +1,11 @@
 {
-  "message" : "All World Maps and Contour Lines -50%",
-  "description" : "Christmas SALE!",
+  "message" : "Our Subscription for iOS",
+  "description" : "Get all downloads and plugins + daily map updates!",
   "show_start_frequency" : 4,
   "show_day_frequency" : 1,
   "max_total_show" : 3,
   "icon" : "ic_action_gift",
-  "url" : "in_app:map",
-  "in_app" : "allworld",
-  "purchased_in_apps" : ["russia", "europe", "africa", "asia", "australia", "centralamerica", "northamerica", "southamerica"]
+  "url" : "show-choose-plan:osmlive"
+  //"in_app" : "allworld",
+//  "purchased_in_apps" : ["russia", "europe", "africa", "asia", "australia", "centralamerica", "northamerica", "southamerica"]
 }
