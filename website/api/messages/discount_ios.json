@@ -1,6 +1,6 @@
 {
-  "message" : "Подписка!",
-  "description" : "Get all downloads and plugins + daily map updates!",
+  "message" : "Discount_ios message (DEFINED in motd_config)",
+  "description" : "Discount_ios description (DEFINED in motd_config)",
   "show_start_frequency" : 4,
   "show_day_frequency" : 1,
   "max_total_show" : 3,
