@@ -220,14 +220,16 @@
 		},
 		{
 			"condition": {
-   				"start_date": "24-01-2019 00:00",
-   				"end_date": "27-01-2019 23:59",
-				"os": "ios"
+				"ip" : "93.73.244.11, 185.173.113.147",
+   				"start_date": "08-02-2019 00:00",
+   				"end_date": "08-02-2019 23:59",
+				"os": "ios",
+				"lang" :"ru"
 			},
 			"file": "discount_ios.json",
 			"fields": {
-				"message": "All World Maps and Contour Lines -50%!",
-				"description": "January SALE!"
+				"message": "Our Subscription for iOS!",
+				"description": "Get all downloads and plugins + daily map updates!"
 			}
 		},
 		{
