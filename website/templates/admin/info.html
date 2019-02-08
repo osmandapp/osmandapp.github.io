@@ -94,17 +94,27 @@
 				<tr>
 					<th>Date</th>
 					<th>All</th>
-					<th>Yearly</th>
-					<th>Y -50%</th>
-					<th>Monthly</th>
-					<th>All M-Weighted</th>
+					<th>A Y</th>
+					<th>A Y/2</th>
+					<th>A Q</th>
+					<th>A M</th>
+
+					<th>I Y</th>
+					<th>I Q</th>
+					<th>I M</th>
+					<th>All A-M-Weighted</th>
 				</tr>
 				<tr th:each="di : ${subscriptionsReport}">
 					<td th:text="${di.date}">01.01.2018 00:00</td>
 					<td><b th:text="${di.count}">1000</b></td>
 					<td th:text="${di.annualCount}">500</td>
 					<td th:text="${di.annualDiscountCount}">300</td>
+					<td th:text="${di.quarterCount}">300</td>
 					<td th:text="${di.monthCount}">500</td>
+					<td th:text="${di.iosAnnualCount}">500</td>
+					<td th:text="${di.iosQuarterCount}">300</td>
+					<td th:text="${di.iosMonthCount}">500</td>
+
 					<td><b th:text="${di.monthCount + di.annualDiscountCount/4 + di.annualCount/2}">700</b></td>
 				</tr>
 			</table>
