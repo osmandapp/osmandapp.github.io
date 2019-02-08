@@ -6,6 +6,4 @@
   "max_total_show" : 3,
   "icon" : "ic_action_gift",
   "url" : "show-choose-plan:osmlive"
-  //"in_app" : "allworld",
-//  "purchased_in_apps" : ["russia", "europe", "africa", "asia", "australia", "centralamerica", "northamerica", "southamerica"]
 }
