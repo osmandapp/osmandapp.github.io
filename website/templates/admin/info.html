@@ -102,7 +102,7 @@
 					<th>I Y</th>
 					<th>I Q</th>
 					<th>I M</th>
-					<th>All A-M-Weighted</th>
+					<th>All M-Weighted</th>
 				</tr>
 				<tr th:each="di : ${subscriptionsReport}">
 					<td th:text="${di.date}">01.01.2018 00:00</td>
@@ -115,7 +115,7 @@
 					<td th:text="${di.iosQuarterCount}">300</td>
 					<td th:text="${di.iosMonthCount}">500</td>
 
-					<td><b th:text="${di.monthCount + di.annualDiscountCount/4 + di.annualCount/2}">700</b></td>
+					<td><b th:text="${di.monthCount + di.iosMonthCount + di.quarterCount + di.iosQuarterCount + di.annualCount/2 + di.iosAnnualCount/2 + di.annualDiscountCount/4 }">700</b></td>
 				</tr>
 			</table>
 
