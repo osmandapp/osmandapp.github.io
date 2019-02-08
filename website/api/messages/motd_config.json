@@ -228,7 +228,7 @@
 			},
 			"file": "discount_ios.json",
 			"fields": {
-				"message": "Our Subscription for iOS!",
+				"message": "Our Subscription!",
 				"description": "Get all downloads and plugins + daily map updates!"
 			}
 		},
