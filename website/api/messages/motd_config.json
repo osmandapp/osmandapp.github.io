@@ -220,7 +220,6 @@
 		},
 		{
 			"condition": {
-				"ip" : "93.73.244.11, 185.173.113.147",
    				"start_date": "08-02-2019 00:00",
    				"end_date": "08-02-2019 23:59",
 				"os": "ios",
@@ -230,6 +229,83 @@
 			"fields": {
 				"message": "Подписка OsmAnd Live!",
 				"description": "Получи все возможности OsmAnd + ежечасные обновления карт!"
+			}
+		},
+		{
+			"condition": {
+   				"start_date": "08-02-2019 00:00",
+   				"end_date": "08-02-2019 23:59",
+				"os": "ios",
+				"lang" :"fr"
+			},
+			"file": "discount_ios.json",
+			"fields": {
+				"message": "Abonnement OsmAnd Live!",
+				"description": "Obtenez tous les téléchargements et plugins + mises à jour horaires des cartes!"
+			}
+		},
+		{
+			"condition": {
+   				"start_date": "08-02-2019 00:00",
+   				"end_date": "08-02-2019 23:59",
+				"os": "ios",
+				"lang" :"de"
+			},
+			"file": "discount_ios.json",
+			"fields": {
+				"message": "Abo OsmAnd Live!",
+				"description": "Holen Sie sich alle Downloads und Plugins + stündliche Kartenaktualisierungen!"
+			}
+		},
+		{
+			"condition": {
+   				"start_date": "08-02-2019 00:00",
+   				"end_date": "08-02-2019 23:59",
+				"os": "ios",
+				"lang" :"it"
+			},
+			"file": "discount_ios.json",
+			"fields": {
+				"message": "Abbonamento OsmAnd Live!",
+				"description": "Ricevi tutti i download e i plug-in + aggiornamenti delle mappe orarie!"
+			}
+		},
+		{
+			"condition": {
+   				"start_date": "08-02-2019 00:00",
+   				"end_date": "08-02-2019 23:59",
+				"os": "ios",
+				"lang" :"es"
+			},
+			"file": "discount_ios.json",
+			"fields": {
+				"message": "Suscripción OsmAnd Live!",
+				"description": "Obtén todas las descargas y complementos + actualizaciones de mapas por hora!"
+			}
+		},
+		{
+			"condition": {
+   				"start_date": "08-02-2019 00:00",
+   				"end_date": "08-02-2019 23:59",
+				"os": "ios",
+				"lang" :"nl"
+			},
+			"file": "discount_ios.json",
+			"fields": {
+				"message": "Abonnement OsmAnd Live!",
+				"description": "Download alle downloads en plug-ins + elk uur kaartupdates!"
+					}
+		},
+		{
+			"condition": {
+   				"start_date": "08-02-2019 00:00",
+   				"end_date": "08-02-2019 23:59",
+				"os": "ios"
+			},
+			"file": "discount_ios.json",
+			"fields": {
+				"message": "Subscription OsmAnd Live!",
+				"description": "Get all downloads and plugins + hourly map updates!"
 			}
 		},
 		{
