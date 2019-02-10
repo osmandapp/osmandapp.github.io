@@ -1340,6 +1340,12 @@ a::-moz-focus-inner {
 .feature.ruler {
   background-image:url('/images/features/ruler.png');
 }
+.feature.tracker {
+  background-image:url('/images/features/tracker.jpg');
+}
+.feature.mapillary {
+  background-image:url('/images/features/mapillary.jpg');
+}
 
 .feature .description {
   position: absolute;
