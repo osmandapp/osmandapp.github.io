@@ -148,7 +148,7 @@
 					<td th:text="(${di.cancelAnnualCount > 0}?'-':'')+${di.cancelAnnualCount}">1000</td>
 					<td th:text="(${di.cancelAnnualDiscountCount > 0}?'-':'')+${di.cancelAnnualDiscountCount}">1000</td>
 					<td><b th:text="(${di.cancelTotalWeighted > 0}?'-':'')+${di.cancelTotalWeighted*6/(10*12)}">1000</b></td>
-					<td><b th:text="(${di.deltaWeighted > 0}?'+':'-')+ ${di.deltaWeighted*6/(10*12)}">1000</b></td>
+					<td><b th:text="${di.deltaWeighted*6/(10*12)}">1000</b></td>
 				</tr>
 			</table>
 
