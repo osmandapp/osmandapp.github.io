@@ -68,7 +68,7 @@ Just tap the widget on the map screen to start recording, set the recording inte
 <p>Hint: Before putting the device to sleep mode on a long hike, press the home button so the OsmAnd app goes to the background. If OsmAnd remains in the foreground and the device is often turned on even briefly (maybe even accidentally, like by shifting in your pocket or backpack), then GPS would be activated each time with very noticeable impact on your battery life. In remote areas with bad or no cell reception, you can also set the device to "Flight mode" (but with GPS on) to save the battery by preventing the cell phone using high transmission power to look for transmission towers. You can get good 20 hours of recording GPX tracks on hikes with the above parameters.</p>
 
 <div class="subtitle" id="GPX_split_interval"><h2>GPX split interval</h2></div>
-<p>Split your GPX tracks into intervals by distance (20 m - 10 km) or by time ( 15 seconds - 60 minutes) to view the details of each interval. View ascent and descent of each section of your track, minimum, maximum and average height, and time.</p>
+<p>Разделите ваши треки GPX на интервалы по расстоянию (20 м - 10 км) или по времени (15 секунд - 60 минут), чтобы просмотреть детали каждого интервала. Просмотр подъема и спуска каждой части вашего трека, максимальная и средняя скорость, а также время.</p>
 <div class="centeredimageblog">
 <img src="/images/blog/2.7/gpx_spl_1.jpg"/>
 <img src="/images/blog/2.7/gpx_spl_5.jpg"/>
@@ -78,33 +78,8 @@ Just tap the widget on the map screen to start recording, set the recording inte
 
 <div class="subtitle" id="Online_tracking"><h2>Online tracking</h2></div>
 <div class="blocksubtitle">Android</div>
-<p>You can set up your phone to track its location. To do that, go to Plugins - Trip recording and tap Settings, then choose Online Tracking. To make it possible, you also have to provide a valid link.</p>
-<p>Make a Google Spreadsheet and name it. Then go to Tools - Scrip Editor - Create script for  - Blank project. In your spreadsheet, copy the key from the URL field. It is a set of numbers like this: </p>
-<p>https://docs.google.com/spreadsheets/d/<wbr><b>1ev_1UaENcl7ukWsE-tnO6ixVxFdn0OlNhTHKAHUHjEg</b>/edit#gid=0</p>
-<p>Go back to the script.</p>
-<p>Delete everything. Insert this code:</p>
-<xmp>
-This is some text!
-function doGet(e) {
-  var app=HtmlService.createHtmlOutput();
-  var sp = SpreadsheetApp.openById("0Ana......");
-  sp.insertRowBefore(1);
-  if(e) {
-    var d = new Date( Date( e.parameter.timestamp));
-    sp.getRange( "A1").setValue( parseFloat( e.parameter.lat));
-    sp.getRange( "B1").setValue( parseFloat( e.parameter.lon));
-    sp.getRange( "F1").setValue( Math.round(( parseFloat( e.parameter.speed / 1000 * 60 *60))) + " km/h");
-    sp.getRange( "D1").setValue( parseFloat( e.parameter.altitude));
-    sp.getRange( "E1").setValue( parseFloat( e.parameter.hdop));
-    sp.getRange( "C1").setValue( d);
-  }
-  return app;
-}
-</xmp>
-<p>Paste your Spreadsheet key instead of <b>0Ana......</b></p>
-<p>Save and go to Publish - Deploy as web app - set access as Anyone, even anonymous.</p>
-<p>Now your movements will be exported to that spreadsheet as coordinates. You'll find speed information in the document. You can also set tracking interval.</p>
-<p>Setup own server: because Google deprecates lots of stuff, please think of own server <a href="http://www.heise.de/ct/projekte/machmit/mylieu/browser/Server">machmit/mylieu/browser/Server ksmapper.blogspot.co.at</a> or end to end solution like <a href="http://osmodroid.ru/">http://osmodroid.ru/</a></p>
+<p>Use our OsmAnd online GPS Tracker. Our application is multifunctional, it works including in the zone of unstable Internet connection. All you need is to have a Telegram account, additionally install the <a href="https://play.google.com/store/apps/details?id=net.osmand.telegram&hl">OsmAnd online GPS Tracker</a> and now you can watch the movement of each member of your group, and they will be able to see you on the map in real time. More information: what it is and how to use it, read <a href="https://play.google.com/store/apps/details?id=net.osmand.telegram&hl">here</a>.</p>
+
 <div class="subtitle" id="Save_navigation_to_GPX_tracks"><h2>Save navigation routes as GPX tracks</h2></div>
 <div class="blocksubtitle">Android</div>
 <p>You can save your navigation route as a GPX track. It will be done automatically every time you use navigation. Just go to Plugins - Trip recording - Settings. Choose 'Auto-record track during navigation'. You'll see your tracks in 'My tracks' section and in your osmand/tracks folder.</p>
