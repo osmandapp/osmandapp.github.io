@@ -125,10 +125,12 @@
 				<tr>
 					<th>Date</th>
 					<th>+M</th>
+					<th>+Q</th>
 					<th>+Y</th>
 					<th>+Y/2</th>
 					<th>+W All</th>
 					<th>-M</th>
+					<th>-Q</th>
 					<th>-Y</th>
 					<th>-Y/2</th>
 					<th>-W All</th>
@@ -136,15 +138,17 @@
 				</tr>
 				<tr th:each="di : ${newSubsReport}">
 					<td th:text="${di.date}">01.01.2018 00:00</td>
-					<td th:text="'+'+${di.monthCount}">1000</td>
-					<td th:text="'+'+${di.annualCount}">1000</td>
-					<td th:text="'+'+${di.annualDiscountCount}">1000</td>
-					<td><b th:text="'+' + ${di.totalWeighted}">1000</b></td>
-					<td th:text="'-'+ ${di.cancelMonthCount}">1000</td>
-					<td th:text="'-'+${di.cancelAnnualCount}">1000</td>
-					<td th:text="'-'+${di.cancelAnnualDiscountCount}">1000</td>
-					<td><b th:text="'-' + ${di.cancelTotalWeighted}">1000</b></td>
-					<td><b th:text="(${di.deltaWeighted > 0}?'+':'')+ ${di.deltaWeighted}">1000</b></td>
+					<td th:text="(${di.monthCount > 0}?'+':'')++${di.monthCount}">1000</td>
+					<td th:text="(${di.quarterCount > 0}?'+':'')++${di.quarterCount}">1000</td>
+					<td th:text="(${di.annualCount > 0}?'+':'')++${di.annualCount}">1000</td>
+					<td th:text="(${di.annualDiscountCount > 0}?'+':'')++${di.annualDiscountCount}">1000</td>
+					<td><b th:text="(${di.totalWeighted > 0}?'+':'')+ + ${di.totalWeighted}">1000</b></td>
+					<td th:text="(${di.cancelMonthCount > 0}?'-':'')++ ${di.cancelMonthCount}">1000</td>
+					<td th:text="(${di.cancelQuarterCount > 0}?'-':'')++${di.cancelQuarterCount}">1000</td>
+					<td th:text="(${di.cancelAnnualCount > 0}?'-':'')++${di.cancelAnnualCount}">1000</td>
+					<td th:text="(${di.cancelAnnualDiscountCount > 0}?'-':'')++${di.cancelAnnualDiscountCount}">1000</td>
+					<td><b th:text="(${di.cancelTotalWeighted > 0}?'-':'')+ ${di.cancelTotalWeighted}">1000</b></td>
+					<td><b th:text="(${di.deltaWeighted > 0}?'+':'-')+ ${di.deltaWeighted}">1000</b></td>
 				</tr>
 			</table>
 
