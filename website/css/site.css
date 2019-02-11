@@ -1336,12 +1336,18 @@ a::-moz-focus-inner {
 
 .feature.subscription {
   background-image:url('/images/features/features_osmand_live.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 .feature.ruler {
   background-image:url('/images/features/ruler.png');
 }
 .feature.tracker {
   background-image:url('/images/features/tracker.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 .feature.mapillary {
   background-image:url('/images/features/mapillary.png');
