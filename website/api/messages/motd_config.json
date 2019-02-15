@@ -220,7 +220,7 @@
 		},
 		{
 			"condition": {
-   				"start_date": "15-02-2019 18:00",
+   				"start_date": "15-02-2019 16:00",
    				"end_date": "17-02-2019 20:59",
 				"os": "ios",
 				"lang" :"ru"
@@ -233,7 +233,7 @@
 		},
 		{
 			"condition": {
-   				"start_date": "15-02-2019 18:00",
+   				"start_date": "15-02-2019 16:00",
    				"end_date": "17-02-2019 20:59",
 				"os": "ios",
 				"lang" :"fr"
@@ -246,7 +246,7 @@
 		},
 		{
 			"condition": {
-   				"start_date": "15-02-2019 18:00",
+   				"start_date": "15-02-2019 16:00",
    				"end_date": "17-02-2019 20:59",
 				"os": "ios",
 				"lang" :"de"
@@ -259,7 +259,7 @@
 		},
 		{
 			"condition": {
-   				"start_date": "15-02-2019 18:00",
+   				"start_date": "15-02-2019 16:00",
    				"end_date": "17-02-2019 20:59",
 				"os": "ios",
 				"lang" :"it"
@@ -272,7 +272,7 @@
 		},
 		{
 			"condition": {
-   				"start_date": "15-02-2019 18:00",
+   				"start_date": "15-02-2019 16:00",
    				"end_date": "17-02-2019 20:59",
 				"os": "ios",
 				"lang" :"es"
@@ -285,7 +285,7 @@
 		},
 		{
 			"condition": {
-   				"start_date": "15-02-2019 18:00",
+   				"start_date": "15-02-2019 16:00",
    				"end_date": "17-02-2019 20:59",
 				"os": "ios",
 				"lang" :"nl"
@@ -298,7 +298,7 @@
 		},
 		{
 			"condition": {
-   				"start_date": "15-02-2019 18:00",
+   				"start_date": "15-02-2019 16:00",
    				"end_date": "17-02-2019 20:59",
 				"os": "ios"
 			},
