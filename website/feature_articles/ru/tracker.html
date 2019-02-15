@@ -1,26 +1,26 @@
-<h2>OsmAnd Online GPS Tracker</h2>
+<h2>OsmAnd Онлайн GPS трекер</h2>
 
-<p>We are pleased to announce that we have a new application in OsmAnd family. This application helps to see your contacts on the map in OsmAnd. It has a social aspect; you need to have contacts, that's why it was challenging for us to choose the platform to build it on.</p>
+<p>Это новое приложение в семействе OsmAnd, которое позволяет видеть ваши контакты на карте OsmAnd. Такое приложение должно быть с социальным аспектом, т.е. у вас должен быть список контактов. Поэтому нам было сложно выбрать платформу для интеграции.</p>
 
-<p>We have chosen Telegram as the most open social platform since it has an Open API, Open SDK and, moreover, it will eventually have an Open Server implementation (Blockchain).</p>
+<p>Мы выбрали Telegram как наиболее открытую социальную платформу, поскольку она имеет Open API, Open SDK и, более того, в конечном итоге она будет иметь реализацию Open Server (Blockchain).</p>
 <div class="blogimageblock">
         <img src="/images/blog/telegram/1-My_Location.jpg"/>
         <img src="/images/blog/telegram/4-Map.jpg"/>
         <div style="clear:both;"></div>
 </div>
-<p>It is important that we have a great level of interoperability between the applications. You can easily exchange your location with your contacts without having 'Telegram mobile app' (OsmAnd Online GPS Tracker is an independent telegram client) and, the other way around, your contacts should not necessarily have OsmAnd Telegram in order to see your location. We designed OsmAnd Telegram so you could still use your Telegram app and OsmAnd app naturally without flaws.</p>
+<p>Важно, чтобы у нас был высокий уровень взаимодействия между приложениями. Вы можете легко обмениваться своим местоположением со своими контактами, не имея «мобильного приложения Telegram» (OsmAnd Telegram является независимым клиентом Telegram), и наоборот, ваши контакты не обязательно должны иметь OsmAnd Telegram, чтобы видеть ваше местоположение. Мы разработали OsmAnd Telegram, чтобы вы могли без проблем использовать приложение Telegram и приложение OsmAnd.</p>
 
-
-<p>The application sends the Live Location messages to the selected chats for the time you specified, displays a list of your contacts and groups, and checks the chats for the presence of the messages with a location, which are then displayed on the map in OsmAnd.
-The application does not send or view your text messages.</p>
+<p>Приложение отправляет сообщения “Моя локация” в выбранные чаты в течение  указанного вами времени, отображает список ваших контактов и групп и проверяет чаты на наличие сообщений с местоположением, которые затем отображаются на карте в OsmAnd.
+Приложение не отправляет и не просматривает ваши текстовые сообщения.</p>
 
 <span>
-Log in using your phone number registered in Telegram to enable the following:
+Войдите в приложение, используя свой номер телефона, зарегистрированный в Telegram, для того, чтобы:
 <ul>
-    <li>Manage the list of contacts and groups that send you their location</li>
-    <li>View the location of contacts and groups in real time on a map in OsmAnd</li>
-    <li>Set the time for sharing the location separately for each chat</li>
-    <li>Set the location update frequency</li>
+    <li>Управлять списком контактов и групп, которые отправляют вам свое местоположение</li>
+    <li>Видеть расположение контактов и групп в режиме реального времени на карте в OsmAnd</li>
+    <li>Устанавливать время отправки своей локации отдельно для каждого чата</li>
+    <li>Устанавливать частоту обновления своей локации</li>
+    <li>Смотреть Хронологию перемещния своих контактов и себя</li>    
 </ul>
 </span>
 <div class="blogimageblock">
@@ -29,20 +29,39 @@ Log in using your phone number registered in Telegram to enable the following:
 <div style="clear:both;"></div>
 </div>
 
-<h3>Settings:</h3>
-<p>There are several settings for managing the frequency of sharing locations and controlling the display of the locations sent to you.</p>
-<p><b>Send my location</b> — allows you to set the interval for sending your position from once per second (for increasing accuracy) to once in 5 minutes (for reducing power consumption).</p>
-<p><b>Stale location</b> — allows you to set the time (from 1 minute to 1 hour) after which the location of your contact will be considered outdated. If the location becomes outdated, the position becomes gray.</p>
-<p><b>Location history</b> — allows setting the time (from 5 minutes to 24 hours) after which the contact with the deleted location will be hidden from the list and the OsmAnd map.</p>
-<p>The <b>OsmAnd Connect</b> setting allows you to select the version of OsmAnd in which your contacts with the position will be displayed on the map.</p>
+<h3>Настройки:</h3>
+<p>Существует несколько настроек частоты отправки локации, а также настройки вида сообщений в Telegram:</p>
+<p><b>Отправка моей локации</b> — позволяет установить интервал для отправки вашей локации от одного раза в секунду (для повышения точности) до одного раза в 5 минут (для снижения энергопотребления).</p>
+<p><b>Устаревание местоположения</b> - позволяет установить время (от 1 минуты до 1 часа), после которого местоположение вашего контакта будет считаться устаревшим. Если местоположение устарело, оно становится серым.</p>
+<p><b>История местоположений</b> - позволяет установить время (от 5 минут до 24 часов), после которого контакт с удаленным местоположением будет скрыт из списка и карты OsmAnd.</p>
+<p><b>Отправка местоположения как</b> - позволяет сделать выбор категории отправки сообщения о вашем местоположении в телеграм (3 вида отправки): текст, карта, текст и карта.</p>
 <div class="blogimageblock">
-    <img src="/images/blog/telegram/Settings-1.jpg"/>
-    <img src="/images/blog/telegram/Settings-2.jpg"/>
+    <img src="/images/features/settings_text_map.png"/>
+    <img src="/images/features/telegram_show.png"/>
+<div style="clear:both;"></div>
+</div>
+<p><b>Поделиться местоположением как</b> - если вы хотите подключить несколько устройств к одной учетной записи Telegram, вам необходимо кликнуть "Добавить устройство" и назвать устройство.</p>
+<p><b>Вид</b> - позволяет показывать количество GPS точек полученных от других контаков, а также отправленные вами.</p>
+<p><b>OsmAnd подключение</b> позволяет вам выбрать версию OsmAnd для отображения позиций на карте.</p>
+<div class="blogimageblock">
+    <img src="/images/features/settings_gps.png"/>
+    <img src="/images/features/setting.png"/>
+<div style="clear:both;"></div>
+</div>
+
+<h3>Хронология</h3>
+<p>Это третья вкладка в приложении. В ней есть возможность выбрать день, когда бы вы хотели посмотреть историю перемещений. При выборе отображаются контакты, которые показывали свое местоположение.</p>
+<p>Мониторинг позволяет собирать информацию в фоновом режиме, когда ваши контакты ее делятся. Для этого необходимо его включить.</p>
+<p>Чтобы просмотреть всю информацию по перемещению контакта, кликните на иконку контакта, либо откройте трек в OsmAnd и более детально изучите трек в нем (<a href="https://osmand.net/ru/features/trip-recording-plugin">более подробно читайте здесь</a>). Также треком за выбранный период можно поделиться: отправив его на почту либо любой мессенджер.</p>
+<div class="blogimageblock">
+    <img src="/images/features/timeline_start.png"/>
+    <img src="/images/features/timeline_details_1"/>
 <div style="clear:both;"></div>
 </div>
 
 <h3>OsmAnd Assistant:</h3>
-<p>We have also prepared a Telegram bot called 'OsmAnd Assistant,' so you can integrate OsmAnd Online GPS Tracker with 3rd party trackers or APIs. Hence, you can not only share your location but also the locations of your bicycle or a group of individuals taking part in racing which is available via API, and OsmAnd Telegram will make sure you have a nice presentation of locations on the map in OsmAnd itself.</p>
-<p>OsmAnd Online GPS Tracker represents the idea that we are not trying to lock-in our users into a single app, and we are in line with our mission to bring the value to end-users by focusing on the strong side of our app, meanwhile integrating with others. Recently we have also expanded a lot of our <a href="http://osmand.net/build_it">OsmAnd APIs</a>, so you can fine-tune or write another app that will seamlessly integrate with OsmAnd. Please share with us what you think about this new app on <a href="https://twitter.com/osmandapp">Twitter</a> and other social channels.</p>
-<p>To view the GPS positions of contacts on the map, you need the latest version of <a href="https://play.google.com/store/apps/details?id=net.osmand">OsmAnd</a> or <a href="https://play.google.com/store/apps/details?id=net.osmand.plus">OsmAnd+</a>. The minimum supported version of OsmAnd or OsmAnd + is 3.0.4.</p>
-<p>Get OsmAnd Online GPS Tracker <a href="https://play.google.com/store/apps/details?id=net.osmand.telegram">Google Play</a>.</p>
+<p>Мы также подготовили Telegram-бота под именем «OsmAnd Assistant», чтобы вы могли интегрировать OsmAnd Telegram со сторонними трекерами или API. Следовательно, вы можете не только делиться своим местоположением, но и местоположением своего велосипеда или группы людей, участвующих в гонках, которые доступны через API, и OsmAnd Telegram позаботится о том, чтобы у вас было хорошее представление об местоположениях на карте в самом OsmAnd.</p>
+
+<p>OsmAnd Telegram представляет идею о том, что мы блокируем наших пользователей в одном приложении, и мы в соответствии с нашей миссией - донести ценность до конечных пользователей, сосредоточившись на сильной стороне нашего приложения, в то же время интегрируясь с другие. Недавно мы также расширили множество наших <a href="http://osmand.net/build_it">API-интерфейсов OsmAnd</a>, чтобы вы могли настроить или написать другое приложение, которое будет легко интегрироваться с OsmAnd. Поделитесь с нами своим мнением об этом новом приложении в <a href="https://twitter.com/osmandapp"> Twitter</a> и других социальных сетях.</p>
+<p>Для просмотра GPS-позиций контактов на карте вам нужна последняя версия <a href="https://play.google.com/store/apps/details?id=net.osmand">OsmAnd </a> или <a href="https://play.google.com/store/apps/details?id=net.osmand.plus">OsmAnd+</a>. Минимальная поддерживаемая версия OsmAnd или OsmAnd + - 3.0.4.</p>
+<p>Получить OsmAnd Telegram - Location Sharing <a href="https://play.google.com/store/apps/details?id=net.osmand.telegram">Google Play</a>.</p>
