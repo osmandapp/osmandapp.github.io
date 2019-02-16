@@ -10,11 +10,11 @@
      {
        "condition" : [
 
-               { "not_purchased_subscription" : "net.osmand.maps.subscription.3months_v1" },
+               { "not_purchased_subscription" : "net.osmand.maps.subscription.osm_live.3months_v1" },
 
-               { "not_purchased_subscription" : "net.osmand.maps.subscription.annual_v1" },
+               { "not_purchased_subscription" : "net.osmand.maps.subscription.osm_live.annual_v1" },
 
-               { "not_purchased_subscription" : "net.osmand.maps.subscription.monthly_v1" }
+               { "not_purchased_subscription" : "net.osmand.maps.subscription.osm_live.monthly_v1" }
 ]
 }
 ],
