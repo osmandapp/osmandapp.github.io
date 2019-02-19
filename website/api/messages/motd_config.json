@@ -82,7 +82,7 @@
 			"file": "discount.json",
 			"fields": {
 				"message": "¡VENTA de febrero!",
-				"description": "Tarjetas ilimitadas y suscripción anual -50%!"
+				"description": "Descargas ilimitadas de mapas, curvas de nivel y suscripción anual -50%"
 			}
 		},
 		{
@@ -109,7 +109,7 @@
 			"file": "discount.json",
 			"fields": {
 				"message": "Février vente!",
-				"description": "Cartes illimitées et abonnement annuel -50%!"
+				"description": "Téléchargements de cartes illimités, courbes de niveau et abonnement annuel -50%!"
 			}
 		},
 		{
@@ -136,7 +136,7 @@
 			"file": "discount.json",
 			"fields": {
 				"message": "Februari VERKOOP!",
-				"description": "Onbeperkte kaarten en jaarabonnement -50% Korting!"
+				"description": "Onbeperkte kaartdownloads, contourlijnen en jaarabonnement -50%!"
 			}
 		},
 		{
@@ -163,7 +163,7 @@
 			"file": "discount.json",
 			"fields": {
 				"message": "VENDITA febbraio!",
-				"description": "Carte illimitate e abbonamento annuale -50%!"
+				"description": "Download illimitati di mappe, curve di livello e abbonamento annuale -50%!"
 			}
 		},
 		{
@@ -190,7 +190,7 @@
 			"file": "discount.json",
 			"fields": {
 				"message": "Februar AUSVERKAUF!",
-				"description": "Unbegrenzte Karten-Downloads und Jahresabonnement -50%!"
+				"description": "Unbegrenzte Karten-Downloads, Höhenlinien und Jahresabonnement -50%!"
 			}
 		},
 		{
