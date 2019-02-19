@@ -108,8 +108,8 @@
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "Cartes illimitées et abonnement annuel -50%!",
-				"description": "Février vente!"
+				"message": "Février vente!",
+				"description": "Cartes illimitées et abonnement annuel -50%!"
 			}
 		},
 		{
