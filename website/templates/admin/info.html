@@ -102,8 +102,10 @@
 					<th>I Y</th>
 					<th>I Q</th>
 					<th>I M</th>
-					<th>All M-Weighted</th>
-					<th>Extra Gain/Loss</th>
+					<th>Average Rev</th>
+					<th>Rev of Y</th>
+					<th>Rev of Q</th>
+					<th>Rev of M</th>
 				</tr>
 				<tr th:each="di : ${subscriptionsReport}">
 					<td th:text="${di.date}">01.01.2018 00:00</td>
@@ -116,8 +118,10 @@
 					<td th:text="${di.iosQuarterCount}">300</td>
 					<td th:text="${di.iosMonthCount}">500</td>
 
-					<td><b th:text="${#numbers.formatInteger(di.annualValue*6/(10*12),0)}">700</b></td>
-					<td><b th:text="${#numbers.formatInteger(((di.value-di.annualValue/12) - (di.nextValue-di.nextAnnualValue/12))*6/10,0)}">700</b></td>
+					<td><b th:text="${#numbers.formatInteger(di.annualValue*6/(10*12),0) + '€'}">700</b></td>
+					<td><b th:text="${#numbers.formatInteger(di.valueOfAnnuals*6/10,0)+ '€'}">700</b></td>
+					<td><b th:text="${#numbers.formatInteger(di.valueOfQuarterly*6/10,0)+ '€'}">700</b></td>
+					<td><b th:text="${#numbers.formatInteger(di.valueOfMonthly*6/10,0)+ '€'}">700</b></td>
 				</tr>
 			</table>
 
@@ -131,14 +135,16 @@
 					<th>+Y</th>
 					<th>+Y/2</th>
 					<th>+W All</th>
-					<th>+Gain</th>
+					
 					<th>-M</th>
 					<th>-Q</th>
 					<th>-Y</th>
 					<th>-Y/2</th>
 					<th>-W All</th>
-					<th>-Loss</th>
+					
 					<th>Delta</th>
+
+					<th>Revenue Gain</th>
 				</tr>
 				<tr th:each="di : ${newSubsReport}">
 					<td th:text="${di.date}">01.01.2018 00:00</td>
@@ -147,14 +153,13 @@
 					<td th:text="(${di.annualCount > 0}?'+':'')+${di.annualCount}">1000</td>
 					<td th:text="(${di.annualDiscountCount > 0}?'+':'')+${di.annualDiscountCount}">1000</td>
 					<td><b th:text="(${di.totalWeighted > 0}?'+':'')+ ${di.totalWeighted*6/(10*12)}">1000</b></td>
-					<td><b th:text="(${di.totalGain > 0}?'+':'')+ ${di.totalGain*6/10}">1000</b></td>
 					<td th:text="(${di.cancelMonthCount > 0}?'-':'')+ ${di.cancelMonthCount}">1000</td>
 					<td th:text="(${di.cancelQuarterCount > 0}?'-':'')+${di.cancelQuarterCount}">1000</td>
 					<td th:text="(${di.cancelAnnualCount > 0}?'-':'')+${di.cancelAnnualCount}">1000</td>
 					<td th:text="(${di.cancelAnnualDiscountCount > 0}?'-':'')+${di.cancelAnnualDiscountCount}">1000</td>
 					<td><b th:text="(${di.cancelTotalWeighted > 0}?'-':'')+${di.cancelTotalWeighted*6/(10*12)}">1000</b></td>
-					<td><b th:text="(${di.cancelLoss > 0}?'-':'')+ ${di.cancelLoss*6/10}">1000</b></td>
 					<td><b th:text="${di.deltaWeighted*6/(10*12)}">1000</b></td>
+					<td><b th:text="(${di.revenueGain > 0}?'+':'')+ ${di.revenueGain*6/10}">1000</b></td>
 				</tr>
 			</table>
 
