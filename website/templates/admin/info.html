@@ -117,7 +117,7 @@
 					<td th:text="${di.iosMonthCount}">500</td>
 
 					<td><b th:text="${#numbers.formatInteger(di.annualValue*6/(10*12),0)}">700</b></td>
-					<td><b th:text="${#numbers.formatInteger(di.value*6/10),0)}">700</b></td>
+					<td><b th:text="${#numbers.formatInteger(di.value*6/10,0)}">700</b></td>
 				</tr>
 			</table>
 
