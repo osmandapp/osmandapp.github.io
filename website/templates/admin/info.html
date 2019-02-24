@@ -103,9 +103,10 @@
 					<th>I Q</th>
 					<th>I M</th>
 					<th>Avg Rev</th>
-					<th>Rev of Y</th>
-					<th>Rev of Q</th>
-					<th>Rev of M</th>
+					<th>Y</th>
+					<th>Q</th>
+					<th>M</th>
+					<th>Total Rev</th>
 				</tr>
 				<tr th:each="di : ${subscriptionsReport}">
 					<td th:text="${di.date}">01.01.2018 00:00</td>
@@ -119,9 +120,10 @@
 					<td th:text="${di.iosMonthCount}">500</td>
 
 					<td><b th:text="${'€ '+#numbers.formatInteger(di.annualValue*6/(10*12),0)}">700</b></td>
-					<td><b th:text="${'€ '+#numbers.formatInteger(di.valueOfAnnuals*6/10,0)}">700</b></td>
-					<td><b th:text="${'€ '+#numbers.formatInteger(di.valueOfQuarterly*6/10,0)}">700</b></td>
-					<td><b th:text="${'€ '+#numbers.formatInteger(di.valueOfMonthly*6/10,0)}">700</b></td>
+					<td th:text="${'€ '+#numbers.formatInteger(di.valueOfAnnuals*6/10,0)}">700</td>
+					<td th:text="${'€ '+#numbers.formatInteger(di.valueOfQuarterly*6/10,0)}">700</td>
+					<td th:text="${'€ '+#numbers.formatInteger(di.valueOfMonthly*6/10,0)}">700</td>
+					<td><b th:text="${'€ '+#numbers.formatInteger((di.valueOfAnnuals+di.valueOfMonthly+di.valueOfQuarterly)*6/10,0)}">€ 700</b></td>
 				</tr>
 			</table>
 
