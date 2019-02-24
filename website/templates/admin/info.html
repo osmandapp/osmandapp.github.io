@@ -134,9 +134,7 @@
 					<th>+Q</th>
 					<th>+Y</th>
 					<th>+Y/2</th>
-					<th>+W All</th>
-					<th>+Sub days</th>
-					
+					<th>+W All</th>					
 					<th>-M</th>
 					<th>-Q</th>
 					<th>-Y</th>
@@ -153,7 +151,6 @@
 					<td th:text="(${di.annualCount > 0}?'+':'')+${di.annualCount}">1000</td>
 					<td th:text="(${di.annualDiscountCount > 0}?'+':'')+${di.annualDiscountCount}">1000</td>
 					<td><b th:text="(${di.totalWeighted > 0}?'+':'')+ ${di.totalWeighted*6/(10*12)}">1000</b></td>
-					<td th:text="'+' + ${di.totalAvgDuration} + ' days'">+5 days</td>
 					<td th:text="(${di.cancelMonthCount > 0}?'-':'')+ ${di.cancelMonthCount}">1000</td>
 					<td th:text="(${di.cancelQuarterCount > 0}?'-':'')+${di.cancelQuarterCount}">1000</td>
 					<td th:text="(${di.cancelAnnualCount > 0}?'-':'')+${di.cancelAnnualCount}">1000</td>
