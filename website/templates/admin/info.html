@@ -164,8 +164,8 @@
 					<td th:text="'-' + ${di.cancelTotalAvgDuration} + ' days'">-5 days</td>
 					<td th:text="'- €'  + ${di.cancelTotalLifeValue*6/10} + ' / ' +
 						(${di.cancelTotal==0}? '0': 
-						'0')">- € 50</td>
-						<!-- #numbers.formatDecimal(di.cancelTotalLifeValue*6/(10.0*di.cancelTotal),0,2,'COMMA') -->
+						#numbers.formatDecimal(di.cancelTotalLifeValue*6/(10.0*di.cancelTotal),0,2,'COMMA') )">- € 50</td>
+						<!--  -->
 					<td><b th:text="${di.deltaWeighted*6/(10*12)}">1000</td>
 				</tr>
 			</table>
