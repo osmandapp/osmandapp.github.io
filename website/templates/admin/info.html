@@ -107,7 +107,7 @@
 					<th>Q</th>
 					<th>M</th>
 					<th>Total Rev</th>
-					<th>LTV</th>
+					<th>LTV/p</th>
 				</tr>
 				<tr th:each="di : ${subscriptionsReport}">
 					<td th:text="${di.date}">01.01.2018 00:00</td>
@@ -125,7 +125,7 @@
 					<td th:text="${'€ '+#numbers.formatInteger(di.valueOfQuarterly*6/10,0)}">700</td>
 					<td th:text="${'€ '+#numbers.formatInteger(di.valueOfMonthly*6/10,0)}">700</td>
 					<td><b th:text="${'€ '+#numbers.formatInteger((di.valueOfAnnuals+di.valueOfMonthly+di.valueOfQuarterly)*6/10,0)}">€ 700</b></td>
-					<td th:text="${'€ '+#numbers.formatInteger(di.totalLifeValue*6/10.0,0)}">700</td>
+					<td th:text="${'€ '+#numbers.formatInteger(di.totalLifeValue*6/(10.0*di.count),0)}">700</td>
 				</tr>
 			</table>
 
