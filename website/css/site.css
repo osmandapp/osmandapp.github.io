@@ -3195,3 +3195,62 @@ a,a:visited
   border: 1px solid #ccc;
   border-radius: 2px;
 }
+
+.dropbtn {
+  padding: 5px;
+  cursor: pointer;
+  color: #4C51D9;
+  width: 67px;
+  padding-left: 14px;
+  background: #FFFFFF;
+  border-radius: 6px 6px 6px 6px;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #FFFFFF;
+  width: 178px;
+  border-radius: 6px 0px 6px 6px;
+  padding: 5px 0;
+  right: -12px;
+}
+.show_dropdown{
+  display: block;
+}
+.showed_dropdown{
+  border-radius: 6px 6px 0 0;
+}
+.lang_switcher{
+  width: 50px;
+}
+.dropbtn::after {
+  background: rgba(0, 0, 0, 0) url("/images/arrow-down.png") no-repeat scroll center center;
+  content: "";
+  height: 16px;
+  position: absolute;
+  right: 0;
+  top: 10px;
+  width: 10px;
+}
+.dropdown-content a {
+  padding: 14px;
+  text-decoration: none;
+  display: block;
+  font-family: Roboto Regular;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 16px;
+  letter-spacing: 0.03em;
+  text-transform: none;
+  color: #000000;
+}
+.dropdown-content a:hover{
+  background: #F0F0F0;
+  color: #4C51D9;
+  cursor: pointer;
+}
+.dropdown-content a.current{
+  background: #FF8800;
+  color: #FFFFFF;
+}
