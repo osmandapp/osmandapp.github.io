@@ -143,6 +143,7 @@
 					<th>-Y/2</th>
 					<th>-W All</th>
 					<th>-Sub days</th>
+					<th>-LTV</th>
 					<th>Total</th>
 					
 				</tr>
@@ -159,6 +160,7 @@
 					<td th:text="(${di.cancelAnnualDiscountCount > 0}?'-':'')+${di.cancelAnnualDiscountCount}">1000</td>
 					<td><b th:text="(${di.cancelTotalWeighted > 0}?'-':'')+${di.cancelTotalWeighted*6/(10*12)}">1000</b></td>
 					<td th:text="'-' + ${di.cancelTotalAvgDuration} + ' days'">-5 days</td>
+					<td th:text="'- €'  + ${di.cancelTotalLifeValue}">- € 50</td>
 					<td><b th:text="${di.deltaWeighted*6/(10*12)}">1000</td>
 				</tr>
 			</table>
