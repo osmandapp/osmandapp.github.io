@@ -125,7 +125,7 @@
 					<td th:text="${'€ '+#numbers.formatInteger(di.valueOfQuarterly*6/10,0)}">700</td>
 					<td th:text="${'€ '+#numbers.formatInteger(di.valueOfMonthly*6/10,0)}">700</td>
 					<td><b th:text="${'€ '+#numbers.formatInteger((di.valueOfAnnuals+di.valueOfMonthly+di.valueOfQuarterly)*6/10,0)}">€ 700</b></td>
-					<td th:text="${'€ '+#numbers.formatInteger(di.lifeTimeValue*6/10.0,0)}">700</td>
+					<td th:text="${'€ '+#numbers.formatInteger(di.totalLifeValue*6/10.0,0)}">700</td>
 				</tr>
 			</table>
 
