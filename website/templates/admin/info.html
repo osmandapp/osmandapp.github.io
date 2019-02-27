@@ -181,9 +181,9 @@
 				</tr>
 				<tr th:each="di : ${futureCancelReport}">
 					<td th:text="${di.date}">01.01.2018 00:00</td>
-					<td th:text="${di.cancelTotal}">1000</td>
-					<td th:text="${di.cancelTotalAvgDuration} + ' days'">1000</td>
-					<td th:text="' €' + ${#numbers.formatDecimal(di.cancelTotalLifeValue*6/(10.0*di.cancelTotal),0,2,'COMMA')}">1000</td>
+					<td th:text="${di.count}">1000</td>
+					<td th:text="${di.duration / di.count} + ' days'">1000</td>
+					<td th:text="' €' + ${#numbers.formatDecimal(di.totalLifeValue*6/(10.0*di.cancelTotal),0,2,'COMMA')}">1000</td>
 				</tr>
 			</table>
 
