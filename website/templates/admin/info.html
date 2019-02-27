@@ -125,7 +125,7 @@
 					<td th:text="${'€ '+#numbers.formatInteger(di.valueOfQuarterly*6/10,0)}">700</td>
 					<td th:text="${'€ '+#numbers.formatInteger(di.valueOfMonthly*6/10,0)}">700</td>
 					<td><b th:text="${'€ '+#numbers.formatInteger((di.valueOfAnnuals+di.valueOfMonthly+di.valueOfQuarterly)*6/10,0)}">€ 700</b></td>
-					<td th:text="${'€ '+ #numbers.formatDecimal(di.totalLifeValue*6/(10.0*di.count),3,2,'COMMA')}">700</td>
+					<td th:text="${'€ '+ #numbers.formatDecimal(di.totalLifeValue*6/(10.0*di.count),0,2,'COMMA')}">700</td>
 				</tr>
 			</table>
 
@@ -162,9 +162,9 @@
 					<td th:text="(${di.cancelAnnualDiscountCount > 0}?'-':'')+${di.cancelAnnualDiscountCount}">1000</td>
 					<td><b th:text="(${di.cancelTotalWeighted > 0}?'-':'')+${di.cancelTotalWeighted*6/(10*12)}">1000</b></td>
 					<td th:text="'-' + ${di.cancelTotalAvgDuration} + ' days'">-5 days</td>
-					<td th:text="'- €'  + ${di.cancelTotalLifeValue*6/10} + ' / '
+					<td th:text="'- €'  + ${di.cancelTotalLifeValue*6/10} + ' / ' +
 						(${di.cancelTotal==0}? '0': #numbers.formatDecimal(
-								di.cancelTotalLifeValue*6/(10.0*di.cancelTotal),3,2,'COMMA')">- € 50</td>
+								di.cancelTotalLifeValue*6/(10.0*di.cancelTotal),0,2,'COMMA')">- € 50</td>
 					<td><b th:text="${di.deltaWeighted*6/(10*12)}">1000</td>
 				</tr>
 			</table>
