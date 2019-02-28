@@ -8,6 +8,14 @@
       <a href="/" th:href="'/'+${locale_path}" class="headerlogo-link"><div class="headerlogo"></div></a>
       <ul class="menu">
         <li class="mobile-sign" th:text="#{top_menu}">Menu</li>
+        <li class="lang_switcher mobile-only">
+          <div class="dropbtn" id="lang_switcher_btn" th:text="${#strings.isEmpty(locale_path)?'EN':#strings.substringBefore(locale_path,'/')}"></div>
+          <div class="dropdown-content" id="lang_dropdown">
+            <a href="/" class="" th:classappend="${locale_path == 'en/' || locale_path == ''}?'current'">English</a>
+            <a href="/ru/" class="" th:classappend="${locale_path == 'ru/'}?'current'">Русский-Russian</a>
+            <a href="/de/" class="" th:classappend="${locale_path == 'de/'}?'current'">Deutsch</a>
+          </div>
+        </li>
         <li th:classappend="${header_id == 'FEATURES'}?'activeitem'"><a data-gatag="header_features" href="/features" th:href="'/'+${locale_path}+'features'" th:text="#{top_features}">Features</a></li>
         <li th:classappend="${header_id == 'BLOG'}?'activeitem'"><a data-gatag="header_blog" href="/blog"
         th:href="'/'+${locale_path}+'blog'" th:text="#{top_blog}">Blog</a></li>
@@ -15,12 +23,12 @@
         <li th:classappend="${header_id == 'API'}?'activeitem'"><a data-gatag="header_build_it" href="/build_it" th:href="'/'+${locale_path}+'build_it'" th:text="#{top_build_it}">Build It</a></li>
         <li th:classappend="${header_id == 'HELP'}?'activeitem'"><a data-gatag="header_help" href="/help-online" th:href="'/'+${locale_path}+'help-online'" th:text="#{top_help}">Help</a></li>
         <li th:classappend="${header_id == 'DVR'}?'activeitem'"><a data-gatag="header_dvr" href="/dvr" th:href="'/'+${locale_path}+'dvr'" th:text="#{top_dvr}">DVR</a></li>
-        <li class="lang_switcher">
-          <div class="dropbtn" id="lang_switcher_btn">${locale_path}</div>
-          <div class="dropdown-content" id="lang_dropdown">
-            <a href="/" th:href="'/'+${locale_path}" th:classappend="${locale_path == 'en' || locale_path == ''}?'current'" href="." class="current">English</a>
-            <a href="/" th:href="'/'+${locale_path}" th:classappend="${locale_path == 'ru'}?'current'">Русский-Russian</a>
-            <a href="/" th:href="'/'+${locale_path}" th:classappend="${locale_path == 'de'}?'current'">Deutsch</a>
+        <li class="lang_switcher desktop-only">
+          <div class="dropbtn" th:text="${#strings.isEmpty(locale_path)?'EN':#strings.substringBefore(locale_path,'/')}"></div>
+          <div class="dropdown-content">
+            <a href="/" class="" th:classappend="${locale_path == 'en/' || locale_path == ''}?'current'">English</a>
+            <a href="/ru/" class="" th:classappend="${locale_path == 'ru/'}?'current'">Русский-Russian</a>
+            <a href="/de/" class="" th:classappend="${locale_path == 'de/'}?'current'">Deutsch</a>
           </div>
         </li>
         <li class="mobile-only" th:if="${header_id == 'DOWNLOADS'}"><a data-gatag="header_downloads" href="/downloads" th:href="'/'+${locale_path}+'downloads'" th:text="#{top_downloads}">Downloads</a></li>
@@ -90,9 +98,18 @@
 
 <script  type="text/javascript">
   function toggle_lang(){
-    document.getElementById("lang_dropdown").classList.toggle("show_dropdown");
-    document.getElementById("lang_switcher_btn").classList.toggle("showed_dropdown");
+    langs_down = document.getElementsByClassName('dropdown-content');
+    langs_down_showed = document.getElementsByClassName('dropbtn');
+    for (i = 0; i < langs_down.length; ++i) {
+      langs_down[i].classList.toggle("show_dropdown");
+    }
+    for (i = 0; i < langs_down_showed.length; ++i) {
+      langs_down_showed[i].classList.toggle("showed_dropdown");
+    }
   }
-  document.getElementById('lang_switcher_btn').onclick = function() {toggle_lang()};
+  drop_langs = document.getElementsByClassName('dropbtn');
+  for (i = 0; i < drop_langs.length; ++i) {
+    drop_langs[i].onclick = function() {toggle_lang()};
+  }
 </script>
 </div>
