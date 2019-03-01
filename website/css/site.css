@@ -3212,7 +3212,7 @@ a,a:visited
   width: 178px;
   border-radius: 6px 0px 6px 6px;
   padding: 5px 0;
-  right: -12px;
+  right: 23px;
 }
 .show_dropdown{
   display: block;
@@ -3222,13 +3222,14 @@ a,a:visited
 }
 .lang_switcher{
   width: 50px;
+  padding-right: 90px!important;
 }
 .dropbtn::after {
   background: rgba(0, 0, 0, 0) url("/images/arrow-down.png") no-repeat scroll center center;
   content: "";
   height: 16px;
   position: absolute;
-  right: 0;
+  right: 35px;
   top: 10px;
   width: 10px;
 }
@@ -3253,4 +3254,25 @@ a,a:visited
 .dropdown-content a.current{
   background: #FF8800;
   color: #FFFFFF;
+}
+@media screen and (max-width: 1075px) {
+  .menu li.desktop-only {
+    display: none;
+  }
+  .dropbtn::after {
+    right: 206px;
+    top: 138px;
+  }
+  .dropdown-content{
+    right: 82px;
+    border-radius: 0px 6px 6px 6px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+
+  .dropbtn::after {
+    right: 206px;
+    top: 124px;
+  }
 }
