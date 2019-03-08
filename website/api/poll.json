@@ -1,22 +1,22 @@
 {
 	"website_1" : {
-		"pubdate" : "10.02.2019",
-		"title" : "Do you use OsmAnd Live (update maps every hour + get all features)?",
-		"polldaddyid" : "10236633"
+		"pubdate" : "08.03.2019",
+		"title" : "At OsmAnd v.3.3 for Android we have beta a navigation on public transport which is currently in the beta phase. Do you start to use this feature?",
+		"polldaddyid" : "10258978"
 	},
 	"website_2" : {
-		"pubdate" : "10.02.2019",
-		"title" : "Do you use OsmAnd Live (update maps every hour + get all features)?",
-		"polldaddyid" : "10236633"
+		"pubdate" : "08.03.2019",
+		"title" : "At OsmAnd v.3.3 for Android we have beta a navigation on public transport which is currently in the beta phase. Do you start to use this feature?",
+		"polldaddyid" : "10258978"
 	},
 	"android" : {
-		"pubdate" : "10.02.2019",
-		"title" : "Do you use OsmAnd Live (update maps every hour + get all features)?",
-		"polldaddyid" : "10236633"
+		"pubdate" : "08.03.2019",
+		"title" : "At OsmAnd v.3.3 for Android we have beta a navigation on public transport which is currently in the beta phase. Do you start to use this feature?",
+		"polldaddyid" : "10258978"
 	},
 	"ios" : {
-		"pubdate" : "10.02.2019",
-		"title" : "Do you use OsmAnd Live (update maps every hour + get all features)?",
-		"polldaddyid" : "10236633"
+		"pubdate" : "08.03.2019",
+		"title" : "At OsmAnd v.3.3 for Android we have beta a navigation on public transport which is currently in the beta phase. Do you start to use this feature?",
+		"polldaddyid" : "10258978"
 	}
 }
