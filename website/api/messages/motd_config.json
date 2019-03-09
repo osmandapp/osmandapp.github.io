@@ -388,8 +388,8 @@
 		},
 		{
 			"condition": {
-   				"start_date": "15-02-2019 16:00",
-   				"end_date": "17-02-2019 20:59",
+   				"start_date": "09-03-2019 11:00",
+   				"end_date": "10-03-2019 23:59",
 				"os": "ios"
 			},
 			"file": "subscription_ios.json",
