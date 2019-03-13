@@ -142,4 +142,8 @@
   <tile_source name="Israel Hiking Map (IL)" url_template="https://IsraelHiking.osm.org.il/Hebrew/Tiles/{0}/{1}/{2}.png" ext=".png" min_zoom="7" max_zoom="16" tile_size="256" img_density="32" avg_img_size="58000"/>
   <tile_source name="Israel MTB Map (IL)" url_template="https://IsraelHiking.osm.org.il/Hebrew/mtbTiles/{0}/{1}/{2}.png" ext=".png" min_zoom="7" max_zoom="16" tile_size="256" img_density="32" avg_img_size="43000"/>
 
+   <!-- http://kelkkareitit.fi -->
+   <tile_source name="Kelkkareitit.fi (snowmobile overlay)" url_template="https://tiles.kelkkareitit.fi/kelkkareitit/{0}/{1}/{2}.png" ext=".png" min_zoom="3" max_zoom="18" tile_size="256" img_density="8" avg_img_size="10000"/>
+
+
 </tile_sources>
