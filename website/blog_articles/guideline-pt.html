@@ -3,7 +3,8 @@
 <div class="date">March 14, 2019</div>
 <ul class="list">
 <li><a href="#Guidelines">Guidelines on how to build or correct public transport routes</a></li>
-<li><a href="#Validation">JOSM final check (Data validator)</a></li>
+<li><a href="#Validation_1">"OSM Inspector" final check (Data validator)</a></li>
+<li><a href="#Validation_2">"JOSM validator" final check (Data validator)</a></li>
 
 <p>Hi!</p>
 <p>As you already know we have recently released an update of our app on Android!</p>
@@ -73,6 +74,8 @@
 
 <img src="/images/blog/guideline-pt/image_9.png"/>
 
+<div class="subtitle" id="Validation_1"><h3>"OSM Inspector" final check (Data validator)</h3></div>
+
 <p><a href="http://tools.geofabrik.de/osmi/?view=pubtrans_routes&lon=13.39599&lat=52.49897&zoom=12&overlays=ptv2_routes_invalid,ptv2_error_,ptv2_error_ways,ptv2_error_nodes">OSM Inspector</a> can help you to check whether routes are correct. Use it, it does a pretty nice work!</p>
 
 <p>In case of any mistake, click on it in the tab “Selection” and detailed info will appear. A vertical scroll bar will show up automatically if there are multiple mistakes on different levels. Each mistake has a letter J next to it. Click on it, and the mechanism of <a href="https://josm.openstreetmap.de/wiki/Help/Preferences/RemoteControl">the remote control</a> will open the corresponding area in JOSM.</p>
@@ -124,7 +127,7 @@
 <p><i>Stop not on way</i></p> 
 <p>A stop is not implemented in your route, it should be put directly in it.</p>
 
-<div class="subtitle" id="Validation"><h3>JOSM final check (Data validator)</h3></div>
+<div class="subtitle" id="Validation_2"><h3>"JOSM validator" final check (Data validator)</h3></div>
 
 <p>JOSM has an inbuilt validator which checks data. It will open automatically should you try to send the data to the server, it can also be handled manually. In order to do this, search for the tab “Validation Results” on the right of the main window.   Still cannot see it? Let’s turn it on through Windows -> Validation results. Click “Check” button and the whole area (if none selected) validation should start. Should you try sending data to the server, this check will work out only recently changed info.</p>  
 
