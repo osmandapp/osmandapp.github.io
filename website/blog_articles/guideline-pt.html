@@ -56,16 +56,16 @@
 <p><b>If the order of stops is incorrect, OsmAnd will NOT be able to plan a proper route for you!</b></p>
 
 <p>To check whether the route has any gaps, use small arrows, located on the right side of the way. They also will help you to determine the direction of the route.</p>
-<p>Now, as you can see, we have a complete track, which starts at Bus stop 1 (on Fedinskaya street) and ends at Bus stop 3 (A-108).</p>
-<p>As a rule, buses go both ways. So, why not to create a backtrack? Just start from copying the relations by pressing “Relations - Create copy of this relation”. You can also access the button in the redactor. It looks a bit messy, in fact, we can get rid of all stop_position and platform relations, leaving only the tracks. There is a button called “Reverse the order of the relation members” in the redactor window, by clicking on it, we will reverse the direction of the routes and, furthermore, will be able to check whether they are correct. Now, let us add stops and platforms, adjusting tags in the process. </p>
-<p>All the directions, variations, and details, attached to the route should be united under one relation “route_master”, which is required by the scheme PTv2. Our task now is to create a new relation and fill in the tags: </p>
+<p>Now, as you can see, we have a complete route, which starts at Bus stop 1 (on Fedinskaya street) and ends at Bus stop 3 (A-108).</p>
+<p>As a rule, buses go both ways. So, why not to create a backtrack? Just start from copying the relations by pressing “Relations - Create copy of this relation”. You can also access the button in the redactor. It looks a bit messy, in fact, we can get rid of all stop_position and platform relations, leaving only the tracks. There is a button called “Reverse the order of the relation members” in the redactor window, by clicking on it, we will reverse the direction of the route and, furthermore, will be able to check whether they are correct. Now, let us add stops and platforms, adding tags in the process.</p>
+<p>All the directions, variants of route, and details, attached to the route should be united relation type "route_master", which is required by the scheme PTv2. Our task now is to create a new relation and fill in the tags: </p>
 
 <p><i>type=route_master</i></p>
 <p><i>route_master=bus</i></p>
 <p><i>ref=5</i></p>
 
-<p>The tag “ref” is reserved for the name of the route.</p>
-<p>Searching for the previously created track in Relations, do not close the redactor. Click on “Select relation”. If you did alright, which we are sure of, you will see your route change color. It will become purple, and the tags will appear on the panel “Tags / Membership”.</p>
+<p>The tag “ref” is reserved for the number of the route.</p>
+<p>Searching for the previously created route in Relations, do not close the redactor. Click on “Select relation”. If you did alright, which we are sure of, you will see your route change color. It will become purple, and the tags will appear on the panel “Tags / Membership”.</p>
 
 <img src="/images/blog/guideline-pt/image_8.png"/>
 
@@ -73,13 +73,13 @@
 
 <img src="/images/blog/guideline-pt/image_9.png"/>
 
-<p><a href="http://tools.geofabrik.de/osmi/?view=pubtrans_routes&lon=13.39599&lat=52.49897&zoom=12&overlays=ptv2_routes_invalid,ptv2_error_,ptv2_error_ways,ptv2_error_nodes">OSM Inspector</a> can help you to check whether your tracks are correct. Use it, it does a pretty nice work!</p>
+<p><a href="http://tools.geofabrik.de/osmi/?view=pubtrans_routes&lon=13.39599&lat=52.49897&zoom=12&overlays=ptv2_routes_invalid,ptv2_error_,ptv2_error_ways,ptv2_error_nodes">OSM Inspector</a> can help you to check whether routes are correct. Use it, it does a pretty nice work!</p>
 
 <p>In case of any mistake, click on it in the tab “Selection” and detailed info will appear. A vertical scroll bar will show up automatically if there are multiple mistakes on different levels. Each mistake has a letter J next to it. Click on it, and the mechanism of <a href="https://josm.openstreetmap.de/wiki/Help/Preferences/RemoteControl">the remote control</a> will open the corresponding area in JOSM.</p>
 
 <img src="/images/blog/guideline-pt/image_10.png"/>
 
-<p>Should the message “The OSM server ‘api.openstreetmap.org’ reported a bad request. The area you tried is too big or your request was too large. Either request a smaller area or use an export file provided by the OSM community” appear on the screen, just type in the area through JOSM -> File -> Download data -> Download from Overpass API. In order to get more information in one search use <a href="https://wiki.openstreetmap.org/wiki/Overpass_API">Overpass API</a>, the server will allow you to download only the required type of data.</p>
+<p>Should the message “The OSM server ‘api.openstreetmap.org’ reported a bad request. The area you tried is too big or your request was too large. Either request a smaller area or use an export file provided by the OSM community” appear on the screen, just type in the area through JOSM -> File -> Download data -> Download from Overpass API. In order to get more data in one search use <a href="https://wiki.openstreetmap.org/wiki/Overpass_API">Overpass API</a>, the server will allow you to download only the required type of data.</p>
 
 <p><i>Gap / Gap or unordered before this way</i></p>
 
@@ -87,18 +87,18 @@
 
 <img src="/images/blog/guideline-pt/image_11.png"/>
 
-<p>On this screenshot we can notice that the line, that shows our track, indeed, has some gaps. To get to the root of the problem, click on any segment of the track in the Members list. This track will be marked with red coloring in the main window of the program.</p>
+<p>On this screenshot we can notice that the line, that shows our route, indeed, has some gaps. To get to the root of the problem, click on any segment of the track in the Members list. This way will be marked with red coloring in the main window of the program.</p>
 
 <img src="/images/blog/guideline-pt/image_12.png"/>
 
 <p>To move across the segments of a relation you can also use the keyboard. By going through the track manually, it is easier to spot the segment that was placed incorrectly. And when we already know what has caused the mistake, we can just drag it to its right place. You can also use buttons on your left, if you wish.</p>
 <p>The neighboring segments may have an inverted order, which is a fairly common mistake. To correct it, we can select the disorganized tracks in the list of Members and click the button  on the left, which is “Reverse the order of relation members”.</p>
-<p>The image of a bus has been placed near the button in the latest versions of JOSM to automatically correct simple mistakes. And, finally, when we understand how to make corrections manually, we can run the program, fully controlling the process!</p>
+<p>The image of a bus has been placed on the button in the latest versions of JOSM to automatically correct simple mistakes. And, finally, when we understand how to make corrections manually, we can run the program, fully controlling the process!</p>
 
 <img src="/images/blog/guideline-pt/image_13.png"/>
 
 <p><i>Empty role for non-way object</i></p>
-<p>In most cases, it means that we have left out one stop_position or platform role. We will need to fill in the empty space.</p> 
+<p>In most cases, it means that we have left out one stop_position or platform role. We will need to fill in the empty role.</p> 
 
 <p><i>Road vehicle route over non-road</i></p>
 
@@ -110,7 +110,7 @@
 <p><i>Route has only stops/platforms</i></p>
 <p>There are no tracks marked on the map. Just add them.</p> 
 <p><i>Trolley bus without trolley wire</i></p> 
-<p>Tag trolley tracks with trolley_wire=yes to mark contact electrical network.</p>
+<p>Tag trolley ways with trolley_wire=yes to mark contact electrical network.</p>
 
 <p><i>Unknown route type</i></p> 
 <p>This type of route is unknown. Add some details.</p> 
