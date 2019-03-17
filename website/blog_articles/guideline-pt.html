@@ -3,6 +3,7 @@
 <div class="date">March 16, 2019</div>
 <ul class="list">
 <li><a href="#Guidelines">Guidelines on how to build or correct public transport routes</a></li>
+<li><a href="#mistakes">The most common mistakes</a></li>
 <li><a href="#Validation_1">"OSM Inspector" final check (Data validator)</a></li>
 <li><a href="#Validation_2">"JOSM validator" final check (Data validator)</a></li>
 
@@ -44,11 +45,11 @@
 
 <img src="/images/blog/guideline-pt/image_5.png"/>
 
-<p>Our next move is to add nodes <i>public_transport=stop_position</i> and <i>public_transport=platform</i>. Select them on the map and, then, add to the relation (higher than ways). Enumerate them to avoid further difficulties. For example, stop_position 1, platform 1, stop position 2, platform 2 and etc. As a result, our relation editing window looks like this:</p>
+<p>Our next move is to add nodes <i>public_transport=stop_position</i> and <i>public_transport=platform</i>. Select them on the map and, then, add to the relation (higher than ways). Enumerate them to avoid further difficulties. For example, <i>stop_position 1, platform 1, stop position 2, platform 2</i> and etc. As a result, our relation editing window looks like this:</p>
 
 <img src="/images/blog/guideline-pt/image_6.png"/>
 
-<p>The roles for stops and platforms, however, will be automatically filled out. For instance, in the column called “Role” stop_position has an assigned “stop” role, while platform has “platform” role. We will change it just a bit here. In particular, we will change the first and the last platform and stop_position roles. Add “_entry_only” to the objects related to the first stop (stop_entry_only, platform_entry_only), it means that this stop has just one purpose - entrance. The last stop, accordingly, should be marked “_exit_only” (stop_exit_only, platform_exit_only). Sometimes the roles are not assigned automatically, then you will need to fill them in manually.</p>
+<p>The roles for stops and platforms, however, will be automatically filled out. For instance, in the column called “Role” stop_position has an assigned “stop” role, while platform has “platform” role. We will change it just a bit here. In particular, we will change the first and the last platform and stop_position roles. Add “_entry_only” to the objects related to the first stop (<i>stop_entry_only, platform_entry_only</i>), it means that this stop has just one purpose - entrance. The last stop, accordingly, should be marked “_exit_only” (<i>stop_exit_only, platform_exit_only</i>). Sometimes the roles are not assigned automatically, then you will need to fill them in manually.</p>
 
 <img src="/images/blog/guideline-pt/image_7.png"/>
 
@@ -57,7 +58,7 @@
 <p><b>If the order of stops is incorrect, OsmAnd will NOT be able to plan a proper route for you!</b></p>
 
 <p>To check whether the route has any gaps, use small arrows located on the right side of the way. They also will help you to determine the direction of the route.</p>
-<p>Now, as you can see, we have a complete route, which starts at Bus stop 1 (on Fedinskaya street) and ends at Bus stop 3 (A-108).</p>
+<p>Now, as you can see, we have a complete route, which starts at <i>Bus stop 1</i> (on Fedinskaya street) and ends at <i>Bus stop 3</i> (A-108).</p>
 <p>As a rule, buses go both ways. So, why not to create a backtrack? Just start from copying the relations by pressing “Relations - Create copy of this relation”. You can also access the button in the redactor. In order not to get confused, we can delete all <i>stop_position</i> and <i>platform</i> from the relation copy and leave only the ways. By clicking on a button called “Reverse the order of the relation members” in the redactor window, we will reverse the direction of the route and, furthermore, will be able to check whether they are correct. Now, let us add stops and platforms, adding tags in the process.</p>
 <p>All the directions, variants of route, and details attached to the route should be united relation type "route_master" which is required by the scheme PTv2. Our task now is to create a new relation and fill in the tags: </p>
 
@@ -74,6 +75,7 @@
 
 <img src="/images/blog/guideline-pt/image_9.png"/>
 
+<div class="subtitle" id="mistakes"><h3>The most common mistakes</h3></div>
 <div class="subtitle" id="Validation_1"><h3>"OSM Inspector" final check (Data validator)</h3></div>
 
 <p><a href="http://tools.geofabrik.de/osmi/?view=pubtrans_routes&lon=13.39599&lat=52.49897&zoom=12&overlays=ptv2_routes_invalid,ptv2_error_,ptv2_error_ways,ptv2_error_nodes">OSM Inspector</a> can help you to check whether routes are correct. <a href="https://blog.geofabrik.de/?p=436">Use it</a>, it does a pretty nice work!</p>
