@@ -1351,6 +1351,9 @@ a::-moz-focus-inner {
 }
 .feature.mapillary {
   background-image:url('/images/features/mapillary.png');
+  }
+.feature.travel {
+  background-image:url('/images/features/travel.png');
 }
 
 .feature .description {
