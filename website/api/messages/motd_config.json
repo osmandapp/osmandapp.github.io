@@ -234,279 +234,278 @@
 		},
 		{
 			"condition": {
-   				"start_date": "01-03-2019 20:01",
-   				"end_date": "02-03-2019 23:59",
+   				"start_date": "27-03-2019 00:01",
+   				"end_date": "31-03-2019 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
-				"number_of_days": "2-5",
 				"lang" :"ru"
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "Февральская распродажа!",
+				"message": "Мартовская распродажа!",
 				"description": "Оформите годовую подписку со скидкой -50%!"
 			}
 		},
 		{
 			"condition": {
-   				"start_date": "20-02-2019 20:01",
-   				"end_date": "24-02-2019 23:59",
+   				"start_date": "27-03-2019 00:01",
+   				"end_date": "31-03-2019 23:59",
 				"os": "android",
 				"lang" :"ru"
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "Февральская распродажа!",
+				"message": "Мартовская распродажа!",
 				"description": "Карты без ограничений, контурные линии и годовая подписка -50%!"
 			}
 		},
 		{
 			"condition": {
-   				"start_date": "20-02-2019 20:01",
-   				"end_date": "24-02-2019 23:59",
+   				"start_date": "27-03-2019 00:01",
+   				"end_date": "31-03-2019 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"lang" :"es"
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "¡VENTA de febrero!",
+				"message": "¡VENTA de Marzoo!",
 				"description": "Obtenga su suscripción anual con un -50% de descuento!"
 			}
 		},
 		{
 			"condition": {
-   				"start_date": "20-02-2019 20:01",
-   				"end_date": "24-02-2019 23:59",
+   				"start_date": "27-03-2019 00:01",
+   				"end_date": "31-03-2019 23:59",
 				"os": "android",
 				"lang" :"es"
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "¡VENTA de febrero!",
+				"message": "¡VENTA de Marzo!",
 				"description": "Descargas ilimitadas de mapas, curvas de nivel y suscripción anual -50%"
 			}
 		},
 		{
 			"condition": {
-   				"start_date": "20-02-2019 20:01",
-   				"end_date": "24-02-2019 23:59",
+   				"start_date": "27-03-2019 00:01",
+   				"end_date": "31-03-2019 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"lang" :"fr"
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "Février vente!",
+				"message": "Mars vente!",
 				"description": "Obtenez votre abonnement annuel avec un rabais de -50%!"
 			}
 		},
 		{
 			"condition": {
-   				"start_date": "20-02-2019 20:01",
-   				"end_date": "24-02-2019 23:59",
+   				"start_date": "27-03-2019 00:01",
+   				"end_date": "31-03-2019 23:59",
 				"os": "android",
 				"lang" :"fr"
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "Février vente!",
+				"message": "Mars vente!",
 				"description": "Téléchargements de cartes illimités, courbes de niveau et abonnement annuel -50%!"
 			}
 		},
 		{
 			"condition": {
-   				"start_date": "20-02-2019 20:01",
-   				"end_date": "24-02-2019 23:59",
+   				"start_date": "27-03-2019 00:01",
+   				"end_date": "31-03-2019 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"lang" :"nl"
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "Februari VERKOOP!",
+				"message": "Maart VERKOOP!",
 				"description": "Krijg uw jaarabonnement met een korting van -50%!"
 			}
 		},
 		{
 			"condition": {
-   				"start_date": "20-02-2019 20:01",
-   				"end_date": "24-02-2019 23:59",
+   				"start_date": "27-03-2019 00:01",
+   				"end_date": "31-03-2019 23:59",
 				"os": "android",
 				"lang" :"nl"
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "Februari VERKOOP!",
+				"message": "Maart VERKOOP!",
 				"description": "Onbeperkte kaartdownloads, contourlijnen en jaarabonnement -50%!"
 			}
 		},
 		{
 			"condition": {
-   				"start_date": "20-02-2019 20:01",
-   				"end_date": "24-02-2019 23:59",
+   				"start_date": "27-03-2019 00:01",
+   				"end_date": "31-03-2019 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"lang" :"it"
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "VENDITA febbraio!",
+				"message": "Vendita di marzo!",
 				"description": "Ottieni il tuo abbonamento annuale con uno sconto del -50%!"
 			}
 		},
 		{
 			"condition": {
-   				"start_date": "20-02-2019 20:01",
-   				"end_date": "24-02-2019 23:59",
+   				"start_date": "27-03-2019 00:01",
+   				"end_date": "31-03-2019 23:59",
 				"os": "android",
 				"lang" :"it"
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "VENDITA febbraio!",
+				"message": "Vendita di marzo!",
 				"description": "Download illimitati di mappe, curve di livello e abbonamento annuale -50%!"
 			}
 		},
 		{
 			"condition": {
-   				"start_date": "20-02-2019 20:01",
-   				"end_date": "24-02-2019 23:59",
+   				"start_date": "27-03-2019 00:01",
+   				"end_date": "31-03-2019 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"lang" :"de"
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "Februar AUSVERKAUF!",
+				"message": "MARCH AUSVERKAUF!",
 				"description": "Erhalten Sie Ihr Jahresabonnement mit einem Rabatt von -50%!"
 			}
 		},
 		{
 			"condition": {
-   				"start_date": "20-02-2019 20:01",
-   				"end_date": "24-02-2019 23:59",
+   				"start_date": "27-03-2019 00:01",
+   				"end_date": "31-03-2019 23:59",
 				"os": "android",
 				"lang" :"de"
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "Februar AUSVERKAUF!",
+				"message": "MARCH AUSVERKAUF!",
 				"description": "Unbegrenzte Karten-Downloads, Höhenlinien und Jahresabonnement -50%!"
 			}
 		},
 		{
 			"condition": {
-   				"start_date": "20-02-2019 20:01",
-   				"end_date": "24-02-2019 23:59",
+   				"start_date": "27-03-2019 00:01",
+   				"end_date": "31-03-2019 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android"
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "February SALE!",
+				"message": "March SALE!",
 				"description": "Checkout our -50% sales for year subscription!"
 			}
 		},
 		{
 			"condition": {
-   				"start_date": "20-02-2019 20:01",
-   				"end_date": "24-02-2019 23:59",
+   				"start_date": "27-03-2019 00:01",
+   				"end_date": "31-03-2019 23:59",
 				"os": "android"
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "February SALE!",
+				"message": "March SALE!",
 				"description": "Unlimited map downloads, contour lines and annual subscription -50%!"
 			}
 		},
 		{
 			"condition": {
-   				"start_date": "21-02-2019 00:01",
-   				"end_date": "26-02-2019 23:59",
+   				"start_date": "27-03-2019 00:01",
+   				"end_date": "31-03-2019 23:59",
 				"os": "ios",
 				"lang" :"ru"
 			},
 			"file": "discount_ios.json",
 			"fields": {
-				"message": "Февральская распродажа!",
+				"message": "Мартовская распродажа!",
 				"description": "Все карты мира и контурные линии -50%!"
 			}
 		},
 		{
 			"condition": {
-   				"start_date": "21-02-2019 00:01",
-   				"end_date": "26-02-2019 23:59",
+   				"start_date": "27-03-2019 00:01",
+   				"end_date": "31-03-2019 23:59",
 				"os": "ios",
 				"lang" :"fr"
 			},
 			"file": "discount_ios.json",
 			"fields": {
-				"message": "Février vente!",
+				"message": "Mars vente!",
 				"description": "Toutes les cartes du monde et lignes de contour -50%!"
 			}
 		},
 		{
 			"condition": {
-   				"start_date": "21-02-2019 00:01",
-   				"end_date": "26-02-2019 23:59",
+   				"start_date": "27-03-2019 00:01",
+   				"end_date": "31-03-2019 23:59",
 				"os": "ios",
 				"lang" :"de"
 			},
 			"file": "discount_ios.json",
 			"fields": {
-				"message": "Februar AUSVERKAUF!",
+				"message": "MARCH AUSVERKAUF!",
 				"description": "Alle Weltkarten und Konturlinien -50%!"
 			}
 		},
 		{
 			"condition": {
-   				"start_date": "21-02-2019 00:01",
-   				"end_date": "26-02-2019 23:59",
+   				"start_date": "27-03-2019 00:01",
+   				"end_date": "31-03-2019 23:59",
 				"os": "ios",
 				"lang" :"it"
 			},
 			"file": "discount_ios.json",
 			"fields": {
-				"message": "VENDITA febbraio!",
+				"message": "Vendita di marzo!",
 				"description": "Tutte le mappe del mondo e le linee di contorno -50%!"
 			}
 		},
 		{
 			"condition": {
-   				"start_date": "21-02-2019 00:01",
-   				"end_date": "26-02-2019 23:59",
+   				"start_date": "27-03-2019 00:01",
+   				"end_date": "31-03-2019 23:59",
 				"os": "ios",
 				"lang" :"es"
 			},
 			"file": "discount_ios.json",
 			"fields": {
-				"message": "¡VENTA de febrero!",
+				"message": "¡VENTA de Marzo!",
 				"description": "Todos los mapas del mundo y líneas de contorno -50%!"
 			}
 		},
 		{
 			"condition": {
-   				"start_date": "21-02-2019 00:01",
-   				"end_date": "26-02-2019 23:59",
+   				"start_date": "27-03-2019 00:01",
+   				"end_date": "31-03-2019 23:59",
 				"os": "ios",
 				"lang" :"nl"
 			},
 			"file": "discount_ios.json",
 			"fields": {
-				"message": "Februari VERKOOP!",
+				"message": "Maart VERKOOP!",
 				"description": "Alle wereldkaarten en contourlijnen - 50%!"
 					}
 		},
 		{
 			"condition": {
-   				"start_date": "21-02-2019 00:01",
-   				"end_date": "26-02-2019 23:59",
+   				"start_date": "27-03-2019 00:01",
+   				"end_date": "31-03-2019 23:59",
 				"os": "ios"
 			},
 			"file": "discount_ios.json",
 			"fields": {
-				"message": "February SALE!",
+				"message": "March SALE!",
 				"description": "All world maps and Contour lines -50%!"
 			}
 		},
