@@ -113,8 +113,8 @@
 					<td><b th:text="${di.a.count}">1000</b></td>
 					<td th:text="${di.a.annualCount}">500</td>
 					<td th:text="${di.a.annualDiscountCount}">300</td>
-					<td th:text="${di.a.quarterCount + ' -' + di.c.quarterCount + ' +' + di.n.quarterCount}">300</td>
-					<td th:text="${di.a.monthCount} + ' -' + di.c.monthCount + ' +' + di.n.monthCount}">500</td>
+					<td th:text="${di.a.quarterCount + ' (-' + di.c.quarterCount + ' +' + di.n.quarterCount + ')'}">300</td>
+					<td th:text="${di.a.monthCount + ' (-' + di.c.monthCount + ' +' + di.n.monthCount + ')'}">500</td>
 					<td th:text="${di.a.iosAnnualCount}">500</td>
 					<td th:text="${di.a.iosQuarterCount}">300</td>
 					<td th:text="${di.a.iosMonthCount}">500</td>
