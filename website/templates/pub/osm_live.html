@@ -483,7 +483,7 @@ window.onclick = function(event) {
           async: true
     }).done(function(res) {
           var data = jQuery.parseJSON( res );
-          var recipients = data.recipients;
+          var recipients = data;
           //$("#recipients-general-info").html(intro);
           // reportRecipientsDataInfo = $("#recipients-data-info").html(data.message);
           if (recipients.date != null && recipients.date != undefined) {
