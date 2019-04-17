@@ -34,7 +34,7 @@
    				"end_date": "22-04-2019 20:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
-				"number_of_days": "0-30",
+				"number_of_days": "1-30",
 				"lang" :"es"
 			},
 			"file": "discount_paid.json",
@@ -62,7 +62,7 @@
    				"end_date": "22-04-2019 20:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
-				"number_of_days": "0-30",
+				"number_of_days": "1-30",
 				"lang" :"fr"
 			},
 			"file": "discount_paid.json",
@@ -90,7 +90,7 @@
    				"end_date": "22-04-2019 20:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
-				"number_of_days": "0-30",
+				"number_of_days": "1-30",
 				"lang" :"nl"
 			},
 			"file": "discount_paid.json",
@@ -118,7 +118,7 @@
    				"end_date": "22-04-2019 20:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
-				"number_of_days": "0-30",
+				"number_of_days": "1-30",
 				"lang" :"it"
 			},
 			"file": "discount_paid.json",
@@ -146,7 +146,7 @@
    				"end_date": "22-04-2019 20:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
-				"number_of_days": "0-30",
+				"number_of_days": "1-30",
 				"lang" :"de"
 			},
 			"file": "discount_paid.json",
@@ -173,7 +173,7 @@
    				"start_date": "18-04-2019 19:01",
    				"end_date": "22-04-2019 20:59",
 				"app_version": "OsmAnd+",
-				"number_of_days": "0-30",
+				"number_of_days": "1-30",
 				"os": "android"
 			},
 			"file": "discount_paid.json",
