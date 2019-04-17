@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>OsmAnd - Offline Mobile Maps and Navigation</title>
   <script th:replace="pub/fragments/default_links.html"></script>
-  <link rel="alternate" type="application/rss+xml" title="OsmAnd Blog" href="/rss.xml">
+    <link rel="alternate" type="application/rss+xml" title="OsmAnd Blog" href="/rss.xml">
 </head>
 <body>
 
@@ -25,6 +25,14 @@
             <div class="acticlestitles">
               <h2 th:text="#{blog_latest_articles}">latest articles</h2>
               <ul class="articlelinklist">
+                
+                 <li><div id="google_translate_element"></div><script type="text/javascript">
+                    function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+                }
+                </script>
+                <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script></li>
+
                 <li th:each="art : ${articles}"><a th:href="'/'+${locale_path} + ${art.url}" th:text="${art.shortTitle}"></a></li>
                 <li><a  href="/blog/osmand_videos" >OsmAnd Videos</a></li>
                 <li><a  href="/rss.xml" >RSS</a></li>
