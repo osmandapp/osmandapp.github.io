@@ -17,15 +17,16 @@
 		},
 		{
 			"condition": {
-   				"start_date": "28-04-2019 00:01",
-   				"end_date": "30-04-2019 12:00",
+   				"start_date": "03-05-2019 00:01",
+   				"end_date": "10-05-2019 12:00",
 				"os": "android",
+				"number_of_days": "5-300",
 				"lang" :"ru"
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "Апрельская распродажа!",
-				"description": "Оформите годовую подписку со скидкой -50%!"
+				"message": "Подписка OsmAnd Live!",
+				"description": "Получи все возможности OsmAnd + ежечасные обновления карт!"
 			}
 		},
 		{
@@ -45,15 +46,16 @@
 		},
 		{
 			"condition": {
-   				"start_date": "28-04-2019 00:01",
-   				"end_date": "30-04-2019 12:00",
+   				"start_date": "03-05-2019 00:01",
+   				"end_date": "10-05-2019 12:00",
 				"os": "android",
+				"number_of_days": "5-300",
 				"lang" :"es"
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "¡VENTA de abril!",
-				"description": "Obtenga su suscripción anual con un -50% de descuento!"
+                                "message": "Suscripción OsmAnd Live!",
+				"description": "Obtén todas las descargas y complementos + actualizaciones de mapas por hora!"
 			}
 		},
 		{
@@ -73,15 +75,16 @@
 		},
 		{
 			"condition": {
-   				"start_date": "28-04-2019 00:01",
-   				"end_date": "30-04-2019 12:00",
+   				"start_date": "03-05-2019 00:01",
+   				"end_date": "10-05-2019 12:00",
 				"os": "android",
+				"number_of_days": "5-300",
 				"lang" :"fr"
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "Avril vente!",
-				"description": "Obtenez votre abonnement annuel avec un rabais de -50%!"
+                                "message": "Abonnement OsmAnd Live!",
+				"description": "Obtenez tous les téléchargements et plugins + mises à jour horaires des cartes!"
 			}
 		},
 		{
@@ -101,15 +104,16 @@
 		},
 		{
 			"condition": {
-   				"start_date": "28-04-2019 00:01",
-   				"end_date": "30-04-2019 12:00",
+   				"start_date": "03-05-2019 00:01",
+   				"end_date": "10-05-2019 12:00",
 				"os": "android",
+				"number_of_days": "5-300",
 				"lang" :"nl"
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "April VERKOOP!",
-				"description": "Krijg uw jaarabonnement met een korting van -50%!"
+				"message": "Abonnement OsmAnd Live!",
+				"description": "Download alle downloads en plug-ins + elk uur kaartupdates!"
 			}
 		},
 		{
@@ -129,15 +133,16 @@
 		},
 		{
 			"condition": {
-   				"start_date": "28-04-2019 00:01",
-   				"end_date": "30-04-2019 12:00",
+   				"start_date": "03-05-2019 00:01",
+   				"end_date": "10-05-2019 12:00",
 				"os": "android",
+				"number_of_days": "5-300",
 				"lang" :"it"
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "Vendita di aprile!",
-				"description": "Ottieni il tuo abbonamento annuale con uno sconto del -50%!"
+				"message": "Abbonamento OsmAnd Live!",
+				"description": "Ricevi tutti i download e i plug-in + aggiornamenti delle mappe orarie!"
 			}
 		},
 		{
@@ -157,15 +162,16 @@
 		},
 		{
 			"condition": {
-   				"start_date": "28-04-2019 00:01",
-   				"end_date": "30-04-2019 12:00",
+   				"start_date": "03-05-2019 00:01",
+   				"end_date": "10-05-2019 12:00",
 				"os": "android",
+				"number_of_days": "5-300",
 				"lang" :"de"
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "APRIL AUSVERKAUF!",
-				"description": "Erhalten Sie Ihr Jahresabonnement mit einem Rabatt von -50%!"
+				"message": "Abo OsmAnd Live!",
+				"description": "Holen Sie sich alle Downloads und Plugins + stündliche Kartenaktualisierungen!"
 			}
 		},
 		{
@@ -184,105 +190,106 @@
 		},
 		{
 			"condition": {
-   				"start_date": "28-04-2019 00:01",
-   				"end_date": "30-04-2019 12:00",
-				"os": "android"
+   				"start_date": "03-05-2019 00:01",
+   				"end_date": "10-05-2019 12:00",
+				"os": "android",
+				"number_of_days": "5-300",
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "April SALE!",
-				"description": "Checkout our -50% sales for year subscription!"
+				"message": "Subscription OsmAnd Live!",
+				"description": "Get all downloads and plugins + hourly map updates!"
 			}
 		},
 		{
 			"condition": {
-   				"start_date": "18-04-2019 00:01",
-   				"end_date": "22-04-2019 18:59",
+   				"start_date": "03-05-2019 00:01",
+   				"end_date": "10-05-2019 12:00",
 				"os": "ios",
 				"lang" :"ru"
 			},
-			"file": "discount_ios.json",
+			"file": "subscription_ios.json",
 			"fields": {
-				"message": "Апрельская распродажа!",
-				"description": "Все карты мира и контурные линии -50%!"
+				"message": "Подписка OsmAnd Live!",
+				"description": "Получи все возможности OsmAnd + ежечасные обновления карт!"
 			}
 		},
 		{
 			"condition": {
-   				"start_date": "18-04-2019 00:01",
-   				"end_date": "22-04-2019 18:59",
+   				"start_date": "03-05-2019 00:01",
+   				"end_date": "10-05-2019 12:00",
 				"os": "ios",
 				"lang" :"fr"
 			},
-			"file": "discount_ios.json",
+			"file": "subscription_ios.json",
 			"fields": {
-				"message": "Avril vente!",
-				"description": "Toutes les cartes du monde et lignes de contour -50%!"
+                                "message": "Abonnement OsmAnd Live!",
+				"description": "Obtenez tous les téléchargements et plugins + mises à jour horaires des cartes!"
 			}
 		},
 		{
 			"condition": {
-   				"start_date": "18-04-2019 00:01",
-   				"end_date": "22-04-2019 18:59",
+   				"start_date": "03-05-2019 00:01",
+   				"end_date": "10-05-2019 12:00",
 				"os": "ios",
 				"lang" :"de"
 			},
-			"file": "discount_ios.json",
+			"file": "subscription_ios.json",
 			"fields": {
-				"message": "APRIL AUSVERKAUF!",
-				"description": "Alle Weltkarten und Konturlinien -50%!"
+				"message": "Abo OsmAnd Live!",
+				"description": "Holen Sie sich alle Downloads und Plugins + stündliche Kartenaktualisierungen!"
 			}
 		},
 		{
 			"condition": {
-   				"start_date": "18-04-2019 00:01",
-   				"end_date": "22-04-2019 18:59",
+   				"start_date": "03-05-2019 00:01",
+   				"end_date": "10-05-2019 12:00",
 				"os": "ios",
 				"lang" :"it"
 			},
-			"file": "discount_ios.json",
+			"file": "subscription_ios.json",
 			"fields": {
-				"message": "Vendita di aprile!",
-				"description": "Tutte le mappe del mondo e le linee di contorno -50%!"
+				"message": "Abbonamento OsmAnd Live!",
+				"description": "Ricevi tutti i download e i plug-in + aggiornamenti delle mappe orarie!"
 			}
 		},
 		{
 			"condition": {
-   				"start_date": "18-04-2019 00:01",
-   				"end_date": "22-04-2019 18:59",
+   				"start_date": "03-05-2019 00:01",
+   				"end_date": "10-05-2019 12:00",
 				"os": "ios",
 				"lang" :"es"
 			},
-			"file": "discount_ios.json",
+			"file": "subscription_ios.json",
 			"fields": {
-				"message": "¡VENTA de abril!",
-				"description": "Todos los mapas del mundo y líneas de contorno -50%!"
+				"message": "Suscripción OsmAnd Live!",
+				"description": "Obtén todas las descargas y complementos + actualizaciones de mapas por hora!"
 			}
 		},
 		{
 			"condition": {
-   				"start_date": "18-04-2019 00:01",
-   				"end_date": "22-04-2019 18:59",
+   				"start_date": "03-05-2019 00:01",
+   				"end_date": "10-05-2019 12:00",
 				"os": "ios",
 				"lang" :"nl"
 
 			},
-			"file": "discount_ios.json",
+			"file": "subscription_ios.json",
 			"fields": {
-				"message": "April VERKOOP!",
-				"description": "Alle wereldkaarten en contourlijnen - 50%!"
+				"message": "Abonnement OsmAnd Live!",
+				"description": "Download alle downloads en plug-ins + elk uur kaartupdates!"
 					}
 		},
 		{
 			"condition": {
-   				"start_date": "18-04-2019 00:01",
-   				"end_date": "22-04-2019 18:59",
+   				"start_date": "03-05-2019 00:01",
+   				"end_date": "10-05-2019 12:00",
 				"os": "ios"
 			},
-			"file": "discount_ios.json",
+			"file": "subscription_ios.json",
 			"fields": {
-				"message": "April SALE!",
-				"description": "All world maps and Contour lines -50%!"
+				"message": "Subscription OsmAnd Live!",
+				"description": "Get all downloads and plugins + hourly map updates!"
 			}
 		}
 	]
