@@ -193,7 +193,7 @@
    				"start_date": "03-05-2019 00:01",
    				"end_date": "10-05-2019 12:00",
 				"os": "android",
-				"number_of_days": "5-300",
+				"number_of_days": "5-300"
 			},
 			"file": "discount.json",
 			"fields": {
