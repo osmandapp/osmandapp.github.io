@@ -1560,6 +1560,10 @@ a::-moz-focus-inner {
   background-image: url('/images/features/osm_editing_main.png');
 }
 
+.plugin .measure-distance {
+  background-image: url('/images/features/distance_3.png');
+}
+
 .plugin .planningtool {
   background-image: url('/images/features/planning_tool_main.png');
 }
