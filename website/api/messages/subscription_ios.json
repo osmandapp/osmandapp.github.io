@@ -14,7 +14,9 @@
 
                { "not_purchased_subscription" : "net.osmand.maps.subscription.annual_v1" },
 
-               { "not_purchased_subscription" : "net.osmand.maps.subscription.monthly_v1" }
+               { "not_purchased_subscription" : "net.osmand.maps.subscription.monthly_v1" },
+        
+               { "not_purchased_inapp" : "net.osmand.maps.inapp.region.allworld" }
 ]
 }
 ]
