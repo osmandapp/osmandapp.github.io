@@ -2,8 +2,8 @@
 	"settings": [
 		{
 			"condition": {
-   				"start_date": "28-04-2019 00:01",
-   				"end_date": "30-04-2019 12:00",
+   				"start_date": "09-05-2019 00:01",
+   				"end_date": "12-05-2019 23:00",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "10-700",
@@ -11,28 +11,27 @@
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "Апрельская распродажа!",
+				"message": "РАСПРОДАЖА годовой подписки!",
 				"description": "Оформите годовую подписку со скидкой -50%!"
 			}
 		},
 		{
 			"condition": {
-   				"start_date": "03-05-2019 00:01",
-   				"end_date": "10-05-2019 12:00",
+   				"start_date": "09-05-2019 00:01",
+   				"end_date": "12-05-2019 23:00",
 				"os": "android",
-				"number_of_days": "5-300",
 				"lang" :"ru"
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "Подписка OsmAnd Live!",
-				"description": "Получи все возможности OsmAnd + ежечасные обновления карт!"
+				"message": "РАСПРОДАЖА годовой подписки!",
+				"description": "Оформите годовую подписку со скидкой -50%!"
 			}
 		},
 		{
 			"condition": {
-   				"start_date": "28-04-2019 00:01",
-   				"end_date": "30-04-2019 12:00",
+   				"start_date": "09-05-2019 00:01",
+   				"end_date": "12-05-2019 23:00",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "10-700",
@@ -40,28 +39,27 @@
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "¡VENTA de abril!",
+				"message": "¡Suscripción anual de VENTA!",
 				"description": "Obtenga su suscripción anual con un -50% de descuento!"
 			}
 		},
 		{
 			"condition": {
-   				"start_date": "03-05-2019 00:01",
-   				"end_date": "10-05-2019 12:00",
+   				"start_date": "09-05-2019 00:01",
+   				"end_date": "12-05-2019 23:00",
 				"os": "android",
-				"number_of_days": "5-300",
 				"lang" :"es"
 			},
 			"file": "discount.json",
 			"fields": {
-                                "message": "Suscripción OsmAnd Live!",
-				"description": "Obtén todas las descargas y complementos + actualizaciones de mapas por hora!"
+                                "message": "¡Suscripción anual de VENTA!",
+				"description": "Obtenga su suscripción anual con un -50% de descuento!"
 			}
 		},
 		{
 			"condition": {
-   				"start_date": "28-04-2019 00:01",
-   				"end_date": "30-04-2019 12:00",
+   				"start_date": "09-05-2019 00:01",
+   				"end_date": "12-05-2019 23:00",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "10-700",
@@ -69,28 +67,27 @@
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "Avril vente!",
+				"message": "Abonnement annuel à la VENTE!",
 				"description": "Obtenez votre abonnement annuel avec un rabais de -50%!"
 			}
 		},
 		{
 			"condition": {
-   				"start_date": "03-05-2019 00:01",
-   				"end_date": "10-05-2019 12:00",
+   				"start_date": "09-05-2019 00:01",
+   				"end_date": "12-05-2019 23:00",
 				"os": "android",
-				"number_of_days": "5-300",
 				"lang" :"fr"
 			},
 			"file": "discount.json",
 			"fields": {
-                                "message": "Abonnement OsmAnd Live!",
-				"description": "Obtenez tous les téléchargements et plugins + mises à jour horaires des cartes!"
+                                "message": "Abonnement annuel à la VENTE!",
+				"description": "Obtenez votre abonnement annuel avec un rabais de -50%!"
 			}
 		},
 		{
 			"condition": {
-   				"start_date": "28-04-2019 00:01",
-   				"end_date": "30-04-2019 12:00",
+   				"start_date": "09-05-2019 00:01",
+   				"end_date": "12-05-2019 23:00",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "10-700",
@@ -98,28 +95,27 @@
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "April VERKOOP!",
+				"message": "Jaarabonnement VERKOOP!",
 				"description": "Krijg uw jaarabonnement met een korting van -50%!"
 			}
 		},
 		{
 			"condition": {
-   				"start_date": "03-05-2019 00:01",
-   				"end_date": "10-05-2019 12:00",
+   				"start_date": "09-05-2019 00:01",
+   				"end_date": "12-05-2019 23:00",
 				"os": "android",
-				"number_of_days": "5-300",
 				"lang" :"nl"
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "Abonnement OsmAnd Live!",
-				"description": "Download alle downloads en plug-ins + elk uur kaartupdates!"
+				"message": "Jaarabonnement VERKOOP!",
+				"description": "Krijg uw jaarabonnement met een korting van -50%!"
 			}
 		},
 		{
 			"condition": {
-   				"start_date": "28-04-2019 00:01",
-   				"end_date": "30-04-2019 12:00",
+   				"start_date": "09-05-2019 00:01",
+   				"end_date": "12-05-2019 23:00",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "10-700",
@@ -127,28 +123,27 @@
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "Vendita di aprile!",
+				"message": "Abbonamento annuale di VENDITA!",
 				"description": "Ottieni il tuo abbonamento annuale con uno sconto del -50%!"
 			}
 		},
 		{
 			"condition": {
-   				"start_date": "03-05-2019 00:01",
-   				"end_date": "10-05-2019 12:00",
+   				"start_date": "09-05-2019 00:01",
+   				"end_date": "12-05-2019 23:00",
 				"os": "android",
-				"number_of_days": "5-300",
 				"lang" :"it"
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "Abbonamento OsmAnd Live!",
-				"description": "Ricevi tutti i download e i plug-in + aggiornamenti delle mappe orarie!"
+				"message": "Abbonamento annuale di VENDITA!",
+				"description": "Ottieni il tuo abbonamento annuale con uno sconto del -50%!"
 			}
 		},
 		{
 			"condition": {
-   				"start_date": "28-04-2019 00:01",
-   				"end_date": "30-04-2019 12:00",
+   				"start_date": "09-05-2019 00:01",
+   				"end_date": "12-05-2019 23:00",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "10-700",
@@ -156,55 +151,53 @@
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "APRIL AUSVERKAUF!",
+				"message": "SALE Jahresabonnement!",
 				"description": "Erhalten Sie Ihr Jahresabonnement mit einem Rabatt von -50%!"
 			}
 		},
 		{
 			"condition": {
-   				"start_date": "03-05-2019 00:01",
-   				"end_date": "10-05-2019 12:00",
+   				"start_date": "09-05-2019 00:01",
+   				"end_date": "12-05-2019 23:00",
 				"os": "android",
-				"number_of_days": "5-300",
 				"lang" :"de"
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "Abo OsmAnd Live!",
-				"description": "Holen Sie sich alle Downloads und Plugins + stündliche Kartenaktualisierungen!"
+				"message": "SALE Jahresabonnement!",
+				"description": "Erhalten Sie Ihr Jahresabonnement mit einem Rabatt von -50%!"
 			}
 		},
 		{
 			"condition": {
-   				"start_date": "28-04-2019 00:01",
-   				"end_date": "30-04-2019 12:00",
+   				"start_date": "09-05-2019 00:01",
+   				"end_date": "12-05-2019 23:00",
 				"app_version": "OsmAnd+",
 				"number_of_days": "10-700",
 				"os": "android"
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "April SALE!",
+				"message": "SALE annual subscription!",
+				"description": "Checkout our -50% sales for year subscription!"
+			}
+		},
+		{
+			"condition": {
+   				"start_date": "09-05-2019 00:01",
+   				"end_date": "12-05-2019 23:00",
+				"os": "android"
+			},
+			"file": "discount.json",
+			"fields": {
+				"message": "SALE annual subscription!",
 				"description": "Checkout our -50% sales for year subscription!"
 			}
 		},
 		{
 			"condition": {
    				"start_date": "03-05-2019 00:01",
-   				"end_date": "10-05-2019 12:00",
-				"os": "android",
-				"number_of_days": "5-300"
-			},
-			"file": "discount.json",
-			"fields": {
-				"message": "Subscription OsmAnd Live!",
-				"description": "Get all downloads and plugins + hourly map updates!"
-			}
-		},
-		{
-			"condition": {
-   				"start_date": "03-05-2019 00:01",
-   				"end_date": "10-05-2019 12:00",
+   				"end_date": "13-05-2019 12:00",
 				"os": "ios",
 				"lang" :"ru"
 			},
@@ -217,7 +210,7 @@
 		{
 			"condition": {
    				"start_date": "03-05-2019 00:01",
-   				"end_date": "10-05-2019 12:00",
+   				"end_date": "13-05-2019 12:00",
 				"os": "ios",
 				"lang" :"fr"
 			},
@@ -230,7 +223,7 @@
 		{
 			"condition": {
    				"start_date": "03-05-2019 00:01",
-   				"end_date": "10-05-2019 12:00",
+   				"end_date": "13-05-2019 12:00",
 				"os": "ios",
 				"lang" :"de"
 			},
@@ -243,7 +236,7 @@
 		{
 			"condition": {
    				"start_date": "03-05-2019 00:01",
-   				"end_date": "10-05-2019 12:00",
+   				"end_date": "13-05-2019 12:00",
 				"os": "ios",
 				"lang" :"it"
 			},
@@ -256,7 +249,7 @@
 		{
 			"condition": {
    				"start_date": "03-05-2019 00:01",
-   				"end_date": "10-05-2019 12:00",
+   				"end_date": "13-05-2019 12:00",
 				"os": "ios",
 				"lang" :"es"
 			},
@@ -269,7 +262,7 @@
 		{
 			"condition": {
    				"start_date": "03-05-2019 00:01",
-   				"end_date": "10-05-2019 12:00",
+   				"end_date": "13-05-2019 12:00",
 				"os": "ios",
 				"lang" :"nl"
 
@@ -283,7 +276,7 @@
 		{
 			"condition": {
    				"start_date": "03-05-2019 00:01",
-   				"end_date": "10-05-2019 12:00",
+   				"end_date": "13-05-2019 12:00",
 				"os": "ios"
 			},
 			"file": "subscription_ios.json",
