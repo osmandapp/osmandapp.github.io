@@ -16,7 +16,6 @@
       <li><a href="#installation_issue">I can't install or upgrade the app</a></li>
       <li><a href="#uninstall_issue">I can't uninstall the app</a></li>
       <li><a href="#reinstalling">I uninstalled the app/I'm using a new device. Do I have to OsmAnd again?</a></li>
-      <li><a href="#505_on_android_5">Managing 'Error 505' on Android 5+</a></li>
       <li><a href="#energy_saving">Trip recording stops in the energy saving mode</a></li>
       <li><a href="#restore_purchases">How to restore purchases on iOS</a></li>
     </ul>
@@ -54,6 +53,8 @@
 
     <div class="subtitle">Development and Testing</div>
     <ul class="list">
+      <li><a href="#dev-environment">How to setup development environment?</a></li>
+      <li><a href="#dev-compile-android">How to compile Android version (Gradle / Android Studio)?</a></li>      
       <li><a href="#development">OsmAnd Development</a></li>
       <li><a href="#intents">What intents does OsmAnd listen to?</a></li>
       <li><a href="#map_creator">Creating own maps and OsmAndMapCreator</a></li>
@@ -241,18 +242,6 @@
     </div>
   </div>
 
-  <div class="question">
-    <div class="subtitle" id="505_on_android_5">Managing 'Error 505' on Android 5+</div>
-    <div class="content">
-      Some Android 5+ users may experience the issue with getting the "Error 505" message. To overcome it, you need to go to your device's Settings - OsmAnd or OsmAnd+ and press Uninstall for all users. Then reinstall the application normally. If you still have questions, please let us help you. Write to us at support@osmand.net.
-    </div>
-  </div>
-   <div class="question">
-    <div class="subtitle" id="energy_saving">Trip recording stops in the energy saving mode</div>
-    <div class="content">
-    If you're using OsmAnd while your device is in the energy saving mode, you may encounter an issue with trip recording. Some Android users report that the recording stops as soon as you enable the energy saving mode. To avoid that, just go to your device's Settings > Battery and performance and find the menu where you can manage battery usage by application. Go to 'Choose apps', find OsmAnd, and select 'No restrictions'. Now nothing will interrupt your trip recording. If the issue persists, please feel free to contact OsmAnd support team: support@osmand.net.
-    </div>
-  </div>
   
   <div class="question">
     <div class="subtitle" id="restore_purchases">How to restore purchases on iOS</div>
@@ -428,7 +417,7 @@
     </div>
   </div>
 
-  <div class="subtitle mobile-subtitle">OsmAnd licence and rules of use</div>
+  <div class="subtitle mobile-subtitle">OsmAnd license and rules of use</div>
 
   <div class="question">
     <div class="subtitle" id="can_i_code">Can I develop using OsmAnd source code?</div>
@@ -474,9 +463,43 @@
       </p>
       <p>Good luck with your work.</p>
     </div>
+  </div>    
+  <div class="subtitle mobile-subtitle">Development and Testing</div>
+  <div class="question">
+    <div class="subtitle" id="dev-environment">How to setup development environment?</div>
+    <div class="content">
+      <p>In order to setup development environment you need to install 
+        <a href="https://source.android.com/setup/develop#repo">repo utility</a> and use the following <a href="https://github.com/osmandapp/OsmAnd-manifest/blob/master/readonly.xml">repo manifest<a>!!!</p>
+      <p>You can also use only git and checkout following git repositories into correct folder names:</p>
+      <ul>
+        <li>Folder <b>core</b> - git repo <b>https://github.com/osmandapp/OsmAnd-core.git" </b></li>
+        <li>Folder <b>ios</b> - git repo <b>https://github.com/osmandapp/OsmAnd-ios.git" </b></li>
+        <li>Folder <b>android</b> - git repo <b>https://github.com/osmandapp/OsmAnd-android.git" </b></li>
+        <li>Folder <b>tools</b> - git repo <b>https://github.com/osmandapp/OsmAnd-tools.git" </b></li>
+        <li>Folder <b>misc</b> - git repo <b>https://github.com/osmandapp/OsmAnd-misc.git" </b></li>
+        <li>Folder <b>resources</b> - git repo <b>https://github.com/osmandapp/OsmAnd-resources.git" </b></li>
+        <li>Folder <b>help</b> - git repo <b>https://github.com/osmandapp/osmandapp.github.io.git" </b></li>
+        <li>Folder <b>android</b> - git repo <b>https://github.com/osmandapp/Osmand.git" </b></li>
+        <li>Folder <b>core-legacy</b>, branch <b>legacy_core</b> - git repo <b>https://github.com/osmandapp/OsmAnd-core.git" </b></li>
+      </ul>
+    </div>
   </div>
 
-  <div class="subtitle mobile-subtitle">Development and Testing</div>
+ <div class="question">
+    <div class="subtitle" id="dev-compile-android">How to compile Android version (Gradle / Android Studio)?</div>
+    <div class="content">
+      <p>First of all you need to setup development environment as mentionned above.</p>
+      <p>Specify environment variable and install software (check <a href="https://github.com/osmandapp/Osmand/blob/master/OsmAnd/build.gradle#L32">build.gradle</a>): 
+        <ul>
+          <li>ANDROID_SDK = path to android sdk (currently compileSdkVersion 27, buildToolsVersion "27.0.3")</li>
+          <li>ANDROID_NDK = path to android ndk (currently android-ndk-r17b")</li>
+      </p>
+      <p>You can also use our debug.keystore (<a href="https://github.com/osmandapp/Osmand/tree/master/keystores">https://github.com/osmandapp/Osmand/tree/master/keystores</a>) 
+        to make build compatibles with nightly build</p>
+      <p><b>Gradle</b>: cd android/OsmAnd && ../gradlew cleanNoTranslate assembleFreedevLegacyFatDebug </p>
+      <p><b>Android Studio</b>: import android project and choose flavor 'assembleFreedevLegacyFatDebug'.</p>
+    </div>
+  </div>
 
   <div class="question">
     <div class="subtitle" id="development">OsmAnd Development</div>
