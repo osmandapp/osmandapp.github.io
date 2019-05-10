@@ -26,12 +26,13 @@
             <div class="acticlestitles"> 
               <h2  th:text="#{top_features}">features</h2>
               <ul class="articlelinklist">
+                <!--  Disable google translate
                 <li><div id="google_translate_element"></div><script type="text/javascript">
                     function googleTranslateElementInit() {
                     new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
                 }
                 </script>
-                <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script></li>
+                <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script></li> -->
                 <li><a data-gatag='start' th:href="'/'+${locale_path} +'features/start'" th:text="#{feature_begin}">Begin with OsmAnd</a></li>
                 <li><a data-gatag='navigation' th:href="'/'+${locale_path} +'features/navigation'" th:text="#{feature_navigation}">Navigation</a></li>
                 <li><a data-gatag='map-viewing' th:href="'/'+${locale_path} +'features/map-viewing'" th:text="#{feature_map_viewing}">Map Viewing</a></li>
