@@ -18,7 +18,7 @@
 		{
 			"condition": {
    				"start_date": "09-05-2019 00:01",
-   				"end_date": "12-05-2019 18:00",
+   				"end_date": "19-05-2019 18:00",
 				"os": "android",
 				"number_of_days": "5-700",
 				"lang" :"ru"
@@ -47,7 +47,7 @@
 		{
 			"condition": {
    				"start_date": "09-05-2019 00:01",
-   				"end_date": "12-05-2019 18:00",
+   				"end_date": "19-05-2019 18:00",
 				"os": "android",
 				"number_of_days": "5-700",
 				"lang" :"es"
@@ -76,7 +76,7 @@
 		{
 			"condition": {
    				"start_date": "09-05-2019 00:01",
-   				"end_date": "12-05-2019 18:00",
+   				"end_date": "19-05-2019 18:00",
 				"os": "android",
 				"number_of_days": "5-700",
 				"lang" :"fr"
@@ -105,7 +105,7 @@
 		{
 			"condition": {
    				"start_date": "09-05-2019 00:01",
-   				"end_date": "12-05-2019 18:00",
+   				"end_date": "19-05-2019 18:00",
 				"os": "android",
 				"number_of_days": "5-700",
 				"lang" :"nl"
@@ -134,7 +134,7 @@
 		{
 			"condition": {
    				"start_date": "09-05-2019 00:01",
-   				"end_date": "12-05-2019 18:00",
+   				"end_date": "19-05-2019 18:00",
 				"os": "android",
 				"number_of_days": "5-700",
 				"lang" :"it"
@@ -163,7 +163,7 @@
 		{
 			"condition": {
    				"start_date": "09-05-2019 00:01",
-   				"end_date": "12-05-2019 18:00",
+   				"end_date": "19-05-2019 18:00",
 				"os": "android",
 				"number_of_days": "5-700",
 				"lang" :"de"
@@ -191,7 +191,7 @@
 		{
 			"condition": {
    				"start_date": "09-05-2019 00:01",
-   				"end_date": "12-05-2019 18:00",
+   				"end_date": "19-05-2019 18:00",
 				"number_of_days": "5-700",
 				"os": "android"
 			},
@@ -204,7 +204,7 @@
 		{
 			"condition": {
    				"start_date": "03-05-2019 00:01",
-   				"end_date": "12-05-2019 18:00",
+   				"end_date": "19-05-2019 18:00",
 				"os": "ios",
 				"lang" :"ru"
 			},
@@ -217,7 +217,7 @@
 		{
 			"condition": {
    				"start_date": "03-05-2019 00:01",
-   				"end_date": "12-05-2019 18:00",
+   				"end_date": "19-05-2019 18:00",
 				"os": "ios",
 				"lang" :"fr"
 			},
@@ -230,7 +230,7 @@
 		{
 			"condition": {
    				"start_date": "03-05-2019 00:01",
-   				"end_date": "12-05-2019 18:00",
+   				"end_date": "19-05-2019 18:00",
 				"os": "ios",
 				"lang" :"de"
 			},
@@ -243,7 +243,7 @@
 		{
 			"condition": {
    				"start_date": "03-05-2019 00:01",
-   				"end_date": "12-05-2019 18:00",
+   				"end_date": "19-05-2019 18:00",
 				"os": "ios",
 				"lang" :"it"
 			},
@@ -256,7 +256,7 @@
 		{
 			"condition": {
    				"start_date": "03-05-2019 00:01",
-   				"end_date": "12-05-2019 18:00",
+   				"end_date": "19-05-2019 18:00",
 				"os": "ios",
 				"lang" :"es"
 			},
@@ -269,7 +269,7 @@
 		{
 			"condition": {
    				"start_date": "03-05-2019 00:01",
-   				"end_date": "12-05-2019 18:00",
+   				"end_date": "19-05-2019 18:00",
 				"os": "ios",
 				"lang" :"nl"
 
@@ -283,7 +283,7 @@
 		{
 			"condition": {
    				"start_date": "03-05-2019 00:01",
-   				"end_date": "12-05-2019 18:00",
+   				"end_date": "19-05-2019 18:00",
 				"os": "ios"
 			},
 			"file": "subscription_ios.json",
