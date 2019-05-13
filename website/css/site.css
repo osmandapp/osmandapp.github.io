@@ -1346,8 +1346,6 @@ a::-moz-focus-inner {
 .feature.quickaction {
   background-image:url('/images/blog/2.6/q_act_3.jpg');
   background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
 }
 .feature.tracker {
   background-image:url('/images/features/features_osmand_tracker.jpg');
@@ -1358,8 +1356,6 @@ a::-moz-focus-inner {
 .feature.mapillary {
   background-image:url('/images/features/mapillary.png');
   background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
   }
 .feature.travel {
   background-image:url('/images/features/travel.png');
