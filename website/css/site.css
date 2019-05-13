@@ -1344,8 +1344,7 @@ a::-moz-focus-inner {
   background-image:url('/images/features/ruler.png');
 }
 .feature.quickaction {
-  background-image:url('/images/blog/2.6/q_act_3.jpg');
-  background-repeat: no-repeat;
+  background-image:url('/images/blog/2.6/q_act_3_1.jpg');
 }
 .feature.tracker {
   background-image:url('/images/features/features_osmand_tracker.jpg');
@@ -1355,7 +1354,6 @@ a::-moz-focus-inner {
 }
 .feature.mapillary {
   background-image:url('/images/features/mapillary.png');
-  background-repeat: no-repeat;
   }
 .feature.travel {
   background-image:url('/images/features/travel.png');
