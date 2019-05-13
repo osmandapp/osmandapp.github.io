@@ -28,7 +28,7 @@
               <h2 th:text="#{blog_latest_articles}">latest articles</h2>
               <ul class="articlelinklist">
                 
-                 <li><div id="google_translate_element"></div><script type="text/javascript" th:if="${(param.translate != null)}">
+                 <li th:if="${(param.translate != null)}"><div id="google_translate_element"></div><script type="text/javascript">
                     function googleTranslateElementInit() {
                     new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
                 }
