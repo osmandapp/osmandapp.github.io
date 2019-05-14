@@ -6,6 +6,9 @@
   <title th:text="#{top_title}">OsmAnd - Offline Mobile Maps and Navigation</title>
   <script th:replace="pub/fragments/default_links"></script>
 
+ <!-- <script type="text/javascript" th:if="${(param.tr != null)}"  src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+  </script> -->
+
 
 </head>
 <body>
@@ -16,9 +19,9 @@
     <div class="articles">
       <div class="articlescontainer">
       
-
         <div class="article" th:include="@{'' + ${article_template}}">
         </div>
+
 
         <div class="article-menu-wrapper">
           <div class="modal-menu-button"></div>
@@ -26,6 +29,19 @@
             <div class="acticlestitles"> 
               <h2  th:text="#{top_features}">features</h2>
               <ul class="articlelinklist">
+
+
+         
+              <!--  <li th:if="${(param.tr == null)}"><a th:href="'/'+${locale_path}+ 'features' +'?tr=1'">Multilingual translation</a></li>
+                 <li th:if="${(param.tr != null)}"><div id="google_translate_element"></div><script type="text/javascript">
+                    function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+                }
+                </script></li>
+
+                  <li th:each="art : ${articles}"><a th:href="'/'+${locale_path} + ${art.url} + 
+                  ${#request.getParameter('tr') != null ? '?tr=1' : ''}" th:text="${art.shortTitle}"></a></li> --> 
+
                 <!--  Disable google translate
                 <li><div id="google_translate_element"></div><script type="text/javascript">
                     function googleTranslateElementInit() {
