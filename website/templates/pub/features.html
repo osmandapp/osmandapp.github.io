@@ -32,7 +32,7 @@
 
 
          
-                <li th:if="${(param.tr == null)}"><a th:href="'/'+${locale_path} + 'blog'+'?tr=1'">Features translations</a></li>
+                <li th:if="${(param.tr == null)}"><a th:href="'/'+${locale_path} + 'features'+'?tr=1'">Features translations</a></li>
                  <li th:if="${(param.tr != null)}"><div id="google_translate_element"></div><script type="text/javascript">
                     function googleTranslateElementInit() {
                     new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
