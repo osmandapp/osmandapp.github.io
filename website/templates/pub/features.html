@@ -6,8 +6,6 @@
   <title th:text="#{top_title}">OsmAnd - Offline Mobile Maps and Navigation</title>
   <script th:replace="pub/fragments/default_links"></script>
 
-<p><a href="https://test.osmand.net/features?tr=1">Multitranslate</a></p>
-
   <script type="text/javascript" th:if="${(param.tr != null)}"  src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
   </script>
 
@@ -18,6 +16,7 @@
 <div class="maincontainer">
   <div class="main" >
     <div th:replace="pub/fragments/simple_header :: header('FEATURES', ${#messages.msg('top_features')}  ) " />
+    <p><a href="https://test.osmand.net/features?tr=1">Multilingual translation</a></p>
     <div class="articles">
       <div class="articlescontainer">
       
