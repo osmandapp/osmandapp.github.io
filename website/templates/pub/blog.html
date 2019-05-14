@@ -35,7 +35,7 @@
                 </script></li>
 
                 <li th:each="art : ${articles}"><a th:href="'/'+${locale_path} + ${art.url} + 
-                  ${#request.getParameter('tr') != null ? '?tr=1' : '')}" th:text="${art.shortTitle}"></a></li>
+                  ${#request.getParameter('tr') != null ? '?tr=1' : ''}" th:text="${art.shortTitle}"></a></li>
                 <li><a  href="/blog/osmand_videos" >OsmAnd Videos</a></li>
                 <li><a  href="/rss.xml" >RSS</a></li>
               </ul>
