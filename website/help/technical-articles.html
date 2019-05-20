@@ -9,6 +9,7 @@
       <li><a href="#Install_Development_Environment">How to install the development environment</a></li>
       <li><a href="#Documentation_of_.60OsmAnd.60_Settings_Development">Documentation of OsmAnd settings development</a></li>
       <li class="toclevel-2"><a href="#Voice_Routing_-_Current_Status_.28by_Hardy.29">Voice Routing - Current Status (by Hardy)</a></li>
+      <li class="toclevel-2"><a href="#BackgroundRecording">Background Track Recording - Strategies and Known Issues</a></li>
       <li class="toclevel-2"><a href="#Creating a New TTS Voice Language">Creating a New TTS Voice Language</a></li>
       <li class="toclevel-2"><a href="#Installation_of_Different_Builds">Installation of different builds</a></li>
       <li><a href="#Map_Generation_Process">The map generation process</a></li>
@@ -300,6 +301,45 @@
 			<p class="back_to_top"><a href="#top">Back to top</a></p>
     </div>
   </div>
+
+<div class="question">
+	<div class="subtitle" id="BackgroundRecording">Background Track Recording - Strategies and Known Issues</div>
+	<div class="content">
+
+	<p>This article addresses our GPS track recording. 'Background' means to refer to the OsmAnd app not being displayed in the foreground, in particular when the device screen is off.</p>
+
+	<p>The following issues have been observed over tinme in different Android versions:</p>
+
+	<b>(A) The system may kill background apps to save power:</b>
+
+	<p>Starting with Android 4.4, or maybe before, new Android Power saving options limit CPU max speed, screen brightness, and may kill running apps. Mitigations</p>
+		<ul class="list">
+			<li> (A1) For outdoor use (screen), map rendering (CPU) and 'background" track recording I like none of these features and usually turn the device power saving to entirely off.</li>
+			<li> (A2) On some systems it may be sufficient to just exempt the OsmAnd app from power optimization, your mileage may vary. (Issue #5255)</li>
+			<li> (A3) Android 8 introduced a new Foreground service in connection with a system notification. Ever since OsmAnd v3.2 we use this foreground service which should also solve the issue for Android 8+. (Issue #5255)</li>
+		</ul>
+
+	<b>(B) GPS Wake-up Strategy:</b>
+		<ul class="list">
+			<li> (B1) While OsmAnd is used for e.g. Navigation: We keep the system's GPS module on all the time, as continuous location information is key here. Effect on battery use (order of magnitude) seems about 5% per hour on older systems up to Android 4.4, 2-3% for newer systems.</li>
+			<li> (B2) For 'background' track recording without concurrent navigation: For recording intervals up to 15s, we also keep the GPS on, no big battery saving can be achieved by other strategies.</li>
+			<li> (B3) For intervals >= 30sec, we turn GPS on only for single measurement points. This has some noticeable effect on the accuracy of points recorded, but reduces battery usage to order-of-magnitude 1.2% per hour for 30sec track recording</li>
+		</ul>
+
+	<b>(C) GPS Wake-up Issues</b>
+
+	<p>In order to achieve the GPS wake-up, so far we use the Android AlarmManger to wake up the device periodically (also from Doze mode, which was introduced in Android 6). New Android versions introduced the following issues:</p>
+		<ul class="list">
+			<li><b> (C1) AlarmManager's setRepeating() became inexact starting with Android 4.4:</b>
+				<p>Mitigation: We now use setRepeating() only up to Android 4.2, the new setExact() method starting with Android 4.4, and setExactAndAllowWhileIdle() for Android 8+. (Issue #5632)</p>
+			</li>
+			<li><b> (C2) Starting from Android 4.4, systems limit the number of times setExact() is executed repeatedly</b> to e.g. once per 5 or even 15 minutes. (The actual value seems wildly device specific.)
+				<p>No good solution found for now. Current mitigation is we do not use AlarmManager at all for system and instead keep GPS always on for background track logging on devices with Andnoid 5 and higher. This produces reliable and precise tracks at the cost of the higher battery use. (Issue #5632)</p>
+			</li>
+		</ul>
+		<p class="back_to_top"><a href="#top">Back to top</a></p>
+	</div>
+</div>
 
   <div class="question">
     <div class="subtitle" id="Creating a New TTS Voice Language">Creating a New TTS Voice Language</div>
