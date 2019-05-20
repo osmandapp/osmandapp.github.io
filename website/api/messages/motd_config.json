@@ -20,13 +20,12 @@
    				"start_date": "09-05-2019 00:01",
    				"end_date": "19-05-2019 18:00",
 				"os": "android",
-				"number_of_days": "5-700",
 				"lang" :"ru"
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "Подписка OsmAnd Live!",
-				"description": "Получи все возможности OsmAnd + ежечасные обновления карт!"
+				"message": "РАСПРОДАЖА!",
+				"description": "Карты без ограничений, контурные линии и годовая подписка -50%!"
 			}
 		},
 		{
@@ -49,13 +48,12 @@
    				"start_date": "09-05-2019 00:01",
    				"end_date": "19-05-2019 18:00",
 				"os": "android",
-				"number_of_days": "5-700",
 				"lang" :"es"
 			},
 			"file": "discount.json",
 			"fields": {
-                                "message": "Suscripción OsmAnd Live!",
-				"description": "Obtén todas las descargas y complementos + actualizaciones de mapas por hora!"
+                                "message": "¡VENTA!",
+				"description": "Descargas ilimitadas de mapas, curvas de nivel y suscripción anual -50%!"
 			}
 		},
 		{
@@ -78,13 +76,12 @@
    				"start_date": "09-05-2019 00:01",
    				"end_date": "19-05-2019 18:00",
 				"os": "android",
-				"number_of_days": "5-700",
 				"lang" :"fr"
 			},
 			"file": "discount.json",
 			"fields": {
-                                "message": "Abonnement OsmAnd Live!",
-				"description": "Obtenez tous les téléchargements et plugins + mises à jour horaires des cartes!"
+                                "message": "VENTE!",
+				"description": "Téléchargements de cartes illimités, courbes de niveau et abonnement annuel -50%!"
 			}
 		},
 		{
@@ -107,13 +104,12 @@
    				"start_date": "09-05-2019 00:01",
    				"end_date": "19-05-2019 18:00",
 				"os": "android",
-				"number_of_days": "5-700",
 				"lang" :"nl"
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "Abonnement OsmAnd Live!",
-				"description": "Download alle downloads en plug-ins + elk uur kaartupdates!"
+				"message": "VERKOOP!",
+				"description": "Onbeperkte kaartdownloads, contourlijnen en jaarabonnement -50%!"
 			}
 		},
 		{
@@ -136,13 +132,12 @@
    				"start_date": "09-05-2019 00:01",
    				"end_date": "19-05-2019 18:00",
 				"os": "android",
-				"number_of_days": "5-700",
 				"lang" :"it"
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "Abbonamento OsmAnd Live!",
-				"description": "Ricevi tutti i download e i plug-in + aggiornamenti delle mappe orarie!"
+				"message": "VENDITA!",
+				"description": "Download illimitati di mappe, curve di livello e abbonamento annuale -50%!"
 			}
 		},
 		{
@@ -165,13 +160,12 @@
    				"start_date": "09-05-2019 00:01",
    				"end_date": "19-05-2019 18:00",
 				"os": "android",
-				"number_of_days": "5-700",
 				"lang" :"de"
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "Abo OsmAnd Live!",
-				"description": "Holen Sie sich alle Downloads und Plugins + stündliche Kartenaktualisierungen!"
+				"message": "VERKAUF!",
+				"description": "Unbegrenzte Karten-Downloads, Höhenlinien und Jahresabonnement -50%!"
 			}
 		},
 		{
@@ -192,13 +186,12 @@
 			"condition": {
    				"start_date": "09-05-2019 00:01",
    				"end_date": "19-05-2019 18:00",
-				"number_of_days": "5-700",
 				"os": "android"
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "Subscription OsmAnd Live!",
-				"description": "Get all downloads and plugins + hourly map updates!"
+				"message": "SALE!",
+				"description": "Unlimited map downloads, contour lines and annual subscription -50%!"
 			}
 		},
 		{
@@ -210,8 +203,8 @@
 			},
 			"file": "subscription_ios.json",
 			"fields": {
-				"message": "Подписка OsmAnd Live!",
-				"description": "Получи все возможности OsmAnd + ежечасные обновления карт!"
+				"message": "РАСПРОДАЖА!",
+				"description": "Все карты мира и контурные линии -50%!"
 			}
 		},
 		{
@@ -223,8 +216,8 @@
 			},
 			"file": "subscription_ios.json",
 			"fields": {
-                                "message": "Abonnement OsmAnd Live!",
-				"description": "Obtenez tous les téléchargements et plugins + mises à jour horaires des cartes!"
+                                "message": "VENTE!",
+				"description": "Toutes les cartes du monde et lignes de contour -50%!"
 			}
 		},
 		{
@@ -236,8 +229,8 @@
 			},
 			"file": "subscription_ios.json",
 			"fields": {
-				"message": "Abo OsmAnd Live!",
-				"description": "Holen Sie sich alle Downloads und Plugins + stündliche Kartenaktualisierungen!"
+				"message": "AUSVERKAUF!",
+				"description": "Alle Weltkarten und Konturlinien -50%!"
 			}
 		},
 		{
@@ -249,8 +242,8 @@
 			},
 			"file": "subscription_ios.json",
 			"fields": {
-				"message": "Abbonamento OsmAnd Live!",
-				"description": "Ricevi tutti i download e i plug-in + aggiornamenti delle mappe orarie!"
+				"message": "VENDITA!",
+				"description": "Tutte le mappe del mondo e le linee di contorno -50%!"
 			}
 		},
 		{
@@ -262,8 +255,8 @@
 			},
 			"file": "subscription_ios.json",
 			"fields": {
-				"message": "Suscripción OsmAnd Live!",
-				"description": "Obtén todas las descargas y complementos + actualizaciones de mapas por hora!"
+				"message": "¡VENTA!",
+				"description": "Todos los mapas del mundo y líneas de contorno -50%!"
 			}
 		},
 		{
@@ -276,8 +269,8 @@
 			},
 			"file": "subscription_ios.json",
 			"fields": {
-				"message": "Abonnement OsmAnd Live!",
-				"description": "Download alle downloads en plug-ins + elk uur kaartupdates!"
+				"message": "VERKOOP!",
+				"description": "Alle wereldkaarten en contourlijnen - 50%!"
 					}
 		},
 		{
@@ -288,8 +281,8 @@
 			},
 			"file": "subscription_ios.json",
 			"fields": {
-				"message": "Subscription OsmAnd Live!",
-				"description": "Get all downloads and plugins + hourly map updates!"
+				"message": "SALE!",
+				"description": "All world maps and Contour lines -50%!"
 			}
 		}
 	]
