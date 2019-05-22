@@ -72,7 +72,7 @@
                 Mapillary.Viewer.nodechanged,
                 function(node) {
                     var isAndroid = typeof Android !== "undefined";
-                    var isiOS = typeof webkit !== "undefined";
+                    var isiOS = typeof window.webkit !== "undefined";
                     if (node.latLon) {
                         if (isAndroid) {
                             Android.onNodeChanged(node.originalLatLon.lat, node.originalLatLon.lon, node.ca, node.key);
@@ -84,13 +84,13 @@
                             obj.ca = node.ca;
                             obj.key = node.key;
                             var jsonString= JSON.stringify(obj);
-                            webkit.messageHandlers.iosMessageHandler.postMessage(jsonString);
+                            window.webkit.messageHandlers.iosMessageHandler.postMessage(jsonString);
                         }
                     } else {
                         if (isAndroid) {
                             Android.onNodeChanged(NaN, NaN, NaN, '');
                         } else if (isiOS) {
-                            webkit.messageHandlers.iosMessageHandler.postMessage("");
+                            window.webkit.messageHandlers.iosMessageHandler.postMessage("");
                         }
                     }
                 });
