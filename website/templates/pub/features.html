@@ -6,7 +6,7 @@
   <title th:text="#{top_title}">OsmAnd - Offline Mobile Maps and Navigation</title>
   <script th:replace="pub/fragments/default_links"></script>
 
-  <script type="text/javascript" th:if="${(param.tr != null)}"  src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+  <script type="text/javascript" th:if="${translate}"  src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
   </script>
 
 
@@ -34,14 +34,14 @@
          
               <!-- 1. Uncomment to enable link that enables Google translate iframe -->
               
-                <li th:if="${(param.tr == null)}"><a th:href="'/'+${locale_path}+ 'features' +'?tr=1'">あA Translate</a></li>
-                <li th:if="${(param.tr != null)}"><div id="google_translate_element"></div><script type="text/javascript">
+                <li th:if="${translate}"><a th:href="'/'+${locale_path}+ 'features' +'?tr=1'">あA Translate</a></li>
+                <li th:if="${translate}"><div id="google_translate_element"></div><script type="text/javascript">
                     function googleTranslateElementInit() {
                     new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
                 }
                 </script></li>
                 <li th:each="art : ${articles}"><a th:href="'/'+${locale_path} + ${art.url} + 
-                  ${param.tr != null ? '?tr=1' : ''}" th:text="${art.shortTitle}"></a></li> 
+                  ${translate ? '?tr=1' : ''}" th:text="${art.shortTitle}"></a></li> 
               
 
               <!--  2. Disable plain google translate on the page to avoid Google iframe -->
