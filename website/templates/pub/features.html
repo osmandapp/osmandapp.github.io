@@ -32,7 +32,9 @@
 
 
          
-              <!--  <li th:if="${(param.tr == null)}"><a th:href="'/'+${locale_path}+ 'features' +'?tr=1'">Multilingual translation</a></li>
+              <!-- 1. Uncomment to enable link that enables Google translate iframe -->
+                <!-- 
+                <li th:if="${(param.tr == null)}"><a th:href="'/'+${locale_path}+ 'features' +'?tr=1'">Multilingual translation</a></li>
                  <li th:if="${(param.tr != null)}"><div id="google_translate_element"></div><script type="text/javascript">
                     function googleTranslateElementInit() {
                     new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
@@ -42,7 +44,8 @@
                   <li th:each="art : ${articles}"><a th:href="'/'+${locale_path} + ${art.url} + 
                   ${#request.getParameter('tr') != null ? '?tr=1' : ''}" th:text="${art.shortTitle}"></a></li> --> 
 
-                <!--  Disable google translate
+                <!--  2. Disable plain google translate on the page to avoid Google iframe -->
+                <!-- 
                 <li><div id="google_translate_element"></div><script type="text/javascript">
                     function googleTranslateElementInit() {
                     new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
@@ -58,10 +61,10 @@
                 <li><a data-gatag='troubleshooting' th:href="'/'+${locale_path} +'features/installation-and-troubleshooting'" th:text="#{feature_install}">Installation &amp; troubleshoooting</a></li>
                 <li><a data-gatag='osmand_purchases' th:href="'/'+${locale_path} +'features/osmand_purchases'" th:text="#{feature_purchases}">OsmAnd Purchases</a></li>
                 <li><a data-gatag='osmand_subscription' th:href="'/'+${locale_path} +'features/subscription'" th:text="#{feature_subscription}">Subscription - Osmand Live</a></li>
+                
                 <li><a data-gatag='feature_tracker' th:href="'/'+${locale_path} +'features/tracker'" th:text="#{feature_tracker}">OsmAnd Tracker</a></li>
                 <li><a data-gatag='feature_ruler' th:href="'/'+${locale_path} +'features/ruler'" th:text="#{feature_ruler}">Ruler</a></li>
                 <li><a data-gatag='feature_quick-action' th:href="'/'+${locale_path} +'features/quick-action'" th:text="#{feature_quick-action}">Quick Action</a></li>
-                <li><a data-gatag='feature_mapillary' th:href="'/'+${locale_path} +'features/mapillary'" th:text="#{feature_mapillary}">OsmAnd + Mapillary</a></li>                
                 <li><a data-gatag='feature_travel' th:href="'/'+${locale_path} +'features/travel'" th:text="#{feature_travel}">Travel</a></li>  
 
               </ul>
