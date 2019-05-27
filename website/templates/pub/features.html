@@ -34,7 +34,7 @@
          
               <!-- 1. Uncomment to enable link that enables Google translate iframe -->
               
-                <li th:if="${translation}"><a th:href="'/'+${locale_path}+ 'features' +'?tr=1'">あA Translate</a></li>
+                <li th:if="${!translation}"><a th:href="'/'+${locale_path}+ 'features' +'?tr=1'">あA Translate</a></li>
                 <li th:if="${translation}"><div id="google_translate_element"></div><script type="text/javascript">
                     function googleTranslateElementInit() {
                     new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
