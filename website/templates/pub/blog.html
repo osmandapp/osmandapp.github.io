@@ -33,7 +33,6 @@
             <div class="acticlestitles">
               <h2 th:text="#{blog_latest_articles}">latest articles</h2>
               <ul class="articlelinklist">
-
                 <li th:if="${!translation}"><a th:href="'/'+${locale_path}+ 'blog' +'?tr=1'">あA Translate</a></li>
                 <li th:if="${translation}"><div id="google_translate_element"></div><script type="text/javascript">
                     function googleTranslateElementInit() {
@@ -45,6 +44,14 @@
 
                 <li><a  href="/blog/osmand_videos" >OsmAnd Videos</a></li>
                 <li><a  href="/rss.xml" >RSS</a></li>
+              </ul>
+              <h2>stories</h2>
+              <ul class="articlelinklist">
+                <li><a href="/blog/story-5">Yurik RZR offroad</a></li>
+                <li><a href="/blog/story-4">Remo 4x4</a></li>
+                <li><a href="/blog/story-3">Leonid travels</a></li>
+                <li><a href="/blog/story-2">Paul and cycling</a></li>
+                <li><a href="/blog/story-1">Ilya offroad</a></li>
               </ul>
           </div>
         </div>
