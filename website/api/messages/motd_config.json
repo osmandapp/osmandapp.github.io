@@ -201,7 +201,7 @@
 				"os": "ios",
 				"lang" :"ru"
 			},
-			"file": "subscription_ios.json",
+			"file": "discount_ios.json",
 			"fields": {
 				"message": "РАСПРОДАЖА!",
 				"description": "Все карты мира и контурные линии -50%!"
@@ -214,7 +214,7 @@
 				"os": "ios",
 				"lang" :"fr"
 			},
-			"file": "subscription_ios.json",
+			"file": "discount_ios.json",
 			"fields": {
                                 "message": "VENTE!",
 				"description": "Toutes les cartes du monde et lignes de contour -50%!"
@@ -227,7 +227,7 @@
 				"os": "ios",
 				"lang" :"de"
 			},
-			"file": "subscription_ios.json",
+			"file": "discount_ios.json",
 			"fields": {
 				"message": "AUSVERKAUF!",
 				"description": "Alle Weltkarten und Konturlinien -50%!"
@@ -240,7 +240,7 @@
 				"os": "ios",
 				"lang" :"it"
 			},
-			"file": "subscription_ios.json",
+			"file": "discount_ios.json",
 			"fields": {
 				"message": "VENDITA!",
 				"description": "Tutte le mappe del mondo e le linee di contorno -50%!"
@@ -253,7 +253,7 @@
 				"os": "ios",
 				"lang" :"es"
 			},
-			"file": "subscription_ios.json",
+			"file": "discount_ios.json",
 			"fields": {
 				"message": "¡VENTA!",
 				"description": "Todos los mapas del mundo y líneas de contorno -50%!"
@@ -267,7 +267,7 @@
 				"lang" :"nl"
 
 			},
-			"file": "subscription_ios.json",
+			"file": "discount_ios.json",
 			"fields": {
 				"message": "VERKOOP!",
 				"description": "Alle wereldkaarten en contourlijnen - 50%!"
@@ -279,7 +279,7 @@
    				"end_date": "10-06-2019 23:59",
 				"os": "ios"
 			},
-			"file": "subscription_ios.json",
+			"file": "discount_ios.json",
 			"fields": {
 				"message": "SALE!",
 				"description": "All world maps and Contour lines -50%!"
