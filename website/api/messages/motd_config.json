@@ -151,7 +151,7 @@
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "SALE Jahresabonnement!",
+				"message": "Jahresabonnement SALE!",
 				"description": "Erhalten Sie Ihr Jahresabonnement mit einem Rabatt von -50%!"
 			}
 		},
@@ -178,7 +178,7 @@
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "SALE annual subscription!",
+				"message": "Annual subscription SALE!",
 				"description": "Checkout our -50% sales for year subscription!"
 			}
 		},
