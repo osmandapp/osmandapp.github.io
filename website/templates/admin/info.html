@@ -467,15 +467,14 @@
 					<td th:text="${di.total / 100000.0f} + ' mBTC'">1000</td>
 					<td>
 						<p th:text="${di.fee / 100000.0f} + ' mBTC'">1000</p>
-						<p th:text="${di.fee * 100.0f / di.total} + ' %'">1000</p>
+						<p th:text="${(di.fee * 1000 / di.total)/10.0f} + ' %'">1000</p>
 						<p th:text="${di.fee / di.size} + ' sat/byte'">1000</p>
 					</td>
 					<td>
 						<p th:each="tx : ${di.txValues}">
 							<a th:text="${tx.id}" th:href="${tx.url}"></a> - 
 								<span th:text="${tx.total / 100000.0f}" /> mBTC, 
-								fee <span th:text="${tx.fee / 100000.0f}" /> mBTC,
-								at <span th:text="${tx.blockIndex}"> block
+								fee <span th:text="${tx.fee / 100000.0f}" /> mBTC
 						</p>
 					</td>
 				</tr>
