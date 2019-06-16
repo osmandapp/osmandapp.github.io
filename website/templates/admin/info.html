@@ -446,11 +446,11 @@
 				<p>Account balance: <span th:text="${btc.balance}"></span></p>
 				<p>Current fee to pay: <span th:text="${btc.defaultFee}"></span> satoshi per byte.</p>
 				<p>Total to pay (with fee <span th:text="${btc.defaultFee}"></span>): 
-					<span th:text="${btc.payWithFeeCnt}"></span> accounts <span th:text="${btc.payWithFeeSat / 100000}"></span> mBTC.</p>
+					<span th:text="${btc.payWithFeeCnt}"></span> accounts <span th:text="${btc.payWithFeeSat / 100000.0f}"></span> mBTC.</p>
 				<p>Total to pay (with fee 0): 
-					<span th:text="${btc.payNoFeeCnt}"></span> accounts <span th:text="${btc.payNoFeeSat / 100000}"></span> mBTC.</p>
-				<p>Total overpaid: <span th:text="${btc.overpaidCnt}"></span> accounts <span th:text="${btc.overpaidSat / 100000}"></span> mBTC.</p>
-				<p>Total paid: <span th:text="${btc.total / 100000000.0}"></span> BTC.</p>
+					<span th:text="${btc.payNoFeeCnt}"></span> accounts <span th:text="${btc.payNoFeeSat / 100000.0f}"></span> mBTC.</p>
+				<p>Total overpaid: <span th:text="${btc.overpaidCnt}"></span> accounts <span th:text="${btc.overpaidSat / 100000.0f}"></span> mBTC.</p>
+				<p>Total paid: <span th:text="${btc.total / 100000000.0f}"></span> BTC.</p>
 			</div>
 		
 			<h3>Bitcoin payouts</h3>
@@ -465,8 +465,8 @@
 				<tr th:each="di : ${btc.txs}">
 					<td th:text="${di.month}">1000</td>
 					<td th:text="${di.transactions}">1000</td>
-					<td th:text="${di.total}">1000</td>
-					<td th:text="${di.fee}">1000</td>
+					<td th:text="${di.total / 100000.0f}">1000</td>
+					<td th:text="${di.fee / 100000.0f}">1000</td>
 				</tr>
 			</table>
 		</div>
