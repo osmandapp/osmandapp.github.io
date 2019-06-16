@@ -464,8 +464,8 @@
 				</tr>
 				<tr th:each="di : ${btc.txs}">
 					<td th:text="${di.month}">1000</td>
-					<td th:text="${di.total / 100000.0f}">1000</td>
-					<td th:text="${di.fee / 100000.0f}">1000</td>
+					<td th:text="${di.total / 100000.0f} mBTC">1000</td>
+					<td th:text="${di.fee / 100000.0f} mBTC, ${di.fee / di.total} %, ${di.fee / di.size} sat/byte">1000</td>
 					<td th:text="${di.transactions}">1000</td>
 				</tr>
 			</table>
