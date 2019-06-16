@@ -444,7 +444,9 @@
 			<h3>Bitcoin</h3>
 			<div>
 				<p>Generated date: <b th:text="${btc.balance.generatedDate}"></b></p>
-				<p>Account balance: <b th:text="${btc.currentBalance / 100000.0f}"></b> mBTC</p>
+				<p>Wallet balance: <b th:text="${btc.walletBalance / 100000.0f}"></b> mBTC</p>
+				<p>Wallet fee: <b th:text="${btc.walletTxFee}"></b> satoshi per byte</p>
+				<p>Wallet addresses: <span th:text="${btc.walletAddresses}"></b></p>
 				<p>Minimum payout: <b th:text="${btc.balance.minToPayoutSat / 100000.0f}"></b> mBTC</p>
 				<p>Current fee to pay: <b th:text="${btc.balance.defaultFee}"></b> satoshi per byte</p>
 				<p>Total to pay (with fee <span th:text="${btc.balance.defaultFee}"></span>): 
