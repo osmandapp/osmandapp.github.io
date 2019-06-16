@@ -453,6 +453,21 @@
 				<p>Total overpaid: <span th:text="${btc.balance.overpaidCnt}"></span> accounts <b th:text="${btc.balance.overpaidSat / 100000.0f}"></b> mBTC</p>
 				<p>Total paid: <b th:text="${btc.total / 100000000.0f} + ' BTC'"></b></p>
 			</div>
+			<div class="update-btc-report"> 
+				<form action="/admin/update-btc-report" method="post">
+					<ul class="wrapper">
+    					<li class="form-row">
+							<label for="name">Default fee:</label>
+							<input type="text" name="defaultFee">
+						</li>
+						<li class="form-row">
+							<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+							<button type="submit">Regenerate payout report</button>
+						</li>
+					</uL>
+				</form>
+			</div>
+
 		
 			<h3>Bitcoin payouts</h3>
 			<!-- <span>You can use automated tool to send emails to the database <a href="https://builder.osmand.net:8080/view/WebSite/job/Website_SendMail/">Send Emails</a>.</span> -->
