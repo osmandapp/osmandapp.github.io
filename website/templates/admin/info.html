@@ -449,8 +449,8 @@
 				<p>Total to pay (with fee <span th:text="${btc.balance.defaultFee}"></span>): 
 					<span th:text="${btc.balance.payWithFeeCnt}"></span> accounts <span th:text="${btc.balance.payWithFeeSat / 100000.0f}"></span> mBTC.</p>
 				<p>Total to pay (with fee 0): 
-					<span th:text="${btc.balance.payNoFeeCnt}"></span> accounts <b th:text="${btc.payNoFeeSat / 100000.0f}"></b> mBTC</p>
-				<p>Total overpaid: <span th:text="${btc.balance.overpaidCnt}"></span> accounts <b th:text="${btc.balance.overpaidSat / 100000.0f}"></b> mBTC.</p>
+					<span th:text="${btc.balance.payNoFeeCnt}"></span> accounts <b th:text="${btc.balance.payNoFeeSat / 100000.0f}"></b> mBTC</p>
+				<p>Total overpaid: <span th:text="${btc.balance.overpaidCnt}"></span> accounts <b th:text="${btc.balance.overpaidSat / 100000.0f}"></b> mBTC</p>
 				<p>Total paid: <b th:text="${btc.total / 100000000.0f} + ' BTC'"></b></p>
 			</div>
 		
