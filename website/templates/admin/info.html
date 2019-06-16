@@ -459,10 +459,14 @@
 				<tr>
 					<th>Month</th>
 					<th>Transactions</th>
+					<th>Total</th>
+					<th>Fee</th>
 				</tr>
 				<tr th:each="di : ${btc.txs}">
 					<td th:text="${di.month}">1000</td>
 					<td th:text="${di.transactions}">1000</td>
+					<td th:text="${di.total}">1000</td>
+					<td th:text="${di.fee}">1000</td>
 				</tr>
 			</table>
 		</div>
