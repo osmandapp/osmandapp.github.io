@@ -444,6 +444,7 @@
 			<h3>Wallet</h3>
 			<div>
 				<p>Wallet balance: <b th:text="${btc.walletBalance / 100000.0f}"></b> mBTC</p>
+				<p>Wallet max waiting blocks: <b th:text="${btc.walletWaitingBlocks}"></b> blocks</p>
 				<p>Wallet fee: <b th:text="${btc.walletTxFee}"></b> satoshi per byte</p>
 				<p>Wallet addresses: <span th:text="${btc.walletAddresses}"></b></p>
 				<p>Wallet payouts fee: <b th:text="${btc.walletEstFee}"></b> satoshi per byte, waiting <b th:text="${btc.walletEstBlocks}"></b> blocks.</p>
@@ -467,6 +468,10 @@
     					<li class="form-row">
 							<label for="name">Current fee (in satoshi per byte):</label>
 							<input type="text" name="defaultFee">
+						</li>
+						<li class="form-row">
+							<label for="name">Max wallet waiting blocks:</label>
+							<input type="text" name="waitingBlocks">
 						</li>
 						<li class="form-row">
 							<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
