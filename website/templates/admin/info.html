@@ -450,19 +450,9 @@
 				<p>Total to pay (with fee 0): 
 					<span th:text="${btc.payNoFeeCnt}"></span> accounts <span th:text="${btc.payNoFeeMbtc}"></span> mBTC.</p>
 				<p>Total overpaid: <span th:text="${btc.overpaidCnt}"></span> accounts <span th:text="${btc.overpaidMbtc}"></span> mBTC.</p>
-				<p>Total paid : <span th:text="${btc.totalMbtc}"></span> mBTC.</p>
+				<p>Total paid: <span th:text="${btc.totalMbtc}"></span> mBTC.</p>
 			</div>
-			<table border="1">
-				<tr>
-					<th>Name</th>
-					<th>Update date</th>
-				</tr>
-				<tr th:each="di : ${reports}">
-				<td><a th:text="${di.name}" th:href="'/admin/report?file='+${di.fullname}" href="">
-					Report name </td>
-					<td th:text="${di.date}">01.01.2018 00:00</td>
-				</tr>
-			</table>
+		
 			<h3>Bitcoin payouts</h3>
 			<!-- <span>You can use automated tool to send emails to the database <a href="https://builder.osmand.net:8080/view/WebSite/job/Website_SendMail/">Send Emails</a>.</span> -->
 			<table border="1">
