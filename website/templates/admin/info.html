@@ -441,12 +441,15 @@
 		</div>
 
 		<div id="bitcoin" class="tab-pane fade">
-			<h3>Bitcoin</h3>
+			<h3>Wallet</h3>
 			<div>
-				<p>Generated date: <b th:text="${btc.balance.generatedDate}"></b></p>
 				<p>Wallet balance: <b th:text="${btc.walletBalance / 100000.0f}"></b> mBTC</p>
 				<p>Wallet fee: <b th:text="${btc.walletTxFee}"></b> satoshi per byte</p>
 				<p>Wallet addresses: <span th:text="${btc.walletAddresses}"></b></p>
+			</div>
+			<h3>Total payout</h3>
+			<div>
+				<p>Generated date: <b th:text="${btc.balance.generatedDate}"></b></p>
 				<p>Minimum payout: <b th:text="${btc.balance.minToPayoutSat / 100000.0f}"></b> mBTC</p>
 				<p>Current fee to pay: <b th:text="${btc.balance.defaultFee}"></b> satoshi per byte</p>
 				<p>Total to pay (with fee <span th:text="${btc.balance.defaultFee}"></span>): 
@@ -461,7 +464,7 @@
 				<form action="/admin/update-btc-report" method="post">
 					<ul class="wrapper">
     					<li class="form-row">
-							<label for="name">Default fee:</label>
+							<label for="name">Current fee (in satoshi per byte):</label>
 							<input type="text" name="defaultFee">
 						</li>
 						<li class="form-row">
