@@ -445,12 +445,14 @@
 			<div>
 				<p>Generated date: <b th:text="${btc.balance.generatedDate}"></b></p>
 				<p>Account balance: <b th:text="${btc.currentBalance / 100000.0f}"></b> mBTC</p>
+				<p>Minimum payout: <b th:text="${btc.balance.minToPayoutSat / 100000.0f}"></b> mBTC</p>
 				<p>Current fee to pay: <b th:text="${btc.balance.defaultFee}"></b> satoshi per byte</p>
 				<p>Total to pay (with fee <span th:text="${btc.balance.defaultFee}"></span>): 
 					<span th:text="${btc.balance.payWithFeeCnt}"></span> accounts <b th:text="${btc.balance.payWithFeeSat / 100000.0f}"></b> mBTC.</p>
 				<p>Total to pay (with fee 0): 
 					<span th:text="${btc.balance.payNoFeeCnt}"></span> accounts <b th:text="${btc.balance.payNoFeeSat / 100000.0f}"></b> mBTC</p>
 				<p>Total overpaid: <span th:text="${btc.balance.overpaidCnt}"></span> accounts <b th:text="${btc.balance.overpaidSat / 100000.0f}"></b> mBTC</p>
+				<p>Total overpaid (more than minimum payout): <span th:text="${btc.balance.overpaidFeeCnt}"></span> accounts <b th:text="${btc.balance.overpaidFeeSat / 100000.0f}"></b> mBTC</p>
 				<p>Total paid: <b th:text="${btc.total / 100000000.0f} + ' BTC'"></b></p>
 			</div>
 			<div class="update-btc-report"> 
@@ -493,6 +495,23 @@
 								fee <span th:text="${tx.fee / 100000.0f}" /> mBTC
 						</p>
 					</td>
+				</tr>
+			</table>
+
+			<h3>Individual payouts</h3>
+			<!-- <span>You can use automated tool to send emails to the database <a href="https://builder.osmand.net:8080/view/WebSite/job/Website_SendMail/">Send Emails</a>.</span> -->
+			<table border="1">
+				<tr>
+					<th>Addr</th>
+					<th>OsmId</th>
+					<th>To pay</th>
+					<th>Total paid</th>
+				</tr>
+				<tr th:each="di : ${btc.balance.toPay}">
+					<td th:text="${di.btcAddress}">1000</td>
+					<td th:text="${di.osmId}"></td>
+					<td th:text="${di.toPay / 100000.0f} + ' mBTC'">1000</td>
+					<td th:text="${di.totalPaid / 100000.0f} + ' mBTC'">1000</td>
 				</tr>
 			</table>
 		</div>
