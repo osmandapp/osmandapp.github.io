@@ -71,7 +71,7 @@
   		</div>
 
 		<div id="subs" class="tab-pane fade">
-			<h3>Current subscriptions config:</h3>
+			<h3>Current subscriptions config</h3>
 			<span>You can change it by modifying json file at <a href="https://github.com/osmandapp/osmandapp.github.io/blob/master/website/api/subscriptions/config.json">Github</a> and don't forget to click button reload 	configuration.</span>
 			<table border="1">
 				<tr>
@@ -87,7 +87,7 @@
 			</table>
 
 
-			<h3>Active Subscriptions:</h3>
+			<h3>Active Subscriptions</h3>
 			<table border="1">
 				<tr>
 					<th>Date</th>
@@ -127,7 +127,7 @@
 			</table>
 
 
-			<h3>New/Cancel Subscriptions:</h3>
+			<h3>New/Cancel Subscriptions</h3>
 			<table border="1">
 				<tr>
 					<th>Date</th>
@@ -286,7 +286,7 @@
 		</div>
 
 		<div id="audience" class="tab-pane fade">
-			<h3>Audience surveys (polls):</h3>
+			<h3>Audience surveys (polls)</h3>
 			<span>You can change it by modifying json file at <a href="https://github.com/osmandapp/osmandapp.github.io/blob/master/website/api/poll.json">Github</a> and don't forget to click button reload configuration. </span>
 			<table border="1">
 				<tr>
@@ -304,7 +304,7 @@
 				</tr>
 			</table>
 
-			<h3>Email database:</h3>
+			<h3>Email database</h3>
 			<span>You can use automated tool to send emails to the database <a href="https://builder.osmand.net:8080/view/WebSite/job/Website_SendMail/">Send Emails</a>.</span>
 			<table border="1">
 				<tr>
@@ -316,17 +316,17 @@
 					<th>Available for News</th>
 				</tr>
 				<tr th:each="di : ${emailsReport}">
-					<td th:text="${di.category}">1000/td>
-					<td th:text="${di.categoryId}">1000/td>
-					<td th:text="${di.totalCount}">1000/td>
-					<td th:text="${di.activeMarketing}">1000/td>
-					<td th:text="${di.activeOsmAndLive}">1000/td>
-					<td th:text="${di.activeNews}">1000/td>
+					<td th:text="${di.category}">1000</td>
+					<td th:text="${di.categoryId}">1000</td>
+					<td th:text="${di.totalCount}">1000</td>
+					<td th:text="${di.activeMarketing}">1000</td>
+					<td th:text="${di.activeOsmAndLive}">1000</td>
+					<td th:text="${di.activeNews}">1000</td>
 				</tr>
 			</table>
 
 
-			<h3>Support survey:</h3>
+			<h3>Support survey</h3>
 			<table border="1">
 				<tr>
 					<th>Week</th>
@@ -346,7 +346,7 @@
 		</div>
 		
 		<div id="reports" class="tab-pane fade">
-			<h3>Reports:</h3>
+			<h3>Reports</h3>
 			<table border="1">
 				<tr>
 					<th>Name</th>
@@ -359,7 +359,7 @@
 				</tr>
 			</table>
 			
-			<h3>Access server logs:</h3>
+			<h3>Access server logs</h3>
 			<div class="access-server-logs"> 
 				<ul class="wrapper">
 					<form target="_blank" action="access-logs" id="logs-form">
@@ -441,7 +441,7 @@
 		</div>
 
 		<div id="bitcoin" class="tab-pane fade">
-			<h3>Bitcoin:</h3>
+			<h3>Bitcoin</h3>
 			<div>
 				<p>Account balance: <span th:text="${btc.balance}"></span></p>
 				<p>Current fee to pay: <span th:text="${btc.defaultFee}"></span> satoshi per byte.</p>
@@ -461,6 +461,18 @@
 				<td><a th:text="${di.name}" th:href="'/admin/report?file='+${di.fullname}" href="">
 					Report name </td>
 					<td th:text="${di.date}">01.01.2018 00:00</td>
+				</tr>
+			</table>
+			<h3>Bitcoin payouts</h3>
+			<!-- <span>You can use automated tool to send emails to the database <a href="https://builder.osmand.net:8080/view/WebSite/job/Website_SendMail/">Send Emails</a>.</span> -->
+			<table border="1">
+				<tr>
+					<th>Month</th>
+					<th>Transactions</th>
+				</tr>
+				<tr th:each="di : ${btc.txs}">
+					<td th:text="${di.month}">1000</td>
+					<td th:text="${di.transactions}">1000</td>
 				</tr>
 			</table>
 		</div>
