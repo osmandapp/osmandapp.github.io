@@ -444,10 +444,11 @@
 			<h3>Wallet</h3>
 			<div>
 				<p>Wallet balance: <b th:text="${btc.walletBalance / 100000.0f}"></b> mBTC</p>
-				<p>Wallet max waiting blocks: <b th:text="${btc.walletWaitingBlocks}"></b> blocks</p>
-				<p>Wallet fee: <b th:text="${btc.walletTxFee}"></b> satoshi per byte</p>
+				<p>Wallet max waiting blocks (manually set): <b th:text="${btc.walletWaitingBlocks}"></b> blocks</p>
 				<p>Wallet addresses: <span th:text="${btc.walletAddresses}"></b></p>
-				<p>Wallet payouts fee: <b th:text="${btc.walletEstFee}"></b> satoshi per byte, waiting <b th:text="${btc.walletEstBlocks}"></b> blocks.</p>
+				<p>Wallet last transaction: <b><a th:href="'https://www.blockchain.com/btc/tx/'+${btc.walletLasttx}" th:text="${btc.walletLasttx}"></a></b></p>
+				<p>Wallet fee (manually set): <b th:text="${btc.walletTxFee}"></b> satoshi per byte</p>
+				<p>Wallet estimated payouts fee: <b th:text="${btc.walletEstFee}"></b> satoshi per byte, waiting <b th:text="${btc.walletEstBlocks}"></b> blocks.</p>
 			</div>
 			<h3>Total payout</h3>
 			<div>
