@@ -2,6 +2,8 @@
 	"download" : {
 		"servers" : {
 			"main" : ["dl1.osmand.net", "dl6.osmand.net"],
+			"osmlive" : ["dl1.osmand.net", "dl6.osmand.net"],
+			"srtm" : ["dl1.osmand.net", "dl6.osmand.net"],
 			"help" : ["dl4.osmand.net"]
 		},
 		"main_load" : 60
