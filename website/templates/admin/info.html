@@ -43,12 +43,12 @@
 					<th>SRTM+Hillshade</th>
 					<th>OsmAndLive</th>
 				</tr>
-			<tr th:each="di : ${downloadServers}">
-				<td th:text="${di.name}"></td>
-				<td th:text="${di.maps}"></td>
-				<td th:text="${di.srtm}"></td>
-				<td th:text="${di.osmlive}"></td>
-			</tr>
+				<tr th:each="di : ${downloadServers}">
+					<td th:text="${di.name}"></td>
+					<td th:text="${di.maps}"></td>
+					<td th:text="${di.srtm}"></td>
+					<td th:text="${di.osmlive}"></td>
+				</tr>
 			</table>
   		</div>
   		
