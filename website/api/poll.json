@@ -1,22 +1,22 @@
 {
 	"website_1" : {
-		"pubdate" : "29.04.2019",
-		"title" : "Did you see new the additional info in the Route details?",
-		"polldaddyid" : "10306412"
+		"pubdate" : "24.06.2019",
+		"title" : "For what active travel do you use OsmAnd?",
+		"polldaddyid" : "10349590"
 	},
 	"website_2" : {
-		"pubdate" : "29.04.2019",
-		"title" : "Did you see new the additional info in the Route details?",
-		"polldaddyid" : "10306412"
+		"pubdate" : "24.06.2019",
+		"title" : "For what active travel do you use OsmAnd?",
+		"polldaddyid" : "10349590"
 	},
 	"android" : {
-		"pubdate" : "29.04.2019",
-		"title" : "Did you see new the additional info in the Route details?",
-		"polldaddyid" : "10306412"
+		"pubdate" : "24.06.2019",
+		"title" : "For what active travel do you use OsmAnd?",
+		"polldaddyid" : "10349590"
 	},
 	"ios" : {
-		"pubdate" : "29.04.2019",
-		"title" : "Are you using OsmAnd Live for iOS?",
-		"polldaddyid" : "10306430"
+		"pubdate" : "24.06.2019",
+		"title" : "For what active travel do you use OsmAnd?",
+		"polldaddyid" : "10349590"
 	}
 }

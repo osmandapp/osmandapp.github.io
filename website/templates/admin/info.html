@@ -17,6 +17,7 @@
   		<li><a data-toggle="tab" href="#giveaway">Giveaway</a></li>
   		<li><a data-toggle="tab" href="#audience">Audience</a></li>
   		<li><a data-toggle="tab" href="#reports">Reports</a></li>
+  		<li><a data-toggle="tab" href="#bitcoin">Bitcoin</a></li>
 	</ul>
 	
 	<div class="tab-content">
@@ -40,17 +41,17 @@
 					<th>Name</th>
 					<th>Maps+Wiki</th>
 					<th>SRTM+Hillshade</th>
+					<th>OsmAndLive</th>
 				</tr>
-			<tr th:each="di : ${downloadServers}">
-				<td th:text="${di.name}"></td>
-				<td th:text="${di.mainLoad}"></td>
-				<td th:text="${di.srtmLoad}"></td>
-			</tr>
+				<tr th:each="di : ${downloadServers}">
+					<td th:text="${di.name}"></td>
+					<td th:text="${di.maps}"></td>
+					<td th:text="${di.srtm}"></td>
+					<td th:text="${di.osmlive}"></td>
+				</tr>
 			</table>
   		</div>
   		
-
-
   		<div id="motd" class="tab-pane fade">
 			<h3>Push / promo (message of the day)</h3>
 
@@ -71,9 +72,8 @@
 			</table>
   		</div>
 
-
 		<div id="subs" class="tab-pane fade">
-			<h3>Current subscriptions config:</h3>
+			<h3>Current subscriptions config</h3>
 			<span>You can change it by modifying json file at <a href="https://github.com/osmandapp/osmandapp.github.io/blob/master/website/api/subscriptions/config.json">Github</a> and don't forget to click button reload 	configuration.</span>
 			<table border="1">
 				<tr>
@@ -89,7 +89,7 @@
 			</table>
 
 
-			<h3>Active Subscriptions:</h3>
+			<h3>Active Subscriptions</h3>
 			<table border="1">
 				<tr>
 					<th>Date</th>
@@ -129,7 +129,7 @@
 			</table>
 
 
-			<h3>New/Cancel Subscriptions:</h3>
+			<h3>New/Cancel Subscriptions</h3>
 			<table border="1">
 				<tr>
 					<th>Date</th>
@@ -189,9 +189,7 @@
 					">1000</td>
 				</tr>
 			</table>
-
 		</div>
-
 
 		<div id="giveaway" class="tab-pane fade">
 
@@ -290,9 +288,7 @@
 		</div>
 
 		<div id="audience" class="tab-pane fade">
-
-
-			<h3>Audience surveys (polls):</h3>
+			<h3>Audience surveys (polls)</h3>
 			<span>You can change it by modifying json file at <a href="https://github.com/osmandapp/osmandapp.github.io/blob/master/website/api/poll.json">Github</a> and don't forget to click button reload configuration. </span>
 			<table border="1">
 				<tr>
@@ -310,7 +306,7 @@
 				</tr>
 			</table>
 
-			<h3>Email database:</h3>
+			<h3>Email database</h3>
 			<span>You can use automated tool to send emails to the database <a href="https://builder.osmand.net:8080/view/WebSite/job/Website_SendMail/">Send Emails</a>.</span>
 			<table border="1">
 				<tr>
@@ -322,17 +318,17 @@
 					<th>Available for News</th>
 				</tr>
 				<tr th:each="di : ${emailsReport}">
-					<td th:text="${di.category}">1000/td>
-					<td th:text="${di.categoryId}">1000/td>
-					<td th:text="${di.totalCount}">1000/td>
-					<td th:text="${di.activeMarketing}">1000/td>
-					<td th:text="${di.activeOsmAndLive}">1000/td>
-					<td th:text="${di.activeNews}">1000/td>
+					<td th:text="${di.category}">1000</td>
+					<td th:text="${di.categoryId}">1000</td>
+					<td th:text="${di.totalCount}">1000</td>
+					<td th:text="${di.activeMarketing}">1000</td>
+					<td th:text="${di.activeOsmAndLive}">1000</td>
+					<td th:text="${di.activeNews}">1000</td>
 				</tr>
 			</table>
 
 
-			<h3>Support survey:</h3>
+			<h3>Support survey</h3>
 			<table border="1">
 				<tr>
 					<th>Week</th>
@@ -350,8 +346,9 @@
 				</tr>
 			</table>
 		</div>
+		
 		<div id="reports" class="tab-pane fade">
-			<h3>Reports:</h3>
+			<h3>Reports</h3>
 			<table border="1">
 				<tr>
 					<th>Name</th>
@@ -364,7 +361,7 @@
 				</tr>
 			</table>
 			
-			<h3>Access server logs:</h3>
+			<h3>Access server logs</h3>
 			<div class="access-server-logs"> 
 				<ul class="wrapper">
 					<form target="_blank" action="access-logs" id="logs-form">
@@ -444,6 +441,110 @@
 				</table>
 			</div>
 		</div>
+
+		<div id="bitcoin" class="tab-pane fade">
+			<h3>Wallet</h3>
+			<div>
+				<p>Wallet balance: <b th:text="${btc.walletBalance / 100000.0f}"></b> mBTC</p>
+				<p>Wallet max waiting blocks (manually set): <b th:text="${btc.walletWaitingBlocks}"></b> blocks</p>
+				<p>Wallet addresses: <span th:text="${btc.walletAddresses}"></b></p>
+				<p>Wallet last transaction: <b><a th:href="'https://www.blockchain.com/btc/tx/'+${btc.walletLasttx}" th:text="${btc.walletLasttx}"></a></b></p>
+				<p>Wallet fee (manually set): <b th:text="${btc.walletTxFee}"></b> satoshi per byte</p>
+				<p>Wallet estimated payouts fee: <b th:text="${btc.walletEstFee}"></b> satoshi per byte, waiting <b th:text="${btc.walletEstBlocks}"></b> blocks.</p>
+			</div>
+			<h3>Total payout</h3>
+			<div>
+				<p>Generated date: <b th:text="${btc.balance.generatedDate}"></b></p>
+				<p>Minimum payout: <b th:text="${btc.balance.minToPayoutSat / 100000.0f}"></b> mBTC</p>
+				<p>Current fee to pay: <b th:text="${btc.balance.defaultFee}"></b> satoshi per byte</p>
+				<p>Total to pay (with fee <span th:text="${btc.balance.defaultFee}"></span>): 
+					<span th:text="${btc.balance.payWithFeeCnt}"></span> accounts <b th:text="${btc.balance.payWithFeeSat / 100000.0f}"></b> mBTC.</p>
+				<p>Total to pay (with fee 0): 
+					<span th:text="${btc.balance.payNoFeeCnt}"></span> accounts <b th:text="${btc.balance.payNoFeeSat / 100000.0f}"></b> mBTC</p>
+				<p>Total overpaid: <span th:text="${btc.balance.overpaidCnt}"></span> accounts <b th:text="${btc.balance.overpaidSat / 100000.0f}"></b> mBTC</p>
+				<p>Total overpaid (more than minimum payout): <span th:text="${btc.balance.overpaidFeeCnt}"></span> accounts <b th:text="${btc.balance.overpaidFeeSat / 100000.0f}"></b> mBTC</p>
+				<p>Total paid: <b th:text="${btc.total / 100000000.0f} + ' BTC'"></b></p>
+			</div>
+			<div class="update-btc-report"> 
+				<form action="/admin/update-btc-report" method="post">
+					<ul class="wrapper">
+    					<li class="form-row">
+							<label for="name">Current fee (in satoshi per byte):</label>
+							<input type="text" name="defaultFee">
+						</li>
+						<li class="form-row">
+							<label for="name">Max wallet waiting blocks:</label>
+							<input type="text" name="waitingBlocks">
+						</li>
+						<li class="form-row">
+							<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+							<button type="submit">Regenerate payout report</button>
+						</li>
+					</uL>
+				</form>
+			</div>
+			<div class="update-btc-report"> 
+				<b>Double check all parameters and enter batch size (200-250) to initiate payout!</b>
+				<form action="/admin/make-btc-payout" method="post">
+					<ul class="wrapper">
+    					<li class="form-row">
+							<label for="name">Batch size:</label>
+							<input type="text" name="batchSize">
+						</li>
+						<li class="form-row">
+							<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+							<button type="submit">Payout bitcoins!</button>
+						</li>
+					</uL>
+				</form>
+			</div>
+
+		
+			<h3>Bitcoin payouts</h3>
+			<!-- <span>You can use automated tool to send emails to the database <a href="https://builder.osmand.net:8080/view/WebSite/job/Website_SendMail/">Send Emails</a>.</span> -->
+			<table border="1">
+				<tr>
+					<th>Month</th>
+					<th>Total</th>
+					<th>Fee</th>
+					<th>Transactions</th>
+				</tr>
+				<tr th:each="di : ${btc.txs}">
+					<td th:text="${di.month}">1000</td>
+					<td th:text="${di.total / 100000.0f} + ' mBTC'">1000</td>
+					<td>
+						<p th:text="${di.fee / 100000.0f} + ' mBTC'">1000</p>
+						<p th:text="${(di.fee * 1000 / di.total)/10.0f} + ' %'">1000</p>
+						<p th:text="${di.fee / di.size} + ' sat/byte'">1000</p>
+					</td>
+					<td>
+						<p th:each="tx : ${di.txValues}">
+							<a th:text="${tx.id}" th:href="${tx.url}"></a> - 
+								<span th:text="${tx.total / 100000.0f}" /> mBTC, 
+								fee <span th:text="${tx.fee / 100000.0f}" /> mBTC
+						</p>
+					</td>
+				</tr>
+			</table>
+
+			<h3>Individual payouts</h3>
+			<!-- <span>You can use automated tool to send emails to the database <a href="https://builder.osmand.net:8080/view/WebSite/job/Website_SendMail/">Send Emails</a>.</span> -->
+			<table border="1">
+				<tr>
+					<th>Addr</th>
+					<th>OsmId</th>
+					<th>To pay</th>
+					<th>Total paid</th>
+				</tr>
+				<tr th:each="di : ${btc.balance.toPay}">
+					<td th:text="${di.btcAddress}">1000</td>
+					<td th:text="${di.osmId}"></td>
+					<td th:text="${di.toPay / 100000.0f} + ' mBTC'">1000</td>
+					<td th:text="${di.totalPaid / 100000.0f} + ' mBTC'">1000</td>
+				</tr>
+			</table>
+		</div>
+
   	</div>
 	<script type="text/javascript">
 
