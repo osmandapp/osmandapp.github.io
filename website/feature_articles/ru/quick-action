@@ -1,0 +1,24 @@
+<h4>Кнопка Быстрого действия</h4>
+<p>В настоящее время эта функция доступна только для версии Android version. Для iOS версии она <a href="https://osmand.net/ru/blog/2019-ny-resolutions">вскоре</a> будет доступна. </p>
+<p>Кнопка Быстрого действия - это удобное меню горячих клавиш, которые предоставляют прямой доступ к любым функциям, которые Вам необходимы чаще всего: их можно добавить на "панель инструментов".Таким образом, как только Вам нужно будет добавить новое Избранное, добавить место назначения навигации, включить или отключить голосовые подсказки и т.п., эти действия теперь доступны в два касания. Кнопку быстрого действия можно добавить через меню Настроить экран. Чтобы добавить действия в меню, нажмите «Добавить действие» прямо в строке меню. Чтобы удалить действие, перейдите на экран «Настройка» и коснитесь меню «Быстрое действие», затем удалите все ненужные ярлыки.</p>
+<div class="centeredimageblog">
+<img src="/images/blog/2.6/q_act_3.jpg"/>
+<img src="/images/blog/2.6/q_act_1.jpg"/>
+<img src="/images/blog/2.6/q_act_2.jpg"/>
+<div style="clear:both;"></div>
+</div>
+<p>По многочисленным просьбам пользователей, начиная с версии 3.3 для Android, мы <b>добавили действия Показать/скрыть GPX треки, Переключить дневной/ночной режим в меню Быстрого действия</b>.</p>
+</ul>
+<div class="centeredimageblog">
+<img src="/images/blog/3.3/pt_7_blog.png"/>
+<div style="clear:both;"></div>
+</div>
+<p>Вы можете ознакомиться с полным видео руководством ниже:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/doV3XLTrwpU" frameborder="0" allowfullscreen></iframe>
+<p>OsmAnd на <a href="https://www.facebook.com/osmandapp/">Facebook</a>, <a href="https://www.twitter.com/osmandapp/">Twitter</a>, and <a href="https://www.reddit.com/r/OsmAnd/">Reddit</a>! Присоединяйтесь к нам в <a href="https://t.me/ruosmand">группе Telegram</a>.</p>
+<p><a href="https://play.google.com/store/apps/details?id=net.osmand" target="_blank">
+<img src="https://raw.githubusercontent.com/osmandapp/osmandapp.github.io/9fc59e5136b6a07045eb96d052b3ce6ddde805c3/website/images/help/badge_store_google_play.png" alt="Get it on Google Play" height="60"/></a>
+<a href="https://www.amazon.com/OsmAnd-Maps-Navigation/dp/B00D0SA8I8" target="_blank">
+<img src="https://raw.githubusercontent.com/osmandapp/osmandapp.github.io/9fc59e5136b6a07045eb96d052b3ce6ddde805c3/website/images/help/badge_store_amazon.png" alt="Get it on Amazon" height="60"/></a>
+<a href="https://itunes.apple.com/app/apple-store/id934850257?pt=2123532&amp;ct=WebSite&amp;mt=8" target="_blank">
+<img src="https://raw.githubusercontent.com/osmandapp/osmandapp.github.io/9fc59e5136b6a07045eb96d052b3ce6ddde805c3/website/images/app-store-badge.png" alt="Get it on App Store" height="60"/></a></p>
