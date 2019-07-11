@@ -1,5 +1,5 @@
 {
-	"main" : ["dl1.osmand.net", "dl4.osmand.net", "dl6.osmand.net"],
-	"osmlive" : ["dl6.osmand.net"],
-	"srtm" : ["dl1.osmand.net", "dl6.osmand.net"]
+	"main" : {"dl1.osmand.net":1, "dl4.osmand.net":1, "dl6.osmand.net":1},
+	"osmlive" : {"dl6.osmand.net":1},
+	"srtm" : {"dl1.osmand.net":1, "dl6.osmand.net":1}
 }
