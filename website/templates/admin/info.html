@@ -39,15 +39,21 @@
 			<table border="1">
 				<tr>
 					<th>Name</th>
-					<th>Maps+Wiki</th>
-					<th>SRTM+Hillshade</th>
-					<th>OsmAndLive</th>
+					<th>Maps</th>
+					<th>Live</th>
+					<th>SRTM</th>
+					<th>Hillshade</th>
+					<th>Roads</th>
+					<th>Wiki</th>
 				</tr>
 				<tr th:each="di : ${downloadServers}">
 					<td th:text="${di.name}"></td>
 					<td th:text="${di.main}"></td>
-					<td th:text="${di.srtm}"></td>
 					<td th:text="${di.osmlive}"></td>
+					<td th:text="${di.srtm}"></td>
+					<td th:text="${di.hillshade}"></td>
+					<td th:text="${di.roads}"></td>
+					<td th:text="${di.wiki}"></td>
 				</tr>
 			</table>
   		</div>
