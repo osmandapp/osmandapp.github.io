@@ -1,6 +1,6 @@
 {
 	"servers" : {
-		"main" : {"dl6.osmand.net":3, "dl7.osmand.net":5, "dl8.osmand.net":6, "dl9.osmand.net":7},
+		"main" : {"dl6.osmand.net":3, "dl7.osmand.net":5, "dl8.osmand.net":7, "dl9.osmand.net":7},
 		"roads" : {"dl6.osmand.net":1, "dl7.osmand.net":2},
 		"wiki" : { "dl6.osmand.net":1, "dl7.osmand.net":2},
 		"osmlive" : {"dl6.osmand.net":1, "dl9.osmand.net":1},
