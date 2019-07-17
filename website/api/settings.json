@@ -1,10 +1,10 @@
 {
 	"servers" : {
 		"main" : {"dl2.osmand.net":1, "dl7.osmand.net":1, "dl8.osmand.net":1, "dl9.osmand.net":1},
-		"roads" : {"dl7.osmand.net":1, "dl7.osmand.net":1},
-		"wiki" : {"dl7.osmand.net":1, "dl7.osmand.net":1},
-		"osmlive" : {"dl7.osmand.net":1, "dl9.osmand.net":1},
-		"srtm" : { "dl7.osmand.net":1, "dl8.osmand.net":1},
-		"hillshade" : { "dl7.osmand.net":1, "dl7.osmand.net":1}
+		"roads" : {"dl2.osmand.net":1, "dl7.osmand.net":1},
+		"wiki" : { "dl7.osmand.net":1},
+		"osmlive" : { "dl9.osmand.net":1},
+		"srtm" : { "dl2.osmand.net":1, "dl8.osmand.net":1},
+		"hillshade" : { "dl2.osmand.net":1, "dl7.osmand.net":1}
 	}
 }
