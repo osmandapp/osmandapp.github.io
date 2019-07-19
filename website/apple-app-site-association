@@ -4,6 +4,10 @@
         "details": [{
             "appID": "LM67P5MQ23.net.osmand.maps",
             "paths": ["/go"]
+        },
+        {
+            "appID": "LM67P5MQ23.net.osmand.maps",
+            "paths": ["/go.html"]
         }]
     }
 }
