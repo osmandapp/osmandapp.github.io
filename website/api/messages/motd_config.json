@@ -196,16 +196,15 @@
 		},
 		{
                          "condition": {
-				"ip" : "178.127.67.206, 93.73.34.9",
    				"start_date": "23-07-2019 18:01",
    				"end_date": "28-07-2019 23:59",
 				"os": "ios",
-				"version": "2.92",
+				"version": "2.90",
 				"lang" :"ru"
 			},
 			"file": "discount_ios_sub.json",
 			"fields": {
-				"message": "РАСПРОДАЖА!",
+				"message": "РАСПРОДАЖА годовой подписки!",
 				"description": "Получи годовую подписку со скидкой 50%!"
 			}
 		},
@@ -223,6 +222,20 @@
 			}
 		},
 		{
+			      "condition": {
+   				"start_date": "23-07-2019 18:01",
+   				"end_date": "28-07-2019 23:59",
+				"os": "ios",
+				"version": "2.90",
+				"lang" :"fr"
+			},
+			"file": "discount_ios_sub.json",
+			"fields": {
+				"message": "Abonnement annuel à la VENTE!",
+				"description": "Obtenez votre abonnement annuel avec un rabais de -50%!"
+			}
+		},
+		{
 			"condition": {
    				"start_date": "23-07-2019 18:01",
    				"end_date": "28-07-2019 23:59",
@@ -233,6 +246,20 @@
 			"fields": {
                                 "message": "VENTE!",
 				"description": "Toutes les cartes du monde et lignes de contour -50%!"
+			}
+		},
+		{
+				"condition": {
+   				"start_date": "23-07-2019 18:01",
+   				"end_date": "28-07-2019 23:59",
+				"os": "ios",
+				"version": "2.90",
+				"lang" :"de"
+			},
+			"file": "discount_ios_sub.json",
+			"fields": {
+				"message": "Jahresabonnement SALE!",
+				"description": "Erhalten Sie Ihr Jahresabonnement mit einem Rabatt von -50%!"
 			}
 		},
 		{
@@ -249,6 +276,20 @@
 			}
 		},
 		{
+				"condition": {
+   				"start_date": "23-07-2019 18:01",
+   				"end_date": "28-07-2019 23:59",
+				"os": "ios",
+				"version": "2.90",
+				"lang" :"it"
+			},
+			"file": "discount_ios_sub.json",
+			"fields": {
+				"message": "Abbonamento annuale di VENDITA!",
+				"description": "Ottieni il tuo abbonamento annuale con uno sconto del -50%!"
+			}
+		},
+		{
 			"condition": {
    				"start_date": "23-07-2019 18:01",
    				"end_date": "28-07-2019 23:59",
@@ -259,6 +300,20 @@
 			"fields": {
 				"message": "VENDITA!",
 				"description": "Tutte le mappe del mondo e le linee di contorno -50%!"
+			}
+		},
+		{
+				"condition": {
+   				"start_date": "23-07-2019 18:01",
+   				"end_date": "28-07-2019 23:59",
+				"os": "ios",
+				"version": "2.90",
+				"lang" :"es"
+			},
+			"file": "discount_ios_sub.json",
+			"fields": {
+				"message": "¡Suscripción anual de VENTA!",
+				"description": "Obtenga su suscripción anual con un -50% de descuento!"
 			}
 		},
 		{
@@ -275,12 +330,25 @@
 			}
 		},
 		{
+				"condition": {
+   				"start_date": "23-07-2019 18:01",
+   				"end_date": "28-07-2019 23:59",
+				"os": "ios",
+				"version": "2.90",
+				"lang" :"nl"
+			},
+			"file": "discount_ios_sub.json",
+			"fields": {
+				"message": "Jaarabonnement VERKOOP!",
+				"description": "Krijg uw jaarabonnement met een korting van -50%!"
+			}
+		},
+		{
 			"condition": {
    				"start_date": "23-07-2019 18:01",
    				"end_date": "28-07-2019 23:59",
 				"os": "ios",
 				"lang" :"nl"
-
 			},
 			"file": "discount_ios.json",
 			"fields": {
@@ -290,12 +358,10 @@
 		},
 		{
 			      "condition": {
-				"ip" : "178.127.67.206, 93.73.34.9",
    				"start_date": "23-07-2019 18:01",
    				"end_date": "28-07-2019 23:59",   
 				"os": "ios",
 				 "version": "2.90" 
-				
 			},
 			"file": "discount_ios_sub.json",
 			"fields": {
