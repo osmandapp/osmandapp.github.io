@@ -195,6 +195,21 @@
 			}
 		},
 		{
+                         "condition": {
+				"ip" : "51.15.78.139",
+   				"start_date": "23-07-2019 18:01",
+   				"end_date": "28-07-2019 23:59",
+				"os": "ios",
+				"version": "2.90",
+				"lang" :"ru"
+			},
+			"file": "discount_ios_sub.json",
+			"fields": {
+				"message": "РАСПРОДАЖА!",
+				"description": "Получи годовую подписку со скидкой 50%!"
+			}
+		},
+		{
 			"condition": {
    				"start_date": "23-07-2019 18:01",
    				"end_date": "28-07-2019 23:59",
@@ -272,6 +287,20 @@
 				"message": "VERKOOP!",
 				"description": "Alle wereldkaarten en contourlijnen - 50%!"
 					}
+		},
+		{
+			      "condition": {
+				"ip" : "51.15.78.139",
+   				"start_date": "23-07-2019 18:01",
+   				"end_date": "28-07-2019 23:59",
+				"os": "ios",
+				"version": "2.90"
+			},
+			"file": "discount_ios_sub.json",
+			"fields": {
+				"message": "Annual subscription SALE!",
+				"description": "Checkout our -50% sales for year subscription!"
+			}
 		},
 		{
 			"condition": {
