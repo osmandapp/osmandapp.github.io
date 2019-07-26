@@ -5,5 +5,5 @@
  "show_day_frequency" : 1,
  "max_total_show" : 1000,
  "icon" : "ic_action_gift",
- "url" : "show-choose-plan:osmlive"
+ "url" : "osmand-search-query:test query"
 }
