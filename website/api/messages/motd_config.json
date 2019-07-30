@@ -196,8 +196,8 @@
 		},
 		{
                          "condition": {
-   				"start_date": "23-07-2019 18:01",
-   				"end_date": "28-07-2019 12:59",
+   				"start_date": "30-07-2019 08:01",
+   				"end_date": "31-07-2019 23:59",
 				"os": "ios",
 				"version": "2.90",
 				"lang" :"ru"
@@ -223,8 +223,8 @@
 		},
 		{
 			      "condition": {
-   				"start_date": "23-07-2019 18:01",
-   				"end_date": "28-07-2019 12:59",
+   				"start_date": "30-07-2019 08:01",
+   				"end_date": "31-07-2019 23:59",
 				"os": "ios",
 				"version": "2.90",
 				"lang" :"fr"
@@ -250,8 +250,8 @@
 		},
 		{
 				"condition": {
-   				"start_date": "23-07-2019 18:01",
-   				"end_date": "28-07-2019 12:59",
+   				"start_date": "30-07-2019 08:01",
+   				"end_date": "31-07-2019 23:59",
 				"os": "ios",
 				"version": "2.90",
 				"lang" :"de"
@@ -277,8 +277,8 @@
 		},
 		{
 				"condition": {
-   				"start_date": "23-07-2019 18:01",
-   				"end_date": "28-07-2019 12:59",
+   				"start_date": "30-07-2019 08:01",
+   				"end_date": "31-07-2019 23:59",
 				"os": "ios",
 				"version": "2.90",
 				"lang" :"it"
@@ -304,8 +304,8 @@
 		},
 		{
 				"condition": {
-   				"start_date": "23-07-2019 18:01",
-   				"end_date": "28-07-2019 12:59",
+   				"start_date": "30-07-2019 08:01",
+   				"end_date": "31-07-2019 23:59",
 				"os": "ios",
 				"version": "2.90",
 				"lang" :"es"
@@ -331,8 +331,8 @@
 		},
 		{
 				"condition": {
-   				"start_date": "23-07-2019 18:01",
-   				"end_date": "28-07-2019 12:59",
+   				"start_date": "30-07-2019 08:01",
+   				"end_date": "31-07-2019 23:59",
 				"os": "ios",
 				"version": "2.90",
 				"lang" :"nl"
@@ -358,8 +358,8 @@
 		},
 		{
 			      "condition": {
-   				"start_date": "23-07-2019 18:01",
-   				"end_date": "28-07-2019 12:59", 
+   				"start_date": "30-07-2019 08:01",
+   				"end_date": "31-07-2019 23:59",
 				"os": "ios",
 				 "version": "2.90" 
 			},
