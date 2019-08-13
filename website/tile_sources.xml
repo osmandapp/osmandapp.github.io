@@ -123,7 +123,7 @@
   
 
   <tile_source name="Hitta.se Outdoor (SE)" rule="beanshell" ext="png" min_zoom="5" max_zoom="18" tile_size="256" img_density="32" avg_img_size="18000" url_template='String getTileUrl(int z, int x, int y) {return "http://static.hitta.se/tile/v3/4/"+z+"/"+x+"/"+((1 &lt;&lt; z) - 1 - y);}'/>
-  <tile_source name="Lantmäteriet Topo (SE)" rule="beanshell" ext="png" min_zoom="3" max_zoom="15" tile_size="256" img_density="32" avg_img_size="18000" url_template='https://api.lantmateriet.se/open/topowebb-ccby/v1/wmts/token/9b342b7d9f12d4ddb92277be9869d860/1.0.0/topowebb/default/3857/{0}/{2}/{1}.png'/>
+  <tile_source name="Lantmäteriet Topo (SE)" ext="png" min_zoom="3" max_zoom="15" tile_size="256" img_density="32" avg_img_size="18000" url_template='https://api.lantmateriet.se/open/topowebb-ccby/v1/wmts/token/9b342b7d9f12d4ddb92277be9869d860/1.0.0/topowebb/default/3857/{0}/{2}/{1}.png'/>
 
 <!--
 	// WMS layers : http://whoots.mapwarper.net/tms/{$z}/{$x}/{$y}/ {layer}/{Path}
