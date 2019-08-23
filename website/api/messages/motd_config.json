@@ -6,7 +6,7 @@
    				"end_date": "25-08-2019 22:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
-				"number_of_days": "10-700",
+				"number_of_days": "2-700",
 				"lang" :"ru"
 			},
 			"file": "discount_paid.json",
@@ -24,8 +24,8 @@
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "РАСПРОДАЖА годовой подписки!",
-				"description": "Оформите годовую подписку со скидкой -50%!"
+				"message": "РАСПРОДАЖА!",
+				"description": "Карты без ограничений, контурные линии и годовая подписка -50%!"
 			}
 		},
 		{
@@ -34,7 +34,7 @@
    				"end_date": "25-08-2019 22:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
-				"number_of_days": "10-700",
+				"number_of_days": "2-700",
 				"lang" :"es"
 			},
 			"file": "discount_paid.json",
@@ -52,8 +52,8 @@
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "¡Suscripción anual de VENTA!",
-				"description": "Obtenga su suscripción anual con un -50% de descuento!"
+				"message": "¡VENTA!",
+				"description": "Descargas ilimitadas de mapas, curvas de nivel y suscripción anual -50%!"
 			}
 		},
 		{
@@ -62,7 +62,7 @@
    				"end_date": "25-08-2019 22:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
-				"number_of_days": "10-700",
+				"number_of_days": "2-700",
 				"lang" :"fr"
 			},
 			"file": "discount_paid.json",
@@ -80,8 +80,8 @@
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "Abonnement annuel à la VENTE!",
-				"description": "Obtenez votre abonnement annuel avec un rabais de -50%!"
+				"message": "VENTE!",
+				"description": "Téléchargements de cartes illimités, courbes de niveau et abonnement annuel -50%!"
 			}
 		},
 		{
@@ -90,7 +90,7 @@
    				"end_date": "25-08-2019 22:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
-				"number_of_days": "10-700",
+				"number_of_days": "2-700",
 				"lang" :"nl"
 			},
 			"file": "discount_paid.json",
@@ -108,8 +108,8 @@
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "Jaarabonnement VERKOOP!",
-				"description": "Krijg uw jaarabonnement met een korting van -50%!"
+				"message": "VERKOOP!",
+				"description": "Onbeperkte kaartdownloads, contourlijnen en jaarabonnement -50%!"
 			}
 		},
 		{
@@ -118,7 +118,7 @@
    				"end_date": "25-08-2019 22:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
-				"number_of_days": "10-700",
+				"number_of_days": "2-700",
 				"lang" :"it"
 			},
 			"file": "discount_paid.json",
@@ -136,8 +136,8 @@
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "Abbonamento annuale di VENDITA!",
-				"description": "Ottieni il tuo abbonamento annuale con uno sconto del -50%!"
+				"message": "VENDITA!",
+				"description": "Download illimitati di mappe, curve di livello e abbonamento annuale -50%!"
 			}
 		},
 		{
@@ -146,7 +146,7 @@
    				"end_date": "25-08-2019 22:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
-				"number_of_days": "10-700",
+				"number_of_days": "2-700",
 				"lang" :"de"
 			},
 			"file": "discount_paid.json",
@@ -164,8 +164,8 @@
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "Jahresabonnement SALE!",
-				"description": "Erhalten Sie Ihr Jahresabonnement mit einem Rabatt von -50%!"
+				"message": "VERKAUF!",
+				"description": "Unbegrenzte Karten-Downloads, Höhenlinien und Jahresabonnement -50%!"
 			}
 		},
 		{
@@ -173,7 +173,7 @@
    				"start_date": "20-08-2019 22:01",
    				"end_date": "25-08-2019 22:59",
 				"app_version": "OsmAnd+",
-				"number_of_days": "10-700",
+				"number_of_days": "2-700",
 				"os": "android"
 			},
 			"file": "discount_paid.json",
@@ -190,8 +190,8 @@
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "Annual subscription SALE!",
-				"description": "Checkout our -50% sales for year subscription!"
+				"message": "SALE!",
+				"description": "Unlimited map downloads, contour lines and annual subscription -50%!"
 			}
 		},
 		{
@@ -199,7 +199,6 @@
    				"start_date": "20-08-2019 22:01",
    				"end_date": "25-08-2019 22:59",
 				"os": "ios",
-				"version": "2.90",
 				"lang" :"ru"
 			},
 			"file": "discount_ios_sub.json",
@@ -226,7 +225,6 @@
    				"start_date": "20-08-2019 22:01",
    				"end_date": "25-08-2019 22:59",
 				"os": "ios",
-				"version": "2.90",
 				"lang" :"fr"
 			},
 			"file": "discount_ios_sub.json",
@@ -253,7 +251,6 @@
    				"start_date": "20-08-2019 22:01",
    				"end_date": "25-08-2019 22:59",
 				"os": "ios",
-				"version": "2.90",
 				"lang" :"de"
 			},
 			"file": "discount_ios_sub.json",
@@ -280,7 +277,6 @@
    				"start_date": "20-08-2019 22:01",
    				"end_date": "25-08-2019 22:59",
 				"os": "ios",
-				"version": "2.90",
 				"lang" :"it"
 			},
 			"file": "discount_ios_sub.json",
@@ -307,7 +303,6 @@
    				"start_date": "20-08-2019 22:01",
    				"end_date": "25-08-2019 22:59",
 				"os": "ios",
-				"version": "2.90",
 				"lang" :"es"
 			},
 			"file": "discount_ios_sub.json",
@@ -334,7 +329,6 @@
    				"start_date": "20-08-2019 22:01",
    				"end_date": "25-08-2019 22:59",
 				"os": "ios",
-				"version": "2.90",
 				"lang" :"nl"
 			},
 			"file": "discount_ios_sub.json",
@@ -360,8 +354,7 @@
 			      "condition": {
    				"start_date": "20-08-2019 22:01",
    				"end_date": "25-08-2019 22:59",
-				"os": "ios",
-				 "version": "2.90" 
+				"os": "ios"
 			},
 			"file": "discount_ios_sub.json",
 			"fields": {
