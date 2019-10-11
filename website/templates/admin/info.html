@@ -39,15 +39,21 @@
 			<table border="1">
 				<tr>
 					<th>Name</th>
-					<th>Maps+Wiki</th>
-					<th>SRTM+Hillshade</th>
-					<th>OsmAndLive</th>
+					<th>Maps 90G</th>
+					<th>Live 90G</th>
+					<th>SRTM 100G</th>
+					<th>Hillshade 40G</th>
+					<th>Roads 40G</th>
+					<th>Wiki 30G</th>
 				</tr>
 				<tr th:each="di : ${downloadServers}">
 					<td th:text="${di.name}"></td>
-					<td th:text="${di.maps}"></td>
-					<td th:text="${di.srtm}"></td>
+					<td th:text="${di.main}"></td>
 					<td th:text="${di.osmlive}"></td>
+					<td th:text="${di.srtm}"></td>
+					<td th:text="${di.hillshade}"></td>
+					<td th:text="${di.roads}"></td>
+					<td th:text="${di.wiki}"></td>
 				</tr>
 			</table>
   		</div>
@@ -133,10 +139,13 @@
 			<table border="1">
 				<tr>
 					<th>Date</th>
-					<th>+M</th>
-					<th>+Q</th>
-					<th>+Y</th>
-					<th>+Y/2</th>
+					<th>+AM</th>
+					<th>+AQ</th>
+					<th>+AY</th>
+					<th>+AY/2</th>
+					<th>+IM</th>
+					<th>+IQ</th>
+					<th>+IY</th>
 					<th>+W All</th>					
 					<th>-M</th>
 					<th>-Q</th>
@@ -154,6 +163,11 @@
 					<td th:text="(${di.quarterCount > 0}?'+':'')+${di.quarterCount}">1000</td>
 					<td th:text="(${di.annualCount > 0}?'+':'')+${di.annualCount}">1000</td>
 					<td th:text="(${di.annualDiscountCount > 0}?'+':'')+${di.annualDiscountCount}">1000</td>
+					
+					<td th:text="(${di.iosMonthCount > 0}?'+':'')+${di.iosMonthCount}">1000</td>
+					<td th:text="(${di.iosQuarterCount > 0}?'+':'')+${di.iosQuarterCount}">1000</td>
+					<td th:text="(${di.iosAnnualCount > 0}?'+':'')+${di.iosAnnualCount}">1000</td>
+					
 					<td><b th:text="(${di.totalWeighted > 0}?'+':'')+ ${di.totalWeighted*6/(10*12)}">1000</b></td>
 					<td th:text="(${di.cancelMonthCount > 0}?'-':'')+ ${di.cancelMonthCount}">1000</td>
 					<td th:text="(${di.cancelQuarterCount > 0}?'-':'')+${di.cancelQuarterCount}">1000</td>

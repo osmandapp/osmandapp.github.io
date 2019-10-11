@@ -16,7 +16,6 @@
       <li><a href="#installation_issue">I can't install or upgrade the app</a></li>
       <li><a href="#uninstall_issue">I can't uninstall the app</a></li>
       <li><a href="#reinstalling">I uninstalled the app/I'm using a new device. Do I have to OsmAnd again?</a></li>
-      <li><a href="#energy_saving">Trip recording stops in the energy saving mode</a></li>
       <li><a href="#restore_purchases">How to restore purchases on iOS</a></li>
     </ul>
 
@@ -42,6 +41,7 @@
       <li><a href="#google_maps">Why does OsmAnd not offer access to Google Maps?</a></li>
       <li><a href="#speed_cameras">OsmAnd shows only some speed camera traps</a></li>
       <li><a href="#drain_too_much_power">OsmAnd seems to drain too much battery power </a></li>
+      <li><a href="#trip_recording_stops">Trip recording stops while screen is off</a></li>
     </ul>
 
     <div class="subtitle">OsmAnd licence and rules of use</div>
@@ -400,6 +400,21 @@
     <p>There have on and off been user reports about this. We made lots of measurements and could never really reproduce it, even though under some circumstances OsmAnd is reported responsible for 90% of the battery usage. Please be aware that OsmAnd does not run anything in background except its Sleep mode (background service), and this needs to be specifically enabled (via OsmAnd's GPX recording or Navigation guidance functionality). If enabled, you will always see the OsmAnd sleep mode icon in the status bar (can also be stopped there). So unless the sleep mode is active, if you exit the app (go to home screen), OsmAnd will will not cause any power consumption.</p>
     <p>Power usage issues were reported with Android 2.3 and Android 4.0. In Android 4.0 you can double-check details of what causes how much battery drain. If you check CPU time / screen time / GPS time consumed by OsmAnd (in Android's standard power manager) you will see that the numbers don't add up correctly. For example, 2 min GPS, 2 min CPU, 1 min Screen causes 30% consumption. If you have some better good evidence, please contact us.</p>
     <p>PS: If you use OsmAnd for hiking or otherwise carry your device in a loose pocket where you might press the device's power switch accidentally, it is also advisable to put OsmAnd to the background (by hitting the device's Home button), before putting the device to sleep. Reason: If OsmAnd's map screen is the foreground application, any accidental (unnoticed) push on the power button will not only activate the screen briefly (this is unavoidable), but may then <u>also</u> briefly activate GPS, which is quite a battery eater.</p>
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="subtitle" id="trip_recording_stops">Trip recording stops while screen is off</div>
+    <div class="content">
+    <p>If you experience this, first of all check if not the corresponding setting 'Prevent standalone logging' is active in OsmAnd's settings under Plugin/Trip recording</p>
+    <p>Secondly, update OsmAnd to 3.4 or higher. Different Android versions apply different strategies to reduce power consumption by killing apps running in the background. New versions of Android therefore deploy a Foreground service while recording a trip, visible in the Android notification bar, in an effort to keep the app active.</p>
+
+    <p>If you still experience issues, you may want to try these measures:</p>
+	<ul>
+	     <li>In your <b>Android's</b> Power or Power Savings setting, white-list OsmAnd to not being optimized</li>
+	     <li>In <b>Android's</b> 'Apps', 'Applications', or 'App Manager' settings, find OsmAnd and tap it. You may find a line item regarding 'Power Savings' or 'Power Consumption': Tap it and exempt OsmAnd from power optimization measures.</li>
+	     <li>If this fails, you may want to disable Power Saving on the device globally to see if your issues are caused by it at all</li>
+	</ul>
     </div>
   </div>
 
