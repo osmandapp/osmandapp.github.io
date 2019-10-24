@@ -16,30 +16,45 @@
 <p>Пример стиля, зависящего от стандартного стиля OsmAnd и добавляющего график освещённости дорог:</p>
 
 <p>
-<renderingStyle name="Depends-template" depends="default" defaultColor="#f1eae4" version="1">	
+<xmp>
+<renderingStyle name="Depends-template" depends="default" defaultColor="#f1eae4" version="1">
+
+    <renderingProperty attr="appMode" name="Rendering mode" description="Map optimization for respective User Profile"
+   	 type="string" possibleValues="browse map,car,bicycle,pedestrian"/>
+
+    <renderingConstant name="null" value="#00000000"/>
+
+    <renderingAttribute name="litYesColor">
+   	 <case nightMode="true" attrColorValue="#99aeae00"/>
+   	 <case attrColorValue="#66ffeb00"/>
+    </renderingAttribute>
+    <renderingAttribute name="litNoColor">
+   	 <case nightMode="true" attrColorValue="#99d91500"/>
+   	 <case attrColorValue="#88ff0000"/>
+    </renderingAttribute>
+
+    <renderingAttribute name="routeInfo_street_lighting"> <!-- Used in route details info -->
+   	 <case additional="lit=yes" attrColorValue="$litYesColor" attrStringValue="lit_no"/>
+   	 <case additional="lit=no" attrColorValue="$litNoColor" attrStringValue="lit_yes"/>
+    </renderingAttribute>
+
+    <order>
+    </order>
+
+    <text>
+    </text>
+
+    <point>
+    </point>
+
+    <polygon>
+    </polygon>
+
+    <line>
+    </line>
+</renderingStyle>
+</xmp>
 </p>
 
-<p>
-	
-</p>
-
-<p>
-	
-</p>
-
-<p>
-	
-</p>
-
-<p>
-	
-</p>
-
-<p>
-	
-</p>
-
-<p>
-	
-</p>
+<p>Список доступных для отображения данных содержится в категории routing <xmp>(<category name="routing">)</xmp> <a href="https://github.com/osmandapp/OsmAnd-resources/blob/master/obf_creation/rendering_types.xml#L5666">этого файла</a>.</p>
 
