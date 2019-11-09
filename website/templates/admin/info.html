@@ -183,6 +183,30 @@
 				</tr>
 			</table>
 
+			<h3>Year Subscriptions</h3>
+			<table border="1">
+				<tr>
+					<th>Date</th>
+					<th>iOS</th>
+					<th>A v2 (renew)</th>
+					<th>A v2 (non-renew)</th>
+					<th>A v1 (renew)</th>
+					<th>A v1 (non-renew)</th>
+					<th>Total</th>
+					
+				</tr>
+				<tr th:each="di : ${yearSubscriptionsReport}">
+					<td th:text="${di.date}">01.01.2018 00:00</td>
+					<td th:text="${di.strIOS}">1000</td>
+					<td th:text="${di.strAndroidV2Renew}">1000</td>
+					<td th:text="${di.strAndroidV2NonRenew}">1000</td>
+					<td th:text="${di.strAndroidV1Renew}">1000</td>
+					<td th:text="${di.strAndroidV1NonRenew}">1000</td>
+					<td><b th:text="${di.strAllTotal}">1000</b></td>
+				</tr>
+			</table>
+
+
 
 			<h3>Future expire subscriptions date:</h3>
 			<table border="1">
