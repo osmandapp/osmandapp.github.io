@@ -188,20 +188,26 @@
 				<tr>
 					<th>Date</th>
 					<th>iOS</th>
-					<th>A v1 (renew)</th>
-					<th>A v1 (non-renew)</th>
-					<th>A v2 (renew)</th>
-					<th>A v2 (non-renew)</th>
+					<th>iOS (lost)</th>
+					<th>A v1</th>
+					<th>A v1 (lost)</th>
+					<th>A v2</th>
+					<th>A v2 (lost)</th>
+					<th>Active</th>
+					<th>Lost</th>
 					<th>Total</th>
 					
 				</tr>
 				<tr th:each="di : ${yearSubscriptionsReport}">
 					<td th:text="${di.month}">01.01.2018 00:00</td>
-					<td th:text="${di.strIOS}">1000</td>
+					<td th:text="${di.strIOSRenew}">1000</td>
+					<td th:text="${di.strIOSNonRenew}">1000</td>
 					<td th:text="${di.strAndroidV1Renew}">1000</td>
 					<td th:text="${di.strAndroidV1NonRenew}">1000</td>
 					<td th:text="${di.strAndroidV2Renew}">1000</td>
 					<td th:text="${di.strAndroidV2NonRenew}">1000</td>
+					<td><b th:text="${di.strTotalKeep}">1000</b></td>
+					<td th:text="${di.strTotalLost}">1000</td>
 					<td><b th:text="${di.strAllTotal}">1000</b></td>
 				</tr>
 			</table>
