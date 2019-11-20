@@ -40,7 +40,7 @@
    <tile_source name="Cykloatlas CZ" url_template="http://services.tmapserver.cz/tiles/gm/shc/{0}/{1}/{2}.png" ext=".png" min_zoom="7" max_zoom="16" tile_size="256" img_density="16" avg_img_size="26000"/>
    <tile_source name="Cykloatlas CZ HillShade" url_template="http://services.tmapserver.cz/tiles/gm/sum/{0}/{1}/{2}.png" ext=".png" min_zoom="7" max_zoom="15" tile_size="256" img_density="16" avg_img_size="26000"/>
 -->
-   <tile_source name="Prague cycle map" url_template="http://tiles.prahounakole.cz/media/tiles_OPNKM/{0}/{1}/{2}.png" ext=".png" min_zoom="11" max_zoom="18" tile_size="256" img_density="16" avg_img_size="26000"/>
+   <tile_source name="Prague cycle map" url_template="https://tiles.prahounakole.cz/{0}/{1}/{2}.png" ext=".png" min_zoom="11" max_zoom="18" tile_size="256" img_density="16" avg_img_size="26000"/>
 
    <tile_source name="MTB Map CZ" url_template="http://tile.mtbmap.cz/mtbmap_tiles/{0}/{1}/{2}.png" ext=".png" min_zoom="7" max_zoom="16" tile_size="256" img_density="32" avg_img_size="18000"/>
 
@@ -85,13 +85,15 @@
    <tile_source name="Eniro Nautical (NO,SE)" rule="beanshell" ext=".png" min_zoom="5" max_zoom="16" tile_size="256" img_density="32" avg_img_size="18000"
    		url_template='String getTileUrl(int z, int x, int y) {return "http://map.eniro.com/geowebcache/service/tms1.0.0/nautical/"+z+"/"+x+"/"+((1 &lt;&lt; z) - 1 - y) + ".png";}'/>	
    
-   <tile_source name="Freemap.sk-atlas" url_template="http://t1.freemap.sk/A/{0}/{1}/{2}.png" ext=".png" min_zoom="1" max_zoom="16" tile_size="256" img_density="16" avg_img_size="18000" />
-   <tile_source name="Freemap.sk-hiking" url_template="http://t1.freemap.sk/T/{0}/{1}/{2}.png" ext=".png" min_zoom="1" max_zoom="16" tile_size="256" img_density="16" avg_img_size="18000" />
-   <tile_source name="Freemap.sk-cycle" url_template="http://t1.freemap.sk/C/{0}/{1}/{2}.png" ext=".png" min_zoom="1" max_zoom="16" tile_size="256" img_density="16" avg_img_size="18000" />
-   <tile_source name="Bilingual Southeast Asia" url_template="http://tile.osm-tools.org/osm_then/{0}/{1}/{2}.png" ext=".png" min_zoom="1" max_zoom="19" tile_size="256" img_density="16" avg_img_size="18000"/>
+   <tile_source name="Freemap.sk-atlas" url_template="http://a.freemap.sk/A/{0}/{1}/{2}.png" ext=".png" min_zoom="1" max_zoom="16" tile_size="256" img_density="16" avg_img_size="18000" />
+   <tile_source name="Freemap.sk-outdoor" url_template="https://outdoor.tiles.freemap.sk/{0}/{1}/{2}.png" ext=".png" min_zoom="1" max_zoom="16" tile_size="256" img_density="16" avg_img_size="18000" />
+   <tile_source name="Freemap.sk-hiking" url_template="http://a.freemap.sk/T/{0}/{1}/{2}.png" ext=".png" min_zoom="1" max_zoom="16" tile_size="256" img_density="16" avg_img_size="18000" />
+   <tile_source name="Freemap.sk-cycle" url_template="http://a.freemap.sk/C/{0}/{1}/{2}.png" ext=".png" min_zoom="1" max_zoom="16" tile_size="256" img_density="16" avg_img_size="18000" />
+   <tile_source name="Freemap.sk-ski" url_template="http://a.freemap.sk/K/{0}/{1}/{2}.png" ext=".png" min_zoom="1" max_zoom="16" tile_size="256" img_density="16" avg_img_size="18000" />
+   <tile_source name="Bilingual Southeast Asia" url_template="http://tile.osm-tools.org/osm/{0}/{1}/{2}.png" ext=".png" min_zoom="1" max_zoom="19" tile_size="256" img_density="16" avg_img_size="18000"/>
    <!-- Poland maps-->
-   <tile_source name="OSM Poland (contour lines)" url_template="http://osm.trail.pl/osmapa.pl/{0}/{1}/{2}.png" ext=".png" min_zoom="1" max_zoom="18" tile_size="256" img_density="16" avg_img_size="18000"/> 
-   <tile_source name="OSM Poland" url_template="http://osm.trail.pl/bezpoziomic/{0}/{1}/{2}.png" ext=".png" min_zoom="1" max_zoom="18" tile_size="256" img_density="16" avg_img_size="18000"/> 
+<!--   <tile_source name="OSM Poland (contour lines)" url_template="http://osm.trail.pl/osmapa.pl/{0}/{1}/{2}.png" ext=".png" min_zoom="1" max_zoom="18" tile_size="256" img_density="16" avg_img_size="18000"/> 
+   <tile_source name="OSM Poland" url_template="http://osm.trail.pl/bezpoziomic/{0}/{1}/{2}.png" ext=".png" min_zoom="1" max_zoom="18" tile_size="256" img_density="16" avg_img_size="18000"/> -->
 <!--<tile_source name="Geoportal" url_template="http://sdi.geoportal.gov.pl/WMS_ORTO/WMService.aspx?FORMAT=image/jpeg&amp;VERSION=1.1.1&amp;SERVICE=WMS&amp;REQUEST=GetMap&amp;Layers=ORTOFOTO&amp;styles=&amp;SRS={proj}&amp;WIDTH={width}&amp;height={height}&amp;BBOX={bbox} "  ext=".png" min_zoom="1" max_zoom="18" tile_size="256" img_density="16" avg_img_size="18000"/> 
 <tile_source name="Geoportal 2" url_template="http://mapy.geoportal.gov.pl/wss/service/img/guest/ORTO/MapServer/WMSServer?FORMAT=image/jpeg&amp;VERSION=1.1.1&amp;SERVICE=WMS&amp;REQUEST=GetMap&amp;LAYERS=Raster&amp;STYLES=&amp;SRS={proj}&amp;WIDTH={width}&amp;HEIGHT={height}&amp;BBOX={bbox}"  ext=".png" min_zoom="1" max_zoom="23" tile_size="256" img_density="16" avg_img_size="18000"/> 
 <tile_source name="PRG (PL)" url_template="http://sdi.geoportal.gov.pl/WMS_PRG/WMService.aspx?FORMAT=image/jpeg&amp;VERSION=1.1.1&amp;SERVICE=WMS&amp;REQUEST=GetMap&amp;Layers=Nazwa_gminy,Nazwa_powiatu,Gminy,Powiaty&amp;styles=&amp;SRS={proj}&amp;WIDTH={width}&amp;height={height}&amp;BBOX={bbox}"  ext=".png" min_zoom="1" max_zoom="18" tile_size="256" img_density="16" avg_img_size="18000"/> 
@@ -113,7 +115,7 @@
 
   <tile_source name="OpenRailwayMap" url_template="https://a.tiles.openrailwaymap.org/standard/{0}/{1}/{2}.png" ext=".png" min_zoom="4" max_zoom="19" tile_size="512" img_density="16" avg_img_size="32000"/>
   <tile_source name="OpenRailwayMap maxspeed" url_template="https://a.tiles.openrailwaymap.org/maxspeed/{0}/{1}/{2}.png" ext=".png" min_zoom="4" max_zoom="19" tile_size="512" img_density="16" avg_img_size="32000"/>
-  <tile_source name="OpenRailwayMap signalling" url_template="https://tiles.openrailwaymap.org/signals/{0}/{1}/{2}.png" ext=".png" min_zoom="4" max_zoom="19" tile_size="512" img_density="16" avg_img_size="32000"/>
+  <tile_source name="OpenRailwayMap signalling" url_template="https://a.tiles.openrailwaymap.org/signals/{0}/{1}/{2}.png" ext=".png" min_zoom="4" max_zoom="19" tile_size="512" img_density="16" avg_img_size="32000"/>
 
   <tile_source name="Waymarkedtrails Hiking" url_template="https://tile.waymarkedtrails.org/hiking/{0}/{1}/{2}.png" ext=".png" min_zoom="1" max_zoom="18" tile_size="256" img_density="16" avg_img_size="2000"/>
   <tile_source name="Waymarkedtrails Cycling" url_template="https://tile.waymarkedtrails.org/cycling/{0}/{1}/{2}.png" ext=".png" min_zoom="1" max_zoom="18" tile_size="256" img_density="16" avg_img_size="2000"/>
@@ -132,15 +134,15 @@
 	// 2. Genshtab http://wms.latlon.org gshtab -->
 
 
-   <tile_source name="LISTMap Topographic (AU)" url_template="https://services.thelist.tas.gov.au/arcgis/rest/services/Basemaps/Topographic/ImageServer/tile/{0}/{2}/{1}" ext=".png" min_zoom="3" max_zoom="18" tile_size="256" img_density="16" avg_img_size="18000"/> 
-   <tile_source name="LISTMap Scanned (AU)" url_template="https://services.thelist.tas.gov.au/arcgis/rest/services/Basemaps/TasmapRaster/ImageServer/tile/{0}/{2}/{1}" ext=".png" min_zoom="6" max_zoom="16" tile_size="256" img_density="16" avg_img_size="18000"/> 
-   <tile_source name="LISTMap ESgisMapBook (AU)" url_template="https://services.thelist.tas.gov.au/arcgis/rest/services/Basemaps/ESgisMapBookPUBLIC/ImageServer/tile/{0}/{2}/{1}" ext=".png" min_zoom="6" max_zoom="15" tile_size="256" img_density="16" avg_img_size="18000"/> 
-   <tile_source name="LISTMap Orthophoto (AU)" url_template="https://services.thelist.tas.gov.au/arcgis/rest/services/Basemaps/Orthophoto/ImageServer/tile/{0}/{2}/{1}" ext=".jpg" min_zoom="6" max_zoom="19" tile_size="256" img_density="16" avg_img_size="18000"/> 
+   <tile_source name="LISTMap Topographic (AU)" url_template="https://services.thelist.tas.gov.au/arcgis/rest/services/Basemaps/Topographic/MapServer/tile/{0}/{2}/{1}" ext=".png" min_zoom="3" max_zoom="18" tile_size="256" img_density="16" avg_img_size="18000"/>
+   <tile_source name="LISTMap Scanned (AU)" url_template="https://services.thelist.tas.gov.au/arcgis/rest/services/Basemaps/TasmapRaster/MapServer/tile/{0}/{2}/{1}" ext=".png" min_zoom="6" max_zoom="16" tile_size="256" img_density="16" avg_img_size="18000"/>
+   <tile_source name="LISTMap ESgisMapBook (AU)" url_template="https://services.thelist.tas.gov.au/arcgis/rest/services/Basemaps/ESgisMapBookPUBLIC/MapServer/tile/{0}/{2}/{1}" ext=".png" min_zoom="6" max_zoom="15" tile_size="256" img_density="16" avg_img_size="18000"/>
+   <tile_source name="LISTMap Orthophoto (AU)" url_template="https://services.thelist.tas.gov.au/arcgis/rest/services/Basemaps/Orthophoto/MapServer/tile/{0}/{2}/{1}" ext=".jpg" min_zoom="6" max_zoom="19" tile_size="256" img_density="16" avg_img_size="18000"/>
    
    <!-- http://www.lpi.nsw.gov.au/mapping_and_imagery/lpi_web_services -->
-   <tile_source name="LPI NSW Imagery (AU)" url_template="https://maps.six.nsw.gov.au/arcgis/rest/services/public/NSW_Imagery/MapServer/tile/{0}/{2}/{1}" ext=".jpg" min_zoom="5" max_zoom="20" tile_size="256" img_density="16" avg_img_size="18000"/> 
-   <tile_source name="LPI NSW Topo Map (AU)" url_template="https://maps.six.nsw.gov.au/arcgis/rest/services/public/NSW_Topo_Map/MapServer/tile/{0}/{2}/{1}" ext=".png" min_zoom="5" max_zoom="16" tile_size="256" img_density="16" avg_img_size="18000"/> 
-   <tile_source name="LPI NSW Base Map (AU)" url_template="https://maps.six.nsw.gov.au/arcgis/rest/services/public/NSW_Base_Map/MapServer/tile/{0}/{2}/{1}" ext=".png" min_zoom="5" max_zoom="19" tile_size="256" img_density="16" avg_img_size="18000"/> 
+   <tile_source name="LPI NSW Imagery (AU)" url_template="https://maps1.six.nsw.gov.au/arcgis/rest/services/sixmaps/LPI_Imagery_Best/MapServer/tile/{0}/{2}/{1}?blankTile=false" ext=".jpg" min_zoom="5" max_zoom="20" tile_size="256" img_density="16" avg_img_size="18000"/>
+   <tile_source name="LPI NSW Topo Map (AU)" url_template="https://maps2.six.nsw.gov.au/arcgis/rest/services/sixmaps/LPIMap/MapServer/tile/{0}/{2}/{1}?blankTile=false" ext=".png" min_zoom="5" max_zoom="16" tile_size="256" img_density="16" avg_img_size="18000"/>
+<!--   <tile_source name="LPI NSW Base Map (AU)" url_template="https://maps.six.nsw.gov.au/arcgis/rest/services/public/NSW_Base_Map/MapServer/tile/{0}/{2}/{1}" ext=".png" min_zoom="5" max_zoom="19" tile_size="256" img_density="16" avg_img_size="18000"/> -->
 
   <!-- https://IsraelHiking.osm.org.il | Tiles © Israel Hiking, CC BY-NC-SA 3.0. Data by OpenStreetMap under ODbL -->
   <tile_source name="Israel Hiking Map (IL)" url_template="https://IsraelHiking.osm.org.il/Hebrew/Tiles/{0}/{1}/{2}.png" ext=".png" min_zoom="7" max_zoom="16" tile_size="256" img_density="32" avg_img_size="58000"/>
