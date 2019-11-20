@@ -44,7 +44,7 @@
 
    <tile_source name="MTB Map CZ" url_template="http://tile.mtbmap.cz/mtbmap_tiles/{0}/{1}/{2}.png" ext=".png" min_zoom="7" max_zoom="16" tile_size="256" img_density="32" avg_img_size="18000"/>
 
-   <tile_source name="basemap.at (AT)" url_template="http://maps.wien.gv.at/basemap/bmaphidpi/normal/google3857/{0}/{2}/{1}.jpg" ext=".jpg" min_zoom="1" max_zoom="19" tile_size="512" img_density="16" avg_img_size="32000"/>
+   <tile_source name="basemap.at (AT)" url_template="https://maps.wien.gv.at/basemap/geolandbasemap/normal/google3857/{0}/{2}/{1}.jpg" ext=".jpg" min_zoom="1" max_zoom="19" tile_size="512" img_density="16" avg_img_size="32000"/>
    <!-- Yandex maps -->
    <tile_source name="Yandex RU" url_template="https://vec01.maps.yandex.net/tiles?l=map&amp;x={1}&amp;y={2}&amp;z={0}" ext=".jpg" min_zoom="1" max_zoom="18" tile_size="256" img_density="16" avg_img_size="18000" ellipsoid="true"/>
    <tile_source name="Top Yandex RU" url_template="https://vec01.maps.yandex.net/tiles?l=skl&amp;x={1}&amp;y={2}&amp;z={0}" ext=".jpg" min_zoom="1" max_zoom="18" tile_size="256" img_density="16" avg_img_size="18000" ellipsoid="true"/>
@@ -79,12 +79,12 @@
    <tile_source name="Statkart Nautical (NO)" url_template="https://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=sjokartraster&amp;zoom={0}&amp;x={1}&amp;y={2}" ext=".png" min_zoom="3" max_zoom="14" tile_size="256" img_density="32" avg_img_size="18000"/>
    
    <tile_source name="Eniro Map (NO,SE,FI,DK,PL))" rule="beanshell" ext=".png" min_zoom="2" max_zoom="20" tile_size="256" img_density="16" avg_img_size="18000"
-   		url_template='String getTileUrl(int z, int x, int y) {return "http://map.eniro.com/geowebcache/service/tms1.0.0/map/"+z+"/"+x+"/"+((1 &lt;&lt; z) - 1 - y) + ".png";}'/>
+   		url_template='String getTileUrl(int z, int x, int y) {return "http://map01.eniro.com/geowebcache/service/tms1.0.0/map/"+z+"/"+x+"/"+((1 &lt;&lt; z) - 1 - y) + ".png";}'/>
    <tile_source name="Eniro Aerial (NO,SE,DK)" rule="beanshell" ext=".png" min_zoom="2" max_zoom="19" tile_size="256" img_density="16" avg_img_size="18000"
-   		url_template='String getTileUrl(int z, int x, int y) {return "http://map.eniro.com/geowebcache/service/tms1.0.0/aerial/"+z+"/"+x+"/"+((1 &lt;&lt; z) - 1 - y) + ".png";}'/>
+   		url_template='String getTileUrl(int z, int x, int y) {return "http://map01.eniro.com/geowebcache/service/tms1.0.0/aerial/"+z+"/"+x+"/"+((1 &lt;&lt; z) - 1 - y) + ".png";}'/>
    <tile_source name="Eniro Nautical (NO,SE)" rule="beanshell" ext=".png" min_zoom="5" max_zoom="16" tile_size="256" img_density="32" avg_img_size="18000"
-   		url_template='String getTileUrl(int z, int x, int y) {return "http://map.eniro.com/geowebcache/service/tms1.0.0/nautical/"+z+"/"+x+"/"+((1 &lt;&lt; z) - 1 - y) + ".png";}'/>	
-   
+   		url_template='String getTileUrl(int z, int x, int y) {return "http://map01.eniro.com/geowebcache/service/tms1.0.0/nautical/"+z+"/"+x+"/"+((1 &lt;&lt; z) - 1 - y) + ".png";}'/>	
+
    <tile_source name="Freemap.sk-atlas" url_template="http://a.freemap.sk/A/{0}/{1}/{2}.png" ext=".png" min_zoom="1" max_zoom="16" tile_size="256" img_density="16" avg_img_size="18000" />
    <tile_source name="Freemap.sk-outdoor" url_template="https://outdoor.tiles.freemap.sk/{0}/{1}/{2}.png" ext=".png" min_zoom="1" max_zoom="16" tile_size="256" img_density="16" avg_img_size="18000" />
    <tile_source name="Freemap.sk-hiking" url_template="http://a.freemap.sk/T/{0}/{1}/{2}.png" ext=".png" min_zoom="1" max_zoom="16" tile_size="256" img_density="16" avg_img_size="18000" />
