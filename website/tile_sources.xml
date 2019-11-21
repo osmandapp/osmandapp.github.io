@@ -50,13 +50,6 @@
    <tile_source name="Yandex Satellite RU" url_template="https://sat01.maps.yandex.net/tiles?l=sat&amp;x={1}&amp;y={2}&amp;z={0}" ext=".jpg" min_zoom="1" max_zoom="16" tile_size="256" img_density="32" avg_img_size="18000" ellipsoid="true"/>
    <tile_source rule="yandex_traffic" name="Yandex Traffic RU"/>
 
-<!-- drop beanshell
-   <tile_source rule="beanshell" name="Wikimapia" min_zoom="1" max_zoom="18" tile_size="256" img_density="16" avg_img_size="18000" ext="png"
-   url_template='String getTileUrl(int z, int x, int y) {  return "http://"+"i"+(x%4 + (y%4)*4)+".wikimapia.org/?x="+x+"&amp;y="+y+"&amp;zoom="+z;}'/>
-   
-   <tile_source rule="beanshell" name="Top Wikimapia" min_zoom="1" max_zoom="18" tile_size="256" img_density="16" avg_img_size="18000" ext="png"
-   url_template='String getTileUrl(int z, int x, int y) {  return "http://"+"i"+(x%4 + (y%4)*4)+".wikimapia.org/?x="+x+"&amp;y="+y+"&amp;zoom="+z+"&amp;type=hybrid";}'/>
--->
    <tile_source rule="template:1" name="Wikimapia" url_template="http://i{rnd}.wikimapia.org/?x={1}&amp;y={2}&amp;zoom={0}" randoms="wikimapia" min_zoom="1" max_zoom="18" tile_size="256" img_density="16" avg_img_size="18000" ext="png"/>
    <tile_source rule="template:1" name="Top Wikimapia" url_template="http://i{rnd}.wikimapia.org/?x={1}&amp;y={2}&amp;zoom={0}&amp;type=hybrid" randoms="wikimapia" min_zoom="1" max_zoom="18" tile_size="256" img_density="16" avg_img_size="18000" ext="png"/>
 
@@ -77,14 +70,7 @@
    <tile_source name="Statkart Topo4 (NO)" url_template="https://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=topo4&amp;zoom={0}&amp;x={1}&amp;y={2}" ext=".png" min_zoom="5" max_zoom="17" tile_size="256" img_density="32" avg_img_size="18000"/>
    <tile_source name="Statkart Toporaster3 (NO)" url_template="https://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=toporaster3&amp;zoom={0}&amp;x={1}&amp;y={2}" ext=".png" min_zoom="5" max_zoom="17" tile_size="256" img_density="32" avg_img_size="18000"/>
    <tile_source name="Statkart Nautical (NO)" url_template="https://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=sjokartraster&amp;zoom={0}&amp;x={1}&amp;y={2}" ext=".png" min_zoom="3" max_zoom="14" tile_size="256" img_density="32" avg_img_size="18000"/>
-<!-- drop beanshell   
-   <tile_source name="Eniro Map (NO,SE,FI,DK,PL))" rule="beanshell" ext=".png" min_zoom="2" max_zoom="20" tile_size="256" img_density="16" avg_img_size="18000"
-   		url_template='String getTileUrl(int z, int x, int y) {return "http://map01.eniro.com/geowebcache/service/tms1.0.0/map/"+z+"/"+x+"/"+((1 &lt;&lt; z) - 1 - y) + ".png";}'/>
-   <tile_source name="Eniro Aerial (NO,SE,DK)" rule="beanshell" ext=".png" min_zoom="2" max_zoom="19" tile_size="256" img_density="16" avg_img_size="18000"
-   		url_template='String getTileUrl(int z, int x, int y) {return "http://map01.eniro.com/geowebcache/service/tms1.0.0/aerial/"+z+"/"+x+"/"+((1 &lt;&lt; z) - 1 - y) + ".png";}'/>
-   <tile_source name="Eniro Nautical (NO,SE)" rule="beanshell" ext=".png" min_zoom="5" max_zoom="16" tile_size="256" img_density="32" avg_img_size="18000"
-   		url_template='String getTileUrl(int z, int x, int y) {return "http://map01.eniro.com/geowebcache/service/tms1.0.0/nautical/"+z+"/"+x+"/"+((1 &lt;&lt; z) - 1 - y) + ".png";}'/>	
--->
+
    <tile_source rule="template:1" name="Eniro Map (NO,SE,FI,DK,PL))" url_template="http://map01.eniro.com/geowebcache/service/tms1.0.0/map/{0}/{1}/{2}.png" ext=".png" min_zoom="2" max_zoom="20" tile_size="256" img_density="16" avg_img_size="18000" inverted_y="true"/>
    <tile_source rule="template:1" name="Eniro Aerial (NO,SE,DK)" url_template="http://map01.eniro.com/geowebcache/service/tms1.0.0/aerial/{0}/{1}/{2}.png" ext=".png" min_zoom="2" max_zoom="19" tile_size="256" img_density="16" avg_img_size="18000" inverted_y="true"/>
    <tile_source rule="template:1" name="Eniro Nautical (NO,SE)" url_template="http://map01.eniro.com/geowebcache/service/tms1.0.0/nautical/{0}/{1}/{2}.png" ext=".png" min_zoom="5" max_zoom="16" tile_size="256" img_density="32" avg_img_size="18000" inverted_y="true"/>
@@ -129,9 +115,6 @@
 <!--  <tile_source name="Waymarkedtrails Winter Sports" url_template="https://tile.waymarkedtrails.org/slopemap/{0}/{1}/{2}.png" ext=".png" min_zoom="1" max_zoom="18" tile_size="256" img_density="16" avg_img_size="2000"/>-->
   
 
-<!-- drop beanshell
-  <tile_source name="Hitta.se Outdoor (SE)" rule="beanshell" ext="png" min_zoom="5" max_zoom="18" tile_size="256" img_density="32" avg_img_size="18000" url_template='String getTileUrl(int z, int x, int y) {return "http://static.hitta.se/tile/v3/4/"+z+"/"+x+"/"+((1 &lt;&lt; z) - 1 - y);}'/>
--->
   <tile_source rule="template:1" name="Hitta.se Outdoor (SE)" url_template="https://static.hitta.se/tile/v3/4/{0}/{1}/{2}" ext="png" min_zoom="5" max_zoom="18" tile_size="256" img_density="32" avg_img_size="18000" inverted_y="true"/>
   <tile_source name="Lantmäteriet Topo (SE)" ext="png" min_zoom="3" max_zoom="15" tile_size="256" img_density="32" avg_img_size="18000" url_template='https://api.lantmateriet.se/open/topowebb-ccby/v1/wmts/token/9b342b7d9f12d4ddb92277be9869d860/1.0.0/topowebb/default/3857/{0}/{2}/{1}.png'/>
 
