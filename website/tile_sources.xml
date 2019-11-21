@@ -85,9 +85,9 @@
    <tile_source name="Eniro Nautical (NO,SE)" rule="beanshell" ext=".png" min_zoom="5" max_zoom="16" tile_size="256" img_density="32" avg_img_size="18000"
    		url_template='String getTileUrl(int z, int x, int y) {return "http://map01.eniro.com/geowebcache/service/tms1.0.0/nautical/"+z+"/"+x+"/"+((1 &lt;&lt; z) - 1 - y) + ".png";}'/>	
 -->
-   <tile_source rule="template:1" name="Eniro Map (NO,SE,FI,DK,PL))" url_template="https://map01.eniro.com/geowebcache/service/tms1.0.0/map/{0}/{1}/{2}.png" ext=".png" min_zoom="2" max_zoom="20" tile_size="256" img_density="16" avg_img_size="18000" inverted_y="true"/>
-   <tile_source rule="template:1" name="Eniro Aerial (NO,SE,DK)" url_template="https://map01.eniro.com/geowebcache/service/tms1.0.0/aerial/{0}/{1}/{2}.png" ext=".png" min_zoom="2" max_zoom="19" tile_size="256" img_density="16" avg_img_size="18000" inverted_y="true"/>
-   <tile_source rule="template:1" name="Eniro Nautical (NO,SE)" url_template="https://map01.eniro.com/geowebcache/service/tms1.0.0/nautical/{0}/{1}/{2}.png" ext=".png" min_zoom="5" max_zoom="16" tile_size="256" img_density="32" avg_img_size="18000" inverted_y="true"/>
+   <tile_source rule="template:1" name="Eniro Map (NO,SE,FI,DK,PL))" url_template="http://map01.eniro.com/geowebcache/service/tms1.0.0/map/{0}/{1}/{2}.png" ext=".png" min_zoom="2" max_zoom="20" tile_size="256" img_density="16" avg_img_size="18000" inverted_y="true"/>
+   <tile_source rule="template:1" name="Eniro Aerial (NO,SE,DK)" url_template="http://map01.eniro.com/geowebcache/service/tms1.0.0/aerial/{0}/{1}/{2}.png" ext=".png" min_zoom="2" max_zoom="19" tile_size="256" img_density="16" avg_img_size="18000" inverted_y="true"/>
+   <tile_source rule="template:1" name="Eniro Nautical (NO,SE)" url_template="http://map01.eniro.com/geowebcache/service/tms1.0.0/nautical/{0}/{1}/{2}.png" ext=".png" min_zoom="5" max_zoom="16" tile_size="256" img_density="32" avg_img_size="18000" inverted_y="true"/>
 
    <tile_source name="Freemap.sk-atlas" url_template="http://a.freemap.sk/A/{0}/{1}/{2}.png" ext=".png" min_zoom="1" max_zoom="16" tile_size="256" img_density="16" avg_img_size="18000" />
    <tile_source name="Freemap.sk-outdoor" url_template="https://outdoor.tiles.freemap.sk/{0}/{1}/{2}.png" ext=".png" min_zoom="1" max_zoom="16" tile_size="256" img_density="16" avg_img_size="18000" />
