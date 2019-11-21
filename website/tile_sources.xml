@@ -13,17 +13,10 @@
    <tile_source name="GoogleMaps Terrain" url_template="https://mt3.google.com/vt/v=w2p.111&amp;hl=en&amp;x={1}&amp;y={2}&amp;z={0}" ext=".jpg" min_zoom="5" max_zoom="15" tile_size="256" img_density="32" avg_img_size="18000"/>
    -->
 
-<!-- Bing Maps (drop beanshell)
-   <tile_source rule="beanshell" name="Microsoft Maps" min_zoom="1" max_zoom="19" tile_size="256" img_density="16" avg_img_size="18000" ext=".png"
-   url_template="public static String eqt(int z, int x, int y) {static final char[] NUM_CHAR = { &apos;0&apos;, &apos;1&apos;, &apos;2&apos;, &apos;3&apos; };char[] tn = new char[z];for (int i = z - 1; i &gt;= 0; i- -) {int num = (x % 2) | ((y % 2) &lt;&lt; 1);tn[i] = NUM_CHAR[num];x &gt;&gt;= 1;y &gt;&gt;= 1;}return new String(tn);} String getTileUrl(int z, int x, int y) { return &quot;http://&quot; + &quot;r&quot; + &quot;0&quot; + &quot;.ortho.tiles.virtualearth.net/tiles/&quot; + &quot;r&quot; + eqt(z,x,y) + &quot;.png&quot; + &quot;?g=45&quot;;}"/>
-   <tile_source rule="beanshell" name="Microsoft Hybrid" min_zoom="1" max_zoom="19" tile_size="256" img_density="32" avg_img_size="18000" ext=".jpg"
-   url_template="public static String eqt(int z, int x, int y) {static final char[] NUM_CHAR = { &apos;0&apos;, &apos;1&apos;, &apos;2&apos;, &apos;3&apos; };char[] tn = new char[z];for (int i = z - 1; i &gt;= 0; i- -) {int num = (x % 2) | ((y % 2) &lt;&lt; 1);tn[i] = NUM_CHAR[num];x &gt;&gt;= 1;y &gt;&gt;= 1;}return new String(tn);} String getTileUrl(int z, int x, int y) { return &quot;http://&quot; + &quot;h&quot; + &quot;0&quot; + &quot;.ortho.tiles.virtualearth.net/tiles/&quot; + &quot;h&quot; + eqt(z,x,y) + &quot;.jpg&quot; + &quot;?g=45&quot;;}"/>
-   <tile_source rule="beanshell" name="Microsoft Earth" min_zoom="1" max_zoom="19" tile_size="256" img_density="32" avg_img_size="18000" ext=".jpg"
-   url_template="public static String eqt(int z, int x, int y) {static final char[] NUM_CHAR = { &apos;0&apos;, &apos;1&apos;, &apos;2&apos;, &apos;3&apos; };char[] tn = new char[z];for (int i = z - 1; i &gt;= 0; i- -) {int num = (x % 2) | ((y % 2) &lt;&lt; 1);tn[i] = NUM_CHAR[num];x &gt;&gt;= 1;y &gt;&gt;= 1;}return new String(tn);} String getTileUrl(int z, int x, int y) { return &quot;http://&quot; + &quot;a&quot; + &quot;0&quot; + &quot;.ortho.tiles.virtualearth.net/tiles/&quot; + &quot;a&quot; + eqt(z,x,y) + &quot;.jpg&quot; + &quot;?g=45&quot;;}"/>
--->
+<!-- Bing Maps -->
    <tile_source rule="template:1" name="Microsoft Maps" url_template="http://r0.ortho.tiles.virtualearth.net/tiles/r{q}.png?g=45" min_zoom="1" max_zoom="19" tile_size="256" img_density="16" avg_img_size="18000" ext=".png"/>
    <tile_source rule="template:1" name="Microsoft Hybrid" url_template="http://h0.ortho.tiles.virtualearth.net/tiles/h{q}.jpg?g=45" min_zoom="1" max_zoom="19" tile_size="256" img_density="32" avg_img_size="18000" ext=".jpg"/>
-   <tile_source rule="template:1" name="Microsoft Earth" url_template="http://a0.ortho.tiles.virtualearth.net/tiles/a{q}.jpg" min_zoom="1" max_zoom="19" tile_size="256" img_density="32" avg_img_size="18000" ext=".jpg"/>
+   <tile_source rule="template:1" name="Microsoft Earth" url_template="http://a0.ortho.tiles.virtualearth.net/tiles/a{q}.jpg?g=45" min_zoom="1" max_zoom="19" tile_size="256" img_density="32" avg_img_size="18000" ext=".jpg"/>
 
    <tile_source name="Public Transport" url_template="http://openptmap.org/tiles/{0}/{1}/{2}.png" ext=".png" min_zoom="1" max_zoom="17" tile_size="256" img_density="16" avg_img_size="5000"/> 
 
@@ -64,8 +57,8 @@
    <tile_source rule="beanshell" name="Top Wikimapia" min_zoom="1" max_zoom="18" tile_size="256" img_density="16" avg_img_size="18000" ext="png"
    url_template='String getTileUrl(int z, int x, int y) {  return "http://"+"i"+(x%4 + (y%4)*4)+".wikimapia.org/?x="+x+"&amp;y="+y+"&amp;zoom="+z+"&amp;type=hybrid";}'/>
 -->
-   <tile_source rule="template:1" name="Wikimapia" url_template="http://i{rnd:0-15}.wikimapia.org/?x={1}&amp;y={2}&amp;zoom={0}" min_zoom="1" max_zoom="18" tile_size="256" img_density="16" avg_img_size="18000" ext="png"/>
-   <tile_source rule="template:1" name="Top Wikimapia" url_template="http://i{rnd:0-15}.wikimapia.org/?x={1}&amp;y={2}&amp;zoom={0}&amp;type=hybrid" min_zoom="1" max_zoom="18" tile_size="256" img_density="16" avg_img_size="18000" ext="png"/>
+   <tile_source rule="template:1" name="Wikimapia" url_template="http://i{rnd}.wikimapia.org/?x={1}&amp;y={2}&amp;zoom={0}" randoms="0-15" min_zoom="1" max_zoom="18" tile_size="256" img_density="16" avg_img_size="18000" ext="png"/>
+   <tile_source rule="template:1" name="Top Wikimapia" url_template="http://i{rnd}.wikimapia.org/?x={1}&amp;y={2}&amp;zoom={0}&amp;type=hybrid" randoms="0-15" min_zoom="1" max_zoom="18" tile_size="256" img_density="16" avg_img_size="18000" ext="png"/>
 
    <tile_source name="OpenFietskaart (NL)" url_template="http://overlay.openstreetmap.nl/openfietskaart-overlay/{0}/{1}/{2}.png" ext=".png" min_zoom="7" max_zoom="18" tile_size="256" img_density="16" avg_img_size="18000"/> 
    <tile_source name="OpenFietskaartBaseLayer (NL)" url_template="http://overlay.openstreetmap.nl/basemap/{0}/{1}/{2}.png" ext=".png" min_zoom="1" max_zoom="18" tile_size="256" img_density="16" avg_img_size="18000"/> 
