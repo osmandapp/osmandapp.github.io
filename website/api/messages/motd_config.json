@@ -3,7 +3,7 @@
 		{
 			"condition": {
    				"start_date": "27-11-2019 03:01",
-   				"end_date": "01-12-2019 23:59",
+   				"end_date": "02-12-2019 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "2-700",
@@ -11,27 +11,27 @@
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "Чёрная пятница уже здесь!",
+				"message": "КИБЕР ПОНЕДЕЛЬНИК уже здесь!",
 				"description": "Оформите годовую подписку со скидкой -50%!"
 			}
 		},
 		{
 			"condition": {
    				"start_date": "27-11-2019 03:01",
-   				"end_date": "01-12-2019 23:59",
+   				"end_date": "02-12-2019 23:59",
 				"os": "android",
 				"lang" :"ru"
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "Чёрная пятница уже здесь!",
+				"message": "КИБЕР ПОНЕДЕЛЬНИК уже здесь!",
 				"description": "Карты без ограничений, контурные линии и годовая подписка -50%!"
 			}
 		},
 		{
 			"condition": {
    				"start_date": "27-11-2019 03:01",
-   				"end_date": "01-12-2019 23:59",
+   				"end_date": "02-12-2019 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "2-700",
@@ -39,27 +39,27 @@
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "BLACK FRIDAY esta aqui!",
+				"message": "CYBER MONDAY esta aqui!",
 				"description": "Obtenga su suscripción anual con un -50% de descuento!"
 			}
 		},
 		{
 			"condition": {
    				"start_date": "27-11-2019 03:01",
-   				"end_date": "01-12-2019 23:59",
+   				"end_date": "02-12-2019 23:59",
 				"os": "android",
 				"lang" :"es"
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "BLACK FRIDAY esta aqui!",
+				"message": "CYBER MONDAY esta aqui!",
 				"description": "Descargas ilimitadas de mapas, curvas de nivel y suscripción anual -50%!"
 			}
 		},
 		{
 			"condition": {
    				"start_date": "27-11-2019 03:01",
-   				"end_date": "01-12-2019 23:59",
+   				"end_date": "02-12-2019 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "2-700",
@@ -67,27 +67,27 @@
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "BLACK FRIDAY est arrivé!",
+				"message": "CYBER MONDAY est arrivé!",
 				"description": "Obtenez votre abonnement annuel avec un rabais de -50%!"
 			}
 		},
 		{
 			"condition": {
    				"start_date": "27-11-2019 03:01",
-   				"end_date": "01-12-2019 23:59",
+   				"end_date": "02-12-2019 23:59",
 				"os": "android",
 				"lang" :"fr"
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "BLACK FRIDAY est arrivé!",
+				"message": "CYBER MONDAY est arrivé!",
 				"description": "Téléchargements de cartes illimités, courbes de niveau et abonnement annuel -50%!"
 			}
 		},
 		{
 			"condition": {
    				"start_date": "27-11-2019 03:01",
-   				"end_date": "01-12-2019 23:59",
+   				"end_date": "02-12-2019 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "2-700",
@@ -95,27 +95,27 @@
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "BLACK FRIDAY is hier!",
+				"message": "CYBER MONDAY is hier!",
 				"description": "Krijg uw jaarabonnement met een korting van -50%!"
 			}
 		},
 		{
 			"condition": {
    				"start_date": "27-11-2019 03:01",
-   				"end_date": "01-12-2019 23:59",
+   				"end_date": "02-12-2019 23:59",
 				"os": "android",
 				"lang" :"nl"
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "BLACK FRIDAY is hier!",
+				"message": "CYBER MONDAY is hier!",
 				"description": "Onbeperkte kaartdownloads, contourlijnen en jaarabonnement -50%!"
 			}
 		},
 		{
 			"condition": {
    				"start_date": "27-11-2019 03:01",
-   				"end_date": "01-12-2019 23:59",
+   				"end_date": "02-12-2019 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "2-700",
@@ -123,27 +123,27 @@
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "BLACK FRIDAY è qui!",
+				"message": "CYBER MONDAY è qui!",
 				"description": "Ottieni il tuo abbonamento annuale con uno sconto del -50%!"
 			}
 		},
 		{
 			"condition": {
    				"start_date": "27-11-2019 03:01",
-   				"end_date": "01-12-2019 23:59",
+   				"end_date": "02-12-2019 23:59",
 				"os": "android",
 				"lang" :"it"
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "BLACK FRIDAY è qui!",
+				"message": "CYBER MONDAY è qui!",
 				"description": "Download illimitati di mappe, curve di livello e abbonamento annuale -50%!"
 			}
 		},
 		{
 			"condition": {
    				"start_date": "27-11-2019 03:01",
-   				"end_date": "01-12-2019 23:59",
+   				"end_date": "02-12-2019 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "2-700",
@@ -151,136 +151,136 @@
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "BLACK FRIDAY ist da!",
+				"message": "CYBER MONDAY ist da!",
 				"description": "Erhalten Sie Ihr Jahresabonnement mit einem Rabatt von -50%!"
 			}
 		},
 		{
 			"condition": {
    				"start_date": "27-11-2019 03:01",
-   				"end_date": "01-12-2019 23:59",
+   				"end_date": "02-12-2019 23:59",
 				"os": "android",
 				"lang" :"de"
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "BLACK FRIDAY ist da!",
+				"message": "CYBER MONDAY ist da!",
 				"description": "Unbegrenzte Karten-Downloads, Höhenlinien und Jahresabonnement -50%!"
 			}
 		},
 		{
 			"condition": {
    				"start_date": "27-11-2019 03:01",
-   				"end_date": "01-12-2019 23:59",
+   				"end_date": "02-12-2019 23:59",
 				"app_version": "OsmAnd+",
 				"number_of_days": "2-700",
 				"os": "android"
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "BLACK FRIDAY is here!",
+				"message": "CYBER MONDAY is here!",
 				"description": "Checkout our -50% sales for year subscription!"
 			}
 		},
 		{
 			"condition": {
    				"start_date": "27-11-2019 03:01",
-   				"end_date": "01-12-2019 23:59",
+   				"end_date": "02-12-2019 23:59",
 				"os": "android"
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "BLACK FRIDAY is here!",
+				"message": "CYBER MONDAY is here!",
 				"description": "Unlimited map downloads, contour lines and annual subscription -50%!"
 			}
 		},
 		{
                          "condition": {
    				"start_date": "27-11-2019 03:01",
-   				"end_date": "01-12-2019 23:59",
+   				"end_date": "02-12-2019 23:59",
 				"os": "ios",
 				"lang" :"ru"
 			},
 			"file": "discount_ios_sub.json",
 			"fields": {
-				"message": "Чёрная пятница уже здесь!",
+				"message": "КИБЕР ПОНЕДЕЛЬНИК уже здесь!",
 				"description": "Все карты мира, контурные линии и годовая подписка -50%!"
 			}
 		},
 		{
 			      "condition": {
    				"start_date": "27-11-2019 03:01",
-   				"end_date": "01-12-2019 23:59",
+   				"end_date": "02-12-2019 23:59",
 				"os": "ios",
 				"lang" :"fr"
 			},
 			"file": "discount_ios_sub.json",
 			"fields": {
-				"message": "BLACK FRIDAY est arrivé!",
+				"message": "CYBER MONDAY est arrivé!",
 				"description": "Toutes les cartes du monde, courbes de niveau et abonnement annuel -50%!"
 			}
 		},
 		{
 				"condition": {
    				"start_date": "27-11-2019 03:01",
-   				"end_date": "01-12-2019 23:59",
+   				"end_date": "02-12-2019 23:59",
 				"os": "ios",
 				"lang" :"de"
 			},
 			"file": "discount_ios_sub.json",
 			"fields": {
-				"message": "BLACK FRIDAY ist da!",
+				"message": "CYBER MONDAY ist da!",
 				"description": "Alle Weltkarten, Höhenlinien und Jahresabonnement -50%!"
 			}
 		},
 		{
 				"condition": {
    				"start_date": "27-11-2019 03:01",
-   				"end_date": "01-12-2019 23:59",
+   				"end_date": "02-12-2019 23:59",
 				"os": "ios",
 				"lang" :"it"
 			},
 			"file": "discount_ios_sub.json",
 			"fields": {
-				"message": "BLACK FRIDAY è qui!",
+				"message": "CYBER MONDAY è qui!",
 				"description": "Tutte le mappe del mondo, curve di livello e abbonamento annuale -50%!"
 			}
 		},
 		{
 				"condition": {
    				"start_date": "27-11-2019 03:01",
-   				"end_date": "01-12-2019 23:59",
+   				"end_date": "02-12-2019 23:59",
 				"os": "ios",
 				"lang" :"es"
 			},
 			"file": "discount_ios_sub.json",
 			"fields": {
-				"message": "BLACK FRIDAY esta aqui!",
+				"message": "CYBER MONDAY esta aqui!",
 				"description": "Todos los mapas del mundo, curvas de nivel y suscripción anual -50%!"
 			}
 		},
 		{
 				"condition": {
    				"start_date": "27-11-2019 03:01",
-   				"end_date": "01-12-2019 23:59",
+   				"end_date": "02-12-2019 23:59",
 				"os": "ios",
 				"lang" :"nl"
 			},
 			"file": "discount_ios_sub.json",
 			"fields": {
-				"message": "BLACK FRIDAY is hier!",
+				"message": "CYBER MONDAY is hier!",
 				"description": "Alle wereldkaarten, contourlijnen en jaarabonnement -50%!"
 			}
 		},
 		{
 			      "condition": {
    				"start_date": "27-11-2019 03:01",
-   				"end_date": "01-12-2019 23:59",
+   				"end_date": "02-12-2019 23:59",
 				"os": "ios"
 			},
 			"file": "discount_ios_sub.json",
 			"fields": {
-				"message": "BLACK FRIDAY sale is here!",
+				"message": "CYBER MONDAY sale is here!",
 				"description": "All world maps, contour lines and annual subscription -50%!"
 			}
 		}
