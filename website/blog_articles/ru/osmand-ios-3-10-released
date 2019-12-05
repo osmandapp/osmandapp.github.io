@@ -1,0 +1,95 @@
+<meta pubdate="04-12-2019 21:10">
+<h2>OsmAnd 3.10 (iOS)</h2>
+<div class="date">December 04, 2019</div>
+
+<p>We are pleased to announce that the iOS version of OsmAnd has become even more convenient! 
+Great thanks to all iOS users for choosing OsmAnd for your adventures! You can read further what's new in Osmand 3.10 or <a href="https://itunes.apple.com/us/app/osmand-maps-travel-navigate/id934850257">update your application here</a> and try out all the changes yourself.</p>
+
+
+
+<p><b>•  New Redesigned Navigation preparation screen</b></p>
+<p>We improved the Navigation preparation screen. Now you can add "Home", "Work" point of destination. The short way to Options menu.</p>
+<p>When your trip is ready, you can see the altitude/slope graph, which you can scale for all your trip.</p>
+<div class="blogimageblock">
+<img src="/images/blog/ios-3-10/1.jpg"/>
+<img src="/images/blog/ios-3-10/2.jpg"/>
+<img src="/images/blog/ios-3-10/4.jpg"/>
+<img src="/images/blog/ios-3-10/3.jpg"/>
+<div style="clear:both;"></div>
+</div>
+
+<p><b>• Added support for Online SQL maps</b></p>
+<p>We added more maps to "Online maps" (General menu-> Map-> Map type-> online maps). These maps are available for Overlay/Underlay, too.</p>
+<p>The next you can add your Online SQL maps for Overlay/Underlay. Click to file with SQL-format and "Copy to OsmAnd Maps". Now you can choose it in Overlay/Underlay menu.</p>
+<p>You can switch on "Seekbar" on screen for showing transparency of your Overlay/Underlay on the map.</p>
+<div class="blogimageblock">
+<img src="/images/blog/ios-3-10/7.jpg"/>
+<img src="/images/blog/ios-3-10/8.jpg"/>
+<img src="/images/blog/ios-3-10/9.jpg"/>
+<img src="/images/blog/ios-3-10/10.jpg"/>
+<div style="clear:both;"></div>
+</div>
+
+
+<p><b>• Combine all options to control Contour lines on the map in one new screen</b></p>
+
+<p>You can control settings of Contour lines  in the new screen. Go to General menu-> Map-> Map style-> Contour lines.</p>
+<p>We added more color schemes for Contour lines.</p>
+
+<div class="blogimageblock">
+<img src="/images/blog/ios-3-10/14.jpg"/>
+<img src="/images/blog/ios-3-10/13.jpg"/>
+<img src="/images/blog/ios-3-10/12.jpg"/>
+<img src="/images/blog/ios-3-10/11.jpg"/>
+<div style="clear:both;"></div>
+</div>
+
+<p><b>• Added two more Quick Actions to quickly turn on/off Contour lines and Hillshades</b></p>
+
+<p>In this release we added new actions for Quick action: Show/Hide for Contour lines and Hillshades.</p>
+
+<div class="blogimageblock">
+<img src="/images/blog/ios-3-10/15.jpg"/>
+<img src="/images/blog/ios-3-10/16.jpg"/>
+<div style="clear:both;"></div>
+</div>
+
+<p><b>• Updated basemap</b></p>
+<p>Now the World overview map has a more detailed road network and is smaller in size.</p>
+
+<div class="centeredimageblog">
+<img src="/images/blog/ios-3-10/5.jpg"/>
+<img src="/images/blog/ios-3-10/6.jpg"/>
+<div style="clear:both;"></div>
+</div>
+
+<p><b>• Fixed issue with ruler numbers disappear</b></p>
+
+<p>As you know, there is the tool named "Radius ruler" in OsmAnd (General menu-> Configure screen-> Right Panel-> Radiuis ruler). There was a bug with a number of circles for Radius ruler tool. Now you can see all circles without this mistake.</p>
+
+<div class="blogimageblock">
+<img src="/images/blog/ios-3-10/17.jpg"/>
+<img src="/images/blog/ios-3-10/18.jpg"/>
+<div style="clear:both;"></div>
+</div>
+
+<p><b>• Completely deleted Firebase analytics</b></p>
+
+<p>Since we follow our <a href="https://osmand.net/help-online/privacy-policy">Privacy Policy</a> - in this release, we have removed the Firebase analytics. Now neither of our applications collect any private information of our users.</p>
+
+<p><b>• Fixed Open in OsmAnd bug in iOS 13</b></p>
+
+<p><b>• Fixed Mapillary performance</b></p>
+
+<p><b>• Fixed few UI bugs</b></p>
+
+<p>And remember that only together we can achieve the best results!</p>
+<p>New features are coming SOON!</p>
+
+<p>____________________________ </p>
+
+<p>OsmAnd at <a href="https://www.facebook.com/osmandapp/">Facebook</a>, <a href="https://www.twitter.com/osmandapp/">Twitter</a>, and <a href="https://www.reddit.com/r/OsmAnd/">Reddit</a>!</p>
+ <p>Join us at our groups of Telegram <a href="https://t.me/OsmAndMaps">(EN)</a>, <a href="https://t.me/itosmand">(IT)</a>,  <a href="https://t.me/frosmand">(FR)</a>, <a href="https://t.me/deosmand">(DE)</a>, <a href="https://t.me/ruosmand">(RU)</a>.</p>
+
+ <p><a href="https://itunes.apple.com/us/app/osmand-maps-travel-navigate/id934850257">
+<img src="http://osmand.net/images/app-store-badge.png" alt="Get it on App Store" height="60"/></a>
