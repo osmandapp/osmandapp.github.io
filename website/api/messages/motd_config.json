@@ -6,7 +6,7 @@
    				"start_date": "16-12-2019 03:01",
    				"end_date": "20-12-2019 23:59"
 			},
-			"show_christmas_dialog" : true,
+			"file": "christmas.json",
 			"fields": {
 				"message": "Christmas",
 				"description": "Holidays!"
