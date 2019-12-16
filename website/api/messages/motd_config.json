@@ -4,7 +4,8 @@
 			"condition": {
 				"ip" : "178.127.61.63",
    				"start_date": "16-12-2019 03:01",
-   				"end_date": "20-12-2019 23:59"
+   				"end_date": "20-12-2019 23:59",
+				"lang": "en, de, ru, it, fr, es, nl, ua, pt, by"
 			},
 			"file": "christmas.json",
 			"fields": {
