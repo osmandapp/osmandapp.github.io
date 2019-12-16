@@ -2,6 +2,18 @@
 	"settings": [
 		{
 			"condition": {
+				"ip" : "178.127.61.63",
+   				"start_date": "16-12-2019 03:01",
+   				"end_date": "20-12-2019 23:59"
+			},
+			"show_christmas_dialog" : true,
+			"fields": {
+				"message": "Christmas",
+				"description": "Holidays!"
+			}
+		},
+		{
+			"condition": {
    				"start_date": "27-11-2019 03:01",
    				"end_date": "02-12-2019 23:59",
 				"app_version": "OsmAnd+",
