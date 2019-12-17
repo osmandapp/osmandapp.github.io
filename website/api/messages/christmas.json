@@ -13,7 +13,6 @@
  "description_color" : "#000000",
  "show_christmas_dialog" : true,
  "url" : "",
- "os": "android",
  "application" : {
    "net.osmand" : true,
    "net.osmand.plus" : true
