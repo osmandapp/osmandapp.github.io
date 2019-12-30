@@ -41,10 +41,10 @@
 
     <div class="api_header_holder" th:if="${header_id == 'API'}">
       <div class="header_img"></div>
-      <div class="headertext.new-year" th:utext="${header_title}">API</div>
+      <div class="headertext" th:utext="${header_title}">API</div>
     </div>
     <div class="header-caption" th:if="${header_id != 'API'}">
-        <div class="headertext.new-year" th:utext="${header_title}">Main</div>
+        <div class="headertext" th:utext="${header_title}">Main</div>
         
         <div class="badges" th:if="${header_id == 'MAIN'}">
         <!-- https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png -->
