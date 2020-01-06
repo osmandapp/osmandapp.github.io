@@ -129,7 +129,7 @@ a::-moz-focus-inner {
   top: 0;
   bottom: 0;
   width: 100%;
-  background: #ededed url('/images/header_image_ny.jpg') center center no-repeat;
+  background: #ededed url('/images/header_image.jpg') center center no-repeat;
   background-size: cover;
 }
 
