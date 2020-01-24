@@ -33,12 +33,22 @@ Log in using your phone number registered in Telegram to enable the following:
 <h3>Settings:</h3>
 <p>There are several settings for managing the frequency of sharing locations and controlling the display of the locations sent to you.</p>
 <p><b>Send my location</b> — allows you to set the interval for sending your position from once per second (for increasing accuracy) to once in 5 minutes (for reducing power consumption).</p>
-<p><b>Stale location</b> — allows you to set the time (from 1 minute to 1 hour) after which the location of your contact will be considered outdated. If the location becomes outdated, the position becomes gray.</p>
+<p><b>Not moving</b> — allows you to set the time (from 1 minute to 1 hour) after which the location of your contact will be considered outdated. If the location becomes outdated, the position becomes gray.</p>
 <p><b>Location history</b> — allows setting the time (from 5 minutes to 24 hours) after which the contact with the deleted location will be hidden from the list and the OsmAnd map.</p>
 <p><b>Send location as</b> - allows you to make a selection of the category of sending a message about your location in Telegram (3 types of sending): text, map, text and map.</p>
+<p><b>Buffer expiration time</b> - allows you to choose time to keep saving points in the buffer.</p>
+<p><b>Background work</b> - allows you to change battery optimization settings to stabilize location sharing.</p>
 <div class="blogimageblock">
-    <img src="/images/features/Settings-ShareLocationAs.png"/>
-    <img src="/images/features/Telegram-Screen.png"/>
+    <img src="/images/features/settingstracker.jpg"/>
+    <img src="/images/blog/tracker-0-8/20.jpg"/>
+<div style="clear:both;"></div>
+</div>
+
+<p><b>Units & formats</b> - allows you to add settings for units and formats. Now you can choose your comfortable values for Telegram messages during sharing location.</p>
+
+<div class="blogimageblock">
+<img src="/images/blog/tracker-0-8/22.jpg"/>
+<img src="/images/blog/tracker-0-8/20.jpg"/>
 <div style="clear:both;"></div>
 </div>
 
@@ -52,7 +62,7 @@ Log in using your phone number registered in Telegram to enable the following:
         <div style="clear:both;"></div>
 </div>
 
-<p><b>GPS settings</b> - set settings of points. If you stay at one place some time without moving, for example, your points don't send and your GPX track will be nicer. Go to <i>Settings-> GPX settings</i></p>
+<p><b>GPS settings</b> - set settings of points. If you stay at one place some time without moving, for example, your points don't send and your GPX track will be nicer.</p>
 
 <div class="blogimageblock">
     <img src="/images/blog/tracker-0-5/5.jpg"/>
@@ -67,15 +77,30 @@ Log in using your phone number registered in Telegram to enable the following:
 <div style="clear:both;"></div>
 </div>
 
-<h3>Live now</h3>
+<h3>"My location" screen</h3>
 
-<p>At this menu, you can see all contacts who are sharing a location for you. Click to the contact and look at it on OsmAnd map.</p>
+<p>On this screen you can see your contacts from Telegram. You can choose one or more of its and set parametres of sharing and start to share your location.</p>
+ <p>After the first start, you see Suggested list of contacts. What is it? It's your last five contacts who you shared your location with. You can click only once to continue sharing your location with these contacts.</p>
+<p>Time of sharing is your last choosing sharing time for contact.</p>
+<p>When you start sharing, you can see in the "My location" screen your Suggested list and button "Back to OsmAnd".</p>
+
+<div class="blogimageblock">
+<img src="/images/blog/tracker-0-8/8.jpg"/>
+<img src="/images/blog/tracker-0-8/9.jpg"/>
+<div style="clear:both;"></div>
+</div>
+
+<h3>"Live now" screen</h3>
+
+<p>At this menu, you can see all contacts who are sharing a location for you. Click to the contact and look at it on <b>OsmAnd map</b>.</p>
 <div class="blogimageblock">
 <img src="/images/features/Live.png"/>
 <div style="clear:both;"></div>
 </div>
 
-<p>Active marker on the OsmAnd map. It's very useful to see distance, speed, and angle movement of your contacts at  OsmAnd map and text in Telegram. You can understand at once where and how your contact move.</p>
+<b>"Active marker" on the OsmAnd map</b>
+
+<p>It's very useful to see distance, speed, and angle movement of your contacts at  OsmAnd map and text in Telegram. You can understand at once where and how your contact move.</p>
 
 <div class="blogimageblock">
     <img src="/images/blog/tracker-0-5/6.jpg"/>
@@ -84,7 +109,8 @@ Log in using your phone number registered in Telegram to enable the following:
 </div>
 
 
-<h3>Timeline</h3>
+<h3>"Timeline" screen</h3>
+
 <p>This is the third tab in the application.  It is possible to choose the day when you would like to see the history of the location shared with you. When selected, the contacts that showed their location on the selected day are displayed.</p>
 <p>Monitoring allows you to collect information in the background when your contacts share it. To do this, you must enable it.</p>
 <p>To view all information about  contact location, click on the contact's icon, or open the GPX track in OsmAnd and study the track in more detail (<a href="https://osmand.net/features/trip-recording-plugin">read more here</a>). You can also share the GPX track for the selected period: by sending it to mail or any instant messenger.</p>
@@ -117,16 +143,61 @@ Log in using your phone number registered in Telegram to enable the following:
         <div style="clear:both;"></div>
 </div>
 
+<h3>Online Tracker Widget in OsmAnd</h3>
+
+<p>For viewing the Widget you should turn OsmAnd Tracker plugin on first. After that, the Widget will be in the upper-right corner of the OsmAnd screen with the signature "Start".</p>
+
+ <p>To switch off it, you can go to the General menu->Configure screen (OsmAnd version 3.6).</p>
+
+<div class="blogimageblock">
+<img src="/images/blog/tracker-0-8/10.jpg"/>
+<img src="/images/blog/tracker-0-8/14.jpg"/>
+<div style="clear:both;"></div>
+</div>
+
+<p>The Widget has few appearances. At first, it is "Start". When you click "Start" you go to Online OsmAnd Tracker, where you can choose any contacts or click to Suggested contacts.</p>
+<p>When you start sharing your location the Widget changes appearance.</p>
+<p>The green smile "OK" means that your location is being shared now.</p>
+ <p>It's mean that everything is ok. The sharing does not have any issues.</p>
+<p>The orange smile "OK" means that your location cannot be sent. There are issues with the Internet or with GPS connection.</p>
+
+<div class="blogimageblock">
+<img src="/images/blog/tracker-0-8/11.jpg"/>
+<img src="/images/blog/tracker-0-8/13.jpg"/>
+<div style="clear:both;"></div>
+</div>
+
+<p>If you don't have an internet connection for a long time, your buffer in OsmAnd Tracker saves points of your location. The Widget in OsmAnd changes its appearance. It starts to show the time of the buffer filling how long the buffer is keeping points of your location.</p>
+
+<div class="blogimageblock">
+<img src="/images/blog/tracker-0-8/15.jpg"/>
+<img src="/images/blog/tracker-0-8/16.jpg"/>
+<div style="clear:both;"></div>
+</div>
+
+<p>As soon as your internet connection is restored, points from the buffer are sent. The Widget in OsmAnd changes its appearance and minutes in the Widget are reduced. When all points from the buffer are sent to Telegram, the Widget is displayed as a green smile.</p>
+
+<div class="blogimageblock">
+<img src="/images/blog/tracker-0-8/18.jpg"/>
+<img src="/images/blog/tracker-0-8/23.jpg"/>
+<div style="clear:both;"></div>
+</div>
+
+<p>In OsmAnd, you can see that the Widget has a green smile. It's mean that everything is ok. The sharing process does not have any issues.</p>
 
 <h3>OsmAnd Assistant:</h3>
+
 <p>We have also prepared a Telegram bot called 'OsmAnd Assistant,' so you can integrate OsmAnd Telegram with 3rd party trackers or APIs. Hence, you can not only share your location but also the locations of your bicycle or a group of individuals taking part in racing which is available via API, and OsmAnd Telegram will make sure you have a nice presentation of locations on the map in OsmAnd itself.</p>
 <p>Please share with us what you think about this new app on <a href="https://twitter.com/osmandapp">Twitter</a> and other social channels.</p>
 <p>To view the GPS positions of contacts on the map, you need the latest version of <a href="https://play.google.com/store/apps/details?id=net.osmand">OsmAnd</a> or <a href="https://play.google.com/store/apps/details?id=net.osmand.plus">OsmAnd+</a>. The minimum supported version of OsmAnd or OsmAnd+ is 3.0.4.</p>
-<p>Online GPS Tracker on Google Play</p>
-<p><a href="https://play.google.com/store/apps/details?id=net.osmand.telegram" target="_blank">
-<img src="https://raw.githubusercontent.com/osmandapp/osmandapp.github.io/9fc59e5136b6a07045eb96d052b3ce6ddde805c3/website//images/help/badge_store_google_play.png" alt="Get it on Google Play" height="60"/></a>
+
+<p>____________________________ </p>
 
 <p>OsmAnd at <a href="https://www.facebook.com/osmandapp/">Facebook</a>, <a href="https://www.twitter.com/osmandapp/">Twitter</a>, and <a href="https://www.reddit.com/r/OsmAnd/">Reddit</a>!</p>
  <p>Join us at our <a href="https://t.me/OsmAndMaps">group of Telegram (EN)</a>.</p>
  <p>Join us at our <a href="https://t.me/deosmand">group of Telegram (DE)</a>.</p>
  <p>Join us at our <a href="https://t.me/ruosmand">group of Telegram (RU)</a>.</p>
+
+<p>Get OsmAnd Tracker today from <a href="https://play.google.com/store/apps/details?id=net.osmand.telegram&hl">Google play</a>.</p>.</p>
+<p><a href="https://play.google.com/store/apps/details?id=net.osmand.telegram" target="_blank">
+<img src="https://raw.githubusercontent.com/osmandapp/osmandapp.github.io/9fc59e5136b6a07045eb96d052b3ce6ddde805c3/website//images/help/badge_store_google_play.png" alt="Get it on Google Play" height="60"/></a>
