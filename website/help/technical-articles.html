@@ -20,6 +20,7 @@
       <li><a href="#Using_KML_Files">Using KML files</a></li>
       <li><a href="#How_to_produce_customized_vector_data">How to produce customized vector data</a></li>
       <li><a href="#OsmAnd_SQLite_Spec">Specification of OsmAnd's SQLite format</a></li>
+      <li><a href="#OsmAnd_Metainfo_Spec">Specification of OsmAnd's Metainfo format</a></li>
     </ul>
   </div>
 
@@ -897,70 +898,137 @@ _echo date > endtime.txt_
     <div class="content">
       <p>The SQLIte format used in OsmAnd is based on the "BigPlanet" SQLite as supported by MOBAC. In OsmAnd we add a number of tables extending the format:</p>
 
-		<table style="width:100%">
-			<tr>
-				<th>Table</th>
-				<th>Column</th>
-				<th>Spec and Purpose</th>
-			</tr>
-			<tr>
-				<td>"info"</td>
-				<td>"url"</td>
-				<td>URL template to download tiles with zoom - $1, x - $2 , y - $3</td>
-			</tr>
-			<tr>
-				<td></td>
-				<td>"rule"</td>
-				<td>Specific to OsmAnd: Mostly "" or "beanshell", used to evaluate URL template for downloading tiles.</td>
-			</tr>
-			<tr>
-				<td></td>
-				<td>"tilenumbering"</td>
-				<td>"" or "BigPlanet". If "BigPlanet", zoom will be inverted and calculated as z = 17 - zoom.</td>
-			</tr>
-			<tr>
-				<td></td>
-				<td>"timeSupported"</td>
-				<td>"yes" or "no". A tiles table with a "time" column indicates when each tile was retrieved.</td>
-			</tr>
-			<tr>
-				<td></td>
-				<td>"expireminutes"</td>
-				<td>Integer. Specifies if tiles shall expire after the given number of minutes. They would still be displayed, but also re-downloaded.</td>
-			</tr>
-			<tr>
-				<td></td>
-				<td>"ellipsoid"</td>
-				<td>Integer 0 or 1. 1 for Elliptic Mercator (Yandex tiles).</td>
-			</tr>
-			<tr>
-				<td></td>
-				<td>"minzoom", "maxzoom"</td>
-				<td>Respective integer. (Also inverted in case of BigPlanet.)</td>
-			</tr>
-			<tr>
-				<td></td>
-				<td>"referer"</td>
-				<td>As used for downloading.</td>
-			</tr>
-			<tr>
-				<td>"tiles"</td>
-				<td>"x", "y", "z"</td>
-				<td>Indicates tile Mercator coordinates. Note that zoom could be inverted for the BigPlanet case.</td>
-			</tr>
-			<tr>
-				<td></td>
-				<td>"image"</td>
-				<td>Blob of image bytes.</td>
-			</tr>
-			<tr>
-				<td></td>
-				<td>"time"</td>
-				<td>Time stamp when image was downloaded.</td>
-			</tr>
-		</table>
+    <table style="width:100%">
+      <tr>
+        <th>Table</th>
+        <th>Column</th>
+        <th>Spec and Purpose</th>
+      </tr>
+      <tr>
+        <td>"info"</td>
+        <td>"url"</td>
+        <td>String. URL template to download tiles with zoom - {1}, x - {2} , y - {3}, server name - {rnd}</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>"randoms"</td>
+        <td>String. The names of the mirrors of server. Comma-separated. One of these values will randomly replace the placeholder {rdn} in "url" field.</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>"referer"</td>
+        <td>String. HTTP Referer. As used for downloading.</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>"minzoom"</td>
+        <td>Integer. Min zoom level. Respective integer. (Also inverted in case of BigPlanet).</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>"maxzoom"</td>
+        <td>Integer. Max zoom level. Respective integer. (Also inverted in case of BigPlanet).</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>"ellipsoid"</td>
+        <td>Integer 0 or 1. 1 for Elliptic Mercator (Yandex tiles). 0 for regular Spheric Web Mercator (OSM, Google maps)</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>"inverted_y"</td>
+        <td>Integer 0 or 1. 1 for inverted Y tile number (Nakarte.me tiles).</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>"timeSupported"</td>
+        <td>Bool "yes" or "no". A tiles table with a "time" column indicates when each tile was retrieved.</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>"expireminutes"</td>
+        <td>Integer. Specifies if tiles shall expire after the given number of minutes. They would still be displayed, but also re-downloaded.</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>"tilenumbering"</td>
+        <td>String "" or "BigPlanet". If "BigPlanet", zoom will be inverted and calculated as z = 17 - zoom.</td>
+      </tr>
+      <tr>
+        <td>"tiles"</td>
+        <td>"x", "y", "z"</td>
+        <td>Integer. Indicates tile Mercator coordinates. Note that zoom could be inverted for the BigPlanet case.</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>"image"</td>
+        <td>Blob of image bytes.</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>"time"</td>
+        <td>Integer. Time stamp when image was downloaded.</td>
+      </tr>
+    </table>
 
 		<p>The class supporting this is SQLiteTileSource at or near <a href="https://github.com/osmandapp/Osmand/blob/master/OsmAnd/src/net/osmand/plus/SQLiteTileSource.java#L33">https://github.com/osmandapp/Osmand/blob/master/OsmAnd/src/net/osmand/plus/SQLiteTileSource.java#L33</a></p>
+      <p class="back_to_top"><a href="#top">Back to top</a></p>
+    </div>
+  </div>
+
+    <div class="question">
+    <div class="subtitle" id="OsmAnd_Metainfo_Spec">Specification of OsmAnd's Metainfo format</div>
+    <div class="content">
+      <p>The Metainfo format used in OsmAnd to store the tile layers preferences. In OsmAnd we add a number of tables extending the format:</p>
+
+    <table style="width:100%">
+      <tr>
+        <th>Field</th>
+        <th>Spec and Purpose</th>
+      </tr>
+      <tr>
+        <td>"[url_template]"</td>
+        <td>String. URL template to download tiles with zoom - {1}, x - {2} , y - {3}, server name - {rnd}</td>
+      </tr>
+      <tr>
+        <td>"[randoms]"</td>
+        <td>String. The names of the mirrors of server. Comma-separated. One of these values will randomly replace the placeholder {rdn} in "url" field.</td>
+      </tr>
+      <tr>
+        <td>"[minzoom]"</td>
+        <td>Integer. Min zoom level. In regular format (OSM, Google maps).</td>
+      </tr>
+      <tr>
+        <td>"[maxzoom]"</td>
+        <td>Integer. Max zoom level. In regular format (OSM, Google maps).</td>
+      </tr>
+      <tr>
+        <td>"[ellipsoid]"</td>
+        <td>Bool "true" or "false". True for Elliptic Mercator (Yandex tiles). False for regular Spheric Web Mercator (OSM, Google maps)</td>
+      </tr>
+      <tr>
+        <td>"[inverted_y]"</td>
+        <td>Bool "true" or "false". True for inverted Y tile number (Nakarte.me tiles).</td>
+      </tr>
+      <tr>
+        <td>"[tile_size]"</td>
+        <td>Integer 256 or 512. Side size of downloading tile in px.</td>
+      </tr>
+      <tr>
+        <td>"[img_density]"</td>
+        <td>Integer. Tile image density.</td>
+      </tr>
+      <tr>
+        <td>"[avg_img_size]"</td>
+        <td>Integer.Average tile image size. </td>
+      </tr>
+      <tr>
+        <td>"[expiration_time_minutes]"</td>
+        <td>Integer. Specifies if tiles shall expire after the given number of minutes. They would still be displayed, but also re-downloaded.</td>
+      </tr>    
+    </table>
+
+    <p>The class supporting this tile sourcw is at or near <a href="https://github.com/osmandapp/Osmand/blob/master/OsmAnd-java/src/main/java/net/osmand/map/TileSourceManager.java#L28">https://github.com/osmandapp/Osmand/blob/master/OsmAnd-java/src/main/java/net/osmand/map/TileSourceManager.java#L28</a></p>
       <p class="back_to_top"><a href="#top">Back to top</a></p>
     </div>
   </div>
