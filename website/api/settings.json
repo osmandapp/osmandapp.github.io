@@ -5,7 +5,7 @@
 		"wiki" : { "dl2.osmand.net":1, "dl7.osmand.net":1},
 		"osmlive" : { "dl2.osmand.net":1, "dl9.osmand.net":1},
 		"srtm" : { "dl2.osmand.net":1, "dl8.osmand.net":1},
-		"hillshade" : { "dl2.osmand.net":1, "dl7.osmand.net":1},
+		"hillshade" : { "dl2.osmand.net":1},
 		"slope" : { "dl2.osmand.net":1}
 	}
 }
