@@ -1335,7 +1335,10 @@ a::-moz-focus-inner {
 }
 
 .feature.profnavigation {
-  background-image:url('/images/features/ruler.png');
+  background-image:url('/images/blog/3.4/17.png');
+    background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .feature.subscription {
