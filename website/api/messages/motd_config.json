@@ -17,15 +17,15 @@
 		},
 		{
 			"condition": {
-   				"start_date": "21-01-2020 20:01",
-   				"end_date": "25-01-2020 23:59",
+   				"start_date": "19-02-2020 04:01",
+   				"end_date": "24-02-2020 23:59",
 				"os": "android",
 				"lang" :"ru"
 			},
 			"file": "discount.json",
 			"fields": {
 				"message": "РАСПРОДАЖА!",
-				"description": "Карты без ограничений, контурные линии и годовая подписка -50%!"
+				"description": "Карты без ограничений, контурные линии -50%!"
 			}
 		},
 		{
@@ -45,15 +45,15 @@
 		},
 		{
 			"condition": {
-   				"start_date": "21-01-2020 20:01",
-   				"end_date": "25-01-2020 23:59",
+   				"start_date": "19-02-2020 04:01",
+   				"end_date": "24-02-2020 23:59",
 				"os": "android",
 				"lang" :"es"
 			},
 			"file": "discount.json",
 			"fields": {
 				"message": "¡VENTA!",
-				"description": "Descargas ilimitadas de mapas, curvas de nivel y suscripción anual -50%!"
+				"description": "Descargas ilimitadas de mapas, curvas de nivel -50%!"
 			}
 		},
 		{
@@ -73,15 +73,15 @@
 		},
 		{
 			"condition": {
-   				"start_date": "21-01-2020 20:01",
-   				"end_date": "25-01-2020 23:59",
+   				"start_date": "19-02-2020 04:01",
+   				"end_date": "24-02-2020 23:59",
 				"os": "android",
 				"lang" :"fr"
 			},
 			"file": "discount.json",
 			"fields": {
 				"message": "VENTE!",
-				"description": "Téléchargements de cartes illimités, courbes de niveau et abonnement annuel -50%!"
+				"description": "Téléchargements de cartes illimités, courbes de niveau -50%!"
 			}
 		},
 		{
@@ -101,15 +101,15 @@
 		},
 		{
 			"condition": {
-   				"start_date": "21-01-2020 20:01",
-   				"end_date": "25-01-2020 23:59",
+   				"start_date": "19-02-2020 04:01",
+   				"end_date": "24-02-2020 23:59",
 				"os": "android",
 				"lang" :"nl"
 			},
 			"file": "discount.json",
 			"fields": {
 				"message": "VERKOOP!",
-				"description": "Onbeperkte kaartdownloads, contourlijnen en jaarabonnement -50%!"
+				"description": "Onbeperkte kaartdownloads, contourlijnen -50%!"
 			}
 		},
 		{
@@ -129,15 +129,15 @@
 		},
 		{
 			"condition": {
-   				"start_date": "21-01-2020 20:01",
-   				"end_date": "25-01-2020 23:59",
+   				"start_date": "19-02-2020 04:01",
+   				"end_date": "24-02-2020 23:59",
 				"os": "android",
 				"lang" :"it"
 			},
 			"file": "discount.json",
 			"fields": {
 				"message": "VENDITA!",
-				"description": "Download illimitati di mappe, curve di livello e abbonamento annuale -50%!"
+				"description": "Download illimitati di mappe, curve di livello -50%!"
 			}
 		},
 		{
@@ -157,15 +157,15 @@
 		},
 		{
 			"condition": {
-   				"start_date": "21-01-2020 20:01",
-   				"end_date": "25-01-2020 23:59",
+   				"start_date": "19-02-2020 04:01",
+   				"end_date": "24-02-2020 23:59",
 				"os": "android",
 				"lang" :"de"
 			},
 			"file": "discount.json",
 			"fields": {
 				"message": "VERKAUF!",
-				"description": "Unbegrenzte Karten-Downloads, Höhenlinien und Jahresabonnement -50%!"
+				"description": "Unbegrenzte Karten-Downloads, Höhenlinien -50%!"
 			}
 		},
 		{
@@ -184,14 +184,14 @@
 		},
 		{
 			"condition": {
-   				"start_date": "21-01-2020 20:01",
-   				"end_date": "25-01-2020 23:59",
+   				"start_date": "19-02-2020 04:01",
+   				"end_date": "24-02-2020 23:59",
 				"os": "android"
 			},
 			"file": "discount.json",
 			"fields": {
 				"message": "SALE!",
-				"description": "Unlimited map downloads, contour lines and annual subscription -50%!"
+				"description": "Unlimited map downloads, contour lines -50%!"
 			}
 		},
 		{
