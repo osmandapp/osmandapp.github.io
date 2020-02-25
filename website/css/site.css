@@ -1351,7 +1351,10 @@ a::-moz-focus-inner {
   background-position: center;
 }
 .feature.ruler {
-  background-image:url('/images/features/ruler.png');
+  background-image:url('/images/features/rul_feat.png');
+    background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 .feature.quickaction {
   background-image:url('/images/features/qa_feat.png');
