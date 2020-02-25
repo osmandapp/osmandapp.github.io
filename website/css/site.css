@@ -1331,18 +1331,21 @@ a::-moz-focus-inner {
 }
 
 .feature.navigation {
-  background-image:url('/images/blog/3.6/3.jpg');
+  background-image:url('/images/features/nav_feat.png');
+    background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .feature.profnavigation {
-  background-image:url('/images/blog/3.4/17.png');
+  background-image:url('/images/features/prof_feat.png');
     background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
 
 .feature.subscription {
-  background-image:url('/images/features/OsmAnd_Live_price.png');
+  background-image:url('/images/features/ol_feat.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -1351,7 +1354,10 @@ a::-moz-focus-inner {
   background-image:url('/images/features/ruler.png');
 }
 .feature.quickaction {
-  background-image:url('/images/blog/2.6/pt_7_blog.png');
+  background-image:url('/images/features/qa_feat.png');
+    background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 .feature.tracker {
   background-image:url('/images/features/features_osmand_tracker.jpg');
@@ -1360,7 +1366,7 @@ a::-moz-focus-inner {
   background-position: center;
 }
 .feature.favorites {
-  background-image:url('/images/features/favorites_5.jpg');
+  background-image:url('/images/features/fav_feat.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
