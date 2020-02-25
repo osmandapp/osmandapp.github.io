@@ -1332,9 +1332,6 @@ a::-moz-focus-inner {
 
 .feature.navigation {
   background-image:url('/images/features/nav_feat.png');
-    background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
 }
 
 .feature.profnavigation {
