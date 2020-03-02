@@ -415,6 +415,25 @@
 	     <li>In <b>Android's</b> 'Apps', 'Applications', or 'App Manager' settings, find OsmAnd and tap it. You may find a line item regarding 'Power Savings' or 'Power Consumption': Tap it and exempt OsmAnd from power optimization measures.</li>
 	     <li>If this fails, you may want to disable Power Saving on the device globally to see if your issues are caused by it at all</li>
 	</ul>
+
+	<p><b>Update Android 9, Hardy, 2020-03-01:</b> I have successfully tested the following Power saving settings under Android 9 (on Samsung devices), with particular attention if OsmAnd logging works reliably:</p>
+	<ul>
+	<li><b>Device care / Battery:</b>
+		<ul>
+		<li>Power mode = Optimized</li>
+		<li>Adaptive power saving = OFF (leaving ON may periodically use Medium power saving which inhibits OsmAnd logging)</li>
+		</ul>
+	</li>
+	<li><b>Device care / Battery / Settings:</b>
+		<ul>
+		<li>Adaptive battery = OFF (unclear if ON may have negative effect at some point)</li>
+		<li>Put unused apps to sleep = OFF (check list of sleeping apps)</li>
+		<li>Auto disable unused apps = OFF</li>
+		<li>Optimize settings = OFF</li>
+		</ul>
+	</li>
+	<li><b>Apps / ... / Special access / Optimize battery usage / All</b> = Leave all unchanged (effect of this setting unclear)</li>
+    </ul>
     </div>
   </div>
 
