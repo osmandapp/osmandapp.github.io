@@ -13,7 +13,7 @@
       <li class="toclevel-2"><a href="#Creating a New TTS Voice Language">Creating a New TTS Voice Language</a></li>
       <li class="toclevel-2"><a href="#Installation_of_Different_Builds">Installation of different builds</a></li>
       <li><a href="#Create_offline_maps_for_yourself">Create offline maps for yourself</a></li>
-      <li><a href="#Country_Polygon_Creation">Creating a country polygonn</a></li>
+      <li><a href="#Country_Polygon_Creation">Creating a country polygon</a></li>
       <li><a href="#OsmAnd_Data_Structure">OsmAnd data structure</a></li>
       <li><a href="#How_To_Inspect_an_obf_Binary_File">How to inspect an obf binary file</a></li>
       <li><a href="#OBF_routing_debugging_on_a_PC_with_OSM_map_display">OBF routing debugging on a PC with OSM map display</a></li>
@@ -589,43 +589,40 @@ _echo date > endtime.txt_
     <div class="subtitle" id="OsmAnd_Data_Structure">OsmAnd Data Structure</div>
     <div class="content">
       <div class="blocksubtitle">Introduction</div>
-      <p>Regarding many questions, issues about map data in application that topic unveils technical details of internal data format and data processing. It can be interesting for non-developers but who is familar with OSM data structure. </p>
-      <p>All the OsmAnd data is containing in &#39;obf&#39; files. &#39;obf&#39; files have complex structure and can consists of many part. It is higly not recomended to have files around or more than 2 Gb. Currently obf parts can be many POI parts, many Map parts, Transport parts, Adress parts. That list can be extended in future. To combine or split or delete some parts from obf file use &#39;binary_inspector&#39; console tool provided with OsmAndMapCreator.</p>
+      <p>Many questions are about content of and issues with map data in the application. This topic unveils some technical details of the internal data format and data processing. It can be interesting for non-developers who are familar with the OSM data structure. </p>
+      <p>All the OsmAnd data is contained in &#39;obf&#39; files. &#39;obf&#39; files have a complex structure and can consist of many parts. It is highly recommended to keep file sizes below 2 Gb. Currently obf files can have many parts consisting of multiple POI parts, multiple routing data parts, multiple Map parts, multiple Transport parts and multiple Address data parts. That list can be extended in future. To combine or split or delete some parts from the obf file use &#39;binary_inspector&#39; console tool provided with OsmAndMapCreator.</p>
       <div class="blocksubtitle">POI, Transport part</div>
       <div class="blocksubtitle">Map part</div>
       <div class="blocksubtitle">Address part</div>
-      <p>Q: How does mapcreator generate its list of all places that will
-        appear later in OsmAnd&#39;s offline address search? What objects are used
-        in detail for that? What nodes with a place tag are included, and
-        which are excluded?
+      <p>Q: How does mapcreator generate its list of all places that will appear later in OsmAnd&#39;s offline address search? What objects are used in detail for that? What nodes with a place tag are included, and which are excluded?
       </p>
-      <p>A: All places that are visible in OsmAnd as Cities are taken from nodes that has tag place <a class="externallink" href="https://wiki.openstreetmap.org/wiki/pPlace." rel="nofollow" title="https://wiki.openstreetmap.org/wiki/Place.">https://wiki.openstreetmap.org/wiki/Place.</a> Currently are used city, town, suburb, village, hamlet.</p>
+      <p>A: All places that are visible in OsmAnd as Cities are taken from nodes that have the tag "place" <a class="externallink" href="https://wiki.openstreetmap.org/wiki/pPlace." rel="nofollow" title="https://wiki.openstreetmap.org/wiki/Place.">https://wiki.openstreetmap.org/wiki/Place.</a> Currently city, town, suburb, village, hamlet are used.</p>
       <br/>
       <p>Q: How does mapcreator handle an area polygon that is given via a relation with boundary=administrative? How do you associate a place
         given as a node with its boundary when it is present in the OSM data?
       </p>
-      <p>A: Simply saying it works by name currently. Mapcreator tries to visit all boundaries and create closed (!) boundary from relation or from separated ways and associate with one of the name. After that it tries to match *place* with *boundary name* by *contains of* algorithm. Also there is additional check that boundary contains the place. If there  are many boundaries of different admin_level with the same name (containing each_other like district/town/region has same name) the highest admin_level with exact matching will be chosen.
+      <p>A: Simply saying: it currently works by name. Mapcreator tries to visit all boundaries and creates a closed (!) boundary from the relation or from separated ways and associates it with only one name. After that it tries to match *place* with *boundary name* using the *contains of* algorithm. There is also an additional check if that boundary contains the place. If there  are many boundaries of different admin_level with the same name (containing each_other like district/town/region having the same name) the highest admin_level with exact matching will be chosen.
         TODO More details should be here (about districts of the city ...) ...
       </p>
       <br/>
-      <p>Q: Where is a documentation what admin level is right to build an association to a certain place node? What countries prefer what admin level?</p>
-      <p>A: Currently admin_level is Currently association between admin_level relation and admin_centre is not used. Because only few relations provides that information.</p>
+      <p>Q: Where is documentation describing what admin level is right to build an association to a certain place node? What countries prefer what admin level?</p>
+      <p>A: Currently the association between admin_level relation and admin_centre is not used. Because only few relations provide that information.</p>
       <br/>
       <p>Q: How does mapcreator know what street belongs to what place? Are there different cases when a boundary polygon is given and when there is none?</p>
-      <p>A: There are many strategies to check and they are prioritized :</p>
+      <p>A: There are many strategies to check and they are prioritized in the following order:</p>
       <ul class="list">
-        <li> The most important are places and their boundaries. In order street management algorithm will work fine the place matching boundaries should be successfull. If the street belongs to many boundaries it will be registered in all appropriate places.</li>
-        <li> is_in tag (it is deprecated). So if street has is_in tag, it will be parsed and splitted by comma and street will be attached to all cities (by exact name matching). (TO CHECK: basic check street is in city radius?)</li>
-        <li> If the street doesn&#39;t belongs to any boundary (boundary were not properly closed could be an issue) it tries to find the closest/biggest city and register in it (sometimes it register in town for 1 km and missing 100m closest hamlet).</li>
+        <li> The most important are places and their boundaries. In order for the street management algorithm to work correctly, the place matching boundaries should be correct. If the street belongs to many boundaries, it will be registered in all appropriate places.</li>
+        <li> is_in tag (it is deprecated). So if a street has the is_in tag, it will be parsed and splitted by comma and the street will be attached to all relevant cities (by exact name matching). (TO CHECK: basic check street is in city radius?)</li>
+        <li> If the street doesn&#39;t belong to any boundary (not properly closed boundaries could be an issue here), it tries to find the closest/biggest city and register the stret in that city (sometimes it registers in a town at 1 km distance and misses the closest hamlet at only 100m distance).</li>
       </ul>
-      <p>The last part is very inaccurate that&#39;s why many streets get attached to a neighboor city.</p>
+      <p>The last part is very inaccurate. That&#39;s why many streets get attached to a neighbor city.</p>
       <br/>
       <p> At mapcreator&#39;s preferences you have five more settings for street suffixes, zoom, smoothness and rendering ... what are the detailed effects that you can achieve with each of them? Are those settings actually used?</p>
       <div class="blocksubtitle">Tools</div>
       <ul class="list">
         <li> OsmAndMapCreator can display what streets are associated to what city (context menu -&#62; Show address). Local obf files should be present and configured in Settings.</li>
-        <li> Binary expector tool can show list of streets for each city. Run it to see parameters.</li>
-        <li> Currently all index files contain gen.log. Viewing the log file you can find errors in map creation process and that could an answer why some streets are not in the proper address index place. </li>
+        <li> Binary inspector tool can show a list of streets for each city. Run the tool without parameters to see the possible parameters.</li>
+        <li> Currently all index files contain gen.log. Viewing the log file you can find errors in the map creation process and that could give an answer why some streets are not in the proper address index place. </li>
       </ul>
       <div class="blocksubtitle">Address Part - workflow</div>
       <p>There are these relations: </p>
@@ -642,35 +639,35 @@ _echo date > endtime.txt_
         <li>
           <p>iterate all RELATIONs and WAYs with type=boundary and register all boundaries</p>
           <ul>
-            <li> boundary is called Entity (way or relation) with tag &#39;boundary=administrative&#39; or with tag &#39;place=...&#39;</li>
-            <li> boundary should be admin_level &#62; 4 or don&#39;t have it</li>
-            <li> boundary is not always associated with a city (or state, ...). </li>
-            <li> boundary can have &#39;admin_center&#39;, &#39;label&#39; member pointing to a city node</li>
-            <li>boundary exactly matches by name city node and city node is in boundary</li>
-            <li> boundary matches start, end or substring by name city node and city node is in boundary</li>
+            <li>boundary is called Entity (way or relation) with tag &#39;boundary=administrative&#39; or with tag &#39;place=...&#39;</li>
+            <li>boundary should be admin_level &#62; 4 or not have an admin_level.</li>
+            <li>boundary is not always associated with a city (or state, ...). </li>
+            <li>boundary can have &#39;admin_center&#39;, &#39;label&#39; member pointing to a city node</li>
+            <li>boundary exactly matches by name city node and the city node falls within the boundary</li>
+            <li>boundary matches start, end or substring by name city node and city node falls within the boundary</li>
           </ul>
-          <p>Many boundaries can be associated with one city. Here is the order how the most important boundary is taken and associated with the city</p>
+          <p>Many boundaries can be associated with one city. Here is the order on how the most important boundary is taken and associated with the city</p>
           <ul>
-            <li> Boundary is matched by name exactly and has tag place</li>
-            <li> Boundary is matched by name exactly and has admin_level 8 &#62; 7 &#62; 6 &#62; 9 &#62; 10 &#62; 5... or nothing</li>
-            <li> Boundary has admin_id matching </li>
-            <li> All other cases including sorting of admin_level</li>
+            <li>Boundary is matched by name exactly and has the tag place</li>
+            <li>Boundary is matched by name exactly and has admin_level 8 &#62; 7 &#62; 6 &#62; 9 &#62; 10 &#62; 5... or nothing</li>
+            <li>Boundary has admin_id matching </li>
+            <li>All other cases including sorting of admin_level</li>
           </ul>
         </li>
         <li>
-          <p>If the city doesn&#39;t have any assigned boundary then all boundaries that doesn&#39;t have center cities  and contain that city will be checked and the boundary with admin_level &#62;=7 will be assigned.</p>
+          <p>If the city doesn&#39;t have any assigned boundary then all boundaries that don&#39;t have cities centers and contain that city will be checked and the boundary with admin_level &#62;=7 will be assigned.</p>
         </li>
         <li>
-          <p>for each boundary, make a list of cities that are in it.</p>
+          <p>for each boundary, make a list of cities that are inside it.</p>
         </li>
         <li>
           <p>iterate all RELATIONS and find addresses (<a href="https://wiki.openstreetmap.org/wiki/Relations/Proposed/Postal_Addresses">Postal_Addresses</a>)</p>
           <ul>
-            <li> relation with &#34;address&#34; tag type, and is &#34;house&#34; or &#34;a6&#34; address_type</li>
-            <li> search for associatedStreet relation and house members</li>
-            <li> try to find the city for the street and city for house address.</li>
-            <li> look up cities (we already must have find it in steps before!!)</li>
-            <li> if we have city and street, register it to database:</li>
+            <li>relation with &#34;address&#34; tag type, and is &#34;house&#34; or &#34;a6&#34; address_type</li>
+            <li>search for associated Street relation and house members</li>
+            <li>try to find the city for the street and city for house address.</li>
+            <li>look up cities (we already must have found it in the steps before!!)</li>
+            <li>if we have city and street, register it to database:</li>
             <ul>
               <li>for streetregistration, see: register street for a city</li>
               <li>
@@ -688,7 +685,7 @@ _echo date > endtime.txt_
                   </ul>
                 </ul>
                 <p>register street (street, location of street (los), cities):</p>
-                <p> Note: we might register street for more cities = this means, the street can be in nested areas, suburb, city, hamlet, etc... For each area, we want to register the street in it.</p>
+                <p> Note: we might register a street to more cities = this means, the street can be in nested areas, suburb, city, hamlet, etc... For each area, we want to register the street it is in.</p>
               </li>
               <li>
                 <ul>
@@ -700,11 +697,11 @@ _echo date > endtime.txt_
                         <li>if street exists:</li>
                         <li>
                           <ul>
-                            <li>if city part is unknown -&#62; update the existing street's city part</li>
-                            <li>try to find cityPart for our street, and lookup the street again</li>
+                            <li>if citypart is unknown -&#62; update the existing street's city part</li>
+                            <li>try to find city Part for our street, and lookup the street again</li>
                           </ul>
                         </li>
-                        <li>if street does not exists: (might change after the lookup)</li>
+                        <li>if street does not exist: (might change after the lookup)</li>
                         <li>
                           <ul>
                             <li>register the street for city, city part, location, and street name</li>
@@ -726,7 +723,7 @@ _echo date > endtime.txt_
           </ul>
         </li>
         <li>
-          <p>iterate all NODES than WAYS than RELATIONS (iterate main entity)</p>
+          <p>iterate all NODES, then WAYS, then RELATIONS (iterate main entity)</p>
           <ol>
             <li>
               <p>find ways - interpolations:</p>
@@ -736,12 +733,12 @@ _echo date > endtime.txt_
               </ul>
             </li>
             <li>
-              <p>for any entity, find addr:housenumber and addr:street tag (can be also the interpolation nodes again!!!)</p>
+              <p>for any entity, find addr:housenumber and addr:street tag (can also be the interpolation of nodes again!!!)</p>
               <ul>
-                <li> skip if building for this entity already exists!</li>
-                <li> findOrRegister streets for the street</li>
-                <li> find the house number</li>
-                <li> if housenumber contains &#39;-&#39;, try to create interpolated house number (missing latlon2?)</li>
+                <li>skip if building for this entity already exists!</li>
+                <li>findOrRegister streets for the street</li>
+                <li>find the house number</li>
+                <li>if housenumber contains &#39;-&#39;, try to create interpolated house number (missing latlon2?)</li>
                 <li>if housenumber contains &#39;/&#39;, try to lookup second street addr:street2 --&#62; seems only for <a href="https://wiki.openstreetmap.org/wiki/RU:Key:addr">RU osm</a>:</li>
                 <li>there are more variations for this: adr:housenumber2, addr2:street, addr2:housenumber etc...</li>
                 <li> for each street, store the existing house</li>
@@ -750,7 +747,7 @@ _echo date > endtime.txt_
             <li>for way with tag - name &#38; tag - highway, but without addr:housenumber and addr:street:</li>
             <ul>
               <li>Note: this might be ways for cars, with names (highway, or so)</li>
-              <li>skip if such street exists already</li>
+              <li>skip if such street already exists</li>
               <li>findOrRegister the street for city</li>
               <li>write the nodes for each found street in each city</li>
             </ul>
@@ -772,12 +769,12 @@ _echo date > endtime.txt_
         <li>
           <p>write the index:</p>
           <ul>
-            <li>split cities to: citties+towns, suburbs (suburb with is_in tag), villages (not city or town)</li>
+            <li>split cities to: cities+towns, suburbs (suburb with is_in tag), villages (not city or town)</li>
             <li> write cities+towns using suburbs</li>
             <ul>
-              <li>read street from cities+tows + apropriate subburs for each town</li>
+              <li>read street from cities+towns + apropriate suburbs for each town</li>
               <ul>
-                <li>in here, there might be more streets with same name for one city, in such case we try to find a cityPart for the street (suburb), where the street is in. There should be not more streets with same name within one city part!</li>
+                <li>in here, there might be more streets with the same name for one city, in such case we try to find a cityPart for the street (suburb), where the street is in. There should be not more streets with same name within one city part!</li>
               </ul>
               <li>for each street</li>
               <ul>
@@ -799,19 +796,19 @@ _echo date > endtime.txt_
   <div class="question">
     <div class="subtitle" id="How_To_Inspect_an_obf_Binary_File">How to inspect an obf binary file</div>
     <div class="content">
-      <p>If you want inspect the content of obf file, you need to download  <a href="https://download.osmand.net/latest-night-build/OsmAndMapCreator-development.zip">OsmAndMapCreator</a>. There you can find a console application BinaryInspector (.sh, .bat). This console application has optional parameters [-vmap, -vaddress, -vtransport] and one required parameter (input obf file). By specifying optional parameters  you could trace the whole information from obf file (be aware it could be huge!).</p>
+      <p>If you want inspect the content of an obf file, you need to download  <a href="https://download.osmand.net/latest-night-build/OsmAndMapCreator-development.zip">OsmAndMapCreator</a>. There you can find a console application Inspector (.sh, .bat). This console application has optional parameters [-vmap, -vaddress, -vtransport] and one required parameter (input obf file). By specifying optional parameters you can trace all information from the obf file (be aware: it could be huge!).</p>
       <p>Example and step-by-step for Windows users:</p>
       <ul class="list">
-        <li> have Java Runtime Environment installed</li>
-        <li> download or copy any Osmand offline map from your device to your PC, place that obf file ideally in the folder with all the unzipped Mapcreator files</li>
-        <li> Open Windows commandline  (e.g. by pressing Windows-key and &#34;r&#34;, then enter cmd and press return</li>
-        <li> go to the folder where you have unzipped the Osmand-Mapcreator by command cd and folder name</li>
-        <li> type dir to see whether you are in the right folder with file inspector.bat</li>
-        <li> type inspector -h to see some help text</li>
-        <li> type inspector -vaddress name_of_your_map.obf &#62;output.csv</li>
-        <li> if you get a Java console error about not enough memory or similar, edit the file inspector.bat by increasing the number at parameter -Xmx512M (or similar) step-by step to a higher value</li>
-        <li> try to load that (eventually very big) CSV text file into any editor or program that can load very big files, like Notepad++ ... or try an import into any spreadsheet programm like Excel or LibreOffice calc (choose TAB as field separator)</li>
-        <li> use any search feature to find place names or street names</li>
+        <li>have Java Runtime Environment installed</li>
+        <li>download or copy any Osmand offline map from your device to your PC, place that obf file ideally in the folder with all the unzipped Mapcreator files</li>
+        <li>Open Windows commandline  (e.g. by pressing Windows-key and &#34;r&#34;, then enter cmd and press return</li>
+        <li>go to the folder where you have unzipped the Osmand-Mapcreator by command cd and folder name</li>
+        <li>type dir to see whether you are in the right folder with file inspector.bat</li>
+        <li>type inspector -h to see some help text</li>
+        <li>type inspector -vaddress name_of_your_map.obf &#62;output.csv</li>
+        <li>if you get a Java console error about not enough memory or similar, edit the file inspector.bat by increasing the number at parameter -Xmx512M (or similar) step-by step to a higher value</li>
+        <li>try to load that (eventually very big) CSV text file into any editor or program that can load very big files, like Notepad++ ... or try an import into any spreadsheet programm like Excel or LibreOffice calc (choose TAB as field separator)</li>
+        <li>use any search feature to find place names or street names</li>
       </ul>
       <p class="back_to_top"><a href="#top">Back to top</a></p>
     </div>
@@ -822,23 +819,23 @@ _echo date > endtime.txt_
     <div class="content">
       <div class="blocksubtitle">How-to</div>
       <ul class="list">
-        <li> go to <a class="externallink" href="https://osmand.net" rel="nofollow" title="https://osmand.net">https://osmand.net</a> and download OsmandMapCreator.zip from the link on the right screen side, and unzip it, </li>
-        <li> copy the obf file from your phone or tablet into that folder,</li>
-        <li> start OsmandMapCreator via bat file or sh file,</li>
-        <li> be sure to have an internet connection so that mapcreator can download map tiles, check all menus and settings inside mapcreator,</li>
-        <li> set the working directory of mapcreator to the folder where mapcreator itself and the obf file is located.</li>
-        <li> pan and zoom the map to that place where you have routing issues and that is covered by the mentioned OBF file,</li>
-        <li> do right clicks in the map to set start and end points and different routing engines</li>
+        <li>go to <a class="externallink" href="https://osmand.net" rel="nofollow" title="https://osmand.net">https://osmand.net</a> and download OsmandMapCreator.zip from the link on the right screen side, and unzip it, </li>
+        <li>copy the obf file from your phone or tablet into that folder,</li>
+        <li>start OsmandMapCreator via bat file or sh file,</li>
+        <li>be sure to have an internet connection so that mapcreator can download map tiles, check all menus and settings inside mapcreator,</li>
+        <li>set the working directory of mapcreator to the folder where mapcreator itself and the obf file is located.</li>
+        <li>pan and zoom the map to that place where you have routing issues and that is covered by the mentioned OBF file,</li>
+        <li>do right clicks in the map to set start and end points and different routing engines</li>
       </ul>
-      <div class="blocksubtitle">Find the place name to what a street is associated in offline OBF maps</div>
+      <div class="blocksubtitle">Find the place name a street is associated with in offline OBF maps</div>
       <ul class="list">
-        <li> Have a Java framework installed on your desktop computer.</li>
-        <li> Download Osmand&#39;s Mapcreator, for example from <a href="https://download.osmand.net/releases/">download.osmand.net/releases</a> and unzip it to your PC.</li>
-        <li> Take any map file with extensiuon OBF and put it in the same folder where all files from mapcreator are located.</li>
-        <li> Start Mapcreator on your PC by clicking OsmAndMapCreator.bat or OsmAndMapCreator.sh</li>
-        <li> Be sure that you have internet access on your PC, and Mapcreator&#39;s settings are that tiles are downloaded when you drag and zoom the map to your location where your issue is located.</li>
-        <li> If you have zoomed to your area, do a right-click with the mouse on the map and choose &#34;show address&#34; from the popup-menu.</li>
-        <li> Normally, now all the street names should be displayed from the obf file, and the place name to where each street is associated in Osmand&#39;s offline search.</li>
+        <li>Have a Java framework installed on your desktop computer.</li>
+        <li>Download Osmand&#39;s Mapcreator, for example from <a href="https://download.osmand.net/releases/">download.osmand.net/releases</a> and unzip it to your PC.</li>
+        <li>Take any map file with extensiuon OBF and put it in the same folder where all files from mapcreator are located.</li>
+        <li>Start Mapcreator on your PC by clicking OsmAndMapCreator.bat or OsmAndMapCreator.sh</li>
+        <li>Be sure that you have internet access on your PC, and Mapcreator&#39;s settings are that tiles are downloaded when you drag and zoom the map to your location where your issue is located.</li>
+        <li>If you have zoomed to your area, do a right-click with the mouse on the map and choose &#34;show address&#34; from the popup-menu.</li>
+        <li>Normally, now all the street names should be displayed from the obf file, and the place name to where each street is associated in Osmand&#39;s offline search.</li>
       </ul>
       <p class="back_to_top"><a href="#top">Back to top</a></p>
     </div>
