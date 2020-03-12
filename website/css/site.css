@@ -1373,6 +1373,12 @@ a::-moz-focus-inner {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  }
+.feature.markers {
+  background-image:url('/images/features/markers.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 .feature.mapillary {
   background-image:url('/images/features/mapillary.png');
