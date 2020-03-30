@@ -466,9 +466,7 @@ _echo date > endtime.txt_
       <p>If you have your _process directory_for_osm_files_ on one disk and your _directory_for_generation_ on another disk you will see an nice and noticeable performance gain.</p>
       <div class="blocksubsubtitle">In memory processing</div>
       <p>You can do a great deal of the map creation not on disk but in memory. In your batch.xml one of the top lines contains:</p>
-      <pre>
-<process_attributes mapZooms="" renderingTypesFile="" zoomWaySmoothness="" osmDbDialect="sqlite" mapDbDialect="sqlite"/>
-      </pre>
+      <span class="code">&lt;process_attributes mapZooms="" renderingTypesFile="" zoomWaySmoothness="" osmDbDialect="sqlite" mapDbDialect="sqlite"/&gt;</span>
       <p>The <span class="code">osmDbDialect=&#34;sqlite&#34; mapDbDialect=&#34;sqlite&#34;</span> determines where your map generation process will take place.</p>
       <p>The line <span class="code">osmDbDialect=&#34;sqlite&#34; mapDbDialect=&#34;sqlite&#34;</span> means that it will take place on disk.</p>
       <p>If you change this to <span class="code">osmDbDialect=&#34;sqlite_in_memory&#34; mapDbDialect=&#34;sqlite_in_memory&#34; </span>the process will take place in memory.</p>
