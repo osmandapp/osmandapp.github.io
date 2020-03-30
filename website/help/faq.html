@@ -15,7 +15,7 @@
       <li><a href="#countour_lines_feet">Is there a way to have contour lines displayed in feet also, instead of meters?</a></li>
       <li><a href="#installation_issue">I can't install or upgrade the app</a></li>
       <li><a href="#uninstall_issue">I can't uninstall the app</a></li>
-      <li><a href="#reinstalling">I uninstalled the app/I'm using a new device. Do I have to OsmAnd again?</a></li>
+      <li><a href="#reinstalling">I uninstalled the app/I'm using a new device. Do I have to buy OsmAnd again?</a></li>
       <li><a href="#restore_purchases">How to restore purchases on iOS</a></li>
     </ul>
 
@@ -527,6 +527,10 @@
           <li>ANDROID_SDK = path to android sdk (currently compileSdkVersion, buildToolsVersion 27)</li>
           <li>ANDROID_NDK = path to android ndk (currently android-ndk-r17b")</li>
       </p>
+      <p># The ANDROID_SDK and ANDROID_HOME are where Android studio placed stuff<br>
+        <TT>export ANDROID_SDK=/[your-path]/Android/sdk<br>
+        export ANDROID_NDK=/[your-path]/android-ndk-r17b<br>
+        export ANDROID_HOME=/[your-path]/Library/Android/sdk</TT></p>
       <p>You can also use our <a href="https://github.com/osmandapp/Osmand/tree/master/keystores">debug.keystore</a>
         to make builds compatible with nightly build.</p>
       <p><b>Gradle</b>: cd android/OsmAnd && ../gradlew cleanNoTranslate assembleFreedevLegacyFatDebug </p>
