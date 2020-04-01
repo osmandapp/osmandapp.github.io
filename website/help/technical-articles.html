@@ -6,7 +6,6 @@
       <li><a href="#Creating_a_Consistent_User_Experience">Creating a consistent user experience</a></li>
       <li><a href="#How_to_Translate_.60OsmAnd.60_-_We_Need_Your_Assistance.21">How to translate OsmAnd - we need your assistance!</a></li>
       <li><a href="#What_Languages">What languages will be included in OsmAnd ?</a></li>
-      <li><a href="#Install_Development_Environment">How to install the development environment</a></li>
       <li><a href="#Documentation_of_.60OsmAnd.60_Settings_Development">Documentation of OsmAnd settings development</a></li>
       <li class="toclevel-2"><a href="#Voice_Routing_-_Current_Status_.28by_Hardy.29">Voice Routing - Current Status (by Hardy)</a></li>
       <li class="toclevel-2"><a href="#BackgroundRecording">Background Track Recording - Strategies and Known Issues</a></li>
@@ -114,86 +113,12 @@
   <div class="question">
     <div class="subtitle" id="Documentation_of_.60OsmAnd.60_Settings_Development">Documentation of OsmAnd Settings Development</div>
     <div class="content">
-      <p>Hardy&#39;s documentation on OsmAnd UI/Settings development
-      <div class="blocksubtitle">2011-12</div>
-      <ul class="list">
-        <li> <a href="http://code.google.com/p/osmand/issues/detail?id=772">Documentation of Osmand settings and setting defaults (Issue 772)</a></li>
-        <li> <a href="http://code.google.com/p/osmand/issues/detail?id=794">New settings structure, and display all &#39;current settings&#39;, and use profile colors (Issue 794)</a></li>
-        <li> <a href="http://code.google.com/p/osmand/issues/detail?id=794#c32">Latest document 2012-02-10</a></li>
-      </ul>
-      <div class="blocksubtitle">2012-09</div>
-      <ul class="list">
-        <li> <a href="http://code.google.com/p/osmand/issues/detail?id=1356">Settings structure and default values (Issue 1356)</a>, after Define View and Configure screen (widgets) has been moved from settings to map screen menus</li>
-        <li> <a href="http://code.google.com/p/osmand/issues/detail?id=1356#c2">Status 2012-09-05</a></li>
-        <li> <a href="http://code.google.com/p/osmand/issues/detail?id=1356#c4">Latest document 2013-05-22</a></li>
-      </ul>
-      <p class="back_to_top"><a href="#top">Back to top</a></p>
+        <p>This requires a complete rewrite.</p>
+        <p class="back_to_top"><a href="#top">Back to top</a></p>
     </div>
   </div>
 
-  <div class="question">
-    <div class="subtitle" id="Install_Development_Environment">How to install the development environment</div>
-    <div class="content">
-      <div class="blocksubtitle">Introduction</div>
-      <p>The installation is not very difficult, here are the things you are required :</p>
-      <ul class="list">
-        <li> Java - 1.6, 1.7, 1.8 (compile target is 1.6!)</li>
-        <li> Android Studio</li>
-        <li> Android SDK</li>
-        <li> Optionally Andriod NDK (native code)</li>
-        <li> Downloads : tile maps, osm (osm.bz2) vector map depends on the area you want to work to. For country Belarus (Minsk) you can download directly from the &#34;downloads&#34;</li>
-      </ul>
-      <div class="blocksubtitle">Details</div>
-      <p><a href="https://jdk6.dev.java.net">Java 1.6</a> is required. Download jdk to get source code of base java classes</p>
-      <p><a href="http://developer.android.com/sdk/installing/index.html">Android SDK</a> is required. You will need two versions 1.6 and 2.2</p>
-      <p>(Optional) <a href="http://developer.android.com/tools/sdk/ndk/index.html">Android NDK</a> is required if you want to change and compile native code.</p>
-      <p>You can download Android Studio <a href="https://developer.android.com/studio/index.html">here</a>. </p>
-      <p> To see results how you are working you also need map data : </p>
-      <ul class="list">
-        <li>  To create tile maps you can use (MobileAtlasCreator) : create tiles for OSMtracker  tile storage (now &#39;Mapnik&#39; as source map is hardcoded), please use it.</li>
-        <li>  You can find osm map for country through special sites. You can download small part of osm for town through JOSM (as example).</li>
-        <li>  You also can use Internet : both swing application &#38; android application can download tiles by itself from Internet.</li>
-      </ul>
-      <p>Setup the Environment Variables (e.g. in ~/.bash_profile):</p>
-      <pre>
-        # The ANDROID_SDK and ANDROID_HOME are where Android studio placed stuff 
-        export ANDROID_SDK=/[your-path]/Android/sdk 
-        export ANDROID_NDK=/[your-path]/android-ndk-r10e 
-        export ANDROID_HOME=/[your-path]/Library/Android/sdk 
-        export JAVA_HOME=$(/usr/libexec/java_home -v 1.7) 
-      </pre>
-      
-      <p>Checkout the code and build it:</p>
-      <pre>
-        $ mkdir Osmand 
-        $ cd Osmand 
-        
-        $ git clone https://github.com/osmandapp/OsmAnd-resources.git
-        # Rename the ressources
-        mv OsmAnd-resources/ resources 
-        
-        # Checkout the Source Code
-        $ git clone https://github.com/osmandapp/Osmand.git
-        
-        # Build the repo on the commandline to make sure everything works as expected
-        $ cd OsmAnd
-        $ ./gradlew --refresh-dependencies clean assembleFullLegacyFatDebug 
-        
-        # Make sure that you see: BUILD SUCCESSFUL
-      </pre>
-      <p>Finally import the build.gradle file from the OsmAnd directory into Android Studio</p>
-      <p> You can make your <a href="https://help.github.com/articles/fork-a-repo">fork</a> on github and work with it and do <a href="https://help.github.com/articles/using-pull-requests">pull-requests</a> to publish your work in OsmAnd&#39;s repository.</p>
-      
-      <div class="blocksubtitle">Config Application</div>
-      <p> You can run OsmExtractionUI.class and it is OsmAndMapCreator</p>
-      <p> If you want to enable logging - do not forget to put Java VM arg</p>
-      <pre>-Djava.util.logging.config.file=&#8203;logging.properties</pre>
-      <p>After that you can try to run Swing (standalone) application to see whatever result.</p>
-      <p>After that you should have installed the development environment on your machine.</p>
-      <p class="back_to_top"><a href="#top">Back to top</a></p>
-    </div>
-  </div>
-
+ 
   <div class="question">
     <div class="subtitle" id="Voice_Routing_-_Current_Status_.28by_Hardy.29">Voice Routing - Current Status (by Hardy)</div>
     <div class="content">
@@ -466,9 +391,7 @@ _echo date > endtime.txt_
       <p>If you have your _process directory_for_osm_files_ on one disk and your _directory_for_generation_ on another disk you will see an nice and noticeable performance gain.</p>
       <div class="blocksubsubtitle">In memory processing</div>
       <p>You can do a great deal of the map creation not on disk but in memory. In your batch.xml one of the top lines contains:</p>
-      <pre>
-<process_attributes mapZooms="" renderingTypesFile="" zoomWaySmoothness="" osmDbDialect="sqlite" mapDbDialect="sqlite"/>
-      </pre>
+      <span class="code">&lt;process_attributes mapZooms="" renderingTypesFile="" zoomWaySmoothness="" osmDbDialect="sqlite" mapDbDialect="sqlite"/&gt;</span>
       <p>The <span class="code">osmDbDialect=&#34;sqlite&#34; mapDbDialect=&#34;sqlite&#34;</span> determines where your map generation process will take place.</p>
       <p>The line <span class="code">osmDbDialect=&#34;sqlite&#34; mapDbDialect=&#34;sqlite&#34;</span> means that it will take place on disk.</p>
       <p>If you change this to <span class="code">osmDbDialect=&#34;sqlite_in_memory&#34; mapDbDialect=&#34;sqlite_in_memory&#34; </span>the process will take place in memory.</p>
