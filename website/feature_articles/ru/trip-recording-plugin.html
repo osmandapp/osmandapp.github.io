@@ -8,6 +8,7 @@
 <li><a href="#GPX_split_interval">Интервал разбиения трека GPX</a></li>
 <li><a href="#Online_tracking">Онлайн трекинг</a></li>
 <li><a href="#Save_navigation_to_GPX_tracks">Сохранение навигационных маршрутов как треков GPX</a></li>
+<li><a href="#Troubleshoot_trip_recording">Возможные решения проблем с записью треков GPX (Android)</a></li>    
 </ul>
 </div>
 <p>Плагин OsmAnd Запись поездки - незаменимый инструмент для спортсменов, активных людей и туристов. Данная функция позволяет вам записывать ваше перемещение с помощью GPS телефона (и через другие сети при необходимости). Если вы собрались на пробежку или вам необходимо просмотреть весь маршрут после прогулки по городу или измерить пройденное вами расстояние, плагин вам в помощь.</p>
@@ -95,5 +96,32 @@
 <img src="/images/features/navigation_17.jpg" alt="(Image not available offline)"/>	
 <img src="/images/features/navigation_18.jpg" alt="(Image not available offline)"/>	
 <img src="/images/features/navigation_19.jpg" alt="(Image not available offline)"/>	
+<div style="clear:both;"></div>	
+</div>	
+
+<div class="subtitle" id="Troubleshoot_trip_recording"><h2>Возможные решения проблем с записью треков GPX (Android)</h2></div>
+
+<div class="blocksubtitle">Недостающие точки/сегменты</div>
+
+<p>Иногда при записи вы пропускаете точки/отрезки, как на скриншоте ниже (синие стрелки).</p>
+<div class="centeredimageblog">
+<img src="/images/features/trip_rec_troubleshoot1.jpg" alt="(Image not available offline)"/>
+<div style="clear:both;"></div>	
+</div>	
+
+<p>Наиболее распространенная причина этого - «Минимальная точность» в настройках записи поездки (см. Ниже). <br>
+Очень заманчиво установить «Минимальную точность» примерно на 5 или 10 метров, но если у вас телефон в кармане брюк или блузки, точность часто составляет > 5 метров, поэтому лучше выбирайте точность > 10 метров. В противном случае точки не будут записаны. Точность равна 68% вероятности того, что координата попадает в круг с радиусом х метров.</p>
+<div class="centeredimageblog">
+<img src="/images/features/trip_rec_troubleshoot2.jpg" alt="(Image not available offline)"/>
+<div style="clear:both;"></div>	
+</div>	
+
+<div class="blocksubtitle">Только небольшая часть маршрута записана</div>
+
+<p>Наиболее вероятная причина этого - «Оптимизация батареи». <i>
+На вашем телефоне зайдите в Настройки -> Аккумулятор. Выберите меню с тремя точками в правом верхнем углу и выберите «Battery Optimization». OsmAnd не должен быть оптимизирован. Если он оптимизирован, он может быть остановлен/приостановлен вашим Android во время записи трека.</i></p>
+<p>Примечание: отключение оптимизации батареи может/сократит срок службы батареи.</p>
+<div class="centeredimageblog">	
+<img src="/images/features/trip_rec_troubleshoot3.jpg" alt="(Image not available offline)"/><img src="/images/features/trip_rec_troubleshoot4.jpg" alt="(Image not available offline)"/>
 <div style="clear:both;"></div>	
 </div>	
