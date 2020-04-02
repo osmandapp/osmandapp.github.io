@@ -2,10 +2,10 @@
 <div class="toc">
 <ul class="list">
 <li><a href="#Planning_your_trip_with_Navigation_option">Planning your trip with Navigation option</a></li>
-<li><a href="#Public_transport_Navigation">Navigation on public transport</a></li>
+<li><a href="#Public_transport_Navigation">Navigation on public transport (Android)</a></li>
 <li><a href="#Planning_trip_using_GPX_track">Planning your trip using GPX track</a></li>
 <li><a href="#Additional_info">Additional info in the Route details</a></li>
-<li><a href="#measure-distance">Measure distance</a></li>
+<li><a href="#measure-distance">Measure distance (Android)</a></li>
 <li><a href="#Route_from_Favorites">Making a route from Favorites</a></li>
 <li><a href="#Trip_planning_iOS">Trip planning for iOS</a></li>
 </ul>
@@ -15,12 +15,16 @@
 <p>You can create a new route using the Navigation option of the app. This tool is designed to help you find an optimal route according to your vehicle, personal requirements, etc. You can choose a car, bicycle, pedestrian mode and etc., choose to avoid certain types of roads, etc. As soon as the route is built, you'll get a turn-by-turn <a href="https://osmand.net/features/start#Voice_prompts">voice guidance</a>.
 If you'd like to save the track of your movement, just turn <a href="https://osmand.net/features/trip-recording-plugin">the Trip recording plugin</a> on and start a new GPX track before you proceed.</p>
 <a href="http://osmand.net/features?id=navigation">Read about Navigation</a>
+
 <div class="centeredimageblog">
-<img src="/images/features/navigation_1.jpg" alt="(Image not available offline)"/>
-<img src="/images/features/navigation_4.jpg" alt="(Image not available offline)"/>
+<img src="/images/features/pltr1.jpg" alt="(Image not available offline)"/>
+<img src="/images/features/pltr2.jpg" alt="(Image not available offline)"/>
 <div style="clear:both;"></div>
 </div>
-<div class="subtitle" id="Public_transport_Navigation"><h2>Navigation on public transport: Metro, Buses, Tram and so on.</h2></div>
+
+
+<div class="subtitle" id="Public_transport_Navigation"><h2>Navigation on public transport: Metro, Buses, Tram and so on. (for Android)</h2></div>
+
 <p>You can navigate in your city by public transport with OsmAnd. We use the latest New Public Transport Schema that is also called Public Transport Version 2 (PTv2) for our Public Transport navigation algorithm. You can check your public transport <a href="http://tools.geofabrik.de/osmi/">here</a>. <a href="https://osmand.net/blog/guideline-pt">Guidelines on how to build or correct public transport routes </a>is provided in our blog.</p>
 </ul> 
 <div class="centeredimageblog">
@@ -30,27 +34,107 @@ If you'd like to save the track of your movement, just turn <a href="https://osm
 <img src="/images/blog/3.3/pt_4_blog.png"/>
 <div style="clear:both;"></div>
 </div>
+
+<p>Video about public transport navigation in OsmAnd:</p>
+<iframe width="1519" height="554" src="https://www.youtube.com/embed/SPab09kaWPc" frameborder="0" allowfullscreen></iframe>
+
+
 <div class="subtitle" id="Planning_trip_using_GPX_track"><h2>Planning your trip using GPX track</h2></div>
-<p>You may want to follow a certain GPX track created before. Whether it is your own track or you've downloaded it, it's easy to do. Just go to the Navigation menu by tapping Navigation button, then choose Settings - GPX route. You'll be able to select a GPX track to follow. Tap Go and start your trip.</p>
+
+<p>You may want to follow a certain GPX track created before. Whether it is your own track or you've downloaded it, it's easy to do. <b>For Android version</b>, just go to the Navigation menu by tapping <i>Navigation button</i>, then choose <a href="https://osmand.net/features/navigation#Save_navigation_route_GPX_file"><i>Options-> GPX route</i></a>. <b>For iOS version</b>, go to the Navigation menu by tapping <i>Navigation button</i>, then choose <a href="https://osmand.net/features/navigation#Save_navigation_route_GPX_file_iOS"><i>Options-> Follow trip</i></a>. You'll be able to select a GPX track to follow. Tap Go and start your trip.</p>
+
 <a href="http://osmand.net/features?id=trip-recording-plugin">Recording your trip</a>
-<div class="centeredimageblog">
-<img src="/images/features/trip_rec4.jpg" alt="(Image not available offline)"/>
-<img src="/images/features/trip_rec3.jpg" alt="(Image not available offline)"/>
-<div style="clear:both;"></div>
-</div>
 
 <p>Video tutorial:</p>
 <iframe width="900" height="506" src="https://www.youtube.com/embed/mMcw4kYmfPk" frameborder="0" allowfullscreen></iframe>
 
+
 <div class="subtitle" id="Additional_info"><h2>Additional info in the Route details</h2></div>
-<p>While building a route,  you can view information about the road itself like <b>road types, surface, steepness and smoothness</b> which will help you in understanding the road conditions of your route. You can read more about details of the recorded GPX routes <a href="https://osmand.net/blog/osmand-2-6-released#details">here</a>.</p>
-</ul>
+
+<p>After the route is built, you can press <a href="https://youtu.be/UXpvjE1vmbI?t=178">the "Details" button</a> (Android and iOS versions), which hides the additional graphs.</p>
+
 <div class="centeredimageblog">
-<img src="/images/blog/3.3/pt_8_blog.png"/>
-<img src="/images/blog/3.3/pt_9_blog.png"/>
+<img src="/images/blog/routeinfo/1.png"/>
+<img src="/images/blog/routeinfo/1a.jpg"/>
 <div style="clear:both;"></div>
 </div>
-<div class="subtitle" id="measure-distance"><h2>Measure distance</h2></div>
+
+<p>There are <i>Road types, Surface, Smoothness, Steepness, Surface firmness (Tracktype), Winter, and ice roads available</i>. The graphs are interactive and synchronized with one another and the route overview map.</p>
+
+<div class="centeredimageblog">
+<img src="/images/blog/routeinfo/2.png"/>
+<img src="/images/blog/routeinfo/3.png"/>
+<img src="/images/blog/routeinfo/4.png"/>
+<img src="/images/blog/routeinfo/5.png"/>
+<img src="/images/blog/routeinfo/7.png"/>
+<div style="clear:both;"></div>
+</div>
+
+<p><b>Note</b>: when you click on the graph, the cursor is displayed where you tap, and in the legend below the current chart element is highlighted in bold. You can also zoom in on the part of the graph using the pinch/pinch gesture. In this case, the other graphs will also change the display boundaries.</p>
+
+<div class="centeredimageblog">
+<img src="/images/blog/routeinfo/6.png" alt="(Image not available offline)"/>
+<img src="/images/blog/routeinfo/6a.jpg" alt="(Image not available offline)"/>
+<div style="clear:both;"></div>
+</div>
+
+<p>On the overview map of the route, which is located at the very top of the screen, the scale will be changed so that the entire section of the path displayed on the graphs is currently displayed.</p>
+
+<p><b>Note</b>: If the graphic does not contain any data, it is not displayed.</p>
+
+<p>You can set your custom graphics by <a href="https://osmand.net/help/docs/Custom_Rendering_How-To.html">editing the map style</a>. Graphics settings are dependant on the map style. For example, Surface graphic displays different colors of <a href="https://osmand.net/features/start#Types_maps">OsmAnd (default) and Topo map styles</a>.</p>
+
+<p>Here is an example of a style that depends on the standard OsmAnd style and adds a street lighting scheme:</p>
+
+<p>__________________________________</p>
+<p><i>
+<xmp>
+<renderingStyle name="Depends-template" depends="default" defaultColor="#f1eae4" version="1">
+
+    <renderingProperty attr="appMode" name="Rendering mode" description="Map optimization for respective User Profile"
+   	 type="string" possibleValues="browse map,car,bicycle,pedestrian"/>
+
+    <renderingConstant name="null" value="#00000000"/>
+
+    <renderingAttribute name="litYesColor">
+   	 <case nightMode="true" attrColorValue="#99aeae00"/>
+   	 <case attrColorValue="#66ffeb00"/>
+    </renderingAttribute>
+    <renderingAttribute name="litNoColor">
+   	 <case nightMode="true" attrColorValue="#99d91500"/>
+   	 <case attrColorValue="#88ff0000"/>
+    </renderingAttribute>
+
+    <renderingAttribute name="routeInfo_street_lighting"> <!-- Used in route details info -->
+   	 <case additional="lit=yes" attrColorValue="$litYesColor" attrStringValue="lit_no"/>
+   	 <case additional="lit=no" attrColorValue="$litNoColor" attrStringValue="lit_yes"/>
+    </renderingAttribute>
+
+    <order>
+    </order>
+
+    <text>
+    </text>
+
+    <point>
+    </point>
+
+    <polygon>
+    </polygon>
+
+    <line>
+    </line>
+</renderingStyle>
+</xmp>
+</p></i>
+
+<p>__________________________________</p>
+
+<p>The list of data available for display is available in the routing category of <a href="https://github.com/osmandapp/OsmAnd-resources/blob/master/obf_creation/rendering_types.xml#L5666">this file</a>. <xmp>(<category name="routing">)</xmp> </p>
+
+
+<div class="subtitle" id="measure-distance"><h2>Measure distance (Android)</h2></div>
+
 <p>'Measure distance' is a convenient tool allowing you to measure distances between multiple points on the map - both connected by straight lines or by calculated routes.</p>
 <p>This feature is also very convenient for your trip planning: add the points you'd like to visit to the map, calculate routes between them or just connect them with straight lines if you only need a general understanding of the trip, then export the results as a GPX track and follow it later.  Please learn how to export your points as a GPX file here:</p>
 <a href="http://osmand.net/features?id=measure-distance">Read about the 'Measure distance' feature</a>
@@ -62,24 +146,30 @@ If you'd like to save the track of your movement, just turn <a href="https://osm
 
 <div class="subtitle" id="Route_from_Favorites"><h2>Making a route from Favorites</h2></div>
 <div class="blocksubtitle">Android</div>
-<p>You can join your favorites into a route. This is especially handy on vacations and trips to new places: add the points you'd like to visit to Favorites and then build a route covering them all. To do that, just go to My places - My favorites and tap the flag icon in the bottom. Now you can choose the locations to visit. After that, tap the flag icon once again. You'll see them all as map markers on the top of the screen. Tap the &#8942; button to add them to the route. You can also sort the markers from closest to you to the farthest or vice versa. To order markers or change the order, just tap the right upper button on the map markers screen. You can also add waypoints after the route is calculated. Just tap on the map and choose Add as last intermediate waypoint. You'll be able to arrange the waypoints after that. Choose your starting point in the navigation menu. You can start the route from your current position, a Favorite on the map, the point on map you select or a particular address.</p>
-<div class="centeredimageblog">
-<img src="/images/features/fav_3.jpg" alt="(Image not available offline)"/>
-<img src="/images/features/fav_2.jpg" alt="(Image not available offline)"/>
-<img src="/images/features/fav_1.jpg" alt="(Image not available offline)"/>
-<div style="clear:both;"></div>
-</div>
+
+<p>You can join your <a href="https://osmand.net/features/favourites#View_favorites_on_map_android">favorites into a route</a>. This is especially handy on vacations and trips to new places: add the points you'd like to visit to Favorites and then build a route covering them all. To do that, just go to <i>My places-> My favorites</i> and tap the flag icon in the bottom. Now you can choose the locations to visit. After that, tap the flag icon once again. You'll see them all as <a href="https://osmand.net/features/map-markers#markers_favorites_A">map markers</a> on the top of the screen. Tap the &#8942; button to add them to the route. You can also sort the markers from closest to you to the farthest or vice versa. To order markers or change the order, just tap the right upper button on the map markers screen. You can also <a href="https://osmand.net/features/navigation#How_to_add_remove_waypoints">add waypoints</a> after the route is calculated. Just tap on the map and choose Add as last intermediate waypoint. You'll be able to arrange the waypoints after that. Choose your starting point in the navigation menu. You can start the route from your current position, a Favorite on the map, the point on map you select or a particular address.</p>
+
 <div class="blocksubtitle">iOS</div>
-<p>To add your favorites as waypoints, you'll need to go to My trips - Create new trip, and then tap the Favorites manually to add them as waypoints. Then press Save.</p>
+
+<p>To add your <a href="https://osmand.net/features/favourites#View_favorites_on_map_ios">favorites as waypoints</a>, you'll need to go to <i>My places-> Trips-> Create new trip</i>, and then tap the Favorites manually to add them as waypoints. Then press Save.</p>
+<p>More information you can find <a href="https://osmand.net/features/favourites#Using_favorites_ios">here</a>.</p>
+<p>You can start the route from your current position, a Favorite on the map, the point on map you select or a particular address.</p>
+
+
 <div class="subtitle" id="Trip_planning_iOS"><h2>Trip planning for iOS</h2></div>
-<p>OsmAnd for iOS has a trip planning option. It allows you to save your waypoints and view their location. To create a new trip, enter the My trips menu, choose Create new trip and then add waypoints by making long taps. You can also add details to the waypoint, such as its name, color indicating this waypoint, its group (you can create a group of waypoints: work locations, favorite spots on town, etc.) and a description. Then hit Save. You'll be able to view your saved trip in Settings - My trips.</p>
+
+<p>OsmAnd for iOS has a trip planning option. It allows you to save your waypoints and view their location. To create a new trip, enter the My trips menu: <i>My Places-> Trips</i>, choose <i>Create new trip</i> and then add waypoints by making long taps. You can also add details to the waypoint, such as its name, color indicating this waypoint, its group (you can create a group of waypoints: work locations, favorite spots on town, etc.) and a description. Then hit Save. You'll be able to view your saved trip in <i>My Places-> Trips</i>.</p>
+
 <p>Try the route management menu to sort the points. Tap the 'Waypoints' button on the blue toolbar, then drag the waypoint you'd like to move higher on the list using the '≡' button or swipe that waypoint's name to the left and tap the arrow icon. You can also activate or deactivate waypoints to customize your route in this menu. Add an endless number of waypoints.</p>
+
 <p>Also, you can try navigation between two points. To do that, please select a starting point and a destination and begin your trip. Adjust your route by pressing the gear wheel button and selecting the options you prefer or going to 'Navigation settings' menu.</p>
+
 <div class="centeredimageblog">
 <img src="/images/blog/ios-1.2.2/ios_2_1_1_13.jpg" alt="(Image not available offline)"/>
 <img src="/images/blog/ios-1.2.2/ios_2_1_1_14.jpg" alt="(Image not available offline)"/>
 <div style="clear:both;"></div>
 </div>
+
 <p>You'll see the added waypoints in an information bar on the top of the screen. Now you can view waypoints or delete them by pressing the '^' button at the information bar and swiping to the left. Tap the point you need to get to in order to see the distance to it and view its location on the map. Please note that the points are connected by straight lines and are meant to help you create a general understanding of the directions for your trip. Unfortunately, this tool does not provide navigation along the streets yet. However, you can try simple navigation between two points using the directions provided below. To mark a waypoint as visited, swipe the name of the waypoint left and press the checkmark button ('✓').</p>
 <div class="centeredimageblog">
 <img src="/images/blog/ios-2-0/navigat-1.png" alt="(Image not available offline)"/>
