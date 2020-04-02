@@ -62,7 +62,7 @@
       <ul class="list">
         <li> All translated strings are stored in  <a href="https://github.com/osmandapp/Osmand/tree/master/OsmAnd/res">resources</a>, where you can check if there is already a &#39;values-{language}&#39; directory for your language, e.g. &#39;values-sk&#39; for Slovak.
         <li> Existing language files could be modified by editing the respective strings.xml file (requires a github account) as desired, but please use the easier way of prividing translations and corrections as described above. The master string data is kept in the <a href="https://github.com/osmandapp/Osmand/blob/master/OsmAnd/res/values/strings.xml">english strings.xml file</a>, please do also check out the hints I have added to the beginning of that file.
-        <li> To create a translation for a new OsmAnd language, download the <a href="https://github.com/osmandapp/Osmand/blob/master/OsmAnd/res/values/strings.xml">english strings.xml file</a>, translate it  and open an Issue at <a href="http://code.google.com/p/osmand/issues/list"><a href="http://code.google.com/p/osmand/issues/list">http://code.google.com/p/osmand/issues/list</a></a> (requires a google account) announcing that a translation has been created
+        <li> To create a translation for a new OsmAnd language, download the <a href="https://github.com/osmandapp/Osmand/blob/master/OsmAnd/res/values/strings.xml">english strings.xml file</a>, translate it  and open an Issue at <a href="https://github.com/osmandapp/Osmand/issues">Github</a></a> (requires an account) announcing that a translation has been created
         <li> The same applies to theswing_messages_{language}.properties files in <a href="https://github.com/osmandapp/Osmand/tree/master/DataExtractionOSM/src/net/osmand/swing">DataExtractionOsm</a> project if you want to translate the map data extractor
       </ul>
       <p>Please use these described methods rather than publishing changes to strings.xml as issues or e-mailing them to the OsmAnd group.</p>
@@ -73,16 +73,16 @@
       <pre>
         <string name="shared_string_save_as_gpx">Save as GPX track</string>
       </pre>
-      Translate only the &#39;Save route as GPX track&#39; part. In the swing_messages.properties the strings looks like: 
+      Translate only the <i>&#39;Save route as GPX track&#39;</i> part. In the swing_messages.properties the strings looks like: 
       <pre>IndexCreator.INDEX_CITIES=Indexing cities...</pre>
-      Translate only the right part &#39;Indexing cities...&#39;</p>
+      Translate only the right part <i>&#39;Indexing cities...&#39;</i></p>
       <br/>
       <p>Q: I don&#39;t want to create github or googlecode account, can I still post you the file?*</p>
       <p>A: Yes, you can email the file, but still for us is the best way to use the github, it is easy.</p>
       <br/>
       <p>Q: How should I check what has changed in the _english strings.xml_ ?*
       <p>
-      <p>A: New strings are added always on the top of the file. You can download the english file, your file and use some utility like pspad, or vim, or whatever you like to compare them for the new keys. You can also *<a href="https://github.com/osmandapp/Osmand/blame/master/OsmAnd/res/values/strings.xml">blame</a>* the english file to see the last line modifications </p>
+      <p>A: New strings are added always on the top of the file. You can download the english file, your file and use some utility like pspad, or vim, or whatever you like to compare them for the new keys. You can also *<a href="https://github.com/osmandapp/Osmand/blame/master/OsmAnd/res/values/strings.xml">blame</a>* the english file to see the last line modifications.</p>
       <p class="back_to_top"><a href="#top">Back to top</a></p>
     </div>
   </div>
@@ -92,7 +92,7 @@
     <div class="content">
 	<blockquote>Dear translators,
 <p>
-<p>Thank you all very much for your efforts to complete our display language translations, and also to localize OsmAnd in more and more languages on <a href="https://hosted.weblate.org/projects/osmand/">Weblate</a>.!
+<p>Thank you all very much for your efforts to complete our display language translations, and also to localize OsmAnd in more and more languages on <a href="https://hosted.weblate.org/projects/osmand/">Weblate</a>!
 <p>
 <p>Please note the following: I am happy to include in OsmAnd&#39;s display language selection menu any new language with >10% translation rate, (will mark it as "incomplete" until it reaches ~80%). Please post an issue with OsmAnd if you need this done, I only sporadically watch these figures on Weblate.
 <p>
@@ -553,14 +553,14 @@ _echo date > endtime.txt_
       <div>boundary -&#62; 0..** city (used to define suburb of city)</div>
       <ol class="list">
         <li>
-          <p>iterate all Osm NODEs and register as cities if the tag = PLACE is present.</p>
+          <p>iterate all Osm NODEs and register as cities if the tag = PLACE is present:</p>
           <ul>
             <li> extract cities (TOWN, CITY)</li>
             <li> extract villages (anything else)</li>
           </ul>
         </li>
         <li>
-          <p>iterate all RELATIONs and WAYs with type=boundary and register all boundaries</p>
+          <p>iterate all RELATIONs and WAYs with type=boundary and register all boundaries:</p>
           <ul>
             <li>boundary is called Entity (way or relation) with tag &#39;boundary=administrative&#39; or with tag &#39;place=...&#39;</li>
             <li>boundary should be admin_level &#62; 4 or not have an admin_level.</li>
@@ -569,7 +569,7 @@ _echo date > endtime.txt_
             <li>boundary exactly matches by name city node and the city node falls within the boundary</li>
             <li>boundary matches start, end or substring by name city node and city node falls within the boundary</li>
           </ul>
-          <p>Many boundaries can be associated with one city. Here is the order on how the most important boundary is taken and associated with the city</p>
+          <p>Many boundaries can be associated with one city. Here is the order on how the most important boundary is taken and associated with the city:</p>
           <ul>
             <li>Boundary is matched by name exactly and has the tag place</li>
             <li>Boundary is matched by name exactly and has admin_level 8 &#62; 7 &#62; 6 &#62; 9 &#62; 10 &#62; 5... or nothing</li>
@@ -593,7 +593,6 @@ _echo date > endtime.txt_
             <li>if we have city and street, register it to database:</li>
             <ul>
               <li>for streetregistration, see: register street for a city</li>
-              <li>
                 <ul>
                   <li>if street is registered, and we are processing street:</li>
                   <li>iterate over all relation members:</li>
@@ -610,22 +609,18 @@ _echo date > endtime.txt_
                 <p>register street (street, location of street (los), cities):</p>
                 <p> Note: we might register a street to more cities = this means, the street can be in nested areas, suburb, city, hamlet, etc... For each area, we want to register the street it is in.</p>
               </li>
-              <li>
                 <ul>
                   <li>for each city:</li>
                   <ul>
                     <li>find existing street registration within the city:</li>
-                    <li>
                       <ul>
                         <li>if street exists:</li>
-                        <li>
                           <ul>
                             <li>if citypart is unknown -&#62; update the existing street's city part</li>
                             <li>try to find city Part for our street, and lookup the street again</li>
                           </ul>
                         </li>
                         <li>if street does not exist: (might change after the lookup)</li>
-                        <li>
                           <ul>
                             <li>register the street for city, city part, location, and street name</li>
                           </ul>
@@ -640,7 +635,7 @@ _echo date > endtime.txt_
                 <li>find close cities to the street</li>
                 <li>if the street is in the boundary of the city, add the city for search</li>
                 <li>if no city was find, using boundary, find closest city for the street</li>
-                <li>:register street: for the found cities</li>
+                <li>register street: for the found cities</li>
               </ul>
             </ul>
           </ul>
@@ -656,7 +651,7 @@ _echo date > endtime.txt_
               </ul>
             </li>
             <li>
-              <p>for any entity, find addr:housenumber and addr:street tag (can also be the interpolation of nodes again!!!)</p>
+              <p>for any entity, find addr:housenumber and addr:street tag (can also be the interpolation of nodes again!!!):</p>
               <ul>
                 <li>skip if building for this entity already exists!</li>
                 <li>findOrRegister streets for the street</li>
@@ -681,12 +676,10 @@ _echo date > endtime.txt_
           </ol>
         </li>
         <li>
-          <p>process post codes</p>
+          <p>process post codes:</p>
           <ul>
-            <li> for each stored postal_code relation</li>
-            <ul>
-              <li>for each building member, update the postal_code</li>
-            </ul>
+            <li>for each stored postal_code relation</li>
+            <li>for each building member, update the postal_code</li>
           </ul>
         </li>
         <li>
