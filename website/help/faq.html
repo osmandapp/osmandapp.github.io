@@ -55,7 +55,8 @@
     <div class="subtitle">Development and Testing</div>
     <ul class="list">
       <li><a href="#dev-environment">How to setup development environment?</a></li>
-      <li><a href="#dev-compile-android">How to compile Android version (Gradle / Android Studio)?</a></li>      
+      <li><a href="#dev-compile-android">How to compile Android version (Gradle / Android Studio)?</a></li>  
+      <li><a href="#dev-compile-ios">How to compile iOS version?</a></li>     
       <li><a href="#development">OsmAnd Development</a></li>
       <li><a href="#intents">What intents does OsmAnd listen to?</a></li>
       <li><a href="#map_creator">Creating own maps and OsmAndMapCreator</a></li>
@@ -561,6 +562,54 @@
         to make builds compatible with nightly build.</p>
       <p><b>Gradle</b>: cd android/OsmAnd && ../gradlew cleanNoTranslate assembleFreedevLegacyFatDebug </p>
       <p><b>Android Studio</b>: import android project and choose flavor 'assembleFreedevLegacyFatDebug'.</p>
+    </div>
+  </div>
+
+ <div class="question">
+    <div class="subtitle" id="dev-compile-ios">How to compile iOS version?</div>
+    <div class="content">
+
+   <ol type="a">
+      <li> Install XCode (not BETA!)</li>
+
+      <li> <p>Install command-line tools:</p>
+      <xmp>$ xcode-select --install</xmp></li>
+
+      <li> <p><a href="https://github.com/Kitware/CMake/releases/download/v3.11.2/cmake-3.11.2-Darwin-x86_64.dmg">Install cmake</a> (exactly this version!)</p>
+      <p>Add this line to your .zshrc file: <i>PATH="/Applications/CMake.app/Contents/bin":"$PATH"</i></p>
+      <p>Reload your .zshrc file: <i>source ~/.zshrc</i></p>
+      <p>Verify everything works: <i>cmake --version</i></p></li>
+
+      <li> <p><a href="https://brew.sh">Install brew</a></p>
+      <p>Run: <i>/usr/bin/ruby -e "$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/master/install">https://raw.githubusercontent.com/Homebrew/install/master/install</a>)"</i></p></li>
+
+      <li> <p>Install imagemagick with librsvg</p>
+      <p><i>brew install</i></p>
+      <p><i><a href="https://github.com/Homebrew/homebrew-core/raw/46a2ef7c9f0380b8e19f8dfe37270caa27581353/Formula/imagemagick.rb">https://github.com/Homebrew/homebrew-core/raw/46a2ef7c9f0380b8e19f8dfe37270caa27581353/Formula/imagemagick.rb</a> --with-librsvg</i></p></li>
+
+      <li>  mkdir OsmAnd && cd OsmAnd</li>
+
+      <li> <p>Clone manually or via google repo tool: <a href="https://github.com/osmandapp/OsmAnd-manifest/blob/master/jenkins_ios.xml">https://github.com/osmandapp/OsmAnd-manifest/blob/master/jenkins_ios.xml</a> --with-librsvg</p>
+
+<p><i>$ mkdir ~/bin</i></p>
+<p><i>$ PATH=~/bin:$PATH</i></p>
+<p><i>$ curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo</i></p>
+<p><i>$ chmod a+x ~/bin/repo</i></p>
+<p><i>$ repo init -u https://github.com/osmandapp/OsmAnd-manifest/blob/master/jenkins_ios.xml</i></p> 
+
+<p><b>after doing this, repo is installed, but "google repo tool couldn’t obtain manifest"</b></p>
+<p>if clone manually, in some cases “revision” is specified. You should use <i>git clone -b</i> 
+(ex: 
+<i>< project path="core-legacy" name="osmandapp/OsmAnd-core.git" revision="legacy_core" /></i></p>
+<p>must be:
+<i>git clone https://github.com/osmandapp/OsmAnd-core.git -b legacy_core core-legacy )</i></p>
+      </li>
+
+      <li> Run ./ios/prepare.sh</li>
+
+      <li> Open osmand.xcworkspace in XCode and build (the target should be -> OsmAnd Maps)</li>
+
+    </ol>
     </div>
   </div>
 
