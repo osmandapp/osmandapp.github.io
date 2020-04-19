@@ -18,7 +18,7 @@
 		{
 			"condition": {
    				"start_date": "17-04-2020 05:01",
-   				"end_date": "19-04-2020 23:59",
+   				"end_date": "19-04-2020 19:59",
 				"os": "android",
 				"lang" :"ru"
 			},
