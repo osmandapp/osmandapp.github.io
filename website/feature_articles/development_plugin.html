@@ -1,19 +1,75 @@
-<h1 id="Development_plugin">OsmAnd Development plugin</h1>
+<h1 id="Development_plugin">OsmAnd Development plugin (Anroid vesion only)</h1>
 <div class="toc">
 <ul class="list">
-<li><a href="#Route_simulation">Route simulation</a></li>
 <li><a href="#Settings">Settings</a></li>
+<li><a href="#Route_simulation">Route simulation</a></li>
 </ul>
 </div>
-<div class="subtitle" id="Route_simulation"><h2>Route simulation</h2></div>
-<p>OsmAnd development plugin is only necessary for developers. It allows you to simulate navigation routes, check screen rendering performance, etc.</p>
-<p>If you need to check how the routes are built, how voice guidance works, etc., you need to go to the dashboard, find Simulate your position card and tap Start simulation. You'll be able to either build a new route by selecting Simulate using calculated route or use a GPX track for that.</p>
-<p>To simulate a navigation route, you'll need to calculate a route first and then use this option.</p>
-<p>If you select the GPX variant, you'll be able to pick a track to follow.</p>
+
+<div class="subtitle" id="Settings"><h2>Settings</h2></div>
+
+<p>OsmAnd development plugin is only necessary for developers and experienced users. It allows you to simulate navigation routes, check screen rendering performance, etc.</p>
+
+<p>At first, you should go to the plugins menu, then choose <i>OsmAnd development</i> and tap Enable.</p>
+
 <div class="centeredimageblog">
-<img src="/images/features/develop_1.jpg"/>
-<img src="/images/features/develop_2.jpg"/>
+<img src="/images/features/dp1.jpg" alt="(Image not available offline)"/>
 <div style="clear:both;"></div>
 </div>
-<div class="subtitle" id="Settings"><h2>Settings</h2></div>
-<p>You can set which functions of the plugin you need. To do that, please go to Settings - Plugins - OsmAnd development and select Settings. There, you'll have the choice to turn on the display of rendering information which will give you a popup with that information every time the map is being rendered, several navigation options, you'll also be able to test voice prompts. Also, you'll see the 'Use magnetic value' option and some information that might be helpful.</p>
+
+<p>You can set which functions of the plugin you need. To do that, please go to <i>Plugins-> OsmAnd development</i> and select <i>Settings</i>.</p>
+
+<p>There, you'll have the choice to turn on the display of rendering information which will give you a popup with that information every time the map is being rendered, several navigation options, you'll also be able to test voice prompts.</p>
+
+<p>This settings menu has several sections:</p>
+
+      <ul>
+        <li> <i>Use OpenGl rendering</i>: use hardware accelerated OpenGL rendering</li>
+        <li> <i>Safe mode</i>: run the app in safe mode</li>
+      </ul>
+
+      <ul>
+      	<li> Navigation</li>
+        <li> <i>Disable complex routing</i>: disable two-phase routing for car navigation</li>
+        <li> <i>Smart route recalculation</i>: for long trips, only recalculate the initial part of the route</li>
+        <li> <i>OsmAnd Live navigation</i>: enable navigation for <a href="https://osmand.net/features/subscription">OsmAnd Live</a> changes</li>
+        <li> <i>OsmAnd Live public transport</i>: enable <a href="https://osmand.net/features/trip-planning#Public_transport_Navigation">public transport</a> for <a href="https://osmand.net/features/subscription">OsmAnd Live</a> changes</li>
+        <li> <i>Simulate your position</i>: simulate your position using a recorded GPX track</li>
+      </ul>
+
+      <ul>
+      	<li> OsmAnd development</li>
+        <li> <i>Rendering debug info</i>: display the rendering perfomance</li>
+        <li> <i>Simulate first app start</i>: sets the flag indicating first app startup, keeps all other settings unchanged</li>
+        <li> <i>Show free version banner</i>: display the free version banner even in the paid version</li>
+        <li> <i>Test voice prompts</i>: select a voice and test by playing announcements</li>
+        <li> <i>Logcat buffer</i>: check and share detailed logs of the application</li>
+      </ul>
+
+      <ul>
+      	<li> Info</li>
+        <li> <i>Allocated memory</i></li>
+        <li> <i>Total native memory</i></li>
+        <li> <i>A-GPS info</i></li>
+        <li> <i>Day/night info</i></li>
+      </ul>
+
+<div class="centeredimageblog">
+<img src="/images/features/dp2.jpg" alt="(Image not available offline)"/>
+<div style="clear:both;"></div>
+</div>
+
+<div class="subtitle" id="Route_simulation"><h2>Route simulation</h2></div>
+
+<p>If you need to check how the routes are built, how voice guidance works, etc., you need to go to the dashboard, find <i>Simulate your position</i> card and tap Start simulation. You'll be able to either build a new route by selecting Simulate using calculated route or use a GPX track for that.</p>
+<p>To simulate a navigation route, you'll need to calculate a route first and then click to <i>Options-> Simulate navigation</i> on your navigation screen. after that click to <i>Start</i> for simulate your navigation.</p>
+<p>If you select the GPX variant, you'll be able to pick a track to follow.</p>
+
+<div class="centeredimageblog">
+<img src="/images/features/dp3.jpg"/>
+<img src="/images/features/dp4.jpg"/>
+<div style="clear:both;"></div>
+</div>
+
+
+
