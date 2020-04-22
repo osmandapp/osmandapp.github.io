@@ -1350,6 +1350,12 @@ a::-moz-focus-inner {
   background-size: cover;
   background-position: center;
 }
+.feature.measure-distance {
+  background-image:url('/images/features/distance_3.png');
+    background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
 .feature.ruler {
   background-image:url('/images/features/rul_feat.png');
     background-repeat: no-repeat;
