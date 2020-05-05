@@ -58,30 +58,30 @@
 		},
 		{
 			"condition": {
-   				"start_date": "22-04-2020 05:01",
-   				"end_date": "29-04-2020 23:59",
+   				"start_date": "05-05-2020 05:01",
+   				"end_date": "06-05-2020 16:00",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "2-700",
 				"lang" :"fr"
 			},
-			"file": "discount_paid.json",
+			"file": "youtube.json",
 			"fields": {
-				"message": "Abonnement annuel à la VENTE!",
-				"description": "Obtenez votre abonnement annuel avec un rabais de -50%!"
+				"message": "Vidéo d'instruction OsmAnd",
+				"description": "Tout ce que vous vouliez savoir sur OsmAnd"
 			}
 		},
 		{
 			"condition": {
-   				"start_date": "22-04-2020 05:01",
-   				"end_date": "29-04-2020 23:59",
+   				"start_date": "05-05-2020 05:01",
+   				"end_date": "06-05-2020 16:00",
 				"os": "android",
 				"lang" :"fr"
 			},
-			"file": "discount.json",
+			"file": "youtube.json",
 			"fields": {
-				"message": "VENTE!",
-				"description": "Téléchargements de cartes illimités, courbes de niveau et abonnement annuel -50%!"
+				"message": "Vidéo d'instruction OsmAnd",
+				"description": "Tout ce que vous vouliez savoir sur OsmAnd"
 			}
 		},
 		{
