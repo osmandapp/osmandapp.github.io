@@ -139,14 +139,15 @@
 			<h3>Test Subscriptions</h3>
 			<table border="1">
 				<tr >
-				<th th:each="c : ${testSubReport.columns}" th:utext="${c.name}">
-				</th>
+					<th>Date</th>
+					<th th:each="c : ${testSubReport.columns}" th:utext="${c.name}"></th>
 				</tr>
-				<!--
-				<tr th:each="di : ${testSubReport.}">
-					<td th:utext="${di.a.annualCount + '<br>(-' + di.c.annualCount + ' +' + di.n.annualCount + ')'}">500</td>
+				
+				<tr th:each="i : ${testSubReport.values}">
+					<td th:utext="${i.key}">2019-03</td>
+					<td th:each="v : ${i.value}" th:utext="${v}"></th>
 				</tr>
-				-->
+				
 			</table>
 
 			<h3>New/Cancel Subscriptions</h3>
