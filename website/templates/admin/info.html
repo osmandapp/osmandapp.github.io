@@ -136,6 +136,18 @@
 				</tr>
 			</table>
 
+			<h3>Test Subscriptions</h3>
+			<table border="1">
+				<tr >
+				<th th:each="c : ${testSubReport.columns}" th:utext="${c.name}">
+				</th>
+				</tr>
+				<!--
+				<tr th:each="di : ${testSubReport.}">
+					<td th:utext="${di.a.annualCount + '<br>(-' + di.c.annualCount + ' +' + di.n.annualCount + ')'}">500</td>
+				</tr>
+				-->
+			</table>
 
 			<h3>New/Cancel Subscriptions</h3>
 			<table border="1">
