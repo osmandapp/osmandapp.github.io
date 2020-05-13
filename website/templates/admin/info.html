@@ -97,45 +97,6 @@
 			</table>
 
 
-			<h3>Active Subscriptions</h3>
-			<table border="1">
-				<tr>
-					<th>Date</th>
-					<th>All</th>
-					<th>A Y</th>
-					<th>A Y/2</th>
-					<th>A Q</th>
-					<th>A M</th>
-
-					<th>I Y</th>
-					<th>I Q</th>
-					<th>I M</th>
-					<th>Avg Rev</th>
-					<th>Y</th>
-					<th>Q</th>
-					<th>M</th>
-					<th>Total Rev</th>
-				</tr>
-				<tr th:each="di : ${subscriptionsReport}">
-					<td th:text="${di.date}">01.01.2018 00:00</td>
-					<td><b th:text="${di.a.count}">1000</b></td>
-					<td th:utext="${di.a.annualCount + '<br>(-' + di.c.annualCount + ' +' + di.n.annualCount + ')'}">500</td>
-					<td th:utext="${di.a.annualDiscountCount + '<br>(-' + di.c.annualDiscountCount + ' +' + di.n.annualDiscountCount + ')'}">300</td>
-					<td th:utext="${di.a.quarterCount + '<br>(-' + di.c.quarterCount + ' +' + di.n.quarterCount + ')'}">300</td>
-					<td th:utext="${di.a.monthCount + '<br>(-' + di.c.monthCount + ' +' + di.n.monthCount + ')'}">500</td>
-					<td th:utext="${di.a.iosAnnualCount + '<br>(-' + di.c.iosAnnualCount + ' +' + di.n.iosAnnualCount + ')'}">500</td>
-					<td th:utext="${di.a.iosQuarterCount + '<br>(-' + di.c.iosQuarterCount + ' +' + di.n.iosQuarterCount + ')'}">300</td>
-					<td th:utext="${di.a.iosMonthCount + '<br>(-' + di.c.iosMonthCount + ' +' + di.n.iosMonthCount + ')'}">500</td>
-
-					<td><b th:text="${'€ '+#numbers.formatInteger(di.a.annualValue*6/(10*12),0)}">700</b></td>
-					<td th:text="${'€ '+#numbers.formatInteger(di.a.valueOfAnnuals*6/10,0)}">700</td>
-					<td th:text="${'€ '+#numbers.formatInteger(di.a.valueOfQuarterly*6/10,0)}">700</td>
-					<td th:text="${'€ '+#numbers.formatInteger(di.a.valueOfMonthly*6/10,0)}">700</td>
-					<td><b th:text="${'€ '+#numbers.formatInteger((di.a.valueOfAnnuals+di.a.valueOfMonthly+di.a.valueOfQuarterly)*6/10,0)}">€ 700</b></td>
-
-				</tr>
-			</table>
-
 			<h3>Subscriptions Revenue by Month</h3>
 			<p>Data: <b>New</b> /// + Renew -Ended /// Revenue (New + Renew) /// New Expected revenue </p>
 			<table border="1">
