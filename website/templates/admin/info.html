@@ -164,58 +164,9 @@
 					<td th:each="v : ${i.value}" th:utext="${v.toString(0)}">
 						</th>
 				</tr>
-			
 			</table>
 
-			<h3>New/Cancel Subscriptions</h3>
-			<table border="1">
-				<tr>
-					<th>Date</th>
-					<th>+AM</th>
-					<th>+AQ</th>
-					<th>+AY</th>
-					<th>+AY/2</th>
-					<th>+IM</th>
-					<th>+IQ</th>
-					<th>+IY</th>
-					<th>+W All</th>					
-					<th>-M</th>
-					<th>-Q</th>
-					<th>-Y</th>
-					<th>-Y/2</th>
-					<th>-W All</th>
-					<th>-Sub days</th>
-					<th>-LTV</th>
-					<th>Total</th>
-					
-				</tr>
-				<tr th:each="di : ${newSubsReport}">
-					<td th:text="${di.date}">01.01.2018 00:00</td>
-					<td th:text="(${di.monthCount > 0}?'+':'')+${di.monthCount}">1000</td>
-					<td th:text="(${di.quarterCount > 0}?'+':'')+${di.quarterCount}">1000</td>
-					<td th:text="(${di.annualCount > 0}?'+':'')+${di.annualCount}">1000</td>
-					<td th:text="(${di.annualDiscountCount > 0}?'+':'')+${di.annualDiscountCount}">1000</td>
-					
-					<td th:text="(${di.iosMonthCount > 0}?'+':'')+${di.iosMonthCount}">1000</td>
-					<td th:text="(${di.iosQuarterCount > 0}?'+':'')+${di.iosQuarterCount}">1000</td>
-					<td th:text="(${di.iosAnnualCount > 0}?'+':'')+${di.iosAnnualCount}">1000</td>
-					
-					<td><b th:text="(${di.totalWeighted > 0}?'+':'')+ ${di.totalWeighted*6/(10*12)}">1000</b></td>
-					<td th:text="(${di.cancelMonthCount > 0}?'-':'')+ ${di.cancelMonthCount}">1000</td>
-					<td th:text="(${di.cancelQuarterCount > 0}?'-':'')+${di.cancelQuarterCount}">1000</td>
-					<td th:text="(${di.cancelAnnualCount > 0}?'-':'')+${di.cancelAnnualCount}">1000</td>
-					<td th:text="(${di.cancelAnnualDiscountCount > 0}?'-':'')+${di.cancelAnnualDiscountCount}">1000</td>
-					<td><b th:text="(${di.cancelTotalWeighted > 0}?'-':'')+${di.cancelTotalWeighted*6/(10*12)}">1000</b></td>
-					<td th:text="'-' + ${di.cancelTotalAvgDuration} + ' days'">-5 days</td>
-					<td th:text="'- €'  + ${di.cancelTotalLifeValue*6/10} + ' / ' +
-						(  ${di.cancelTotal==0}? '0': 
-						${#numbers.formatDecimal(di.cancelTotalLifeValue*6/(10.0*di.cancelTotal),0,2,'COMMA')} )">- € 50</td>
-						<!--  -->
-					<td><b th:text="${di.deltaWeighted*6/(10*12)}">1000</td>
-				</tr>
-			</table>
-
-			<h3>Year Subscriptions</h3>
+			<h3>Year Subscription Retention</h3>
 			<table border="1">
 				<tr>
 					<th>Date</th>
@@ -256,27 +207,6 @@
 				</tr>
 			</table>
 
-
-
-			<h3>Future expire subscriptions date:</h3>
-			<table border="1">
-				<tr>
-					<th>Date</th>
-					<th>Subs to expire</th>
-					<th>Avg duration</th>
-					<th>LTV</th>
-				</tr>
-				<tr th:each="di : ${futureCancelReport}">
-					<td th:text="${di.date}">01.01.2018 00:00</td>
-					<td th:text="${di.count}">1000</td>
-					<td th:text="${di.duration / di.count} + ' days'">1000</td>
-					<td th:text="' €' + 
-					${#numbers.formatDecimal(di.totalLifeValue*6/(10.0),0,2,'COMMA')}
-					+ ' / ' + 
-					${#numbers.formatDecimal(di.totalLifeValue*6/(10.0*di.count),0,2,'COMMA')}
-					">1000</td>
-				</tr>
-			</table>
 		</div>
 
 		<div id="giveaway" class="tab-pane fade">
