@@ -137,7 +137,7 @@
 			</table>
 
 			<h3>Subscriptions Revenue by Month</h3>
-			<p><b>>New</b> / + Renew -Ended / Revenue (New + Renew) / New Expected revenue </p>
+			<p>Data: <b>New</b> /// + Renew -Ended /// Revenue (New + Renew) /// New Expected revenue </p>
 			<table border="1">
 				<tr >
 					<th>Date</th>
@@ -149,6 +149,22 @@
 					<td th:each="v : ${i.value}" th:utext="${v}"></th>
 				</tr>
 				
+			</table>
+
+			<h3>Subscriptions Revenue by Day</h3>
+			<p>Data: <b>New</b> /// + Renew -Ended /// Revenue (New + Renew) /// New Expected revenue </p>
+			<table border="1">
+				<tr>
+					<th>Date</th>
+					<th th:each="c : ${subRevenueReportDay.columns}" th:utext="${c.name}"></th>
+				</tr>
+			
+				<tr th:each="i : ${subRevenueReportDay.values}">
+					<td th:utext="${i.key}">2019-03</td>
+					<td th:each="v : ${i.value}" th:utext="${v}">
+						</th>
+				</tr>
+			
 			</table>
 
 			<h3>New/Cancel Subscriptions</h3>
