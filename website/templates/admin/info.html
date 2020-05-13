@@ -152,7 +152,7 @@
 			</table>
 
 			<h3>Subscriptions Revenue by Day</h3>
-			<p>Data: <b>New</b> /// + Renew -Ended /// Revenue (New + Renew) /// New Expected revenue </p>
+			<p>Data: New - Expected Revenue /// Revenue (New + Renew)</p>
 			<table border="1">
 				<tr>
 					<th>Date</th>
@@ -161,7 +161,7 @@
 			
 				<tr th:each="i : ${subRevenueReportDay.values}">
 					<td th:utext="${i.key}">2019-03</td>
-					<td th:each="v : ${i.value}" th:utext="${v}">
+					<td th:each="v : ${i.value}" th:utext="${v.toString(1)}">
 						</th>
 				</tr>
 			
