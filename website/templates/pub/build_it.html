@@ -76,7 +76,7 @@
                 <li>speed (number that presents speed in kmh)
                 <li>priority (number between 0 and 1) - a multiplier to the speed and it is still bound to  maxSpeed, so minimum(speed * multiplier, maxSpeed) will be used for A*
                 <li>oneway (1, -1 or 0) - used to clarify access based on direction of the movement
-                <li>penalty_transition (penalty in seconds) - used to define penalty when user goes from high class road to low class road. For example, motorway - 10, trunk - 15, if user goes from trunk to motorway penalty will be 5 seconds (=15 - 10). This penalty will be used by A* algorithm. There is no penalty if user goes from trunk to motorway and there is no penalty if route continues from motorway to motorway.
+                <li>penalty_transition (penalty in seconds) - used to define penalty when user goes from high class road to low class road. For example, motorway - 10, trunk - 15, if user goes from motorway to trunk penalty will be 5 seconds (=10 - 15). This penalty will be used by A* algorithm. There is no penalty if user goes from motorway to trunk and there is no penalty if route continues from motorway to motorway.
                 <li>obstacle (penalty in seconds) - defines penalty which is to the routing time
                 <li>obstacle_time (penalty in seconds) - defines penalty which is displayed to the user but it is not considered by routing engine i.e. obstacle_time - 2 hours, obstacle - 1 minute, on the shortest route engine will find a route using 1 minute obstacle but user will see that route time is 2 hours.
               </ul>
