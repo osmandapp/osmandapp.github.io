@@ -107,7 +107,7 @@
 				
 				<tr th:each="i : ${subRevenueReportMonth.values}">
 					<td th:utext="${i.key}">2019-03</td>
-					<td th:each="v : ${i.value}" th:utext="${v.toString(0)}"></th>
+					<td th:each="v : ${i.value}" th:utext="${v.toString(3)}"></th>
 				</tr>
 				
 			</table>
@@ -122,7 +122,7 @@
 			
 				<tr th:each="i : ${subRevenueReportDay.values}">
 					<td th:utext="${i.key}">2019-03</td>
-					<td th:each="v : ${i.value}" th:utext="${v.toString(0)}">
+					<td th:each="v : ${i.value}" th:utext="${v.toString(3)}">
 						</th>
 				</tr>
 			</table>
