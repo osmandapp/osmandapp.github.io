@@ -36,7 +36,7 @@
  </head> 
  <body>
   <details>
-   <summary>Click here to see items.json example</summary>
+   <summary>Click here to see <b>items.json</b> example</summary>
    <p><i>
 <xmp>
 {
@@ -284,63 +284,30 @@
 
 
 
-<p>
-If the graphic does not contain any data, it is not displayed.
-</p>
+<p>At the first part of items.json we can create and add your plugin. The first type will be <b>"PLUGIN"</b>.</p>
+ <p><b>Note:</b> you must create and add for each type this line: <u>"pluginId":"test.plugin"</u>. Where <i>test.plugin</i> is a name of your package.</p>
+ <p><i>"type"</i> is place where added files.</p>
 
-<p>
-You can set your custom graphics by <a href="https://osmand.net/help/docs/Custom_Rendering_How-To.html">editing the map style</a>. Graphics settings are dependant on the map style. For example, Surface graphic displays different colors of OsmAnd (default) and Topo map styles.	
-</p>
+ <div class="centeredimageblog">
+<img src="/images/blog/customepackage/2.jpg" alt="(Image not available offline)"/>
+<div style="clear:both;"></div>
+</div>
 
-<p>
-Here is an example of a style that depends on the standard OsmAnd style and adds a street lighting scheme:
-</p>
+<div class="centeredimageblog">
+<img src="/images/blog/customepackage/3.jpg" alt="(Image not available offline)"/>
+<div style="clear:both;"></div>
+</div>
 
-<p>__________________________________</p>
-<p><i>
-<xmp>
-<renderingStyle name="Depends-template" depends="default" defaultColor="#f1eae4" version="1">
+<p>For import icon image to of your plugin to OsmAnd you can create folder (in our example "res" folder) where we have our image files. This type names "RESOURSES".</p>
 
-    <renderingProperty attr="appMode" name="Rendering mode" description="Map optimization for respective User Profile"
-   	 type="string" possibleValues="browse map,car,bicycle,pedestrian"/>
+<div class="centeredimageblog">
+<img src="/images/blog/customepackage/4.jpg" alt="(Image not available offline)"/>
+<div style="clear:both;"></div>
+</div>
 
-    <renderingConstant name="null" value="#00000000"/>
 
-    <renderingAttribute name="litYesColor">
-   	 <case nightMode="true" attrColorValue="#99aeae00"/>
-   	 <case attrColorValue="#66ffeb00"/>
-    </renderingAttribute>
-    <renderingAttribute name="litNoColor">
-   	 <case nightMode="true" attrColorValue="#99d91500"/>
-   	 <case attrColorValue="#88ff0000"/>
-    </renderingAttribute>
 
-    <renderingAttribute name="routeInfo_street_lighting"> <!-- Used in route details info -->
-   	 <case additional="lit=yes" attrColorValue="$litYesColor" attrStringValue="lit_no"/>
-   	 <case additional="lit=no" attrColorValue="$litNoColor" attrStringValue="lit_yes"/>
-    </renderingAttribute>
 
-    <order>
-    </order>
-
-    <text>
-    </text>
-
-    <point>
-    </point>
-
-    <polygon>
-    </polygon>
-
-    <line>
-    </line>
-</renderingStyle>
-</xmp>
-</p></i>
-
-<p>__________________________________</p>
-
-<p>The list of data available for display is available in the routing category of <a href="https://github.com/osmandapp/OsmAnd-resources/blob/master/obf_creation/rendering_types.xml#L5666">this file</a>. <xmp>(<category name="routing">)</xmp> </p>
 
 <p>__________________________________</p>
 
