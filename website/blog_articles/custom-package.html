@@ -1,0 +1,340 @@
+<meta nonpubdate="15-05-2020 12:00" title="Custom Package">
+
+<h2>Custom Package or your own plugin for OsmAnd</h2>
+
+<div class="date">May 15, 2020</div>
+
+
+<p>OsmAnd is "Swiss knife" among similar application. We always try to create very useful and flexible application.</p>
+
+<p>Old OsmAnd users are our gold team, because it is not easy to start using OsmAnd for 100 percent at once.</p>
+
+<p>Earlier we added customization of your navigation profiles. At last version of OsmAnd (3.7) you can customize Configure map menu, Drawer... At general all time you can send your navigation profile to your friends with all your settings.</p>
+
+<p>But if you want to send more settings, not only profile, but rendering file, fonts, routings, maps... Now we added this opportiunity. You can create your own plugin file for this. Plugin file is special zip file whick has .osf format. At this article we give your tutorial how to do your own plugin for OsmAnd.</p>
+
+<p>Let's start!</p>
+
+<p>OSF-file is a zip-file which contains json-files and folders. When you click to OSF-file OsmAnd</p>
+
+<div class="centeredimageblog">
+<img src="/images/blog/customepackage/1.jpg" alt="(Image not available offline)"/>
+<div style="clear:both;"></div>
+</div>
+
+<p>Read more about JSON-format <a href="https://en.wikipedia.org/wiki/JSON">here</a>. You can open and edit this format any <a href="https://en.wikipedia.org/wiki/List_of_text_editors">txt editors</a>. We will use <a href="https://en.wikipedia.org/wiki/Sublime_Text">Sublime Text editor</a> in our example.</p>
+
+<p>We want to add that we made the opportunity to modify JSON file for all our users not only programmist.</p>
+<p>Our general JSON file is "items" contains commands for import JSON-files, obf-files, icons...</p>
+
+<p>__________________________________</p>
+<p><i>
+<xmp>
+{
+   "version":1,
+   "items":[
+      {
+         "type":"PLUGIN",
+         "pluginId":"test.plugin",
+         "version" : 2,
+         "icon": {
+             "" : "@plugin-id.png"
+             
+         },
+         "image": {
+             "" :"@plugin-image.webp"
+         },
+         "name":{
+            "":"Test Desert Plugin",
+            "ru":"Тестовый плагин для пустынь"
+         },
+         "description":{
+            "":"This package is a test package and displays desert information. \n Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Non odio euismod lacinia at. Nec sagittis aliquam malesuada bibendum arcu. Sed pulvinar proin gravida hendrerit lectus. Ac turpis egestas sed tempus. Phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Volutpat odio facilisis mauris sit amet. Lacinia quis vel eros donec ac odio. Elit eget gravida cum sociis natoque. Nunc id cursus metus aliquam eleifend. Aliquam malesuada bibendum arcu vitae elementum. Nibh cras pulvinar mattis nunc sed blandit libero volutpat sed. Nunc sed augue lacus viverra vitae congue. Sociis natoque penatibus et magnis. Tincidunt tortor aliquam nulla facilisi cras. Sit amet nisl suscipit adipiscing bibendum est ultricies.",
+            "ru":"Это тестовый плагин для отображения информацию про пустыни. \n Высокий уровень вовлечения представителей целевой аудитории является четким доказательством простого факта: глубокий уровень погружения предопределяет высокую востребованность анализа существующих паттернов поведения. Как принято считать, некоторые особенности внутренней политики представляют собой не что иное, как квинтэссенцию победы маркетинга над разумом и должны быть представлены в исключительно положительном свете. В своём стремлении улучшить пользовательский опыт мы упускаем, что явные признаки победы институционализации призывают нас к новым свершениям, которые, в свою очередь, должны быть заблокированы в рамках своих собственных рациональных ограничений. В своём стремлении повысить качество жизни, они забывают, что выбранный нами инновационный путь создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий с учётом комплекса стандартных подходов. Принимая во внимание показатели успешности, разбавленное изрядной долей эмпатии, рациональное мышление создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий с учётом комплекса поэтапного и последовательного развития общества. Сложно сказать, почему базовые сценарии поведения пользователей подвергнуты целой серии независимых исследований. Идейные соображения высшего порядка, а также граница обучения кадров прекрасно подходит для реализации благоприятных перспектив. Мы вынуждены отталкиваться от того, что граница обучения кадров не даёт нам иного выбора, кроме определения кластеризации усилий."
+         }
+      },
+      {
+         "type":"PROFILE",
+         "pluginId":"test.plugin",
+         "file":"bicycle_test_desert.json",
+         "appMode":{
+            "iconColor":"RED",
+            "iconName":"ic_action_motorcycle_dark",
+            "locIcon":"BENTLEY",
+            "navIcon":"BENTLEY",
+            "order":32,
+            "parent":"bicycle",
+            "stringKey":"bicycle_test_desert",
+            "userProfileName" : "Test Desert"
+         },
+         "prefs" : {
+            "drawer_logo": { "" : "@logo.png"},
+            "drawer_url" : { "" : "https://strikelines.com/"},
+            "drawer_items" : { "hidden" : ["dashboard"], "order" : ["map_markers", "my_places", "search"] },
+            "context_menu_items" : {},
+            "configure_map_items" : {},
+            "route_service":"OSMAND",
+            "renderer":"test-desert.render.xml",
+            "routing_profile":"routing-test-desert.xml/desert-car"
+        }
+      },
+      {
+         "type":"FILE",
+         "pluginId":"test.plugin",
+         "subtype" : "routing_config",
+         "file":"\/routing\/routing-test-desert.xml"
+      },
+      {
+         "type":"FILE",
+         "pluginId":"test.plugin",
+         "subtype" : "rendering_style",
+         "file":"\/rendering\/test-desert.render.xml"
+      },
+      {
+         "type":"SUGGESTED_DOWNLOADS",
+         "pluginId":"test.plugin",
+         "comment-1" : "search-type are latlon (closest by latlon), worldregion (by boundaries if name matches worldRegion downloadName as we do for default types), by default natural order, limit finds first N elements",
+         "comment-2" : "predefined scope-id are @type of indexes.xml map, srtm_map, road_map, wikimap, wikivoyage, hillshade, slope, fonts, voice, depth ",
+         "comment-3" : "names filters ignore case by name.contains(filterName)",
+         "items": [{
+             "scope-id" : "desert-downloads",
+             "limit" : 1,
+             "search-type" : "latlon"
+         }, {
+             "scope-id" : "road_map",
+             "names" : [
+                 "Poland_lesser-poland_europe_2.obf.zip", "netherlands_noord-holland_europe"]
+         }, {
+             "scope-id" : "wikimap",
+             "search-type" : "worldregion"
+         }]
+      },
+      {
+         "type":"DOWNLOADS",
+         "pluginId":"test.plugin",
+         "comment-1" : "type - map, sqlite, tiles, voice, travel, srtm, gpx, roads  - defines folder where to store elements", 
+         "comment-2" : "path specifies how the hierarchy tree is constructed, name (locale) and icon specifies how it is displayed ",
+         "items": [{
+               "path" : "strikelines",
+               "name" : { "" : "Strikelines" },
+               "icon" : { "" : "ic_world_globe_dark" },
+               "header" : { "" : "Long text with <b>description</b> about Strikelines maps" },
+               "header-button" : "https:\/\/strikelines.com\/product\/strikelines-synthetic\/"
+            }, {
+                "scope-id" : "desert-downloads",
+                "path" : "strikelines/maps",
+                "name" : { "" : "Maps" },
+                "icon" : { "" : "ic_world_globe_dark" },
+                "items" : [{
+                   "name" : {"" : "Antigua & Barbuda"},
+                   "containerSize" : 2292857,
+                   "type" : "map",
+                   "contentSize" : 3696925,
+                   "date" : "01.03.2020",
+                   "timestamp" : 1583020800,
+                   "description" : "",
+                   "image-description-url" : "",
+                   "lat" : 27.467155,
+                   "lon" : -83.947585,
+                   "filename" : "Antigua-and-barbuda_centralamerica_2.obf.zip",
+                   "firstsubname" : {"" : "Gulf of Mexicp"},
+                   "secondsubname" : {"" : "$ 199"},
+                   "downloadurl": "https://download.osmand.net/download?standard=yes&file=Antigua-and-barbuda_centralamerica_2.obf.zip" ,
+                   "weburl" : "",
+                   "web-button-text" : { "" : "Buy 5$" }
+                },{
+                   "name" : {"" : "Antigua & Barbuda 2"},
+                   "containerSize" : 2292857,
+                   "type" : "map",
+                   "contentSize" : 3696925,
+                   "date" : "02.03.2020",
+                   "timestamp" : 1583020800,
+                   "description" : "",
+                   "image-description-url" : "",
+                   "lat" : 27.567155,
+                   "lon" : -83.947585,
+                   "filename" : "Antigua-and-barbuda_centralamerica_2.obf.zip",
+                   "firstsubname" : {"" : "Gulf of Mexicp"},
+                   "secondsubname" : {"" : "$ 199"},
+                   "downloadurl": "https://download.osmand.net/download?standard=yes&file=Antigua-and-barbuda_centralamerica_2.obf.zip" ,
+                   "weburl" : "",
+                   "web-button-text" : { "" : "Buy 5$" }
+                }]
+            }, {
+                "scope-id" : "desert-downloads-gpx",
+                "path" : "strikelines/gpx",
+                "name" : { "" : "GPX Charts" },
+                "icon" : { "" : "ic_world_globe_dark" },
+                "type": "gpx",
+                "subfolder" : "gpx-strikelines",
+                "items" : [{
+                   "name" : {"" : "Исадное & Чертовля"},
+                   "containerSize" : 136801,
+                   "contentSize" : 136801,
+                   "date" : "01.03.2020",
+                   "timestamp" : 1583020800,
+                   "description" : "От стоянки Исадное до стоянки Чертовля. Здесь будет большое описание!!!",
+                   "image-description-url" : "https://www.openstreetmap.org/user/Jey701/traces/3275056/picture",
+                   "lat" : 56.14906273,
+                   "lon" : 44.93381514,
+                   "filename" : "3275056.gpx",
+                   "firstsubname" : {"" : "От стоянки Исадное до стоянки Чертовля"},
+                   "secondsubname" : {"" : "$ 199"},
+                   "downloadurl": "https://www.openstreetmap.org/trace/3275056/data" ,
+                   "weburl" : "",
+                   "web-button-text" : { "" : "Buy 5$" }
+                }]
+            }, {
+                "scope-id" : "desert-downloads-dynamic",
+                "path" : "strikelines/dynamic",
+                "name" : { "" : "Server Maps" },
+                "icon" : { "" : "ic_world_globe_dark" },
+                "items-url" : {
+                    "url" : "https://strikelines.com/api/charts/?key=A3dgmiOM1ul@IG1N=*@q",
+                    "format" : "json",
+                    "items-path" : "charts",
+                    "mapping" : {
+                        "name" : "@name",
+                        "description" : "@description",
+                        "image-description-url" : "@imageurl",
+                        "lat" : "@latitude",
+                        "lon" : "@longitude",
+                        "secondsubname" : "%1 $----------@price",
+                        "firstsubname" : "@region"
+                    }
+                }
+            }]
+      },
+      {
+         "type":"RESOURCES",
+         "pluginId":"test.plugin",
+         "file":"res"
+      },
+      {
+         "type":"NAVIGATION_ICONS",
+         "pluginId":"test.plugin",
+         "items" : [{
+            "locationIcon": {
+                 "" : "@bentley-car.png"
+            },
+            "locationIconId": "BENTLEY", 
+            "navigationIcon": {
+                 "" : "@bentley-car-moving.png"
+            },
+            "navigationIconId": "BENTLEY"
+         }]
+      },
+      
+      {
+         "type":"QUICK_ACTIONS",
+         "pluginId":"test.plugin",
+         "items": [{
+            "name": "Desert quick action",
+            "actionType": "osmbug.add",
+            "params": "{\"dialog\":\"false\",\"message\":\"Message\"}"
+          }]
+      },
+      {
+         "type":"POI_UI_FILTERS",
+         "pluginId":"test.plugin",
+          "items": [{
+                "name": "Desert Search",
+                "filterId": "desert_search",
+                "acceptedTypes": "{\"sustenance\":[\"bar\",\"alpine_hut\",\"cafe\",\"biergarten\",\"pub\",\"restaurant\"]}"
+            }]
+      },
+      {
+         "type":"MAP_SOURCES",
+         "pluginId":"test.plugin",
+         "items": [{
+            "sql": false,
+            "name": "OsmAnd (desert test)",
+            "minZoom": 1,
+            "maxZoom": 19,
+            "url": "https:\/\/tile.osmand.net\/hd\/{0}\/{1}\/{2}.png",
+            "ellipsoid": false,
+            "inverted_y": false,
+            "timesupported": false,
+            "expire": -1,
+            "inversiveZoom": false,
+            "ext": ".png",
+            "tileSize": 512,
+            "bitDensity": 8,
+            "avgSize": 18000
+        }]
+      }
+   ]
+}
+</xmp>
+</p></i>
+
+
+<p>
+If the graphic does not contain any data, it is not displayed.
+</p>
+
+<p>
+You can set your custom graphics by <a href="https://osmand.net/help/docs/Custom_Rendering_How-To.html">editing the map style</a>. Graphics settings are dependant on the map style. For example, Surface graphic displays different colors of OsmAnd (default) and Topo map styles.	
+</p>
+
+<p>
+Here is an example of a style that depends on the standard OsmAnd style and adds a street lighting scheme:
+</p>
+
+<p>__________________________________</p>
+<p><i>
+<xmp>
+<renderingStyle name="Depends-template" depends="default" defaultColor="#f1eae4" version="1">
+
+    <renderingProperty attr="appMode" name="Rendering mode" description="Map optimization for respective User Profile"
+   	 type="string" possibleValues="browse map,car,bicycle,pedestrian"/>
+
+    <renderingConstant name="null" value="#00000000"/>
+
+    <renderingAttribute name="litYesColor">
+   	 <case nightMode="true" attrColorValue="#99aeae00"/>
+   	 <case attrColorValue="#66ffeb00"/>
+    </renderingAttribute>
+    <renderingAttribute name="litNoColor">
+   	 <case nightMode="true" attrColorValue="#99d91500"/>
+   	 <case attrColorValue="#88ff0000"/>
+    </renderingAttribute>
+
+    <renderingAttribute name="routeInfo_street_lighting"> <!-- Used in route details info -->
+   	 <case additional="lit=yes" attrColorValue="$litYesColor" attrStringValue="lit_no"/>
+   	 <case additional="lit=no" attrColorValue="$litNoColor" attrStringValue="lit_yes"/>
+    </renderingAttribute>
+
+    <order>
+    </order>
+
+    <text>
+    </text>
+
+    <point>
+    </point>
+
+    <polygon>
+    </polygon>
+
+    <line>
+    </line>
+</renderingStyle>
+</xmp>
+</p></i>
+
+<p>__________________________________</p>
+
+<p>The list of data available for display is available in the routing category of <a href="https://github.com/osmandapp/OsmAnd-resources/blob/master/obf_creation/rendering_types.xml#L5666">this file</a>. <xmp>(<category name="routing">)</xmp> </p>
+
+<p>__________________________________</p>
+
+  <p>OsmAnd at <a href="https://www.facebook.com/osmandapp/">Facebook</a>, <a href="https://www.twitter.com/osmandapp/">Twitter</a>, and <a href="https://www.reddit.com/r/OsmAnd/">Reddit</a>!</p>
+ <p>Join us at our groups of Telegram <a href="https://t.me/OsmAndMaps">(EN)</a>, <a href="https://t.me/itosmand">(IT)</a>,  <a href="https://t.me/frosmand">(FR)</a>, <a href="https://t.me/deosmand">(DE)</a>, <a href="https://t.me/ruosmand">(RU)</a>, <a href="https://t.me/uaosmand">(UA)</a>.</p>
+
+<p><a href="https://play.google.com/store/apps/details?id=net.osmand" target="_blank">
+<img src="https://raw.githubusercontent.com/osmandapp/osmandapp.github.io/9fc59e5136b6a07045eb96d052b3ce6ddde805c3/website/images/help/badge_store_google_play.png" alt="Get it on Google Play" height="60"/></a>
+<a href="https://www.amazon.com/OsmAnd-Maps-Navigation/dp/B00D0SA8I8" target="_blank">
+<img src="https://raw.githubusercontent.com/osmandapp/osmandapp.github.io/9fc59e5136b6a07045eb96d052b3ce6ddde805c3/website/images/help/badge_store_amazon.png" alt="Get it on Amazon" height="60"/></a>
+<a href="https://itunes.apple.com/app/apple-store/id934850257?pt=2123532&amp;ct=WebSite&amp;mt=8" target="_blank">
+<img src="https://raw.githubusercontent.com/osmandapp/osmandapp.github.io/9fc59e5136b6a07045eb96d052b3ce6ddde805c3/website/images/app-store-badge.png" alt="Get it on App Store" height="60"/></a></p>
