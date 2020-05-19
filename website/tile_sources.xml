@@ -53,19 +53,19 @@
    <tile_source rule="template:1" name="Wikimapia" url_template="http://i{rnd}.wikimapia.org/?x={1}&amp;y={2}&amp;zoom={0}" randoms="wikimapia" min_zoom="1" max_zoom="18" tile_size="256" img_density="16" avg_img_size="18000" ext="png"/>
    <tile_source rule="template:1" name="Top Wikimapia" url_template="http://i{rnd}.wikimapia.org/?x={1}&amp;y={2}&amp;zoom={0}&amp;type=hybrid" randoms="wikimapia" min_zoom="1" max_zoom="18" tile_size="256" img_density="16" avg_img_size="18000" ext="png"/>
 
-   <tile_source name="OpenFietskaart (NL)" url_template="https://overlay.openstreetmap.nl/openfietskaart-overlay/{0}/{1}/{2}.png" ext=".png" min_zoom="7" max_zoom="18" tile_size="256" img_density="16" avg_img_size="18000"/>
+<!--   <tile_source name="OpenFietskaart (NL)" url_template="https://overlay.openstreetmap.nl/openfietskaart-overlay/{0}/{1}/{2}.png" ext=".png" min_zoom="7" max_zoom="18" tile_size="256" img_density="16" avg_img_size="18000"/>
    <tile_source name="OpenFietskaartBaseLayer (NL)" url_template="https://overlay.openstreetmap.nl/basemap/{0}/{1}/{2}.png" ext=".png" min_zoom="1" max_zoom="18" tile_size="256" img_density="16" avg_img_size="18000"/>
-   <tile_source name="OpenFietskaartRoads (NL)" url_template="https://overlay.openstreetmap.nl/roads/{0}/{1}/{2}.png" ext=".png" min_zoom="7" max_zoom="18" tile_size="256" img_density="16" avg_img_size="18000"/>
+   <tile_source name="OpenFietskaartRoads (NL)" url_template="https://overlay.openstreetmap.nl/roads/{0}/{1}/{2}.png" ext=".png" min_zoom="7" max_zoom="18" tile_size="256" img_density="16" avg_img_size="18000"/>-->
 
 	<!-- Usage policy issue 
    <tile_source name="Wanderreitkarte Topo (DE, NL)" url_template="http://www.wanderreitkarte.de/topo/{0}/{1}/{2}.png" ext=".png" min_zoom="1" max_zoom="18" tile_size="256" img_density="16" avg_img_size="18000"/> 
    <tile_source name="Wanderreitkarte HillShade (DE, NL)" url_template="http://www.wanderreitkarte.de/hills/{0}/{1}/{2}.png" ext=".png" min_zoom="8" max_zoom="18" tile_size="256" img_density="16" avg_img_size="18000"/> 
    <tile_source name="Wanderreitkarte BaseLayer (DE, NL)" url_template="http://www.wanderreitkarte.de/base/{0}/{1}/{2}.png" ext=".png" min_zoom="1" max_zoom="18" tile_size="256" img_density="16" avg_img_size="18000"/> 
 -->
-   <tile_source name="OpenWandelkaart (BE,NL)" url_template="https://tile.openstreetmap.nl/openwandelkaart-overlay/{0}/{1}/{2}.png" ext=".png" min_zoom="7" max_zoom="18" tile_size="256" img_density="16" avg_img_size="18000"/>
+<!--   <tile_source name="OpenWandelkaart (BE,NL)" url_template="https://tile.openstreetmap.nl/openwandelkaart-overlay/{0}/{1}/{2}.png" ext=".png" min_zoom="7" max_zoom="18" tile_size="256" img_density="16" avg_img_size="18000"/>
    <tile_source name="OpenWandelkaartPlaatsen (BE,NL)" url_template="https://overlay.openstreet.nl/places/{0}/{1}/{2}.png" ext=".png" min_zoom="7" max_zoom="18" tile_size="256" img_density="16" avg_img_size="18000"/>
    <tile_source name="OpenWandelkaartBaseLayer (BE,NL)" url_template="https://overlay.openstreet.nl/basemap/{0}/{1}/{2}.png" ext=".png" min_zoom="1" max_zoom="18" tile_size="256" img_density="16" avg_img_size="18000"/>
-   <tile_source name="OpenWandelkaartRoads (BE,NL)" url_template="https://overlay.openstreet.nl/roads/{0}/{1}/{2}.png" ext=".png" min_zoom="7" max_zoom="18" tile_size="256" img_density="16" avg_img_size="18000"/>
+   <tile_source name="OpenWandelkaartRoads (BE,NL)" url_template="https://overlay.openstreet.nl/roads/{0}/{1}/{2}.png" ext=".png" min_zoom="7" max_zoom="18" tile_size="256" img_density="16" avg_img_size="18000"/>-->
 
    <tile_source name="Statkart Topo4 (NO)" url_template="https://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=topo4&amp;zoom={0}&amp;x={1}&amp;y={2}" ext=".png" min_zoom="5" max_zoom="17" tile_size="256" img_density="32" avg_img_size="18000"/>
    <tile_source name="Statkart Toporaster3 (NO)" url_template="https://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=toporaster3&amp;zoom={0}&amp;x={1}&amp;y={2}" ext=".png" min_zoom="5" max_zoom="17" tile_size="256" img_density="32" avg_img_size="18000"/>
