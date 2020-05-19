@@ -42,6 +42,7 @@
 {
    "version":1,
    "items":[
+
       {
          "type":"PLUGIN",
          "pluginId":"test.plugin",
@@ -54,18 +55,98 @@
              "" :"@plugin-image.webp"
          },
          "name":{
-            "":"Test Desert Plugin",
-            "ru":"Тестовый плагин для пустынь"
+            "":"Test Plugin",
+            "ru":"Test Plugin: RU language"
          },
          "description":{
-            "":"This package is a test package and displays desert information.",
-            "ru":"Этот пакет ..."
+            "":"This package is a test package and displays test information.",
+            "ru":"This package is a test package and displays test information. RU language."
          }
       },
+
+      {
+         "type":"RESOURCES",
+         "pluginId":"test.plugin",
+         "file":"res"
+      },
+
+
+      {
+         "type":"DOWNLOADS",
+         "pluginId":"test.plugin",
+         "items":[
+            {
+               "path":"test",
+               "name":{
+                  "":"My offline maps",
+                  "ru":"RU: My offline maps"
+               },
+               "icon":{
+                  "":"ic_world_globe_dark"
+               },
+               "header-color":"#002E64",
+               "description":{
+                  "text":{
+                     "":"This package is a collection of online and offline map sources of various types.",
+                     "ru":"RU: This package is a collection of online and offline map sources of various types of."
+                  },
+                  "button":[
+                     {
+                        "":"Telegram chat OsmAnd",
+                        "url":"https:\/\/t.me\/OsmAndMaps"
+                     }
+                  ]
+               }
+            },
+            {
+               "scope-id":"offline-maps",
+               "path":"test/Waterway",
+               "header-color":"#002E64",
+               "name":{
+                  "":"Waterway",
+                  "ru":"RU: waterway"
+               },
+               "icon":{
+                  "":"ic_world_globe_dark"
+               },
+               "items":[
+                  {
+                     "name":{
+                        "":"Offline Waterway map SA",
+                        "ru":"RU: Offline Waterway map SA"
+                     },
+                     "filename":"waterway.obf.zip",
+                     "type":"map",
+                     "timestamp":1582994500,
+                     "containerSize":28195301,
+                     "contentSize":28195301,
+                     "description":{
+                        "text":{
+                           "":"Zoom min: 0<br />Zoom max: 19<br />Countries: SA",
+                           "ru":"RU: Zoom min: 0<br />Zoom max: 19<br />Countries: SA"
+                        },
+                        "image":[
+                           "https://drive.google.com/uc?id=16HjUHsSWNgeQI0bmuup9ohpyrg6rWkHH&export=download"
+                        ]
+                     },
+                     "downloadurl":"https://drive.google.com/uc?id=10iP2VZexHtHC0QLhACZ1QoEy-duNN5Wg&export=download",
+                     "firstsubname":{
+                        "":"Waterway",
+                        "ru":"RU: Waterway"
+                     },
+                     "secondsubname":{
+                        "":"",
+                        "ru":""
+                     }
+                }
+           ]
+        }] 
+    },
+
       {
          "type":"PROFILE",
          "pluginId":"test.plugin",
-         "file":"bicycle_test_desert.json",
+         "file":"bicycle_test.json",
          "appMode":{
             "iconColor":"RED",
             "iconName":"ic_action_motorcycle_dark",
@@ -73,32 +154,35 @@
             "navIcon":"BENTLEY",
             "order":32,
             "parent":"bicycle",
-            "stringKey":"bicycle_test_desert",
-            "userProfileName" : "Test Desert"
+            "stringKey":"bicycle_test",
+            "userProfileName" : "Test Prof"
          },
          "prefs" : {
             "drawer_logo": { "" : "@logo.png"},
-            "drawer_url" : { "" : "https://strikelines.com/"},
+            "drawer_url" : { "" : "https://osmand.net"},
             "drawer_items" : { "hidden" : ["dashboard"], "order" : ["map_markers", "my_places", "search"] },
             "context_menu_items" : {},
             "configure_map_items" : {},
             "route_service":"OSMAND",
-            "renderer":"test-desert.render.xml",
-            "routing_profile":"routing-test-desert.xml/desert-car"
+            "renderer":"test-rendering.render.xml",
+            "routing_profile":"routing-test.xml/test-car"
         }
       },
+
       {
          "type":"FILE",
          "pluginId":"test.plugin",
          "subtype" : "routing_config",
-         "file":"\/routing\/routing-test-desert.xml"
+         "file":"\/routing\/routing-test.xml"
       },
+
       {
          "type":"FILE",
          "pluginId":"test.plugin",
          "subtype" : "rendering_style",
-         "file":"\/rendering\/test-desert.render.xml"
+         "file":"\/rendering\/test-rendering.render.xml"
       },
+
       {
          "type":"SUGGESTED_DOWNLOADS",
          "pluginId":"test.plugin",
@@ -106,7 +190,7 @@
          "comment-2" : "predefined scope-id are @type of indexes.xml map, srtm_map, road_map, wikimap, wikivoyage, hillshade, slope, fonts, voice, depth ",
          "comment-3" : "names filters ignore case by name.contains(filterName)",
          "items": [{
-             "scope-id" : "desert-downloads",
+             "scope-id" : "test-downloads",
              "limit" : 1,
              "search-type" : "latlon"
          }, {
@@ -118,107 +202,7 @@
              "search-type" : "worldregion"
          }]
       },
-      {
-         "type":"DOWNLOADS",
-         "pluginId":"test.plugin",
-         "comment-1" : "type - map, sqlite, tiles, voice, travel, srtm, gpx, roads  - defines folder where to store elements", 
-         "comment-2" : "path specifies how the hierarchy tree is constructed, name (locale) and icon specifies how it is displayed ",
-         "items": [{
-               "path" : "strikelines",
-               "name" : { "" : "Strikelines" },
-               "icon" : { "" : "ic_world_globe_dark" },
-               "header" : { "" : "Long text with <b>description</b> about Strikelines maps" },
-               "header-button" : "https:\/\/strikelines.com\/product\/strikelines-synthetic\/"
-            }, {
-                "scope-id" : "desert-downloads",
-                "path" : "strikelines/maps",
-                "name" : { "" : "Maps" },
-                "icon" : { "" : "ic_world_globe_dark" },
-                "items" : [{
-                   "name" : {"" : "Antigua & Barbuda"},
-                   "containerSize" : 2292857,
-                   "type" : "map",
-                   "contentSize" : 3696925,
-                   "date" : "01.03.2020",
-                   "timestamp" : 1583020800,
-                   "description" : "",
-                   "image-description-url" : "",
-                   "lat" : 27.467155,
-                   "lon" : -83.947585,
-                   "filename" : "Antigua-and-barbuda_centralamerica_2.obf.zip",
-                   "firstsubname" : {"" : "Gulf of Mexicp"},
-                   "secondsubname" : {"" : "$ 199"},
-                   "downloadurl": "https://download.osmand.net/download?standard=yes&file=Antigua-and-barbuda_centralamerica_2.obf.zip" ,
-                   "weburl" : "",
-                   "web-button-text" : { "" : "Buy 5$" }
-                },{
-                   "name" : {"" : "Antigua & Barbuda 2"},
-                   "containerSize" : 2292857,
-                   "type" : "map",
-                   "contentSize" : 3696925,
-                   "date" : "02.03.2020",
-                   "timestamp" : 1583020800,
-                   "description" : "",
-                   "image-description-url" : "",
-                   "lat" : 27.567155,
-                   "lon" : -83.947585,
-                   "filename" : "Antigua-and-barbuda_centralamerica_2.obf.zip",
-                   "firstsubname" : {"" : "Gulf of Mexicp"},
-                   "secondsubname" : {"" : "$ 199"},
-                   "downloadurl": "https://download.osmand.net/download?standard=yes&file=Antigua-and-barbuda_centralamerica_2.obf.zip" ,
-                   "weburl" : "",
-                   "web-button-text" : { "" : "Buy 5$" }
-                }]
-            }, {
-                "scope-id" : "desert-downloads-gpx",
-                "path" : "strikelines/gpx",
-                "name" : { "" : "GPX Charts" },
-                "icon" : { "" : "ic_world_globe_dark" },
-                "type": "gpx",
-                "subfolder" : "gpx-strikelines",
-                "items" : [{
-                   "name" : {"" : "Исадное & Чертовля"},
-                   "containerSize" : 136801,
-                   "contentSize" : 136801,
-                   "date" : "01.03.2020",
-                   "timestamp" : 1583020800,
-                   "description" : "От стоянки Исадное до стоянки Чертовля. Здесь будет большое описание!!!",
-                   "image-description-url" : "https://www.openstreetmap.org/user/Jey701/traces/3275056/picture",
-                   "lat" : 56.14906273,
-                   "lon" : 44.93381514,
-                   "filename" : "3275056.gpx",
-                   "firstsubname" : {"" : "От стоянки Исадное до стоянки Чертовля"},
-                   "secondsubname" : {"" : "$ 199"},
-                   "downloadurl": "https://www.openstreetmap.org/trace/3275056/data" ,
-                   "weburl" : "",
-                   "web-button-text" : { "" : "Buy 5$" }
-                }]
-            }, {
-                "scope-id" : "desert-downloads-dynamic",
-                "path" : "strikelines/dynamic",
-                "name" : { "" : "Server Maps" },
-                "icon" : { "" : "ic_world_globe_dark" },
-                "items-url" : {
-                    "url" : "https://strikelines.com/api/charts/?key=A3dgmiOM1ul@IG1N=*@q",
-                    "format" : "json",
-                    "items-path" : "charts",
-                    "mapping" : {
-                        "name" : "@name",
-                        "description" : "@description",
-                        "image-description-url" : "@imageurl",
-                        "lat" : "@latitude",
-                        "lon" : "@longitude",
-                        "secondsubname" : "%1 $----------@price",
-                        "firstsubname" : "@region"
-                    }
-                }
-            }]
-      },
-      {
-         "type":"RESOURCES",
-         "pluginId":"test.plugin",
-         "file":"res"
-      },
+
       {
          "type":"NAVIGATION_ICONS",
          "pluginId":"test.plugin",
@@ -238,26 +222,28 @@
          "type":"QUICK_ACTIONS",
          "pluginId":"test.plugin",
          "items": [{
-            "name": "Desert quick action",
+            "name": "Test quick action",
             "actionType": "osmbug.add",
             "params": "{\"dialog\":\"false\",\"message\":\"Message\"}"
           }]
       },
+
       {
          "type":"POI_UI_FILTERS",
          "pluginId":"test.plugin",
           "items": [{
-                "name": "Desert Search",
-                "filterId": "desert_search",
-                "acceptedTypes": "{\"sustenance\":[\"bar\",\"alpine_hut\",\"cafe\",\"biergarten\",\"pub\",\"restaurant\"]}"
+                "name": "Test Search",
+                "filterId": "test_search",
+                "acceptedTypes": "{\"sustenance\":[\"bar\",\"alpine_hut\"]}"
             }]
       },
+
       {
          "type":"MAP_SOURCES",
          "pluginId":"test.plugin",
          "items": [{
             "sql": false,
-            "name": "OsmAnd (desert test)",
+            "name": "OsmAnd (test)",
             "minZoom": 1,
             "maxZoom": 19,
             "url": "https:\/\/tile.osmand.net\/hd\/{0}\/{1}\/{2}.png",
