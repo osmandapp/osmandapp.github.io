@@ -39,8 +39,8 @@
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "SPRZEDAŻ!",
-				"description": "Sprawdź naszą -50% sprzedaży na roczny abonament!"
+				"message": "Wyprzedaż rocznej subskrybcji!",
+				"description": "Sprawdź naszą wyprzedaż rocznej subskrybcji - 50%!"
 			}
 		},
 		{
@@ -52,8 +52,8 @@
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "SPRZEDAŻ!",
-				"description": "Nieograniczone pobieranie map, linie konturowe i roczna subskrypcja -50%!"
+				"message": "Wyprzedaż!",
+				"description": "Wszystkie mapy,  linie konturowe i subskrypcja roczna - 50%!"
 			}
 		},
 		{
@@ -337,8 +337,8 @@
 			},
 			"file": "discount_ios_sub.json",
 			"fields": {
-				"message": "SPRZEDAŻ!",
-				"description": "Wszystkie mapy świata, linie konturowe i roczna subskrypcja -50%!"
+				"message": "Wyprzedaż!",
+				"description": "Wszystkie mapy,  linie konturowe i subskrypcja roczna - 50%!"
 			}
 		},
 		{
