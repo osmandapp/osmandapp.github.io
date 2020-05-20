@@ -15,14 +15,14 @@
 
 <p>Let's start!</p>
 
-<p>OSF-file is a zip-file which contains json-files and folders. When you click to OSF-file OsmAnd</p>
+<p>OSF-file is a zip-file which contains json-files and folders. When you click to OSF-file OsmAnd. <a href="https://drive.google.com/drive/folders/1wDPGThkdRi9_3UrCKROgt49qi-1gM6jk?usp=sharing">Here</a>, you can download files from our example. This finished plugin you can downloa <a href="https://drive.google.com/open?id=1efZ01uAIL27aTQLLoTl8KYH-ts_WSRSe">here</a>.</p>
 
 <div class="centeredimageblog">
 <img src="/images/blog/customepackage/1.jpg" alt="(Image not available offline)"/>
 <div style="clear:both;"></div>
 </div>
 
-<p>Read more about JSON-format <a href="https://en.wikipedia.org/wiki/JSON">here</a>. You can open and edit this format any <a href="https://en.wikipedia.org/wiki/List_of_text_editors">txt editors</a>. We will use <a href="https://en.wikipedia.org/wiki/Sublime_Text">Sublime Text editor</a> in our example.</p>
+<p>Read more about JSON-format <a href="https://en.wikipedia.org/wiki/JSON">here</a>. You can open and edit this format any <a href="https://en.wikipedia.org/wiki/List_of_text_editors">txt editors</a>. We will use <a href="https://en.wikipedia.org/wiki/Sublime_Text">Sublime Text editor</a> in our example. You can check your code <a href="https://jsoneditoronline.org/">here</a>.</p>
 
 <p>We want to add that we made the opportunity to modify JSON file for all our users not only programmist.</p>
 <p>Our general JSON file is "items" contains commands for import JSON-files, obf-files, icons...</p>
@@ -172,15 +172,15 @@
       {
          "type":"FILE",
          "pluginId":"test.plugin",
-         "subtype" : "routing_config",
-         "file":"\/routing\/routing-test.xml"
+         "subtype" : "rendering_style",
+         "file":"\/rendering\/test-rendering.render.xml"
       },
 
       {
          "type":"FILE",
          "pluginId":"test.plugin",
-         "subtype" : "rendering_style",
-         "file":"\/rendering\/test-rendering.render.xml"
+         "subtype" : "routing_config",
+         "file":"\/routing\/routing-test.xml"
       },
 
       {
@@ -269,27 +269,45 @@
 
 
 
+<p>There many import types for OsmAnd itmes.JSON, all types you can find <a href="https://github.com/osmandapp/Osmand/blob/r3.7/OsmAnd/src/net/osmand/plus/settings/backend/SettingsHelper.java#L133">here</a>. We will describe some of import types (<i>"type"</i>) in this article.</p>
 
-<p>At the first part of items.json we can create and add your plugin. The first type will be <b>"PLUGIN"</b>.</p>
+<p>At the first part of items.JSON we can create and add your plugin. The first import type will be <b>"PLUGIN"</b>.</p>
  <p><b>Note:</b> you must create and add for each type this line: <u>"pluginId":"test.plugin"</u>. Where <i>test.plugin</i> is a name of your package.</p>
- <p><i>"type"</i> is place where added files.</p>
 
 
 <img src="/images/blog/customepackage/2.jpg" alt="(Image not available offline)"/>
 
 
-<div class="centeredimageblog">
-<img src="/images/blog/customepackage/3.jpg" alt="(Image not available offline)"/>
-<div style="clear:both;"></div>
-</div>
-
-<p>For import icon image to of your plugin to OsmAnd you can create folder (in our example "res" folder) where we have our image files. This type names "RESOURSES".</p>
+<p>For import icon images to of your plugin to OsmAnd you can create folder (in our example "res" folder) where we have our image files. This type names "RESOURSES".</p>
 
 
 <img src="/images/blog/customepackage/4.jpg" alt="(Image not available offline)"/>
 
 
+<p>Type <i>"DOWNLOADS"</i>: you can add any files (sqlite, obf, fonts...) for downloading. The general types of downloading files you can see <a href="https://github.com/osmandapp/Osmand/blob/master/OsmAnd/src/net/osmand/plus/download/DownloadActivityType.java#L33">here</a>.</p>
 
+<img src="/images/blog/customepackage/3.jpg" alt="(Image not available offline)"/>
+
+<p>In <i>"scope-id"</i> you can add all needed about url of your files, name, description and etc.</p>
+
+<img src="/images/blog/customepackage/5.jpg" alt="(Image not available offline)"/>
+
+<p>In type <i>"PROFILE"</i> you can add navigation profile which added with your Plugin. You can find all info about your navigation profile during export navigation profiles and read JSON file. At JSON file of your Navigation profiles you can find types for added to items.JSON: "QUICK_ACTIONS", "POI_UI_FILTERS", "MAP_SOURCES" and etc. Our advise to you starting to create navigation profile with all parameteres, export navigation profiles, copy needed from navigation profiles.osf (items.JSON) to your PLUGIN.osf (items.JSON).</p>
+
+<img src="/images/blog/customepackage/6.jpg" alt="(Image not available offline)"/>
+
+<p>In type <i>"SUGGESTED_DOWNLOADS"</i> you can install maps which OsmAnd proposed when you import this new plugin.</p>
+
+<img src="/images/blog/customepackage/7.jpg" alt="(Image not available offline)"/>
+
+<p>In type <i>"FILE"</i> you can add files from folders in your Plugin to OsmAnd. "subtype" of this files you can find <a href="https://github.com/osmandapp/Osmand/blob/r3.7/OsmAnd/src/net/osmand/plus/settings/backend/SettingsHelper.java#L1312">here</a>. In our example we added routing.xml and rendering.xml files. How to create this files you can read <a href="https://github.com/osmandapp/OsmAnd-resources/blob/master/routing/routing.xml">here</a> and <a href="https://github.com/osmandapp/OsmAnd-resources/tree/master/rendering_styles">here</a>.</p>
+
+<img src="/images/blog/customepackage/8.jpg" alt="(Image not available offline)"/>
+
+<p>When all files in folder and  <i>items.JSON</i>  will  be ready. You can zip all your files in one container. After that you can rename zip->osf. After that, your Plugin.osf will be ready for adding to OsmAnd app.</p>
+
+
+<p>At this article we try to explain first steps for creation your own Plugin. In future we want to add OsmAnd market in our application that you can share your own plugins with your maps, navigation profiles and others.</p>
 
 
 
