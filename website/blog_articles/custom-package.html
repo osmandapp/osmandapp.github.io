@@ -7,11 +7,11 @@
 
 <p>OsmAnd is a "Swiss knife" among similar applications. We always try to create very useful and flexible app.</p>
 
-<p>Experienced OsmAnd users are our gold team, because it is not easy to start using OsmAnd for 100 percent at once.</p>
+<p>Experienced OsmAnd users are our gold team because it is not easy to start using OsmAnd for 100 percent at once.</p>
 
 <p>In the earlier versions, we have added customization of your navigation profiles. In the last version of OsmAnd (3.7) you can customize the Configure map menu, Drawer, etc. In general, you can send your navigation profile to your friends with all your settings anytime.</p>
 
-<p>But if you want to send not only profile dependant settings, but rendering files, fonts, routings, maps, and other data, we have added this opportiunity. You can create your own plugin file for this. Plugin file is special zip file whick has .osf format. In this article you can see a comprehensive tutorial on how to do your own plugin for OsmAnd.</p>
+<p>But if you want to send not only profile dependant settings, but rendering files, fonts, routings, maps, and other data, we have added this opportunity. You can create your own plugin file for this. The plugin file is a special zip file in the .osf format. In this article you can see a comprehensive tutorial on how to do your own plugin for OsmAnd.</p>
 
 <p>Let's start!</p>
 
@@ -22,10 +22,10 @@
 <div style="clear:both;"></div>
 </div>
 
-<p>Read more about the JSON-format <a href="https://en.wikipedia.org/wiki/JSON">here</a>. You can open and edit this format with any <a href="https://en.wikipedia.org/wiki/List_of_text_editors">txt editors</a>. We will use the <a href="https://en.wikipedia.org/wiki/Sublime_Text">Sublime Text editor</a> for te reference. You can check your code <a href="https://jsoneditoronline.org/">here</a>.</p>
+<p>Read more about the JSON-format <a href="https://en.wikipedia.org/wiki/JSON">here</a>. You can open and edit this format with any <a href="https://en.wikipedia.org/wiki/List_of_text_editors">txt editors</a>. We will use the <a href="https://en.wikipedia.org/wiki/Sublime_Text">Sublime Text editor</a> for the reference. You can check your code <a href="https://jsoneditoronline.org/">here</a>.</p>
 
 <p>We want to add that we made the opportunity to modify JSON file for not only programmers, but for all our users.</p>
-<p>Our general JSON file is "items" contains commands for import JSON-files, obf-files, icons...</p>
+<p>Our general JSON file is "items" contains commands for import JSON-files, obf-files, icons, etc.</p>
 
 <p>__________________________________</p>
 
@@ -292,7 +292,7 @@
 
 <img src="/images/blog/customepackage/5.jpg" alt="(Image not available offline)"/>
 
-<p>In type <i>"PROFILE"</i>, you can add navigation profile which added with your Plugin. You can find all info about your navigation profile during export and read the JSON file. In the JSON file you can find types of added items.JSON: "QUICK_ACTIONS", "POI_UI_FILTERS", "MAP_SOURCES", etc. Our advise is to start creating navigation profile with all parameteres, export navigation profiles, copy needed from navigation profiles.osf (items.JSON) to your PLUGIN.osf (items.JSON).</p>
+<p>In type <i>"PROFILE"</i>, you can add a navigation profile which added with your Plugin. You can find all info about your navigation profile during export and read the JSON file. In the JSON file you can find types of added items.JSON: "QUICK_ACTIONS", "POI_UI_FILTERS", "MAP_SOURCES", etc. Our advice is to start creating a navigation profile with all parameteres, export navigation profiles, copy needed from navigation profiles.osf (items.JSON) to your PLUGIN.osf (items.JSON).</p>
 
 <img src="/images/blog/customepackage/6.jpg" alt="(Image not available offline)"/>
 
@@ -300,14 +300,14 @@
 
 <img src="/images/blog/customepackage/7.jpg" alt="(Image not available offline)"/>
 
-<p>In type <i>"FILE"</i> you can add files from folders in your Plugin to OsmAnd. The "subtype" of this files you can find <a href="https://github.com/osmandapp/Osmand/blob/r3.7/OsmAnd/src/net/osmand/plus/settings/backend/SettingsHelper.java#L1312">here</a>. In our example we added routing.xml and rendering.xml files. You can read <a href="https://github.com/osmandapp/OsmAnd-resources/blob/master/routing/routing.xml">here</a> and <a href="https://github.com/osmandapp/OsmAnd-resources/tree/master/rendering_styles">here</a> on how to create these files.</p>
+<p>In type <i>"FILE"</i> you can add files from folders in your Plugin to OsmAnd. The "subtype" of these files you can find <a href="https://github.com/osmandapp/Osmand/blob/r3.7/OsmAnd/src/net/osmand/plus/settings/backend/SettingsHelper.java#L1312">here</a>. In our example we added routing.xml and rendering.xml files. You can read <a href="https://github.com/osmandapp/OsmAnd-resources/blob/master/routing/routing.xml">here</a> and <a href="https://github.com/osmandapp/OsmAnd-resources/tree/master/rendering_styles">here</a> on how to create these files.</p>
 
 <img src="/images/blog/customepackage/8.jpg" alt="(Image not available offline)"/>
 
-<p>When all files in folder and  <i>items.JSON</i>  will  be ready, you can zip all your files in one container. After that you can rename .zip file format to .osf. After that, your Plugin.osf will be ready for adding to OsmAnd app.</p>
+<p>When all files in folder and  <i>items.JSON</i>  will  be ready, you can zip all your files in one container. After that you can rename .zip file format to .osf. After that, your Plugin.osf will be ready for adding to the OsmAnd app.</p>
 
 
-<p>In this article, we try to explain first steps of your own Plugin creation. In future, we want to add OsmAnd market in our application so you can share your own plugins, maps, and navigation profiles with others.</p>
+<p>In this article, we try to explain the first steps of your own Plugin creation. In the future, we want to add OsmAnd market in our application so you can share your own plugins, maps, and navigation profiles with others.</p>
 
 
 
