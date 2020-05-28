@@ -353,8 +353,12 @@
 							<input type="datetime-local" name="endtime"/>
 						</li>
 						<li class="form-row">
-							<label for="name">Filter urls:</label>
-							<input type="text" name="filter" />
+							<label for="name">Log line filter (analyze only lines with filter i.e. userAgent):</label>
+							<input type="text" name="logFilter" />
+						</li>
+						<li class="form-row">
+							<label for="name">URL requests filter (analyze all lines but filters and groups results):</label>
+							<input type="text" name="uriFilter" />
 						</li>
 						<li class="form-row">
 							<label for="name">Load region info (takes time): </label>
