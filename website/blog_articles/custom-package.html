@@ -1,23 +1,22 @@
-<meta nonpubdate="15-05-2020 12:00" title="Custom Package">
+<meta nonpubdate="26-05-2020 20:00" title="Custom Package">
 
 <h2>Custom Package or your own plugin for OsmAnd</h2>
 
-<div class="date">May 15, 2020</div>
+<div class="date">May 26, 2020</div>
 
+<p>We announced in our last OsmAnd 3.7 (Android) release about <a href="https://osmand.net/blog/osmand-3-7-released#package">custome package</a>. What is it? How do you create your own custome package?</p>
 
-<p>OsmAnd is a "Swiss knife" among similar applications. We always try to create very useful and flexible app.</p>
+<p>OsmAnd is a "Swiss knife" among similar applications. We always try to create very useful and flexible app. Experienced OsmAnd users are our gold team because it is not easy to start using OsmAnd for 100 percent at once.</p>
 
-<p>Experienced OsmAnd users are our gold team because it is not easy to start using OsmAnd for 100 percent at once.</p>
+<p>In the earlier versions, we have added customization of your navigation profiles. In the last version of <a href="https://osmand.net/blog/osmand-3-7-released">OsmAnd (3.7)</a> you can customize the Configure map menu, Drawer, etc. In general, you can send your <a href="https://osmand.net/features/navigation-profiles">navigation profile</a> to your friends with all your settings anytime.</p>
 
-<p>In the earlier versions, we have added customization of your navigation profiles. In the last version of OsmAnd (3.7) you can customize the Configure map menu, Drawer, etc. In general, you can send your navigation profile to your friends with all your settings anytime.</p>
-
-<p>But if you want to send not only profile dependant settings, but rendering files, fonts, routings, maps, and other data, we have added this opportunity. You can create your own plugin file for this. The plugin file is a special zip file in the .osf format. In this article you can see a comprehensive tutorial on how to do your own plugin for OsmAnd.</p>
+<p>But if you want to send not only profile dependant settings, but rendering files, fonts, routings, maps, and other data, we have added this opportunity. You can create your own plugin file for this. The plugin file is a special <i>zip</i> file in the <i>.osf</i> format. In this article you can see a comprehensive tutorial on how to do your own plugin for OsmAnd.</p>
 
 <p>Let's start!</p>
 
-<p>OSF-file is a zip-file which contains json-files and folders. When you click to OSF-file OsmAnd. <a href="https://drive.google.com/open?id=1efZ01uAIL27aTQLLoTl8KYH-ts_WSRSe">Here</a>, you can download files from our example. This finished plugin you can download <a href="https://drive.google.com/open?id=1TcKwFDIvbWnpbT6ZKk_m_K7eSapX4U2_">here</a>.</p>
+<p><i>OSF-file</i> is a renamed <i>zip-file</i> which contains json-files and folders. <a href="https://drive.google.com/drive/folders/1wDPGThkdRi9_3UrCKROgt49qi-1gM6jk?usp=sharing">Here</a>, you can download files from our example. This finished plugin you can download <a href="https://drive.google.com/open?id=1efZ01uAIL27aTQLLoTl8KYH-ts_WSRSe">here</a>.</p>
 
-<div class="centeredimageblog">
+<div class="blogimageblock">
 <img src="/images/blog/customepackage/1.jpg" alt="(Image not available offline)"/>
 <div style="clear:both;"></div>
 </div>
@@ -269,16 +268,17 @@
 
 
 
-<p>There are many import types for OsmAnd itmes.JSON. You can find all of types <a href="https://github.com/osmandapp/Osmand/blob/r3.7/OsmAnd/src/net/osmand/plus/settings/backend/SettingsHelper.java#L133">here</a>. We will describe some of import types (<i>"type"</i>) in this article.</p>
+<p>There are many import types for OsmAnd <i>itmes.JSON</i>. You can find all of types <a href="https://github.com/osmandapp/Osmand/blob/r3.7/OsmAnd/src/net/osmand/plus/settings/backend/SettingsHelper.java#L133">here</a>. We will describe some of import types (<i>"type"</i>) in this article.</p>
 
-<p>In the first part of items.JSON we can create and add your plugin. The first import type will be <b>"PLUGIN"</b>.</p>
+<p>In the first part of <i>items.JSON</i> we can create and add your plugin. The first import type will be <b>"PLUGIN"</b>.</p>
+
  <p><b>Note:</b> you must create and add this line for each type: <u>"pluginId":"test.plugin"</u>. Where <i>test.plugin</i> is a name of your package.</p>
 
 
 <img src="/images/blog/customepackage/2.jpg" alt="(Image not available offline)"/>
 
 
-<p>To import icon images of your plugin to OsmAnd you can create folder (in our example "res" folder) where we store our image files. This type name is "RESOURSES".</p>
+<p>To import icon images of your plugin to OsmAnd you can create folder (in our example <i>"res"</i> folder) where we store our image files. This type name is <i>"RESOURSES"</i>.</p>
 
 
 <img src="/images/blog/customepackage/4.jpg" alt="(Image not available offline)"/>
@@ -292,7 +292,7 @@
 
 <img src="/images/blog/customepackage/5.jpg" alt="(Image not available offline)"/>
 
-<p>In type <i>"PROFILE"</i>, you can add a navigation profile which added with your Plugin. You can find all info about your navigation profile during export and read the JSON file. In the JSON file you can find types of added items.JSON: "QUICK_ACTIONS", "POI_UI_FILTERS", "MAP_SOURCES", etc. Our advice is to start creating a navigation profile with all parameteres, export navigation profiles, copy needed from navigation profiles.osf (items.JSON) to your PLUGIN.osf (items.JSON).</p>
+<p>In type <i>"PROFILE"</i>, you can add a navigation profile which added with your Plugin. You can find all info about your navigation profile during export and read the JSON file. In the JSON file you can find types of added <i>items.JSON</i>: "QUICK_ACTIONS", "POI_UI_FILTERS", "MAP_SOURCES", etc. Our advice is to start creating a navigation profile with all parameteres, export navigation profiles, copy needed from navigation profiles.osf (items.JSON) to your PLUGIN.osf (items.JSON).</p>
 
 <img src="/images/blog/customepackage/6.jpg" alt="(Image not available offline)"/>
 
@@ -304,11 +304,10 @@
 
 <img src="/images/blog/customepackage/8.jpg" alt="(Image not available offline)"/>
 
-<p>When all files in folder and  <i>items.JSON</i>  will  be ready, you can zip all your files in one container. After that you can rename .zip file format to .osf. After that, your Plugin.osf will be ready for adding to the OsmAnd app.</p>
+<p>When all files in folder and  <i>items.JSON</i>  will  be ready, you can zip all your files in one container. After that you can rename <i>.zip</i> file format to <i>.osf</i>. After that, your <i>Plugin.osf</i> will be ready for adding to the OsmAnd app.</p>
 
 
 <p>In this article, we try to explain the first steps of your own Plugin creation. In the future, we want to add OsmAnd market in our application so you can share your own plugins, maps, and navigation profiles with others.</p>
-
 
 
 <p>__________________________________</p>
