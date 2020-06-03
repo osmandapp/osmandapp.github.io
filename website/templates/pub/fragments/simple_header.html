@@ -5,7 +5,7 @@
   <div class="header-map" th:if="${header_id == 'MAIN' || header_id == 'DVR'}"></div>
   <div class="shadowline">
     <div class="menu-wrapper">
-      <a href="/blog/10-years" th:href="'/'+${locale_path}" class="headerlogo-link"><div class="headerlogo"></div></a>
+      <a href="/" th:href="'/'+${locale_path}+'blog/10-years'" class="headerlogo-link"><div class="headerlogo"></div></a>
       <ul class="menu">
         <li class="mobile-sign" th:text="#{top_menu}">Menu</li>
         <li class="lang_switcher mobile-only">
