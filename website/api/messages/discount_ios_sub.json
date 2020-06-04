@@ -2,8 +2,8 @@
  "message" : "Discount_ios message (DEFINED in motd_config)",
  "description" : "Discount_ios description (DEFINED in motd_config)",
  "show_start_frequency" : 4,
- "show_day_frequency" : 4,
- "max_total_show" : 4,
+ "show_day_frequency" : 1,
+ "max_total_show" : 3,
  "icon" : "ic_action_gift",
  "url" : "show-choose-plan:osmlive",
 "oneOfConditions" : [
