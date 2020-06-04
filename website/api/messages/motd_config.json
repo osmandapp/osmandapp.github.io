@@ -11,8 +11,8 @@
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "РАСПРОДАЖА годовой подписки!",
-				"description": "Оформите годовую подписку со скидкой -50%!"
+				"message": "СПЕЦИАЛЬНАЯ ЦЕНА!",
+				"description": "К 10-ию OsmAnd оформите годовую подписку со скидкой -%%!"
 			}
 		},
 		{
@@ -24,8 +24,8 @@
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "РАСПРОДАЖА!",
-				"description": "Карты без ограничений, контурные линии и годовая подписка -50%!"
+				"message": "СПЕЦИАЛЬНАЯ ЦЕНА!",
+				"description": "К 10-ию OsmAnd: Карты без ограничений, контурные линии и годовая подписка -%%!"
 			}
 		},
 		{
@@ -39,8 +39,8 @@
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "Wyprzedaż rocznej subskrybcji!",
-				"description": "Sprawdź naszą wyprzedaż rocznej subskrybcji - 50%!"
+				"message": "SPECJALNA WYPRZEDAŻ!",
+				"description": "Na 10-lecie OsmAnd: Sprawdź naszą wyprzedaż rocznej subskrybcji - %%!"
 			}
 		},
 		{
@@ -52,8 +52,8 @@
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "Wyprzedaż!",
-				"description": "Wszystkie mapy,  linie konturowe i subskrypcja roczna - 50%!"
+				"message": "SPECJALNA WYPRZEDAŻ!",
+				"description": "Na 10-lecie OsmAnd: Wszystkie mapy,  linie konturowe i subskrypcja roczna - %%!"
 			}
 		},
 		{
@@ -67,8 +67,8 @@
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "¡Suscripción anual de VENTA!",
-				"description": "Obtenga su suscripción anual con un -50% de descuento!"
+				"message": "¡VENTA ESPECIAL!",
+				"description": "Por 10 años de aniversario de OsmAnd: Obtenga su suscripción anual con un -%% de descuento!"
 			}
 		},
 		{
@@ -80,8 +80,8 @@
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "¡VENTA!",
-				"description": "Descargas ilimitadas de mapas, curvas de nivel y suscripción anual -50%!"
+				"message": "¡VENTA ESPECIAL!",
+				"description": "Por 10 años de aniversario de OsmAnd: Descargas ilimitadas de mapas, curvas de nivel y suscripción anual -%%!"
 			}
 		},
 		{
@@ -95,8 +95,8 @@
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "Abonnement annuel à la VENTE!",
-				"description": "Obtenez votre abonnement annuel avec un rabais de -50%!"
+				"message": "VENTE SPÉCIALE!",
+				"description": "Pour le 10e anniversaire d'OsmAnd: Obtenez votre abonnement annuel avec un rabais de -%%!"
 			}
 		},
 		{
@@ -108,8 +108,8 @@
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "VENTE!",
-				"description": "Téléchargements de cartes illimités, courbes de niveau et abonnement annuel -50%!"
+				"message": "VENTE SPÉCIALE!",
+				"description": "Pour le 10e anniversaire d'OsmAnd: Téléchargements de cartes illimités, courbes de niveau et abonnement annuel -%%!"
 			}
 		},
 		{
@@ -123,8 +123,8 @@
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "Jaarabonnement VERKOOP!",
-				"description": "Krijg uw jaarabonnement met een korting van -50%!"
+				"message": "SPECIALE VERKOOP!",
+				"description": "10 jaar bestaan van OsmAnd: Krijg uw jaarabonnement met een korting van -%%!"
 			}
 		},
 		{
@@ -136,8 +136,8 @@
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "VERKOOP!",
-				"description": "Onbeperkte kaartdownloads, contourlijnen en jaarabonnement -50%!"
+				"message": "SPECIALE VERKOOP!",
+				"description": "10 jaar bestaan van OsmAnd: Onbeperkte kaartdownloads, contourlijnen en jaarabonnement -%%!"
 			}
 		},
 		{
@@ -151,8 +151,8 @@
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "Abbonamento annuale di VENDITA!",
-				"description": "Ottieni il tuo abbonamento annuale con uno sconto del -50%!"
+				"message": "SPECIALE VENDITA!",
+				"description": "Per l'anniversario di 10 anni di OsmAnd: Ottieni il tuo abbonamento annuale con uno sconto del -%%!"
 			}
 		},
 		{
@@ -164,8 +164,8 @@
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "VENDITA!",
-				"description": "Download illimitati di mappe, curve di livello e abbonamento annuale -50%!"
+				"message": "SPECIALE VENDITA!",
+				"description": "Per l'anniversario di 10 anni di OsmAnd: Download illimitati di mappe, curve di livello e abbonamento annuale -%%!"
 			}
 		},
 		{
@@ -179,8 +179,8 @@
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "Jahresabonnement SALE!",
-				"description": "Erhalten Sie Ihr Jahresabonnement mit einem Rabatt von -50%!"
+				"message": "SONDERVERKAUF!",
+				"description": "Zum 10-jährigen Jubiläum von OsmAnd: Erhalten Sie Ihr Jahresabonnement mit einem Rabatt von -%%!"
 			}
 		},
 		{
@@ -192,8 +192,8 @@
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "VERKAUF!",
-				"description": "Unbegrenzte Karten-Downloads, Höhenlinien und Jahresabonnement -50%!"
+				"message": "SONDERVERKAUF!",
+				"description": "Zum 10-jährigen Jubiläum von OsmAnd: Unbegrenzte Karten-Downloads, Höhenlinien und Jahresabonnement -%%!"
 			}
 		},
 		{
@@ -207,8 +207,8 @@
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": " تخفيظات !",
-				"description": " على الإشتراكات السنوية -50% ."
+				"message": " بيع خاص !",
+				"description": "للذكرى السنوية العاشرة لـ OsmAnd: اشتراك سنوي - ٪٪!"
 			}
 		},
 		{
@@ -220,15 +220,14 @@
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": " تخفيظات !",
-				"description": "تنزيل خرائط غير محدود ، الخطوط المحيطية (الكنتورية) ، الإشتراكات السنوية -50% ."
+				"message": " بيع خاص !",
+				"description": "للذكرى السنوية العاشرة لـ OsmAnd: تنزيلات غير محدودة للخرائط ، وخطوط تحديد الخطوط والاشتراك السنوي - ٪٪!"
 			}
 		},
 		{
 			"condition": {
-				"ip" : "93.84.176.223",
-   				"start_date": "04-06-2020 10:01",
-   				"end_date": "04-06-2020 23:59",
+   				"start_date": "03-06-2020 10:01",
+   				"end_date": "03-06-2020 23:59",
 				"app_version": "OsmAnd+",
 				"number_of_days": "2-700",
 				"os": "android"
@@ -236,20 +235,19 @@
 			"file": "discount_paid.json",
 			"fields": {
 				"message": "SPECIAL SALE",
-				"description": "For 10 Year Anniversary of OsmAnd -%%!"
+				"description": "For 10 Year Anniversary of OsmAnd: Annual subscription -%%!"
 			}
 		},
 		{
 			"condition": {
-				"ip" : "93.84.176.223",
-   				"start_date": "04-06-2020 10:01",
-   				"end_date": "04-06-2020 23:59",
+   				"start_date": "03-06-2020 10:01",
+   				"end_date": "03-06-2020 23:59",
 				"os": "android"
 			},
 			"file": "discount.json",
 			"fields": {
 				"message": "SPECIAL SALE",
-				"description": "For 10 Year Anniversary of OsmAnd -%%!"
+				"description": "For 10 Year Anniversary of OsmAnd: Unlimited map downloads, contour lines and annual subscription -%%!"
 			}
 		},
 		{
@@ -261,8 +259,8 @@
 			},
 			"file": "discount_ios_sub.json",
 			"fields": {
-				"message": "РАСПРОДАЖА!",
-				"description": "Все карты мира, контурные линии и годовая подписка -50%!"
+				"message": "СПЕЦИАЛЬНАЯ ЦЕНА!!",
+				"description": "К 10-ию OsmAnd: Все карты мира, контурные линии и годовая подписка -%%!"
 			}
 		},
 		{
@@ -274,8 +272,8 @@
 			},
 			"file": "discount_ios_sub.json",
 			"fields": {
-				"message": "VENTE!",
-				"description": "Toutes les cartes du monde, courbes de niveau et abonnement annuel -50%!"
+				"message": "VENTE SPÉCIALE!",
+				"description": "Pour le 10e anniversaire d'OsmAnd: Toutes les cartes du monde, courbes de niveau et abonnement annuel -%%!"
 			}
 		},
 		{
@@ -287,8 +285,8 @@
 			},
 			"file": "discount_ios_sub.json",
 			"fields": {
-				"message": "AUSVERKAUF!",
-				"description": "Alle Weltkarten, Höhenlinien und Jahresabonnement -50%!"
+				"message": "SONDERVERKAUF!",
+				"description": "Zum 10-jährigen Jubiläum von OsmAnd: Alle Weltkarten, Höhenlinien und Jahresabonnement -%%!"
 			}
 		},
 		{
@@ -300,8 +298,8 @@
 			},
 			"file": "discount_ios_sub.json",
 			"fields": {
-				"message": "VENDITA!",
-				"description": "Tutte le mappe del mondo, curve di livello e abbonamento annuale -50%!"
+				"message": "VENDITA SPECIALE!",
+				"description": "Per il 10 ° anniversario di OsmAnd: Tutte le mappe del mondo, curve di livello e abbonamento annuale -%%!"
 			}
 		},
 		{
@@ -313,8 +311,8 @@
 			},
 			"file": "discount_ios_sub.json",
 			"fields": {
-				"message": "¡VENTA!",
-				"description": "Todos los mapas del mundo, curvas de nivel y suscripción anual -50%!"
+				"message": "¡VENTA ESPECIAL!",
+				"description": "Por 10 años de aniversario de OsmAnd: Todos los mapas del mundo, curvas de nivel y suscripción anual -%%!"
 			}
 		},
 		{
@@ -326,8 +324,8 @@
 			},
 			"file": "discount_ios_sub.json",
 			"fields": {
-				"message": "VERKOOP!",
-				"description": "Alle wereldkaarten, contourlijnen en jaarabonnement -50%!"
+				"message": "SPECIALE VERKOOP!",
+				"description": "Voor 10-jarig jubileum van OsmAnd: Alle wereldkaarten, contourlijnen en jaarabonnement -%%!"
 			}
 		},
 		{
@@ -339,8 +337,8 @@
 			},
 			"file": "discount_ios_sub.json",
 			"fields": {
-				"message": "Wyprzedaż!",
-				"description": "Wszystkie mapy,  linie konturowe i subskrypcja roczna - 50%!"
+				"message": "SPECJALNA WYPRZEDAŻ!",
+				"description": "Na 10 rocznicę OsmAnd: Wszystkie mapy,  linie konturowe i subskrypcja roczna - %%!"
 			}
 		},
 		{
@@ -352,21 +350,20 @@
 			},
 			"file": "discount_ios_sub.json",
 			"fields": {
-				"message": "تخفيظات !",
-				"description": "على جميع خرائط العالم ، والخطوط المحيطية  (الكنتورية) ، والتجديد السنوي -50% ."
+				"message": "بيع خاص !",
+				"description": "للذكرى السنوية العاشرة لـ OsmAnd: جميع خرائط العالم وخطوط الكنتور والاشتراك السنوي - ٪٪!"
 			}
 		},
 		{
 			      "condition": {
-				"ip" : "93.84.176.223",
-   				"start_date": "04-06-2020 10:01",
-   				"end_date": "04-06-2020 23:59",
+				"start_date": "03-06-2020 10:01",
+   				"end_date": "03-06-2020 23:59",
 				"os": "ios"
 			},
 			"file": "discount_ios_sub.json",
 			"fields": {
 				"message": "SPECIAL SALE",
-				"description": "For 10 Year Anniversary of OsmAnd: All world maps, contour lines and annual subscription -%%%!"
+				"description": "For 10 Year Anniversary of OsmAnd: All world maps, contour lines and annual subscription -%%!"
 			}
 		}
 	]
