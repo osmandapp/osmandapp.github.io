@@ -248,8 +248,8 @@
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "SPECIAL SALE for 10 Year Anniversary of OsmAnd",
-				"description": "Unlimited map downloads, contour lines and annual subscription!"
+				"message": "SPECIAL SALE",
+				"description": "For 10 Year Anniversary of OsmAnd: Unlimited map downloads, contour lines and annual subscription -%%!"
 			}
 		},
 		{
