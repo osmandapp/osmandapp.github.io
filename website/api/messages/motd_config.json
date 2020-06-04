@@ -243,8 +243,7 @@
 				"ip" : "93.84.176.223",
    				"start_date": "04-06-2020 10:01",
    				"end_date": "04-06-2020 23:59",
-				"os": "android",
-				"country" : "Belarus"
+				"os": "android"
 			},
 			"file": "discount.json",
 			"fields": {
