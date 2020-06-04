@@ -30,7 +30,7 @@
 		},
 		{
 			"condition": {
-				"country" : "Belarus"
+				"country" : "Belarus",
    				"start_date": "27-05-2020 15:01",
    				"end_date": "31-05-2020 23:59",
 				"app_version": "OsmAnd+",
@@ -45,7 +45,7 @@
 		},
 		{
 			"condition": {
-				"country" : "Belarus"
+				"country" : "Belarus",
    				"start_date": "27-05-2020 15:01",
    				"end_date": "31-05-2020 23:59",
 				"os": "android"
