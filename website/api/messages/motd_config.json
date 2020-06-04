@@ -244,7 +244,7 @@
    				"start_date": "04-06-2020 10:01",
    				"end_date": "04-06-2020 23:59",
 				"os": "android",
-				"lang" :"by"
+				"country" : "Belarus"
 			},
 			"file": "discount.json",
 			"fields": {
