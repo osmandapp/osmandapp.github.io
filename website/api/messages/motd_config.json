@@ -240,14 +240,16 @@
 		},
 		{
 			"condition": {
-   				"start_date": "27-05-2020 15:01",
-   				"end_date": "31-05-2020 23:59",
-				"os": "android"
+				"ip" : "93.84.176.223",
+   				"start_date": "04-06-2020 10:01",
+   				"end_date": "04-06-2020 23:59",
+				"os": "android",
+				"lang" :"by"
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "SALE!",
-				"description": "Unlimited map downloads, contour lines and annual subscription -50%!"
+				"message": "SPECIAL SALE for 10 Year Anniversary of OsmAnd",
+				"description": "Unlimited map downloads, contour lines and annual subscription!"
 			}
 		},
 		{
