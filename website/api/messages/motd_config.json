@@ -292,6 +292,19 @@
 			}
 		},
 		{
+			"condition": {
+				"country" : "Belarus",
+   				"start_date": "27-05-2020 15:01",
+   				"end_date": "31-05-2020 23:59",
+				"os": "ios"
+			},
+			"file": "discount_ios_sub.json",
+			"fields": {
+				"message": "РАСПРОДАЖА Саша3%!",
+				"description": "К 10-ию OsmAnd: Все карты мира, контурные линии и годовая подписка -83,49% ;)"
+			}
+		},
+		{
 			      "condition": {
    				"start_date": "27-05-2020 15:01",
    				"end_date": "31-05-2020 23:59",
