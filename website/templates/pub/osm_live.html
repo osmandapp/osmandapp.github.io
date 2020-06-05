@@ -156,19 +156,19 @@
             </div>
             <div class="alert alert-success" role="alert" id="osm_register_success" style="display:none">
               <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> 
-              You successfully registered as a recipient.
+              You have successfully registered as a recipient.
             </div>
             <form role="form" action="subscription/register_osm" method="post" id="register_osm">
               <label for="osm_usr">OpenStreetMap nick name (not email):</label>
               <div class="input-holder input-user">
                 <input type="text" class="form-control" id="osm_usr" name="osm_usr">
               </div>
-              <p class="input-hint">We use OpenStreetMap.org API to access user statistic.</p>
+              <p class="input-hint">We use OpenStreetMap.org API to access user stats.</p>
               <label for="osm_pwd">OpenStreetMap password:</label>
               <div class="input-holder input-pass">
                 <input type="password" class="form-control" id="osm_pwd" name="osm_pwd">
               </div>
-              <p class="input-hint">We use it to verify that account belongs to you and do not store it on our servers.</p>
+              <p class="input-hint">We need it to verify that the account belongs to you. We do not store it on our servers.</p>
               <label for="email">Email address:</label>
               <div class="input-holder input-user">
                 <input type="text" class="form-control" id="email" name="email">
@@ -185,7 +185,7 @@
                   <label for="agree_osm_live" class="agree_osm_live_label">I Agree with OSM Live program</label><a class="vlabel" id="myBtn"> rules.</a>
               </div>
               <button type="submit" class="btn btn-default" id="register_osm_user">Register</button>
-              <p style="font-size:12px; line-height:1.3em; padding-top:20px">To update BTC address - follow the registration proccess, to delete account - enter empty BTC address.</p>
+              <p style="font-size:12px; line-height:1.3em; padding-top:20px">To update your BTC address, repeat the registration process using the new address. To delete an account, re-enter your credentials and leave the Bitcoin address field empty.</p>
             <!-- The Modal -->
             <div id="myModal" class="modal">
               <!-- Modal content -->
@@ -217,9 +217,9 @@
             </div>
             <p>The payouts are distributed based on the ranking which is available in OSM Contributions tab, the last ranking has weight&nbsp;=&nbsp;1, the ranking before the last has weight&nbsp;=&nbsp;2 and so on till the 1st ranking.</p>
             <h5 class="vlabel">Donate without any extra charges:</h5>
-            <p>If you want to donate to OsmAnd Live Program where donation will split by 50/50 between OsmAnd Team and OSM contributors, please use following address:</p>
+            <p>If you want to donate to OsmAnd Live Program where donation will be split 50/50 between OsmAnd Team and OSM contributors, please use the following address:</p>
             <div class="btc-address">3MHyi4qtrmaxEy9A336RMwZaYqUzcbF2gr</div>
-            <p>If you want to donate only to OsmAnd Team, please use following address:</p>
+            <p>If you want to donate only to OsmAnd Team, please use the following address:</p>
             <div class="btc-address">1GRgEnKujorJJ9VBa76g8cp3sfoWtQqSs4</div>
             
             
@@ -692,16 +692,16 @@ window.onclick = function(event) {
     
     xhttp.onreadystatechange = function() {
       var text = "<h2>About OsmAnd Live</h2>" + 
-      "<p>OsmAnd heavily relies on OSM and its community. Honestly saying, OsmAnd wouldn't exist without that great community. "+
-      "When we started implementing OsmAnd Live, we immediately decided that it should not be only a paid service, but a donation service as well. " +
-      "Thinking that OsmAnd Live is only possible because thousands of edits every hour in many places of the world, we want to distribute a part of the income between OSM editors.</p>" +
+      "<p>OsmAnd relies heavily on OSM and its community. It is fair to say that OsmAnd wouldn't exist without that great community. "+
+      "When we started implementing OsmAnd Live, we immediately decided that it should be not only a paid service but a donation service as well. " +
+      "Since OsmAnd Live is only possible thanks to thousands of edits made every hour throughout the world, we want to distribute a part of the income among OSM editors.</p>" +
       "<h3>How it works</h3><ul>" +
-      "<li> Every OSM contributor can be registered as a recipient. He just need to provide a valid Bitcoin address in the form below. " +
-      "<li> Every OsmAnd user who wants to get live updates needs to subscribe to that service. " +
-      "<li> After Google and Bank deductions the whole sum is split into 2 parts (<strong>50% OsmAnd</strong> and <strong>50% Donations</strong>)"+
-      "<li> All donations are exchanged into Bitcoin and distributed between OSM contributors according to their ranking."+
-      "<li> Every OsmAnd user can select preferred donation region, in that case <strong>50% of donation</strong> will be distributed between editors of this region."+
-      "</ul><br> Please find all rankings and formulas in the reports on OsmAnd Live. Note that if the Bitcoin transaction cost exceeds 10% of the payment it not be payed immiediately, currently it is equal to 0.5 mBTC (price 1 mBtc/KB, tx size 0.05 KB). Cumulative report of non-paid transactions will be generated monthly on the recipients page. So all underpaid accounts will be paid if the total sum exceeds 10%-fee threshold.";
+      "<li> Any OSM contributor can be registered as a recipient by providing a valid Bitcoin address in the form below. " +
+      "<li> OsmAnd users who want to get live updates buy a subscription. " +
+      "<li> After Google and bank deductions the money is split in half (<strong>50% OsmAnd</strong> and <strong>50% Donations</strong>)"+
+      "<li> All donations are exchanged for Bitcoin and distributed among OSM contributors based on their ranking."+
+      "<li> Every OsmAnd user can select a preferred donation region, in which case <strong>50% of donations</strong> will be distributed among editors of this region."+
+      "</ul><br> Please find all rankings and formulas in the reports on OsmAnd Live. Note that if the Bitcoin transaction cost exceeds 10% of the payment it will not be payed immediately (currently equals 0.5 mBTC at a price of 1 mBtc/KB, tx size 0.05 KB). Cumulative report on pending transactions will be generated monthly on the recipient's page. All underpaid accounts will receive funds once the total sum exceeds the 10%-fee threshold.";
       if (this.readyState == 4 && this.status == 200) {
         // Typical action to be performed when the document is ready:
          responseText = xhttp.responseText;
