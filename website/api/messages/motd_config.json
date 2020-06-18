@@ -192,7 +192,7 @@
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "VERKAUF!",
+				"message": "SALE!",
 				"description": "Unbegrenzte Karten-Downloads, Höhenlinien und Jahresabonnement -50%!"
 			}
 		},
@@ -286,7 +286,7 @@
 			},
 			"file": "discount_ios_sub.json",
 			"fields": {
-				"message": "AUSVERKAUF!",
+				"message": "SALE!",
 				"description": "Alle Weltkarten, Höhenlinien und Jahresabonnement -50%!"
 			}
 		},
