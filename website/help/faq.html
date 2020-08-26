@@ -453,24 +453,32 @@
        <li>If this fails, you may want to disable Power Saving on the device globally to see if your issues are caused by it at all</li>
   </ul>
 
-  <p><b>Update Android 9, Hardy, 2020-03-01:</b> I have successfully tested the following Power saving settings under Android 9 (on Samsung devices), with particular attention if OsmAnd logging works reliably:</p>
-  <ul>
-  <li><b>Device care / Battery:</b>
-    <ul>
-    <li>Power mode = Optimized</li>
-    <li>Adaptive power saving = OFF (leaving ON may periodically use Medium power saving which inhibits OsmAnd logging)</li>
-    </ul>
-  </li>
-  <li><b>Device care / Battery / Settings:</b>
-    <ul>
-    <li>Adaptive battery = OFF (unclear if ON may have negative effect at some point)</li>
-    <li>Put unused apps to sleep = OFF (check list of sleeping apps)</li>
-    <li>Auto disable unused apps = OFF</li>
-    <li>Optimize settings = OFF</li>
-    </ul>
-  </li>
-  <li><b>Apps / ... / Special access / Optimize battery usage / All</b> = Leave all unchanged (effect of this setting unclear)</li>
-    </ul>
+      <p><b>Update Android 9 and 10, Hardy, 2020-08-25:</b> I have successfully tested the following Power saving settings under Android 9 and 10 (on Samsung devices), with particular attention if OsmAnd logging works reliably:</p>
+        <ul>
+          <li><b>Device care / Battery:</b>
+            <ul>
+              <li>Power mode = Optimized</li>
+              <li>Adaptive power saving = OFF (leaving ON may periodically use Medium power saving which inhibits OsmAnd logging)</li>
+            </ul>
+          </li>
+          <li><b>Device care / Battery / App Power Management (under And9 called 'Settings'):</b>
+            <ul>
+              <li>Adaptive battery = ON (candidate for 'OFF', but no problem detected so far)</li>
+              <li>Put unused apps to sleep = OFF (check list of sleeping apps)</li>
+              <li>Auto disable unused apps = OFF (seems not to exist anymore in And10)</li>
+              <li>Optimize settings = OFF (in And10 under Device care / Advanced)</li>
+            </ul>
+          </li>
+          <li><b>Device Care / Advanced:</b>
+            <ul>
+              <li>Notifications = ON</li>
+              <li>Auto optimization = ON</li>
+              <li>Auto restart = OFF</li>
+              <li>Optimize Settings = OFF</li>
+            </ul>
+          </li>
+          <li><b>Apps / ... / Special access / Optimize battery usage / All</b> = Leave all unchanged (looks like OsmAnd does not need to have Battery optimization disabled here)</li>
+        </ul>
     </div>
   </div>
 
