@@ -55,8 +55,8 @@
     <div class="subtitle">Development and Testing</div>
     <ul class="list">
       <li><a href="#dev-environment">How to setup development environment?</a></li>
-      <li><a href="#dev-compile-android">How to compile Android version (Gradle / Android Studio)?</a></li>  
-      <li><a href="#dev-compile-ios">How to compile iOS version?</a></li>     
+      <li><a href="#dev-compile-android">How to compile Android version (Gradle / Android Studio)?</a></li>
+      <li><a href="#dev-compile-ios">How to compile iOS version?</a></li>
       <li><a href="#development">OsmAnd Development</a></li>
       <li><a href="#intents">What intents does OsmAnd listen to?</a></li>
       <li><a href="#map_creator">Creating own maps and OsmAndMapCreator</a></li>
@@ -226,28 +226,28 @@
     <div class="subtitle" id="installation_issue">I can't install or upgrade the app</div>
     <div class="content">
       <p>If you have an error "-25/-26/-27" please read below, otherwise please contact support.
-        The issue you are experiencing is now confirmed as Xiaomi MIUI's integrated anti-virus' fault. To avoid error "-25/-26/-27", you need to freeze the "Guard Provider" process before updating OsmAnd. Then, once updated, you can re-enable the process. There are many ways and tools to freeze a process. We suggest you to google it yourself, although some of our users used 3C Toolbox or App Master, but we leave this to your preference. 
+        The issue you are experiencing is now confirmed as Xiaomi MIUI's integrated anti-virus' fault. To avoid error "-25/-26/-27", you need to freeze the "Guard Provider" process before updating OsmAnd. Then, once updated, you can re-enable the process. There are many ways and tools to freeze a process. We suggest you to google it yourself, although some of our users used 3C Toolbox or App Master, but we leave this to your preference.
       </p>
       <p>To freeze a process, follow these steps: go to App Manager --> Apps tab --> filter by System Apps --> select the "Guard Provider" --> tap the Manage button (bottom right, four little squares) --> Freeze.
         To unfreeze, repeat the same procedure. Unfortunately "App Master" does not do freeze in the OsmAnd Free version. 3C Toolbox does the trick, but you will find the "Guard Provider" process as "com.securitycore.miui_t" under "Apps" with the filter on "System".
       </p>
     </div>
   </div>
-  
+
   <div class="question">
     <div class="subtitle" id="uninstall_issue">I can't uninstall the app</div>
     <div class="content">
       <p>Sometimes you might want to uninstall the app because you want to install the paid version or a nightly develompment build, and you find that the "UNINSTALL" option is inactive.
       This is because OsmAnd has been configured as "Device Manager" by you as user.<br>
-      In hiking/cycling mode OsmAnd can be configured to switch off the screen and switch it on just before a navigational change of direction is necessary. 
+      In hiking/cycling mode OsmAnd can be configured to switch off the screen and switch it on just before a navigational change of direction is necessary.
       To make this possible in Android, OsmAnd is added to the "Device administrators" section. This is the reason you can't uninstall OsmAnd.
       </p>
-      <p>To uninstall OsmAnd in such a case you need to go to (Android) "Settings->Security->device administrators" and uncheck OsmAnd as a device administrator. 
+      <p>To uninstall OsmAnd in such a case you need to go to (Android) "Settings->Security->device administrators" and uncheck OsmAnd as a device administrator.
       After having done that you can uninstall OsmAnd. </p>
     </div>
   </div>
 
-  
+
   <div class="question">
     <div class="subtitle" id="restore_purchases">How to restore purchases on iOS</div>
     <div class="content">
@@ -270,7 +270,7 @@
         </ul>
     </div>
   </div>
-  
+
 <div class="question">
  <div class="subtitle" id="delete_history">How to delete history</div>
     <div class="content">
@@ -278,7 +278,7 @@
       <p>You can also follow <a href="https://osmand.net/features/find-something-on-map">this guide</a> to lern more about the search in OsmAnd</p>
     </div>
   </div>
-  
+
   <div class="subtitle mobile-subtitle">Using OsmAnd's Navigation</div>
   <div class="question">
     <div class="subtitle" id="routing_wrong">The route calculated does not seem correct</div>
@@ -365,7 +365,7 @@
 
   <div class="question">
     <div class="subtitle" id="search_by_postcode">How to search an address via postcode</div>
-    <div class="content"> 
+    <div class="content">
       In order to find <a href="https://osmand.net/features/find-something-on-map#Find_by_address_A">an address by a postcode</a>:
       <ul>
         <li> Go to Search (on the start screen)</li>
@@ -542,14 +542,14 @@
       </p>
       <p>Good luck with your work.</p>
     </div>
-  </div>    
+  </div>
   <div class="subtitle mobile-subtitle">Development and Testing</div>
   <div class="question">
     <div class="subtitle" id="dev-environment">How to setup development environment?</div>
     <div class="content">
-      <p>In order to setup development environment you need to install 
+      <p>In order to setup development environment you need to install
         <a href="https://source.android.com/setup/develop#repo">repo utility</a> and use the following <a href="https://github.com/osmandapp/OsmAnd-manifest/blob/master/readonly.xml">repo manifest</a>!!!</p>
-      <p>You can also use only git and checkout following git repositories into correct folder names:</p>
+      <p>Alternatively, you can use only git and checkout following repositories into correct folder names:</p>
       <ul>
         <li>Folder <b>core</b> - git repo <b><a href="https://github.com/osmandapp/OsmAnd-core.git">OsmAnd-core</a> </b></li>
         <li>Folder <b>ios</b> - git repo <b><a href="https://github.com/osmandapp/OsmAnd-ios.git">OsmAnd-ios</a> </b></li>
@@ -567,7 +567,9 @@
     <div class="subtitle" id="dev-compile-android">How to compile Android version (Gradle / Android Studio)?</div>
     <div class="content">
       <p>First of all you need to setup development environment as mentionned above.</p>
-      <p>Specify environment variable and install software (check <a href="https://github.com/osmandapp/Osmand/blob/master/OsmAnd/build.gradle#L32">build.gradle</a>): 
+      <p>Ensure <code>python</code> binary is available on your system: <code>python -V</code>. If this fails, you may want to do a symlink from
+      <code>python2</code> or <code>python3</code> binaries eg <code>ln -s /usr/bin/python3 /usr/bin/python</code>.</p>
+      <p>Specify environment variable and install software (check <a href="https://github.com/osmandapp/Osmand/blob/master/OsmAnd/build.gradle#L32">build.gradle</a>):
         <ul>
           <li>ANDROID_SDK = path to android sdk (currently compileSdkVersion, buildToolsVersion 27)</li>
           <li>ANDROID_NDK = path to android ndk (currently android-ndk-r17b")</li>
@@ -578,6 +580,7 @@
         export ANDROID_HOME=/[your-path]/Library/Android/sdk</TT></p>
       <p>You can also use our <a href="https://github.com/osmandapp/Osmand/tree/master/keystores">debug.keystore</a>
         to make builds compatible with nightly build.</p>
+      <p><b>Get sourcecode</b>: repo init -u https://github.com/osmandapp/OsmAnd-manifest -m readonly.xml && repo sync</p>
       <p><b>Gradle</b>: cd android/OsmAnd && ../gradlew cleanNoTranslate assembleFreedevLegacyFatDebug </p>
       <p><b>Android Studio</b>: import android project and choose flavor 'assembleFreedevLegacyFatDebug'.</p>
     </div>
@@ -613,11 +616,11 @@
 <p><i>$ PATH=~/bin:$PATH</i></p>
 <p><i>$ curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo</i></p>
 <p><i>$ chmod a+x ~/bin/repo</i></p>
-<p><i>$ repo init -u <a href="https://github.com/osmandapp/OsmAnd-manifest/blob/master/jenkins_ios.xml">https://github.com/osmandapp/OsmAnd-manifest/blob/master/jenkins_ios.xml</a></i></p> 
+<p><i>$ repo init -u <a href="https://github.com/osmandapp/OsmAnd-manifest/blob/master/jenkins_ios.xml">https://github.com/osmandapp/OsmAnd-manifest/blob/master/jenkins_ios.xml</a></i></p>
 
 <p><b>after doing this, repo is installed, but "google repo tool couldn’t obtain manifest"</b></p>
-<p>if clone manually, in some cases “revision” is specified. You should use <i>git clone -b</i> 
-(ex: 
+<p>if clone manually, in some cases “revision” is specified. You should use <i>git clone -b</i>
+(ex:
 <i>< project path="core-legacy" name="osmandapp/OsmAnd-core.git" revision="legacy_core" /></i></p>
 <p>must be:
 <i>git clone https://github.com/osmandapp/OsmAnd-core.git -b legacy_core core-legacy )</i></p>
@@ -719,7 +722,7 @@
         <li> Now you can download the test version, either directly from the Google Play Store, or via your phone/tablet.</li>
       </ul>
       <h4 class="help" id="">Returning to the standard Google Play Store OsmAnd version </h4>
-      <p>Note that the same registration screen, after having registered, also has a link "Leave the test version". 
+      <p>Note that the same registration screen, after having registered, also has a link "Leave the test version".
       If, after some time, you want to use the current standard release version from the Google Play Store again, proceed as follows:</p>
       <ul>
         <li> Use the above link again (so you better make this a bookmark/favorite in your browser). The page will still inform "You are a tester"</li>
@@ -728,7 +731,7 @@
         <li> Manually uninstall the test version, either via the Google Play Store or on your phone/tablet.</li>
         <li> Manually (re)install the current version, either via the Google Play Store or on your phone/tablet.</li>
       </ul>
-      <b>Note</b>: Before changing to the test version, export your OsmAnd favorites. The new test version should simply continue using the favorites but as it is a beta version for testing, you never know. 
+      <b>Note</b>: Before changing to the test version, export your OsmAnd favorites. The new test version should simply continue using the favorites but as it is a beta version for testing, you never know.
     </div>
   </div>
 
