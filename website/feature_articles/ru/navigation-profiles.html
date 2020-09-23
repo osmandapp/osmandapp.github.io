@@ -1,13 +1,22 @@
-<h2>Навигационные Профили (только для Android )</h2>
+<h2>Навигационные Профили</h2>
 
+<li><a href="#navprof_android"><b>Навигационные Профили для Android</b></a></li>
 <li><a href="#create">Как создать Навигационный профиль</a></li>
 <li><a href="#parameters">Как настроить Навигационный профиль</a></li>
+<li><a href="#videotutorial">Видео Туториал</a></li>
 <li><a href="#create_brouter">Как создать Навигационный профиль со сторонней маршрутизацией (BRouter)</a></li>
 
+<li><a href="#navprof_ios"><b>Navigation (Application) profile for iOS version</b></a></li>
+<ul class="innerlist">
+<li><a href="#create_ios">How to create a Navigation (Application) Profile</a></li>
+<li><a href="#parameters_ios">How to set parameters to the new Navigation (Application) Profile</a></li>
+<li><a href="#import_prof_ios">How to import Navigation (Application) Profile</a></li>
+</ul>
 
 <p>Чтобы добраться до пункта назначения с голосовыми указаниями или без них, OsmAnd предлагает вам функцию навигации. Узнайте, как использовать навигацию <a href="https://osmand.net/features/navigation">здесь</a>.</p>
 <p>В OsmAnd для построения маршрута и навигации доступны различные базовые профили, которые учитывают специфику транспортного средства и условия движения. Маршруты рассчитываются по-разному для разных навигационных профилей, следуя правилам дорожного движения, с учетом условий, веса, различных ограничений и помогут вам добраться до пункта назначения, учитывая ваш метод передвижения и тип транспорта. Но не очень удобно использовать базовые профили для некоторых особых случаев. Поэтому в OsmAnd 3.5 (Android) добавлена возможность создания собственного профиля со всеми настройками, иконками и т.д.</p>
 
+<div class="subtitle" id="navprof_android"><h2>Навигационные Профили для Android</h2></div>
 <div class="subtitle" id="create"><h3>Как создать навигационный профиль</h3></div>
 
 <p>В главном меню приложения вы можете выбрать и установить любые параметры для профиля навигации по умолчанию. Перейдите в <i>Главное меню -> выберите любой профиль -> Настройки профиля</i>. На этом экране вы можете изменить параметры, включить/отключить плагины отдельно для каждого профиля. А также выполнить следующие действия: <i> «Экспорт профиля», «Копировать из другого профиля», «Сбросить на значения по умолчанию», «Удалить профиль» </i>.</p>
@@ -129,6 +138,11 @@
 
 <p>В <b>Действия</b>, вы можете экспортировать созданный профиль своим друзьям, скопировать параметры из другого профиля или удалить профиль.</p>
 
+
+<div class="subtitle" id="videotutorial"><h3>Видео туториал</h3></div>
+
+<iframe width="900" height="506" src="https://www.youtube.com/embed/TpT9S-b495M" frameborder="0" allowfullscreen></iframe>
+
 <div class="subtitle" id="create_brouter"><h3>Как создать Навигационный профиль со сторонней маршрутизацией (BRouter)</h3></div>
 
 <p>Как вы знаете, OsmAnd использует ресурсы вашего устройства для маршрутизации. Есть много параметров для маршрутизации в нашем <a href="https://github.com/osmandapp/OsmAnd-resources/blob/master/routing/routing.xml">routing.xml</a> файле. Вы можете изменить <a href="https://github.com/osmandapp/OsmAnd-resources/blob/master/routing/routing.xml">routing.xml</a> и добавить его как <a href="#create_4">Тип навигации</a>.</p>
@@ -183,6 +197,142 @@
 <img src="/images/features/prof21a.jpg" alt="(Image not available offline)"/>
 <div style="clear:both;"></div>
 </div>
+
+<div class="subtitle" id="navprof_ios"><h2>Navigation (Application) profile for iOS version</h2></div>
+
+<div class="subtitle" id="create_ios"><h3>How to create a New Navigation (Application) Profile</h3></div>
+<p>From version 3.80 you can create you own Navigation (Applicaton) profile or modify it. Go to <i>menu -> Settings -> App profiles -> New profile</i>, here you can create your own application profile, edit profile list, make active/unactive your profile.</p>
+<div class="centeredimageblog">
+<img src="/images/features/prof22.jpg" alt="(Image not available offline)"/>
+<img src="/images/features/prof23.jpg" alt="(Image not available offline)"/>
+<div style="clear:both;"></div>
+</div>
+
+<p>When you click <i>New profile</i> you choose the default app profiles for your custom profile, this define basic setup like default visibility of widgets and units of speed and distance. We will create our MTB profile, we choose "Bicycle" for own app profile.</p>
+<div class="centeredimageblog">
+<img src="/images/features/prof24.jpg" alt="(Image not available offline)"/>
+<div style="clear:both;"></div>
+</div>
+
+<p>When we clicked the default app profiles (Bicycle) we can give the name, color, appearance of our custom MTB profile. When we choose all parameters we click "Save" button.</p>
+
+<div class="centeredimageblog">
+<img src="/images/features/prof25.jpg" alt="(Image not available offline)"/>
+<img src="/images/features/prof26.jpg" alt="(Image not available offline)"/>
+<div style="clear:both;"></div>
+</div>
+
+<p>Our custom app profile is our profile list now. We can edit profile list and move our app profile to top of the list.</p>
+<div class="centeredimageblog">
+<img src="/images/features/prof27.jpg" alt="(Image not available offline)"/>
+<img src="/images/features/prof28.jpg" alt="(Image not available offline)"/>
+<img src="/images/features/prof29.jpg" alt="(Image not available offline)"/>
+<div style="clear:both;"></div>
+</div>
+
+<div class="subtitle" id="parameters_ios"><h3>How to set parameters to the New Navigation Profile</h3></div>
+
+<p>Go to the general menu, choose <i>Settings -> "MTB" app profile</i>. Here we see Enable button, Profile settings menu, Plugins, Actions.</p>
+<p>In <i>Plugins</i> we can set plugin parameters for our app profile.</p>
+<p>In <i>Actions</i> we can export our profile, copy from another profile, reset to default, delete profile.</p>
+<div class="centeredimageblog">
+<img src="/images/features/prof30.jpg" alt="(Image not available offline)"/>
+<img src="/images/features/prof31.jpg" alt="(Image not available offline)"/>
+<div style="clear:both;"></div>
+</div>
+
+<p>In <b><u>Profile settings</u></b> we can set our app profile:</p>
+<p><b><i>General settings</i></b></p>
+
+<p><u>Appearance</u>:</p>
+<p>- Map orientation (Do not rotate (north is up), To direction of movement, To compass)</p>
+<p>- 2.5D view (switch on/off)</p>
+<p>- Display position always in center (switch on/off)</p>
+
+<p><u>Units & Formats</u>:</p>
+<p>- Driving region (Automatic, Right(left)-hand driving, kilometers(miles)/meters(feet))</p>
+<p>- Units of length (kilometers/meters, miles/feet, miles/yards, miles/meters, nautical miles)</p>
+<p>- Units of speed (kilometers per hour, mile per hour... nautical miles per hour (knot))</p>
+<p>- Coordinate format</p>
+<p>- Angular measurment units (degrees 180, degrees 360, milliradians)</p>
+
+<p><u>External input devices</u>:</p>
+<p>- None</p>
+<p>- Generic Keyboard</p>
+<p>- WunderLINQ</p>
+
+<div class="centeredimageblog">
+<img src="/images/features/prof32.jpg" alt="(Image not available offline)"/>
+<div style="clear:both;"></div>
+</div>
+
+<p><b><i>Navigation settings</i></b></p>
+<div class="centeredimageblog">
+<img src="/images/features/prof33.jpg" alt="(Image not available offline)"/>
+<div style="clear:both;"></div>
+</div>
+
+<p><u>Navigation</u>:</p>
+
+<p>- Navigation type. Here you can choose Navigation type, how routes are calculated. You can import routing file from any cloud storage app or by putting it into the OsmAnd folder in iTunes.</p>
+<div class="centeredimageblog">
+<img src="/images/features/prof34.jpg" alt="(Image not available offline)"/>
+<div style="clear:both;"></div>
+</div>
+
+<p>- Route parameters. Here you set parameters for routing: choose needed road types, elevation data etc.</p>
+<div class="centeredimageblog">
+<img src="/images/features/prof35.jpg" alt="(Image not available offline)"/>
+<div style="clear:both;"></div>
+</div>
+
+<p>- Voice prompts. Read more about settings of voice read <a href="https://osmand.net/features/navigation#Voice_guidance_iOS">here</a>.</p>
+<div class="centeredimageblog">
+<img src="/images/features/prof36.jpg" alt="(Image not available offline)"/>
+<div style="clear:both;"></div>
+</div>
+
+<p>- Screen alerts. Show alerts during navigation: Traffic warnings, Pedestrian crosswalks, Speed cameras, Tunnels.</p>
+<div class="centeredimageblog">
+<img src="/images/features/prof37.jpg" alt="(Image not available offline)"/>
+<img src="/images/features/prof38.jpg" alt="(Image not available offline)"/>
+<div style="clear:both;"></div>
+</div>
+
+<p>- Vehicle parameters. Size and weight, default speed.</p>
+<div class="centeredimageblog">
+<img src="/images/features/prof39.jpg" alt="(Image not available offline)"/>
+<div style="clear:both;"></div>
+</div>
+
+<p><u>Other</u>:</p>
+<p>- Map behavior. Auto-center map view, auto zoom map, map orientation threshold, snap to road (on/off).</p>
+<div class="centeredimageblog">
+<img src="/images/features/prof40.jpg" alt="(Image not available offline)"/>
+<div style="clear:both;"></div>
+</div>
+
+<p><b><i>Configure map</i></b></p>
+<p>Read more about this settings <a href="https://osmand.net/features/map-viewing#Customize_map_iOS">here</a>.</p>
+
+<p><b><i>Configure screen</i></b></p>
+<p>Read more about this settings <a href="https://osmand.net/features/map-viewing#Viewing_widgets_iOS">here</a>.</p>
+
+<p><b><i>Profile appearance</i></b></p>
+<p>You can change appearance of your profile. Look at <a href="https://osmand.net/features/navigation-profiles#create_ios">this</a>.</p>
+
+<div class="subtitle" id="import_prof_ios"><h3>How to import Navigation (Application) Profile</h3></div>
+<p>You can export your profile or import other profiles.</p>
+<p>To import a profile, tap on the needed file (*.osf) in any application and select "Copy to OsmAnd Maps".</p>
+
+<div class="centeredimageblog">
+<img src="/images/blog/ios-3-80/5.jpg" alt="(Image not available offline)"/>
+<img src="/images/blog/ios-3-80/6.jpg" alt="(Image not available offline)"/>
+<img src="/images/blog/ios-3-80/7.jpg" alt="(Image not available offline)"/>
+<img src="/images/blog/ios-3-80/9.jpg" alt="(Image not available offline)"/>
+<div style="clear:both;"></div>
+</div>
+
 
 <p>___________________________</p>
 
