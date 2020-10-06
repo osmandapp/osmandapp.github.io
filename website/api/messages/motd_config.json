@@ -1,124 +1,64 @@
 
 {
-
-
-
-
 	"settings": [
-
-
 		{
-
-
 			"condition": {
-
-
   				"start_date": "23-09-2020 00:01",
   				"end_date": "30-09-2020 23:59",
-
-
 				"app_version": "OsmAnd+",
-
-
 				"os": "android",
-
-
 				"number_of_days": "2-700",
-
-
 				"lang" :"ru"
-
-
 			},
-
-
 			"file": "discount_paid.json",
-
-
 			"fields": {
-
-
 				"message": "РАСПРОДАЖА годовой подписки!",
-
-
 				"description": "Оформите годовую подписку со скидкой -50%!"
-
-
 			}
-
-
 		},
-
-
 		{
-
-
+			
 			"condition": {
-
   				"start_date": "23-09-2020 00:01",
   				"end_date": "30-09-2020 23:59",
-
-
 				"os": "android",
-
-
 				"lang" :"ru"
-
-
 			},
-
-
 			"file": "discount.json",
-
-
 			"fields": {
-
-
 				"message": "РАСПРОДАЖА!",
-
-
 				"description": "Карты без ограничений, контурные линии и годовая подписка -50%!"
-
-
 			}
-
-
 		},
-
-
 		{
-
-
+			
+			
 			"condition": {
-
+  				"start_date": "05-10-2020 00:01",
+  				"end_date": "30-10-2020 23:59",
+				"os": "android"
+			},
+			"file": "discount_huawei.json",
+			"fields": {
+				"message": "РАСПРОДАЖА!",
+				"description": "Карты без ограничений, контурные линии и годовая подписка -50%!"
+			}
+		},
+		{
+			
+			
+			
+			"condition": {
   				"start_date": "23-09-2020 00:01",
   				"end_date": "30-09-2020 23:59",
-
-
 				"app_version": "OsmAnd+",
-
-
 				"os": "android",
-
-
 				"number_of_days": "2-700",
-
-
 				"lang" :"pl"
-
-
 			},
-
-
 			"file": "discount_paid.json",
-
-
 			"fields": {
-
-
 				"message": "Wyprzedaż rocznej subskrybcji!",
-
-
 				"description": "Sprawdź naszą wyprzedaż rocznej subskrybcji - 50%!"
 
 
