@@ -17,6 +17,6 @@
 ],
   "url_1" :  "osmand-market-app:net.osmand.huawei.full",
   "application" : {
-    "net.osmand" : true
+    "net.osmand.huawei" : true
   }
 }
