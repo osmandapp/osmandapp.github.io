@@ -35,7 +35,7 @@
 			
 			"condition": {
   				"start_date": "05-10-2020 00:01",
-  				"end_date": "30-10-2020 23:59",
+  				"end_date": "05-10-2020 23:59",
 				"os": "android"
 			},
 			"file": "discount_huawei.json",
