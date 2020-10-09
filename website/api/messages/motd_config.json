@@ -3,62 +3,139 @@
 	"settings": [
 		{
 			"condition": {
-  				"start_date": "23-09-2020 00:01",
-  				"end_date": "30-09-2020 23:59",
+  				"start_date": "09-10-2020 06:01",
+  				"end_date": "11-10-2020 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "2-700",
+
 				"lang" :"ru"
+
+
 			},
+
+
 			"file": "discount_paid.json",
+
+
 			"fields": {
+
+
 				"message": "РАСПРОДАЖА годовой подписки!",
+
+
 				"description": "Оформите годовую подписку со скидкой -50%!"
+
+
 			}
+
+
 		},
+
+
 		{
-			
+
+
 			"condition": {
-  				"start_date": "23-09-2020 00:01",
-  				"end_date": "30-09-2020 23:59",
+
+  				"start_date": "09-10-2020 06:01",
+  				"end_date": "11-10-2020 23:59",
+
+
 				"os": "android",
+
+
 				"lang" :"ru"
+
+
 			},
+
+
 			"file": "discount.json",
+
+
 			"fields": {
-				"message": "РАСПРОДАЖА!",
-				"description": "Карты без ограничений, контурные линии и годовая подписка -50%!"
+
+
+				"message": "РАСПРОДАЖА годовой подписки!",
+
+
+				"description": "Оформите годовую подписку со скидкой -50%!"
+
+
 			}
+
+
 		},
+
+
 		{
-			
-			
+
+
 			"condition": {
-  				"start_date": "05-10-2020 00:01",
-  				"end_date": "05-10-2020 23:59",
-				"os": "android"
-			},
-			"file": "discount_huawei.json",
-			"fields": {
-				"message": "РАСПРОДАЖА!",
-				"description": "Карты без ограничений, контурные линии и годовая подписка -50%!"
-			}
-		},
-		{
-			
-			
-			
-			"condition": {
-  				"start_date": "23-09-2020 00:01",
-  				"end_date": "30-09-2020 23:59",
+  				"start_date": "09-10-2020 06:01",
+  				"end_date": "11-10-2020 23:59",
+
+
 				"app_version": "OsmAnd+",
+
+
 				"os": "android",
+
+
 				"number_of_days": "2-700",
+
+
 				"lang" :"pl"
+
+
 			},
+
+
 			"file": "discount_paid.json",
+
+
 			"fields": {
+
+
 				"message": "Wyprzedaż rocznej subskrybcji!",
+
+
+				"description": "Sprawdź naszą wyprzedaż rocznej subskrybcji - 50%!"
+
+
+			}
+
+
+		},
+
+
+		{
+
+
+			"condition": {
+  				"start_date": "09-10-2020 06:01",
+  				"end_date": "11-10-2020 23:59",
+
+
+				"os": "android",
+
+
+				"lang" :"pl"
+
+
+			},
+
+
+			"file": "discount.json",
+
+
+			"fields": {
+
+
+				"message": "Wyprzedaż rocznej subskrybcji!",
+
+
 				"description": "Sprawdź naszą wyprzedaż rocznej subskrybcji - 50%!"
 
 
@@ -73,43 +150,8 @@
 
 			"condition": {
 
-  				"start_date": "23-09-2020 00:01",
-  				"end_date": "30-09-2020 23:59",
-
-
-				"os": "android",
-
-
-				"lang" :"pl"
-
-
-			},
-
-
-			"file": "discount.json",
-
-
-			"fields": {
-
-
-				"message": "Wyprzedaż!",
-
-
-				"description": "Wszystkie mapy,  linie konturowe i subskrypcja roczna - 50%!"
-
-
-			}
-
-
-		},
-
-
-		{
-
-
-			"condition": {
-  				"start_date": "23-09-2020 00:01",
-  				"end_date": "30-09-2020 23:59",
+  				"start_date": "09-10-2020 06:01",
+  				"end_date": "11-10-2020 23:59",
 
 
 				"app_version": "OsmAnd+",
@@ -150,8 +192,8 @@
 
 			"condition": {
 
-  				"start_date": "23-09-2020 00:01",
-  				"end_date": "30-09-2020 23:59",
+  				"start_date": "09-10-2020 06:01",
+  				"end_date": "11-10-2020 23:59",
 
 
 				"os": "android",
@@ -169,10 +211,10 @@
 			"fields": {
 
 
-				"message": "¡VENTA!",
+				"message": "¡Suscripción anual de VENTA!",
 
 
-				"description": "Descargas ilimitadas de mapas, curvas de nivel y suscripción anual -50%!"
+				"description": "Obtenga su suscripción anual con un -50% de descuento!"
 
 
 			}
@@ -186,8 +228,8 @@
 
 			"condition": {
 
-  				"start_date": "23-09-2020 00:01",
-  				"end_date": "30-09-2020 23:59",
+  				"start_date": "09-10-2020 06:01",
+  				"end_date": "11-10-2020 23:59",
 
 
 				"app_version": "OsmAnd+",
@@ -227,8 +269,8 @@
 
 
 			"condition": {
-  				"start_date": "23-09-2020 00:01",
-  				"end_date": "30-09-2020 23:59",
+  				"start_date": "09-10-2020 06:01",
+  				"end_date": "11-10-2020 23:59",
 
 
 				"os": "android",
@@ -246,10 +288,10 @@
 			"fields": {
 
 
-				"message": "VENTE!",
+				"message": "Abonnement annuel à la VENTE!",
 
 
-				"description": "Téléchargements de cartes illimités, courbes de niveau et abonnement annuel -50%!"
+				"description": "Obtenez votre abonnement annuel avec un rabais de -50%!"
 
 
 			}
@@ -262,9 +304,8 @@
 
 
 			"condition": {
-
-  				"start_date": "23-09-2020 00:01",
-  				"end_date": "30-09-2020 23:59",
+  				"start_date": "09-10-2020 06:01",
+  				"end_date": "11-10-2020 23:59",
 
 
 				"app_version": "OsmAnd+",
@@ -304,9 +345,8 @@
 
 
 			"condition": {
-
-  				"start_date": "23-09-2020 00:01",
-  				"end_date": "30-09-2020 23:59",
+  				"start_date": "09-10-2020 06:01",
+  				"end_date": "11-10-2020 23:59",
 
 
 				"os": "android",
@@ -324,10 +364,10 @@
 			"fields": {
 
 
-				"message": "VERKOOP!",
+				"message": "Jaarabonnement VERKOOP!",
 
 
-				"description": "Onbeperkte kaartdownloads, contourlijnen en jaarabonnement -50%!"
+				"description": "Krijg uw jaarabonnement met een korting van -50%!"
 
 
 			}
@@ -341,8 +381,9 @@
 
 			"condition": {
 
-  				"start_date": "23-09-2020 00:01",
-  				"end_date": "30-09-2020 23:59",
+
+  				"start_date": "09-10-2020 06:01",
+  				"end_date": "11-10-2020 23:59",
 
 
 				"app_version": "OsmAnd+",
@@ -382,9 +423,8 @@
 
 
 			"condition": {
-
-  				"start_date": "23-09-2020 00:01",
-  				"end_date": "30-09-2020 23:59",
+  				"start_date": "09-10-2020 06:01",
+  				"end_date": "11-10-2020 23:59",
 
 
 				"os": "android",
@@ -402,10 +442,10 @@
 			"fields": {
 
 
-				"message": "VENDITA!",
+				"message": "Abbonamento annuale di VENDITA!",
 
 
-				"description": "Download illimitati di mappe, curve di livello e abbonamento annuale -50%!"
+				"description": "Ottieni il tuo abbonamento annuale con uno sconto del -50%!"
 
 
 			}
@@ -419,8 +459,8 @@
 
 			"condition": {
 
-  				"start_date": "23-09-2020 00:01",
-  				"end_date": "30-09-2020 23:59",
+  				"start_date": "09-10-2020 06:01",
+  				"end_date": "11-10-2020 23:59",
 
 
 				"app_version": "OsmAnd+",
@@ -460,9 +500,8 @@
 
 
 			"condition": {
-
-  				"start_date": "23-09-2020 00:01",
-  				"end_date": "30-09-2020 23:59",
+  				"start_date": "09-10-2020 06:01",
+  				"end_date": "11-10-2020 23:59",
 
 
 				"os": "android",
@@ -480,10 +519,10 @@
 			"fields": {
 
 
-				"message": "SALE!",
+				"message": "Jahresabonnement SALE!",
 
 
-				"description": "Unbegrenzte Karten-Downloads, Höhenlinien und Jahresabonnement -50%!"
+				"description": "Erhalten Sie Ihr Jahresabonnement mit einem Rabatt von -50%!"
 
 
 			}
@@ -496,8 +535,8 @@
 
 
 			"condition": {
-  				"start_date": "23-09-2020 00:01",
-  				"end_date": "30-09-2020 23:59",
+  				"start_date": "09-10-2020 06:01",
+  				"end_date": "11-10-2020 23:59",
 
 
 				"app_version": "OsmAnd+",
@@ -538,8 +577,9 @@
 
 			"condition": {
 
-  				"start_date": "23-09-2020 00:01",
-  				"end_date": "30-09-2020 23:59",
+  				"start_date": "09-10-2020 06:01",
+  				"end_date": "11-10-2020 23:59",
+
 
 				"os": "android",
 
@@ -559,7 +599,7 @@
 			        "message": " تخفيظات !",
 
 
-				"description": "تنزيل خرائط غير محدود ، الخطوط المحيطية (الكنتورية) ، الإشتراكات السنوية -50% ."
+				"description": " على الإشتراكات السنوية -50% ."
 
 
 			}
@@ -572,9 +612,8 @@
 
 
 			"condition": {
-
-  				"start_date": "23-09-2020 00:01",
-  				"end_date": "30-09-2020 23:59",
+  				"start_date": "09-10-2020 06:01",
+  				"end_date": "11-10-2020 23:59",
 
 
 				"app_version": "OsmAnd+",
@@ -612,8 +651,8 @@
 
 			"condition": {
 
-  				"start_date": "23-09-2020 00:01",
-  				"end_date": "30-09-2020 23:59",
+  				"start_date": "09-10-2020 06:01",
+  				"end_date": "11-10-2020 23:59",
 
 
 				"os": "android"
@@ -628,10 +667,10 @@
 			"fields": {
 
 
-				"message": "SALE!",
+				"message": "Annual subscription SALE!",
 
 
-				"description": "Unlimited map downloads, contour lines and annual subscription -50%!"
+				"description": "Checkout our -50% sales for year subscription!"
 
 
 			}
@@ -645,8 +684,11 @@
 
                         "condition": {
 
-  				"start_date": "23-09-2020 00:01",
-  				"end_date": "30-09-2020 23:59",
+
+  				"start_date": "29-07-2020 00:01",
+
+
+  				"end_date": "02-08-2020 23:59",
 
 
 				"os": "ios",
@@ -664,10 +706,10 @@
 			"fields": {
 
 
-				"message": "РАСПРОДАЖА!",
+				"message": "РАСПРОДАЖА годовой подписки!",
 
 
-				"description": "Все карты мира, контурные линии и годовая подписка -50%!"
+				"description": "Оформите годовую подписку со скидкой -50%!"
 
 
 			}
@@ -684,8 +726,11 @@
 
 			      "condition": {
 
-  				"start_date": "23-09-2020 00:01",
-  				"end_date": "30-09-2020 23:59",
+
+  				"start_date": "29-07-2020 00:01",
+
+
+  				"end_date": "02-08-2020 23:59",
 
 
 				"os": "ios",
@@ -703,10 +748,10 @@
 			"fields": {
 
 
-				"message": "VENTE!",
+				"message": "Abonnement annuel à la VENTE!",
 
 
-				"description": "Toutes les cartes du monde, courbes de niveau et abonnement annuel -50%!"
+				"description": "Obtenez votre abonnement annuel avec un rabais de -50%!"
 
 
 			}
@@ -719,8 +764,12 @@
 
 
 				"condition": {
-  				"start_date": "23-09-2020 00:01",
-  				"end_date": "30-09-2020 23:59",
+
+
+  				"start_date": "29-07-2020 00:01",
+
+
+  				"end_date": "02-08-2020 23:59",
 
 
 				"os": "ios",
@@ -738,10 +787,10 @@
 			"fields": {
 
 
-				"message": "SALE!",
+				"message": "Jahresabonnement SALE!",
 
 
-				"description": "Alle Weltkarten, Höhenlinien und Jahresabonnement -50%!"
+				"description": "Erhalten Sie Ihr Jahresabonnement mit einem Rabatt von -50%!"
 
 
 			}
@@ -755,8 +804,11 @@
 
 				"condition": {
 
-  				"start_date": "23-09-2020 00:01",
-  				"end_date": "30-09-2020 23:59",
+
+  				"start_date": "29-07-2020 00:01",
+
+
+  				"end_date": "02-08-2020 23:59",
 
 
 				"os": "ios",
@@ -774,10 +826,10 @@
 			"fields": {
 
 
-				"message": "VENDITA!",
+				"message": "Abbonamento annuale di VENDITA!",
 
 
-				"description": "Tutte le mappe del mondo, curve di livello e abbonamento annuale -50%!"
+				"description": "Ottieni il tuo abbonamento annuale con uno sconto del -50%!"
 
 
 			}
@@ -791,8 +843,11 @@
 
 				"condition": {
 
-  				"start_date": "23-09-2020 00:01",
-  				"end_date": "30-09-2020 23:59",
+
+  				"start_date": "29-07-2020 00:01",
+
+
+  				"end_date": "02-08-2020 23:59",
 
 
 				"os": "ios",
@@ -810,10 +865,10 @@
 			"fields": {
 
 
-				"message": "¡VENTA!",
+				"message": "¡Suscripción anual de VENTA!",
 
 
-				"description": "Todos los mapas del mundo, curvas de nivel y suscripción anual -50%!"
+				"description": "Obtenga su suscripción anual con un -50% de descuento!"
 
 
 			}
@@ -827,8 +882,11 @@
 
 				"condition": {
 
-  				"start_date": "23-09-2020 00:01",
-  				"end_date": "30-09-2020 23:59",
+
+  				"start_date": "29-07-2020 00:01",
+
+
+  				"end_date": "02-08-2020 23:59",
 
 
 				"os": "ios",
@@ -846,10 +904,10 @@
 			"fields": {
 
 
-				"message": "VERKOOP!",
+				"message": "Jaarabonnement VERKOOP!",
 
 
-				"description": "Alle wereldkaarten, contourlijnen en jaarabonnement -50%!"
+				"description": "Krijg uw jaarabonnement met een korting van -50%!"
 
 
 			}
@@ -862,8 +920,12 @@
 
 
 			"condition": {
-  				"start_date": "23-09-2020 00:01",
-  				"end_date": "30-09-2020 23:59",
+
+
+  				"start_date": "29-07-2020 00:01",
+
+
+  				"end_date": "02-08-2020 23:59",
 
 
 				"os": "ios",
@@ -881,10 +943,10 @@
 			"fields": {
 
 
-				"message": "Wyprzedaż!",
+				"message": "Wyprzedaż rocznej subskrybcji!",
 
 
-				"description": "Wszystkie mapy,  linie konturowe i subskrypcja roczna - 50%!"
+				"description": "Sprawdź naszą wyprzedaż rocznej subskrybcji - 50%!"
 
 
 			}
@@ -898,8 +960,11 @@
 
 			"condition": {
 
-  				"start_date": "23-09-2020 00:01",
-  				"end_date": "30-09-2020 23:59",
+
+  				"start_date": "29-07-2020 00:01",
+
+
+  				"end_date": "02-08-2020 23:59",
 
 
 				"os": "ios",
@@ -917,10 +982,10 @@
 			"fields": {
 
 
-				"message": "تخفيظات !",
+				"message": " تخفيظات !",
 
 
-				"description": "على جميع خرائط العالم ، والخطوط المحيطية  (الكنتورية) ، والتجديد السنوي -50% ."
+				"description": " على الإشتراكات السنوية -50% ."
 
 
 			}
@@ -934,8 +999,11 @@
 
 			      "condition": {
 
-  				"start_date": "23-09-2020 00:01",
-  				"end_date": "30-09-2020 23:59",
+
+  				"start_date": "29-07-2020 00:01",
+
+
+  				"end_date": "02-08-2020 23:59",
 
 
 				"os": "ios"
@@ -950,10 +1018,10 @@
 			"fields": {
 
 
-				"message": "SALE!",
+				"message": "Annual subscription SALE!",
 
 
-				"description": "All world maps, contour lines and annual subscription -50%!"
+				"description": "Checkout our -50% sales for year subscription!"
 
 
 			}
