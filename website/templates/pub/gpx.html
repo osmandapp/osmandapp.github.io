@@ -1,0 +1,195 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css">
+
+
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        #map-header {
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+
+        .margin-top-style-5 {
+            margin-top: 7px;
+        }
+
+        #mapid {
+            position: fixed;
+            top: 50px;
+            left: 0px;
+            right: 0px;
+            bottom: 10px;
+            width: 100%;
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.4.0/gpx.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js"></script>
+    <!-- https://github.com/makinacorpus/Leaflet.RestoreView/blob/master/leaflet.restoreview.js -->
+    <script>
+        (function () {
+            var RestoreViewMixin = {
+                restoreView: function () {
+                    if (!storageAvailable('localStorage')) {
+                        return false;
+                    }
+                    var storage = window.localStorage;
+                    if (!this.__initRestore) {
+                        this.on('moveend', function (e) {
+                            if (!this._loaded)
+                                return;  // Never access map bounds if view is not set.
+
+                            var view = {
+                                lat: this.getCenter().lat,
+                                lng: this.getCenter().lng,
+                                zoom: this.getZoom()
+                            };
+                            storage['mapView'] = JSON.stringify(view);
+                        }, this);
+                        this.__initRestore = true;
+                    }
+
+                    var view = storage['mapView'];
+                    try {
+                        view = JSON.parse(view || '');
+                        this.setView(L.latLng(view.lat, view.lng), view.zoom, true);
+                        return true;
+                    }
+                    catch (err) {
+                        return false;
+                    }
+                }
+            };
+
+            function storageAvailable(type) {
+                try {
+                    var storage = window[type],
+                        x = '__storage_test__';
+                    storage.setItem(x, x);
+                    storage.removeItem(x);
+                    return true;
+                }
+                catch (e) {
+                    console.warn("Your browser blocks access to " + type);
+                    return false;
+                }
+            }
+            L.Map.include(RestoreViewMixin);
+        })();
+    </script>
+
+</head>
+
+<body>
+    <div id='map-header' class="form-row align-items-center">
+        <div class="col-3  margin-top-style-5">
+            <span id='map-header-text'>Select gpx files&nbsp;&nbsp;</span>
+            <input id="gpx-file" type="file" id="file-selector" multiple accept=".gpx">
+        </div>
+        <div class="col-9  margin-top-style-5">
+            <span id="gpx-info"></span>
+            <input id="gpx-clear" type="button" value="Clear">
+            <input id="gpx-convert" type="submit" value="Convert to OBF">
+        </div>
+    </div>
+    <div id="mapid"></div>
+    <script>
+        var map;
+        var gpxFiles = {};
+        function updateGpxInfo() {
+            var cnt = 0;
+            var dist = 0;
+            if (jQuery.isEmptyObject(gpxFiles)) {
+                $("#gpx-info").text("");
+            } else {
+                for (var file in gpxFiles) {
+                    cnt++;
+                    dist += gpxFiles[file].get_distance();
+                    // FIELDS: https://github.com/mpetazzoni/leaflet-gpx/blob/main/gpx.js#L141
+                    // .get_name() 
+                    // eleGain = gpx.get_elevation_gain().toFixed(0),
+                    // eleLoss = gpx.get_elevation_loss().toFixed(0);
+                }
+                $("#gpx-info").text("INFO: " + cnt + " tracks, " + (dist / 1000.0).toFixed(1) + " km")
+            }
+
+        }
+        function clearGPXFiles() {
+            for (var file in gpxFiles) {
+                map.removeLayer(gpxFiles[file]);
+            }
+            gpxFiles = {};
+            updateGpxInfo();
+        }
+
+        function readFile(file) {
+            const reader = new FileReader();
+            reader.addEventListener('load', (event) => {
+                let src = event.target.result;
+                // { async: true }
+                let gpx = new L.GPX(src, {
+                    marker_options: {
+                        // wptIconUrls: {
+                        //    '': 'img/gpx/default-waypoint.png',
+                        //    'Geocache Found': 'img/gpx/geocache.png'
+                        // },
+                        shadowUrl: 'http://github.com/mpetazzoni/leaflet-gpx/raw/master/pin-shadow.png',
+                        startIconUrl: '',
+                        endIconUrl: ''
+                    }
+                });
+                map.fitBounds(gpx.getBounds());
+                gpx.addTo(map);
+                gpxFiles[file.name] = gpx;
+                updateGpxInfo();
+            });
+            reader.readAsText(file);
+
+        }
+        $(document).ready(function () {
+            $("#gpx-clear").hide();
+            $("#gpx-convert").hide();
+            map = L.map('mapid');
+            if (!map.restoreView()) {
+                map.setView([40, -35], 4);
+            }
+            L.tileLayer('https://tile.osmand.net/hd/{z}/{x}/{y}.png', {
+                maxZoom: 18,
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+                    '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ',
+                tileSize: 512,
+                zoomOffset: -1
+            }).addTo(map);
+            $("#gpx-clear").click(function () {
+                clearGPXFiles();
+                $("#gpx-file").val(null);
+                $("#gpx-clear").hide();
+                $("#gpx-convert").hide();
+            });
+            
+            $("#gpx-file").change(function () {
+                for (var i = 0; i < $("#gpx-file")[0].files.length; i++) {
+                    const file = $("#gpx-file")[0].files.item(i);
+                    readFile(file);
+                    $("#gpx-clear").show();
+                    $("#gpx-convert").show();
+                }
+            });
+        });
+    </script>
+
+
+
+
+</body>
+
+</html>
