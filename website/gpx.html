@@ -92,8 +92,10 @@
 <body>
     <div id='map-header' class="form-row align-items-center">
         <div class="col-6  margin-top-style-5">
-            <span id='map-header-text'>Select gpx files&nbsp;&nbsp;</span>
-            <input id="gpx-file" type="file" id="file-selector" multiple accept=".gpx">
+            <form id="fileinfo" enctype="multipart/form-data" method="post" name="fileinfo">
+                <label id='map-header-text'>Select gpx file</label>
+                <input id="gpx-file" type="file" id="file-selector" accept=".gpx" name="file">
+            </form>
         </div>
         <div class="col-6  margin-top-style-5">
             <span id="gpx-info"></span>
@@ -190,11 +192,20 @@
             });
             $("#gpx-upload").click(function () {
                 if (gpxLayer) {
-                    $.post("gpx/upload-session-gpx", {
-                        "gpxContent": gpxLayer._gpx
-                    }, function (data) {
-                        $("#gpx-upload").hide();
-                        updateGpxInfo(data);
+                    // let fd = new FormData($("#fileinfo"));
+                    let formData = new FormData(); 
+                    formData.append('file', $("#gpx-file")[0].files[0]);
+                    $.ajax({
+                        url: "gpx/upload-session-gpx",
+                        type: 'POST',
+                        data: formData,
+                        success: function (data) {
+                            $("#gpx-upload").hide();
+                            updateGpxInfo(data);
+                        },
+                        cache: false,
+                        contentType: false,
+                        processData: false
                     });
                 }
             });
