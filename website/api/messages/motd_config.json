@@ -10,8 +10,8 @@
 				},
 				"file": "discount_huawei.json",
 				"fields": {
-				"message": "РАСПРОДАЖА годовой подписки!",
-				"description": "Оформите годовую подписку со скидкой -50%!"
+				"message": "Чёрная пятница уже здесь!",
+				"description": "Карты без ограничений, контурные линии и годовая подписка -50%!"
 			}
 		},
 		{
@@ -26,7 +26,7 @@
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "РАСПРОДАЖА годовой подписки!",
+				"message": "Чёрная пятница уже здесь!",
 				"description": "Оформите годовую подписку со скидкой -50%!"
 			}
 		},
@@ -39,7 +39,7 @@
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "РАСПРОДАЖА!",
+				"message": "Чёрная пятница уже здесь!",
 				"description": "Карты без ограничений, контурные линии и годовая подписка -50%!"
 			}
 		},
@@ -54,7 +54,7 @@
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "Wyprzedaż rocznej subskrybcji!",
+				"message": "Nadszedł CZARNY PIĄTEK!",
 				"description": "Sprawdź naszą wyprzedaż rocznej subskrybcji - 50%!"
 			}
 		},
@@ -67,7 +67,7 @@
 			},
 			"file": "discount.json",
 			"fields": {
-				"message": "Wyprzedaż!",
+				"message": "Nadszedł CZARNY PIĄTEK!",
 				"description": "Wszystkie mapy,  linie konturowe i subskrypcja roczna - 50%!"
 			}
 		},
