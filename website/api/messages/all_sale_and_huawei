@@ -1,0 +1,465 @@
+  
+{
+	"settings": [
+		{
+			"condition": {
+				"start_date": "23-11-2020 00:01",
+  				"end_date": "29-11-2020 13:59",
+				"os": "android",
+				"lang" :"ru"
+				},
+				"file": "discount_huawei.json",
+				"fields": {
+				"message": "Чёрная пятница уже здесь!",
+				"description": "Карты без ограничений, контурные линии и годовая подписка -60%!"
+			}
+		},
+		{
+			"condition": {
+				"start_date": "23-11-2020 00:01",
+  				"end_date": "30-11-2020 13:59",
+				"os": "android",
+				"lang" :"de"
+				},
+				"file": "discount_huawei.json",
+				"fields": {
+				"message": "BLACK FRIDAY ist da!",
+				"description": "Unbegrenzte Karten-Downloads, Höhenlinien und Jahresabonnement -60%!"
+			}
+		},
+		{	
+			"condition": {
+				"start_date": "23-11-2020 00:01",
+  				"end_date": "30-11-2020 13:59",
+				"os": "android",
+				"lang" :"it"
+				},
+				"file": "discount_huawei.json",
+				"fields": {
+				"message": "BLACK FRIDAY è qui!",
+				"description": "Download illimitati di mappe, curve di livello e abbonamento annuale -60%!"
+			}
+		},
+		{	
+			
+			"condition": {
+				"start_date": "23-11-2020 00:01",
+  				"end_date": "30-11-2020 13:59",
+				"os": "android",
+				"lang" :"pl"
+				},
+				"file": "discount_huawei.json",
+				"fields": {
+				"message": "Nadszedł CZARNY PIĄTEK!",
+				"description": "Wszystkie mapy,  linie konturowe i subskrypcja roczna - 60%!"
+			}
+		},
+		{	
+			"condition": {
+				"start_date": "23-11-2020 00:01",
+  				"end_date": "30-11-2020 13:59",
+				"os": "android",
+				"lang" :"fr"
+				},
+				"file": "discount_huawei.json",
+				"fields": {
+				"message": "BLACK FRIDAY est arrivé!",
+				"description": "Téléchargements de cartes illimités, courbes de niveau et abonnement annuel -60%!"
+			}
+		},
+		{	
+			"condition": {
+				"start_date": "23-11-2020 00:01",
+  				"end_date": "30-11-2020 13:59",
+				"os": "android",
+				"lang" :"ar"
+				},
+				"file": "discount_huawei.json",
+				"fields": {
+			        "message": " تخفيظات !",
+				"description": "تنزيل خرائط غير محدود ، الخطوط المحيطية (الكنتورية) ، الإشتراكات السنوية -60% ."
+			}
+		},
+		{	
+			"condition": {
+				"start_date": "23-11-2020 00:01",
+  				"end_date": "30-11-2020 13:59",
+				"os": "android"
+				},
+				"file": "discount_huawei.json",
+				"fields": {
+				"message": "BLACK FRIDAY is here!",
+				"description": "Unlimited map downloads, contour lines and annual subscription -60%!"
+			}
+		},
+		{	
+			"condition": {
+				"start_date": "23-11-2020 00:01",
+  				"end_date": "30-11-2020 13:59",
+				"app_version": "OsmAnd+",
+				"os": "android",
+				"number_of_days": "2-700",
+				"lang" :"ru"
+			},
+			"file": "discount_paid.json",
+			"fields": {
+				"message": "Чёрная пятница уже здесь!",
+				"description": "Оформите годовую подписку со скидкой -60%!"
+			}
+		},
+		{
+			"condition": {
+				"start_date": "23-11-2020 00:01",
+  				"end_date": "30-11-2020 13:59",
+				"os": "android",
+				"lang" :"ru"
+			},
+			"file": "discount.json",
+			"fields": {
+				"message": "Чёрная пятница уже здесь!",
+				"description": "Карты без ограничений, контурные линии и годовая подписка -60%!"
+			}
+		},
+		{
+			"condition": {
+				"start_date": "23-11-2020 00:01",
+  				"end_date": "30-11-2020 13:59",
+				"app_version": "OsmAnd+",
+				"os": "android",
+				"number_of_days": "2-700",
+				"lang" :"pl"
+			},
+			"file": "discount_paid.json",
+			"fields": {
+				"message": "Nadszedł CZARNY PIĄTEK!",
+				"description": "Sprawdź naszą wyprzedaż rocznej subskrybcji - 60%!"
+			}
+		},
+		{
+			"condition": {
+				"start_date": "23-11-2020 00:01",
+  				"end_date": "30-11-2020 13:59",
+				"os": "android",
+				"lang" :"pl"
+			},
+			"file": "discount.json",
+			"fields": {
+				"message": "Nadszedł CZARNY PIĄTEK!",
+				"description": "Wszystkie mapy,  linie konturowe i subskrypcja roczna - 60%!"
+			}
+		},
+		{
+			"condition": {
+				"start_date": "23-11-2020 00:01",
+  				"end_date": "30-11-2020 13:59",
+				"app_version": "OsmAnd+",
+				"os": "android",
+				"number_of_days": "2-700",
+				"lang" :"es"
+			},
+			"file": "discount_paid.json",
+			"fields": {
+				"message": "BLACK FRIDAY esta aqui!",
+				"description": "Obtenga su suscripción anual con un -60% de descuento!"
+			}
+		},
+		{
+			"condition": {
+				"start_date": "23-11-2020 00:01",
+  				"end_date": "30-11-2020 13:59",
+				"os": "android",
+				"lang" :"es"
+			},
+			"file": "discount.json",
+			"fields": {
+				"message": "BLACK FRIDAY esta aqui!",
+				"description": "Descargas ilimitadas de mapas, curvas de nivel y suscripción anual -60%!"
+			}
+		},
+		{
+			"condition": {
+				"start_date": "23-11-2020 00:01",
+  				"end_date": "30-11-2020 13:59",
+				"app_version": "OsmAnd+",
+				"os": "android",
+				"number_of_days": "2-700",
+				"lang" :"fr"
+			},
+			"file": "discount_paid.json",
+			"fields": {
+				"message": "BLACK FRIDAY est arrivé!",
+				"description": "Obtenez votre abonnement annuel avec un rabais de -60%!"
+			}
+		},
+		{
+			"condition": {
+				"start_date": "23-11-2020 00:01",
+  				"end_date": "30-11-2020 13:59",
+				"os": "android",
+				"lang" :"fr"
+			},
+			"file": "discount.json",
+			"fields": {
+				"message": "BLACK FRIDAY est arrivé!",
+				"description": "Téléchargements de cartes illimités, courbes de niveau et abonnement annuel -60%!"
+			}
+		},
+		{
+			"condition": {
+				"start_date": "23-11-2020 00:01",
+  				"end_date": "30-11-2020 13:59",
+				"app_version": "OsmAnd+",
+				"os": "android",
+				"number_of_days": "2-700",
+				"lang" :"nl"
+			},
+			"file": "discount_paid.json",
+			"fields": {
+				"message": "BLACK FRIDAY is hier!",
+				"description": "Krijg uw jaarabonnement met een korting van -60%!"
+			}
+		},
+		{
+			"condition": {
+				"start_date": "23-11-2020 00:01",
+  				"end_date": "30-11-2020 13:59",
+				"os": "android",
+				"lang" :"nl"
+			},
+			"file": "discount.json",
+			"fields": {
+				"message": "BLACK FRIDAY is hier!",
+				"description": "Onbeperkte kaartdownloads, contourlijnen en jaarabonnement -60%!"
+			}
+		},
+		{
+			"condition": {
+				"start_date": "23-11-2020 00:01",
+  				"end_date": "30-11-2020 13:59",
+				"app_version": "OsmAnd+",
+				"os": "android",
+				"number_of_days": "2-700",
+				"lang" :"it"
+			},
+			"file": "discount_paid.json",
+			"fields": {
+				"message": "BLACK FRIDAY è qui!",
+				"description": "Ottieni il tuo abbonamento annuale con uno sconto del -60%!"
+			}
+		},
+		{
+			"condition": {
+				"start_date": "23-11-2020 00:01",
+  				"end_date": "30-11-2020 13:59",
+				"os": "android",
+				"lang" :"it"
+			},
+			"file": "discount.json",
+			"fields": {
+				"message": "BLACK FRIDAY è qui!",
+				"description": "Download illimitati di mappe, curve di livello e abbonamento annuale -60%!"
+			}
+		},
+		{
+			"condition": {
+				"start_date": "23-11-2020 00:01",
+  				"end_date": "30-11-2020 13:59",
+				"app_version": "OsmAnd+",
+				"os": "android",
+				"number_of_days": "2-700",
+				"lang" :"de"
+			},
+			"file": "discount_paid.json",
+			"fields": {
+				"message": "BLACK FRIDAY ist da!",
+				"description": "Erhalten Sie Ihr Jahresabonnement mit einem Rabatt von -60%!"
+			}
+		},
+		{
+			"condition": {
+				"start_date": "23-11-2020 00:01",
+  				"end_date": "30-11-2020 13:59",
+				"os": "android",
+				"lang" :"de"
+			},
+			"file": "discount.json",
+			"fields": {
+				"message": "BLACK FRIDAY ist da!",
+				"description": "Unbegrenzte Karten-Downloads, Höhenlinien und Jahresabonnement -60%!"
+			}
+
+		},
+		{
+			"condition": {
+				"start_date": "23-11-2020 00:01",
+  				"end_date": "30-11-2020 13:59",
+				"app_version": "OsmAnd+",
+				"os": "android",
+				"number_of_days": "2-700",
+				"lang" :"ar"
+			},
+			"file": "discount_paid.json",
+			"fields": {
+				"message": " تخفيظات !",
+				"description": " على الإشتراكات السنوية -60% ."
+			}
+		},
+		{
+			"condition": {
+				"start_date": "23-11-2020 00:01",
+  				"end_date": "30-11-2020 13:59",
+				"os": "android",
+				"lang" :"ar"
+			},
+			"file": "discount.json",
+			"fields": {
+			        "message": " تخفيظات !",
+				"description": "تنزيل خرائط غير محدود ، الخطوط المحيطية (الكنتورية) ، الإشتراكات السنوية -60% ."
+			}
+		},
+		{
+			"condition": {
+				"start_date": "23-11-2020 00:01",
+  				"end_date": "30-11-2020 13:59",
+				"app_version": "OsmAnd+",
+				"number_of_days": "2-700",
+				"os": "android"
+			},
+			"file": "discount_paid.json",
+			"fields": {
+				"message": "BLACK FRIDAY is here!",
+				"description": "Checkout our -60% sales for year subscription!"
+			}
+		},
+		{
+			"condition": {
+				"start_date": "23-11-2020 00:01",
+  				"end_date": "30-11-2020 13:59",
+				"os": "android"
+			},
+			"file": "discount.json",
+			"fields": {
+				"message": "BLACK FRIDAY is here!",
+				"description": "Unlimited map downloads, contour lines and annual subscription -60%!"
+			}
+		},
+		{
+                        "condition": {
+				"start_date": "23-11-2020 00:01",
+  				"end_date": "30-11-2020 13:59",
+				"os": "ios",
+				"lang" :"ru"
+			},
+			"file": "discount_ios_sub.json",
+			"fields": {
+				"message": "Чёрная пятница уже здесь!",
+				"description": "Все карты мира, контурные линии и годовая подписка -60%!"
+			}
+		},
+		{
+
+			      "condition": {
+				"start_date": "23-11-2020 00:01",
+  				"end_date": "30-11-2020 13:59",
+				"os": "ios",
+				"lang" :"fr"
+			},
+			"file": "discount_ios_sub.json",
+			"fields": {
+				"message": "BLACK FRIDAY est arrivé!",
+				"description": "Toutes les cartes du monde, courbes de niveau et abonnement annuel -60%!"
+			}
+
+		},
+		{
+				"condition": {
+				"start_date": "23-11-2020 00:01",
+  				"end_date": "30-11-2020 13:59",
+				"os": "ios",
+				"lang" :"de"
+			},
+			"file": "discount_ios_sub.json",
+			"fields": {
+				"message": "BLACK FRIDAY ist da!",
+				"description": "Alle Weltkarten, Höhenlinien und Jahresabonnement -60%!"
+			}
+		},
+		{
+				"condition": {
+				"start_date": "23-11-2020 00:01",
+  				"end_date": "30-11-2020 13:59",
+				"os": "ios",
+				"lang" :"it"
+			},
+			"file": "discount_ios_sub.json",
+			"fields": {
+				"message": "BLACK FRIDAY è qui!",
+				"description": "Tutte le mappe del mondo, curve di livello e abbonamento annuale -60%!"
+			}
+		},
+		{
+				"condition": {
+				"start_date": "23-11-2020 00:01",
+  				"end_date": "30-11-2020 13:59",
+				"os": "ios",
+				"lang" :"es"
+			},
+			"file": "discount_ios_sub.json",
+			"fields": {
+				"message": "BLACK FRIDAY esta aqui!",
+				"description": "Todos los mapas del mundo, curvas de nivel y suscripción anual -60%!"
+			}
+		},
+		{
+				"condition": {
+				"start_date": "23-11-2020 00:01",
+  				"end_date": "30-11-2020 13:59",
+				"os": "ios",
+				"lang" :"nl"
+			},
+			"file": "discount_ios_sub.json",
+			"fields": {
+				"message": "BLACK FRIDAY is hier!",
+				"description": "Alle wereldkaarten, contourlijnen en jaarabonnement -60%!"
+			}
+		},
+		{
+			"condition": {
+				"start_date": "23-11-2020 00:01",
+  				"end_date": "30-11-2020 13:59",
+				"os": "ios",
+				"lang" :"pl"
+			},
+			"file": "discount_ios_sub.json",
+			"fields": {
+				"message": "Nadszedł CZARNY PIĄTEK!",
+				"description": "Wszystkie mapy,  linie konturowe i subskrypcja roczna - 60%!"
+			}
+		},
+		{
+			"condition": {
+				"start_date": "23-11-2020 00:01",
+  				"end_date": "30-11-2020 13:59",
+				"os": "ios",
+				"lang" :"ar"
+			},
+			"file": "discount_ios_sub.json",
+			"fields": {
+				"message": "تخفيظات !",
+				"description": "على جميع خرائط العالم ، والخطوط المحيطية  (الكنتورية) ، والتجديد السنوي -60% ."
+			}
+		},
+		{
+			      "condition": {
+				"start_date": "23-11-2020 00:01",
+  				"end_date": "30-11-2020 13:59",
+				"os": "ios"
+			},
+			"file": "discount_ios_sub.json",
+			"fields": {
+				"message": "BLACK FRIDAY sale is here!",
+				"description": "All world maps, contour lines and annual subscription -60%!"
+			}
+		}
+	]
+}
