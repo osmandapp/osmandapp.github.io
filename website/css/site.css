@@ -872,7 +872,7 @@ a::-moz-focus-inner {
   background-color: #292f33;
 }
 .footercontent {
-  padding: 25px 40px;
+  padding: 25px 10px;
   font-size: 0;
 }
 
@@ -892,7 +892,7 @@ a::-moz-focus-inner {
 .menublock .footerlinks {
   display: inline-block;
   vertical-align: top;
-  width: 25%;
+  width: 30%;
   max-width: 285px;
   margin-right: 15px;
   text-align: left;
