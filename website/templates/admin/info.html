@@ -105,7 +105,7 @@
 					<th th:each="c : ${subRevenueReportMonth.columns}" th:utext="${c.name}"></th>
 				</tr>
 				
-				<tr th:each="i : ${subRevenueReportMonth.getValues(24)}">
+				<tr th:each="i : ${subRevenueReportMonth.getValues(40)}">
 					<td th:utext="${i.key}">2019-03</td>
 					<td th:each="v : ${i.value}" th:utext="${v.toString(1+2+4+8)}"></th>
 				</tr>
