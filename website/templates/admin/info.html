@@ -94,10 +94,10 @@
 					<td><a  th:text="${di.file}" th:href="'https://github.com/osmandapp/osmandapp.github.	io/blob/master/website/api/subscriptions/' + ${di.file}"></a></td>
 					<td th:text="${di.discountCondition.getFilterCondition()}"></td>
 				</tr>
-			</table>
+			</table>			
 
 
-			<h3>Subscriptions Revenue by Month</h3>
+			<h3>Subscriptions Revenue by Month (40 months)</h3>
 			<p>Data: Active (by first date) //// <b>+ New</b> -Churned /// • Renew -Churn Rate %  (renew includes churned) /// Revenue (New + Renew) this month /// Expected revenue from new subs </p>
 			<table border="1">
 				<tr >
@@ -112,7 +112,26 @@
 				
 			</table>
 
-			<h3>Subscriptions Revenue by Day</h3>
+			<h3>Year Subscription Retention</h3>
+			<table border="1">
+				<tr>
+					<th>Date</th>
+					<th>iOS</th>
+					<th>Android v1</th>
+					<th>Android v2</th>
+					<th>Total</th>
+			
+				</tr>
+				<tr th:each="di : ${yearSubscriptionsReport}">
+					<td th:utext="${di.month}">01.01.2018 00:00</td>
+					<td th:utext="${di.strIOS}">1000</td>
+					<td th:utext="${di.strAndroidV1}">1000</td>
+					<td th:utext="${di.strAndroidV2}">1000</td>
+					<td><b th:utext="${di.strAllTotal}">1000</b></td>
+				</tr>
+			</table>
+
+			<h3>Subscriptions Revenue by Day (400 days)</h3>
 			<p>Data: <b>+ New</b> -Churned /// • Renew -Churn Rate % (renew includes churned) /// Revenue (New + Renew) today /// Expected life time revenue from New </p>
 			<table border="1">
 				<tr>
@@ -127,24 +146,6 @@
 				</tr>
 			</table>
 
-			<h3>Year Subscription Retention</h3>
-			<table border="1">
-				<tr>
-					<th>Date</th>
-					<th>iOS</th>
-					<th>Android v1</th>
-					<th>Android v2</th>
-					<th>Total</th>
-					
-				</tr>
-				<tr th:each="di : ${yearSubscriptionsReport}">
-					<td th:utext="${di.month}">01.01.2018 00:00</td>
-					<td th:utext="${di.strIOS}">1000</td>
-					<td th:utext="${di.strAndroidV1}">1000</td>
-					<td th:utext="${di.strAndroidV2}">1000</td>
-					<td><b th:utext="${di.strAllTotal}">1000</b></td>
-				</tr>
-			</table>
 
 		</div>
 
