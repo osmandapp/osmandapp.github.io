@@ -150,21 +150,10 @@
 				</tr>
 				<tr th:each="di : ${yearSubscriptionsReport}">
 					<td th:text="${di.month}">01.01.2018 00:00</td>
-					<td th:text="${di.strIOSRenew[0]}">1000</td>
-					<td th:text="${di.strIOSRenew[2]}">1000</td>
-					<td th:text="${di.strIOSNonRenew[0]}">1000</td>
-					<td th:text="${di.strIOSNonRenew[2]}">1000</td>
-					<td th:text="${di.strAndroidV1Renew[0]}">1000</td>
-					<td th:text="${di.strAndroidV1Renew[2]}">1000</td>
-					<td th:text="${di.strAndroidV1NonRenew[0]}">1000</td>
-					<td th:text="${di.strAndroidV1NonRenew[2]}">1000</td>
-					<td th:text="${di.strAndroidV2Renew[0]}">1000</td>
-					<td th:text="${di.strAndroidV2Renew[2]}">1000</td>
-					<td th:text="${di.strAndroidV2NonRenew[0]}">1000</td>
-					<td th:text="${di.strTotalLost[0]}">1000</td>
-					<td><b th:text="${di.strTotalKeep[1]}">1000</b></td>
-					<td><b th:text="${di.strTotalKeep[2]}">1000</b></td>
-					<td th:text="${di.strAllTotal[1]}">1000</td>
+					<td th:text="${di.strIOS}">1000</td>
+					<td th:text="${di.strAndroidV1}">1000</td>
+					<td th:text="${di.strAndroidV2}">1000</td>
+					<td><b th:text="${di.strAllTotal}">1000</b></td>
 				</tr>
 			</table>
 
