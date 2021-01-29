@@ -138,11 +138,11 @@
 					
 				</tr>
 				<tr th:each="di : ${yearSubscriptionsReport}">
-					<td th:text="${di.month}">01.01.2018 00:00</td>
-					<td th:text="${di.strIOS}">1000</td>
-					<td th:text="${di.strAndroidV1}">1000</td>
-					<td th:text="${di.strAndroidV2}">1000</td>
-					<td><b th:text="${di.strAllTotal}">1000</b></td>
+					<td th:utext="${di.month}">01.01.2018 00:00</td>
+					<td th:utext="${di.strIOS}">1000</td>
+					<td th:utext="${di.strAndroidV1}">1000</td>
+					<td th:utext="${di.strAndroidV2}">1000</td>
+					<td><b th:utext="${di.strAllTotal}">1000</b></td>
 				</tr>
 			</table>
 
