@@ -116,22 +116,28 @@
 			<table border="1">
 				<tr>
 					<th>Date</th>
-					<th>iOS</th>
-					<th>Android</th>
-					<th>Android v1</th>
-					<th>Android v1 %</th>
-					<th>Android v2</th>
 					<th>Total</th>
+					<th>iOS All</th>
+					<th>Android</th>
+					<th>iOS Full</th>
+					<th>iOS %</th>
+					<th>And v1 Full</th>
+					<th>And v1 %</th>
+					<th>And v2</th>
+					
 			
 				</tr>
 				<tr th:each="di : ${yearSubscriptionsReport}">
 					<td th:utext="${di.month}">01.01.2018 00:00</td>
+					<td th:utext="${di.total.html()}">1000</td>
 					<td th:utext="${di.ios.html()}">1000</td>
 					<td th:utext="${di.android.html()}">1000</td>
+					<td th:utext="${di.iosFull.html()}">1000</td>
+					<td th:utext="${di.iosIntro.html()}">1000</td>
 					<td th:utext="${di.androidFull.html()}">1000</td>
 					<td th:utext="${di.androidIntro.html()}">1000</td>
 					<td th:utext="${di.androidV2.html()}">1000</td>
-					<td th:utext="${di.total.html()}">1000</td>
+					
 				</tr>
 			</table>
 
