@@ -94,8 +94,24 @@
 					<td><a  th:text="${di.file}" th:href="'https://github.com/osmandapp/osmandapp.github.	io/blob/master/website/api/subscriptions/' + ${di.file}"></a></td>
 					<td th:text="${di.discountCondition.getFilterCondition()}"></td>
 				</tr>
-			</table>			
+			</table>
 
+			<h3>Subscriptions Revenue by Year (5 months)</h3>
+			<p>Data: Active (by first date) //// <b>+ New</b> -Churned /// • Renew -Churn Rate % (renew includes churned) ///
+				Revenue (New + Renew) this year /// Expected revenue from new subs </p>
+			<table border="1">
+				<tr>
+					<th>Date</th>
+					<th th:each="c : ${subRevenueReportYear.columns}" th:utext="${c.name}"></th>
+				</tr>
+			
+				<tr th:each="i : ${subRevenueReportYear.getValues(5)}">
+					<td th:utext="${i.key}">2019-03</td>
+					<td th:each="v : ${i.value}" th:utext="${v.toString(1+2+4+8)}">
+					</th>
+				</tr>
+			
+			</table>
 
 			<h3>Subscriptions Revenue by Month (40 months)</h3>
 			<p>Data: Active (by first date) //// <b>+ New</b> -Churned /// • Renew -Churn Rate %  (renew includes churned) /// Revenue (New + Renew) this month /// Expected revenue from new subs </p>
