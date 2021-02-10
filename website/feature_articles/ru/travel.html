@@ -8,6 +8,8 @@
 <li><a href="#Points">Точки</a></li>
 <li><a href="#Other_guides">Другие путеводители</a></li>
 <li><a href="#Wikipedia">Википедия</a></li>
+		<li><a href="#Custom_travel">Создание путеводителя</a></li>
+
     </ul>
 	<li><a href="#travel_I"><b>Путешествие с OsmAnd для iOS версии</b></a></li>
 <ul class="innerlist">
@@ -86,9 +88,50 @@
 
 
 <div class="centeredimageblog">
-<img src="/images/blog/3.0/Wikipedia1.png"/>
-<img src="/images/blog/3.0/Wikipedia2.png"/>
+<img src="/images/blog/3.7/6.jpg" alt="(Image not available offline)"/>
+<img src="/images/blog/3.7/7.jpg" alt="(Image not available offline)"/>
+<img src="/images/blog/3.7/8.jpg" alt="(Image not available offline)"/>
+<img src="/images/blog/3.7/9.jpg" alt="(Image not available offline)"/>
 <div style="clear:both;"></div>
+</div>
+
+<div class="subtitle" id="Custom_travel"><h2>Создание путеводителя</h2></div>
+
+<p>Custom Travel - создание вашего уникального путеводителя</p>
+<p>Инструмент Custom Travel поможет вам создать свой собственный путеводитель и использовать его с помощью функции OsmAnd Travel. По сути, вы можете использовать текст из любого источника (от Википедии до блога вашего друга) и связать его с треком GPX.</p>
+<div class="centeredimageblog">
+    <img src="/images/blog/custom travel/customtravel_1.png"/>
+    <img src="/images/blog/custom travel/customtravel_2.png"/>
+    <div style="clear:both;"></div>
+</div>
+<h3>Подготовка файлов</h3>
+<p>Для начала подготовьте файлы. Сохраните трек с расширением .GPX, а текстовый файл - как .html. Для успешного создания пользовательской базы данных имена файла GPX и html должны быть идентичны. Например, "Milan.gpx" и "Milan.html".</p>
+<p>Треки GPX можно загрузить из Интернета или создать их (с помощью OsmAnd или любого онлайн-инструмента создания GPX).</p>
+<p>К примеру, вы можете использовать  <!-- <a href="https://ridewithgps.com">RideWithGps</a> service,  --><a href="http://brouter.de/brouter-web">Brouter</a>, или нечто похожее. </p>
+<p>Добавьте в свой маршрут точки, которые вы хотите посетить, а затем сохраните этот маршрут как трек GPX. <!-- После этого загрузите его на свой телефон и откройте с помощью OsmAnd. Вы также можете просмотреть маршруты других людей или проверить  <a href="https://www.openstreetmap.org/traces">OpenStreetMap GPX треки</a>-->.</p>
+<p>Также можно подготовить трек GPX в OsmAnd, вы можете прочитать об этом здесь: <a href="https://osmand.net/ru/features/plan-route"> Спланируйте маршрут</a>.</p>
+<p>Выбор источника текста вашего руководства полностью зависит от вас. Это может быть <a href="http://www.touropia.com/tourist-attractions-in-milan/">статья</a> в блоге о путешествиях, <a href="https://en.wikipedia.org/wiki/Milan">страница Wikipedia</a>, и др. Просто скопируйте текст, затем вставьте его в текстовый редактор и сохраните с расширением «HTML». Убедитесь, что имя трека GPX и HTML-файла совпадают.</p>
+<h3>Как запустить</h3>
+<h3><a href="http://download.osmand.net/latest-night-build/OsmAndMapCreator-main.zip">Скачайте OsmAnd MapCreator</a></h3>
+<p><b>Linux</b>.
+<ol>
+<li>Скачайте MapCreator и извлеките файлы из архива.</li>
+<li><p>Запустите консоль и откройте папку MapCreator.</p>
+<p>Example: cd /home/user/OsmAndMapCreator-main/</p></li>
+<li>Run <b>./utilites.sh travel-guide-creator</b></li>
+<li><p>Когда вас попросят указать путь, пожалуйста, вставьте путь к папке, в которой вы подготовили файлы.</p></li>
+</ol>
+<p>Example: cd /home/user/MyCustomGuides/</p>
+<p>Мы не рекомендуем размещать ваши файлы в самой папке TravelGuideCreator. Пожалуйста, просмотрите файл «Read me» для получения пошаговых команд.</p>
+<p><b>Windows</b>. Откройте файл <b>utilities.bat</b>.</p>
+<h3>Извлеките файлы</h3>
+<p>Ваш файл должен быть создан за секунды. По умолчанию он будет называться «travel_guide.sqlite», но вы можете переименовать его по своему усмотрению, не забудьте сохранить его с расширением файла «sqlite». Например, "Milan_weekend_tour.sqlite". После этого перенесите его на свое устройство. А именно в папку, где хранятся путеводители OsmAnd. Вы можете проверить путь к этой папке в OsmAnd> Настройки> Общие> Папка хранения данных> Указано вручную. Скопируйте туда файл с помощью любого мобильного файлового менеджера или подключив телефон к компьютеру. Перезапустите приложение.</p>
+<h3>Как использовать свой путеводитель</h3>
+<p>После запуска приложения перейдите в меню «Путешествия». Нажмите «Опции»> «Путеводитель», чтобы выбрать свою базу данных в качестве источника. После этого вы сможете использовать поиск в обычном режиме для просмотра статей. Вы найдете все точки из вашего трека GPX в меню «Точки». Воспользуйтесь кнопкой «Показать на карте», чтобы просмотреть свои точки на карте. Вы можете добавить в закладки любую статью, чтобы иметь к ней более быстрый доступ.</p>
+<div class="centeredimageblog">
+    <img src="/images/blog/custom travel/customtravel_3.png"/>
+    <img src="/images/blog/custom travel/customtravel_4.png"/>
+    <div style="clear:both;"></div>
 </div>
 
 <div class="subtitle" id="Wikipedia_I"><h2>Википедия iOS</h2></div>
