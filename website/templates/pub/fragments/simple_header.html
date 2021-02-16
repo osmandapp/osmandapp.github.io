@@ -19,7 +19,6 @@
         <li th:classappend="${header_id == 'FEATURES'}?'activeitem'"><a data-gatag="header_features" href="/features" th:href="'/'+${locale_path}+'features'" th:text="#{top_features}">Features</a></li>
         <li th:classappend="${header_id == 'BLOG'}?'activeitem'"><a data-gatag="header_blog" href="/blog"
         th:href="'/'+${locale_path}+'blog'" th:text="#{top_blog}">Blog</a></li>
-        <li th:classappend="${header_id == 'OSMLIVE'}?'activeitem'"><a data-gatag="header_osm_live" href="/osm_live" th:href="'/'+${locale_path}+'osm_live'" th:text="#{top_osm_live}">OsmAnd Live</a></li>
         <li th:classappend="${header_id == 'HELP'}?'activeitem'"><a data-gatag="header_help" href="/help-online" th:href="'/'+${locale_path}+'help-online'" th:text="#{top_help}">Help</a></li>
         <li class="lang_switcher desktop-only">
           <div class="dropbtn" th:text="${#strings.isEmpty(locale_path)?'EN':#strings.substringBefore(locale_path,'/')}"></div>
