@@ -146,5 +146,8 @@
 
    <tile_source name="GeoVelo" url_template="https://tiles4.geovelo.fr/raster/facilities/{0}/{1}/{2}.png" ext=".png" min_zoom="2" max_zoom="16" tile_size="256" img_density="8" avg_img_size="10000"/>
 
+   <!-- ICGC (Institut Cartogràfic i Geològic de Catalunya, https://geoserveis.icgc.cat/map/tileserver/demo/ -->
+   <tile_source name="icgc.cat-Topo" url_template="https://geoserveis.icgc.cat/map/bases_noutm/tiles/1.0.0/topo_EPSG3857/{0}/{1}/{2}.jpeg?origin=nw" ext=".png" min_zoom="1" max_zoom="22" tile_size="256" img_density="16" avg_img_size="32000"/>
+   <tile_source name="icgc.cat-Orto" url_template="https://geoserveis.icgc.cat/icc_mapesmultibase/noutm/wmts/orto/GRID3857/{0}/{1}/{2}.jpeg" ext=".png" min_zoom="1" max_zoom="22" tile_size="256" img_density="16" avg_img_size="32000"/>
 
 </tile_sources>
