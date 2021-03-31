@@ -145,14 +145,16 @@
               <ul>
                 <li> Any OSM contributor can be registered as a recipient by providing a valid Bitcoin address in the form below.
                 <li> Any individual or company can contribute to the common fund via Bitcoin payment (see below).
-                <li> All donations are exchanged for Bitcoin and distributed among OSM contributors based on their ranking. Ranking stimulates contributors to be in top 10% most active contributors of OSM but not necessarily the top 1 contributor.
-                <li> During current month there is a preliminary report (with label 'Estimation'), final report (with label 'Total payout') is calculated in the beginning of the next month. Payments could be delayed in case Bitcoin fees are very high (see below).
+                <li> All donations are exchanged for Bitcoin and distributed among OSM contributors based on their ranking. 
+                <li> During current month there is a preliminary report (with label 'Estimation'). Final report (with label 'Total payout') is calculated in the beginning of the next month. Payments could be delayed in case Bitcoin fees are very high.
               </ul>
-              <h3>Notes</h3>
+              <h3>Details</h3>
               <ul>
-                <li><strong>Minimum payment threshold.</strong>OSM BTC tries to leverage payout fees and payout frequencies by monitoring that payout fee doesn't exceed <strong>5% of payout sum</strong>. With average bitcoin fee 5 satoshi per byte: minimum payout is <strong>0.5 mBTC</strong> = 5000 satoshi  (fee 250 satoshi).
-                <li><strong>Cumulative payout report.</strong>In case payout doesn't exceed Minimum payment threshold, it won't be payout immediately but accumulated for the next month. Payout sum will be present in Recipient reports and <a href="https://builder.osmand.net/reports/query_btc_balance_report">Cumulative payout report (json)</a>.
-                <li><strong>Bans.</strong>User can be banned in case of <a class="vlabel program-rules-ref"> rule violations</a>.
+                <li><b>Minimum payment threshold.</b> OSM BTC tries to leverage payout fees and payout frequencies by monitoring that payout fee doesn't exceed <strong>5% of payout sum</strong>. With average bitcoin tx fee 5 satoshi per byte - minimum payout is <strong>0.5 mBTC</strong> = 5000 satoshi  (fee 250 satoshi).
+                <li><b>Cumulative payout report.</b> In case payout doesn't exceed Minimum payment threshold, it won't be payout immediately but accumulated for the next month. Payout sum will be present in Recipient reports and <a href="https://builder.osmand.net/reports/query_btc_balance_report">Cumulative payout report (json)</a>.
+                <li><b>Bans.</b> User can be banned in case of <a class="vlabel program-rules-ref"> rule violations</a>.
+                <li><b>Rankings.</b> The payouts are distributed based on the ranking which is available in OSM Contributions tab, the last ranking has weight&nbsp;=&nbsp;1, the ranking before the last has weight&nbsp;=&nbsp;2 and so on till the 1st ranking. Ranking stimulates contributors to be in top 10% most active contributors of OSM but not necessarily the top 1 contributor.
+                <li><b>OpenStreetMap password</b>. OSM BTC <b>doesn't keep</b>OpenStreetMap password and it is only needed to verify OSM identity, it is strongly advised to change password before registration and after to avoid any possible password leak. In case you would like to contribute to OSM BTC and change it to OSM OAuth, please feel free.
                 <li>The project has OsmAnd team support, so in case of any questions you can conctact support@osmand.net.
               </ul>
             </div>
@@ -219,20 +221,19 @@
           </div>
           <div class="registration contributor-registration" id="contributor-register-div">
             <h4 class="vlabel" for="recipients-register-div">Register as a contributor</h4 >
-            <p>If you want to support OSM by purchasing OsmAnd Live Subscription, you can do it directly in the application.</p>
-            <div class="registration-badges">
-              <a data-gatag="googleplay" href="https://play.google.com/store/apps/details?id=net.osmand.plus"><img alt="Get it on Google Play" src="/images/en-play-badge.png" /></a>
-               <a data-gatag="ios" href="https://itunes.apple.com/app/apple-store/id934850257?pt=2123532&amp;ct=WebSite&amp;mt=8"><img src="/images/app-store-badge.png"/></a>
-            </div>
-            <p>The payouts are distributed based on the ranking which is available in OSM Contributions tab, the last ranking has weight&nbsp;=&nbsp;1, the ranking before the last has weight&nbsp;=&nbsp;2 and so on till the 1st ranking.</p>
-            <h5 class="vlabel">Donate without any extra charges:</h5>
-            <p>If you want to donate to OsmAnd Live Program where donation will be split 50/50 between OsmAnd Team and OSM contributors, please use the following address:</p>
+            <h5 class="vlabel">Donate directly to OSM BTC fund</h5>
             <div class="btc-address">3MHyi4qtrmaxEy9A336RMwZaYqUzcbF2gr</div>
+            <h5 class="vlabel">Donate via OsmAnd</h5>
+            <p>If you want to support OSM BTC by purchasing OsmAnd, so later OsmAnd team could make donation on your behalf.</p>
+            <div class="registration-badges">
+              <a data-gatag="googleplay" href="https://play.google.com/store/apps/details?id=net.osmand.plus"><img
+                  alt="Get it on Google Play" src="/images/en-play-badge.png" /></a>
+              <a data-gatag="ios"
+                href="https://itunes.apple.com/app/apple-store/id934850257?pt=2123532&amp;ct=WebSite&amp;mt=8"><img
+                  src="/images/app-store-badge.png" /></a>
+            </div>
             <p>If you want to donate only to OsmAnd Team, please use the following address:</p>
             <div class="btc-address">1GRgEnKujorJJ9VBa76g8cp3sfoWtQqSs4</div>
-            
-            
-
           </div>
         </div>
         <div id="recipients" class="tab-pane fade">
