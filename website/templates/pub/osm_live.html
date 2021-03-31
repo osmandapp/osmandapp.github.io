@@ -94,6 +94,7 @@
               </div>
             </div>
           </div>
+          <!-- 
           <h4 class="vlabel" for="support-country-table" id="support-country-table-header" 
           th:text="#{osmlive_supported_countries}">Supported countries</h4>
           <div class="table-controls support-country-controls hidden">
@@ -115,7 +116,8 @@
             </div>
           </div>
           <table id="support-country-table" class="table table-bordered" cellspacing="0" width="100%"></table>
-          <h4 class="vlabel" for="support-table" id="support-table-header">OsmAnd Live supporters</h4>
+          -->
+          <h4 class="vlabel" for="support-table" id="support-table-header">OSM BTC supporters</h4>
           <div class="table-controls support-controls hidden">
             <div class="tc search">
               <input type="search" class="form-control" aria-control="support-table" id="support-table-search" placeholder="Search">
@@ -139,7 +141,7 @@
         <div id="information" class="tab-pane fade in active">
           <div id="general-info-div">
             <div id="general-info" class="infobox">
-              <h2>About OSM BTC initiative.</h2>
+              <h2>OSM BTC fund</h2>
               <p>OSM BTC is an open Fund initiative which has a primary goal to support OpenStreetMap contributors by small donations via Bitcoin. It's started and still mainly supported by <a href="https://osmand.net">OsmAnd</a>, but it was separated from it and acts separately. </p>
               <h3>How it works</h3>
               <ul>
@@ -154,7 +156,7 @@
                 <li><b>Cumulative payout report.</b> In case payout doesn't exceed Minimum payment threshold, it won't be payout immediately but accumulated for the next month. Payout sum will be present in Recipient reports and <a href="https://builder.osmand.net/reports/query_btc_balance_report">Cumulative payout report (json)</a>.
                 <li><b>Bans.</b> User can be banned in case of <a class="vlabel program-rules-ref"> rule violations</a>.
                 <li><b>Rankings.</b> The payouts are distributed based on the ranking which is available in OSM Contributions tab, the last ranking has weight&nbsp;=&nbsp;1, the ranking before the last has weight&nbsp;=&nbsp;2 and so on till the 1st ranking. Ranking stimulates contributors to be in top 10% most active contributors of OSM but not necessarily the top 1 contributor.
-                <li><b>OpenStreetMap password</b>. OSM BTC <b>doesn't keep</b>OpenStreetMap password and it is only needed to verify OSM identity, it is strongly advised to change password before registration and after to avoid any possible password leak. In case you would like to contribute to OSM BTC and change it to OSM OAuth, please feel free.
+                <li><b>OpenStreetMap password</b>. OSM BTC <b>doesn't keep</b> OpenStreetMap password and it is only needed to verify OSM identity, it is strongly advised to change password before registration and after to avoid any possible password leak. In case you would like to contribute to OSM BTC and change it to OSM OAuth, please feel free.
                 <li>The project has OsmAnd team support, so in case of any questions you can conctact support@osmand.net.
               </ul>
             </div>
@@ -192,8 +194,8 @@
               <p class="input-hint">This bitcoin address will be used to transfer funds to.</p>
               
               <div class="input-agree">
-                  <input type="checkbox" id="agree_osm_live" name="agree_osm_live">
-                  <label for="agree_osm_live" class="agree_osm_live_label">I Agree with OSM Live program</label><a class="vlabel program-rules-ref"> rules.</a>
+                  <input type="checkbox" id="agree_osm_btc" name="agree_osm_btc">
+                  <label for="agree_osm_btc" class="agree_osm_btc_label">I Agree with OSM BTC program</label><a class="vlabel program-rules-ref"> rules.</a>
               </div>
               <button type="submit" class="btn btn-default" id="register_osm_user">Register</button>
               <p style="font-size:12px; line-height:1.3em; padding-top:20px">To update your BTC address, repeat the registration process using the new address. To delete an account, re-enter your credentials and leave the Bitcoin address field empty.</p>
@@ -526,10 +528,10 @@
   
 
   var reportSupportDataTable;
-  var reportSupportCountryDataTable;
+  // var reportSupportCountryDataTable;
   function updateSupportByMonth() {
     if(reportSupportDataTable) {
-      reportSupportCountryDataTable.clear().draw();
+      // reportSupportCountryDataTable.clear().draw();
       reportSupportDataTable.clear().draw();
       $('#donator-report-total').html("");
     }
@@ -553,19 +555,19 @@
               data.regions[key].coeff = Math.round(data.regions[key].percent * 10000) / 100 + "%";
               return data.regions[key];
           });
-          reportSupportCountryDataTable = $('#support-country-table').DataTable({
-            data: regionsList,
-              destroy: true,
-              columns: [
-                  { "data": "name", "title": "Region name"},
-                  { "data": "count", "title": "Supported users"},
-                  { "data": "coeff", "title": "Percentage"}
-              ],
-              "paging":   true,
-              "iDisplayLength": 50,
-              "info":     false,
-              "dom": "tp"
-          });
+          // reportSupportCountryDataTable = $('#support-country-table').DataTable({
+          //   data: regionsList,
+          //     destroy: true,
+          //     columns: [
+          //         { "data": "name", "title": "Region name"},
+          //         { "data": "count", "title": "Supported users"},
+          //         { "data": "coeff", "title": "Percentage"}
+          //     ],
+          //     "paging":   true,
+          //     "iDisplayLength": 50,
+          //     "info":     false,
+          //     "dom": "tp"
+          // });
           $('.table-controls.support-country-controls').removeClass('hidden');
           reportSupportDataTable = $('#support-table').DataTable({
               data: data.rows,
@@ -690,7 +692,7 @@
             $("#osm_register_failed").fadeIn(100);
             return;
           }
-          if (!$("#agree_osm_live").is(':checked')) {
+          if (!$("#agree_osm_btc").is(':checked')) {
             $("#osm_register_failed").html("You must agree to the tems of use.");
             $("#osm_register_failed").fadeIn(100);
             return;
@@ -922,13 +924,13 @@ function setRecipientOverviewHint() {
     reportUserDataTable.page.len(this.value).draw();
   });
 
-  $('#support-country-table-search').on('keyup', function() {
-    reportSupportCountryDataTable.search(this.value).draw();
-  });
+  // $('#support-country-table-search').on('keyup', function() {
+  //   reportSupportCountryDataTable.search(this.value).draw();
+  // });
 
-  $('#support-country-table-select').on('change', function() {
-    reportSupportCountryDataTable.page.len(this.value).draw();
-  });
+  // $('#support-country-table-select').on('change', function() {
+  //   reportSupportCountryDataTable.page.len(this.value).draw();
+  // });
 
   $('#support-table-search').on('keyup', function() {
     reportSupportDataTable.search(this.value).draw();
