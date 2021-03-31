@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>OsmAnd Live</title>
+  <title>OSM BTC</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -140,22 +140,21 @@
           <div id="general-info-div">
             <div id="general-info" class="infobox">
               <h2>About OSM BTC initiative.</h2>
-              <p>OsmAnd relies heavily on OSM and its community. It is fair to say that OsmAnd wouldn't exist without that great
-                community. When we started implementing OsmAnd Live, we immediately decided that it should be not only a paid service but a
-                donation service as well.  OsmAnd Live is only possible thanks to thousands of edits made every hour throughout the world, we want to
-                distribute a part of the income among OSM editors.</p>
+              <p>OSM BTC is an open Fund initiative which has a primary goal to support OpenStreetMap contributors by small donations via Bitcoin. It's started and still mainly supported by <a href="https://osmand.net">OsmAnd</a>, but it was separated from it and acts separately. </p>
               <h3>How it works</h3>
               <ul>
                 <li> Any OSM contributor can be registered as a recipient by providing a valid Bitcoin address in the form below.
-                <li> OsmAnd users who want to get live updates buy a subscription.
-                <li> After Google and bank deductions the money is split in half (<strong>50% OsmAnd</strong> and <strong>50% Donations</strong>)
-                <li> All donations are exchanged for Bitcoin and distributed among OSM contributors based on their ranking.
-                <li> Every OsmAnd user can select a preferred donation region, in which case <strong>50% of donations</strong> will be
-                  distributed among editors of this region.
+                <li> Any individual or company can contribute to the common fund via Bitcoin payment (see below).
+                <li> All donations are exchanged for Bitcoin and distributed among OSM contributors based on their ranking. Ranking stimulates contributors to be in top 10% most active contributors of OSM but not necessarily the top 1 contributor.
+                <li> During current month there is a preliminary report (with label 'Estimation'), final report (with label 'Total payout') is calculated in the beginning of the next month. Payments could be delayed in case Bitcoin fees are very high (see below).
               </ul>
-              <br> Please find all rankings and formulas in the reports. Note that if the Bitcoin transaction costexceeds 10% of the payment it will not be payed immediately (currently equals 0.5 mBTC at a price of 1 mBtc/KB, tx size
-              0.05 KB). Cumulative report on pending transactions will be generated monthly on the recipient's page. All underpaid
-              accounts will receive funds once the total sum exceeds the 10%-fee threshold.
+              <h3>Notes</h3>
+              <ul>
+                <li><strong>Minimum payment threshold.</strong>OSM BTC tries to leverage payout fees and payout frequencies by monitoring that payout fee doesn't exceed <strong>5% of payout sum</strong>. With average bitcoin fee 5 satoshi per byte: minimum payout is <strong>0.5 mBTC</strong> = 5000 satoshi  (fee 250 satoshi).
+                <li><strong>Cumulative payout report.</strong>In case payout doesn't exceed Minimum payment threshold, it won't be payout immediately but accumulated for the next month. Payout sum will be present in Recipient reports and <a href="https://builder.osmand.net/reports/query_btc_balance_report">Cumulative payout report (json)</a>.
+                <li><strong>Bans.</strong>User can be banned in case of <a class="vlabel program-rules-ref"> rule violations</a>.
+                <li>The project has OsmAnd team support, so in case of any questions you can conctact support@osmand.net.
+              </ul>
             </div>
           </div>
           <div class="registration recipient-registration" id="recipients-register-div">
@@ -192,12 +191,11 @@
               
               <div class="input-agree">
                   <input type="checkbox" id="agree_osm_live" name="agree_osm_live">
-                  <label for="agree_osm_live" class="agree_osm_live_label">I Agree with OSM Live program</label><a class="vlabel" id="myBtn"> rules.</a>
+                  <label for="agree_osm_live" class="agree_osm_live_label">I Agree with OSM Live program</label><a class="vlabel program-rules-ref"> rules.</a>
               </div>
               <button type="submit" class="btn btn-default" id="register_osm_user">Register</button>
               <p style="font-size:12px; line-height:1.3em; padding-top:20px">To update your BTC address, repeat the registration process using the new address. To delete an account, re-enter your credentials and leave the Bitcoin address field empty.</p>
-            <!-- The Modal -->
-            <div id="myModal" class="modal">
+            <div id="rules-modal-dialog" class="modal">
               <!-- Modal content -->
               <div class="modal-content">
                 <div class="modal-header">
@@ -207,8 +205,9 @@
                 <div class="modal-body">
                   <p style="font-size:15px; padding-top:20px">By registering, <b>you accept the following:</b>
                     <ul style="font-size:15px; line-height:1.3em;">
-                      <li>- The payments made to mappers within OsmAnd Live project are considered donations for their contributions, not remuneration for labor;</li>
-                      <li>- OsmAnd is not obliged to make payments; the company can suspend payouts and/or remove accounts of certain users if their work is not beneficial to the project;</li>
+                      <li>- The payments made to mappers within OSM BTC project are considered donations for their contributions, not remuneration for labor;</li>
+                      <li>- OSM BTC can not be called liable for any donations/payments loss;
+                      <li>- OSM BTC can suspend payouts and/or remove accounts of certain users if their work is not beneficial to the project;</li>
                       <li>- The project allows only 1 payment per 1 individual at a time;</li>
                       <li>- The payments can be suspended in case of unexpected emergencies.</li>
                     </ul>
@@ -234,9 +233,6 @@
             
             
 
-          </div>
-          <div class="full-width-banner">
-            <img src="/images/Info_landscape.png" alt="">
           </div>
         </div>
         <div id="recipients" class="tab-pane fade">
@@ -310,34 +306,7 @@
 </div>
 <script>
 
-// Get the modal
-var modal = document.getElementById('myModal');
 
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close-params")[0];
-
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-  $('body').css('overflow', 'hidden');
-  modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  $('body').css('overflow', 'auto');
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    $('body').css('overflow', 'auto');
-    modal.style.display = "none";
-  }
-}
   $.urlParam = function(name){
       var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
       if (results==null){
@@ -750,6 +719,28 @@ window.onclick = function(event) {
     } 
   }
   $(document).ready(function(){
+
+    // Get the button that opens the modal
+    $(".program-rules-ref").click(function (event) {
+      $('body').css('overflow', 'hidden');
+      document.getElementById('rules-modal-dialog').style.display = "block";
+    });
+
+    // When the user clicks on <span> (x), close the modal
+    $(".close-params").click(function (event) {
+        $('body').css('overflow', 'auto');
+        document.getElementById('rules-modal-dialog').style.display = "none";
+    });
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+       let modal = document.getElementById('rules-modal-dialog');
+        if (event.target == modal) {
+          $('body').css('overflow', 'auto');
+          modal.style.display = "none";
+        }
+    }
+
     var currentTime = new Date();
     var month = currentTime.getMonth() + 1;
     var day = currentTime.getDate();
