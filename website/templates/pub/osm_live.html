@@ -142,22 +142,22 @@
           <div id="general-info-div">
             <div id="general-info" class="infobox">
               <h2>OSM BTC fund</h2>
-              <p>OSM BTC is an open Fund initiative which has a primary goal to support OpenStreetMap contributors by small donations via Bitcoin. It's started and still mainly supported by <a href="https://osmand.net">OsmAnd</a>, but it was separated from it and acts separately. </p>
+              <p>OSM BTC is an open Fund initiative which has a primary goal to support OpenStreetMap contributors by small donations via Bitcoin. This iniative was started by <a href="https://osmand.net">OsmAnd</a> as OsmAnd Live  and now it is a standalone project which still has support an OsmAnd team support. </p>
               <h3>How it works</h3>
               <ul>
                 <li> Any OSM contributor can be registered as a recipient by providing a valid Bitcoin address in the form below.
                 <li> Any individual or company can contribute to the common fund via Bitcoin payment (see below).
                 <li> All donations are exchanged for Bitcoin and distributed among OSM contributors based on their ranking. 
-                <li> During current month there is a preliminary report (with label 'Estimation'). Final report (with label 'Total payout') is calculated in the beginning of the next month. Payments could be delayed in case Bitcoin fees are very high.
+                <li> During the current month there is a preliminary report (with label 'Estimation'). Final report (with label 'Total payout') is calculated at the beginning of the next month. Payments could be delayed in case Bitcoin fees are very high.
               </ul>
               <h3>Details</h3>
               <ul>
-                <li><b>Minimum payment threshold.</b> OSM BTC tries to leverage payout fees and payout frequencies by monitoring that payout fee doesn't exceed <strong>5% of payout sum</strong>. With average bitcoin tx fee 5 satoshi per byte - minimum payout is <strong>0.5 mBTC</strong> = 5000 satoshi  (fee 250 satoshi).
+                <li><b>Minimum payment threshold.</b> OSM BTC tries to leverage payout fees and payout frequencies by monitoring that payout fee doesn't exceed <strong>5% of payout sum</strong>. With an average bitcoin tx fee of 5 satoshi per byte - minimum payout is <strong>0.5 mBTC</strong> = 5000 satoshi  (fee 250 satoshi).
                 <li><b>Cumulative payout report.</b> In case payout doesn't exceed Minimum payment threshold, it won't be payout immediately but accumulated for the next month. Payout sum will be present in Recipient reports and <a href="https://builder.osmand.net/reports/query_btc_balance_report">Cumulative payout report (json)</a>.
                 <li><b>Bans.</b> User can be banned in case of <a class="vlabel program-rules-ref"> rule violations</a>.
-                <li><b>Rankings.</b> The payouts are distributed based on the ranking which is available in OSM Contributions tab, the last ranking has weight&nbsp;=&nbsp;1, the ranking before the last has weight&nbsp;=&nbsp;2 and so on till the 1st ranking. Ranking stimulates contributors to be in top 10% most active contributors of OSM but not necessarily the top 1 contributor.
-                <li><b>OpenStreetMap password</b>. OSM BTC <b>doesn't keep</b> OpenStreetMap password and it is only needed to verify OSM identity, it is strongly advised to change password before registration and after to avoid any possible password leak. In case you would like to contribute to OSM BTC and change it to OSM OAuth, please feel free.
-                <li>The project has OsmAnd team support, so in case of any questions you can conctact support@osmand.net.
+                <li><b>Rankings.</b> The payouts are distributed based on the ranking which is available in OSM Contributions tab, the last ranking has weight&nbsp;=&nbsp;1, the ranking before the last has weight&nbsp;=&nbsp;2 and so on till the 1st ranking. Ranking stimulates contributors to be in the top 10% most active contributors of OSM but not necessarily the top 1 contributor.
+                <li><b>OpenStreetMap password</b>. OSM BTC <b>doesn't keep</b> OpenStreetMap password and it is only needed to verify OSM identity, it is strongly advised to change the password before registration and after to avoid any possible password leak. In case you would like to contribute to OSM BTC and change it to OSM OAuth, please feel free.
+                <li>The project has OsmAnd team support, so in case of any questions you can contact support@osmand.net.
               </ul>
             </div>
           </div>
@@ -273,7 +273,7 @@
                   <div id="recipients-world-collected" class='overview overview-btc'>
                     <p>- mBTC</p><span>total collected (may change in the final report)</span>
                   </div>
-                  <div id="recipients-region-collected" class='overview overview-btc' style="display:none">
+                  <div id="recipients-region-collected" class="overview overview-btc" style="display:none">
                     <p>- mBTC</p><span>collected Worldwide</span>
                   </div>
                   <p id="recipients-payouts" class='recipients-data-header overview-hint'></p>
@@ -479,7 +479,7 @@
             $("#recipients-gen-date").html("");
           }
           $("#recipients-world-collected").html(data.worldCollectedMessage);
-          if (recipientMonth >= '2021-03') {
+          if (recipientMonth >= '2021-03' || recipientMonth == '') {
             $("#recipients-region-collected").hide();
           } else {
             $("#recipients-region-collected").show();
