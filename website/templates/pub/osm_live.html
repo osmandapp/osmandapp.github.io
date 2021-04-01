@@ -254,7 +254,7 @@
                 <select class="form-control osm-live-month-select" id="recipient-month-selection"></select>
               </div>
             </div>
-            <div class="report-group region">
+            <div class="report-group region" id="recipient-region-group" style="display:none">
               <h4 class="vlabel" for="recipient-region-selection" th:text="#{osmlive_region}">Region</h4>
               <div class="styled-select">
                 <select class="form-control" id="recipient-region-selection"></select>
@@ -273,7 +273,7 @@
                   <div id="recipients-world-collected" class='overview overview-btc'>
                     <p>- mBTC</p><span>total collected (may change in the final report)</span>
                   </div>
-                  <div id="recipients-region-collected" class='overview overview-btc' >
+                  <div id="recipients-region-collected" class='overview overview-btc' style="display:none">
                     <p>- mBTC</p><span>collected Worldwide</span>
                   </div>
                   <p id="recipients-payouts" class='recipients-data-header overview-hint'></p>
@@ -847,6 +847,13 @@
         var optionSelected = $("option:selected", this);
         recipientMonth = this.value;
         recipientMonthName = optionSelected.text();
+        if (recipientMonth < '2021-03') {
+          $('#recipient-region-group').show();
+        } else {
+          recipientRegion = '';
+          sessionStorage.recipientRegion = recipientRegion;
+          $('#recipient-region-group').hide();
+        }
         if(typeof(Storage) !== "undefined") {
           sessionStorage.recipientMonth = recipientMonth;
           sessionStorage.recipientMonthName = recipientMonthName;
