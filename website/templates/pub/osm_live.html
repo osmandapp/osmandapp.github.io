@@ -633,14 +633,19 @@
   var reportDataTable;
   function updateRankingByMonth(resource) {
     var data = resource; //jQuery.parseJSON(resource);
-    $('#report-ranking').html("Ranking of contributors by " + data.rows.length + " groups <span>(made more than 3 changes)</span>");
+    var c = 0;
+    if (data.rows.length > 0) {
+      c = data.rows[data.rows.length - 1].minChanges;
+    }
+    $('#report-ranking').html("Ranking of contributors by " + data.rows.length + " groups <span>(made more than " + 
+      c + " changes)</span>");
     var columns = [
                 { "data": "rank", title: "Rank"},
                 { "data": "countUsers", title: "Contributors <span>in group</span>"},
                 { "data": "minChanges", title: "Minimum changes <span>in group</span>"},
                 { "data": "maxChanges", title: "Maximum changes <span>in group</span>"}
     ];
-    if(mid >= '2018-09') {
+    if (mid >= '2018-09') {
         columns.push({ "data": "totalChanges", title: "Total changes <span>by group</span>"}); //, render:floatFormat
         columns.push({ "data": "atomTotalChanges", title: "Total edited objects <span>by group</span>"});
     }
