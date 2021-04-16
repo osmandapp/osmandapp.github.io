@@ -18,7 +18,7 @@
    <tile_source rule="template:1" name="Microsoft Hybrid" url_template="http://h0.ortho.tiles.virtualearth.net/tiles/h{q}.jpg?g=45" min_zoom="1" max_zoom="19" tile_size="256" img_density="32" avg_img_size="18000" ext=".jpg"/>
    <tile_source rule="template:1" name="Microsoft Earth" url_template="http://a0.ortho.tiles.virtualearth.net/tiles/a{q}.jpg?g=45" min_zoom="1" max_zoom="19" tile_size="256" img_density="32" avg_img_size="18000" ext=".jpg"/>
 
-   <tile_source name="Public Transport" url_template="http://openptmap.org/tiles/{0}/{1}/{2}.png" ext=".png" min_zoom="1" max_zoom="17" tile_size="256" img_density="16" avg_img_size="5000"/> 
+<!--   <tile_source name="Public Transport" url_template="http://openptmap.org/tiles/{0}/{1}/{2}.png" ext=".png" min_zoom="1" max_zoom="17" tile_size="256" img_density="16" avg_img_size="5000"/> -->
 
    <tile_source name="Hike Bike Map" url_template="https://tiles.wmflabs.org/hikebike/{0}/{1}/{2}.png" ext=".png" min_zoom="1" max_zoom="17" tile_size="256" img_density="8" avg_img_size="18000"/>
    <tile_source name="Hike Bike Map (Hills Underlay)" url_template="http://tiles.wmflabs.org/hillshading/{0}/{1}/{2}.png" ext=".png" min_zoom="1" max_zoom="17" tile_size="256" img_density="16" avg_img_size="18000"/>
