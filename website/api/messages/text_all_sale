@@ -2,11 +2,11 @@
 	"settings": [
 		{
 			"condition": {
-  				"start_date": "21-10-2020 00:01",
-  				"end_date": "28-10-2020 23:59",
+  				"start_date": "28-04-2021 00:01",
+  				"end_date": "02-05-2021 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
-				"number_of_days": "2-700",
+				"number_of_days": "2-100",
 				"lang" :"ru"
 			},
 			"file": "discount_paid.json",
@@ -18,24 +18,24 @@
 		{
 
 			"condition": {
-  				"start_date": "21-10-2020 00:01",
-  				"end_date": "28-10-2020 23:59",
+  				"start_date": "28-04-2021 00:01",
+  				"end_date": "02-05-2021 23:59",
 				"os": "android",
 				"lang" :"ru"
 			},
 			"file": "discount.json",
 			"fields": {
 				"message": "РАСПРОДАЖА!",
-				"description": "Карты без ограничений, контурные линии и годовая подписка -50%!"
+				"description": "Карты без ограничений и годовая подписка -50%!"
 			}
 		},
 		{
 			"condition": {
-  				"start_date": "21-10-2020 00:01",
-  				"end_date": "28-10-2020 23:59",
+  				"start_date": "28-04-2021 00:01",
+  				"end_date": "02-05-2021 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
-				"number_of_days": "2-700",
+				"number_of_days": "2-100",
 				"lang" :"pl"
 			},
 			"file": "discount_paid.json",
@@ -46,24 +46,24 @@
 		},
 		{
 			"condition": {
-  				"start_date": "21-10-2020 00:01",
-  				"end_date": "28-10-2020 23:59",
+  				"start_date": "28-04-2021 00:01",
+  				"end_date": "02-05-2021 23:59",
 				"os": "android",
 				"lang" :"pl"
 			},
 			"file": "discount.json",
 			"fields": {
 				"message": "Wyprzedaż!",
-				"description": "Wszystkie mapy,  linie konturowe i subskrypcja roczna - 50%!"
+				"description": "Wszystkie mapy i subskrypcja roczna - 50%!"
 			}
 		},
 		{
 			"condition": {
-  				"start_date": "21-10-2020 00:01",
-  				"end_date": "28-10-2020 23:59",
+  				"start_date": "28-04-2021 00:01",
+  				"end_date": "02-05-2021 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
-				"number_of_days": "2-700",
+				"number_of_days": "2-100",
 				"lang" :"es"
 			},
 			"file": "discount_paid.json",
@@ -74,24 +74,24 @@
 		},
 		{
 			"condition": {
-  				"start_date": "21-10-2020 00:01",
-  				"end_date": "28-10-2020 23:59",
+  				"start_date": "28-04-2021 00:01",
+  				"end_date": "02-05-2021 23:59",
 				"os": "android",
 				"lang" :"es"
 			},
 			"file": "discount.json",
 			"fields": {
 				"message": "¡VENTA!",
-				"description": "Descargas ilimitadas de mapas, curvas de nivel y suscripción anual -50%!"
+				"description": "Descargas ilimitadas de mapas y suscripción anual -50%!"
 			}
 		},
 		{
 			"condition": {
-  				"start_date": "21-10-2020 00:01",
-  				"end_date": "28-10-2020 23:59",
+  				"start_date": "28-04-2021 00:01",
+  				"end_date": "02-05-2021 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
-				"number_of_days": "2-700",
+				"number_of_days": "2-100",
 				"lang" :"fr"
 			},
 			"file": "discount_paid.json",
@@ -102,24 +102,24 @@
 		},
 		{
 			"condition": {
-  				"start_date": "21-10-2020 00:01",
-  				"end_date": "28-10-2020 23:59",
+  				"start_date": "28-04-2021 00:01",
+  				"end_date": "02-05-2021 23:59",
 				"os": "android",
 				"lang" :"fr"
 			},
 			"file": "discount.json",
 			"fields": {
 				"message": "VENTE!",
-				"description": "Téléchargements de cartes illimités, courbes de niveau et abonnement annuel -50%!"
+				"description": "Téléchargements de cartes illimités et abonnement annuel -50%!"
 			}
 		},
 		{
 			"condition": {
-  				"start_date": "21-10-2020 00:01",
-  				"end_date": "28-10-2020 23:59",
+  				"start_date": "28-04-2021 00:01",
+  				"end_date": "02-05-2021 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
-				"number_of_days": "2-700",
+				"number_of_days": "2-100",
 				"lang" :"nl"
 			},
 			"file": "discount_paid.json",
@@ -130,24 +130,24 @@
 		},
 		{
 			"condition": {
-  				"start_date": "21-10-2020 00:01",
-  				"end_date": "28-10-2020 23:59",
+  				"start_date": "28-04-2021 00:01",
+  				"end_date": "02-05-2021 23:59",
 				"os": "android",
 				"lang" :"nl"
 			},
 			"file": "discount.json",
 			"fields": {
 				"message": "VERKOOP!",
-				"description": "Onbeperkte kaartdownloads, contourlijnen en jaarabonnement -50%!"
+				"description": "Onbeperkte kaartdownloads en jaarabonnement -50%!"
 			}
 		},
 		{
 			"condition": {
-  				"start_date": "21-10-2020 00:01",
-  				"end_date": "28-10-2020 23:59",
+  				"start_date": "28-04-2021 00:01",
+  				"end_date": "02-05-2021 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
-				"number_of_days": "2-700",
+				"number_of_days": "2-100",
 				"lang" :"it"
 			},
 			"file": "discount_paid.json",
@@ -158,24 +158,24 @@
 		},
 		{
 			"condition": {
-  				"start_date": "21-10-2020 00:01",
-  				"end_date": "28-10-2020 23:59",
+  				"start_date": "28-04-2021 00:01",
+  				"end_date": "02-05-2021 23:59",
 				"os": "android",
 				"lang" :"it"
 			},
 			"file": "discount.json",
 			"fields": {
 				"message": "VENDITA!",
-				"description": "Download illimitati di mappe, curve di livello e abbonamento annuale -50%!"
+				"description": "Download illimitati di mappe e abbonamento annuale -50%!"
 			}
 		},
 		{
 			"condition": {
-  				"start_date": "21-10-2020 00:01",
-  				"end_date": "28-10-2020 23:59",
+  				"start_date": "28-04-2021 00:01",
+  				"end_date": "02-05-2021 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
-				"number_of_days": "2-700",
+				"number_of_days": "2-100",
 				"lang" :"de"
 			},
 			"file": "discount_paid.json",
@@ -186,25 +186,25 @@
 		},
 		{
 			"condition": {
-  				"start_date": "21-10-2020 00:01",
-  				"end_date": "28-10-2020 23:59",
+  				"start_date": "28-04-2021 00:01",
+  				"end_date": "02-05-2021 23:59",
 				"os": "android",
 				"lang" :"de"
 			},
 			"file": "discount.json",
 			"fields": {
 				"message": "SALE!",
-				"description": "Unbegrenzte Karten-Downloads, Höhenlinien und Jahresabonnement -50%!"
+				"description": "Unbegrenzte Karten-Downloads und Jahresabonnement -50%!"
 			}
 
 		},
 		{
 			"condition": {
-  				"start_date": "21-10-2020 00:01",
-  				"end_date": "28-10-2020 23:59",
+  				"start_date": "28-04-2021 00:01",
+  				"end_date": "02-05-2021 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
-				"number_of_days": "2-700",
+				"number_of_days": "2-100",
 				"lang" :"ar"
 			},
 			"file": "discount_paid.json",
@@ -215,23 +215,23 @@
 		},
 		{
 			"condition": {
-  				"start_date": "21-10-2020 00:01",
-  				"end_date": "28-10-2020 23:59",
+  				"start_date": "28-04-2021 00:01",
+  				"end_date": "02-05-2021 23:59",
 				"os": "android",
 				"lang" :"ar"
 			},
 			"file": "discount.json",
 			"fields": {
 			        "message": " تخفيظات !",
-				"description": "تنزيل خرائط غير محدود ، الخطوط المحيطية (الكنتورية) ، الإشتراكات السنوية -50% ."
+				"description": "تنزيل خرائط غير محدود ،  الإشتراكات السنوية -50% ."
 			}
 		},
 		{
 			"condition": {
-  				"start_date": "21-10-2020 00:01",
-  				"end_date": "28-10-2020 23:59",
+  				"start_date": "28-04-2021 00:01",
+  				"end_date": "02-05-2021 23:59",
 				"app_version": "OsmAnd+",
-				"number_of_days": "2-700",
+				"number_of_days": "2-100",
 				"os": "android"
 			},
 			"file": "discount_paid.json",
@@ -242,20 +242,20 @@
 		},
 		{
 			"condition": {
-  				"start_date": "21-10-2020 00:01",
-  				"end_date": "28-10-2020 23:59",
+  				"start_date": "28-04-2021 00:01",
+  				"end_date": "02-05-2021 23:59",
 				"os": "android"
 			},
 			"file": "discount.json",
 			"fields": {
 				"message": "SALE!",
-				"description": "Unlimited map downloads, contour lines and annual subscription -50%!"
+				"description": "Unlimited map downloads and annual subscription -50%!"
 			}
 		},
 		{
                         "condition": {
-  				"start_date": "21-10-2020 00:01",
-  				"end_date": "28-10-2020 23:59",
+  				"start_date": "28-04-2021 00:01",
+  				"end_date": "02-05-2021 23:59",
 				"os": "ios",
 				"lang" :"ru"
 			},
@@ -268,8 +268,8 @@
 		{
 
 			      "condition": {
-  				"start_date": "21-10-2020 00:01",
-  				"end_date": "28-10-2020 23:59",
+  				"start_date": "28-04-2021 00:01",
+  				"end_date": "02-05-2021 23:59",
 				"os": "ios",
 				"lang" :"fr"
 			},
@@ -282,8 +282,8 @@
 		},
 		{
 				"condition": {
-  				"start_date": "21-10-2020 00:01",
-  				"end_date": "28-10-2020 23:59",
+  				"start_date": "28-04-2021 00:01",
+  				"end_date": "02-05-2021 23:59",
 				"os": "ios",
 				"lang" :"de"
 			},
@@ -295,8 +295,8 @@
 		},
 		{
 				"condition": {
-  				"start_date": "21-10-2020 00:01",
-  				"end_date": "28-10-2020 23:59",
+  				"start_date": "28-04-2021 00:01",
+  				"end_date": "02-05-2021 23:59",
 				"os": "ios",
 				"lang" :"it"
 			},
@@ -308,8 +308,8 @@
 		},
 		{
 				"condition": {
-  				"start_date": "21-10-2020 00:01",
-  				"end_date": "28-10-2020 23:59",
+  				"start_date": "28-04-2021 00:01",
+  				"end_date": "02-05-2021 23:59",
 				"os": "ios",
 				"lang" :"es"
 			},
@@ -321,8 +321,8 @@
 		},
 		{
 				"condition": {
-  				"start_date": "21-10-2020 00:01",
-  				"end_date": "28-10-2020 23:59",
+  				"start_date": "28-04-2021 00:01",
+  				"end_date": "02-05-2021 23:59",
 				"os": "ios",
 				"lang" :"nl"
 			},
@@ -334,8 +334,8 @@
 		},
 		{
 			"condition": {
-  				"start_date": "21-10-2020 00:01",
-  				"end_date": "28-10-2020 23:59",
+  				"start_date": "28-04-2021 00:01",
+  				"end_date": "02-05-2021 23:59",
 				"os": "ios",
 				"lang" :"pl"
 			},
@@ -347,8 +347,8 @@
 		},
 		{
 			"condition": {
-  				"start_date": "21-10-2020 00:01",
-  				"end_date": "28-10-2020 23:59",
+  				"start_date": "28-04-2021 00:01",
+  				"end_date": "02-05-2021 23:59",
 				"os": "ios",
 				"lang" :"ar"
 			},
@@ -360,8 +360,8 @@
 		},
 		{
 			      "condition": {
-  				"start_date": "21-10-2020 00:01",
-  				"end_date": "28-10-2020 23:59",
+  				"start_date": "28-04-2021 00:01",
+  				"end_date": "02-05-2021 23:59",
 				"os": "ios"
 			},
 			"file": "discount_ios_sub.json",
