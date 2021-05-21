@@ -8,7 +8,7 @@ table {
   border-collapse: collapse;
 }
 
-.send-private-giveaway, .register-giveaway, .access-server-logs, .update-btc-report {
+.send-private-giveaway, .register-giveaway, .access-server-logs, .update-btc-report, .form-table-input {
 	margin: 20px 0px;
 	border: 1px solid #e6e6e6;
 	width: 50%;
