@@ -312,12 +312,11 @@
 			</table>
 
 			<div class="form-table-input">
-				<b>Search emails in database</b>
 				<form action="/admin/search-emails" method="post">
 					<ul class="wrapper">
 						<li class="form-row">
-							<label for="name">Email part:</label>
-							<input type="text" name="emailpart">
+							<label for="name">Search Email by Part:</label>
+							<input type="text" name="emailPart">
 						</li>
 						<li class="form-row">
 							<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
@@ -325,12 +324,12 @@
 						</li>
 					</uL>
 				</form>
-				<table border="1">
+				<table border="1" th:if="${emailSearch != null}">
 					<tr>
 						<th>Email</th>
 						<th>DB Table</th>
 						<th>Date</th>
-						<th>Sourcee</th>
+						<th>Source</th>
 					</tr>
 					<tr th:each="di : ${emailSearch}">
 						<td th:text="${di.email}">1000</td>
