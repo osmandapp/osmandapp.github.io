@@ -324,23 +324,24 @@
 						</li>
 					</uL>
 				</form>
-				<table border="1" th:if="${emailSearch != null}">
-					<tr>
-						<th>Email</th>
-						<th>Channel</th>
-						<th>Date</th>
-						<th>Table</th>
-						<th>Source</th>
-					</tr>
-					<tr th:each="di : ${emailSearch}">
-						<td th:text="${di.email}">1000</td>
-						<td th:text="${di.channel}">1000</td>
-						<td th:text="${di.date}">1000</td>
-						<td th:text="${di.table}">1000</td>
-						<td th:text="${di.source}">1000</td>
-					</tr>
-				</table>
 			</div>
+
+			<table border="1" th:if="${emailSearch != null}">
+				<tr>
+					<th>Email</th>
+					<th>Channel</th>
+					<th>Date</th>
+					<th>Table</th>
+					<th>Source</th>
+				</tr>
+				<tr th:each="di : ${emailSearch}">
+					<td th:text="${di.email}">1000</td>
+					<td th:text="${di.channel}">1000</td>
+					<td th:text="${di.date}">1000</td>
+					<td th:text="${di.table}">1000</td>
+					<td th:text="${di.source}">1000</td>
+				</tr>
+			</table>
 
 
 			<h3>Support survey</h3>
