@@ -7,14 +7,17 @@
             "routes" : [
                 {
                     "name" : "Car",
+                    "type" : "car",
                     "url": "https://zlzk.biz/route/v1/car/"
                 },
                 {
                     "name": "Bike",
+                    "type" : "bicycle",
                     "url": "https://zlzk.biz/route/v1/bike/"
                 },
                 {
                     "name": "Foot",
+                    "type" : "pedestrian",
                     "url": "https://zlzk.biz/route/v1/foot/"
                 }
             ] 
@@ -26,14 +29,17 @@
             "routes": [
                 {
                     "name": "Car",
+                    "type" : "car",
                     "url": "https://routing.openstreetmap.de/routed-car/route/v1/driving"
                 },
                 {
                     "name": "Bike",
+                    "type" : "bicycle",
                     "url": "https://routing.openstreetmap.de/routed-bike/route/v1/driving"
                 },
                 {
                     "name": "Foot",
+                    "type" : "pedestrian",
                     "url": "https://routing.openstreetmap.de/routed-foot/route/v1/driving"
                 }
             ]
