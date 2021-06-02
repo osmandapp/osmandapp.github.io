@@ -84,13 +84,13 @@
               <h3>How it works</h3>
               <ul>
                 <li> Any OSM contributor can be registered as a recipient by providing a valid Bitcoin address in the form below.
-                <li> Any individual or company can contribute to the common fund via Bitcoin payment (see below).
+                <li> Any individual or company can contribute to the common fund via Bitcoin payment, 3% will be hold as tx fee (see below).
                 <li> All donations are exchanged for Bitcoin and distributed among OSM contributors based on their ranking. 
                 <li> During the current month there is a preliminary report (with label 'Estimation'). Final report (with label 'Total payout') is calculated at the beginning of the next month. Payments could be delayed in case Bitcoin fees are very high.
               </ul>
               <h3>Details</h3>
               <ul>
-                <li><b>Minimum payment threshold.</b> OSM BTC tries to leverage payout fees and payout frequencies by monitoring that payout fee doesn't exceed <strong>5% of payout sum</strong>. With an average bitcoin tx fee of 5 satoshi per byte - minimum payout is <strong>0.5 mBTC</strong> = 5000 satoshi  (fee 250 satoshi).
+                <li><b>Minimum payment threshold.</b> OSM BTC tries to leverage payout fees and payout frequencies by monitoring that payout fee doesn't exceed <b>3% of payout sum</b>. With an average bitcoin tx fee of 5 satoshi per byte - minimum payout is <b>0.5 mBTC</b> = 5000 satoshi  (fee 250 satoshi).
                 <li><b>Cumulative payout report.</b> In case payout doesn't exceed Minimum payment threshold, it won't be payout immediately but accumulated for the next month. Payout sum will be present in Recipient reports and <a href="https://builder.osmand.net/reports/query_btc_balance_report">Cumulative payout report (json)</a>.
                 <li><b>Bans.</b> User can be banned in case of <a class="vlabel program-rules-ref"> rule violations</a>.
                 <li><b>Rankings.</b> The payouts are distributed based on the ranking which is available in OSM Contributions tab, the last ranking has weight&nbsp;=&nbsp;1, the ranking before the last has weight&nbsp;=&nbsp;2 and so on till the 1st ranking. Ranking stimulates contributors to be in the top 10% most active contributors of OSM but not necessarily the top 1 contributor.
