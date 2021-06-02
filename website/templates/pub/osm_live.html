@@ -678,8 +678,7 @@
   
     
     handleRegisterOsm();
-    updateRegions();
-    updateSupportByMonth();
+    updateRegions(); 
     updateRecipientsByMonth();
     
     updateTotalChanges();
@@ -709,7 +708,6 @@
           sessionStorage.supportMonth = supportMonth;
           sessionStorage.supportMonthName = supportMonthName;
         }
-        updateSupportByMonth();
         setSupportersOverviewHint();
     });
     $('#recipient-month-selection').on('change', function (e) {
