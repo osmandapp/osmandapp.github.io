@@ -23,7 +23,6 @@
       <ul class="navigation">
         <li class="active"><a data-toggle="tab" href="#information" th:text="#{osmlive_info}">Information</a></li>
         <li><a data-toggle="tab" href="#report" th:text="#{osmlive_contributions}">OSM Contributions</a></li>
-        <li><a data-toggle="tab" href="#donate" th:text="#{osmlive_supporters}">Supporters</a></li>
         <li><a data-toggle="tab" href="#recipients" th:text="#{osmlive_recipients}">Recipients</a></li>
       </ul>
     </div>
@@ -76,68 +75,7 @@
           </div>
           <table id="users-table" class="table table-bordered" cellspacing="0" width="100%"></table>
         </div>
-        <div id="donate" class="tab-pane fade ">
-          <h2 th:text="#{osmlive_supporters}">Supporters</h2>
-          <div class="supporters-total-holder">
-            <div class="report-period-group supporters">
-              <div class="report-group period">
-                <h4 class="vlabel" for="donate-month-selection" th:text="#{osmlive_period}">Report period</h4>
-                <div class="styled-select">
-                  <select class="form-control osm-live-month-select" id="donate-month-selection"></select>
-                </div>
-              </div>
-            </div>
-            <div class="supporters-total" id="donator-report-total-div">
-              <div class="panel-body">
-                <p class='overview-hint'><span th:text="#{osmlive_overview}">Overview for</span> <span id="overview-supporters_options"></span><span id='overview-supporters-span' style="color:black;float:right;"></span></p>
-                <div id="donator-report-total" class="infobox"></div>
-              </div>
-            </div>
-          </div>
-          <!-- 
-          <h4 class="vlabel" for="support-country-table" id="support-country-table-header" 
-          th:text="#{osmlive_supported_countries}">Supported countries</h4>
-          <div class="table-controls support-country-controls hidden">
-            <div class="tc search">
-              <input type="search" class="form-control" aria-control="support-country-table" id="support-country-table-search" placeholder="Search">
-            </div>
-            <div class="tc entries">
-              <label>
-              <span>Show entries</span>
-              <div class="styled-select">
-                <select name="support-country-table_length" aria-controls="support-country-table" class="form-control" id="support-country-table-select">
-                  <option value="10">10</option>
-                  <option value="25">25</option>
-                  <option value="50" selected>50</option>
-                  <option value="100">100</option>
-                </select>
-              </div>
-              </label>
-            </div>
-          </div>
-          <table id="support-country-table" class="table table-bordered" cellspacing="0" width="100%"></table>
-          -->
-          <h4 class="vlabel" for="support-table" id="support-table-header">OSM BTC supporters</h4>
-          <div class="table-controls support-controls hidden">
-            <div class="tc search">
-              <input type="search" class="form-control" aria-control="support-table" id="support-table-search" placeholder="Search">
-            </div>
-            <div class="tc entries">
-              <label>
-              <span>Show entries</span>
-              <div class="styled-select">
-                <select name="support-table_length" aria-controls="support-table" class="form-control" id="support-table-select">
-                  <option value="10">10</option>
-                  <option value="25">25</option>
-                  <option value="50" selected>50</option>
-                  <option value="100">100</option>
-                </select>
-              </div>
-              </label>
-            </div>
-          </div>
-          <table id="support-table" class="table table-bordered" cellspacing="0" width="100%"></table>
-        </div>
+        
         <div id="information" class="tab-pane fade in active">
           <div id="general-info-div">
             <div id="general-info" class="infobox">
@@ -533,76 +471,10 @@
           setRecipientOverviewHint();
     });
   }
-  
-
-  var reportSupportDataTable;
-  // var reportSupportCountryDataTable;
-  function updateSupportByMonth() {
-    if(reportSupportDataTable) {
-      // reportSupportCountryDataTable.clear().draw();
-      reportSupportDataTable.clear().draw();
-      $('#donator-report-total').html("");
-    }
-    $.ajax({
-          url: "/reports/query_report?report=supporters_by_month&month="+supportMonth+"&full="+extended, 
-          async: true
-    }).done(function(res) {
-          var data = jQuery.parseJSON( res );
-          if(extended) {
-            data.rows.push.apply(data.rows, data.notactive)
-          }
-          if (data.date != null && data.date != undefined) {
-            $('#overview-supporters-span').html("Generation date <span>"+ formatDate(data.date) + "</span>");
-          } else { 
-            $('#overview-supporters-span').html(""); 
-          }
-          $('#donator-report-total').html("<div class='overview overview-active_supporters'><p>" + data.activeCount + 
-              "</p><span>active donors</span></div>" 
-              + "<div class='overview overview-register_supporters'><p>" + data.count +"</p><span>registered supporters</span></div>" );
-          var regionsList = Object.keys(data.regions).map(function(key){
-              data.regions[key].coeff = Math.round(data.regions[key].percent * 10000) / 100 + "%";
-              return data.regions[key];
-          });
-          // reportSupportCountryDataTable = $('#support-country-table').DataTable({
-          //   data: regionsList,
-          //     destroy: true,
-          //     columns: [
-          //         { "data": "name", "title": "Region name"},
-          //         { "data": "count", "title": "Supported users"},
-          //         { "data": "coeff", "title": "Percentage"}
-          //     ],
-          //     "paging":   true,
-          //     "iDisplayLength": 50,
-          //     "info":     false,
-          //     "dom": "tp"
-          // });
-          $('.table-controls.support-country-controls').removeClass('hidden');
-          reportSupportDataTable = $('#support-table').DataTable({
-              data: data.rows,
-              destroy: true,
-              columns: [
-                  { "data": "user", "title": "User name"},
-                  { "data": "status", "title": "Status"},
-                  { "data": "regionName", "title": "Region", "visible": extended},
-              ],
-              "paging":   true,
-              "ordering": true,
-              "iDisplayLength": 50,
-              "info":     false,
-              "searching": true,
-              "dom": "tp"
-          });
-          $('.table-controls.support-controls').removeClass('hidden');
-          setSupportersOverviewHint();
-    });
-  }
-  
-
+    
   var reportUserDataTable;
   function updateUserRankingByMonth(resource) {
-    
     $('#users-ranking').text("Select region to see user statistics ");
-  
     if(region.length > 0 ) {
       
           var data = resource;
@@ -629,7 +501,6 @@
               "dom": 'tp'
           });
           $('.table-controls').removeClass('hidden');
-
     }
   }
 
@@ -777,13 +648,6 @@
       }
     }
     if(typeof(Storage) !== "undefined") {
-        if(sessionStorage.supportMonth) {
-            supportMonth = sessionStorage.supportMonth;
-            supportMonthName = sessionStorage.supportMonthName;
-            $("#donate-month-selection").val(supportMonth);
-            var currentMonth  = $("#donate-month-selection").children("option").filter(":selected").text();
-            $('#overview-supporters_options').text(currentMonth);
-        }
         if(sessionStorage.recipientMonth) {
             recipientMonth = sessionStorage.recipientMonth;
             recipientMonthName = sessionStorage.recipientMonthName;
@@ -915,9 +779,7 @@
         updateTotalChanges();
         //updateRankingByMonth();
         //updateUserRankingByMonth();
-      });
-    
-     
+      });  
   });
 
   function setContributorsOverviewHint() {
@@ -926,12 +788,7 @@
     $('#overview-contributors_options').text(currentMonth + ', ' + currentRegion);
   }
 
-function setSupportersOverviewHint() {
-    var currentMonth  = $("#donate-month-selection").children("option").filter(":selected").text();
-    $('#overview-supporters_options').text(currentMonth);
-  }
-  
-function setRecipientOverviewHint() {
+  function setRecipientOverviewHint() {
     var currentMonth  = $("#recipient-month-selection").children("option").filter(":selected").text();
     $('#overview-recipients_option').text(currentMonth);
   }
@@ -942,22 +799,6 @@ function setRecipientOverviewHint() {
 
   $('#users-table-select').on('change', function() {
     reportUserDataTable.page.len(this.value).draw();
-  });
-
-  // $('#support-country-table-search').on('keyup', function() {
-  //   reportSupportCountryDataTable.search(this.value).draw();
-  // });
-
-  // $('#support-country-table-select').on('change', function() {
-  //   reportSupportCountryDataTable.page.len(this.value).draw();
-  // });
-
-  $('#support-table-search').on('keyup', function() {
-    reportSupportDataTable.search(this.value).draw();
-  });
-
-  $('#support-table-select').on('change', function() {
-    reportSupportDataTable.page.len(this.value).draw();
   });
 
   $('#recipients-table-search').on('keyup', function() {
