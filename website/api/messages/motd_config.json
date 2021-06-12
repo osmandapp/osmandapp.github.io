@@ -3,7 +3,7 @@
 		{
 			"condition": {
   				"start_date": "11-06-2021 08:20",
-  				"end_date": "13-06-2021 23:59",
+  				"end_date": "11-06-2021 08:21",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "2-100",
@@ -31,7 +31,7 @@
 		{
 			"condition": {
   				"start_date": "11-06-2021 08:20",
-  				"end_date": "13-06-2021 23:59",
+  				"end_date": "11-06-2021 08:21",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "2-100",
@@ -59,7 +59,7 @@
 		{
 			"condition": {
   				"start_date": "11-06-2021 08:20",
-  				"end_date": "13-06-2021 23:59",
+  				"end_date": "11-06-2021 08:21",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "2-100",
@@ -87,7 +87,7 @@
 		{
 			"condition": {
   				"start_date": "11-06-2021 08:20",
-  				"end_date": "13-06-2021 23:59",
+  				"end_date": "11-06-2021 08:21",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "2-100",
@@ -115,7 +115,7 @@
 		{
 			"condition": {
   				"start_date": "11-06-2021 08:20",
-  				"end_date": "13-06-2021 23:59",
+  				"end_date": "11-06-2021 08:21",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "2-100",
@@ -143,7 +143,7 @@
 		{
 			"condition": {
   				"start_date": "11-06-2021 08:20",
-  				"end_date": "13-06-2021 23:59",
+  				"end_date": "11-06-2021 08:21",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "2-100",
@@ -172,7 +172,7 @@
 		{
 			"condition": {
   				"start_date": "11-06-2021 08:20",
-  				"end_date": "13-06-2021 23:59",
+  				"end_date": "11-06-2021 08:21",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "2-100",
@@ -200,7 +200,7 @@
 		{
 			"condition": {
   				"start_date": "11-06-2021 08:20",
-  				"end_date": "13-06-2021 23:59",
+  				"end_date": "11-06-2021 08:21",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "2-100",
@@ -228,7 +228,7 @@
 		{
 			"condition": {
   				"start_date": "11-06-2021 08:20",
-  				"end_date": "13-06-2021 23:59",
+  				"end_date": "11-06-2021 08:21",
 				"app_version": "OsmAnd+",
 				"number_of_days": "2-100",
 				"os": "android"
