@@ -145,6 +145,12 @@
    <!-- http://kelkkareitit.fi -->
    <tile_source name="Kelkkareitit.fi (snowmobile overlay)" url_template="https://tiles.kelkkareitit.fi/kelkkareitit/{0}/{1}/{2}.png" ext=".png" min_zoom="3" max_zoom="18" tile_size="256" img_density="8" avg_img_size="10000"/>
 
+   <!-- https://kartat.kapsi.fi/ (c) Maanmittauslaitos CC BY 4.0 -->
+   <tile_source name="MML Peruskartta (FI)" url_template="https://tiles.kartat.kapsi.fi/peruskartta/{0}/{1}/{2}.jpg" ext=".jpg" min_zoom="1" max_zoom="19" tile_size="256" img_density="8" avg_img_size="10000"/>
+   <tile_source name="MML Taustakartta (FI)" url_template="https://tiles.kartat.kapsi.fi/taustakartta/{0}/{1}/{2}.jpg" ext=".jpg" min_zoom="1" max_zoom="19" tile_size="256" img_density="8" avg_img_size="10000"/>
+   <tile_source name="MML Ortoilmakuva (FI)" url_template="https://tiles.kartat.kapsi.fi/ortokuva/{0}/{1}/{2}.jpg" ext=".jpg" min_zoom="1" max_zoom="19" tile_size="256" img_density="8" avg_img_size="10000"/>
+   <tile_source name="MML Kiinteistörajat (FI)" url_template="https://tiles.kartat.kapsi.fi/kiinteistorajat/{0}/{1}/{2}.jpg" ext=".jpg" min_zoom="1" max_zoom="19" tile_size="256" img_density="8" avg_img_size="10000"/>
+	
    <tile_source name="GeoVelo" url_template="https://tiles4.geovelo.fr/raster/facilities/{0}/{1}/{2}.png" ext=".png" min_zoom="2" max_zoom="16" tile_size="256" img_density="8" avg_img_size="10000"/>
 
 
