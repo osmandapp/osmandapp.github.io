@@ -17,8 +17,8 @@
 		},
 		{
 			"condition": {
-  				"start_date": "11-06-2021 08:20",
-  				"end_date": "13-06-2021 23:59",
+  				"start_date": "18-06-2021 00:20",
+  				"end_date": "20-06-2021 23:59",
 				"os": "android",
 				"lang" :"ru"
 			},
@@ -45,8 +45,8 @@
 		},
 		{
 			"condition": {
-  				"start_date": "11-06-2021 08:20",
-  				"end_date": "13-06-2021 23:59",
+  				"start_date": "18-06-2021 00:20",
+  				"end_date": "20-06-2021 23:59",
 				"os": "android",
 				"lang" :"pl"
 			},
@@ -73,8 +73,8 @@
 		},
 		{
 			"condition": {
-  				"start_date": "11-06-2021 08:20",
-  				"end_date": "13-06-2021 23:59",
+  				"start_date": "18-06-2021 00:20",
+  				"end_date": "20-06-2021 23:59",
 				"os": "android",
 				"lang" :"es"
 			},
@@ -101,8 +101,8 @@
 		},
 		{
 			"condition": {
-  				"start_date": "11-06-2021 08:20",
-  				"end_date": "13-06-2021 23:59",
+  				"start_date": "18-06-2021 00:20",
+  				"end_date": "20-06-2021 23:59",
 				"os": "android",
 				"lang" :"fr"
 			},
@@ -129,8 +129,8 @@
 		},
 		{
 			"condition": {
-  				"start_date": "11-06-2021 08:20",
-  				"end_date": "13-06-2021 23:59",
+  				"start_date": "18-06-2021 00:20",
+  				"end_date": "20-06-2021 23:59",
 				"os": "android",
 				"lang" :"nl"
 			},
@@ -158,8 +158,8 @@
 
 		{
 			"condition": {
-  				"start_date": "11-06-2021 08:20",
-  				"end_date": "13-06-2021 23:59",
+  				"start_date": "18-06-2021 00:20",
+  				"end_date": "20-06-2021 23:59",
 				"os": "android",
 				"lang" :"it"
 			},
@@ -186,8 +186,8 @@
 		},
 		{
 			"condition": {
-  				"start_date": "11-06-2021 08:20",
-  				"end_date": "13-06-2021 23:59",
+  				"start_date": "18-06-2021 00:20",
+  				"end_date": "20-06-2021 23:59",
 				"os": "android",
 				"lang" :"de"
 			},
@@ -214,8 +214,8 @@
 		},
 		{
 			"condition": {
-  				"start_date": "11-06-2021 08:20",
-  				"end_date": "13-06-2021 23:59",
+  				"start_date": "18-06-2021 00:20",
+  				"end_date": "20-06-2021 23:59",
 				"os": "android",
 				"lang" :"ar"
 			},
@@ -241,8 +241,8 @@
 		},
 		{
 			"condition": {
-  				"start_date": "11-06-2021 08:20",
-  				"end_date": "13-06-2021 23:59",
+  				"start_date": "18-06-2021 00:20",
+  				"end_date": "20-06-2021 23:59",
 				"os": "android"
 			},
 			"file": "discount.json",
@@ -253,8 +253,8 @@
 		},
 		{
                        "condition": {
-  				"start_date": "11-06-2021 08:20",
-  				"end_date": "13-06-2021 23:59",
+  				"start_date": "18-06-2021 00:20",
+  				"end_date": "20-06-2021 23:59",
 				"os": "ios",
 				"lang" :"ru"
 			},
@@ -266,8 +266,8 @@
 		},
 		{
 			      "condition": {
-  				"start_date": "11-06-2021 08:20",
-  				"end_date": "13-06-2021 23:59",
+  				"start_date": "18-06-2021 00:20",
+  				"end_date": "20-06-2021 23:59",
 				"os": "ios",
 				"lang" :"fr"
 			},
@@ -279,8 +279,8 @@
 		},
 		{
 				"condition": {
-  				"start_date": "11-06-2021 08:20",
-  				"end_date": "13-06-2021 23:59",
+  				"start_date": "18-06-2021 00:20",
+  				"end_date": "20-06-2021 23:59",
 				"os": "ios",
 				"lang" :"de"
 			},
@@ -292,8 +292,8 @@
 		},
 		{
 				"condition": {
-  				"start_date": "11-06-2021 08:20",
-  				"end_date": "13-06-2021 23:59",
+  				"start_date": "18-06-2021 00:20",
+  				"end_date": "20-06-2021 23:59",
 				"os": "ios",
 				"lang" :"it"
 			},
@@ -305,8 +305,8 @@
 		},
 		{
 				"condition": {
-  				"start_date": "11-06-2021 08:20",
-  				"end_date": "13-06-2021 23:59",
+  				"start_date": "18-06-2021 00:20",
+  				"end_date": "20-06-2021 23:59",
 				"os": "ios",
 				"lang" :"es"
 			},
@@ -318,8 +318,8 @@
 		},
 		{
 				"condition": {
-  				"start_date": "11-06-2021 08:20",
-  				"end_date": "13-06-2021 23:59",
+  				"start_date": "18-06-2021 00:20",
+  				"end_date": "20-06-2021 23:59",
 				"os": "ios",
 				"lang" :"nl"
 			},
@@ -331,8 +331,8 @@
 		},
 		{
 			"condition": {
-  				"start_date": "11-06-2021 08:20",
-  				"end_date": "13-06-2021 23:59",
+  				"start_date": "18-06-2021 00:20",
+  				"end_date": "20-06-2021 23:59",
 				"os": "ios",
 				"lang" :"pl"
 			},
@@ -344,8 +344,8 @@
 		},
 		{
 			"condition": {
-  				"start_date": "11-06-2021 08:20",
-  				"end_date": "13-06-2021 23:59",
+  				"start_date": "18-06-2021 00:20",
+  				"end_date": "20-06-2021 23:59",
 				"os": "ios",
 				"lang" :"ar"
 			},
@@ -357,8 +357,8 @@
 		},
 		{
 			      "condition": {
-  				"start_date": "11-06-2021 08:20",
-  				"end_date": "13-06-2021 23:59",
+  				"start_date": "18-06-2021 00:20",
+  				"end_date": "20-06-2021 23:59",
 				"os": "ios"
 			},
 			"file": "discount_ios_sub.json",
