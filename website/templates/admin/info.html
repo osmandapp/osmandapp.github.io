@@ -315,6 +315,40 @@
 				<form action="/admin/search-emails" method="post">
 					<ul class="wrapper">
 						<li class="form-row">
+							<label for="name">Register promo subscription (enter email + desc):</label>
+							<input type="text" name="comment">
+						</li>
+						<li class="form-row">
+							<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+							<button type="submit">Register</button>
+						</li>
+					</uL>
+				</form>
+			</div>
+			
+			<table border="1" th:if="${subscriptions != null}">
+				<tr>
+					<th>Sku</th>
+					<th>Orderid (promocode)</th>
+					<th>Kind</th>
+					<th>Start</th>
+					<th>Expire</th>
+					<th>Purchasetoken</th>
+				</tr>
+				<tr th:each="di : ${subscriptions}">
+					<td th:text="${di.sku}">1000</td>
+					<td th:text="${di.orderId}">1000</td>
+					<td th:text="${di.kind}">1000</td>
+					<td th:text="${di.starttime}">1000</td>
+					<td th:text="${di.expiretime}">1000</td>
+					<td th:text="${di.purchaseToken}">1000</td>
+				</tr>
+			</table>
+
+			<div class="form-table-input">
+				<form action="/admin/search-emails" method="post">
+					<ul class="wrapper">
+						<li class="form-row">
 							<label for="name">Search Email by Part:</label>
 							<input type="text" name="emailPart">
 						</li>
