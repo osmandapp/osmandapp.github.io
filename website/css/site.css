@@ -1004,7 +1004,7 @@ a::-moz-focus-inner {
   padding-top: 15px;
   padding-left:15px;
   list-style-type:disc;
-  list-style-position: inside;
+  list-style-position: initial;
 }
 
 .article > iframe {
