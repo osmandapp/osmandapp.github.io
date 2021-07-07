@@ -985,7 +985,8 @@ a::-moz-focus-inner {
 }
 .article h3 {
   font-family: 'Roboto Bold';
-  letter-spacing: 0.05em;
+  letter-spacing: 0.02em;
+  line-height: 120%;
   padding-top: 20px;
   color: #333333;
 }
