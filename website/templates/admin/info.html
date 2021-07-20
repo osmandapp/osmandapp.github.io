@@ -310,41 +310,7 @@
 					<td th:text="${di.activeNews}">1000</td>
 				</tr>
 			</table>
-
-			<div class="form-table-input">
-				<form action="/admin/register-promo" method="post">
-					<ul class="wrapper">
-						<li class="form-row">
-							<label for="name">Register promo subscription (enter email + desc):</label>
-							<input type="text" name="comment">
-						</li>
-						<li class="form-row">
-							<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-							<button type="submit">Register</button>
-						</li>
-					</uL>
-				</form>
-			</div>
 			
-			<table border="1" th:if="${subscriptions != null}">
-				<tr>
-					<th>Sku</th>
-					<th>Orderid (promocode)</th>
-					<th>Kind</th>
-					<th>Start</th>
-					<th>Expire</th>
-					<th>Purchasetoken</th>
-				</tr>
-				<tr th:each="di : ${subscriptions}">
-					<td th:text="${di.sku}">1000</td>
-					<td th:text="${di.orderId}">1000</td>
-					<td th:text="${di.kind}">1000</td>
-					<td th:text="${di.starttime}">1000</td>
-					<td th:text="${di.expiretime}">1000</td>
-					<td th:text="${di.purchaseToken}">1000</td>
-				</tr>
-			</table>
-
 			<div class="form-table-input">
 				<form action="/admin/search-emails" method="post">
 					<ul class="wrapper">
@@ -359,7 +325,7 @@
 					</uL>
 				</form>
 			</div>
-
+			
 			<table border="1" th:if="${emailSearch != null}">
 				<tr>
 					<th>Email</th>
@@ -376,8 +342,56 @@
 					<td th:text="${di.source}">1000</td>
 				</tr>
 			</table>
+			
+			<h3>Subscriptions & promo</h3>
+			<div class="form-table-input">
+				<form action="/admin/register-promo" method="post">
+					<ul class="wrapper">
+						<li class="form-row">
+							<label for="name">Register promo subscription <br>(enter email or description):</label>
+							<input type="text" name="comment">
+						</li>
+						<li class="form-row">
+							<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+							<button type="submit">Register</button>
+						</li>
+					</uL>
+				</form>
+				<form action="/admin/search-subscription" method="post">
+					<ul class="wrapper">
+						<li class="form-row">
+							<label for="name">Search subscription (email or orderid):</label>
+							<input type="text" name="orderId">
+						</li>
+						<li class="form-row">
+							<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+							<button type="submit">Search</button>
+						</li>
+					</uL>
+				</form>
+			</div>
 
-
+			<table border="1" th:if="${subscriptions != null}">
+				<tr>
+					<th>Sku</th>
+					<th>Orderid (promocode)</th>
+					<th>Kind</th>
+					<th>Start</th>
+					<th>Expire</th>
+					<th>Purchasetoken</th>
+					<th>Payload</th>
+				</tr>
+				<tr th:each="di : ${subscriptions}">
+					<td th:text="${di.sku}">1000</td>
+					<td th:text="${di.orderId}">1000</td>
+					<td th:text="${di.kind}">1000</td>
+					<td th:text="${di.starttime}">1000</td>
+					<td th:text="${di.expiretime}">1000</td>
+					<td th:text="${di.purchaseToken}">1000</td>
+					<td th:text="${di.payload}">1000</td>
+				</tr>
+			</table>
+			
 			<h3>Support survey</h3>
 			<table border="1">
 				<tr>
