@@ -153,5 +153,8 @@
 	
    <tile_source name="GeoVelo" url_template="https://tiles4.geovelo.fr/raster/facilities/{0}/{1}/{2}.png" ext=".png" min_zoom="2" max_zoom="16" tile_size="256" img_density="8" avg_img_size="10000"/>
 
+   <!-- http://openaip.net/ -->
+   <tile_source rule="template:1" name="OpenAIP" url_template="https://1.tile.maps.openaip.net/geowebcache/service/tms/1.0.0/openaip_basemap@EPSG%3A900913@png/{0}/{1}/{2}.png" ext=".png" min_zoom="3" max_zoom="16" tile_size="256" img_density="16" avg_img_size="20000" inverted_y="true"/>
+
 
 </tile_sources>
