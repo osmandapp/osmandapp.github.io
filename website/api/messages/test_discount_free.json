@@ -1,0 +1,23 @@
+{
+  "message" : "Discount message (DEFINED in motd_config)",
+  "description" : "Discount description (DEFINED in motd_config)",
+  "show_start_frequency" : 10,
+  "show_day_frequency" : 10,
+  "max_total_show" : 10,
+  "icon" : "ic_action_gift",
+  "url" : "show-choose-plan:osmand-cloud" ,
+  "oneOfConditions" : [
+      { 
+        "condition" : [ 
+                { "not_purchased_subscription" : "osmand_pro_annual_free_v1" }
+                
+         ] 
+      }
+],
+  "url_1" :  "osmand-market-app:net.osmand.plus",
+  "url_2" : "osmand-in-app:osmand_full_version_price",
+  "url_3" : "osmand-in-app:osm_live_subscription_2,osm_free_live_subscription_2",
+  "application" : {
+    "net.osmand.plus" : true
+  }
+}
