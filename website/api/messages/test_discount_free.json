@@ -5,7 +5,7 @@
   "show_day_frequency" : 10,
   "max_total_show" : 10,
   "icon" : "ic_action_gift",
-  "url" : "show-choose-plan:wikivoyage" ,
+  "url" : "show-choose-plan:osmand-pro",
   "oneOfConditions" : [
       { 
         "condition" : [ 
