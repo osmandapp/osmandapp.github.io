@@ -7,7 +7,7 @@
   				"end_date": "11-08-2021 23:59",
 				"os": "android"
 			},
-			"file": "test_discount_free.json",
+			"file": "top_wikivoyage.json",
 			"fields": {
 				"message": "ТЕСТ!",
 				"description": "Тест по Pro подписке -50%!"
