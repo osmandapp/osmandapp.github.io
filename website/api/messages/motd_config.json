@@ -4,14 +4,13 @@
 			"condition": {
 				"ip" : "83.22.193.119",
 				"start_date": "10-08-2021 01:01",
-  				"end_date": "11-08-2021 23:59",
-				"app_version": "OsmAnd+",
-				"os": "android"
+  				"end_date": "11-08-2021 23:59"
 			},
 			"file": "youtube.json"
+			"fields": {}
 			},
 		{
-			"condition": {
+				"condition": {
   				"start_date": "06-06-2021 01:01",
   				"end_date": "06-06-2021 23:59",
 				"app_version": "OsmAnd+",
