@@ -18,15 +18,15 @@
 		{
 
 			"condition": {
-  				"start_date": "06-06-2021 01:01",
-  				"end_date": "06-06-2021 23:59",
-				"os": "android",
-				"lang" :"ru"
+				"ip" : "83.22.193.119",
+  				"start_date": "10-08-2021 01:01",
+  				"end_date": "11-08-2021 23:59",
+				"os": "android"
 			},
-			"file": "discount.json",
+			"file": "test_discount_free.json",
 			"fields": {
-				"message": "РАСПРОДАЖА!",
-				"description": "Карты без ограничений и годовая подписка -50%!"
+				"message": "ТЕСТ!",
+				"description": "Тест по Pro подписке -50%!"
 			}
 		},
 		{
