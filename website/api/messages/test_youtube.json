@@ -1,0 +1,8 @@
+{
+  "url" : "https://www.youtube.com/channel/UCxnJs4DLL07NCvtpdzI6zBA/videos",
+  "application" : {
+    "net.osmand" : true,
+    "net.osmand.plus" : true
+
+  }
+}
