@@ -9,7 +9,8 @@
   "oneOfConditions" : [
       { 
         "condition" : [ 
-                { "not_purchased_subscription" : "osmand_pro_annual_free_v1" }
+                { "not_purchased_subscription" : "osm_free_live_subscription_2" },
+                { "not_purchased_subscription" : "osm_live_subscription_3_months_free_v1" }
                 
          ] 
       }
