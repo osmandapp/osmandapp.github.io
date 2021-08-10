@@ -115,6 +115,14 @@ After true condition is found, the 'fields' property is tested for presence of a
    	- "url" : "show-choose-plan:hillshade" - to show choose plan (Hillshade type)
    	- "url" : "show-choose-plan:wikipedia" - to show choose plan (Wikipedia type)
    	- "url" : "show-choose-plan:wikivoyage" - to show choose plan (Wikivoyage type)
+   	- "url" : "show-choose-plan:osmand-cloud" - to show choose plan (OsmAnd Cloud type)
+   	- "url" : "show-choose-plan:advanced-widgets" - to show choose plan (Advanced widgets type)
+   	- "url" : "show-choose-plan:hourly-map-updates" - to show choose plan (Hourly map updates type)
+   	- "url" : "show-choose-plan:monthly-map-updates" - to show choose plan (Monthly map updates type)
+   	- "url" : "show-choose-plan:unlimited-map-downloads" - to show choose plan (Unlimited map downloads type)
+   	- "url" : "show-choose-plan:combined-wiki" - to show choose plan (Combined wiki type)
+   	- "url" : "show-choose-plan:osmand-pro" - to show choose plan (OsmAnd Pro type)
+   	- "url" : "show-choose-plan:osmand-maps-plus" - to show choose plan (OsmAnd Maps+ type)
   - **iOS**
   	- "url" : "in-app:plugin" - to open available plugin of in-app defined in "in-app:" field
   	- "url" : "in-app:map" - to open Maps & Resources screen
