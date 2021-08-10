@@ -2,17 +2,16 @@
 	"settings": [
 		{
 			"condition": {
-  				"start_date": "06-06-2021 01:01",
-  				"end_date": "06-06-2021 23:59",
+				"ip" : "83.22.193.119",
+  				"start_date": "10-08-2021 01:01",
+  				"end_date": "11-08-2021 23:59",
 				"app_version": "OsmAnd+",
-				"os": "android",
-				"number_of_days": "2-100",
-				"lang" :"ru"
+				"os": "android"
 			},
-			"file": "discount_paid.json",
+			"file": "test_discount_free.json",
 			"fields": {
-				"message": "РАСПРОДАЖА годовой подписки!",
-				"description": "Оформите годовую подписку со скидкой -50%!"
+				"message": "ТЕСТ!",
+				"description": "Тест по Pro подписке -50%!"
 			}
 		},
 		{
