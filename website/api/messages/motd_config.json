@@ -6,7 +6,7 @@
   				"end_date": "11-08-2021 23:59",
 				"ip" : "83.22.193.119",
 				"app_version": "OsmAnd+",
-				"os": "android",
+				"os": "android"
 			},
 			"file": "test_youtube.json",
 			"fields": {
