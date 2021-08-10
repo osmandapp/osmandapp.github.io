@@ -2,23 +2,36 @@
 	"settings": [
 		{
 			"condition": {
-				"ip" : "83.22.193.119",
-  				"start_date": "10-08-2021 01:01",
+				"start_date": "10-08-2021 01:01",
   				"end_date": "11-08-2021 23:59",
-				"os": "android"
+				"ip" : "83.22.193.119",
+				"app_version": "OsmAnd+",
+				"os": "android",
 			},
-			"file": "top_wikivoyage.json",
+			"file": "test_youtube.json",
 			"fields": {
 				"message": "ТЕСТ!",
 				"description": "Тест по Pro подписке -50%!"
 			}
 		},
 		{
-
 			"condition": {
-				"ip" : "83.22.193.119",
   				"start_date": "10-08-2021 01:01",
   				"end_date": "11-08-2021 23:59",
+				"ip" : "83.22.193.119",
+				"os": "android"
+			},
+			"file": "test_youtube.json",
+			"fields": {
+				"message": "ТЕСТ!",
+				"description": "Тест по Pro подписке -50%!"
+			}
+		},
+		{
+			"condition": {
+				"start_date": "10-08-2021 01:01",
+  				"end_date": "11-08-2021 23:59",
+				"ip" : "83.22.193.119",
 				"os": "android"
 			},
 			"file": "test_discount_free.json",
