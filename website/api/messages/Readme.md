@@ -110,7 +110,6 @@ After true condition is found, the 'fields' property is tested for presence of a
    	- "url" : "osmand-show-poi:bank,tourism" - to show poi overlay on the map
 	- "url" : "open_activity" - to open activity specified in the "activity" JSON object
    	- "url" : "show-choose-plan:free-version" - to show choose plan (Free version type)
-   	- "url" : "show-choose-plan:osmand-live" - to show choose plan (OsmAnd Live type)
    	- "url" : "show-choose-plan:sea-depth" - to show choose plan (Sea depth type)
    	- "url" : "show-choose-plan:hillshade" - to show choose plan (Hillshade type)
    	- "url" : "show-choose-plan:wikipedia" - to show choose plan (Wikipedia type)
