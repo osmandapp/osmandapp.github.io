@@ -1,9 +1,9 @@
 {
   "message" : "Vidéo d'instruction OsmAnd",
   "description" : "Tout ce que vous vouliez savoir sur OsmAnd",
-  "show_start_frequency" : 1,
-  "show_day_frequency" : 1,
-  "max_total_show" : 1,
+  "show_start_frequency" : 10,
+  "show_day_frequency" : 10,
+  "max_total_show" : 10,
   "icon" : "ic_action_help",
   "status_bar_color": "#fec601",
   "icon_color" : "#ffffff",
