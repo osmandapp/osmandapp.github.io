@@ -5,7 +5,7 @@
   "show_day_frequency" : 1,
   "max_total_show" : 3,
   "icon" : "ic_action_gift",
-  "url" : "show-choose-plan:free-version",
+  "url" : "show-choose-plan:osmand-pro",
   "oneOfConditions" : [
       { 
         "condition" : [ 
@@ -13,7 +13,10 @@
                 { "not_purchased_subscription" : "osm_live_subscription_3_months_free_v1" },
                 { "not_purchased_subscription" : "osm_live_subscription_annual_free_v1" },
                 { "not_purchased_subscription" : "osm_live_subscription_annual_free_v2" },
-                { "not_purchased_subscription" : "osm_live_subscription_monthly_free_v1" }
+                { "not_purchased_subscription" : "osm_live_subscription_monthly_free_v1" },
+                { "not_purchased_subscription" : "osmand_pro_monthly_free_v1" },
+                { "not_purchased_subscription" : "osmand_maps_annual_free_v1" },
+                { "not_purchased_subscription" : "osmand_pro_annual_free_v1" }
          ] 
       }
 ],
