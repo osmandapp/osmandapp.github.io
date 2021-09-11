@@ -16,85 +16,44 @@
 <div id='mly'></div>
 
 <script type="text/javascript" th:inline="javascript">
+    var {Viewer} = mapillary;
+    var photoId = /*[[${photoId}]]*/ '';
+    var mly = new Viewer({
+        accessToken: 'MLY|4444816185556934|29475a355616c979409a5adc377a00fa',
+        container: 'mly', // the ID of our container defined in the HTML body
+        imageId: photoId,
+    });
 
-        var componentOptions = null;
+    // Viewer size is dynamic so resize should be called every time the window size changes
+    window.addEventListener("resize", function() { mly.resize(); });
 
-        if (Mapillary.isSupported()) {
-            // Enable or disable any components, e.g. tag and popup which requires WebGL support
-            // or use the default components by not supplying any component options.
-            componentOptions = { /* Default options */ };
-
-        } else if (Mapillary.isFallbackSupported()) {
-
-            // On top of the disabled components below, also the popup, marker and tag
-            // components require WebGL support and should not be enabled (they are
-            // disabled by default so does not need to be specified below).
-            componentOptions = {
-                // Disable components requiring WebGL support
-                direction: false,
-                imagePlane: false,
-                keyboard: false,
-                mouse: false,
-                sequence: false,
-
-                // Enable fallback components
-                image: true,
-                navigation: true,
+    mly.on(
+        Mapillary.Viewer.nodechanged,
+        function(node) {
+            var isAndroid = typeof Android !== "undefined";
+            var isiOS = typeof window.webkit !== "undefined";
+            if (node.latLon) {
+                if (isAndroid) {
+                    Android.onNodeChanged(node.originalLatLon.lat, node.originalLatLon.lon, node.ca, node.key);
+                }
+                else if (isiOS) {
+                    var obj = new Object();
+                    obj.lat = node.originalLatLon.lat;
+                    obj.lon = node.originalLatLon.lon;
+                    obj.ca = node.ca;
+                    obj.key = node.key;
+                    var jsonString= JSON.stringify(obj);
+                    window.webkit.messageHandlers.iosMessageHandler.postMessage(jsonString);
+                }
+            } else {
+                if (isAndroid) {
+                    Android.onNodeChanged(NaN, NaN, NaN, '');
+                } else if (isiOS) {
+                    window.webkit.messageHandlers.iosMessageHandler.postMessage("");
+                }
             }
         }
-
-        if (componentOptions === null) {
-
-            // Handle the fact that MapillaryJS is not supported in a way that is
-            // appropriate for your application.
-            var messageDiv = document.createElement('div');
-            messageDiv.innerHTML = "MapillaryJS is not supported by your browser.";
-            messageDiv.style.marginTop = "100px";
-
-            var mlyDiv = document.getElementById('mly');
-            mlyDiv.style.textAlign = "center";
-            mlyDiv.appendChild(messageDiv);
-
-        } else {
-            // Deactivate cover without interaction needed.
-            componentOptions.cover = false;
-            componentOptions.accessToken = 'MLY|4444816185556934|29475a355616c979409a5adc377a00fa';
-            componentOptions.container = 'mly'; // the ID of our container defined in the HTML body
-            componentOptions.imageId = photoId;
-            var photoId = /*[[${photoId}]]*/ '';
-            var mly = new Mapillary.Viewer(componentOptions);
-
-            // Viewer size is dynamic so resize should be called every time the window size changes
-            window.addEventListener("resize", function() { mly.resize(); });
-
-            mly.on(
-                Mapillary.Viewer.nodechanged,
-                function(node) {
-                    var isAndroid = typeof Android !== "undefined";
-                    var isiOS = typeof window.webkit !== "undefined";
-                    if (node.latLon) {
-                        if (isAndroid) {
-                            Android.onNodeChanged(node.originalLatLon.lat, node.originalLatLon.lon, node.ca, node.key);
-                        }
-                        else if (isiOS) {
-                            var obj = new Object();
-                            obj.lat = node.originalLatLon.lat;
-                            obj.lon = node.originalLatLon.lon;
-                            obj.ca = node.ca;
-                            obj.key = node.key;
-                            var jsonString= JSON.stringify(obj);
-                            window.webkit.messageHandlers.iosMessageHandler.postMessage(jsonString);
-                        }
-                    } else {
-                        if (isAndroid) {
-                            Android.onNodeChanged(NaN, NaN, NaN, '');
-                        } else if (isiOS) {
-                            window.webkit.messageHandlers.iosMessageHandler.postMessage("");
-                        }
-                    }
-                });
-        }
-
-    </script>
+    );
+</script>
 </body>
 </html>
