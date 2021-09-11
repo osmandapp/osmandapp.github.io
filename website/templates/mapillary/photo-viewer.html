@@ -18,42 +18,42 @@
 <script type="text/javascript" th:inline="javascript">
     var {Viewer} = mapillary;
     var photoId = /*[[${photoId}]]*/ '';
-    var mly = new Viewer({
+    var viewer = new Viewer({
         accessToken: 'MLY|4444816185556934|29475a355616c979409a5adc377a00fa',
         container: 'mly', // the ID of our container defined in the HTML body
         imageId: photoId,
     });
 
     // Viewer size is dynamic so resize should be called every time the window size changes
-    window.addEventListener("resize", function() { mly.resize(); });
+    window.addEventListener("resize", function() { viewer.resize(); });
 
-    mly.on(
-        Mapillary.Viewer.nodechanged,
-        function(node) {
-            var isAndroid = typeof Android !== "undefined";
-            var isiOS = typeof window.webkit !== "undefined";
-            if (node.latLon) {
-                if (isAndroid) {
-                    Android.onNodeChanged(node.originalLatLon.lat, node.originalLatLon.lon, node.ca, node.key);
-                }
-                else if (isiOS) {
-                    var obj = new Object();
-                    obj.lat = node.originalLatLon.lat;
-                    obj.lon = node.originalLatLon.lon;
-                    obj.ca = node.ca;
-                    obj.key = node.key;
-                    var jsonString= JSON.stringify(obj);
-                    window.webkit.messageHandlers.iosMessageHandler.postMessage(jsonString);
-                }
-            } else {
-                if (isAndroid) {
-                    Android.onNodeChanged(NaN, NaN, NaN, '');
-                } else if (isiOS) {
-                    window.webkit.messageHandlers.iosMessageHandler.postMessage("");
-                }
+    const onImage = (event) => {
+        const image = event.image;
+        var isAndroid = typeof Android !== "undefined";
+        var isiOS = typeof window.webkit !== "undefined";
+        if (image.lngLat) {
+            if (isAndroid) {
+                Android.onNodeChanged(image.originalLngLat.lat, image.originalLngLat.lng, image.compassAngle, image.id);
+            }
+            else if (isiOS) {
+                var obj = new Object();
+                obj.lat = image.originalLngLat.lat;
+                obj.lon = image.originalLngLat.lng;
+                obj.ca = image.compassAngle;
+                obj.key = image.id;
+                var jsonString= JSON.stringify(obj);
+                window.webkit.messageHandlers.iosMessageHandler.postMessage(jsonString);
+            }
+        } else {
+            if (isAndroid) {
+                Android.onNodeChanged(NaN, NaN, NaN, '');
+            } else if (isiOS) {
+                window.webkit.messageHandlers.iosMessageHandler.postMessage("");
             }
         }
-    );
+    };
+    viewer.on('image', onImage);
+    //viewer.activateCover();
 </script>
 </body>
 </html>
