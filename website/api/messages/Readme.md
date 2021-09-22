@@ -121,13 +121,7 @@ After true condition is found, the 'fields' property is tested for presence of a
    	- "url" : "show-choose-plan:unlimited-map-downloads" - to show choose plan (Unlimited map downloads type)
    	- "url" : "show-choose-plan:combined-wiki" - to show choose plan (Combined wiki type)
    	- "url" : "show-choose-plan:osmand-pro" - to show choose plan (OsmAnd Pro type)
-   	- "url" : "show-choose-plan:osmand-maps-plus" - to show choose plan (OsmAnd Maps+ type)
-	- "url" : "show-choose-plan:osmand-pro:osmand_pro_monthly_free" - to show choose plan (OsmAnd Pro type) with selected monthly purchase for free version
-   	- "url" : "show-choose-plan:osmand-pro:osmand_pro_monthly_full" - to show choose plan (OsmAnd Pro type) with selected monthly purchase for full version
-   	- "url" : "show-choose-plan:osmand-pro:osmand_pro_annual_free" - to show choose plan (OsmAnd Pro type) with selected annual purchase for free version
-   	- "url" : "show-choose-plan:osmand-pro:osmand_pro_annual_full" - to show choose plan (OsmAnd Pro type) with selected annual purchase for full version
-   	- "url" : "show-choose-plan:osmand-maps-plus:osmand_full_version_price" - to show choose plan (OsmAnd Maps+ type) with selected full version purchase 
-   	- "url" : "show-choose-plan:osmand-maps-plus:osmand_maps_annual_free" - to show choose plan (OsmAnd Maps+ type) with selected annual purchase for free version	
+   	- "url" : "show-choose-plan:osmand-maps-plus" - to show choose plan (OsmAnd Maps+ type)	
  - **iOS**
   	- "url" : "in-app:plugin" - to open available plugin of in-app defined in "in-app:" field
   	- "url" : "in-app:map" - to open Maps & Resources screen
@@ -144,6 +138,8 @@ After true condition is found, the 'fields' property is tested for presence of a
   - "button_title_color" : "#fec601"
 - **activity** - JSON object that specifies which activity will be shown.
   - "activity" : { "activity_name" : "net.osmand.plus.myplaces.FavoritesActivity", "SOME_BOOLEAN_EXTRA" : true } - Favorites activity will be shown. Specified extras will be passed to intent.
+- **url_params** - additional params.
+  - "selected_price_btn_id" : "osmand_pro_monthly_free" - specify selected purchase button opened via url in OsmAnd Pro and OsmAnd Maps+ screens. Use purchase sku or sunbscription skuNoVersion.
 - **oneOfConditions** - JSON array that specifies number of conditions to check if notification will be shown.
   - "oneOfConditions" : [
   - { "condition" : [ { "not_purchased_subscription" : "sku1" }, { "purchased_subscription" : "sku2" } ] },
