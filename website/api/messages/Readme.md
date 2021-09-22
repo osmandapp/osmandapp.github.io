@@ -122,7 +122,13 @@ After true condition is found, the 'fields' property is tested for presence of a
    	- "url" : "show-choose-plan:combined-wiki" - to show choose plan (Combined wiki type)
    	- "url" : "show-choose-plan:osmand-pro" - to show choose plan (OsmAnd Pro type)
    	- "url" : "show-choose-plan:osmand-maps-plus" - to show choose plan (OsmAnd Maps+ type)
-  - **iOS**
+	- "url" : "show-choose-plan:osmand-pro:osmand_pro_monthly_free" - to show choose plan (OsmAnd Pro type) with selected monthly purchase for free version
+   	- "url" : "show-choose-plan:osmand-pro:osmand_pro_monthly_full" - to show choose plan (OsmAnd Pro type) with selected monthly purchase for full version
+   	- "url" : "show-choose-plan:osmand-pro:osmand_pro_annual_free" - to show choose plan (OsmAnd Pro type) with selected annual purchase for free version
+   	- "url" : "show-choose-plan:osmand-pro:osmand_pro_annual_full" - to show choose plan (OsmAnd Pro type) with selected annual purchase for full version
+   	- "url" : "show-choose-plan:osmand-maps-plus:osmand_full_version_price" - to show choose plan (OsmAnd Maps+ type) with selected full version purchase 
+   	- "url" : "show-choose-plan:osmand-maps-plus:osmand_maps_annual_free" - to show choose plan (OsmAnd Maps+ type) with selected annual purchase for free version	
+ - **iOS**
   	- "url" : "in-app:plugin" - to open available plugin of in-app defined in "in-app:" field
   	- "url" : "in-app:map" - to open Maps & Resources screen
 	- "url" : "osmand-search-query:test query" - to open search with "test query" phrase
