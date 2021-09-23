@@ -102,6 +102,8 @@ After true condition is found, the 'fields' property is tested for presence of a
   - "status_bar_color" : "#fec601"
 - **url** - url, that will be opened on notification click.
   - "url" : "https://osmand.net/travel?title=World_Cup_2018&lang=en" - to open travel article
+- **url_params** - - JSON object that specifies additional url params. 
+ -   "url_params" : { "selected_choose_plan_btn" : "osmand_pro_monthly_free" } - specify selected purchase button opened via url in OsmAnd Pro and OsmAnd Maps+ screens. Use purchase sku or "annual", "monthly" for value.
   - **ANDROID**
   	- "url" : "osmand-market-app:net.osmand.plus" - to open available market with specified app
    	- "url" : "osmand-in-app:osmand_full_version_price" - to purchase full version (starts purchasing immediately)
@@ -138,8 +140,6 @@ After true condition is found, the 'fields' property is tested for presence of a
   - "button_title_color" : "#fec601"
 - **activity** - JSON object that specifies which activity will be shown.
   - "activity" : { "activity_name" : "net.osmand.plus.myplaces.FavoritesActivity", "SOME_BOOLEAN_EXTRA" : true } - Favorites activity will be shown. Specified extras will be passed to intent.
-- **url_params** - additional params.
-  - "selected_price_btn_id" : "osmand_pro_monthly_free" - specify selected purchase button opened via url in OsmAnd Pro and OsmAnd Maps+ screens. Use purchase sku or sunbscription skuNoVersion.
 - **oneOfConditions** - JSON array that specifies number of conditions to check if notification will be shown.
   - "oneOfConditions" : [
   - { "condition" : [ { "not_purchased_subscription" : "sku1" }, { "purchased_subscription" : "sku2" } ] },
