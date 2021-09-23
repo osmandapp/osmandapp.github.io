@@ -159,5 +159,7 @@
    <!-- https://www.openflightmaps.org/ -->
   <tile_source name="OpenFlightMaps" url_template="https://nwy-tiles-api.prod.newaydata.com/tiles/{z}/{x}/{y}.png?path=latest/aero/latest" ext=".png" min_zoom="7" max_zoom="12" tile_size="512" img_density="32" avg_img_size="150000"/>
 
+   <tile_source name="Getlost Maps" url_template="https://live.getlost.com.au/{0}/{1}/{1}.jpg" ext=".jpg" min_zoom="11" max_zoom="14" tile_size="256" img_density="8" avg_img_size="25000"/>
+
 
 </tile_sources>
