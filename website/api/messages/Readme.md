@@ -102,6 +102,8 @@ After true condition is found, the 'fields' property is tested for presence of a
   - "status_bar_color" : "#fec601"
 - **url** - url, that will be opened on notification click.
   - "url" : "https://osmand.net/travel?title=World_Cup_2018&lang=en" - to open travel article
+- **url_params** - - JSON object that specifies additional url params. 
+ -   "url_params" : { "selected_choose_plan_btn" : "osmand_pro_monthly_free" } - specify selected purchase button opened via url in OsmAnd Pro and OsmAnd Maps+ screens. Use purchase sku or "annual", "monthly" for value.
   - **ANDROID**
   	- "url" : "osmand-market-app:net.osmand.plus" - to open available market with specified app
    	- "url" : "osmand-in-app:osmand_full_version_price" - to purchase full version (starts purchasing immediately)
@@ -121,7 +123,7 @@ After true condition is found, the 'fields' property is tested for presence of a
    	- "url" : "show-choose-plan:unlimited-map-downloads" - to show choose plan (Unlimited map downloads type)
    	- "url" : "show-choose-plan:combined-wiki" - to show choose plan (Combined wiki type)
    	- "url" : "show-choose-plan:osmand-pro" - to show choose plan (OsmAnd Pro type)
-   	- "url" : "show-choose-plan:osmand-maps-plus" - to show choose plan (OsmAnd Maps+ type)
+   	- "url" : "show-choose-plan:osmand-maps-plus" - to show choose plan (OsmAnd Maps+ type)	
   - **iOS**
   	- "url" : "in-app:plugin" - to open available plugin of in-app defined in "in-app:" field
   	- "url" : "in-app:map" - to open Maps & Resources screen
