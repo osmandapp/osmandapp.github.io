@@ -1,9 +1,9 @@
 {
 	"settings": [
 		{
-			"condition": {
-  				"start_date": "28-04-2021 00:01",
-  				"end_date": "02-05-2021 23:59",
+				"condition": {
+  				"start_date": "15-09-2021 03:01",
+  				"end_date": "19-09-2021 12:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "2-100",
@@ -11,28 +11,27 @@
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "РАСПРОДАЖА годовой подписки!",
-				"description": "Оформите годовую подписку со скидкой -50%!"
+				"message": "РАСПРОДАЖА годовой PRO-подписки!",
+				"description": "Оформите годовую PRO-подписку со скидкой -50%!"
 			}
 		},
 		{
-
 			"condition": {
-  				"start_date": "28-04-2021 00:01",
-  				"end_date": "02-05-2021 23:59",
+  				"start_date": "15-09-2021 03:01",
+  				"end_date": "19-09-2021 12:59",
 				"os": "android",
 				"lang" :"ru"
 			},
-			"file": "discount.json",
+			"file": "discount2.json",
 			"fields": {
 				"message": "РАСПРОДАЖА!",
-				"description": "Карты без ограничений и годовая подписка -50%!"
+				"description": "Карты без ограничений и годовая PRO и Maps+ подписка -50%!"
 			}
 		},
 		{
 			"condition": {
-  				"start_date": "28-04-2021 00:01",
-  				"end_date": "02-05-2021 23:59",
+  				"start_date": "15-09-2021 03:01",
+  				"end_date": "19-09-2021 12:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "2-100",
@@ -40,27 +39,27 @@
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "Wyprzedaż rocznej subskrybcji!",
-				"description": "Sprawdź naszą wyprzedaż rocznej subskrybcji - 50%!"
+				"message": "Wyprzedaż rocznej PRO-subskrybcji!",
+				"description": "Sprawdź naszą wyprzedaż rocznej PRO-subskrybcji - 50%!"
 			}
 		},
 		{
 			"condition": {
-  				"start_date": "28-04-2021 00:01",
-  				"end_date": "02-05-2021 23:59",
+  				"start_date": "15-09-2021 03:01",
+  				"end_date": "19-09-2021 12:59",
 				"os": "android",
 				"lang" :"pl"
 			},
-			"file": "discount.json",
+			"file": "discount2.json",
 			"fields": {
 				"message": "Wyprzedaż!",
-				"description": "Wszystkie mapy i subskrypcja roczna - 50%!"
+				"description": "Wszystkie mapy i Maps+, PRO subskrypcja roczna - 50%!"
 			}
 		},
 		{
 			"condition": {
-  				"start_date": "28-04-2021 00:01",
-  				"end_date": "02-05-2021 23:59",
+  				"start_date": "15-09-2021 03:01",
+  				"end_date": "19-09-2021 12:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "2-100",
@@ -68,27 +67,27 @@
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "¡Suscripción anual de VENTA!",
-				"description": "Obtenga su suscripción anual con un -50% de descuento!"
+				"message": "¡PRO-Suscripción anual de VENTA!",
+				"description": "Obtenga su PRO-suscripción anual con un -50% de descuento!"
 			}
 		},
 		{
 			"condition": {
-  				"start_date": "28-04-2021 00:01",
-  				"end_date": "02-05-2021 23:59",
+  				"start_date": "15-09-2021 03:01",
+				  "end_date": "19-09-2021 12:59",
 				"os": "android",
 				"lang" :"es"
 			},
-			"file": "discount.json",
+			"file": "discount2.json",
 			"fields": {
 				"message": "¡VENTA!",
-				"description": "Descargas ilimitadas de mapas y suscripción anual -50%!"
+				"description": "Descargas ilimitadas de mapas y Maps+, PRO suscripción anual -50%!"
 			}
 		},
 		{
 			"condition": {
-  				"start_date": "28-04-2021 00:01",
-  				"end_date": "02-05-2021 23:59",
+  				"start_date": "15-09-2021 03:01",
+  				"end_date": "19-09-2021 12:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "2-100",
@@ -96,27 +95,27 @@
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "Abonnement annuel à la VENTE!",
-				"description": "Obtenez votre abonnement annuel avec un rabais de -50%!"
+				"message": "PRO-Abonnement annuel à la VENTE!",
+				"description": "Obtenez votre PRO-abonnement annuel avec un rabais de -50%!"
 			}
 		},
 		{
 			"condition": {
-  				"start_date": "28-04-2021 00:01",
-  				"end_date": "02-05-2021 23:59",
+  				"start_date": "15-09-2021 03:01",
+  				"end_date": "19-09-2021 12:59",
 				"os": "android",
 				"lang" :"fr"
 			},
-			"file": "discount.json",
+			"file": "discount2.json",
 			"fields": {
 				"message": "VENTE!",
-				"description": "Téléchargements de cartes illimités et abonnement annuel -50%!"
+				"description": "Téléchargements de cartes illimités et Maps+, PRO abonnement annuel -50%!"
 			}
 		},
 		{
 			"condition": {
-  				"start_date": "28-04-2021 00:01",
-  				"end_date": "02-05-2021 23:59",
+  				"start_date": "15-09-2021 03:01",
+  				"end_date": "19-09-2021 12:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "2-100",
@@ -124,27 +123,27 @@
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "Jaarabonnement VERKOOP!",
-				"description": "Krijg uw jaarabonnement met een korting van -50%!"
+				"message": "PRO Jaarabonnement VERKOOP!",
+				"description": "Krijg uw PRO jaarabonnement met een korting van -50%!"
 			}
 		},
 		{
 			"condition": {
-  				"start_date": "28-04-2021 00:01",
-  				"end_date": "02-05-2021 23:59",
+  				"start_date": "15-09-2021 03:01",
+  				"end_date": "19-09-2021 12:59",
 				"os": "android",
 				"lang" :"nl"
 			},
-			"file": "discount.json",
+			"file": "discount2.json",
 			"fields": {
 				"message": "VERKOOP!",
-				"description": "Onbeperkte kaartdownloads en jaarabonnement -50%!"
+				"description": "Onbeperkte kaartdownloads en Maps+, PRO jaarabonnement -50%!"
 			}
 		},
 		{
 			"condition": {
-  				"start_date": "28-04-2021 00:01",
-  				"end_date": "02-05-2021 23:59",
+  				"start_date": "15-09-2021 03:01",
+  				"end_date": "19-09-2021 12:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "2-100",
@@ -152,27 +151,27 @@
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "Abbonamento annuale di VENDITA!",
-				"description": "Ottieni il tuo abbonamento annuale con uno sconto del -50%!"
+				"message": "PRO-Abbonamento annuale di VENDITA!",
+				"description": "Ottieni il tuo PRO-abbonamento annuale con uno sconto del -50%!"
 			}
 		},
 		{
 			"condition": {
-  				"start_date": "28-04-2021 00:01",
-  				"end_date": "02-05-2021 23:59",
+  				"start_date": "15-09-2021 03:01",
+  				"end_date": "19-09-2021 12:59",
 				"os": "android",
 				"lang" :"it"
 			},
-			"file": "discount.json",
+			"file": "discount2.json",
 			"fields": {
 				"message": "VENDITA!",
-				"description": "Download illimitati di mappe e abbonamento annuale -50%!"
+				"description": "Download illimitati di mappe e Maps+, PRO abbonamento annuale -50%!"
 			}
 		},
 		{
 			"condition": {
-  				"start_date": "28-04-2021 00:01",
-  				"end_date": "02-05-2021 23:59",
+  				"start_date": "15-09-2021 03:01",
+  				"end_date": "19-09-2021 12:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "2-100",
@@ -180,28 +179,28 @@
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "Jahresabonnement SALE!",
-				"description": "Erhalten Sie Ihr Jahresabonnement mit einem Rabatt von -50%!"
+				"message": "PRO Jahresabonnement SALE!",
+				"description": "Erhalten Sie Ihr PRO Jahresabonnement mit einem Rabatt von -50%!"
 			}
 		},
 		{
 			"condition": {
-  				"start_date": "28-04-2021 00:01",
-  				"end_date": "02-05-2021 23:59",
+  				"start_date": "15-09-2021 03:01",
+  				"end_date": "19-09-2021 12:59",
 				"os": "android",
 				"lang" :"de"
 			},
-			"file": "discount.json",
+			"file": "discount2.json",
 			"fields": {
 				"message": "SALE!",
-				"description": "Unbegrenzte Karten-Downloads und Jahresabonnement -50%!"
+				"description": "Unbegrenzte Karten-Downloads und Maps+, PRO Jahresabonnement -50%!"
 			}
 
 		},
 		{
 			"condition": {
-  				"start_date": "28-04-2021 00:01",
-  				"end_date": "02-05-2021 23:59",
+  				"start_date": "15-09-2021 03:01",
+  				"end_date": "19-09-2021 12:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "2-100",
@@ -215,12 +214,12 @@
 		},
 		{
 			"condition": {
-  				"start_date": "28-04-2021 00:01",
-  				"end_date": "02-05-2021 23:59",
+  				"start_date": "15-09-2021 03:01",
+  				"end_date": "19-09-2021 12:59",
 				"os": "android",
 				"lang" :"ar"
 			},
-			"file": "discount.json",
+			"file": "discount2.json",
 			"fields": {
 			        "message": " تخفيظات !",
 				"description": "تنزيل خرائط غير محدود ،  الإشتراكات السنوية -50% ."
@@ -228,34 +227,34 @@
 		},
 		{
 			"condition": {
-  				"start_date": "28-04-2021 00:01",
-  				"end_date": "02-05-2021 23:59",
+  				"start_date": "15-09-2021 03:01",
+  				"end_date": "19-09-2021 12:59",
 				"app_version": "OsmAnd+",
 				"number_of_days": "2-100",
 				"os": "android"
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "Annual subscription SALE!",
-				"description": "Checkout our -50% sales for year subscription!"
+				"message": "Annual PRO-subscription SALE!",
+				"description": "Checkout our -50% sales for year PRO-subscription!"
 			}
 		},
 		{
 			"condition": {
-  				"start_date": "28-04-2021 00:01",
-  				"end_date": "02-05-2021 23:59",
+  				"start_date": "15-09-2021 03:01",
+  				"end_date": "19-09-2021 12:59",
 				"os": "android"
 			},
-			"file": "discount.json",
+			"file": "discount2.json",
 			"fields": {
 				"message": "SALE!",
-				"description": "Unlimited map downloads and annual subscription -50%!"
+				"description": "Unlimited map downloads and annual Maps+, PRO subscription -50%!"
 			}
 		},
 		{
                         "condition": {
-  				"start_date": "28-04-2021 00:01",
-  				"end_date": "02-05-2021 23:59",
+  				"start_date": "15-09-2021 03:01",
+  				"end_date": "19-09-2021 12:59",
 				"os": "ios",
 				"lang" :"ru"
 			},
@@ -268,8 +267,8 @@
 		{
 
 			      "condition": {
-  				"start_date": "28-04-2021 00:01",
-  				"end_date": "02-05-2021 23:59",
+  				"start_date": "15-09-2021 03:01",
+  				"end_date": "19-09-2021 12:59",
 				"os": "ios",
 				"lang" :"fr"
 			},
@@ -282,8 +281,8 @@
 		},
 		{
 				"condition": {
-  				"start_date": "28-04-2021 00:01",
-  				"end_date": "02-05-2021 23:59",
+  				"start_date": "15-09-2021 03:01",
+  				"end_date": "19-09-2021 12:59",
 				"os": "ios",
 				"lang" :"de"
 			},
@@ -295,8 +294,8 @@
 		},
 		{
 				"condition": {
-  				"start_date": "28-04-2021 00:01",
-  				"end_date": "02-05-2021 23:59",
+  				"start_date": "15-09-2021 03:01",
+  				"end_date": "19-09-2021 12:59",
 				"os": "ios",
 				"lang" :"it"
 			},
@@ -308,8 +307,8 @@
 		},
 		{
 				"condition": {
-  				"start_date": "28-04-2021 00:01",
-  				"end_date": "02-05-2021 23:59",
+  				"start_date": "15-09-2021 03:01",
+  				"end_date": "19-09-2021 12:59",
 				"os": "ios",
 				"lang" :"es"
 			},
@@ -321,8 +320,8 @@
 		},
 		{
 				"condition": {
-  				"start_date": "28-04-2021 00:01",
-  				"end_date": "02-05-2021 23:59",
+  				"start_date": "15-09-2021 03:01",
+  				"end_date": "19-09-2021 12:59",
 				"os": "ios",
 				"lang" :"nl"
 			},
@@ -334,8 +333,8 @@
 		},
 		{
 			"condition": {
-  				"start_date": "28-04-2021 00:01",
-  				"end_date": "02-05-2021 23:59",
+  				"start_date": "15-09-2021 03:01",
+  				"end_date": "19-09-2021 12:59",
 				"os": "ios",
 				"lang" :"pl"
 			},
@@ -347,8 +346,8 @@
 		},
 		{
 			"condition": {
-  				"start_date": "28-04-2021 00:01",
-  				"end_date": "02-05-2021 23:59",
+  				"start_date": "15-09-2021 03:01",
+  				"end_date": "19-09-2021 12:59",
 				"os": "ios",
 				"lang" :"ar"
 			},
@@ -360,8 +359,8 @@
 		},
 		{
 			      "condition": {
-  				"start_date": "28-04-2021 00:01",
-  				"end_date": "02-05-2021 23:59",
+  				"start_date": "15-09-2021 03:01",
+  				"end_date": "19-09-2021 12:59",
 				"os": "ios"
 			},
 			"file": "discount_ios_sub.json",
