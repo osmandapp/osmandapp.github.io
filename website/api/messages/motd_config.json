@@ -30,6 +30,34 @@
 			}
 		},
 		{
+			
+			"condition": {
+  				"start_date": "07-10-2021 05:20",
+  				"end_date": "09-10-2021 13:59",
+				"os": "android",
+				"lang" :"ru"
+			},
+			"file": "quizru.json",
+			"fields": {
+   				"message" : "Опрос",
+  				"description" : "Завершите опрос, чтобы мы могли сделать OsmAnd лучше"
+			}
+		},
+		{
+			
+			"condition": {
+  				"start_date": "07-10-2021 05:20",
+  				"end_date": "09-10-2021 13:59",
+				"os": "ios",
+				"lang" :"ru"
+			},
+			"file": "quizruios.json",
+			"fields": {
+   				"message" : "Опрос",
+  				"description" : "Завершите опрос, чтобы мы могли сделать OsmAnd лучше"
+			}
+		},
+		{
 						
 			
 			
