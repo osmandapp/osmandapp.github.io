@@ -9,7 +9,11 @@
 				"os": "android",
 				"lang" :"fr"
 			},
-			"file": "quizfr.json"
+			"file": "quizfr.json",
+			"fields": {
+   				"message" : "Enquête",
+  				"description" : "Remplissez le sondage pour que nous puissions améliorer OsmAnd"
+			}
 		},
 		{
 			
@@ -19,7 +23,11 @@
 				"os": "ios",
 				"lang" :"fr"
 			},
-			"file": "quizfr.json"
+			"file": "quizfr.json",
+			"fields": {
+   				"message" : "Enquête",
+  				"description" : "Remplissez le sondage pour que nous puissions améliorer OsmAnd"
+			}
 		},
 		{
 						
