@@ -10,5 +10,10 @@
   "bg_color" : "#fec601",
   "title_color" : "#000000",
   "description_color" : "#000000", 
-  "url" : "https://forms.gle/73aDRwQuUPNh7u6v9"
+  "url" : "https://forms.gle/73aDRwQuUPNh7u6v9",
+   "application" : {
+      "net.osmand" : true,
+      "net.osmand.plus" : true
+  }
+
 }
