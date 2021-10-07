@@ -1,4 +1,6 @@
 {
+  "message" : "Опрос",
+  "description" : "Завершите опрос, чтобы мы могли сделать OsmAnd лучше",
   "show_start_frequency" : 2,
   "show_day_frequency" : 2,
   "max_total_show" : 2,
