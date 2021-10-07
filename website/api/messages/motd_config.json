@@ -38,10 +38,7 @@
 				"lang" :"ru"
 			},
 			"file": "quizru.json",
-			"fields": {
-   				"message" : "Опрос",
-  				"description" : "Завершите опрос, чтобы мы могли сделать OsmAnd лучше"
-			}
+			"fields": {}
 		},
 		{
 			
