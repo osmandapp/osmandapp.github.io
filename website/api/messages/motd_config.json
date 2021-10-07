@@ -55,6 +55,30 @@
 			}
 		},
 		{
+			"condition": {
+  				"start_date": "07-10-2021 05:20",
+  				"end_date": "09-10-2021 13:59",
+				"os": "android",
+				"lang" :"it"
+			},
+			"file": "quizit.json",
+			"fields": {}
+		},
+		{
+			
+			"condition": {
+  				"start_date": "07-10-2021 05:20",
+  				"end_date": "09-10-2021 13:59",
+				"os": "ios",
+				"lang" :"it"
+			},
+			"file": "quizitios.json",
+			"fields": {
+  				"message" : "Indagine",
+  				"description" : "Completa il sondaggio (meno di 10 domande) in modo che possiamo rendere OsmAnd più user-friendly nella tua zona"
+			}
+		},
+		{
 						
 			
 			
