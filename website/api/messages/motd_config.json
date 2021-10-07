@@ -79,6 +79,31 @@
 			}
 		},
 		{
+			"condition": {
+  				"start_date": "07-10-2021 05:20",
+  				"end_date": "09-10-2021 13:59",
+				"os": "android",
+				"lang" :"en"
+			},
+			"file": "quizen.json",
+			"fields": {}
+		},
+		{
+			
+			"condition": {
+  				"start_date": "07-10-2021 05:20",
+  				"end_date": "09-10-2021 13:59",
+				"os": "ios",
+				"lang" :"en"
+			},
+			"file": "quizenios.json",
+			"fields": {
+  				"message" : "Survey",
+  				"description" : "Complete the survey so we can make OsmAnd more user-friendly in your area"
+			}
+		},
+		{
+			
 						
 			
 			
