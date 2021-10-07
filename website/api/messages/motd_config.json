@@ -1,6 +1,30 @@
 {
 	"settings": [
 		{
+			
+			
+			"condition": {
+  				"start_date": "24-09-2021 05:20",
+  				"end_date": "26-09-2021 13:59",
+				"os": "android",
+				"lang" :"fr"
+			},
+			"file": "quizfr.json"
+		},
+		{
+			
+			"condition": {
+  				"start_date": "24-09-2021 05:20",
+  				"end_date": "26-09-2021 13:59",
+				"os": "ios",
+				"lang" :"fr"
+			},
+			"file": "quizfr.json"
+		},
+		{
+						
+			
+			
 			"condition": {
   				"start_date": "24-09-2021 05:20",
   				"end_date": "26-09-2021 13:59",
