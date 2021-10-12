@@ -6,6 +6,8 @@
   "max_total_show" : 3,
   "icon" : "ic_action_gift",
   "url" : "show-choose-plan:osmand-maps-plus",
+  "url_params":{
+      "selected_choose_plan_btn":"osmand_maps_annual_free_v1"},
   "oneOfConditions" : [
       { 
         "condition" : [ 

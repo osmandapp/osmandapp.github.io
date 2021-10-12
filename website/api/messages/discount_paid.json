@@ -5,7 +5,9 @@
   "show_day_frequency" : 1,
   "max_total_show" : 2,
   "icon" : "ic_action_gift",
-  "url" : "show-choose-plan:osmand-pro" ,
+  "url" : "show-choose-plan:osmand-pro",
+  "url_params":{
+    "selected_choose_plan_btn":"osmand_pro_annual_full_v1"},
   "oneOfConditions" : [
       { 
         "condition" : [ 
