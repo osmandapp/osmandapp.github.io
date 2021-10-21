@@ -10,10 +10,7 @@
 				"lang" :"pl"
 			},
 			"file": "quizpl.json",
-			"fields": {
-   				"message" : "Ankieta",
-  				"description" : "Wypełnij ankietę (mniej niż 10 pytań), abyśmy mogli uczynić OsmAnd bardziej przyjaznym dla użytkownika w Twojej okolicy!"
-			}
+			"fields": {}
 		},
 		{
 			
@@ -35,9 +32,9 @@
   				"start_date": "07-10-2021 05:20",
   				"end_date": "09-10-2021 13:59",
 				"os": "android",
-				"lang" :"ru"
+				"lang" :"de"
 			},
-			"file": "quizru.json",
+			"file": "quizde.json",
 			"fields": {}
 		},
 		{
@@ -46,12 +43,12 @@
   				"start_date": "07-10-2021 05:20",
   				"end_date": "09-10-2021 13:59",
 				"os": "ios",
-				"lang" :"ru"
+				"lang" :"de"
 			},
-			"file": "quizruios.json",
+			"file": "quizdeios.json",
 			"fields": {
-   				"message" : "Опрос",
-  				"description" : "Завершите опрос, чтобы мы могли сделать OsmAnd лучше"
+   				"message" : "Umfrage",
+  				"description" : "Bitte füllen Sie die Umfrage aus (weniger als 10 Fragen), damit wir OsmAnd in Ihrer Nähe benutzerfreundlicher machen können!"
 			}
 		},
 		{
