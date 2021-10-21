@@ -1,6 +1,6 @@
 {
-  "message" : "Indagine",
-  "description" : "Completa il sondaggio (meno di 10 domande) in modo che possiamo rendere OsmAnd più user-friendly nella tua zona",
+  "message" : "Encuesta",
+  "description" : "Completa la encuesta (menos de 10 preguntas) para que podamos hacer que OsmAnd sea más sencillo de usar en tu área.",
   "show_start_frequency" : 2,
   "show_day_frequency" : 2,
   "max_total_show" : 2,
@@ -10,7 +10,7 @@
   "bg_color" : "#fec601",
   "title_color" : "#000000",
   "description_color" : "#000000", 
-  "url" : "https://forms.gle/WLS1mbyH6qdjgmdF7",
+  "url" : "https://forms.gle/QDXjSBMx2PAGkauZA",
   "application" : {
       "net.osmand" : true,
       "net.osmand.plus" : true

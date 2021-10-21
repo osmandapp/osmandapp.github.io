@@ -56,9 +56,9 @@
   				"start_date": "07-10-2021 05:20",
   				"end_date": "09-10-2021 13:59",
 				"os": "android",
-				"lang" :"it"
+				"lang" :"es"
 			},
-			"file": "quizit.json",
+			"file": "quizes.json",
 			"fields": {}
 		},
 		{
@@ -67,12 +67,12 @@
   				"start_date": "07-10-2021 05:20",
   				"end_date": "09-10-2021 13:59",
 				"os": "ios",
-				"lang" :"it"
+				"lang" :"es"
 			},
-			"file": "quizitios.json",
+			"file": "quizesios.json",
 			"fields": {
-  				"message" : "Indagine",
-  				"description" : "Completa il sondaggio (meno di 10 domande) in modo che possiamo rendere OsmAnd più user-friendly nella tua zona"
+  				"message" : "Encuesta",
+  				"description" : "Completa la encuesta (menos de 10 preguntas) para que podamos hacer que OsmAnd sea más sencillo de usar en tu área."
 			}
 		},
 		{
@@ -80,9 +80,9 @@
   				"start_date": "07-10-2021 05:20",
   				"end_date": "09-10-2021 13:59",
 				"os": "android",
-				"lang" :"en"
+				"lang" :"fr"
 			},
-			"file": "quizen.json",
+			"file": "quizfr.json",
 			"fields": {}
 		},
 		{
@@ -91,12 +91,12 @@
   				"start_date": "07-10-2021 05:20",
   				"end_date": "09-10-2021 13:59",
 				"os": "ios",
-				"lang" :"en"
+				"lang" :"fr"
 			},
-			"file": "quizenios.json",
+			"file": "quizfrios.json",
 			"fields": {
-  				"message" : "Survey",
-  				"description" : "Complete the survey so we can make OsmAnd more user-friendly in your area"
+  				"message" : "Enquête",
+  				"description" : "Remplissez le sondage pour que nous puissions améliorer OsmAnd!"
 			}
 		},
 		{
