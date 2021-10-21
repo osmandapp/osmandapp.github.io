@@ -7,12 +7,12 @@
   				"start_date": "24-09-2021 05:20",
   				"end_date": "26-09-2021 13:59",
 				"os": "android",
-				"lang" :"fr"
+				"lang" :"pl"
 			},
-			"file": "quizfr.json",
+			"file": "quizpl.json",
 			"fields": {
-   				"message" : "Enquête",
-  				"description" : "Remplissez le sondage pour que nous puissions améliorer OsmAnd"
+   				"message" : "Ankieta",
+  				"description" : "Wypełnij ankietę (mniej niż 10 pytań), abyśmy mogli uczynić OsmAnd bardziej przyjaznym dla użytkownika w Twojej okolicy!"
 			}
 		},
 		{
@@ -21,12 +21,12 @@
   				"start_date": "24-09-2021 05:20",
   				"end_date": "26-09-2021 13:59",
 				"os": "ios",
-				"lang" :"fr"
+				"lang" :"pl"
 			},
-			"file": "quizfr.json",
+			"file": "quizpios.json",
 			"fields": {
-   				"message" : "Enquête",
-  				"description" : "Remplissez le sondage pour que nous puissions améliorer OsmAnd"
+   				"message" : "Ankieta",
+  				"description" : "Wypełnij ankietę (mniej niż 10 pytań), abyśmy mogli uczynić OsmAnd bardziej przyjaznym dla użytkownika w Twojej okolicy!"
 			}
 		},
 		{

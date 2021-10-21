@@ -1,0 +1,19 @@
+{
+  "message" : "Ankieta",
+  "description" : "Wypełnij ankietę (mniej niż 10 pytań), abyśmy mogli uczynić OsmAnd bardziej przyjaznym dla użytkownika w Twojej okolicy!",
+  "show_start_frequency" : 2,
+  "show_day_frequency" : 2,
+  "max_total_show" : 2,
+  "icon" : "ic_action_help",
+  "status_bar_color": "#fec601",
+  "icon_color" : "#ffffff",
+  "bg_color" : "#fec601",
+  "title_color" : "#000000",
+  "description_color" : "#000000", 
+  "url" : "https://forms.gle/hDu3eEJxY7XeEcGq5",
+   "application" : {
+      "net.osmand" : true,
+      "net.osmand.plus" : true
+  }
+
+}

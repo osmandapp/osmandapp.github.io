@@ -1,6 +1,4 @@
 {
-  "message" : "Survey",
-  "description" : "Complete the survey so we can make OsmAnd more user-friendly in your area",
   "show_start_frequency" : 2,
   "show_day_frequency" : 2,
   "max_total_show" : 2,
@@ -10,10 +8,5 @@
   "bg_color" : "#fec601",
   "title_color" : "#000000",
   "description_color" : "#000000", 
-  "url" : "https://forms.gle/FDW26UupHEnnF9349",
-   "application" : {
-      "net.osmand" : true,
-      "net.osmand.plus" : true
-  }
-
+  "url" : "https://forms.gle/TJNG5X2CusFpmhoB9"
 }
