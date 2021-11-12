@@ -1,11 +1,11 @@
 {
 	"servers" : {
-		"main" : {"dl2.osmand.net":3, "dl7.osmand.net":4,  "dl8.osmand.net":4,  "dl9.osmand.net":4, "maptile.osmand.net":4},
+		"main" : {"dl2.osmand.net":4, "dl7.osmand.net":4,  "dl8.osmand.net":4,  "dl9.osmand.net":4, "maptile.osmand.net":3},
 		"roads" : {"dl2.osmand.net":1, "dl7.osmand.net":1, "dl8.osmand.net":1, "maptile.osmand.net":1},
 		"wiki" : { "dl2.osmand.net":1, "dl7.osmand.net":1,  "dl8.osmand.net":1, "maptile.osmand.net":1},
 		"osmlive" : { "dl2.osmand.net":1, "dl9.osmand.net":1, "maptile.osmand.net":1},
-		"srtm" : { "dl2.osmand.net":1, "maptile.osmand.net":1},
-		"hillshade" : { "dl2.osmand.net":1, "maptile.osmand.net":1},
+		"srtm" : { "dl2.osmand.net":2, "maptile.osmand.net":1},
+		"hillshade" : { "dl2.osmand.net":2, "maptile.osmand.net":1},
 		"slope" : { "dl2.osmand.net":1}
 	}
 }
