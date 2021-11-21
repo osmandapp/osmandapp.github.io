@@ -9,6 +9,9 @@ var requestUtils={
 	'isIOS':function(){
 		return /(iPad|iPhone|iPod)/g.test( navigator.userAgent );
 	},
+	'isAndroid':function(){
+		return /Android/g.test( navigator.userAgent );
+	},
 	'redirect':function(newUrl){
 		document.location = newUrl;
 	}
@@ -175,7 +178,7 @@ var iosAppRedirect = {
 		}
 		iosAppRedirect.$container = $('#' + iosAppRedirect.config.containerid);
 		iosAppRedirect.$overlay = iosAppRedirect.$container.find('.overlay');
-		iosAppRedirect.$popup = iosAppRedirect.$container.find('.popup');
+		iosAppRedirect.$popup = iosAppRedirect.$container.find('.ios-popup');
 		iosAppRedirect.$yesBtn =  iosAppRedirect.$container.find('.yes');
 		iosAppRedirect.$noBtn =  iosAppRedirect.$container.find('.no');
 		iosAppRedirect.$cancelBtn =  iosAppRedirect.$container.find('.cancel');
@@ -236,7 +239,86 @@ var iosAppRedirect = {
 	}
 };
 
+var androidAppRedirect = {
+	config:{
+		appPrefix:'geo:',
+		containerid:'gocontainer',
+		cookieName:'OsmAndInstalled',
+		cookieNoExpirationTimeoutInDays:30
+	},
+	init:function(config){
+		if (config && typeof (config) == 'object') {
+            $.extend(androidAppRedirect.config, config);
+        }
+
+		if (!requestUtils.isAndroid()){
+			return;
+		}
+		androidAppRedirect.$container = $('#' + androidAppRedirect.config.containerid);
+		androidAppRedirect.$overlay = androidAppRedirect.$container.find('.overlay');
+		androidAppRedirect.$popup = androidAppRedirect.$container.find('.android-popup');
+		androidAppRedirect.$yesBtn =  androidAppRedirect.$container.find('.yes');
+		androidAppRedirect.$noBtn =  androidAppRedirect.$container.find('.no');
+		androidAppRedirect.$cancelBtn =  androidAppRedirect.$container.find('.cancel');
+		androidAppRedirect.applestorelink = androidAppRedirect.$container.find('.gobadges .google a').attr('href');
+		androidAppRedirect.applink = androidAppRedirect.config.appPrefix + goMap.point.lat + ',' + goMap.point.lon;
+
+
+		if (androidAppRedirect.isAppInstalled() === "yes"){
+			androidAppRedirect.redirectToApp();
+			return;
+		}
+		if (androidAppRedirect.isAppInstalled() === "no"){
+			return;
+		}
+
+		androidAppRedirect.$yesBtn.on('click', function(){
+			androidAppRedirect.redirectToApp();
+			androidAppRedirect.closePopup();
+		});
+
+		androidAppRedirect.$noBtn.on('click', function(){
+			androidAppRedirect.setCookie(true);
+			androidAppRedirect.closePopup();
+			window.open(androidAppRedirect.applestorelink , '_blank');
+		});
+
+		androidAppRedirect.$cancelBtn.on('click', function(){
+			androidAppRedirect.setCookie(false);
+			androidAppRedirect.closePopup();
+		});
+		androidAppRedirect.openPopup();
+	},
+	isAppInstalled:function(){
+		return Cookies.get('OsmAndInstalled');
+	},
+	redirectToApp:function(){
+		androidAppRedirect.timer = $.timer({action:androidAppRedirect.clearCookie});
+		androidAppRedirect.timer.start();
+		requestUtils.redirect(androidAppRedirect.applink);
+	},
+	setCookie:function(appInstalled){
+		if (appInstalled === true){
+			Cookies.set(androidAppRedirect.config.cookieName, "yes");
+		}else{
+			Cookies.set(androidAppRedirect.config.cookieName, "no", { expires: androidAppRedirect.config.cookieNoExpirationTimeoutInDays });
+		}
+	},
+	clearCookie:function(){
+		Cookies.remove('OsmAndInstalled');
+	},
+	openPopup:function(){
+		androidAppRedirect.$overlay.show();
+		androidAppRedirect.$popup.show();
+	},
+	closePopup:function(){
+		androidAppRedirect.$overlay.hide();
+		androidAppRedirect.$popup.hide();
+	}
+};
+
  $( document ).ready(function() {
     goMap.init();
 	iosAppRedirect.init();
+	androidAppRedirect.init();
   });
