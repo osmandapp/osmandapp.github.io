@@ -3321,3 +3321,20 @@ a,a:visited
     top: 124px;
   }
 }
+
+.slider {
+  z-index: 999;
+  position: absolute !important;
+  top: auto !important;
+  width: 100%;
+  bottom: 60px;
+  right: 20%;
+}
+
+.sliderLabel {
+  z-index: 999;
+  position: absolute !important;
+  top: auto !important;
+  bottom: 70px;
+  right: 20%;
+}

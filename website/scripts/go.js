@@ -72,6 +72,7 @@ var goMap = {
 		
 		goMap.map =$.mapwidget();		
 		goMap.map.showPoint(goMap.point);
+		goMap.map.addSlider("slider");
 		
 		let inputComplete = goMap.utils.isPointComplete(inputPoint);
 		if (inputComplete){
@@ -89,6 +90,7 @@ var goMap = {
 	$.mapwidget = function(config) {
 		var loc = goMap.point.lat + '/' + goMap.point.lon;
 		var lparams = '?mlat='+goMap.point.lat + '&mlon=' + goMap.point.lon;
+		let controlLayer;
 		var mapobj={
 			config: $.extend({
 				'mapid':'map',
@@ -99,23 +101,89 @@ var goMap = {
             }, config),
 			init:function(){
 				mapobj.map = L.map(mapobj.config.mapid);
-				L.tileLayer(mapobj.config.sourceurl, {
+
+				L.Control.Layers.include({
+					getActiveOverlays: function () {
+						var active = [];
+						this._layers.forEach(function (obj) {
+							if (obj.overlay && mapobj.map.hasLayer(obj.layer)) {
+								active.push(obj.layer);
+							}
+						});
+						return active;
+					}
+				});
+
+				let bMaps = L.tileLayer(mapobj.config.sourceurl, {
 					attribution: mapobj.config.attribution,
 					maxZoom: mapobj.config.maxzoom,
 					maxNativeZoom: mapobj.config.maxnativezoom
-				}).addTo(mapobj.map);				
+				});
+
+				let clouds = L.tileLayer('/tiles/cloud_cover_f001/{z}/{x}/{y}.png', {
+					attribution: mapobj.config.attribution,
+					maxZoom: mapobj.config.maxzoom,
+					maxNativeZoom: mapobj.config.maxnativezoom,
+				});
+
+				let rain = L.tileLayer('/tiles/percipitation_f001/{z}/{x}/{y}.png', {
+						attribution: mapobj.config.attribution,
+						maxZoom: mapobj.config.maxzoom,
+						maxNativeZoom: mapobj.config.maxnativezoom,
+					});
+				let wind = L.tileLayer('http://tile.memomaps.de/tilegen/{z}/{x}/{y}.png', {
+					attribution: mapobj.config.attribution,
+					maxZoom: mapobj.config.maxzoom,
+					maxNativeZoom: mapobj.config.maxnativezoom,
+				});
+				let pressure = L.tileLayer('https://tile.waymarkedtrails.org/cycling/{z}/{x}/{y}.png', {
+					attribution: mapobj.config.attribution,
+					maxZoom: mapobj.config.maxzoom,
+					maxNativeZoom: mapobj.config.maxnativezoom,
+				});
+
+				let overlayMaps = {
+					"Clouds": clouds,
+					"Rain": rain,
+					"Wind": wind,
+					"Pressure": pressure
+				};
+
+				controlLayer = new L.Control.Layers(null, overlayMaps);
+				controlLayer.addTo(mapobj.map);
+				bMaps.addTo(mapobj.map);
+
+
 			},
 			showPoint:function(point){
 				mapobj.map.setView([point.lat, point.lon], point.zoom);				
 			},
 			addMarker:function(point){
 				L.marker([point.lat, point.lon]).addTo(mapobj.map);
+			},
+			addSlider:function(id) {
+				$( "#" + id ).slider({
+					range: "max",
+					min: 0,
+					max: 24,
+					value: 1,
+					slide: function( event, ui ) {
+						let activeLayers = controlLayer.getActiveOverlays();
+						activeLayers.forEach(l => {
+							let url = l._url;
+							let layerName = url.match(/tiles\/(.+?)_f/)[1];
+							l.setUrl('/tiles/' + layerName + '_f00' + ui.value + '/{z}/{x}/{y}.png')
+						});
+						$( "#time" ).val( ui.value );
+					}
+				});
 			}
 		};
 		mapobj.init();
 		return {            
             showPoint: mapobj.showPoint,
-            addMarker: mapobj.addMarker
+            addMarker: mapobj.addMarker,
+			addSlider: mapobj.addSlider
         };
 	};
 })(jQuery);

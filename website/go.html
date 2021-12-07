@@ -10,19 +10,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>OsmAnd - Offline Mobile Maps and Navigation</title>
   <link rel="stylesheet" type="text/css" href="/css/site.css?v=4"/>
-<!--  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" /> -->
+  <link rel="stylesheet" href="/css/jquery-ui.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.1.0/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.1.0/dist/leaflet.js"></script>
-  <script type="text/javascript" src="/scripts/jquery-3.1.0.min.js"></script>  
-<!--	
-  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script> 
--->	
+  <script type="text/javascript" src="/scripts/jquery-3.1.0.min.js"></script>
+  <script type="text/javascript" src="/scripts/jquery-ui.min.js"></script>
 
   <script type="text/javascript" src="/scripts/js.cookie.js"></script>
   <script type="text/javascript" src="/scripts/go.js?v=5"></script>
 </head>
 <body>
-  <div class="gocontainer" id="gocontainer">
+  <div class="gocontainer" style="position: relative" id="gocontainer">
     <div class="goheader">
       <a href="/"><img src="/images/logo-grey.png" class="logo"/></a>
       <div class="coordinatescontainer">
@@ -32,6 +30,12 @@
       <div class="clear:both;"></div>
     </div>
     <div id="map"></div>
+    <div>
+      <div class="sliderLabel">
+      <input type="text" id="time" style="border:0; color:#f6931f; font-weight:bold; width: 20px">
+      </div>
+      <div id="slider" class="slider"></div>
+    </div>
     <div class="gofooter">
     <div class="gobadges">
         <div class="badgecontainer google">
