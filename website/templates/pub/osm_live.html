@@ -454,7 +454,10 @@
               destroy: true,
               columns: [
                   { "data": "osmid", title: "OSM ID"},
-                  { "data": "changes", title: "OSM Changes"},
+                  ( mid >= '2021-12' ?
+                      { "data": "objchanges", title: "Edits" } :
+                      { "data": "changes", title: "Changesets"} )
+                  ,
                   { "data": "rank", title: "Rank"},
                   { "data": "weight", title: "Weight"},
                   { "data": "percent", title: "Part"},
