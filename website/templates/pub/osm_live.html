@@ -483,11 +483,12 @@
                   { "data": "rank", title: "Region rank"},
                   { "data": "grank", title: "World rank"},
                   { "data": "user", title: "User name"},        
-                  { "data": "changes", title: "Changes"}
+                  { "data": "changes", title: "Changesets"},
           ];
           if(mid >= '2018-09') {
-              columns.push({ "data": "atomchanges", title: "Objects changed"});
+              columns.push({ "data": "atomchanges", title: "Edits"});
               columns.push({ "data": "globalchanges", title: "Worldwide changes"});
+              columns.push({ "data": "atomglobalchanges", title: "Worldwide Edits" });
           }
           reportUserDataTable = $('#users-table').DataTable({
               data: data.rows,
@@ -513,15 +514,16 @@
     }
     $('#report-ranking').html("Ranking of contributors by " + data.rows.length + " groups <span>(made more than " + 
       c + " changes)</span>");
+      
     var columns = [
                 { "data": "rank", title: "Rank"},
-                { "data": "countUsers", title: "Contributors <span>in group</span>"},
-                { "data": "minChanges", title: "Minimum changes <span>in group</span>"},
-                { "data": "maxChanges", title: "Maximum changes <span>in group</span>"}
+                { "data": "countUsers", title: "Contributors <span>in a group</span>"},
+                { "data": "minChanges", title: mid >= '2021-12' ? "Minimum edits <span>in group</span>" : "Minimum changesets <span>in group</span>"},
+                { "data": "maxChanges", title: mid >= '2021-12' ? "Maximum edits <span>in group</span>" : "Maximum changesets <span>in group</span>" },
     ];
     if (mid >= '2018-09') {
-        columns.push({ "data": "totalChanges", title: "Total changes <span>by group</span>"}); //, render:floatFormat
-        columns.push({ "data": "atomTotalChanges", title: "Total edited objects <span>by group</span>"});
+        columns.push({ "data": "totalChanges", title: "Total changesets <span>by group</span>"}); //, render:floatFormat
+        columns.push({ "data": "atomTotalChanges", title: "Total edits <span>by group</span>"});
     }
       reportDataTable = $('#report-table').DataTable({
             data: data.rows,
