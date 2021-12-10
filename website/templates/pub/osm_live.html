@@ -486,9 +486,9 @@
                   { "data": "changes", title: "Changesets"},
           ];
           if(mid >= '2018-09') {
-              columns.push({ "data": "atomchanges", title: "Edits"});
+              columns.push({ "data": "atomglobalchanges", title: "Edits"});
               columns.push({ "data": "globalchanges", title: "Worldwide changes"});
-              columns.push({ "data": "atomglobalchanges", title: "Worldwide Edits" });
+              columns.push({ "data": "atomchanges", title: "Worldwide Edits" });
           }
           reportUserDataTable = $('#users-table').DataTable({
               data: data.rows,
