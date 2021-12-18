@@ -322,3 +322,7 @@ var androidAppRedirect = {
 	iosAppRedirect.init();
 	androidAppRedirect.init();
   });
+/*
+ * See our GitHub repository at https://github.com/osmandapp/osmandapp.github.io
+ * If you edit this file, also increment the "go.js?v=" parameter in ../go.html
+ */
