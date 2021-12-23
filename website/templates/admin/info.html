@@ -95,84 +95,89 @@
 					<td th:text="${di.discountCondition.getFilterCondition()}"></td>
 				</tr>
 			</table>
-
-			<h3>Subscriptions Revenue by Year (7 years)</h3>
-			<p>Data: Active (by first date) //// <b>+ New</b> -Churned /// • Renew -Churn Rate % (renew includes churned) ///
-				Revenue (New + Renew) this year /// Expected revenue from new subs </p>
-			<table border="1">
-				<tr>
-					<th>Date</th>
-					<th th:each="c : ${subRevenueReportYear.columns}" th:utext="${c.name}"></th>
-				</tr>
-			
-				<tr th:each="i : ${subRevenueReportYear.getValues(7)}">
-					<td th:utext="${i.key}">2019-03</td>
-					<td th:each="v : ${i.value}" th:utext="${v.toString(4+8+16)}">
-					</th>
-				</tr>
-			
-			</table>
-
-			<h3>Subscriptions Revenue by Month (40 months)</h3>
-			<p>Data: Active (by first date) //// <b>+ New</b> -Churned /// • Renew -Churn Rate %  (renew includes churned) /// Revenue (New + Renew) this month /// Expected revenue from new subs </p>
-			<table border="1">
-				<tr >
-					<th>Date</th>
-					<th th:each="c : ${subRevenueReportMonth.columns}" th:utext="${c.name}"></th>
-				</tr>
-				
-				<tr th:each="i : ${subRevenueReportMonth.getValues(40)}">
-					<td th:utext="${i.key}">2019-03</td>
-					<td th:each="v : ${i.value}" th:utext="${v.toString(1+2+4+8)}"></th>
-				</tr>
-				
-			</table>
-
-			<h3>Year Subscription Retention</h3>
-			<table border="1">
-				<tr>
-					<th>Date</th>
-					<th>Total</th>
-					<th>iOS All</th>
-					<th>Android</th>
-					<th>iOS Full</th>
-					<th>iOS %</th>
-					<th>And v1 Full</th>
-					<th>And v1 %</th>
-					<th>And v2</th>
-					
-			
-				</tr>
-				<tr th:each="di : ${yearSubscriptionsReport}">
-					<td th:utext="${di.month}">01.01.2018 00:00</td>
-					<td th:utext="${di.total.html()}">1000</td>
-					<td th:utext="${di.ios.html()}">1000</td>
-					<td th:utext="${di.android.html()}">1000</td>
-					<td th:utext="${di.iosFull.html()}">1000</td>
-					<td th:utext="${di.iosIntro.html()}">1000</td>
-					<td th:utext="${di.androidFull.html()}">1000</td>
-					<td th:utext="${di.androidIntro.html()}">1000</td>
-					<td th:utext="${di.androidV2.html()}">1000</td>
-					
-				</tr>
-			</table>
-
-			<h3>Subscriptions Revenue by Day (400 days)</h3>
-			<p>Data: <b>+ New</b> -Churned /// • Renew -Churn Rate % (renew includes churned) /// Revenue (New + Renew) today /// Expected life time revenue from New </p>
-			<table border="1">
-				<tr>
-					<th>Date</th>
-					<th th:each="c : ${subRevenueReportDay.columns}" th:utext="${c.name}"></th>
-				</tr>
-			
-				<tr th:each="i : ${subRevenueReportDay.getValues(400)}">
-					<td th:utext="${i.key}">2019-03</td>
-					<td th:each="v : ${i.value}" th:utext="${v.toString(1+2+8)}">
+			<p>
+				<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#subs-by-year"
+					aria-expanded="false" aria-controls="subs-by-year">Subscriptions Revenue by Year</button>
+				<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#subs-ret-by-year" aria-expanded="false"
+					aria-controls="subs-ret-by-year">Subscriptions Retention by Year </button>
+				<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#subs-by-month" aria-expanded="false"
+					aria-controls="subs-by-month">Subscriptions Revenue by Month</button>
+				<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#subs-by-day" aria-expanded="false"
+					aria-controls="subs-by-day">Subscriptions Revenue by Day</button>
+			</p>
+			<div class="collapse" id="subs-by-year">
+				<h3>Subscriptions Revenue by Year (7 years)</h3>
+				<p>Data: Active (by first date) //// <b>+ New</b> -Churned /// • Renew -Churn Rate % (renew includes churned) ///
+					Revenue (New + Renew) this year /// Expected revenue from new subs </p>
+				<table border="1">
+					<tr>
+						<th>Date</th>
+						<th th:each="c : ${subRevenueReportYear.columns}" th:utext="${c.name}"></th>
+					</tr>
+					<tr th:each="i : ${subRevenueReportYear.getValues(7)}">
+						<td th:utext="${i.key}">2019-03</td>
+						<td th:each="v : ${i.value}" th:utext="${v.toString(4+8+16)}">
 						</th>
-				</tr>
-			</table>
+					</tr>
+				</table>
+			</div>
 
-
+			<div class="collapse" id="subs-by-month">
+				<h3>Subscriptions Revenue by Month (40 months)</h3>
+				<p>Data: Active (by first date) //// <b>+ New</b> -Churned /// • Renew -Churn Rate %  (renew includes churned) /// Revenue (New + Renew) this month /// Expected revenue from new subs </p>
+				<table border="1">
+					<tr >
+						<th>Date</th>
+						<th th:each="c : ${subRevenueReportMonth.columns}" th:utext="${c.name}"></th>
+					</tr>
+					<tr th:each="i : ${subRevenueReportMonth.getValues(40)}">
+						<td th:utext="${i.key}">2019-03</td>
+						<td th:each="v : ${i.value}" th:utext="${v.toString(1+2+4+8)}"></th>
+					</tr>
+				</table>
+			</div>
+			<div class="collapse" id="subs-ret-by-year">
+				<h3>Year Subscription Retention</h3>
+				<table border="1">
+					<tr>
+						<th>Date</th>
+						<th>Total</th>
+						<th>iOS All</th>
+						<th>Android</th>
+						<th>iOS Full</th>
+						<th>iOS %</th>
+						<th>And v1 Full</th>
+						<th>And v1 %</th>
+						<th>And v2</th>
+					</tr>
+					<tr th:each="di : ${yearSubscriptionsReport}">
+						<td th:utext="${di.month}">01.01.2018 00:00</td>
+						<td th:utext="${di.total.html()}">1000</td>
+						<td th:utext="${di.ios.html()}">1000</td>
+						<td th:utext="${di.android.html()}">1000</td>
+						<td th:utext="${di.iosFull.html()}">1000</td>
+						<td th:utext="${di.iosIntro.html()}">1000</td>
+						<td th:utext="${di.androidFull.html()}">1000</td>
+						<td th:utext="${di.androidIntro.html()}">1000</td>
+						<td th:utext="${di.androidV2.html()}">1000</td>
+					</tr>
+				</table>
+			</div>
+			<div class="collapse" id="subs-by-day">
+				<h3>Subscriptions Revenue by Day (400 days)</h3>
+				<p>Data: <b>+ New</b> -Churned /// • Renew -Churn Rate % (renew includes churned) /// Revenue (New + Renew) today
+					/// Expected life time revenue from New </p>
+				<table border="1">
+					<tr>
+						<th>Date</th>
+						<th th:each="c : ${subRevenueReportDay.columns}" th:utext="${c.name}"></th>
+					</tr>
+					<tr th:each="i : ${subRevenueReportDay.getValues(400)}">
+						<td th:utext="${i.key}">2019-03</td>
+						<td th:each="v : ${i.value}" th:utext="${v.toString(1+2+8)}"></td>
+					</tr>
+				</table>
+			</div>
 		</div>
 
 		<div id="giveaway" class="tab-pane fade">
