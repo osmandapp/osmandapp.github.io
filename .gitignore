@@ -2,6 +2,8 @@ indexes
 gen
 .proc_timestamp
 
+
+
 night-builds
 latest-night-build
 releases
@@ -27,4 +29,8 @@ osm-extract
 terrain-aster-srtm-eudem
 wikivoyage
 
+# js
+node_modules
+package-lock.json
+yarn.lock
 .DS_Store
