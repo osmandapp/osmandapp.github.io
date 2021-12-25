@@ -1,8 +1,8 @@
-import React, { useRef, useState } from 'react';
-import { Drawer, Toolbar, Typography, Box, ListItemText } from "@material-ui/core";
+import React, { useState } from 'react';
+import { Drawer, Toolbar, Typography, Box, ListItemText, Switch, Collapse } from "@material-ui/core";
 import { IconButton, Divider, MenuItem, ListItemIcon, MenuList } from "@material-ui/core";
 import {
-    Menu, ContentCopy, ContentPaste, ContentCut, ArrowBack, Air, DirectionsWalk
+    Menu, ArrowBack, Air, DirectionsWalk, ExpandLess, ExpandMore, Thermostat
  } from '@mui/icons-material';
 
 
@@ -10,6 +10,10 @@ const OToolbar = () => {
     const [drawerOpen, setDrawerOpen] = useState(false);
     const toggleDrawer = () => {
         setDrawerOpen(!drawerOpen);
+    };
+    const [weatherOpen, setWeatherOpen] = React.useState(false);
+    const handleWeather = () => {
+        setWeatherOpen(!weatherOpen);
     };
     return (
         <Toolbar variant="dense">
@@ -25,15 +29,38 @@ const OToolbar = () => {
                             <ListItemText>OsmAnd Web</ListItemText>
                         </MenuItem>
                         <Divider />
-                        <MenuItem>
+                        <MenuItem onClick={handleWeather}>
                             <ListItemIcon>
                                 <Air fontSize="small" />
                             </ListItemIcon>
                             <ListItemText>Weather</ListItemText>
-                            <Typography variant="body2" color="textSecondary">
-                                Map
-                            </Typography>
+                            {weatherOpen ? <ExpandLess /> : <ExpandMore />}
+                            
                         </MenuItem>
+                        <Collapse in={weatherOpen} timeout="auto" unmountOnExit>
+                            <MenuItem >
+                                <ListItemIcon>
+                                    <Thermostat fontSize="small" />
+                                </ListItemIcon>
+                                <ListItemText>Temperature</ListItemText>
+                                <Switch  defaultChecked />
+                            </MenuItem>
+                            <MenuItem>
+                                <ListItemIcon>
+                                    <Air fontSize="small" />
+                                </ListItemIcon>
+                                <ListItemText>Wind</ListItemText>
+                                <Switch defaultChecked />
+                            </MenuItem>
+                            <MenuItem>
+                                <ListItemIcon>
+                                    <Air fontSize="small" />
+                                </ListItemIcon>
+                                <ListItemText>Wind</ListItemText>
+                                <Switch defaultChecked />
+                            </MenuItem>
+                            <Divider/>
+                        </Collapse>
                         <MenuItem>
                             <ListItemIcon>
                                 <DirectionsWalk fontSize="small" />
