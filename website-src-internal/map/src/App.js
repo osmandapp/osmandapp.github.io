@@ -1,26 +1,10 @@
 import React, { useState } from 'react';
-import { makeStyles } from "@material-ui/core/styles";
-import { Box } from "@mui/material";
 import {
-  Air, Cloud, Compress, DirectionsWalk, Shower, Thermostat
+  Air, Cloud, Compress, Shower, Thermostat
 } from '@mui/icons-material';
 
 // components
-import OsmAndMap from "./components/OsmAndMap.js";
-import OToolbar from "./components/OToolbar.js";
-
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    //flexGrow: 1
-    display: "flex",
-    flexDirection: "column",
-    height: "100vh"
-  },
-  menuButton: {
-    marginRight: theme.spacing(1),
-  },
-}));
+import OsmAndMapFrame from "./components/OsmAndMapFrame.js";
 
 
 function getWeatherUrl(layer) {
@@ -44,7 +28,7 @@ layers.map((item) => {
 });
 
 const App = () => {
-  const classes = useStyles();
+  //const classes = useStyles();
   const [weatherLayers, updateWeatherLayers] = useState(layers);
   // // "20211222_0600"
   // let [searchParams, setSearchParams] = useSearchParams();
@@ -63,13 +47,9 @@ const App = () => {
   const [weatherDate, setWeatherDate] = useState(weatherDateObj);
 
   return (
-    <Box className={classes.root}>
-      <OToolbar weatherLayers={weatherLayers} updateWeatherLayers={updateWeatherLayers}
+    <OsmAndMapFrame weatherLayers={weatherLayers} updateWeatherLayers={updateWeatherLayers}
         weatherDate={weatherDate} setWeatherDate={setWeatherDate} />
-      <OsmAndMap tileURL="https://tile.osmand.net/hd/{z}/{x}/{y}.png" layers={weatherLayers}
-        updateLayers={updateWeatherLayers} weatherDate={weatherDate}>
-      </OsmAndMap>
-    </Box>
+    
   );
 };
 
