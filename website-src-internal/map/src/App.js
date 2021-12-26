@@ -46,12 +46,27 @@ layers.map((item) => {
 const App = () => {
   const classes = useStyles();
   const [weatherLayers, updateWeatherLayers] = useState(layers);
+  // // "20211222_0600"
+// const urlParams = new URLSearchParams(window.location.search);
+// var weatherDateObj = new Date();
+// if (urlParams.get('date')) {
+//   var weather_date = urlParams.get('date');
+//   weatherDateObj.setUTCFullYear(parseInt(weather_date.slice(0, 4)));
+//   weatherDateObj.setUTCMonth(parseInt(weather_date.slice(4, 6)) - 1);
+//   weatherDateObj.setUTCDate(parseInt(weather_date.slice(6, 8)));
+//   weatherDateObj.setUTCHours(parseInt(weather_date.slice(9, 11)));
+// }
+// weatherDateObj.setUTCMinutes(0);
+// weatherDateObj.setUTCSeconds(0);
+// var originalDateObj = new Date(weatherDateObj);
+  const [weatherDate, setWeatherDate] = useState(new Date());
 
   return (
     <Box className={classes.root}>
-      <OToolbar weatherLayers={weatherLayers} updateWeatherLayers={updateWeatherLayers}/>
+      <OToolbar weatherLayers={weatherLayers} updateWeatherLayers={updateWeatherLayers}
+        weatherDate={weatherDate} setWeatherDate={setWeatherDate}/>
       <OsmAndMap tileURL="https://tile.osmand.net/hd/{z}/{x}/{y}.png" layers={weatherLayers}
-        updateLayers={updateWeatherLayers}>
+        updateLayers={updateWeatherLayers} weatherDate={weatherDate}>
       </OsmAndMap>
     </Box>
   );

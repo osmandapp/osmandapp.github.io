@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef} from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 import { MapContainer, TileLayer, ZoomControl, LayersControl } from "react-leaflet";
 
@@ -28,21 +28,6 @@ function getWeatherTime(weatherDateObj) {
   return weatherDateObj.getUTCFullYear() + '' + m + '' + d + "_" + h + "00";
 }
 
-// var now_date = new Date();
-// // "20211222_0600"
-// const urlParams = new URLSearchParams(window.location.search);
-// var weatherDateObj = new Date();
-// if (urlParams.get('date')) {
-//   var weather_date = urlParams.get('date');
-//   weatherDateObj.setUTCFullYear(parseInt(weather_date.slice(0, 4)));
-//   weatherDateObj.setUTCMonth(parseInt(weather_date.slice(4, 6)) - 1);
-//   weatherDateObj.setUTCDate(parseInt(weather_date.slice(6, 8)));
-//   weatherDateObj.setUTCHours(parseInt(weather_date.slice(9, 11)));
-// }
-// weatherDateObj.setUTCMinutes(0);
-// weatherDateObj.setUTCSeconds(0);
-// var originalDateObj = new Date(weatherDateObj);
-
 const updateLayerFunc = (layers, updateLayers, enable) => (event) => {
   const ind = layers.findIndex(l => l.name === event.name);
   if (ind >= 0 && layers[ind].checked !== enable) {
@@ -52,24 +37,36 @@ const updateLayerFunc = (layers, updateLayers, enable) => (event) => {
   }  
 }
 
-const OsmAndMap = ({ tileURL, layers, updateLayers }) => {
+const OsmAndMap = ({ tileURL, layers, updateLayers, weatherDate }) => {
 
   const classes = useStyles();
-
+  const map = useRef(null);
 
   const whenReadyHandler = event => {
     const { target } = event;
     target.on('overlayadd', updateLayerFunc(layers, updateLayers, true));
     target.on('overlayremove', updateLayerFunc(layers, updateLayers, false));
+    map.current = target;
   }
+  useEffect(() => {
+    if(map.current) {
+      map.current.eachLayer((layer) => {
+        if (layer.options.tms) {
+          layer.options.time = getWeatherTime(weatherDate);
+          layer.redraw();
+        }
+      });
+    }
+  }, [weatherDate]);
 
-  const weatherDate = new Date();
   // <TileLayer
   //   key="layer_white"
   //   url="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEAAQMAAABmvDolAAAAA1BMVEX///+nxBvIAAAAH0lEQVQYGe3BAQ0AAADCIPunfg43YAAAAAAAAAAA5wIhAAAB9aK9BAAAAABJRU5ErkJggg=="
   //   minZoom={1}
   //   maxZoom={18}
   // />
+  // cloud.options.time = getTime();
+  // cloud.redraw();
   return (
     <MapContainer center={position} zoom={5} className={classes.root} minZoom={1} maxZoom={21} 
         zoomControl={false} whenReady={whenReadyHandler}>

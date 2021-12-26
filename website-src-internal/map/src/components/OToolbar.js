@@ -2,16 +2,35 @@ import React, { useState } from 'react';
 import { Drawer, Toolbar, Typography, Box, ListItemText, Switch, Collapse } from "@mui/material";
 import { IconButton, Divider, MenuItem, ListItemIcon, MenuList, AppBar, CssBaseline } from "@mui/material";
 import {
-    Menu, ArrowBack, Air, DirectionsWalk, ExpandLess, ExpandMore, Thermostat
+    Menu, ArrowBack, Air, DirectionsWalk, ExpandLess, ExpandMore, Thermostat, NavigateNext, NavigateBefore
 } from '@mui/icons-material';
 
 
-const OToolbar = ({ weatherLayers, updateWeatherLayers }) => {
+const addWeatherHours = (weatherDate, setWeatherDate, hours) => (event) => {
+    let dt = new Date(weatherDate.getTime() + (hours * 60 * 60 * 1000));
+    setWeatherDate(dt);
+}
+
+function formatWeatherDate(weatherDateObj) {
+    let hours = (-(new Date().getTime() - weatherDateObj.getTime()) / 3600000).toFixed(0);
+    if (hours == 0) {
+        hours = "now";
+    } else {
+        if (hours > 0) {
+            hours = "+" + hours;
+        }
+        hours += " hours";
+    }
+    let text = weatherDateObj.toDateString() + "  " + weatherDateObj.getHours() + ":00 [" + hours + "]";
+    return text;
+}
+
+const OToolbar = ({ weatherLayers, updateWeatherLayers, weatherDate, setWeatherDate }) => {
     const [drawerOpen, setDrawerOpen] = useState(false);
     const toggleDrawer = () => {
         setDrawerOpen(!drawerOpen);
     };
-    const [weatherOpen, setWeatherOpen] = React.useState(false);
+    const [weatherOpen, setWeatherOpen] = useState(false);
     const handleWeather = () => {
         setWeatherOpen(!weatherOpen);
     };
@@ -61,6 +80,16 @@ const OToolbar = ({ weatherLayers, updateWeatherLayers }) => {
                                 }} />
                         </MenuItem>
                     ))}
+                    <MenuItem disableRipple="true">
+                        <IconButton>
+                            <NavigateBefore onClick={addWeatherHours(weatherDate, setWeatherDate, -1)}/>
+                        </IconButton>
+                        <Typography>{weatherDate.toLocaleDateString() + " " +weatherDate.getHours() + ":00"}</Typography>
+                        <IconButton>
+                            <NavigateNext onClick={addWeatherHours(weatherDate, setWeatherDate, 1)}/>
+                        </IconButton>
+                    </MenuItem>
+                    
                     <Divider />
                 </Collapse>
                 <MenuItem>
@@ -75,7 +104,7 @@ const OToolbar = ({ weatherLayers, updateWeatherLayers }) => {
             </MenuList>
         </div>
     );
-    const container = window !== undefined ? () => window.document.body : undefined;
+    // const container = window !== undefined ? () => window.document.body : undefined;
     return (
         <AppBar position="static"
             sx={{
@@ -89,9 +118,15 @@ const OToolbar = ({ weatherLayers, updateWeatherLayers }) => {
                     <Menu />
                 </IconButton>
                 <Box sx={{ ml: 1 }}>
-                    <Typography variant="h6" color="inherit"  >
-                        Welcome, OsmAnd developer
-                    </Typography>
+                    {!weatherOpen ?
+                        <Typography variant="h6" color="inherit" >
+                            Welcome, OsmAnd developer.
+                        </Typography>
+                        :
+                        <Typography variant="h6" color="inherit"  >
+                            Weather - {formatWeatherDate(weatherDate)}
+                        </Typography>
+                    }
                 </Box>
             </Toolbar>
             {
