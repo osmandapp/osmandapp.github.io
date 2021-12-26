@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { makeStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import { Box } from "@material-ui/core";
+import { Box, AppBar} from "@mui/material";
 
 // components
 import OsmAndMap  from "./components/OsmAndMap.js";
@@ -46,9 +45,7 @@ const App = () => {
 
   return (
     <Box className={classes.root}>
-      <AppBar position="static">
-        <OToolbar weatherLayers={weatherLayers} updateWeatherLayers={updateWeatherLayers}/>
-      </AppBar>
+      <OToolbar weatherLayers={weatherLayers} updateWeatherLayers={updateWeatherLayers}/>
       <OsmAndMap tileURL="https://tile.osmand.net/hd/{z}/{x}/{y}.png" layers={weatherLayers}
         updateLayers={updateWeatherLayers}>
       </OsmAndMap>
