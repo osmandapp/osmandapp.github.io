@@ -6,7 +6,7 @@ import {
  } from '@mui/icons-material';
 
 
-const OToolbar = () => {
+const OToolbar = ({ weatherLayers, updateWeatherLayers}) => {
     const [drawerOpen, setDrawerOpen] = useState(false);
     const toggleDrawer = () => {
         setDrawerOpen(!drawerOpen);
@@ -37,28 +37,23 @@ const OToolbar = () => {
                             {weatherOpen ? <ExpandLess /> : <ExpandMore />}
                             
                         </MenuItem>
-                        <Collapse in={weatherOpen} timeout="auto" unmountOnExit>
-                            <MenuItem >
+                        {weatherLayers.map((item, index) => (
+                            <MenuItem key={item.key}>
                                 <ListItemIcon>
                                     <Thermostat fontSize="small" />
                                 </ListItemIcon>
-                                <ListItemText>Temperature</ListItemText>
-                                <Switch  defaultChecked />
+                                <ListItemText>{item.name}</ListItemText>
+                                <Switch
+                                    checked={item.checked}
+                                    onChange={(e) => {
+                                        let newlayers = [...weatherLayers];
+                                        newlayers[index].checked = e.target.checked;
+                                        updateWeatherLayers(newlayers);
+                                    }} />
                             </MenuItem>
-                            <MenuItem>
-                                <ListItemIcon>
-                                    <Air fontSize="small" />
-                                </ListItemIcon>
-                                <ListItemText>Wind</ListItemText>
-                                <Switch defaultChecked />
-                            </MenuItem>
-                            <MenuItem>
-                                <ListItemIcon>
-                                    <Air fontSize="small" />
-                                </ListItemIcon>
-                                <ListItemText>Wind</ListItemText>
-                                <Switch defaultChecked />
-                            </MenuItem>
+                        ))}
+                        <Collapse in={weatherOpen} timeout="auto" unmountOnExit>
+                            
                             <Divider/>
                         </Collapse>
                         <MenuItem>
