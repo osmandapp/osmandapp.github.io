@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Toolbar, Typography, ListItemText, Switch, Collapse } from "@mui/material";
 import {
     IconButton, Divider, MenuItem, ListItemIcon, MenuList,
@@ -7,6 +7,7 @@ import {
     ArrowBack, Air, DirectionsWalk, ExpandLess, ExpandMore,
     Thermostat, NavigateNext, NavigateBefore, Person
 } from '@mui/icons-material';
+import AppContext from "../context/AppContext"
 
 const addWeatherHours = (weatherDate, setWeatherDate, hours) => (event) => {
     let dt = new Date(weatherDate.getTime() + (hours * 60 * 60 * 1000));
@@ -28,17 +29,15 @@ function formatWeatherDate(weatherDateObj) {
 }
 
 export default function OsmAndDrawer({ mobile, toggleDrawer,
-    weatherLayers, updateWeatherLayers,
-    appText, setAppText,
-    weatherDate, setWeatherDate,
-    setLoginDialog }) {
+    appText, setAppText, setLoginDialog }) {
+    const ctx = useContext(AppContext);
     const [weatherOpen, setWeatherOpen] = useState(false);
     const handleWeather = () => {
         setWeatherOpen(!weatherOpen);
     };
     useEffect(() => {
         if (weatherOpen) {
-            setAppText(formatWeatherDate(weatherDate));
+            setAppText(formatWeatherDate(ctx.weatherDate));
         } else {
             setAppText(null);
         }
@@ -76,7 +75,7 @@ export default function OsmAndDrawer({ mobile, toggleDrawer,
             </MenuItem>
 
             <Collapse in={weatherOpen} timeout="auto" unmountOnExit>
-                {weatherLayers.map((item, index) => (
+                {ctx.weatherLayers.map((item, index) => (
                     <MenuItem key={item.key}>
                         <ListItemIcon>
                             {item.iconComponent ?
@@ -88,18 +87,18 @@ export default function OsmAndDrawer({ mobile, toggleDrawer,
                         <Switch
                             checked={item.checked}
                             onChange={(e) => {
-                                let newlayers = [...weatherLayers];
+                                let newlayers = [...ctx.weatherLayers];
                                 newlayers[index].checked = e.target.checked;
-                                updateWeatherLayers(newlayers);
+                                ctx.updateWeatherLayers(newlayers);
                             }} />
                     </MenuItem>
                 ))}
                 <MenuItem disableRipple={true}>
-                    <IconButton onClick={addWeatherHours(weatherDate, setWeatherDate, -1)}>
+                    <IconButton onClick={addWeatherHours(ctx.weatherDate, ctx.setWeatherDate, -1)}>
                         <NavigateBefore />
                     </IconButton>
-                    <Typography>{weatherDate.toLocaleDateString() + " " + weatherDate.getHours() + ":00"}</Typography>
-                    <IconButton onClick={addWeatherHours(weatherDate, setWeatherDate, 1)} >
+                    <Typography>{ctx.weatherDate.toLocaleDateString() + " " + ctx.weatherDate.getHours() + ":00"}</Typography>
+                    <IconButton onClick={addWeatherHours(ctx.weatherDate, ctx.setWeatherDate, 1)} >
                         <NavigateNext />
                     </IconButton>
                 </MenuItem>

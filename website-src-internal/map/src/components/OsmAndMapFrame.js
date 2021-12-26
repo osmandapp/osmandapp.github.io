@@ -9,10 +9,10 @@ import {
 import LoginDialog from './LoginDialog';
 import OsmAndMap from './OsmAndMap';
 import OsmAndDrawer from './OsmAndDrawer';
+import AppContext from "../context/AppContext"
 
 
-
-const OsmAndMapFrame = ({ weatherLayers, updateWeatherLayers, weatherDate, setWeatherDate }) => {
+const OsmAndMapFrame = () => {
     const [drawerOpen, setDrawerOpen] = useState(false);
     const toggleDrawer = () => {
         setDrawerOpen(!drawerOpen);
@@ -44,8 +44,7 @@ const OsmAndMapFrame = ({ weatherLayers, updateWeatherLayers, weatherDate, setWe
                         </Box>
                     </Toolbar>
                 </AppBar>
-                <OsmAndMap tileURL="https://tile.osmand.net/hd/{z}/{x}/{y}.png" layers={weatherLayers}
-                    updateLayers={updateWeatherLayers} weatherDate={weatherDate}>
+                <OsmAndMap>
                 </OsmAndMap>
             </Box>
             <Drawer
@@ -63,8 +62,6 @@ const OsmAndMapFrame = ({ weatherLayers, updateWeatherLayers, weatherDate, setWe
             >
                 <OsmAndDrawer mobile={true} setLoginDialog={setLoginDialog}
                     toggleDrawer={toggleDrawer}
-                    weatherLayers={weatherLayers} updateWeatherLayers={updateWeatherLayers}
-                    weatherDate={weatherDate} setWeatherDate={setWeatherDate}  
                     appText={appText} setAppText={setAppText}/>
             </Drawer>
             <Drawer
@@ -75,9 +72,8 @@ const OsmAndMapFrame = ({ weatherLayers, updateWeatherLayers, weatherDate, setWe
                 }}
                 open>
                 <OsmAndDrawer mobile={false} setLoginDialog={setLoginDialog}
-                    weatherLayers={weatherLayers} updateWeatherLayers={updateWeatherLayers} 
-                    weatherDate={weatherDate} setWeatherDate={setWeatherDate}
                     appText={appText} setAppText={setAppText} />
+
             </Drawer>
         </>
 

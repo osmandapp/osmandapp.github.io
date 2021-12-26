@@ -1,6 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useContext } from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 import { MapContainer, TileLayer, ZoomControl, LayersControl } from "react-leaflet";
+import AppContext from "../context/AppContext"
 
 
 const useStyles = makeStyles((theme) => ({
@@ -37,27 +38,28 @@ const updateLayerFunc = (layers, updateLayers, enable) => (event) => {
   }
 }
 
-const OsmAndMap = ({ tileURL, layers, updateLayers, weatherDate }) => {
+const OsmAndMap = () => {
 
   const classes = useStyles();
   const map = useRef(null);
+  const ctx = useContext(AppContext);
 
   const whenReadyHandler = event => {
     const { target } = event;
-    target.on('overlayadd', updateLayerFunc(layers, updateLayers, true));
-    target.on('overlayremove', updateLayerFunc(layers, updateLayers, false));
+    target.on('overlayadd', updateLayerFunc(ctx.weatherLayers, ctx.updateWeatherLayers, true));
+    target.on('overlayremove', updateLayerFunc(ctx.weatherLayers, ctx.updateWeatherLayers, false));
     map.current = target;
   }
   useEffect(() => {
     if (map.current) {
       map.current.eachLayer((layer) => {
         if (layer.options.tms) {
-          layer.options.time = getWeatherTime(weatherDate);
+          layer.options.time = getWeatherTime(ctx.weatherDate);
           layer.redraw();
         }
       });
     }
-  }, [weatherDate]);
+  }, [ctx.weatherDate]);
 
   // <TileLayer
   //   key="layer_white"
@@ -67,20 +69,21 @@ const OsmAndMap = ({ tileURL, layers, updateLayers, weatherDate }) => {
   // />
   return (
     <MapContainer center={position} zoom={5} className={classes.root} minZoom={1} maxZoom={21}
-      zoomControl={false} whenReady={whenReadyHandler}>
+      zoomControl={false} whenReady={whenReadyHandler}
+      attributionControl={false} >
       <TileLayer
         attribution='&amp;copy <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
         minZoom={1}
         maxZoom={18}
-        url={tileURL}
+        url={ctx.tileURL}
       />
 
       <LayersControl position="topright" collapsed={false}>
-        {layers.map((item) => (
+        {ctx.weatherLayers.map((item) => (
           <LayersControl.Overlay name={item.name} checked={item.checked} key={'overlay_' + item.key}>
             <TileLayer
               url={item.url}
-              time={getWeatherTime(weatherDate)}
+              time={getWeatherTime(ctx.weatherDate)}
               tms={true}
               minZoom={1}
               opacity={item.opacity}
