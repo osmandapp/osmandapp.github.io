@@ -1,4 +1,4 @@
-import React, { useEffect, useRef} from 'react';
+import React, { useEffect, useRef } from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 import { MapContainer, TileLayer, ZoomControl, LayersControl } from "react-leaflet";
 
@@ -34,7 +34,7 @@ const updateLayerFunc = (layers, updateLayers, enable) => (event) => {
     let newlayers = [...layers];
     newlayers[ind].checked = enable;
     updateLayers(newlayers);
-  }  
+  }
 }
 
 const OsmAndMap = ({ tileURL, layers, updateLayers, weatherDate }) => {
@@ -49,7 +49,7 @@ const OsmAndMap = ({ tileURL, layers, updateLayers, weatherDate }) => {
     map.current = target;
   }
   useEffect(() => {
-    if(map.current) {
+    if (map.current) {
       map.current.eachLayer((layer) => {
         if (layer.options.tms) {
           layer.options.time = getWeatherTime(weatherDate);
@@ -66,15 +66,15 @@ const OsmAndMap = ({ tileURL, layers, updateLayers, weatherDate }) => {
   //   maxZoom={18}
   // />
   return (
-    <MapContainer center={position} zoom={5} className={classes.root} minZoom={1} maxZoom={21} 
-        zoomControl={false} whenReady={whenReadyHandler}>
+    <MapContainer center={position} zoom={5} className={classes.root} minZoom={1} maxZoom={21}
+      zoomControl={false} whenReady={whenReadyHandler}>
       <TileLayer
         attribution='&amp;copy <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
         minZoom={1}
         maxZoom={18}
         url={tileURL}
       />
-        
+
       <LayersControl position="topright" collapsed={false}>
         {layers.map((item) => (
           <LayersControl.Overlay name={item.name} checked={item.checked} key={'overlay_' + item.key}>
@@ -88,10 +88,10 @@ const OsmAndMap = ({ tileURL, layers, updateLayers, weatherDate }) => {
               maxZoom={item.maxZoom}
             />
           </LayersControl.Overlay>
-          ))}
-        
+        ))}
+
       </LayersControl>
-      <ZoomControl position="bottomleft"/>
+      <ZoomControl position="bottomleft" />
     </MapContainer>
   );
 };

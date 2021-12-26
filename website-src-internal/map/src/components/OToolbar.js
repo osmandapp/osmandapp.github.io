@@ -65,8 +65,8 @@ const OToolbar = ({ weatherLayers, updateWeatherLayers, weatherDate, setWeatherD
                     {weatherLayers.map((item, index) => (
                         <MenuItem key={item.key}>
                             <ListItemIcon>
-                                {   item.iconComponent ?  
-                                    item.iconComponent : 
+                                {item.iconComponent ?
+                                    item.iconComponent :
                                     <Thermostat fontSize="small" />
                                 }
                             </ListItemIcon>
@@ -82,14 +82,14 @@ const OToolbar = ({ weatherLayers, updateWeatherLayers, weatherDate, setWeatherD
                     ))}
                     <MenuItem disableRipple="true">
                         <IconButton>
-                            <NavigateBefore onClick={addWeatherHours(weatherDate, setWeatherDate, -1)}/>
+                            <NavigateBefore onClick={addWeatherHours(weatherDate, setWeatherDate, -1)} />
                         </IconButton>
-                        <Typography>{weatherDate.toLocaleDateString() + " " +weatherDate.getHours() + ":00"}</Typography>
+                        <Typography>{weatherDate.toLocaleDateString() + " " + weatherDate.getHours() + ":00"}</Typography>
                         <IconButton>
-                            <NavigateNext onClick={addWeatherHours(weatherDate, setWeatherDate, 1)}/>
+                            <NavigateNext onClick={addWeatherHours(weatherDate, setWeatherDate, 1)} />
                         </IconButton>
                     </MenuItem>
-                    
+
                     <Divider />
                 </Collapse>
                 <MenuItem>
