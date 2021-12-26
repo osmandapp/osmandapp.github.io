@@ -65,8 +65,6 @@ const OsmAndMap = ({ tileURL, layers, updateLayers, weatherDate }) => {
   //   minZoom={1}
   //   maxZoom={18}
   // />
-  // cloud.options.time = getTime();
-  // cloud.redraw();
   return (
     <MapContainer center={position} zoom={5} className={classes.root} minZoom={1} maxZoom={21} 
         zoomControl={false} whenReady={whenReadyHandler}>
