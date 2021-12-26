@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { makeStyles } from "@material-ui/core/styles";
-import { Box, AppBar} from "@mui/material";
+import { Box} from "@mui/material";
+import {
+   Air, Cloud, Compress, DirectionsWalk, Shower, Thermostat
+} from '@mui/icons-material';
 
 // components
 import OsmAndMap  from "./components/OsmAndMap.js";
 import OToolbar from "./components/OToolbar.js";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,11 +29,11 @@ function getWeatherUrl(layer) {
   return urlWeatherPefix + '/tiles/' + layer + '/{time}/{z}/{x}/{y}.png';
 }
 const layers = [
-  { key: "temperature", name: "Temperature", opacity: 0.5 },
-  { key: "pressure", name: "Pressure", opacity: 0.6 },
-  { key: "wind", name: "Wind", opacity: 0.6 },
-  { key: "cloud", name: "Cloud", opacity: 0.5 },
-  { key: "precip", name: "Precipitation", opacity: 0.7 },
+  { key: "temperature", name: "Temperature", opacity: 0.5, iconComponent: <Thermostat fontSize="small" />},
+  { key: "pressure", name: "Pressure", opacity: 0.6, iconComponent: <Compress fontSize="small" /> },
+  { key: "wind", name: "Wind", opacity: 0.6, iconComponent: <Air fontSize="small" /> },
+  { key: "cloud", name: "Cloud", opacity: 0.5, iconComponent: <Cloud fontSize="small" /> },
+  { key: "precip", name: "Precipitation", opacity: 0.7, iconComponent: <Shower fontSize="small" /> },
 ];
 layers.map((item) => {
   item.url = getWeatherUrl(item.key);

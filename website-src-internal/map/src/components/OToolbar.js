@@ -46,7 +46,10 @@ const OToolbar = ({ weatherLayers, updateWeatherLayers }) => {
                     {weatherLayers.map((item, index) => (
                         <MenuItem key={item.key}>
                             <ListItemIcon>
-                                <Thermostat fontSize="small" />
+                                {   item.iconComponent ?  
+                                    item.iconComponent : 
+                                    <Thermostat fontSize="small" />
+                                }
                             </ListItemIcon>
                             <ListItemText>{item.name}</ListItemText>
                             <Switch
