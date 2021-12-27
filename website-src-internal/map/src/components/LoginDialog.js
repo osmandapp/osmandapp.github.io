@@ -7,18 +7,21 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import AppContext from "../context/AppContext"
 
-async function userLogin(data) {
+async function userLogin(data, setEmailError, setOpen) {
     const response = await fetch(`api/user_login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ user: data })
     })
     if (!response.ok) {
-        const message = `An error has occured: ${response.status}`;
-        throw new Error(message);
+        const message = `An error has occured: ${response.message}`;
+        setEmailError(message);
+        return;
+        //throw new Error(message);
     }
     const user = await response.json();
     console.log(user);
+    setOpen(false);
     return user;
     // json = response.json();
     // console.log(json);
@@ -28,14 +31,13 @@ async function userLogin(data) {
 export default function LoginDialog({ open, setOpen }) {
     const ctx = useContext(AppContext);
     const [fieldEmail, setFieldEmail] = useState(ctx.userEmail);
+    const [emailError, setEmailError] = useState('');
     const [pwd, setPwd] = useState();
     const [noPwd, setNoPwd] = useState(false);
     const handleLogin = () => {
         console.log(fieldEmail);
         ctx.setUserEmail(fieldEmail, { days: 30 });
-        userLogin(fieldEmail);
-        setOpen(false);
-
+        userLogin(fieldEmail, setEmailError);
     }
     const handleClose = () => {
         setOpen(false);
@@ -51,12 +53,19 @@ export default function LoginDialog({ open, setOpen }) {
                     <TextField
                         autoFocus
                         margin="dense"
-                        onChange={(e) => setFieldEmail(e.target.value)}
+                        onChange={(e) => {
+                            if (emailError != '') {
+                                setEmailError('')
+                            }
+                            setFieldEmail(e.target.value);
+                        }}
                         id="useremail"
                         label="Email Address"
                         type="email"
                         fullWidth
                         variant="standard"
+                        helperText={emailError}
+                        error={emailError.length > 0}
                         value={fieldEmail}
                     >
                     </TextField>
