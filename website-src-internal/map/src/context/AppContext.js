@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {
     Air, Cloud, Compress, Shower, Thermostat
 } from '@mui/icons-material';
+import useCookie from 'react-use-cookie';
 
 const osmandTileURL = 'https://tile.osmand.net/hd/{z}/{x}/{y}.png';
 
@@ -51,9 +52,14 @@ const AppContext = React.createContext();
 export const AppContextProvider = (props) => {
     const [weatherLayers, updateWeatherLayers] = useState(getLayers());
     const [weatherDate, setWeatherDate] = useState(getWeatherDate());
+    const [userToken, setUserToken] = useCookie('token', '');
+    const [userEmail, setUserEmail] = useCookie('email', '');
+
     return <AppContext.Provider value={{
         weatherLayers: weatherLayers, updateWeatherLayers: updateWeatherLayers,
         weatherDate: weatherDate, setWeatherDate: setWeatherDate,
+        userToken: userToken, setUserToken: setUserToken,
+        userEmail: userEmail, setUserEmail: setUserEmail,
         tileURL: osmandTileURL
     }}>
         {props.children}
