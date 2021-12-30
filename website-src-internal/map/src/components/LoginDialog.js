@@ -134,8 +134,9 @@ export default function LoginDialog({ open, setOpen }) {
                         <p>You logged in as {ctx.loginUser}.</p>
                         {!listFiles.userid ? <></> :
                             <>
-                                <p>Total files: {listFiles.totalFiles} ( {listFiles.totalFileVersions} with versions).</p>
-                                <p>Total files size: {listFiles.totalFileSize / 1024 / 1024} MB, cloud  storage used:  {listFiles.totalZipSize / 1024 / 1024} MB.</p>
+                                <p>Total files: {listFiles.totalFiles} ({listFiles.totalFileVersions} including versions).<br/>
+                                    Total files size: {(listFiles.totalFileSize / 1024.0 / 1024.0).toFixed(1)} MB, 
+                                    cloud storage used: {(listFiles.totalZipSize / 1024 / 1024.0).toFixed(1)} MB.</p>
                             </>
                         }
                     </DialogContentText>
