@@ -35,7 +35,10 @@ async function checkUserLogin(loginUser, setLoginUser, userEmail, setUserEmail) 
     });
     if (response.ok) {
         const user = await response.json();
-        setLoginUser(user && user.principal? user.principal.username : null);
+        let newUser = user && user.principal ? user.principal.username : null;
+        if (loginUser != newUser) {
+            setLoginUser(newUser);
+        }
     }
 }
 
@@ -68,7 +71,7 @@ export const AppContextProvider = (props) => {
     const [loginUser, setLoginUser] = useState(userEmail);
     useEffect(() => {
        checkUserLogin(loginUser, setLoginUser, userEmail, setUserEmail);
-    }, [userEmail]);
+    }, [userEmail, loginUser]);
     return <AppContext.Provider value={{
         weatherLayers: weatherLayers, updateWeatherLayers: updateWeatherLayers,
         weatherDate: weatherDate, setWeatherDate: setWeatherDate,

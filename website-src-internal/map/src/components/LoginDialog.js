@@ -39,12 +39,10 @@ async function userActivate(ctx, username, pwd, token, setEmailError, setOpen) {
         return false;
     }
     const user = await response.json();
-    if (user.status == 'ok') {
-        ctx.setUserEmail(username, { days: 30 });
-        setOpen(false);
-        return true;
-    }
-    return false;
+    ctx.setUserEmail(username, { days: 30 });
+    ctx.setLoginUser(username);
+    setOpen(false);
+    return true;
 }
 
 async function userLogout(ctx, username, setEmailError, setOpen, setState) {
@@ -60,8 +58,10 @@ async function userLogout(ctx, username, setEmailError, setOpen, setState) {
     }
     const user = await response.json();
     if (user.status == 'ok') {
-        ctx.setUserEmail('');
         setState('login');
+
+        ctx.setUserEmail('', { days: 30 });
+        ctx.setLoginUser('');
         setOpen(false);
         return true;
     }
