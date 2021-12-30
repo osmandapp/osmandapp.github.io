@@ -7,47 +7,136 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import AppContext from "../context/AppContext"
 
-async function userLogin(data, setEmailError, setOpen) {
-    const response = await fetch(`api/user_login`, {
+
+async function userRegister(username, setEmailError, setState) {
+    const response = await fetch(`/map/api/auth/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ user: data })
-    })
+        body: JSON.stringify({ 'username': username })
+    });
     if (!response.ok) {
         const message = `An error has occured: ${response.message}`;
         setEmailError(message);
-        return;
-        //throw new Error(message);
+        return false;
     }
     const user = await response.json();
-    console.log(user);
-    setOpen(false);
-    return user;
-    // json = response.json();
-    // console.log(json);
-    // return await json;
+    if (user.status == 'OK') {
+        setState('register-verify');
+        return true;
+    }
+    return false;
+}
+
+async function userActivate(ctx, username, pwd, token, setEmailError, setOpen) {
+    const response = await fetch(`/map/api/auth/activate`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 'username': username, 'password': pwd, 'token' : token })
+    });
+    if (!response.ok) {
+        const message = `An error has occured: ${response.message}`;
+        setEmailError(message);
+        return false;
+    }
+    const user = await response.json();
+    if (user.status == 'OK') {
+        ctx.setUserEmail(username, { days: 30 });
+        setOpen(false);
+        return true;
+    }
+    return false;
+}
+
+async function userLogout(ctx, username, setEmailError, setOpen) {
+    const response = await fetch(`/map/api/auth/logout`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 'username': username })
+    });
+    if (!response.ok) {
+        const message = `An error has occured: ${response.message}`;
+        setEmailError(message);
+        return false;
+    }
+    const user = await response.json();
+    if (user.status == 'OK') {
+        ctx.setUserEmail('');
+        setOpen(false);
+        return true;
+    }
+    return false;
+}
+
+
+async function userLogin(ctx, username, pwd, setEmailError, setOpen) {
+    const response = await fetch(`/map/api/auth/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 'username': username, 'password': pwd })
+    });
+    if (!response.ok) {
+        const message = `An error has occured: ${response.message}`;
+        setEmailError(message);
+        return false;
+    }
+    const user = await response.json();
+    if (user.status == 'OK') {
+        ctx.setUserEmail(username, { days: 30 });
+        setOpen(false);
+        return true;
+    }
+    return false;
 }
 
 export default function LoginDialog({ open, setOpen }) {
     const ctx = useContext(AppContext);
-    const [fieldEmail, setFieldEmail] = useState(ctx.userEmail);
-    const [emailError, setEmailError] = useState('');
+    const [userEmail, setUserEmail] = useState(ctx.userEmail);
     const [pwd, setPwd] = useState();
-    const [noPwd, setNoPwd] = useState(false);
+    const [code, setCode] = useState();
+    const [emailError, setEmailError] = useState('');
+    const [state, setState] = useState('login'); // login, register, register-verify
+    
     const handleLogin = () => {
-        console.log(fieldEmail);
-        ctx.setUserEmail(fieldEmail, { days: 30 });
-        userLogin(fieldEmail, setEmailError);
+        if ( state === 'register' ) {
+            userRegister(userEmail, setEmailError, setState);
+        } else if (state === 'register-verify') {
+            userActivate(ctx, userEmail, pwd, code, setEmailError, setOpen);
+        } else {
+            userLogin(ctx, userEmail, pwd, setEmailError, setOpen);
+        }
     }
     const handleClose = () => {
         setOpen(false);
+        setEmailError('');
     };
+    if (ctx.userEmail) {
+        return (
+            <Dialog open={open} onClose={handleClose}>    
+            <DialogTitle>{ctx.userEmail}</DialogTitle>
+            <DialogContent>
+                <DialogContentText>
+                    You logged in as {ctx.userEmail}
+                </DialogContentText>
+            </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleClose}>Cancel</Button>
+                    <Button onClick={(e) => userLogout(ctx, userEmail, setEmailError, setOpen)}>Logout</Button>
+                </DialogActions>
+                </Dialog>);
+
+    }
     return (
         <Dialog open={open} onClose={handleClose}>
-            <DialogTitle>Login</DialogTitle>
+            <DialogTitle>{state === 'register' ? 'Register' : (
+                state === 'register-verify' ? 'Verify your email' : 'Login'
+            )}</DialogTitle>
             <DialogContent>
-                <DialogContentText>You can login to the website only if you have OsmAnd Pro subscription.
-                    Please enter your email below.
+                <DialogContentText>
+                    {state === 'register-verify' ?
+                        `Please check your email and enter verification code`:
+                        `You can login to the website only if you have OsmAnd Pro subscription.
+                         Please enter your email below.`
+                    }
                 </DialogContentText>
                 
                     <TextField
@@ -57,7 +146,7 @@ export default function LoginDialog({ open, setOpen }) {
                             if (emailError != '') {
                                 setEmailError('')
                             }
-                            setFieldEmail(e.target.value);
+                            setUserEmail(e.target.value);
                         }}
                         id="useremail"
                         label="Email Address"
@@ -66,10 +155,21 @@ export default function LoginDialog({ open, setOpen }) {
                         variant="standard"
                         helperText={emailError}
                         error={emailError.length > 0}
-                        value={fieldEmail}
+                        value={userEmail}
                     >
                     </TextField>
-                    {noPwd ? <></> : <TextField
+                    {state != 'register-verify' ? <></> : <TextField
+                        margin="dense"
+                        onChange={(e) => setCode(e.target.value)}
+                        id="code"
+                        label="Code from Email"
+                        type="text"
+                        fullWidth
+                        variant="standard"
+                        value={code}
+                    ></TextField>
+                    }
+                    {state === 'register' ? <></> : <TextField
                         margin="dense"
                         onChange={(e) => setPwd(e.target.value)}
                         id="pwd"
@@ -78,18 +178,22 @@ export default function LoginDialog({ open, setOpen }) {
                         fullWidth
                         variant="standard"
                         value={pwd}
-
                     ></TextField>
                 }
-                <FormControlLabel control={
-                    <Checkbox checked={noPwd} onChange={(e) => setNoPwd(!noPwd)} />
+                {state === 'register-verify' ? <></> :
+                    <FormControlLabel control={
+                        <Checkbox checked={state === 'register'} onChange={(e) =>
+                            setState(state === 'login' ? 'register' : 'login')} />}
+                        label="Don't have the password or forgot it?" />
                 }
-                    label="Don't have password yet?" />
 
             </DialogContent>
             <DialogActions>
                 <Button onClick={handleClose}>Cancel</Button>
-                <Button onClick={handleLogin}>Login</Button>
+                <Button onClick={handleLogin}>{
+                    state === 'register' ? 'Register' : (
+                        state === 'register-verify' ? 'Activate' : 'Login' 
+                    )}</Button>
             </DialogActions>
         </Dialog>
     );
