@@ -47,7 +47,7 @@ async function userActivate(ctx, username, pwd, token, setEmailError, setOpen) {
     return false;
 }
 
-async function userLogout(ctx, username, setEmailError, setOpen) {
+async function userLogout(ctx, username, setEmailError, setOpen, setState) {
     const response = await fetch(`/map/api/auth/logout`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -61,6 +61,7 @@ async function userLogout(ctx, username, setEmailError, setOpen) {
     const user = await response.json();
     if (user.status == 'OK') {
         ctx.setUserEmail('');
+        setState('login');
         setOpen(false);
         return true;
     }
@@ -102,7 +103,7 @@ export default function LoginDialog({ open, setOpen }) {
         } else if (state === 'register-verify') {
             userActivate(ctx, userEmail, pwd, code, setEmailError, setOpen);
         } else {
-            userLogin(ctx, userEmail, pwd, setEmailError, setOpen);
+            userLogin(ctx, userEmail, pwd, setEmailError, setOpen, setState);
         }
     }
     const handleClose = () => {
@@ -120,7 +121,8 @@ export default function LoginDialog({ open, setOpen }) {
             </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose}>Cancel</Button>
-                    <Button onClick={(e) => userLogout(ctx, userEmail, setEmailError, setOpen)}>Logout</Button>
+                    <Button onClick={(e) => userLogout(ctx, userEmail, setEmailError, setOpen, setState)}>
+                        Logout</Button>
                 </DialogActions>
                 </Dialog>);
 
@@ -148,7 +150,7 @@ export default function LoginDialog({ open, setOpen }) {
                             }
                             setUserEmail(e.target.value);
                         }}
-                        id="useremail"
+                        id="username"
                         label="Email Address"
                         type="email"
                         fullWidth

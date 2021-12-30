@@ -57,8 +57,8 @@ export default function OsmAndDrawer({ mobile, toggleDrawer,
                     <ListItemIcon>
                         <Person fontSize="small" />
                     </ListItemIcon>
-                    {ctx.userEmail ? 
-                    <Typography color="inherit">{ctx.userEmail}</Typography>
+                    {ctx.loginUser ? 
+                        <Typography color="inherit">{ctx.loginUser}</Typography>
                     :
                     <Typography variant="h6" color="inherit">Login</Typography>
                     }

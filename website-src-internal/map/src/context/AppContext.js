@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     Air, Cloud, Compress, Shower, Thermostat
 } from '@mui/icons-material';
@@ -29,6 +29,16 @@ function getLayers() {
     return layers;
 }
 
+async function checkUserLogin(loginUser, setLoginUser, userEmail, setUserEmail) {
+    const response = await fetch(`/map/api/auth/info`, {
+        method: 'GET'
+    });
+    if (response.ok) {
+        const user = await response.json();
+        setLoginUser(user && user.principal? user.principal.username : null);
+    }
+}
+
 
 function getWeatherDate() {
     // // "20211222_0600"
@@ -52,14 +62,18 @@ const AppContext = React.createContext();
 export const AppContextProvider = (props) => {
     const [weatherLayers, updateWeatherLayers] = useState(getLayers());
     const [weatherDate, setWeatherDate] = useState(getWeatherDate());
-    const [userToken, setUserToken] = useCookie('token', '');
+    // cookie to store email logged in
     const [userEmail, setUserEmail] = useCookie('email', '');
-
+    // server state of login
+    const [loginUser, setLoginUser] = useState(userEmail);
+    useEffect(() => {
+       checkUserLogin(loginUser, setLoginUser, userEmail, setUserEmail);
+    }, [userEmail]);
     return <AppContext.Provider value={{
         weatherLayers: weatherLayers, updateWeatherLayers: updateWeatherLayers,
         weatherDate: weatherDate, setWeatherDate: setWeatherDate,
-        userToken: userToken, setUserToken: setUserToken,
         userEmail: userEmail, setUserEmail: setUserEmail,
+        loginUser: loginUser, setLoginUser: setLoginUser,
         tileURL: osmandTileURL
     }}>
         {props.children}
