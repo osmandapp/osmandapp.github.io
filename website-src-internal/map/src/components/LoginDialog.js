@@ -20,7 +20,7 @@ async function userRegister(username, setEmailError, setState) {
         return false;
     }
     const user = await response.json();
-    if (user.status == 'OK') {
+    if (user.status == 'ok') {
         setState('register-verify');
         return true;
     }
@@ -39,7 +39,7 @@ async function userActivate(ctx, username, pwd, token, setEmailError, setOpen) {
         return false;
     }
     const user = await response.json();
-    if (user.status == 'OK') {
+    if (user.status == 'ok') {
         ctx.setUserEmail(username, { days: 30 });
         setOpen(false);
         return true;
@@ -59,7 +59,7 @@ async function userLogout(ctx, username, setEmailError, setOpen, setState) {
         return false;
     }
     const user = await response.json();
-    if (user.status == 'OK') {
+    if (user.status == 'ok') {
         ctx.setUserEmail('');
         setState('login');
         setOpen(false);
@@ -81,7 +81,7 @@ async function userLogin(ctx, username, pwd, setEmailError, setOpen) {
         return false;
     }
     const user = await response.json();
-    if (user.status == 'OK') {
+    if (user.status == 'ok') {
         ctx.setUserEmail(username, { days: 30 });
         setOpen(false);
         return true;
@@ -109,14 +109,16 @@ export default function LoginDialog({ open, setOpen }) {
     const handleClose = () => {
         setOpen(false);
         setEmailError('');
+        setPwd('');
+        setCode('');
     };
-    if (ctx.userEmail) {
+    if (ctx.loginUser) {
         return (
             <Dialog open={open} onClose={handleClose}>    
-            <DialogTitle>{ctx.userEmail}</DialogTitle>
+            <DialogTitle>{ctx.loginUser}</DialogTitle>
             <DialogContent>
                 <DialogContentText>
-                    You logged in as {ctx.userEmail}
+                    You logged in as {ctx.loginUser}
                 </DialogContentText>
             </DialogContent>
                 <DialogActions>
@@ -135,52 +137,52 @@ export default function LoginDialog({ open, setOpen }) {
             <DialogContent>
                 <DialogContentText>
                     {state === 'register-verify' ?
-                        `Please check your email and enter verification code`:
+                        `Please check your email and enter verification code` :
                         `You can login to the website only if you have OsmAnd Pro subscription.
                          Please enter your email below.`
                     }
                 </DialogContentText>
-                
-                    <TextField
-                        autoFocus
-                        margin="dense"
-                        onChange={(e) => {
-                            if (emailError != '') {
-                                setEmailError('')
-                            }
-                            setUserEmail(e.target.value);
-                        }}
-                        id="username"
-                        label="Email Address"
-                        type="email"
-                        fullWidth
-                        variant="standard"
-                        helperText={emailError}
-                        error={emailError.length > 0}
-                        value={userEmail}
-                    >
-                    </TextField>
-                    {state != 'register-verify' ? <></> : <TextField
-                        margin="dense"
-                        onChange={(e) => setCode(e.target.value)}
-                        id="code"
-                        label="Code from Email"
-                        type="text"
-                        fullWidth
-                        variant="standard"
-                        value={code}
-                    ></TextField>
-                    }
-                    {state === 'register' ? <></> : <TextField
-                        margin="dense"
-                        onChange={(e) => setPwd(e.target.value)}
-                        id="pwd"
-                        label="Password"
-                        type="password"
-                        fullWidth
-                        variant="standard"
-                        value={pwd}
-                    ></TextField>
+                <TextField
+                    autoFocus
+                    margin="dense"
+                    onChange={(e) => {
+                        if (emailError != '') {
+                            setEmailError('')
+                        }
+                        setUserEmail(e.target.value);
+                    }}
+                    id="username"
+                    label="Email Address"
+                    type="email"
+                    fullWidth
+                    variant="standard"
+                    helperText={emailError}
+                    error={emailError.length > 0}
+                    value={userEmail}
+                >
+                </TextField>
+
+                {state === 'register' ? <></> : <TextField
+                    margin="dense"
+                    onChange={(e) => setPwd(e.target.value)}
+                    id="pwd"
+                    label="Password"
+                    type="password"
+                    fullWidth
+                    variant="standard"
+                    value={pwd}
+                ></TextField>
+                }
+                {state != 'register-verify' ? <></> : <TextField
+                    margin="dense"
+                    onChange={(e) => setCode(e.target.value)}
+                    id="code"
+                    label="Code from Email"
+                    type="text"
+                    fullWidth
+                    variant="standard"
+                    value={code}
+                ></TextField>
                 }
                 {state === 'register-verify' ? <></> :
                     <FormControlLabel control={
