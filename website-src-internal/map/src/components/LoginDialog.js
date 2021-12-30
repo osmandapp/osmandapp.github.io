@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Button, Checkbox, TextField, FormControlLabel, FormGroup } from '@mui/material/';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -68,7 +68,6 @@ async function userLogout(ctx, username, setEmailError, setOpen, setState) {
     return false;
 }
 
-
 async function userLogin(ctx, username, pwd, setEmailError, setOpen) {
     const response = await fetch(`/map/api/auth/login`, {
         method: 'POST',
@@ -89,12 +88,20 @@ async function userLogin(ctx, username, pwd, setEmailError, setOpen) {
     return false;
 }
 
+async function loadListFiles(listFiles, setListFiles) {
+    const response = await fetch(`/map/api/list-files`, {});
+    const res = await response.json();
+    setListFiles(res);
+}
+
+
 export default function LoginDialog({ open, setOpen }) {
     const ctx = useContext(AppContext);
     const [userEmail, setUserEmail] = useState(ctx.userEmail);
     const [pwd, setPwd] = useState();
     const [code, setCode] = useState();
     const [emailError, setEmailError] = useState('');
+    const [listFiles, setListFiles] = useState({});
     const [state, setState] = useState('login'); // login, register, register-verify
     
     const handleLogin = () => {
@@ -112,21 +119,33 @@ export default function LoginDialog({ open, setOpen }) {
         setPwd('');
         setCode('');
     };
+    useEffect(() => {
+        if (ctx.loginUser) {
+            loadListFiles(listFiles, setListFiles);
+        }
+    }, [ctx.loginUser]);
     if (ctx.loginUser) {
+        
         return (
-            <Dialog open={open} onClose={handleClose}>    
-            <DialogTitle>{ctx.loginUser}</DialogTitle>
-            <DialogContent>
-                <DialogContentText>
-                    You logged in as {ctx.loginUser}
-                </DialogContentText>
-            </DialogContent>
+            <Dialog open={open} onClose={handleClose}>
+                <DialogTitle>{ctx.loginUser}</DialogTitle>
+                <DialogContent>
+                    <DialogContentText>
+                        <p>You logged in as {ctx.loginUser}.</p>
+                        {!listFiles.userid ? <></> :
+                            <>
+                                <p>Total files: {listFiles.totalFiles} ( {listFiles.totalFileVersions} with versions).</p>
+                                <p>Total files size: {listFiles.totalFileSize / 1024 / 1024} MB, cloud  storage used:  {listFiles.totalZipSize / 1024 / 1024} MB.</p>
+                            </>
+                        }
+                    </DialogContentText>
+                </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose}>Cancel</Button>
                     <Button onClick={(e) => userLogout(ctx, userEmail, setEmailError, setOpen, setState)}>
                         Logout</Button>
                 </DialogActions>
-                </Dialog>);
+            </Dialog>);
 
     }
     return (
