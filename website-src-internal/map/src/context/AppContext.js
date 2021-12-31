@@ -32,7 +32,7 @@ function getLayers() {
 async function loadListFiles(listFiles, setListFiles) {
     const response = await fetch(`/map/api/list-files`, {});
     const res = await response.json();
-    res.uniqueFiles.sort((f, s) => {
+    res.uniqueFiles = res.uniqueFiles.sort((f, s) => {
         if (f.clienttimems != s.clienttimems) {
             return f.clienttimems > s.clienttimems ? -1 : 1;
         }
