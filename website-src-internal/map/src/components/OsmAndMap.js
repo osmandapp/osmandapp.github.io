@@ -1,7 +1,11 @@
 import React, { useEffect, useRef, useContext } from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 import { MapContainer, TileLayer, ZoomControl, LayersControl } from "react-leaflet";
-import AppContext from "../context/AppContext"
+import AppContext from "../context/AppContext";
+import L from 'leaflet';
+import 'leaflet-gpx';
+import 'leaflet.awesome-markers';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -61,6 +65,36 @@ const OsmAndMap = () => {
     }
   }, [ctx.weatherDate]);
 
+  useEffect(() => {
+    // var gpx = 'https://www.openstreetmap.org/trace/4020415/data'; // URL to your GPX file or the GPX itself
+    let filesMap = ctx.gpxFiles ? ctx.gpxFiles : {} ;
+    Object.values(filesMap).forEach( (key) => {
+      if (key.url && !key.gpx) {
+        key.gpx = new L.GPX(key.url, {
+          async: true,
+          marker_options: {
+            startIcon: new L.AwesomeMarkers.icon({
+              icon: 'coffee',
+              markerColor: 'blue',
+              iconColor: 'white'
+            }),
+            endIcon: new L.AwesomeMarkers.icon({
+              icon: 'coffee',
+              markerColor: 'blue',
+              iconColor: 'white'
+            })
+            //shadowUrl: 'images/pin-shadow.png'
+          }
+        }).on('loaded', function (e) {
+          map.current.fitBounds(e.target.getBounds());
+        }).addTo(map.current);
+      } else if(!key.url && key.gpx) {
+        map.current.removeLayer(key.gpx);
+      }
+    });
+    
+  }, [ctx.gpxFiles]);
+
   // <TileLayer
   //   key="layer_white"
   //   url="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEAAQMAAABmvDolAAAAA1BMVEX///+nxBvIAAAAH0lEQVQYGe3BAQ0AAADCIPunfg43YAAAAAAAAAAA5wIhAAAB9aK9BAAAAABJRU5ErkJggg=="
@@ -68,13 +102,14 @@ const OsmAndMap = () => {
   //   maxZoom={18}
   // />
   return (
-    <MapContainer center={position} zoom={5} className={classes.root} minZoom={1} maxZoom={21}
+    <MapContainer center={position} zoom={5} className={classes.root} minZoom={1} maxZoom={20}
       zoomControl={false} whenReady={whenReadyHandler}
       attributionControl={false} >
       <TileLayer
         attribution='&amp;copy <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
         minZoom={1}
-        maxZoom={18}
+        maxZoom={20}
+        maxNativeZoom={18}
         url={ctx.tileURL}
       />
 

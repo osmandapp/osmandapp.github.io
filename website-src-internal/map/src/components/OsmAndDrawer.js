@@ -46,7 +46,9 @@ export default function OsmAndDrawer({ mobile, toggleDrawer,
         }
     });
     let gpxFiles = (!ctx.listFiles ? [] : 
-        ctx.listFiles.uniqueFiles).filter((item) => { return item.type == 'gpx' || item.type == 'GPX'});
+        ctx.listFiles.uniqueFiles).filter((item) => { 
+            return (item.type == 'gpx' || item.type == 'GPX') 
+                && (item.name.slice(-4) == '.gpx' || item.name.slice(-4) == '.GPX'); });
 
     return (<>
         <Toolbar variant="dense">
@@ -134,8 +136,20 @@ export default function OsmAndDrawer({ mobile, toggleDrawer,
                         </ListItemText>
                         </Tooltip>
                         <Switch
+                            checked={ctx.gpxFiles[item.name]?.url ? true : false}
                             onChange={(e) => {
-                                item.checked = e.target.checked;
+                                let url = `/map/api/download-file?type=${encodeURIComponent(item.type)}&name=${encodeURIComponent(item.name)}`;
+                                const newGpxFiles = Object.assign({}, ctx.gpxFiles);
+                                if (!e.target.checked) {
+                                    // delete newGpxFiles[item.name];
+                                    newGpxFiles[item.name].url = null;
+                                } else {
+                                    newGpxFiles[item.name] = {
+                                        'url': url
+                                    }
+                                }
+                                ctx.setGpxFiles(newGpxFiles);
+                                
                             }} />
                     </MenuItem>
                 ))}

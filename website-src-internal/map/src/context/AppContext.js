@@ -32,6 +32,16 @@ function getLayers() {
 async function loadListFiles(listFiles, setListFiles) {
     const response = await fetch(`/map/api/list-files`, {});
     const res = await response.json();
+    res.uniqueFiles.sort((f, s) => {
+        if (f.clienttimems != s.clienttimems) {
+            return f.clienttimems > s.clienttimems ? -1 : 1;
+        }
+        if (f.updatetimems != s.updatetimems) {
+            return f.updatetimems > s.updatetimems ? -1 : 1;
+        }
+        return 0;
+    });
+    
     setListFiles(res);
 }
 async function checkUserLogin(loginUser, setLoginUser, userEmail, setUserEmail, listFiles, setListFiles) {
@@ -79,6 +89,7 @@ export const AppContextProvider = (props) => {
     // server state of login
     const [loginUser, setLoginUser] = useState(null);
     const [listFiles, setListFiles] = useState(null);
+    const [gpxFiles, setGpxFiles] = useState({});
     useEffect(() => {
         checkUserLogin(loginUser, setLoginUser, userEmail, setUserEmail,
             listFiles, setListFiles);
@@ -89,6 +100,7 @@ export const AppContextProvider = (props) => {
         userEmail: userEmail, setUserEmail: setUserEmail,
         listFiles: listFiles, setListFiles: setListFiles,
         loginUser: loginUser, setLoginUser: setLoginUser,
+        gpxFiles: gpxFiles, setGpxFiles: setGpxFiles,
         tileURL: osmandTileURL
     }}>
         {props.children}
