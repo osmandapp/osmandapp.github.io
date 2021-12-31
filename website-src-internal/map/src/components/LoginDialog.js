@@ -39,7 +39,6 @@ async function userActivate(ctx, username, pwd, token, setEmailError, setOpen) {
         return false;
     }
     const user = await response.json();
-    ctx.setUserEmail(username, { days: 30 });
     ctx.setLoginUser(username);
     setOpen(false);
     return true;
@@ -59,8 +58,6 @@ async function userLogout(ctx, username, setEmailError, setOpen, setState) {
     const user = await response.json();
     if (user.status == 'ok') {
         setState('login');
-
-        ctx.setUserEmail('', { days: 30 });
         ctx.setLoginUser('');
         setOpen(false);
         return true;
@@ -81,18 +78,11 @@ async function userLogin(ctx, username, pwd, setEmailError, setOpen) {
     }
     const user = await response.json();
     if (user.status == 'ok') {
-        ctx.setUserEmail(username, { days: 30 });
         ctx.setLoginUser(username);
         setOpen(false);
         return true;
     }
     return false;
-}
-
-async function loadListFiles(listFiles, setListFiles) {
-    const response = await fetch(`/map/api/list-files`, {});
-    const res = await response.json();
-    setListFiles(res);
 }
 
 
@@ -102,7 +92,6 @@ export default function LoginDialog({ open, setOpen }) {
     const [pwd, setPwd] = useState();
     const [code, setCode] = useState();
     const [emailError, setEmailError] = useState('');
-    const [listFiles, setListFiles] = useState({});
     const [state, setState] = useState('login'); // login, register, register-verify
     
     const handleLogin = () => {
@@ -120,29 +109,24 @@ export default function LoginDialog({ open, setOpen }) {
         setPwd('');
         setCode('');
     };
-    useEffect(() => {
-        if (ctx.loginUser) {
-            loadListFiles(listFiles, setListFiles);
-        }
-    }, [ctx.loginUser]);
     if (ctx.loginUser) {
         return (
             <Dialog open={open} onClose={handleClose}>
                 <DialogTitle>{ctx.loginUser}</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        <p>You logged in as {ctx.loginUser}.</p>
-                        {!listFiles.userid ? <></> :
-                            <>
-                                <p>Total files: {listFiles.totalFiles} ({listFiles.totalFileVersions} including versions).<br/>
-                                    Total files size: {(listFiles.totalFileSize / 1024.0 / 1024.0).toFixed(1)} MB, 
-                                    cloud storage used: {(listFiles.totalZipSize / 1024 / 1024.0).toFixed(1)} MB.</p>
-                            </>
+                        You logged in as {ctx.loginUser}.<br />
+                        {!ctx.listFiles || !ctx.listFiles.userid ? <></> :
+                        <span>
+                            Total files: {ctx.listFiles.totalFiles} ({ctx.listFiles.totalFileVersions} including versions).<br />
+                            Total files size: {(ctx.listFiles.totalFileSize / 1024.0 / 1024.0).toFixed(1)} MB,
+                            cloud storage used: {(ctx.listFiles.totalZipSize / 1024 / 1024.0).toFixed(1)} MB.
+                        </span>
                         }
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose}>Cancel</Button>
+                    <Button onClick={handleClose}>Close</Button>
                     <Button onClick={(e) => userLogout(ctx, userEmail, setEmailError, setOpen, setState)}>
                         Logout</Button>
                 </DialogActions>

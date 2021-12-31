@@ -29,7 +29,12 @@ function getLayers() {
     return layers;
 }
 
-async function checkUserLogin(loginUser, setLoginUser, userEmail, setUserEmail) {
+async function loadListFiles(listFiles, setListFiles) {
+    const response = await fetch(`/map/api/list-files`, {});
+    const res = await response.json();
+    setListFiles(res);
+}
+async function checkUserLogin(loginUser, setLoginUser, userEmail, setUserEmail, listFiles, setListFiles) {
     const response = await fetch(`/map/api/auth/info`, {
         method: 'GET'
     });
@@ -41,6 +46,7 @@ async function checkUserLogin(loginUser, setLoginUser, userEmail, setUserEmail) 
                 setUserEmail(newUser, { days: 30 });
             }
             setLoginUser(newUser);
+            loadListFiles(listFiles, setListFiles);
         }
     }
 }
@@ -72,13 +78,16 @@ export const AppContextProvider = (props) => {
     const [userEmail, setUserEmail] = useCookie('email', '');
     // server state of login
     const [loginUser, setLoginUser] = useState(null);
+    const [listFiles, setListFiles] = useState(null);
     useEffect(() => {
-       checkUserLogin(loginUser, setLoginUser, userEmail, setUserEmail);
+        checkUserLogin(loginUser, setLoginUser, userEmail, setUserEmail,
+            listFiles, setListFiles);
     }, [loginUser]);
     return <AppContext.Provider value={{
         weatherLayers: weatherLayers, updateWeatherLayers: updateWeatherLayers,
         weatherDate: weatherDate, setWeatherDate: setWeatherDate,
         userEmail: userEmail, setUserEmail: setUserEmail,
+        listFiles: listFiles, setListFiles: setListFiles,
         loginUser: loginUser, setLoginUser: setLoginUser,
         tileURL: osmandTileURL
     }}>

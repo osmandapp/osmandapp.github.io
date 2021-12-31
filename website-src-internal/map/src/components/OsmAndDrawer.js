@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { Toolbar, Typography, ListItemText, Switch, Collapse } from "@mui/material";
 import {
-    IconButton, Divider, MenuItem, ListItemIcon, MenuList,
+    IconButton, Divider, MenuItem, ListItemIcon, MenuList, Tooltip, 
 } from "@mui/material";
 import {
     ArrowBack, Air, DirectionsWalk, ExpandLess, ExpandMore,
@@ -14,6 +14,11 @@ const addWeatherHours = (weatherDate, setWeatherDate, hours) => (event) => {
     setWeatherDate(dt);
 }
 
+const switchLayer = (ctx, index) => (e) => {
+    let newlayers = [...ctx.weatherLayers];
+    newlayers[index].checked = e.target.checked;
+    ctx.updateWeatherLayers(newlayers);
+}
 function formatWeatherDate(weatherDateObj) {
     let hours = (-(new Date().getTime() - weatherDateObj.getTime()) / 3600000).toFixed(0);
     if (hours === 0) {
@@ -32,9 +37,7 @@ export default function OsmAndDrawer({ mobile, toggleDrawer,
     appText, setAppText, setLoginDialog }) {
     const ctx = useContext(AppContext);
     const [weatherOpen, setWeatherOpen] = useState(false);
-    const handleWeather = () => {
-        setWeatherOpen(!weatherOpen);
-    };
+    const [gpxOpen, setGpxOpen] = useState(false);
     useEffect(() => {
         if (weatherOpen) {
             setAppText(formatWeatherDate(ctx.weatherDate));
@@ -42,6 +45,9 @@ export default function OsmAndDrawer({ mobile, toggleDrawer,
             setAppText(null);
         }
     });
+    let gpxFiles = (!ctx.listFiles ? [] : 
+        ctx.listFiles.uniqueFiles).filter((item) => { return item.type == 'gpx'});
+
     return (<>
         <Toolbar variant="dense">
             {mobile ?
@@ -68,7 +74,7 @@ export default function OsmAndDrawer({ mobile, toggleDrawer,
         </Toolbar>
         <Divider />
         <MenuList>
-            <MenuItem onClick={handleWeather}>
+            <MenuItem onClick={() => setWeatherOpen(!weatherOpen)}>
                 <ListItemIcon>
                     <Air fontSize="small" />
                 </ListItemIcon>
@@ -78,8 +84,8 @@ export default function OsmAndDrawer({ mobile, toggleDrawer,
 
             <Collapse in={weatherOpen} timeout="auto" unmountOnExit>
                 {ctx.weatherLayers.map((item, index) => (
-                    <MenuItem key={item.key}>
-                        <ListItemIcon>
+                    <MenuItem key={item.key} >
+                        <ListItemIcon sx={{ ml: 2 }}>
                             {item.iconComponent ?
                                 item.iconComponent :
                                 <Thermostat fontSize="small" />
@@ -88,15 +94,11 @@ export default function OsmAndDrawer({ mobile, toggleDrawer,
                         <ListItemText>{item.name}</ListItemText>
                         <Switch
                             checked={item.checked}
-                            onChange={(e) => {
-                                let newlayers = [...ctx.weatherLayers];
-                                newlayers[index].checked = e.target.checked;
-                                ctx.updateWeatherLayers(newlayers);
-                            }} />
+                            onChange={switchLayer(ctx, index)} />
                     </MenuItem>
                 ))}
                 <MenuItem disableRipple={true}>
-                    <IconButton onClick={addWeatherHours(ctx.weatherDate, ctx.setWeatherDate, -1)}>
+                    <IconButton sx={{ml:1}} onClick={addWeatherHours(ctx.weatherDate, ctx.setWeatherDate, -1)}>
                         <NavigateBefore />
                     </IconButton>
                     <Typography>{ctx.weatherDate.toLocaleDateString() + " " + ctx.weatherDate.getHours() + ":00"}</Typography>
@@ -107,15 +109,38 @@ export default function OsmAndDrawer({ mobile, toggleDrawer,
 
                 <Divider />
             </Collapse>
-            <MenuItem>
+            <MenuItem onClick={(e) => setGpxOpen(!gpxOpen)}>
                 <ListItemIcon>
                     <DirectionsWalk fontSize="small" />
                 </ListItemIcon>
-                <ListItemText>Tracks</ListItemText>
+                <ListItemText>Tracks {gpxFiles.length > 0 ? `(${gpxFiles.length})`:''} </ListItemText>
                 <Typography variant="body2" color="textSecondary">
                     GPX
                 </Typography>
+                {
+                    gpxFiles.length == 0 ? <></> :
+                    gpxOpen ? <ExpandLess /> : <ExpandMore />
+                }
             </MenuItem>
+
+            <Collapse in={gpxOpen} timeout="auto" unmountOnExit>
+                {gpxFiles.map((item, index) => (
+                    <MenuItem key={item.name}>
+                        <Tooltip title={item.name}>
+                        <ListItemText inset>
+                            <Typography variant="inherit" noWrap>
+                                {item.name.slice(0, -4).replace('_', ' ')}
+                            </Typography>
+                        </ListItemText>
+                        </Tooltip>
+                        <Switch
+                            onChange={(e) => {
+                                item.checked = e.target.checked;
+                            }} />
+                    </MenuItem>
+                ))}
+            </Collapse>
+
         </MenuList>
     </>
     );
