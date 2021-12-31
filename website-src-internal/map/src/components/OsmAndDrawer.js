@@ -46,7 +46,7 @@ export default function OsmAndDrawer({ mobile, toggleDrawer,
         }
     });
     let gpxFiles = (!ctx.listFiles ? [] : 
-        ctx.listFiles.uniqueFiles).filter((item) => { return item.type == 'gpx'});
+        ctx.listFiles.uniqueFiles).filter((item) => { return item.type == 'gpx' || item.type == 'GPX'});
 
     return (<>
         <Toolbar variant="dense">
