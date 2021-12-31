@@ -82,6 +82,7 @@ async function userLogin(ctx, username, pwd, setEmailError, setOpen) {
     const user = await response.json();
     if (user.status == 'ok') {
         ctx.setUserEmail(username, { days: 30 });
+        ctx.setLoginUser(username);
         setOpen(false);
         return true;
     }
@@ -125,7 +126,6 @@ export default function LoginDialog({ open, setOpen }) {
         }
     }, [ctx.loginUser]);
     if (ctx.loginUser) {
-        
         return (
             <Dialog open={open} onClose={handleClose}>
                 <DialogTitle>{ctx.loginUser}</DialogTitle>

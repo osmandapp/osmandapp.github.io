@@ -37,6 +37,9 @@ async function checkUserLogin(loginUser, setLoginUser, userEmail, setUserEmail) 
         const user = await response.json();
         let newUser = user && user.principal ? user.principal.username : null;
         if (loginUser != newUser) {
+            if (newUser) {
+                setUserEmail(newUser, { days: 30 });
+            }
             setLoginUser(newUser);
         }
     }
@@ -68,10 +71,10 @@ export const AppContextProvider = (props) => {
     // cookie to store email logged in
     const [userEmail, setUserEmail] = useCookie('email', '');
     // server state of login
-    const [loginUser, setLoginUser] = useState(userEmail);
+    const [loginUser, setLoginUser] = useState(null);
     useEffect(() => {
        checkUserLogin(loginUser, setLoginUser, userEmail, setUserEmail);
-    }, [userEmail, loginUser]);
+    }, [loginUser]);
     return <AppContext.Provider value={{
         weatherLayers: weatherLayers, updateWeatherLayers: updateWeatherLayers,
         weatherDate: weatherDate, setWeatherDate: setWeatherDate,
