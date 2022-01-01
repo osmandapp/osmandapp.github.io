@@ -45,7 +45,7 @@ export default function OsmAndDrawer({ mobile, toggleDrawer,
             setAppText(null);
         }
     });
-    let gpxFiles = (!ctx.listFiles ? [] : 
+    let gpxFiles = (!ctx.listFiles || !ctx.listFiles.uniqueFiles ? [] : 
         ctx.listFiles.uniqueFiles).filter((item) => { 
             return (item.type == 'gpx' || item.type == 'GPX') 
                 && (item.name.slice(-4) == '.gpx' || item.name.slice(-4) == '.GPX'); });

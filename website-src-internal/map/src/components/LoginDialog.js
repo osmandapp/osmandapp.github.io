@@ -160,9 +160,9 @@ export default function LoginDialog({ open, setOpen }) {
                     type="email"
                     fullWidth
                     variant="standard"
-                    helperText={emailError}
+                    helperText={emailError ? emailError : ''}
                     error={emailError.length > 0}
-                    value={userEmail}
+                    value={userEmail ? userEmail : ''}
                 >
                 </TextField>
 
@@ -174,7 +174,7 @@ export default function LoginDialog({ open, setOpen }) {
                     type="password"
                     fullWidth
                     variant="standard"
-                    value={pwd}
+                    value={pwd ? pwd : ''}
                 ></TextField>
                 }
                 {state != 'register-verify' ? <></> : <TextField

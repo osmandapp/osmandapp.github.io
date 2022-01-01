@@ -24,25 +24,32 @@ function getLayers() {
         item.maxNativeZoom = 3;
         item.maxZoom = 11;
         item.checked = false;
+
         return item;
     });
     return layers;
 }
 
-async function loadListFiles(listFiles, setListFiles) {
-    const response = await fetch(`/map/api/list-files`, {});
-    const res = await response.json();
-    res.uniqueFiles = res.uniqueFiles.sort((f, s) => {
-        if (f.clienttimems != s.clienttimems) {
-            return f.clienttimems > s.clienttimems ? -1 : 1;
+async function loadListFiles(loginUser, listFiles, setListFiles) {
+    if (loginUser != listFiles.loginUser) {
+        if (!loginUser) {
+            setListFiles({});
+        } else {
+            const response = await fetch(`/map/api/list-files`, {});
+            const res = await response.json();
+            res.loginUser = loginUser;
+            res.uniqueFiles = res.uniqueFiles.sort((f, s) => {
+                if (f.clienttimems != s.clienttimems) {
+                    return f.clienttimems > s.clienttimems ? -1 : 1;
+                }
+                if (f.updatetimems != s.updatetimems) {
+                    return f.updatetimems > s.updatetimems ? -1 : 1;
+                }
+                return 0;
+            });
+            setListFiles(res);
         }
-        if (f.updatetimems != s.updatetimems) {
-            return f.updatetimems > s.updatetimems ? -1 : 1;
-        }
-        return 0;
-    });
-    
-    setListFiles(res);
+    }
 }
 async function checkUserLogin(loginUser, setLoginUser, userEmail, setUserEmail, listFiles, setListFiles) {
     const response = await fetch(`/map/api/auth/info`, {
@@ -56,7 +63,6 @@ async function checkUserLogin(loginUser, setLoginUser, userEmail, setUserEmail, 
                 setUserEmail(newUser, { days: 30 });
             }
             setLoginUser(newUser);
-            loadListFiles(listFiles, setListFiles);
         }
     }
 }
@@ -88,11 +94,13 @@ export const AppContextProvider = (props) => {
     const [userEmail, setUserEmail] = useCookie('email', '');
     // server state of login
     const [loginUser, setLoginUser] = useState(null);
-    const [listFiles, setListFiles] = useState(null);
+    const [listFiles, setListFiles] = useState({});
     const [gpxFiles, setGpxFiles] = useState({});
     useEffect(() => {
-        checkUserLogin(loginUser, setLoginUser, userEmail, setUserEmail,
-            listFiles, setListFiles);
+        checkUserLogin(loginUser, setLoginUser, userEmail, setUserEmail);
+    }, [loginUser]);
+    useEffect(() => {
+        loadListFiles(loginUser, listFiles, setListFiles);
     }, [loginUser]);
     return <AppContext.Provider value={{
         weatherLayers: weatherLayers, updateWeatherLayers: updateWeatherLayers,

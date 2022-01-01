@@ -52,6 +52,8 @@ const OsmAndMap = () => {
     const { target } = event;
     target.on('overlayadd', updateLayerFunc(ctx.weatherLayers, ctx.updateWeatherLayers, true));
     target.on('overlayremove', updateLayerFunc(ctx.weatherLayers, ctx.updateWeatherLayers, false));
+    target.attributionControl.setPrefix('');
+
     map.current = target;
   }
   useEffect(() => {
@@ -104,7 +106,7 @@ const OsmAndMap = () => {
   return (
     <MapContainer center={position} zoom={5} className={classes.root} minZoom={1} maxZoom={20}
       zoomControl={false} whenReady={whenReadyHandler}
-      attributionControl={false} >
+      >
       <TileLayer
         attribution='&amp;copy <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
         minZoom={1}
