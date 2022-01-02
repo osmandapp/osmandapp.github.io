@@ -1,17 +1,61 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { Toolbar, Typography, ListItemText, Switch, Collapse } from "@mui/material";
+import { styled } from '@mui/material/styles';
+import { Toolbar, Typography, ListItemText, Switch, 
+    Collapse, Button, } from "@mui/material";
 import {
     IconButton, Divider, MenuItem, ListItemIcon, MenuList, Tooltip, 
 } from "@mui/material";
 import {
     ArrowBack, Air, DirectionsWalk, ExpandLess, ExpandMore,
-    Thermostat, NavigateNext, NavigateBefore, Person
+    Thermostat, NavigateNext, NavigateBefore, Person,
+    Sort, SortByAlpha, UploadFile
 } from '@mui/icons-material';
 import AppContext from "../context/AppContext"
+
+const StyledInput = styled('input')({
+    display: 'none',
+});
 
 const addWeatherHours = (weatherDate, setWeatherDate, hours) => (event) => {
     let dt = new Date(weatherDate.getTime() + (hours * 60 * 60 * 1000));
     setWeatherDate(dt);
+}
+
+async function uploadFile(gpxFiles, setGpxFiles, gpxLayer, file) {
+    let formData = new FormData();
+    formData.append('file', file);
+    const response = await fetch(`/gpx/upload-session-gpx`, {
+        method: 'POST',
+        body: formData
+    });
+    if (response.ok) {
+        let data = await response.json();
+        let newinfo = Object.assign({}, gpxFiles);
+        newinfo[gpxLayer.name] = gpxLayer;
+        if (data.files === 0) {
+            newinfo.localInfoSummary = null;
+        } else {
+            newinfo.localInfoSummary = "Local GPX files: " + data.files + " tracks, " +
+                (data.totalDist / 1000.0).toFixed(1) + " km, " + data.waypoints + " wpts";
+        }
+        setGpxFiles(newinfo);
+    } else {
+        alert("File Upload has failed");
+    }
+}
+
+const fileSelected = (gpxFiles, setGpxFiles) => async (e) => {
+    let file = e.target.files[0];
+    const reader = new FileReader();
+    reader.addEventListener('load', (event) => {
+        let src = event.target.result;
+        let gpxLayer = {};
+        gpxLayer.name = 'local:' +file.name;
+        gpxLayer.localContent = src;
+        gpxLayer.local = true;
+        uploadFile(gpxFiles, setGpxFiles, gpxLayer, file);
+    });
+    reader.readAsText(file);
 }
 
 const switchLayer = (ctx, index) => (e) => {
@@ -38,18 +82,25 @@ export default function OsmAndDrawer({ mobile, toggleDrawer,
     const ctx = useContext(AppContext);
     const [weatherOpen, setWeatherOpen] = useState(false);
     const [gpxOpen, setGpxOpen] = useState(false);
+    const [localGpxOpen, setLocalGpxOpen] = useState(false);
+
+    let localGpxFiles = (!ctx.gpxFiles ? [] :
+        Object.values(ctx.gpxFiles).filter((item) => item.local === true));
+    let gpxFiles = (!ctx.listFiles || !ctx.listFiles.uniqueFiles ? [] :
+        ctx.listFiles.uniqueFiles).filter((item) => {
+            return (item.type === 'gpx' || item.type === 'GPX')
+                && (item.name.slice(-4) === '.gpx' || item.name.slice(-4) === '.GPX');
+        });
+
     useEffect(() => {
         if (weatherOpen) {
             setAppText(formatWeatherDate(ctx.weatherDate));
+        } else if (localGpxOpen && ctx.gpxFiles) {
+            setAppText(ctx.gpxFiles.localInfoSummary);
         } else {
             setAppText(null);
         }
     });
-    let gpxFiles = (!ctx.listFiles || !ctx.listFiles.uniqueFiles ? [] : 
-        ctx.listFiles.uniqueFiles).filter((item) => { 
-            return (item.type == 'gpx' || item.type == 'GPX') 
-                && (item.name.slice(-4) == '.gpx' || item.name.slice(-4) == '.GPX'); });
-
     return (<>
         <Toolbar variant="dense">
             {mobile ?
@@ -111,21 +162,31 @@ export default function OsmAndDrawer({ mobile, toggleDrawer,
 
                 <Divider />
             </Collapse>
+
+
             <MenuItem onClick={(e) => setGpxOpen(!gpxOpen)}>
                 <ListItemIcon>
                     <DirectionsWalk fontSize="small" />
                 </ListItemIcon>
-                <ListItemText>Tracks {gpxFiles.length > 0 ? `(${gpxFiles.length})`:''} </ListItemText>
+                <ListItemText>Tracks {gpxFiles.length > 0 ? `(${gpxFiles.length})` : ''} </ListItemText>
                 <Typography variant="body2" color="textSecondary">
                     GPX
                 </Typography>
                 {
-                    gpxFiles.length == 0 ? <></> :
-                    gpxOpen ? <ExpandLess /> : <ExpandMore />
+                    gpxFiles.length === 0 ? <></> :
+                        gpxOpen ? <ExpandLess /> : <ExpandMore />
                 }
             </MenuItem>
 
             <Collapse in={gpxOpen} timeout="auto" unmountOnExit>
+                <MenuItem disableRipple={true}>
+                    <IconButton sx={{ ml: 2 }}>
+                        <Sort fontSize="small" />
+                    </IconButton>
+                    <IconButton sx={{ ml: 2 }}>
+                        <SortByAlpha fontSize="small" />
+                    </IconButton>
+                </MenuItem>
                 {gpxFiles.map((item, index) => (
                     <MenuItem key={item.name}>
                         <Tooltip title={item.name}>
@@ -153,6 +214,58 @@ export default function OsmAndDrawer({ mobile, toggleDrawer,
                             }} />
                     </MenuItem>
                 ))}
+            </Collapse>
+
+
+            <MenuItem onClick={(e) => setLocalGpxOpen(!localGpxOpen)}>
+                <ListItemIcon>
+                    <DirectionsWalk fontSize="small" />
+                </ListItemIcon>
+                <ListItemText>Local Tracks {localGpxFiles.length > 0 ? `(${localGpxFiles.length})` : ''} </ListItemText>
+                {localGpxOpen ? <ExpandLess /> : <ExpandMore />}
+            </MenuItem>
+
+            <Collapse in={localGpxOpen} timeout="auto" unmountOnExit>
+                {localGpxFiles.map((item, index) => (
+                    <MenuItem key={item.name}>
+                        <Tooltip title={item.name}>
+                            <ListItemText inset>
+                                <Typography variant="inherit" noWrap>
+                                    {item.name.slice(6, -4).replace('_', ' ')}
+                                </Typography>
+                            </ListItemText>
+                        </Tooltip>
+
+                        <Switch
+                            checked={item.url? true : false}
+                            onChange={(e) => {
+                                const newGpxFiles = Object.assign({}, ctx.gpxFiles);
+                                if (!e.target.checked) {
+                                    // delete newGpxFiles[item.name];
+                                    newGpxFiles[item.name].url = null;
+                                } else {
+                                    newGpxFiles[item.name].url = item.localContent;
+                                }
+                                ctx.setGpxFiles(newGpxFiles);
+                            }} />
+                    </MenuItem>
+                ))}
+                <MenuItem disableRipple={true}>
+                    <label htmlFor="contained-button-file" >
+                        <StyledInput accept=".gpx" id="contained-button-file" multiple type="file"
+                            onChange={fileSelected(ctx.gpxFiles, ctx.setGpxFiles)} />
+                        <Button variant="contained" component="span" sx={{ ml: 3 }}>
+                            Upload
+                        </Button>
+                    </label>
+                    {
+                        localGpxFiles.length === 0 ? <></> :
+                            <Button variant="contained" component="span" sx={{ ml: 2 }}>
+                                Clear
+                            </Button>
+                    }
+                </MenuItem>
+                
             </Collapse>
 
         </MenuList>

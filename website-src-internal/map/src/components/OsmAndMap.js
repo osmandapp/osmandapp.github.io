@@ -92,6 +92,7 @@ const OsmAndMap = () => {
         }).addTo(map.current);
       } else if(!key.url && key.gpx) {
         map.current.removeLayer(key.gpx);
+        key.gpx = null;
       }
     });
     
