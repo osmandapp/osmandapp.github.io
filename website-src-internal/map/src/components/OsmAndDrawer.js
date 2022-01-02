@@ -21,6 +21,14 @@ const addWeatherHours = (weatherDate, setWeatherDate, hours) => (event) => {
     setWeatherDate(dt);
 }
 
+function formatGpxData(newinfo, data) {
+    if (data.files === 0) {
+        delete newinfo.localInfoSummary;
+    } else {
+        newinfo.localInfoSummary = "Local GPX files: " + data.files + " tracks, " +
+            (data.totalDist / 1000.0).toFixed(1) + " km, " + data.waypoints + " wpts";
+    }
+}
 async function uploadFile(gpxFiles, setGpxFiles, gpxLayer, file) {
     let formData = new FormData();
     formData.append('file', file);
@@ -32,17 +40,33 @@ async function uploadFile(gpxFiles, setGpxFiles, gpxLayer, file) {
         let data = await response.json();
         let newinfo = Object.assign({}, gpxFiles);
         newinfo[gpxLayer.name] = gpxLayer;
-        if (data.files === 0) {
-            newinfo.localInfoSummary = null;
-        } else {
-            newinfo.localInfoSummary = "Local GPX files: " + data.files + " tracks, " +
-                (data.totalDist / 1000.0).toFixed(1) + " km, " + data.waypoints + " wpts";
-        }
+        formatGpxData(newinfo, data);
         setGpxFiles(newinfo);
     } else {
         alert("File Upload has failed");
     }
 }
+
+
+const clearLocalGpx = (gpxFiles, setGpxFiles) => async (e) => {
+    const response = await fetch(`/gpx/clear`, {method: 'POST'});
+    if (response.ok) {
+        let data = await response.json();
+        let newinfo = Object.assign({}, gpxFiles);
+        formatGpxData(newinfo, data);
+        Object.values(gpxFiles).map((item) => {
+            if (item.local) {
+                // clear up but not delete
+                newinfo[item.name].local = false;
+                newinfo[item.name].url = null;
+                newinfo[item.name].localContent = null;
+                // delete newinfo[item.name];
+            }
+        });
+        setGpxFiles(newinfo);
+    }
+}
+
 
 const fileSelected = (gpxFiles, setGpxFiles) => async (e) => {
     let file = e.target.files[0];
@@ -85,7 +109,7 @@ export default function OsmAndDrawer({ mobile, toggleDrawer,
     const [localGpxOpen, setLocalGpxOpen] = useState(false);
 
     let localGpxFiles = (!ctx.gpxFiles ? [] :
-        Object.values(ctx.gpxFiles).filter((item) => item.local === true));
+        Object.values(ctx.gpxFiles).filter((item) =>  item.local === true));
     let gpxFiles = (!ctx.listFiles || !ctx.listFiles.uniqueFiles ? [] :
         ctx.listFiles.uniqueFiles).filter((item) => {
             return (item.type === 'gpx' || item.type === 'GPX')
@@ -260,7 +284,8 @@ export default function OsmAndDrawer({ mobile, toggleDrawer,
                     </label>
                     {
                         localGpxFiles.length === 0 ? <></> :
-                            <Button variant="contained" component="span" sx={{ ml: 2 }}>
+                            <Button variant="contained" component="span" sx={{ ml: 2 }} 
+                                onClick={clearLocalGpx(ctx.gpxFiles, ctx.setGpxFiles)}>
                                 Clear
                             </Button>
                     }
