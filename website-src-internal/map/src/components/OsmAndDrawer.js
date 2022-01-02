@@ -40,6 +40,7 @@ async function uploadFile(gpxFiles, setGpxFiles, gpxLayer, file) {
         let data = await response.json();
         let newinfo = Object.assign({}, gpxFiles);
         newinfo[gpxLayer.name] = gpxLayer;
+        gpxFiles[gpxLayer.name] = gpxLayer;
         formatGpxData(newinfo, data);
         setGpxFiles(newinfo);
     } else {
@@ -69,17 +70,20 @@ const clearLocalGpx = (gpxFiles, setGpxFiles) => async (e) => {
 
 
 const fileSelected = (gpxFiles, setGpxFiles) => async (e) => {
-    let file = e.target.files[0];
-    const reader = new FileReader();
-    reader.addEventListener('load', (event) => {
-        let src = event.target.result;
-        let gpxLayer = {};
-        gpxLayer.name = 'local:' +file.name;
-        gpxLayer.localContent = src;
-        gpxLayer.local = true;
-        uploadFile(gpxFiles, setGpxFiles, gpxLayer, file);
+//    let file = e.target.files[0];
+
+    Array.from(e.target.files).forEach((file) => {
+        const reader = new FileReader();
+        reader.addEventListener('load', (event) => {
+            let src = event.target.result;
+            let gpxLayer = {};
+            gpxLayer.name = 'local:' + file.name;
+            gpxLayer.localContent = src;
+            gpxLayer.local = true;
+            uploadFile(gpxFiles, setGpxFiles, gpxLayer, file);
+        });
+        reader.readAsText(file);
     });
-    reader.readAsText(file);
 }
 
 const switchLayer = (ctx, index) => (e) => {
