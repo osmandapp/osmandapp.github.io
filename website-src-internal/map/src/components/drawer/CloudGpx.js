@@ -93,6 +93,8 @@ export default function CloudGpx({ setAppText }) {
             return (item.type === 'gpx' || item.type === 'GPX')
                 && (item.name.slice(-4) === '.gpx' || item.name.slice(-4) === '.GPX');
         });
+    const [alphaUp, setAlphaUp] = useState(false);
+    const [timeUp, setTimeUp] = useState(false);
     return <>
         <MenuItem onClick={(e) => setGpxOpen(!gpxOpen)}>
             <ListItemIcon>
@@ -110,10 +112,35 @@ export default function CloudGpx({ setAppText }) {
 
         <Collapse in={gpxOpen} timeout="auto" unmountOnExit>
             <MenuItem disableRipple={true}>
-                <IconButton sx={{ ml: 2 }}>
+                <IconButton sx={{ ml: 4 }} onClick={() => {
+                    let lf = Object.assign({}, ctx.listFiles);
+                    lf.uniqueFiles = lf.uniqueFiles.sort((f, s) => {
+                        if (f.clienttimems === s.clienttimems) {
+                            return f.name > s.name ? 1 : -1;
+                        }
+                        if (timeUp) {
+                            return f.clienttimems > s.clienttimems ? 1 : -1;
+                        } else {
+                            return f.clienttimems < s.clienttimems ? 1 : -1;
+                        }
+                    });
+                    setTimeUp(!timeUp);
+                    ctx.setListFiles(lf);
+                }} >
                     <Sort fontSize="small" />
                 </IconButton>
-                <IconButton sx={{ ml: 2 }}>
+                <IconButton sx={{ ml: 2 }} onClick={() => {
+                    let lf = Object.assign({}, ctx.listFiles);
+                    lf.uniqueFiles = lf.uniqueFiles.sort((f, s) => {
+                        if (alphaUp) {
+                            return f.name > s.name ? 1 : -1;
+                        } else {
+                            return f.name < s.name ? 1 : -1;
+                        }
+                    });
+                    setAlphaUp(!alphaUp);
+                    ctx.setListFiles(lf);
+                }} >
                     <SortByAlpha fontSize="small" />
                 </IconButton>
             </MenuItem>
@@ -127,10 +154,11 @@ export default function CloudGpx({ setAppText }) {
                     let updownhill = '';
                     let speed = '';
                     if (item.clienttimems) {
-                        clienttime = "Device time " + new Date(item.clienttimems).toDateString() + 
-                            new Date(item.clienttimems).toLocaleTimeString();
+                        clienttime = "Upload time: " + new Date(item.clienttimems).toDateString() + 
+                            + "  " + new Date(item.clienttimems).toLocaleTimeString();
                     }
-                    if (localLayer?.summary?.startTime) {
+                    if (localLayer?.summary?.startTime && 
+                        localLayer?.summary?.startTime != localLayer?.summary?.endTime) {
                         let stdate = new Date(localLayer.summary.startTime).toDateString();
                         let edate = new Date(localLayer.summary.endTime).toDateString();
                         timeRange = new Date(localLayer.summary.startTime).toDateString() + " " +
@@ -148,7 +176,7 @@ export default function CloudGpx({ setAppText }) {
                         updownhill = "Uphill/downhill: " + localLayer?.summary?.diffElevationUp.toFixed(0) 
                             + "/" + localLayer?.summary?.diffElevationDown.toFixed(0) + " m";
                     }
-                    if (localLayer?.summary?.avgSpeed) {
+                    if (localLayer?.summary?.maxSpeed && localLayer?.summary?.maxSpeed > 0) {
                         speed = "Speed (min/avg/max): " + 
                             (localLayer?.summary?.minSpeed * 3.6).toFixed(0) + " / " + 
                             (localLayer?.summary?.avgSpeed * 3.6).toFixed(0) + " / " +
