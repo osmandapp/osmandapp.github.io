@@ -16,15 +16,45 @@ const StyledInput = styled('input')({
     display: 'none',
 });
 
-function formatGpxData(newinfo, setAppText, data) {
-    if (data.files === 0) {
-        delete newinfo.localInfoSummary;
-        setAppText('');
-    } else {
-        newinfo.localInfoSummary = "Local GPX files: " + data.files + " tracks, " +
-            (data.totalDist / 1000.0).toFixed(1) + " km, " + data.waypoints + " wpts";
-        setAppText(newinfo.localInfoSummary);
+
+function updateTextInfo(gpxFiles, setAppText) {
+    // Local GPX files: undefined tracks, NaN km, undefined wpts
+    let dist = 0;
+    let tracks = 0;
+    let wpts = 0;
+    Object.values(gpxFiles).forEach((item) => {
+        if (item.local === true && item.summary) {
+            if (item.summary.totalTracks) {
+                tracks += item.summary.totalTracks;
+            }
+            if (item.summary.wptPoints) {
+                wpts += item.summary.wptPoints;
+            }
+            if (item.summary.totalDistance) {
+                dist += item.summary.totalDistance;
+            }
+        }
+    });
+    setAppText(`Local GPX files: ${tracks} tracks, ${(dist / 1000.0).toFixed(1)} km, ${wpts} wpts`)
+}
+
+async function loadInitialState(gpxFiles, setGpxFiles) {
+    const response = await fetch(`/gpx/get-gpx-info`, {});
+    if (response.ok) {
+        let data = await response.json();
+        data.all.forEach((item) => {
+            let gpxLayer = {};
+            gpxLayer.name = 'local:' + item.name;
+            gpxLayer.localContent = '/gpx/get-gpx-file?name=' + encodeURIComponent(item.name);
+            gpxLayer.local = true;
+            let newinfo = Object.assign({}, gpxFiles);
+            gpxLayer.summary = item;
+            newinfo[gpxLayer.name] = gpxLayer;
+            gpxFiles[gpxLayer.name] = gpxLayer;
+            setGpxFiles(newinfo);
+        });
     }
+
 }
 async function uploadFile(gpxFiles, setGpxFiles, setAppText, gpxLayer, file) {
     let formData = new FormData();
@@ -36,10 +66,11 @@ async function uploadFile(gpxFiles, setGpxFiles, setAppText, gpxLayer, file) {
     if (response.ok) {
         let data = await response.json();
         let newinfo = Object.assign({}, gpxFiles);
+        gpxLayer.summary = data.info;
         newinfo[gpxLayer.name] = gpxLayer;
         gpxFiles[gpxLayer.name] = gpxLayer;
-        formatGpxData(newinfo, setAppText, data);
         setGpxFiles(newinfo);
+        updateTextInfo(gpxFiles, setAppText);
     } else {
         alert("File Upload has failed");
     }
@@ -51,7 +82,6 @@ const clearLocalGpx = (gpxFiles, setGpxFiles, setAppText) => async (e) => {
     if (response.ok) {
         let data = await response.json();
         let newinfo = Object.assign({}, gpxFiles);
-        formatGpxData(newinfo, setAppText, data);
         Object.values(gpxFiles).map((item) => {
             if (item.local) {
                 // clear up but not delete
@@ -61,6 +91,7 @@ const clearLocalGpx = (gpxFiles, setGpxFiles, setAppText) => async (e) => {
                 // delete newinfo[item.name];
             }
         });
+        setAppText('');
         setGpxFiles(newinfo);
     }
 }
@@ -87,60 +118,69 @@ export default function LocalGpx({ setAppText }) {
     const ctx = useContext(AppContext);
     const [localGpxOpen, setLocalGpxOpen] = useState(false);
 
+    useEffect(() => {
+        loadInitialState(ctx.gpxFiles, ctx.setGpxFiles);
+    }, []);
+
     let localGpxFiles = (!ctx.gpxFiles ? [] :
         Object.values(ctx.gpxFiles).filter((item) => item.local === true));
 
     return <>
-            <MenuItem onClick={(e) => setLocalGpxOpen(!localGpxOpen)}>
-                <ListItemIcon>
-                    <DirectionsWalk fontSize="small" />
-                </ListItemIcon>
-                <ListItemText>Local Tracks {localGpxFiles.length > 0 ? `(${localGpxFiles.length})` : ''} </ListItemText>
-                {localGpxOpen ? <ExpandLess /> : <ExpandMore />}
-            </MenuItem>
+        <MenuItem onClick={(e) => setLocalGpxOpen(!localGpxOpen)}>
+            <ListItemIcon>
+                <DirectionsWalk fontSize="small" />
+            </ListItemIcon>
+            <ListItemText>Local Tracks {localGpxFiles.length > 0 ? `(${localGpxFiles.length})` : ''} </ListItemText>
+            {localGpxOpen ? <ExpandLess /> : <ExpandMore />}
+        </MenuItem>
 
-            <Collapse in={localGpxOpen} timeout="auto" unmountOnExit>
-                {localGpxFiles.map((item, index) => (
-                    <MenuItem key={item.name}>
-                        <Tooltip title={item.name}>
-                            <ListItemText inset>
-                                <Typography variant="inherit" noWrap>
-                                    {item.name.slice(6, -4).replace('_', ' ')}
-                                </Typography>
-                            </ListItemText>
-                        </Tooltip>
+        <Collapse in={localGpxOpen} timeout="auto" unmountOnExit>
+            {localGpxFiles.map((item, index) => (
+                <MenuItem key={item.name}>
+                    <Tooltip title={item.name}>
+                        <ListItemText inset>
+                            <Typography variant="inherit" noWrap>
+                                {item.name.slice(6, -4).replace('_', ' ')}
+                            </Typography>
+                        </ListItemText>
+                    </Tooltip>
 
-                        <Switch
-                            checked={item.url? true : false}
-                            onChange={(e) => {
-                                const newGpxFiles = Object.assign({}, ctx.gpxFiles);
-                                if (!e.target.checked) {
-                                    // delete newGpxFiles[item.name];
-                                    newGpxFiles[item.name].url = null;
-                                } else {
-                                    newGpxFiles[item.name].url = item.localContent;
-                                }
-                                ctx.setGpxFiles(newGpxFiles);
-                            }} />
-                    </MenuItem>
-                ))}
-                <MenuItem disableRipple={true}>
-                    <label htmlFor="contained-button-file" >
-                        <StyledInput accept=".gpx" id="contained-button-file" multiple type="file"
-                            onChange={fileSelected(ctx.gpxFiles, ctx.setGpxFiles, setAppText)} />
-                        <Button variant="contained" component="span" sx={{ ml: 3 }}>
-                            Upload
-                        </Button>
-                    </label>
-                    {
-                        localGpxFiles.length === 0 ? <></> :
-                            <Button variant="contained" component="span" sx={{ ml: 2 }} 
-                                onClick={clearLocalGpx(ctx.gpxFiles, ctx.setGpxFiles, setAppText)}>
-                                Clear
-                            </Button>
-                    }
+                    <Switch
+                        checked={item.url ? true : false}
+                        onChange={(e) => {
+                            const newGpxFiles = Object.assign({}, ctx.gpxFiles);
+                            if (!e.target.checked) {
+                                // delete newGpxFiles[item.name];
+                                newGpxFiles[item.name].url = null;
+                            } else {
+                                newGpxFiles[item.name].url = item.localContent;
+                            }
+                            ctx.setGpxFiles(newGpxFiles);
+                        }} />
                 </MenuItem>
-                
-            </Collapse>
+            ))}
+            <MenuItem disableRipple={true}>
+                <label htmlFor="contained-button-file" >
+                    <StyledInput accept=".gpx" id="contained-button-file" multiple type="file"
+                        onChange={fileSelected(ctx.gpxFiles, ctx.setGpxFiles, setAppText)} />
+                    <Button variant="contained" component="span" sx={{ ml: 3 }}>
+                        Upload
+                    </Button>
+                </label>
+            </MenuItem>
+            { localGpxFiles.length === 0 ? <></> :
+                <MenuItem disableRipple={true}>
+                    <Button variant="contained" component="span" sx={{ ml: 3 }}
+                        onClick={clearLocalGpx(ctx.gpxFiles, ctx.setGpxFiles, setAppText)}>
+                        Clear
+                    </Button>
+                    <Button variant="contained" component="span" sx={{ ml: 2 }}
+                            onClick={() => window.open("/gpx/download-obf")}>
+                        Get OBF
+                    </Button>
+                </MenuItem>
+            }
+
+        </Collapse>
     </>;
 }
