@@ -9,6 +9,71 @@ import {
 } from '@mui/icons-material';
 import AppContext from "../../context/AppContext"
 
+function updateTextInfo(gpxFiles, setAppText) {
+    // Local GPX files: undefined tracks, NaN km, undefined wpts
+    let dist = 0;
+    let tracks = 0;
+    let wpts = 0;
+    let time = 0;
+    let diffUp = 0;
+    let diffDown = 0;
+    Object.values(gpxFiles).forEach((item) => {
+        if (item.local !== true && item.summary && item.url) {
+            if (item.summary.totalTracks) {
+                tracks += item.summary.totalTracks;
+            }
+            if (item.summary.wptPoints) {
+                wpts += item.summary.wptPoints;
+            }
+            if (item.summary.totalDistance) {
+                dist += item.summary.totalDistance;
+            }
+            if (item.summary.timeMoving) {
+                time += item.summary.timeMoving;
+            }
+            if (item.summary.diffElevationUp) {
+                diffUp += item.summary.diffElevationUp;
+            }
+            if (item.summary.diffElevationDown) {
+                diffDown += item.summary.diffElevationDown;
+            }
+        }
+
+    });
+    setAppText(`Selected GPX files: ${tracks} tracks, ${(dist / 1000.0).toFixed(1)} km, ${wpts} wpts. 
+            Time moving: ${(time / 1000.0).toFixed(0)} sec. 
+            Uphill / Downhill: ${(diffUp).toFixed(0)} / ${(diffDown).toFixed(0)} m.`)
+}
+
+async function loadGpxInfo(item, ctx, layer, setAppText) {
+    let gpxInfoUrl = `/map/api/get-gpx-info?type=${encodeURIComponent(item.type)}&name=${encodeURIComponent(item.name)}`;
+    const response = await fetch(gpxInfoUrl, {});
+    if (response.ok) {
+        let data = await response.json();
+        const newGpxFiles = Object.assign({}, ctx.gpxFiles);
+        layer.summary = data.info;
+        newGpxFiles[item.name] = layer;
+        ctx.setGpxFiles(newGpxFiles);
+        updateTextInfo(newGpxFiles, setAppText)
+    }
+}
+
+function enableLayer(item, ctx, setAppText, visible) {
+    let url = `/map/api/download-file?type=${encodeURIComponent(item.type)}&name=${encodeURIComponent(item.name)}`;
+    const newGpxFiles = Object.assign({}, ctx.gpxFiles);
+    if (!visible) {
+        // delete newGpxFiles[item.name];
+        newGpxFiles[item.name].url = null;
+        ctx.setGpxFiles(newGpxFiles);
+        updateTextInfo(newGpxFiles, setAppText)
+    } else {
+        newGpxFiles[item.name] = { 'url': url };
+        ctx.setGpxFiles(newGpxFiles);
+        loadGpxInfo(item, ctx, newGpxFiles[item.name], setAppText);
+    }
+}
+
+
 export default function CloudGpx({ setAppText }) {
     const ctx = useContext(AppContext);
     const [gpxOpen, setGpxOpen] = useState(false);
@@ -53,18 +118,7 @@ export default function CloudGpx({ setAppText }) {
                     <Switch
                         checked={ctx.gpxFiles[item.name]?.url ? true : false}
                         onChange={(e) => {
-                            let url = `/map/api/download-file?type=${encodeURIComponent(item.type)}&name=${encodeURIComponent(item.name)}`;
-                            const newGpxFiles = Object.assign({}, ctx.gpxFiles);
-                            if (!e.target.checked) {
-                                // delete newGpxFiles[item.name];
-                                newGpxFiles[item.name].url = null;
-                            } else {
-                                newGpxFiles[item.name] = {
-                                    'url': url
-                                }
-                            }
-                            ctx.setGpxFiles(newGpxFiles);
-
+                            enableLayer(item, ctx, setAppText, e.target.checked);
                         }} />
                 </MenuItem>
             ))}
