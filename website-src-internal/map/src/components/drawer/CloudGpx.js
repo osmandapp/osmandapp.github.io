@@ -78,7 +78,7 @@ function enableLayer(item, ctx, setAppText, visible) {
         ctx.setGpxFiles(newGpxFiles);
         updateTextInfo(newGpxFiles, setAppText)
     } else {
-        newGpxFiles[item.name] = { 'url': url };
+        newGpxFiles[item.name] = { 'url': url, 'clienttimems': item.clienttimems };
         ctx.setGpxFiles(newGpxFiles);
         loadGpxInfo(item, ctx, newGpxFiles[item.name], setAppText);
     }
@@ -117,22 +117,68 @@ export default function CloudGpx({ setAppText }) {
                     <SortByAlpha fontSize="small" />
                 </IconButton>
             </MenuItem>
-            {gpxFiles.map((item, index) => (
-                <MenuItem key={item.name}>
-                    <Tooltip title={item.name}>
-                        <ListItemText inset>
-                            <Typography variant="inherit" noWrap>
-                                {item.name.slice(0, -4).replace('_', ' ')}
-                            </Typography>
-                        </ListItemText>
-                    </Tooltip>
-                    <Switch
-                        checked={ctx.gpxFiles[item.name]?.url ? true : false}
-                        onChange={(e) => {
-                            enableLayer(item, ctx, setAppText, e.target.checked);
-                        }} />
-                </MenuItem>
-            ))}
+            {
+                gpxFiles.map((item, index) => {
+                    let localLayer = ctx.gpxFiles[item.name];
+                    let timeRange = '';
+                    let clienttime = '';
+                    let distance = '';
+                    let timeMoving = '';
+                    let updownhill = '';
+                    let speed = '';
+                    if (item.clienttimems) {
+                        clienttime =  new Date(item.clienttimems);
+                    }
+                    if (localLayer?.summary?.startTime) {
+                        let stdate = new Date(localLayer.summary.startTime).toDateString();
+                        let edate = new Date(localLayer.summary.endTime).toDateString();
+                        timeRange = new Date(localLayer.summary.startTime).toDateString() + " " +
+                        new Date(localLayer.summary.startTime).toLocaleTimeString() + " - " + 
+                            (edate !== stdate ? edate : '') + 
+                        new Date(localLayer.summary.endTime).toLocaleTimeString();
+                    }
+                    if (localLayer?.summary?.totalDistance) {
+                        distance = "Distance: " + (localLayer?.summary?.totalDistance / 1000).toFixed(1) + " km";
+                    }
+                    if (localLayer?.summary?.timeMoving) {
+                        timeMoving = "Time moving: " + toHHMMSS(localLayer?.summary?.timeMoving );
+                    }
+                    if (localLayer?.summary?.diffElevationDown) {
+                        updownhill = "Uphill/downhill: " + localLayer?.summary?.diffElevationUp.toFixed(0) 
+                            + "/" + localLayer?.summary?.diffElevationDown.toFixed(0) + " m";
+                    }
+                    if (localLayer?.summary?.avgSpeed) {
+                        speed = "Speed (min/avg/max): " + 
+                            (localLayer?.summary?.minSpeed * 3.6).toFixed(0) + " / " + 
+                            (localLayer?.summary?.avgSpeed * 3.6).toFixed(0) + " / " +
+                            (localLayer?.summary?.maxSpeed * 3.6).toFixed(0) + " km/h"
+                    }
+
+                    return (
+                        <MenuItem key={item.name}>
+                            <Tooltip title={<div>
+                                {item.name}
+                                {clienttime ? <br /> : <></>} {clienttime}
+                                {timeRange ? <><br /><br />Time: </> : <></>}  {timeRange}
+                                {distance ? <br /> : <></>} {distance}
+                                {timeMoving ? <br /> : <></>} {timeMoving}
+                                {updownhill ? <br /> : <></>} {updownhill}
+                                {speed ? <br /> : <></>} {speed}
+                            </div>}>
+                            <ListItemText inset>
+                                <Typography variant="inherit" noWrap>
+                                    {item.name.slice(0, -4).replace('_', ' ')}
+                                </Typography>
+                            </ListItemText>
+                        </Tooltip>
+                        <Switch
+                            checked={localLayer?.url ? true : false}
+                            onChange={(e) => {
+                                enableLayer(item, ctx, setAppText, e.target.checked);
+                            }} />
+                    </MenuItem>)
+                })
+            }
         </Collapse>
     </>;
 

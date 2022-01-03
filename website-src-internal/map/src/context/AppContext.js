@@ -42,9 +42,9 @@ async function loadListFiles(loginUser, listFiles, setListFiles) {
                 if (f.clienttimems != s.clienttimems) {
                     return f.clienttimems > s.clienttimems ? -1 : 1;
                 }
-                if (f.updatetimems != s.updatetimems) {
-                    return f.updatetimems > s.updatetimems ? -1 : 1;
-                }
+                // if (f.updatetimems != s.updatetimems) {
+                //     return f.updatetimems > s.updatetimems ? -1 : 1;
+                // }
                 return 0;
             });
             setListFiles(res);
