@@ -127,7 +127,8 @@ export default function CloudGpx({ setAppText }) {
                     let updownhill = '';
                     let speed = '';
                     if (item.clienttimems) {
-                        clienttime =  new Date(item.clienttimems);
+                        clienttime = "Device time " + new Date(item.clienttimems).toDateString() + 
+                            new Date(item.clienttimems).toLocaleTimeString();
                     }
                     if (localLayer?.summary?.startTime) {
                         let stdate = new Date(localLayer.summary.startTime).toDateString();
@@ -158,12 +159,12 @@ export default function CloudGpx({ setAppText }) {
                         <MenuItem key={item.name}>
                             <Tooltip title={<div>
                                 {item.name}
-                                {clienttime ? <br /> : <></>} {clienttime}
                                 {timeRange ? <><br /><br />Time: </> : <></>}  {timeRange}
                                 {distance ? <br /> : <></>} {distance}
                                 {timeMoving ? <br /> : <></>} {timeMoving}
                                 {updownhill ? <br /> : <></>} {updownhill}
                                 {speed ? <br /> : <></>} {speed}
+                                {clienttime ? <br /> : <></>} {clienttime}
                             </div>}>
                             <ListItemText inset>
                                 <Typography variant="inherit" noWrap>
