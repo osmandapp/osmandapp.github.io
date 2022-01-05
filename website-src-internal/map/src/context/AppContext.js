@@ -11,6 +11,7 @@ function getWeatherUrl(layer) {
     const urlWeatherPefix = 'https://test.osmand.net/weather/gfs';
     return urlWeatherPefix + '/tiles/' + layer + '/{time}/{z}/{x}/{y}.png';
 }
+
 function getLayers() {
     const layers = [
         { key: "temperature", name: "Temperature", opacity: 0.5, iconComponent: <Thermostat fontSize="small" /> },
@@ -30,6 +31,22 @@ function getLayers() {
     return layers;
 }
 
+export const getGpxTime = (f) => {
+    if (f?.details?.analysis?.startTime) {
+        return f.details.analysis.startTime;
+    }
+    let dt = f.name.match(/(20\d\d)-(\d\d)-(\d\d)/)
+    if (dt) {
+        let date = new Date();
+        date.setFullYear(parseInt(dt[1]));
+        date.setMonth(parseInt(dt[2]) - 1);
+        date.setDate(parseInt(dt[3]));
+        console.log(date);
+        date.getTime();
+    }
+    return 0;
+}
+
 async function loadListFiles(loginUser, listFiles, setListFiles, setGpxLoading) {
     if (loginUser !== listFiles.loginUser) {
         if (!loginUser) {
@@ -40,8 +57,8 @@ async function loadListFiles(loginUser, listFiles, setListFiles, setGpxLoading) 
             const res = await response.json();
             res.loginUser = loginUser;
             res.uniqueFiles = res.uniqueFiles.sort((f, s) => {
-                let ftime = f?.details?.analysis?.startTime ? f.details.analysis.startTime : f.clienttimems;
-                let stime = s?.details?.analysis?.startTime ? s.details.analysis.startTime : s.clienttimems;
+                let ftime = getGpxTime(f);
+                let stime = getGpxTime(s);
                 if (ftime !== stime) {
                     return ftime > stime ? -1 : 1;
                 }

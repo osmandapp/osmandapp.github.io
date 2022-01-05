@@ -6,7 +6,7 @@ import {
 import {
     DirectionsWalk, ExpandLess, ExpandMore, Sort, SortByAlpha
 } from '@mui/icons-material';
-import AppContext from "../../context/AppContext"
+import AppContext, {getGpxTime} from "../../context/AppContext"
 
 const toHHMMSS = function (time) {
     var sec_num = time / 1000;
@@ -127,8 +127,8 @@ export default function CloudGpx({ setAppText }) {
                 <IconButton sx={{ ml: 4 }} onClick={() => {
                     let lf = Object.assign({}, ctx.listFiles);
                     lf.uniqueFiles = lf.uniqueFiles.sort((f, s) => {
-                        let ftime = f?.details?.analysis?.startTime ? f.details.analysis.startTime : f.clienttimems;
-                        let stime = s?.details?.analysis?.startTime ? s.details.analysis.startTime : s.clienttimems;
+                        let ftime = getGpxTime(f);
+                        let stime = getGpxTime(s);
                         if (ftime === stime) {
                             return f.name > s.name ? 1 : -1;
                         }
