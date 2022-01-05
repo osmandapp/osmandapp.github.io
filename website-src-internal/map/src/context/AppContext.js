@@ -30,21 +30,25 @@ function getLayers() {
     return layers;
 }
 
-async function loadListFiles(loginUser, listFiles, setListFiles) {
+async function loadListFiles(loginUser, listFiles, setListFiles, setGpxLoading) {
     if (loginUser !== listFiles.loginUser) {
         if (!loginUser) {
             setListFiles({});
         } else {
+            setGpxLoading(true);
             const response = await fetch(`/map/api/list-files`, {});
             const res = await response.json();
             res.loginUser = loginUser;
             res.uniqueFiles = res.uniqueFiles.sort((f, s) => {
-                if (f.clienttimems !== s.clienttimems) {
-                    return f.clienttimems > s.clienttimems ? -1 : 1;
+                let ftime = f?.details?.analysis?.startTime ? f.details.analysis.startTime : f.clienttimems;
+                let stime = s?.details?.analysis?.startTime ? s.details.analysis.startTime : s.clienttimems;
+                if (ftime !== stime) {
+                    return ftime > stime ? -1 : 1;
                 }
                 return 0;
             });
             setListFiles(res);
+            setGpxLoading(false);
         }
     }
 }
@@ -86,18 +90,20 @@ const AppContext = React.createContext();
 export const AppContextProvider = (props) => {
     const [weatherLayers, updateWeatherLayers] = useState(getLayers());
     const [weatherDate, setWeatherDate] = useState(getWeatherDate());
+    const [gpxLoading, setGpxLoading] = useState(false);
     // cookie to store email logged in
     const [userEmail, setUserEmail] = useCookie('email', '');
     // server state of login
     const [loginUser, setLoginUser] = useState(null);
     const [listFiles, setListFiles] = useState({});
     const [gpxFiles, setGpxFiles] = useState({});
+    
     useEffect(() => {
         checkUserLogin(loginUser, setLoginUser, userEmail, setUserEmail);
     // eslint-disable-next-line
     }, [loginUser]);
     useEffect(() => {
-        loadListFiles(loginUser, listFiles, setListFiles);
+        loadListFiles(loginUser, listFiles, setListFiles, setGpxLoading);
     // eslint-disable-next-line
     }, [loginUser]);
     return <AppContext.Provider value={{
@@ -107,6 +113,7 @@ export const AppContextProvider = (props) => {
         listFiles: listFiles, setListFiles: setListFiles,
         loginUser: loginUser, setLoginUser: setLoginUser,
         gpxFiles: gpxFiles, setGpxFiles: setGpxFiles,
+        gpxLoading: gpxLoading, setGpxLoading: setGpxLoading,
         tileURL: osmandTileURL
     }}>
         {props.children}

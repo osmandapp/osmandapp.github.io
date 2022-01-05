@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import {
     Typography, ListItemText, Switch, Collapse, 
-    IconButton, MenuItem, ListItemIcon, Tooltip,
+    IconButton, MenuItem, ListItemIcon, Tooltip, LinearProgress
 } from "@mui/material";
 import {
     DirectionsWalk, ExpandLess, ExpandMore, Sort, SortByAlpha
@@ -55,10 +55,12 @@ function updateTextInfo(gpxFiles, setAppText) {
             Uphill / Downhill: ${(diffUp).toFixed(0)} / ${(diffDown).toFixed(0)} m.`)
 }
 
-async function loadGpxInfo(item, ctx, layer, setAppText) {
+async function loadGpxInfo(item, ctx, layer, setAppText, setProgressVisible) {
     let gpxInfoUrl = `/map/api/get-gpx-info?type=${encodeURIComponent(item.type)}&name=${encodeURIComponent(item.name)}`;
+    setProgressVisible(true);
     const response = await fetch(gpxInfoUrl, {});
     if (response.redirected) {
+        setProgressVisible(false);
         console.log(response.url);
         window.location.href = response.url;
     } else if (response.ok) {
@@ -68,10 +70,11 @@ async function loadGpxInfo(item, ctx, layer, setAppText) {
         newGpxFiles[item.name] = layer;
         ctx.setGpxFiles(newGpxFiles);
         updateTextInfo(newGpxFiles, setAppText)
+        setProgressVisible(false);
     } 
 }
 
-function enableLayer(item, ctx, setAppText, visible) {
+function enableLayer(item, ctx, setAppText, setProgressVisible, visible) {
     let url = `/map/api/download-file?type=${encodeURIComponent(item.type)}&name=${encodeURIComponent(item.name)}`;
     const newGpxFiles = Object.assign({}, ctx.gpxFiles);
     if (!visible) {
@@ -85,7 +88,7 @@ function enableLayer(item, ctx, setAppText, visible) {
         if (item.details?.analysis) {
             newGpxFiles[item.name].summary = item.details.analysis;
         } else {
-            loadGpxInfo(item, ctx, newGpxFiles[item.name], setAppText);
+            loadGpxInfo(item, ctx, newGpxFiles[item.name], setAppText, setProgressVisible);
         }
     }
 }
@@ -115,19 +118,23 @@ export default function CloudGpx({ setAppText }) {
                     gpxOpen ? <ExpandLess /> : <ExpandMore />
             }
         </MenuItem>
-
+        { ctx.gpxLoading ? <LinearProgress /> : <></> }
         <Collapse in={gpxOpen} timeout="auto" unmountOnExit>
+            
+
             <MenuItem disableRipple={true}>
                 <IconButton sx={{ ml: 4 }} onClick={() => {
                     let lf = Object.assign({}, ctx.listFiles);
                     lf.uniqueFiles = lf.uniqueFiles.sort((f, s) => {
-                        if (f.clienttimems === s.clienttimems) {
+                        let ftime = f?.details?.analysis?.startTime ? f.details.analysis.startTime : f.clienttimems;
+                        let stime = s?.details?.analysis?.startTime ? s.details.analysis.startTime : s.clienttimems;
+                        if (ftime === stime) {
                             return f.name > s.name ? 1 : -1;
                         }
                         if (timeUp) {
-                            return f.clienttimems > s.clienttimems ? 1 : -1;
+                            return ftime > stime ? 1 : -1;
                         } else {
-                            return f.clienttimems < s.clienttimems ? 1 : -1;
+                            return ftime < stime ? 1 : -1;
                         }
                     });
                     setTimeUp(!timeUp);
@@ -211,7 +218,7 @@ export default function CloudGpx({ setAppText }) {
                         <Switch
                             checked={localLayer?.url ? true : false}
                             onChange={(e) => {
-                                enableLayer(item, ctx, setAppText, e.target.checked);
+                                enableLayer(item, ctx, setAppText, e.target.checked, ctx.setGpxLoading);
                             }} />
                     </MenuItem>)
                 })
