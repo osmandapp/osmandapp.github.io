@@ -8,9 +8,9 @@ import {
 } from '@mui/icons-material';
 import OsmAndMap from './OsmAndMap';
 import OsmAndDrawer from './OsmAndDrawer';
+import {Outlet} from 'react-router-dom';
 
-
-const OsmAndMapFrame = ({loginDialog, setLoginDialog} ) => {
+const OsmAndMapFrame = ({} ) => {
     const [drawerOpen, setDrawerOpen] = useState(false);
     const toggleDrawer = () => {
         setDrawerOpen(!drawerOpen);
@@ -56,7 +56,7 @@ const OsmAndMapFrame = ({loginDialog, setLoginDialog} ) => {
                     '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
                 }}
             >
-                <OsmAndDrawer mobile={true} setLoginDialog={setLoginDialog}
+                <OsmAndDrawer mobile={true} 
                     toggleDrawer={toggleDrawer}
                     appText={appText} setAppText={setAppText}/>
             </Drawer>
@@ -67,10 +67,11 @@ const OsmAndMapFrame = ({loginDialog, setLoginDialog} ) => {
                     '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
                 }}
                 open>
-                <OsmAndDrawer mobile={false} setLoginDialog={setLoginDialog}
+                <OsmAndDrawer mobile={false}
                     appText={appText} setAppText={setAppText} />
 
             </Drawer>
+            <Outlet/>
         </>
 
     );

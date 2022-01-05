@@ -14,8 +14,8 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/map" element={<OsmAndMapFrame />}>
-          </Route>
-          <Route path="/map/loginForm" element={<LoginDialog />}>
+            <Route path="loginForm" element={<LoginDialog />}>
+            </Route>
           </Route>
         </Routes>
       </BrowserRouter>
