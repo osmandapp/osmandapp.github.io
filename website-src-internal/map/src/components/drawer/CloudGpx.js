@@ -87,6 +87,7 @@ function enableLayer(item, ctx, setAppText, setProgressVisible, visible) {
         ctx.setGpxFiles(newGpxFiles);
         if (item.details?.analysis) {
             newGpxFiles[item.name].summary = item.details.analysis;
+            updateTextInfo(newGpxFiles, setAppText);
         } else {
             loadGpxInfo(item, ctx, newGpxFiles[item.name], setAppText, setProgressVisible);
         }
@@ -218,7 +219,7 @@ export default function CloudGpx({ setAppText }) {
                         <Switch
                             checked={localLayer?.url ? true : false}
                             onChange={(e) => {
-                                enableLayer(item, ctx, setAppText, e.target.checked, ctx.setGpxLoading);
+                                enableLayer(item, ctx, setAppText, ctx.setGpxLoading, e.target.checked);
                             }} />
                     </MenuItem>)
                 })
