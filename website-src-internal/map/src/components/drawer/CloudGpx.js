@@ -58,14 +58,17 @@ function updateTextInfo(gpxFiles, setAppText) {
 async function loadGpxInfo(item, ctx, layer, setAppText) {
     let gpxInfoUrl = `/map/api/get-gpx-info?type=${encodeURIComponent(item.type)}&name=${encodeURIComponent(item.name)}`;
     const response = await fetch(gpxInfoUrl, {});
-    if (response.ok) {
+    if (response.redirected) {
+        console.log(response.url);
+        window.location.href = response.url;
+    } else if (response.ok) {
         let data = await response.json();
         const newGpxFiles = Object.assign({}, ctx.gpxFiles);
         layer.summary = data.info;
         newGpxFiles[item.name] = layer;
         ctx.setGpxFiles(newGpxFiles);
         updateTextInfo(newGpxFiles, setAppText)
-    }
+    } 
 }
 
 function enableLayer(item, ctx, setAppText, visible) {

@@ -8,14 +8,14 @@ import { AppContextProvider} from './context/AppContext'
 
 
 const App = () => {
-  const [loginDialog, setLoginDialog] = React.useState(false);
+  
   return (
     <AppContextProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/map/loginForm" element={<LoginDialog open={loginDialog} setOpen={setLoginDialog} />}>
-          </Route>
           <Route path="/map" element={<OsmAndMapFrame />}>
+          </Route>
+          <Route path="/map/loginForm" element={<LoginDialog />}>
           </Route>
         </Routes>
       </BrowserRouter>

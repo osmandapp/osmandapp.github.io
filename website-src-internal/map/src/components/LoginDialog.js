@@ -22,6 +22,9 @@ async function isRequestOk(response, setEmailError) {
         setEmailError(message);
         return null;
     }
+    // let message = await response.text();
+    // console.log(message);
+    // const res = JSON.parse(message);
     const res = await response.json();
     if (res.status !== 'ok') {
         const message = `Unknown error has occured: ${JSON.stringify(res)}`;
