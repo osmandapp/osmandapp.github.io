@@ -1,10 +1,9 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { styled } from '@mui/material/styles';
+import React, { useState, useContext } from 'react';
 import {
     Typography, ListItemText, Switch, Collapse,
 } from "@mui/material";
 import {
-    IconButton, Divider, MenuItem, ListItemIcon, MenuList, Tooltip,
+    IconButton, Divider, MenuItem, ListItemIcon
 } from "@mui/material";
 import {
     Air, ExpandLess, ExpandMore, Thermostat, NavigateNext, NavigateBefore,

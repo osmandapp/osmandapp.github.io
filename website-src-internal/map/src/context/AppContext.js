@@ -31,7 +31,7 @@ function getLayers() {
 }
 
 async function loadListFiles(loginUser, listFiles, setListFiles) {
-    if (loginUser != listFiles.loginUser) {
+    if (loginUser !== listFiles.loginUser) {
         if (!loginUser) {
             setListFiles({});
         } else {
@@ -39,12 +39,9 @@ async function loadListFiles(loginUser, listFiles, setListFiles) {
             const res = await response.json();
             res.loginUser = loginUser;
             res.uniqueFiles = res.uniqueFiles.sort((f, s) => {
-                if (f.clienttimems != s.clienttimems) {
+                if (f.clienttimems !== s.clienttimems) {
                     return f.clienttimems > s.clienttimems ? -1 : 1;
                 }
-                // if (f.updatetimems != s.updatetimems) {
-                //     return f.updatetimems > s.updatetimems ? -1 : 1;
-                // }
                 return 0;
             });
             setListFiles(res);
@@ -58,7 +55,7 @@ async function checkUserLogin(loginUser, setLoginUser, userEmail, setUserEmail, 
     if (response.ok) {
         const user = await response.json();
         let newUser = user && user.principal ? user.principal.username : null;
-        if (loginUser != newUser) {
+        if (loginUser !== newUser) {
             if (newUser) {
                 setUserEmail(newUser, { days: 30 });
             }
@@ -66,7 +63,6 @@ async function checkUserLogin(loginUser, setLoginUser, userEmail, setUserEmail, 
         }
     }
 }
-
 
 function getWeatherDate() {
     // // "20211222_0600"
@@ -98,9 +94,11 @@ export const AppContextProvider = (props) => {
     const [gpxFiles, setGpxFiles] = useState({});
     useEffect(() => {
         checkUserLogin(loginUser, setLoginUser, userEmail, setUserEmail);
+    // eslint-disable-next-line
     }, [loginUser]);
     useEffect(() => {
         loadListFiles(loginUser, listFiles, setListFiles);
+    // eslint-disable-next-line
     }, [loginUser]);
     return <AppContext.Provider value={{
         weatherLayers: weatherLayers, updateWeatherLayers: updateWeatherLayers,

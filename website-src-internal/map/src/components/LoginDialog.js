@@ -1,11 +1,34 @@
-import React, { useState, useContext, useEffect } from 'react';
-import { Button, Checkbox, TextField, FormControlLabel, FormGroup } from '@mui/material/';
+import React, { useState, useContext } from 'react';
+import { Button, Checkbox, TextField, FormControlLabel } from '@mui/material/';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import AppContext from "../context/AppContext"
+import { useNavigate } from "react-router-dom";
+
+
+async function isRequestOk(response, setEmailError) {
+    if (!response.ok) {
+        let message = await response.text();
+        if (message) {
+            try {
+                let js = JSON.parse(message);
+                message = `An error has occured: ${js.error?.message}`;
+            } catch (e) {
+            }
+        }
+        setEmailError(message);
+        return null;
+    }
+    const res = await response.json();
+    if (res.status !== 'ok') {
+        const message = `Unknown error has occured: ${JSON.stringify(res)}`;
+        setEmailError(message);
+    }
+    return res;
+}
 
 
 async function userRegister(username, setEmailError, setState) {
@@ -14,104 +37,81 @@ async function userRegister(username, setEmailError, setState) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 'username': username })
     });
-    if (!response.ok) {
-        const message = `An error has occured: ${response.message}`;
-        setEmailError(message);
-        return false;
-    }
-    const user = await response.json();
-    if (user.status == 'ok') {
+    if (await isRequestOk(response, setEmailError)) {
         setState('register-verify');
-        return true;
+        setEmailError('');
     }
-    return false;
 }
 
-async function userActivate(ctx, username, pwd, token, setEmailError, setOpen) {
+async function userActivate(ctx, username, pwd, token, setEmailError, handleClose) {
     const response = await fetch(`/map/api/auth/activate`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 'username': username, 'password': pwd, 'token' : token })
     });
-    if (!response.ok) {
-        const message = `An error has occured: ${response.message}`;
-        setEmailError(message);
-        return false;
+    if (await isRequestOk(response, setEmailError)) {
+        ctx.setLoginUser(username);
+        setEmailError('');
+        handleClose();
     }
-    const user = await response.json();
-    ctx.setLoginUser(username);
-    setOpen(false);
     return true;
 }
 
-async function userLogout(ctx, username, setEmailError, setOpen, setState) {
+async function userLogout(ctx, username, setEmailError, handleClose, setState) {
     const response = await fetch(`/map/api/auth/logout`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 'username': username })
     });
-    if (!response.ok) {
-        const message = `An error has occured: ${response.message}`;
-        setEmailError(message);
-        return false;
-    }
-    const user = await response.json();
-    if (user.status == 'ok') {
+    if (await isRequestOk(response, setEmailError)) {
         setState('login');
         ctx.setLoginUser('');
-        setOpen(false);
-        return true;
+        setEmailError('');
+        handleClose();
     }
-    return false;
 }
 
-async function userLogin(ctx, username, pwd, setEmailError, setOpen) {
+async function userLogin(ctx, username, pwd, setEmailError, handleClose) {
     const response = await fetch(`/map/api/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 'username': username, 'password': pwd })
     });
-    if (!response.ok) {
-        const message = `An error has occured: ${response.message}`;
-        setEmailError(message);
-        return false;
-    }
-    const user = await response.json();
-    if (user.status == 'ok') {
+    if (await isRequestOk(response, setEmailError)) {
+        setEmailError('');
         ctx.setLoginUser(username);
-        setOpen(false);
-        return true;
+        handleClose();
     }
-    return false;
 }
 
 
-export default function LoginDialog({ open, setOpen }) {
+export default function LoginDialog({}) {
     const ctx = useContext(AppContext);
     const [userEmail, setUserEmail] = useState(ctx.userEmail);
     const [pwd, setPwd] = useState();
     const [code, setCode] = useState();
     const [emailError, setEmailError] = useState('');
     const [state, setState] = useState('login'); // login, register, register-verify
-    
+    const navigate = useNavigate();
+    const handleClose = () => {
+        setEmailError('');
+        setPwd('');
+        setCode('');
+        navigate('/map/');
+    };
     const handleLogin = () => {
         if ( state === 'register' ) {
             userRegister(userEmail, setEmailError, setState);
         } else if (state === 'register-verify') {
-            userActivate(ctx, userEmail, pwd, code, setEmailError, setOpen);
+            userActivate(ctx, userEmail, pwd, code, setEmailError, handleClose);
         } else {
-            userLogin(ctx, userEmail, pwd, setEmailError, setOpen, setState);
+            userLogin(ctx, userEmail, pwd, setEmailError, handleClose);
         }
     }
-    const handleClose = () => {
-        setOpen(false);
-        setEmailError('');
-        setPwd('');
-        setCode('');
-    };
+    
     if (ctx.loginUser) {
         return (
-            <Dialog open={open} onClose={handleClose}>
+            <Dialog open={true} onClose={handleClose}>
                 <DialogTitle>{ctx.loginUser}</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
@@ -127,21 +127,21 @@ export default function LoginDialog({ open, setOpen }) {
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose}>Close</Button>
-                    <Button onClick={(e) => userLogout(ctx, userEmail, setEmailError, setOpen, setState)}>
+                    <Button onClick={(e) => userLogout(ctx, userEmail, setEmailError, handleClose, setState)}>
                         Logout</Button>
                 </DialogActions>
             </Dialog>);
 
     }
     return (
-        <Dialog open={open} onClose={handleClose}>
+        <Dialog open={true} onClose={handleClose}>
             <DialogTitle>{state === 'register' ? 'Register' : (
                 state === 'register-verify' ? 'Verify your email' : 'Login'
             )}</DialogTitle>
             <DialogContent>
                 <DialogContentText>
                     {state === 'register-verify' ?
-                        `Please check your email and enter verification code` :
+                        `Please check your email, enter new strong password and enter verification code` :
                         `You can login to the website only if you have OsmAnd Pro subscription.
                          Please enter your email below.`
                     }
@@ -150,7 +150,7 @@ export default function LoginDialog({ open, setOpen }) {
                     autoFocus
                     margin="dense"
                     onChange={(e) => {
-                        if (emailError != '') {
+                        if (emailError !== '') {
                             setEmailError('')
                         }
                         setUserEmail(e.target.value);
@@ -170,14 +170,14 @@ export default function LoginDialog({ open, setOpen }) {
                     margin="dense"
                     onChange={(e) => setPwd(e.target.value)}
                     id="pwd"
-                    label="Password"
+                    label={state === 'register-verify' ? "New Password" : "Password"}
                     type="password"
                     fullWidth
                     variant="standard"
                     value={pwd ? pwd : ''}
                 ></TextField>
                 }
-                {state != 'register-verify' ? <></> : <TextField
+                {state !== 'register-verify' ? <></> : <TextField
                     margin="dense"
                     onChange={(e) => setCode(e.target.value)}
                     id="code"

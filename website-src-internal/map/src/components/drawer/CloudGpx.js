@@ -1,5 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { styled } from '@mui/material/styles';
+import React, { useState, useContext } from 'react';
 import {
     Typography, ListItemText, Switch, Collapse, 
     IconButton, MenuItem, ListItemIcon, Tooltip,
@@ -80,7 +79,11 @@ function enableLayer(item, ctx, setAppText, visible) {
     } else {
         newGpxFiles[item.name] = { 'url': url, 'clienttimems': item.clienttimems };
         ctx.setGpxFiles(newGpxFiles);
-        loadGpxInfo(item, ctx, newGpxFiles[item.name], setAppText);
+        if (item.details?.analysis) {
+            newGpxFiles[item.name].summary = item.details.analysis;
+        } else {
+            loadGpxInfo(item, ctx, newGpxFiles[item.name], setAppText);
+        }
     }
 }
 
@@ -153,34 +156,36 @@ export default function CloudGpx({ setAppText }) {
                     let timeMoving = '';
                     let updownhill = '';
                     let speed = '';
+                    let summary = item.details?.analysis ? 
+                        item.details?.analysis : localLayer?.summary;
                     if (item.clienttimems) {
                         clienttime = "Upload time: " + new Date(item.clienttimems).toDateString() + 
                             + "  " + new Date(item.clienttimems).toLocaleTimeString();
                     }
-                    if (localLayer?.summary?.startTime && 
-                        localLayer?.summary?.startTime != localLayer?.summary?.endTime) {
-                        let stdate = new Date(localLayer.summary.startTime).toDateString();
-                        let edate = new Date(localLayer.summary.endTime).toDateString();
-                        timeRange = new Date(localLayer.summary.startTime).toDateString() + " " +
-                        new Date(localLayer.summary.startTime).toLocaleTimeString() + " - " + 
+                    if (summary?.startTime && 
+                        summary?.startTime !== summary?.endTime) {
+                        let stdate = new Date(summary.startTime).toDateString();
+                        let edate = new Date(summary.endTime).toDateString();
+                        timeRange = new Date(summary.startTime).toDateString() + " " +
+                        new Date(summary.startTime).toLocaleTimeString() + " - " + 
                             (edate !== stdate ? edate : '') + 
-                        new Date(localLayer.summary.endTime).toLocaleTimeString();
+                        new Date(summary.endTime).toLocaleTimeString();
                     }
-                    if (localLayer?.summary?.totalDistance) {
-                        distance = "Distance: " + (localLayer?.summary?.totalDistance / 1000).toFixed(1) + " km";
+                    if (summary?.totalDistance) {
+                        distance = "Distance: " + (summary?.totalDistance / 1000).toFixed(1) + " km";
                     }
-                    if (localLayer?.summary?.timeMoving) {
-                        timeMoving = "Time moving: " + toHHMMSS(localLayer?.summary?.timeMoving );
+                    if (summary?.timeMoving) {
+                        timeMoving = "Time moving: " + toHHMMSS(summary?.timeMoving );
                     }
-                    if (localLayer?.summary?.diffElevationDown) {
-                        updownhill = "Uphill/downhill: " + localLayer?.summary?.diffElevationUp.toFixed(0) 
-                            + "/" + localLayer?.summary?.diffElevationDown.toFixed(0) + " m";
+                    if (summary?.diffElevationDown) {
+                        updownhill = "Uphill/downhill: " + summary.diffElevationUp.toFixed(0) 
+                            + "/" + summary?.diffElevationDown.toFixed(0) + " m";
                     }
-                    if (localLayer?.summary?.maxSpeed && localLayer?.summary?.maxSpeed > 0) {
+                    if (summary?.maxSpeed && summary?.maxSpeed > 0) {
                         speed = "Speed (min/avg/max): " + 
-                            (localLayer?.summary?.minSpeed * 3.6).toFixed(0) + " / " + 
-                            (localLayer?.summary?.avgSpeed * 3.6).toFixed(0) + " / " +
-                            (localLayer?.summary?.maxSpeed * 3.6).toFixed(0) + " km/h"
+                            (summary.minSpeed * 3.6).toFixed(0) + " / " + 
+                            (summary.avgSpeed * 3.6).toFixed(0) + " / " +
+                            (summary.maxSpeed * 3.6).toFixed(0) + " km/h"
                     }
 
                     return (

@@ -6,19 +6,16 @@ import {
 import {
     Menu
 } from '@mui/icons-material';
-import LoginDialog from './LoginDialog';
 import OsmAndMap from './OsmAndMap';
 import OsmAndDrawer from './OsmAndDrawer';
-import AppContext from "../context/AppContext"
 
 
-const OsmAndMapFrame = () => {
+const OsmAndMapFrame = ({loginDialog, setLoginDialog} ) => {
     const [drawerOpen, setDrawerOpen] = useState(false);
     const toggleDrawer = () => {
         setDrawerOpen(!drawerOpen);
     };
     const drawerWidth = 320;
-    const [loginDialog, setLoginDialog] = React.useState(false);
     const [appText, setAppText] = useState(null);
     return (
         <>
@@ -29,7 +26,6 @@ const OsmAndMapFrame = () => {
                 display: "flex",
                 flexDirection: "column",
             }}>
-                <LoginDialog open={loginDialog} setOpen={setLoginDialog} />
                 <AppBar position="static">
                     <Toolbar variant="dense" >
                         <IconButton onClick={toggleDrawer}

@@ -80,7 +80,7 @@ async function uploadFile(gpxFiles, setGpxFiles, setAppText, gpxLayer, file) {
 const clearLocalGpx = (gpxFiles, setGpxFiles, setAppText) => async (e) => {
     const response = await fetch(`/gpx/clear`, { method: 'POST' });
     if (response.ok) {
-        let data = await response.json();
+        await response.json();
         let newinfo = Object.assign({}, gpxFiles);
         Object.values(gpxFiles).map((item) => {
             if (item.local) {
@@ -120,6 +120,7 @@ export default function LocalGpx({ setAppText }) {
 
     useEffect(() => {
         loadInitialState(ctx.gpxFiles, ctx.setGpxFiles);
+    // eslint-disable-next-line
     }, []);
 
     let localGpxFiles = (!ctx.gpxFiles ? [] :
