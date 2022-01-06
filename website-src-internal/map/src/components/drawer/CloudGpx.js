@@ -104,7 +104,7 @@ export default function CloudGpx({ setAppText }) {
                 && (item.name.slice(-4) === '.gpx' || item.name.slice(-4) === '.GPX');
         });
     const [alphaUp, setAlphaUp] = useState(false);
-    const [timeUp, setTimeUp] = useState(false);
+    const [timeUp, setTimeUp] = useState(true);
     return <>
         <MenuItem onClick={(e) => setGpxOpen(!gpxOpen)}>
             <ListItemIcon>
@@ -171,7 +171,7 @@ export default function CloudGpx({ setAppText }) {
                         item.details?.analysis : localLayer?.summary;
                     if (item.clienttimems) {
                         clienttime = "Upload time: " + new Date(item.clienttimems).toDateString() + 
-                            + "  " + new Date(item.clienttimems).toLocaleTimeString();
+                            + " " + new Date(item.clienttimems).toLocaleTimeString();
                     }
                     if (summary?.startTime && 
                         summary?.startTime !== summary?.endTime) {
