@@ -2,9 +2,11 @@ import React, { useEffect, useRef, useContext } from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 import { MapContainer, TileLayer, ZoomControl, LayersControl } from "react-leaflet";
 import AppContext from "../context/AppContext";
+import GpxInfo from "./GpxInfo"
 import L from 'leaflet';
 import 'leaflet-gpx';
 import 'leaflet.awesome-markers';
+
 
 
 
@@ -97,7 +99,6 @@ const OsmAndMap = () => {
     });
     
   }, [ctx.gpxFiles]);
-
   // <TileLayer
   //   key="layer_white"
   //   url="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEAAQMAAABmvDolAAAAA1BMVEX///+nxBvIAAAAH0lEQVQYGe3BAQ0AAADCIPunfg43YAAAAAAAAAAA5wIhAAAB9aK9BAAAAABJRU5ErkJggg=="
@@ -130,9 +131,9 @@ const OsmAndMap = () => {
             />
           </LayersControl.Overlay>
         ))}
-
       </LayersControl>
       <ZoomControl position="bottomleft" />
+      <GpxInfo />
     </MapContainer>
   );
 };
