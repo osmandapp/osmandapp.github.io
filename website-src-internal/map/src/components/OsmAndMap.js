@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useContext } from 'react';
+import React, {useEffect, useRef, useContext, useState} from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 import { MapContainer, TileLayer, ZoomControl, LayersControl } from "react-leaflet";
 import AppContext from "../context/AppContext";
-import GpxInfo from "./GpxInfo"
+import GpxInfo from "./gpxinfo/GpxInfo"
 import L from 'leaflet';
 import 'leaflet-gpx';
 import 'leaflet.awesome-markers';
@@ -44,11 +44,13 @@ const updateLayerFunc = (layers, updateLayers, enable) => (event) => {
   }
 }
 
-const OsmAndMap = () => {
+const OsmAndMap = (props) => {
 
   const classes = useStyles();
   const map = useRef(null);
   const ctx = useContext(AppContext);
+
+  const [renderedGpx, setRenderedGpx] = useState(null);
 
   const whenReadyHandler = event => {
     const { target } = event;
@@ -69,35 +71,43 @@ const OsmAndMap = () => {
     }
   }, [ctx.weatherDate]);
 
+  function addTrackToMap(file) {
+    file.gpx = new L.GPX(file.url, {
+      async: true,
+      marker_options: {
+        startIcon: new L.AwesomeMarkers.icon({
+          icon: 'coffee',
+          markerColor: 'blue',
+          iconColor: 'white'
+        }),
+        endIcon: new L.AwesomeMarkers.icon({
+          icon: 'coffee',
+          markerColor: 'blue',
+          iconColor: 'white'
+        })
+        //shadowUrl: 'images/pin-shadow.png'
+      }
+    }).on('loaded', function (e) {
+      map.current.fitBounds(e.target.getBounds());
+      setRenderedGpx(file);
+    }).addTo(map.current);
+  }
+
+  function removeTrackFromMap(file) {
+    map.current.removeLayer(file.gpx);
+    file.gpx = null;
+  }
+
   useEffect(() => {
     // var gpx = 'https://www.openstreetmap.org/trace/4020415/data'; // URL to your GPX file or the GPX itself
     let filesMap = ctx.gpxFiles ? ctx.gpxFiles : {} ;
-    Object.values(filesMap).forEach( (key) => {
-      if (key.url && !key.gpx) {
-        key.gpx = new L.GPX(key.url, {
-          async: true,
-          marker_options: {
-            startIcon: new L.AwesomeMarkers.icon({
-              icon: 'coffee',
-              markerColor: 'blue',
-              iconColor: 'white'
-            }),
-            endIcon: new L.AwesomeMarkers.icon({
-              icon: 'coffee',
-              markerColor: 'blue',
-              iconColor: 'white'
-            })
-            //shadowUrl: 'images/pin-shadow.png'
-          }
-        }).on('loaded', function (e) {
-          map.current.fitBounds(e.target.getBounds());
-        }).addTo(map.current);
-      } else if(!key.url && key.gpx) {
-        map.current.removeLayer(key.gpx);
-        key.gpx = null;
+    Object.values(filesMap).forEach((file) => {
+      if (file.url && !file.gpx) {
+        addTrackToMap(file);
+      } else if (!file.url && file.gpx) {
+        removeTrackFromMap(file);
       }
     });
-    
   }, [ctx.gpxFiles]);
   // <TileLayer
   //   key="layer_white"
@@ -133,7 +143,7 @@ const OsmAndMap = () => {
         ))}
       </LayersControl>
       <ZoomControl position="bottomleft" />
-      <GpxInfo />
+      {props.showInfo && <GpxInfo renderedGpx={renderedGpx}/>}
     </MapContainer>
   );
 };

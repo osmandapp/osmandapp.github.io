@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 
 
 export default function OsmAndDrawer({ mobile, toggleDrawer,
-    appText, setAppText }) {
+    appText, setAppText, setShowInfo }) {
     const ctx = useContext(AppContext);
     
     // setAppText(ctx.gpxFiles.localInfoSummary);
@@ -46,7 +46,7 @@ export default function OsmAndDrawer({ mobile, toggleDrawer,
         <MenuList>
             <Weather setAppText={setAppText} />
             <CloudGpx setAppText={setAppText} />
-            <LocalGpx setAppText={setAppText} />
+            <LocalGpx setAppText={setAppText} setShowInfo={setShowInfo}/>
         </MenuList>
     </>
     );
