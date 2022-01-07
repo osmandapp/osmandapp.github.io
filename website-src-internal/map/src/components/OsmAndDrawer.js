@@ -15,7 +15,7 @@ import { useNavigate } from "react-router-dom";
 export default function OsmAndDrawer({ mobile, toggleDrawer }) {
     const ctx = useContext(AppContext);
     
-    // ctx.setAppText(ctx.gpxFiles.localInfoSummary);
+    // ctx.setAppFile(ctx.gpxFiles.localInfoSummary);
     const navigate = useNavigate();
     const openLogin = () => {
         navigate('/map/loginForm');

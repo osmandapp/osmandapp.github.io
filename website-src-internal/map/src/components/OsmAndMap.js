@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useContext, useState} from 'react';
+import React, {useEffect, useRef, useContext} from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 import { MapContainer, TileLayer, ZoomControl, LayersControl } from "react-leaflet";
 import AppContext from "../context/AppContext";
@@ -41,7 +41,7 @@ const updateLayerFunc = (layers, updateLayers, enable) => (event) => {
   }
 }
 
-function addTrackToMap(file, map, ctx) {
+function addTrackToMap(file, map) {
   file.gpx = new L.GPX(file.url, {
     async: true,
     marker_options: {
@@ -58,7 +58,7 @@ function addTrackToMap(file, map, ctx) {
       //shadowUrl: 'images/pin-shadow.png'
     }
   }).on('loaded', function (e) {
-    ctx.setSelectedGpxFile(file);
+//    ctx.setSelectedGpxFile(file);
     map.current.fitBounds(e.target.getBounds());
   }).addTo(map.current);
 }
@@ -98,7 +98,7 @@ const OsmAndMap = () => {
     let filesMap = ctx.gpxFiles ? ctx.gpxFiles : {} ;
     Object.values(filesMap).forEach((file) => {
       if (file.url && !file.gpx) {
-        addTrackToMap(file, map, ctx);
+        addTrackToMap(file, map);
       } else if (!file.url && file.gpx) {
         removeTrackFromMap(file, map);
       }

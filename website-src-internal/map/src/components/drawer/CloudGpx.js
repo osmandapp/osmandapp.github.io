@@ -95,7 +95,7 @@ function enableLayer(item, ctx,  setProgressVisible, visible) {
 }
 
 
-export default function CloudGpx({ }) {
+export default function CloudGpx() {
     const ctx = useContext(AppContext);
     const [gpxOpen, setGpxOpen] = useState(false);
     let gpxFiles = (!ctx.listFiles || !ctx.listFiles.uniqueFiles ? [] :

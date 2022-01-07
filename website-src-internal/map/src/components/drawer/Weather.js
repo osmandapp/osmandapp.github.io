@@ -42,7 +42,7 @@ const switchLayer = (ctx, index) => (e) => {
     updateTextLayer(ctx, ctx.weatherDate);
 }
 
-export default function Weather({ }) {
+export default function Weather() {
     const ctx = useContext(AppContext);
     const [weatherOpen, setWeatherOpen] = useState(false);
     return <>

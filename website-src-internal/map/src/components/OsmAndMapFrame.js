@@ -12,7 +12,7 @@ import {Outlet} from 'react-router-dom';
 import AppContext from "../context/AppContext";
 
 
-const OsmAndMapFrame = ({} ) => {
+const OsmAndMapFrame = () => {
     const [drawerOpen, setDrawerOpen] = useState(false);
     const toggleDrawer = () => {
         setDrawerOpen(!drawerOpen);

@@ -11,7 +11,7 @@ const centerStyle = {
     left: "50%",
     transform: 'translate(-50%, 0%)'
 }
-export default function MapContextMenu({}) {
+export default function MapContextMenu() {
 
     const [value, setValue] = useState("1");
     const ctx = useContext(AppContext);
