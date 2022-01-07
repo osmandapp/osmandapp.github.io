@@ -1,37 +1,34 @@
 import React, {useMemo} from 'react';
 import GpxGraph from "./GpxGraph";
-import GpxStat from "./GpxStat";
+import { Typography, Box } from "@mui/material";
 
-const Speed = (props) => {
-
-    const axisNames = ["dist", "speed"];
-
+export default function Speed({renderedGpx}) {
     const data = useMemo(() => {
-        let speedData = props.renderedGpx.gpx._info.speed._points;
+        let speedData = renderedGpx.gpx._info.speed._points;
         let result = [];
 
         Object.values(speedData).forEach((point) => {
             let data = {
-                dist: Math.round(point[0]) / 1000,
-                speed: point[1]
+                "Distance" : Math.round(point[0]) / 1000,
+                "Speed": point[1]
             };
-
             result.push(data);
         });
         return result;
-    }, [props.renderedGpx]);
+    }, [renderedGpx]);
 
-    const maxSpeed = props.renderedGpx.summary.maxSpeed;
-    const minSpeed = props.renderedGpx.summary.minSpeed;
-
-    const stat = [`max speed = ${maxSpeed}`, `min speed = ${minSpeed}`]
+    const maxSpeed = renderedGpx.summary.maxSpeed;
+    const minSpeed = renderedGpx.summary.minSpeed;
 
     return (
-        <div>
-            <GpxGraph data={data} axisNames={axisNames}/>
-            <GpxStat stat={stat}/>
-        </div>
+        <>
+            <GpxGraph data={data} xAxis={"Distance"} yAxis={"Speed"}/>
+            <Box >
+                <Typography variant="subtitle1" color="inherit" >
+                    Max speed: {maxSpeed}, min speed: {minSpeed}
+                </Typography>
+            </Box>
+            
+        </>
     );
 };
-
-export default Speed;

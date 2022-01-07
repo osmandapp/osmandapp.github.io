@@ -149,6 +149,7 @@ export const AppContextProvider = (props) => {
     const [loginUser, setLoginUser] = useState(null);
     const [listFiles, setListFiles] = useState({});
     const [gpxFiles, setGpxFiles] = useState({});
+    const [selectedGpxFile, setSelectedGpxFile] = useState({});
     
     useEffect(() => {
         checkUserLogin(loginUser, setLoginUser, userEmail, setUserEmail);

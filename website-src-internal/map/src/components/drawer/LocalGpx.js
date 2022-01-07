@@ -114,10 +114,9 @@ const fileSelected = (gpxFiles, setGpxFiles, setAppText) => async (e) => {
     });
 }
 
-export default function LocalGpx({ setAppText, setShowInfo }) {
+export default function LocalGpx({ setAppText}) {
     const ctx = useContext(AppContext);
     const [localGpxOpen, setLocalGpxOpen] = useState(false);
-    const toggleInfo = () => setShowInfo(value => !value);
 
     useEffect(() => {
         loadInitialState(ctx.gpxFiles, ctx.setGpxFiles);
@@ -146,10 +145,6 @@ export default function LocalGpx({ setAppText, setShowInfo }) {
                             </Typography>
                         </ListItemText>
                     </Tooltip>
-                    <Button variant="contained" component="span"
-                            onClick={toggleInfo}>
-                        info
-                    </Button>
                     <Switch
                         checked={item.url ? true : false}
                         onChange={(e) => {

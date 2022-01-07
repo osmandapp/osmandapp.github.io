@@ -1,36 +1,33 @@
 import React, {useMemo} from 'react';
 import GpxGraph from "./GpxGraph";
-import GpxStat from "./GpxStat";
+import { Typography, Box } from "@mui/material";
 
-const Elevation = (props) => {
-
-    const axisNames = ["dist", "elevation"];
-
+const Elevation = ({ renderedGpx }) => {
     const data = useMemo(() => {
-        let elevationData = props.renderedGpx.gpx._info.elevation._points;
+        let elevationData = renderedGpx.gpx._info.elevation._points;
         let result = [];
         Object.values(elevationData).forEach((point) => {
             let data = {
-                dist: Math.round(point[0]) / 1000,
-                elevation: point[1]
+                "Distance": Math.round(point[0]) / 1000,
+                "Elevation": point[1]
             };
 
             result.push(data);
         });
 
         return result;
-    }, [props.renderedGpx]);
-
-    const maxEl = props.renderedGpx.summary.maxElevation;
-    const minEl = props.renderedGpx.summary.minElevation;
-
-    const stat = [`max elevation = ${maxEl}`, `min elevation = ${minEl}`]
-
+    }, [renderedGpx]);
+    const maxEl = renderedGpx.summary.maxElevation;
+    const minEl = renderedGpx.summary.minElevation;
     return (
-        <div>
-            <GpxGraph data={data} axisNames={axisNames}/>
-            <GpxStat stat={stat}/>
-        </div>
+        <>
+            <GpxGraph data={data} xAxis={"Distance"} yAxis={"Elevation"} />
+            <Box >
+                <Typography variant="subtitle1" color="inherit" >
+                    Max elevation: {maxEl}, min elevation: {minEl}
+                </Typography>
+            </Box>
+        </>
     );
 };
 

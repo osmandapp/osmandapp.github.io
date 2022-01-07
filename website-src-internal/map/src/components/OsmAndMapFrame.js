@@ -12,7 +12,6 @@ import {Outlet} from 'react-router-dom';
 
 const OsmAndMapFrame = ({} ) => {
     const [drawerOpen, setDrawerOpen] = useState(false);
-    const [showInfo, setShowInfo] = useState(false);
     const toggleDrawer = () => {
         setDrawerOpen(!drawerOpen);
     };
@@ -42,7 +41,7 @@ const OsmAndMapFrame = ({} ) => {
                         </Box>
                     </Toolbar>
                 </AppBar>
-                <OsmAndMap showInfo={showInfo}>
+                <OsmAndMap>
                 </OsmAndMap>
             </Box>
             <Drawer
@@ -60,7 +59,7 @@ const OsmAndMapFrame = ({} ) => {
             >
                 <OsmAndDrawer mobile={true} 
                     toggleDrawer={toggleDrawer}
-                    appText={appText} setAppText={setAppText} setShowInfo={setShowInfo}/>
+                    appText={appText} setAppText={setAppText}/>
             </Drawer>
             <Drawer
                 variant="permanent"
@@ -70,7 +69,7 @@ const OsmAndMapFrame = ({} ) => {
                 }}
                 open>
                 <OsmAndDrawer mobile={false}
-                    appText={appText} setAppText={setAppText} setShowInfo={setShowInfo}/>
+                    appText={appText} setAppText={setAppText}/>
 
             </Drawer>
             <Outlet/>

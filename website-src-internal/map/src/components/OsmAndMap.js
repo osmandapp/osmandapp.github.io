@@ -2,13 +2,10 @@ import React, {useEffect, useRef, useContext, useState} from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 import { MapContainer, TileLayer, ZoomControl, LayersControl } from "react-leaflet";
 import AppContext from "../context/AppContext";
-import GpxInfo from "./gpxinfo/GpxInfo"
+import MapContextMenu from "./MapContextMenu"
 import L from 'leaflet';
 import 'leaflet-gpx';
 import 'leaflet.awesome-markers';
-
-
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -44,13 +41,37 @@ const updateLayerFunc = (layers, updateLayers, enable) => (event) => {
   }
 }
 
-const OsmAndMap = (props) => {
+function addTrackToMap(file, map) {
+  file.gpx = new L.GPX(file.url, {
+    async: true,
+    marker_options: {
+      startIcon: new L.AwesomeMarkers.icon({
+        icon: 'coffee',
+        markerColor: 'blue',
+        iconColor: 'white'
+      }),
+      endIcon: new L.AwesomeMarkers.icon({
+        icon: 'coffee',
+        markerColor: 'blue',
+        iconColor: 'white'
+      })
+      //shadowUrl: 'images/pin-shadow.png'
+    }
+  }).on('loaded', function (e) {
+    map.current.fitBounds(e.target.getBounds());
+  }).addTo(map.current);
+}
+
+function removeTrackFromMap(file, map) {
+  map.current.removeLayer(file.gpx);
+  file.gpx = null;
+}
+
+const OsmAndMap = () => {
 
   const classes = useStyles();
   const map = useRef(null);
   const ctx = useContext(AppContext);
-
-  const [renderedGpx, setRenderedGpx] = useState(null);
 
   const whenReadyHandler = event => {
     const { target } = event;
@@ -71,41 +92,16 @@ const OsmAndMap = (props) => {
     }
   }, [ctx.weatherDate]);
 
-  function addTrackToMap(file) {
-    file.gpx = new L.GPX(file.url, {
-      async: true,
-      marker_options: {
-        startIcon: new L.AwesomeMarkers.icon({
-          icon: 'coffee',
-          markerColor: 'blue',
-          iconColor: 'white'
-        }),
-        endIcon: new L.AwesomeMarkers.icon({
-          icon: 'coffee',
-          markerColor: 'blue',
-          iconColor: 'white'
-        })
-        //shadowUrl: 'images/pin-shadow.png'
-      }
-    }).on('loaded', function (e) {
-      map.current.fitBounds(e.target.getBounds());
-      setRenderedGpx(file);
-    }).addTo(map.current);
-  }
-
-  function removeTrackFromMap(file) {
-    map.current.removeLayer(file.gpx);
-    file.gpx = null;
-  }
+ 
 
   useEffect(() => {
     // var gpx = 'https://www.openstreetmap.org/trace/4020415/data'; // URL to your GPX file or the GPX itself
     let filesMap = ctx.gpxFiles ? ctx.gpxFiles : {} ;
     Object.values(filesMap).forEach((file) => {
       if (file.url && !file.gpx) {
-        addTrackToMap(file);
+        addTrackToMap(file, map);
       } else if (!file.url && file.gpx) {
-        removeTrackFromMap(file);
+        removeTrackFromMap(file, map);
       }
     });
   }, [ctx.gpxFiles]);
@@ -143,7 +139,7 @@ const OsmAndMap = (props) => {
         ))}
       </LayersControl>
       <ZoomControl position="bottomleft" />
-      {props.showInfo && <GpxInfo renderedGpx={renderedGpx}/>}
+      <MapContextMenu />
     </MapContainer>
   );
 };
