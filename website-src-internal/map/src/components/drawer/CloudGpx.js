@@ -20,7 +20,7 @@ const toHHMMSS = function (time) {
     return hours + ':' + minutes + ':' + seconds;
 }
 
-function updateTextInfo(gpxFiles, setAppText) {
+function updateTextInfo(gpxFiles, ctx) {
     // Local GPX files: undefined tracks, NaN km, undefined wpts
     let dist = 0;
     let tracks = 0;
@@ -50,12 +50,12 @@ function updateTextInfo(gpxFiles, setAppText) {
             }
         }
     });
-    setAppText(`Selected GPX files: ${tracks} tracks, ${(dist / 1000.0).toFixed(1)} km, ${wpts} wpts. 
+    ctx.setAppText(`Selected GPX files: ${tracks} tracks, ${(dist / 1000.0).toFixed(1)} km, ${wpts} wpts. 
             Time moving: ${toHHMMSS(time)}. 
             Uphill / Downhill: ${(diffUp).toFixed(0)} / ${(diffDown).toFixed(0)} m.`)
 }
 
-async function loadGpxInfo(item, ctx, layer, setAppText, setProgressVisible) {
+async function loadGpxInfo(item, ctx, layer, setProgressVisible) {
     let gpxInfoUrl = `/map/api/get-gpx-info?type=${encodeURIComponent(item.type)}&name=${encodeURIComponent(item.name)}`;
     setProgressVisible(true);
     const response = await fetch(gpxInfoUrl, {});
@@ -69,33 +69,33 @@ async function loadGpxInfo(item, ctx, layer, setAppText, setProgressVisible) {
         layer.summary = data.info;
         newGpxFiles[item.name] = layer;
         ctx.setGpxFiles(newGpxFiles);
-        updateTextInfo(newGpxFiles, setAppText)
+        updateTextInfo(newGpxFiles, ctx);
         setProgressVisible(false);
     } 
 }
 
-function enableLayer(item, ctx, setAppText, setProgressVisible, visible) {
+function enableLayer(item, ctx,  setProgressVisible, visible) {
     let url = `/map/api/download-file?type=${encodeURIComponent(item.type)}&name=${encodeURIComponent(item.name)}`;
     const newGpxFiles = Object.assign({}, ctx.gpxFiles);
     if (!visible) {
         // delete newGpxFiles[item.name];
         newGpxFiles[item.name].url = null;
         ctx.setGpxFiles(newGpxFiles);
-        updateTextInfo(newGpxFiles, setAppText)
+        updateTextInfo(newGpxFiles, ctx);
     } else {
         newGpxFiles[item.name] = { 'url': url, 'clienttimems': item.clienttimems };
         ctx.setGpxFiles(newGpxFiles);
         if (item.details?.analysis) {
             newGpxFiles[item.name].summary = item.details.analysis;
-            updateTextInfo(newGpxFiles, setAppText);
+            updateTextInfo(newGpxFiles, ctx);
         } else {
-            loadGpxInfo(item, ctx, newGpxFiles[item.name], setAppText, setProgressVisible);
+            loadGpxInfo(item, ctx, newGpxFiles[item.name], setProgressVisible);
         }
     }
 }
 
 
-export default function CloudGpx({ setAppText }) {
+export default function CloudGpx({ }) {
     const ctx = useContext(AppContext);
     const [gpxOpen, setGpxOpen] = useState(false);
     let gpxFiles = (!ctx.listFiles || !ctx.listFiles.uniqueFiles ? [] :
@@ -219,7 +219,7 @@ export default function CloudGpx({ setAppText }) {
                         <Switch
                             checked={localLayer?.url ? true : false}
                             onChange={(e) => {
-                                enableLayer(item, ctx, setAppText, ctx.setGpxLoading, e.target.checked);
+                                enableLayer(item, ctx, ctx.setGpxLoading, e.target.checked);
                             }} />
                     </MenuItem>)
                 })

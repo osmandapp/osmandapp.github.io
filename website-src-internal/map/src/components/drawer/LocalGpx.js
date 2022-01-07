@@ -97,7 +97,7 @@ const clearLocalGpx = (gpxFiles, setGpxFiles, setAppText) => async (e) => {
 }
 
 
-const fileSelected = (gpxFiles, setGpxFiles, setAppText) => async (e) => {
+const fileSelected = (gpxFiles, setGpxFiles, ctx) => async (e) => {
     //    let file = e.target.files[0];
 
     Array.from(e.target.files).forEach((file) => {
@@ -108,13 +108,13 @@ const fileSelected = (gpxFiles, setGpxFiles, setAppText) => async (e) => {
             gpxLayer.name = 'local:' + file.name;
             gpxLayer.localContent = src;
             gpxLayer.local = true;
-            uploadFile(gpxFiles, setGpxFiles, setAppText, gpxLayer, file);
+            uploadFile(gpxFiles, setGpxFiles, ctx, gpxLayer, file);
         });
         reader.readAsText(file);
     });
 }
 
-export default function LocalGpx({ setAppText}) {
+export default function LocalGpx({ }) {
     const ctx = useContext(AppContext);
     const [localGpxOpen, setLocalGpxOpen] = useState(false);
 
@@ -162,7 +162,7 @@ export default function LocalGpx({ setAppText}) {
             <MenuItem disableRipple={true}>
                 <label htmlFor="contained-button-file" >
                     <StyledInput accept=".gpx" id="contained-button-file" multiple type="file"
-                        onChange={fileSelected(ctx.gpxFiles, ctx.setGpxFiles, setAppText)} />
+                        onChange={fileSelected(ctx.gpxFiles, ctx.setGpxFiles, ctx.setAppText)} />
                     <Button variant="contained" component="span" sx={{ ml: 3 }}>
                         Upload
                     </Button>
@@ -171,7 +171,7 @@ export default function LocalGpx({ setAppText}) {
             { localGpxFiles.length === 0 ? <></> :
                 <MenuItem disableRipple={true}>
                     <Button variant="contained" component="span" sx={{ ml: 3 }}
-                        onClick={clearLocalGpx(ctx.gpxFiles, ctx.setGpxFiles, setAppText)}>
+                        onClick={clearLocalGpx(ctx.gpxFiles, ctx.setGpxFiles, ctx.setAppText)}>
                         Clear
                     </Button>
                     <Button variant="contained" component="span" sx={{ ml: 2 }}

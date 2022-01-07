@@ -25,31 +25,31 @@ function formatWeatherDate(weatherDateObj) {
     return text;
 }
 
-function updateTextLayer(ctx, setAppText) {
-    setAppText(formatWeatherDate(ctx.weatherDate));
+function updateTextLayer(ctx, dt) {
+    ctx.setAppText(formatWeatherDate(dt));
 }
 
-const addWeatherHours = (ctx, setAppText, hours) => () => {
+const addWeatherHours = (ctx, hours) => () => {
     let dt = new Date(ctx.weatherDate.getTime() + (hours * 60 * 60 * 1000));
     ctx.setWeatherDate(dt);
-    updateTextLayer(ctx, setAppText);
+    updateTextLayer(ctx, dt);
 }
 
-const switchLayer = (ctx, index, setAppText) => (e) => {
+const switchLayer = (ctx, index) => (e) => {
     let newlayers = [...ctx.weatherLayers];
     newlayers[index].checked = e.target.checked;
     ctx.updateWeatherLayers(newlayers);
-    updateTextLayer(ctx, setAppText);
+    updateTextLayer(ctx, ctx.weatherDate);
 }
 
-export default function Weather({ setAppText }) {
+export default function Weather({ }) {
     const ctx = useContext(AppContext);
     const [weatherOpen, setWeatherOpen] = useState(false);
     return <>
         <MenuItem onClick={() => {
                 setWeatherOpen(!weatherOpen);
                 if (!weatherOpen) {
-                    updateTextLayer(ctx, setAppText);
+                    updateTextLayer(ctx, ctx.weatherDate);
                 } 
             }}>
             <ListItemIcon>
@@ -71,15 +71,15 @@ export default function Weather({ setAppText }) {
                     <ListItemText>{item.name}</ListItemText>
                     <Switch
                         checked={item.checked}
-                        onChange={switchLayer(ctx, index, setAppText)} />
+                        onChange={switchLayer(ctx, index)} />
                 </MenuItem>
             ))}
             <MenuItem disableRipple={true}>
-                <IconButton sx={{ ml: 1 }} onClick={addWeatherHours(ctx, setAppText, -1)}>
+                <IconButton sx={{ ml: 1 }} onClick={addWeatherHours(ctx, -1)}>
                     <NavigateBefore />
                 </IconButton>
                 <Typography>{ctx.weatherDate.toLocaleDateString() + " " + ctx.weatherDate.getHours() + ":00"}</Typography>
-                <IconButton onClick={addWeatherHours(ctx, setAppText, 1)} >
+                <IconButton onClick={addWeatherHours(ctx, 1)} >
                     <NavigateNext />
                 </IconButton>
             </MenuItem>

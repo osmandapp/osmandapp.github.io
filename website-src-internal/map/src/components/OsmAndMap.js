@@ -41,7 +41,7 @@ const updateLayerFunc = (layers, updateLayers, enable) => (event) => {
   }
 }
 
-function addTrackToMap(file, map) {
+function addTrackToMap(file, map, ctx) {
   file.gpx = new L.GPX(file.url, {
     async: true,
     marker_options: {
@@ -58,6 +58,7 @@ function addTrackToMap(file, map) {
       //shadowUrl: 'images/pin-shadow.png'
     }
   }).on('loaded', function (e) {
+    ctx.setSelectedGpxFile(file);
     map.current.fitBounds(e.target.getBounds());
   }).addTo(map.current);
 }
@@ -92,14 +93,12 @@ const OsmAndMap = () => {
     }
   }, [ctx.weatherDate]);
 
- 
-
   useEffect(() => {
     // var gpx = 'https://www.openstreetmap.org/trace/4020415/data'; // URL to your GPX file or the GPX itself
     let filesMap = ctx.gpxFiles ? ctx.gpxFiles : {} ;
     Object.values(filesMap).forEach((file) => {
       if (file.url && !file.gpx) {
-        addTrackToMap(file, map);
+        addTrackToMap(file, map, ctx);
       } else if (!file.url && file.gpx) {
         removeTrackFromMap(file, map);
       }

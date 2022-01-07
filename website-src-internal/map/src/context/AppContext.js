@@ -150,6 +150,7 @@ export const AppContextProvider = (props) => {
     const [listFiles, setListFiles] = useState({});
     const [gpxFiles, setGpxFiles] = useState({});
     const [selectedGpxFile, setSelectedGpxFile] = useState({});
+    const [appText, setAppText] = useState('');
     
     useEffect(() => {
         checkUserLogin(loginUser, setLoginUser, userEmail, setUserEmail);
@@ -167,6 +168,8 @@ export const AppContextProvider = (props) => {
         loginUser: loginUser, setLoginUser: setLoginUser,
         gpxFiles: gpxFiles, setGpxFiles: setGpxFiles,
         gpxLoading: gpxLoading, setGpxLoading: setGpxLoading,
+        appText: appText, setAppText: setAppText,
+        selectedGpxFile: selectedGpxFile, setSelectedGpxFile: setSelectedGpxFile,
         tileURL: osmandTileURL
     }}>
         {props.children}

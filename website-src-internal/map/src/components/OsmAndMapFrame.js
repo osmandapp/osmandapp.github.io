@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Drawer, Toolbar, Typography, Box} from "@mui/material";
 import {
     IconButton, AppBar
@@ -9,6 +9,8 @@ import {
 import OsmAndMap from './OsmAndMap';
 import OsmAndDrawer from './OsmAndDrawer';
 import {Outlet} from 'react-router-dom';
+import AppContext from "../context/AppContext";
+
 
 const OsmAndMapFrame = ({} ) => {
     const [drawerOpen, setDrawerOpen] = useState(false);
@@ -16,8 +18,7 @@ const OsmAndMapFrame = ({} ) => {
         setDrawerOpen(!drawerOpen);
     };
     const drawerWidth = 320;
-    const [appText, setAppText] = useState(null);
-
+    const ctx = useContext(AppContext);
     return (
         <>
             <Box sx={{
@@ -36,7 +37,7 @@ const OsmAndMapFrame = ({} ) => {
                         </IconButton>
                         <Box sx={{ ml: 1 }}>
                             <Typography variant="h6" color="inherit" >
-                                {appText ? appText : 'Welcome to OsmAnd.'}
+                                {ctx.appText ? ctx.appText : 'Welcome to OsmAnd.'}
                             </Typography>
                         </Box>
                     </Toolbar>
@@ -57,9 +58,7 @@ const OsmAndMapFrame = ({} ) => {
                     '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
                 }}
             >
-                <OsmAndDrawer mobile={true} 
-                    toggleDrawer={toggleDrawer}
-                    appText={appText} setAppText={setAppText}/>
+                <OsmAndDrawer mobile={true} toggleDrawer={toggleDrawer}/>
             </Drawer>
             <Drawer
                 variant="permanent"
@@ -68,9 +67,7 @@ const OsmAndMapFrame = ({} ) => {
                     '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
                 }}
                 open>
-                <OsmAndDrawer mobile={false}
-                    appText={appText} setAppText={setAppText}/>
-
+                <OsmAndDrawer mobile={false}/>
             </Drawer>
             <Outlet/>
         </>

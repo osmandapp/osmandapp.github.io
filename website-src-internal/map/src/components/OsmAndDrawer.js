@@ -12,11 +12,10 @@ import { useNavigate } from "react-router-dom";
 
 
 
-export default function OsmAndDrawer({ mobile, toggleDrawer,
-    appText, setAppText, setShowInfo }) {
+export default function OsmAndDrawer({ mobile, toggleDrawer }) {
     const ctx = useContext(AppContext);
     
-    // setAppText(ctx.gpxFiles.localInfoSummary);
+    // ctx.setAppText(ctx.gpxFiles.localInfoSummary);
     const navigate = useNavigate();
     const openLogin = () => {
         navigate('/map/loginForm');
@@ -44,9 +43,9 @@ export default function OsmAndDrawer({ mobile, toggleDrawer,
         </Toolbar>
         <Divider />
         <MenuList>
-            <Weather setAppText={setAppText} />
-            <CloudGpx setAppText={setAppText} />
-            <LocalGpx setAppText={setAppText} setShowInfo={setShowInfo}/>
+            <Weather />
+            <CloudGpx />
+            <LocalGpx />
         </MenuList>
     </>
     );
