@@ -82,7 +82,7 @@ const clearLocalGpx = (gpxFiles, setGpxFiles, setAppText) => async (e) => {
     if (response.ok) {
         await response.json();
         let newinfo = Object.assign({}, gpxFiles);
-        Object.values(gpxFiles).map((item) => {
+        Object.values(gpxFiles).forEach((item) => {
             if (item.local) {
                 // clear up but not delete
                 newinfo[item.name].local = false;
@@ -114,7 +114,7 @@ const fileSelected = (gpxFiles, setGpxFiles, ctx) => async (e) => {
     });
 }
 
-export default function LocalGpx({ }) {
+export default function LocalGpx() {
     const ctx = useContext(AppContext);
     const [localGpxOpen, setLocalGpxOpen] = useState(false);
 

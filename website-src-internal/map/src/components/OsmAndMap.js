@@ -41,7 +41,7 @@ const updateLayerFunc = (layers, updateLayers, enable) => (event) => {
   }
 }
 
-function addTrackToMap(file, map) {
+function addTrackToMap(file, map, setSelectedGpxFile) {
   file.gpx = new L.GPX(file.url, {
     async: true,
     marker_options: {
@@ -58,7 +58,7 @@ function addTrackToMap(file, map) {
       //shadowUrl: 'images/pin-shadow.png'
     }
   }).on('loaded', function (e) {
-//    ctx.setSelectedGpxFile(file);
+    setSelectedGpxFile(file);
     map.current.fitBounds(e.target.getBounds());
   }).addTo(map.current);
 }
@@ -98,12 +98,12 @@ const OsmAndMap = () => {
     let filesMap = ctx.gpxFiles ? ctx.gpxFiles : {} ;
     Object.values(filesMap).forEach((file) => {
       if (file.url && !file.gpx) {
-        addTrackToMap(file, map);
+        addTrackToMap(file, map, ctx.setSelectedGpxFile);
       } else if (!file.url && file.gpx) {
         removeTrackFromMap(file, map);
       }
     });
-  }, [ctx.gpxFiles]);
+  }, [ctx.gpxFiles, ctx.setSelectedGpxFile]);
   // <TileLayer
   //   key="layer_white"
   //   url="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEAAQMAAABmvDolAAAAA1BMVEX///+nxBvIAAAAH0lEQVQYGe3BAQ0AAADCIPunfg43YAAAAAAAAAAA5wIhAAAB9aK9BAAAAABJRU5ErkJggg=="

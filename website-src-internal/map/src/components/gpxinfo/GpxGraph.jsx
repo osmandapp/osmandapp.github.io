@@ -2,14 +2,14 @@ import React from 'react';
 import {Area, Tooltip, XAxis, YAxis, AreaChart} from "recharts";
 import {Typography} from "@mui/material";
 
-export default function GpxGraph({data, xAxis, yAxis}) {
-    return (<div>
-            <Typography component={'span'} type="title" color="inherit" sx={{p: 2}}>
+export default function GpxGraph({ data, xAxis, yAxis, width}) {
+    return (<>
+            <Typography component={'span'} type="title" color="inherit" sx={{p: 0}}>
                 <AreaChart
-                    width={600}
-                    height={150}
+                    width={width}
+                    height={120}
                     data={data}
-                    margin={{top: 10, right: 30, left: 0, bottom: 0}}
+                    margin={{top: 0, right: 0, left: 0, bottom: 0}}
                 >
                     <defs>
                         <linearGradient id="colorEl" x1="0" y1="0" x2="0" y2="1">
@@ -29,6 +29,6 @@ export default function GpxGraph({data, xAxis, yAxis}) {
                     />
                 </AreaChart>
             </Typography>
-    </div>
+    </>
     );
 };
