@@ -13,7 +13,7 @@ export default function GpxGraph({ data, xAxis, yAxis, width}) {
                 >
                     <defs>
                         <linearGradient id="colorEl" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="5%" stopColor="#8ac827" stopOpacity={0.8}/>
+                            <stop offset="5%" stopColor="#8ac827" stopOpacity={0.9}/>
                             <stop offset="95%" stopColor="#bddbb0" stopOpacity={0}/>
                         </linearGradient>
                     </defs>

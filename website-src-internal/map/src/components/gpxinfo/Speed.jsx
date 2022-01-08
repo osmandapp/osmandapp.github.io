@@ -10,25 +10,14 @@ export default function Speed({ renderedGpx, width}) {
         Object.values(speedData).forEach((point) => {
             let data = {
                 "Distance" : Math.round(point[0]) / 1000,
-                "Speed": point[1]
+                "Speed": point[1].toFixed(1)
             };
             result.push(data);
         });
         return result;
     }, [renderedGpx]);
 
-    const maxSpeed = renderedGpx.summary.maxSpeed;
-    const minSpeed = renderedGpx.summary.minSpeed;
-
     return (
-        <>
-            <GpxGraph data={data} xAxis={"Distance"} yAxis={"Speed"} width={width}/>
-            <Box >
-                <Typography variant="subtitle1" color="inherit" >
-                    Min - max speed: {minSpeed.toFixed(0)} - {maxSpeed.toFixed(0)} m/s.
-                </Typography>
-            </Box>
-            
-        </>
+        <GpxGraph data={data} xAxis={"Distance"} yAxis={"Speed"} width={width}/>
     );
 };

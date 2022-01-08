@@ -9,7 +9,7 @@ const Elevation = ({ renderedGpx, width }) => {
         Object.values(elevationData).forEach((point) => {
             let data = {
                 "Distance": Math.round(point[0]) / 1000,
-                "Elevation": point[1]
+                "Elevation": point[1].toFixed(1)
             };
 
             result.push(data);
@@ -20,13 +20,8 @@ const Elevation = ({ renderedGpx, width }) => {
     const maxEl = renderedGpx.summary.maxElevation;
     const minEl = renderedGpx.summary.minElevation;
     return (
-        <>
-            <GpxGraph data={data} xAxis={"Distance"} yAxis={"Elevation"} width={width}/>
-            <Typography variant="subtitle1" color="inherit" >
-                Min - max elevation:  {minEl.toFixed(0)} - {maxEl.toFixed(0)} m.
-            </Typography>
-            
-        </>
+        <GpxGraph data={data} xAxis={"Distance"} yAxis={"Elevation"} width={width}/>
+        
     );
 };
 
