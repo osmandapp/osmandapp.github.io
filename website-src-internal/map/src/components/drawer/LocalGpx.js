@@ -137,7 +137,7 @@ export default function LocalGpx() {
 
         <Collapse in={localGpxOpen} timeout="auto" unmountOnExit>
             {localGpxFiles.map((item, index) => (
-                <MenuItem key={item.name}>
+                <MenuItem key={item.name} onClick={() => ctx.setSelectedGpxFile(item)}>
                     <Tooltip title={item.name}>
                         <ListItemText inset>
                             <Typography variant="inherit" noWrap>

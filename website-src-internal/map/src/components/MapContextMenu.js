@@ -1,5 +1,5 @@
 import {
-    Paper, Tab, AppBar, Typography, Box,
+    Paper, Tab, AppBar, Typography, Box, IconButton,
 } from "@mui/material";
 import AppContext from "../context/AppContext"
 import { useState, useContext } from "react";
@@ -7,6 +7,9 @@ import { TabContext, TabList, TabPanel } from "@mui/lab";
 import GeneralInfo from "./gpxinfo/GeneralInfo";
 import Elevation from "./gpxinfo/Elevation";
 import Speed from "./gpxinfo/Speed";
+import {
+    Close
+} from '@mui/icons-material';
 
 const centerStyle = {
     left: "50%",
@@ -32,7 +35,13 @@ export default function MapContextMenu() {
     }
     tabs.Info = <GeneralInfo renderedGpx={ctx.selectedGpxFile} width={graphWidth} />;
 
-    const tabList = Object.keys(tabs).map((item, index) => <Tab value={index+''} label={item} key={index} /> );
+    let tabList = [];
+    tabList.push(<IconButton onClick={() => ctx.setSelectedGpxFile(null)}>
+        <Close />
+    </IconButton>);
+    tabList = tabList.concat(Object.keys(tabs).map((item, index) => 
+            <Tab value={index+''} label={item} key={index} /> ));
+    
     return (
         <div className="leaflet-bottom" style={centerStyle}>
             <div className="leaflet-control leaflet-bar padding-container" >
@@ -44,7 +53,9 @@ export default function MapContextMenu() {
                         }
                             <AppBar position="static" color="default">
                                 <TabList onChange={handleChange} children={tabList}>
+                                    
                                 </TabList>
+                                
                             </AppBar>
                         </TabContext>
                     </Paper>

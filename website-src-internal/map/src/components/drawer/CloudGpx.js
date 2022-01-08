@@ -189,7 +189,7 @@ export default function CloudGpx() {
                     }
 
                     return (
-                        <MenuItem key={item.name}>
+                        <MenuItem key={item.name} onClick={() => ctx.setSelectedGpxFile(localLayer)}>
                             <Tooltip title={<div>
                                 {item.name}
                                 {timeRange ? <><br /><br />Time: </> : <></>}  {timeRange}
