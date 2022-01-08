@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Typography, Box } from "@mui/material";
+import { Typography, Box, Button } from "@mui/material";
 import { getGpxTime, toHHMMSS } from "../../context/AppContext"
 
 export default function GeneralInfo({ renderedGpx, width }) {
@@ -44,7 +44,8 @@ export default function GeneralInfo({ renderedGpx, width }) {
 
     return (<Box width={width}>
         <Typography variant="subtitle1" color="inherit" >
-            {renderedGpx?.summary?.name}
+            {renderedGpx?.summary?.name} <Button onClick={
+                () => window.open(renderedGpx.url)}>Download</Button>
             {timeRange ? <><br /><br />Time: </> : <></>}  {timeRange}
             {distance ? <br /> : <></>} {distance}
             {speed ? <br /> : <></>} {speed}
@@ -52,5 +53,6 @@ export default function GeneralInfo({ renderedGpx, width }) {
             {elevation ? <br /> : <></>} {elevation}
             {updownhill ? <br /> : <></>} {updownhill}
         </Typography>
+        
     </Box>);
 };
