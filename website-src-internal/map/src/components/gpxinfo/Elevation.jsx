@@ -2,16 +2,17 @@ import React, {useMemo} from 'react';
 import GpxGraph from "./GpxGraph";
 import { Typography, Box } from "@mui/material";
 
-const Elevation = ({ renderedGpx, width }) => {
-    const data = useMemo(() => {
+const Elevation = ({ data, width }) => {
+    const graphData = useMemo(() => {
         let result = [];
-        let dt = Object.values(renderedGpx.gpx._info.elevation._points);
-        let min = dt[0][1];
-        let max = dt[0][1];
-        dt.forEach((point) => {
-            let val = Math.round(point[1] * 10) / 10;
+        let min = data[0].elevation;
+        let max = data[0].elevation;
+        let cumDist = 0;
+        data.forEach((point) => {
+            let val = Math.round(point.elevation * 10) / 10;
+            cumDist += point.distance;
             let data = {
-                "Distance": Math.round(point[0]) / 1000,
+                "Distance": Math.round(cumDist) / 1000,
                 "Elevation": val
             };
             result.push(data);
@@ -19,12 +20,12 @@ const Elevation = ({ renderedGpx, width }) => {
             max = Math.max(val, max);
         });
         return { res: result, min: min, max: max };
-    }, [renderedGpx]);
+    }, [data]);
 
     return (
         // min={data.min.toFixed(0)} max={data.max.toFixed(0)}
-        <GpxGraph data={data.res} xAxis={"Distance"} yAxis={"Elevation"} 
-            width={width} min={data.min} max={data.max} />
+        <GpxGraph data={graphData.res} xAxis={"Distance"} yAxis={"Elevation"} 
+            width={width} min={graphData.min} max={graphData.max} />
         
     );
 };

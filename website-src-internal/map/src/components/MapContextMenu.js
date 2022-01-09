@@ -24,10 +24,11 @@ export default function MapContextMenu() {
         setValue(newValue);
     };
     const hasSpeed = ctx.selectedGpxFile?.summary?.hasSpeedData ;
-    const hasAltitude = ctx.selectedGpxFile?.summary?.hasElevationData;
+    // const hasAltitude = ctx.selectedGpxFile?.summary?.hasElevationData;
     const graphWidth = 600;
     const tabs = { };
-    if (hasAltitude) {
+    if (ctx.selectedGpxFile?.summary?.elevationData &&
+        ctx.selectedGpxFile.summary.elevationData.length > 0) {
         tabs.Elevation = <Elevation key='elevation' renderedGpx={ctx.selectedGpxFile} width={graphWidth} />
     }
     if (hasSpeed) {
@@ -40,6 +41,11 @@ export default function MapContextMenu() {
     if (ctx.selectedGpxFile?.srtmSummary) {
         tabs.SRTM = <GeneralInfo key='srtm' 
                 width={graphWidth} summary={ctx.selectedGpxFile.srtmSummary} />;
+    }
+    if (ctx.selectedGpxFile?.srtmSummary?.elevationData && 
+        ctx.selectedGpxFile.srtmSummary.elevationData.length > 0) {
+        tabs["SRTM Ele"] = <Elevation key='elevation' data={ctx.selectedGpxFile.srtmSummary.elevationData} 
+                width={graphWidth} />
     }
 
     let tabList = [];
