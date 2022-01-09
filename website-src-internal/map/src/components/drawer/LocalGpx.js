@@ -44,11 +44,13 @@ async function loadInitialState(gpxFiles, setGpxFiles) {
         let data = await response.json();
         data.all.forEach((item) => {
             let gpxLayer = {};
-            gpxLayer.name = 'local:' + item.name;
-            gpxLayer.localContent = '/gpx/get-gpx-file?name=' + encodeURIComponent(item.name);
+            gpxLayer.name = 'local:' + item.analysis.name;
+            gpxLayer.localContent = '/gpx/get-gpx-file?name=' + encodeURIComponent(item.analysis.name);
+            // gpxLayer.url 
             gpxLayer.local = true;
             let newinfo = Object.assign({}, gpxFiles);
-            gpxLayer.summary = item;
+            gpxLayer.summary = item.analysis;
+            gpxLayer.srtmSummary = item.srtmAnalysis;
             newinfo[gpxLayer.name] = gpxLayer;
             gpxFiles[gpxLayer.name] = gpxLayer;
             setGpxFiles(newinfo);
@@ -56,7 +58,7 @@ async function loadInitialState(gpxFiles, setGpxFiles) {
     }
 
 }
-async function uploadFile(gpxFiles, setGpxFiles, setAppText, gpxLayer, file) {
+async function uploadFile(gpxFiles, setGpxFiles, ctx, gpxLayer, file) {
     let formData = new FormData();
     formData.append('file', file);
     const response = await fetch(`/gpx/upload-session-gpx`, {
@@ -66,11 +68,14 @@ async function uploadFile(gpxFiles, setGpxFiles, setAppText, gpxLayer, file) {
     if (response.ok) {
         let data = await response.json();
         let newinfo = Object.assign({}, gpxFiles);
-        gpxLayer.summary = data.info;
+        if (data.info) {
+            gpxLayer.summary = data.info.analysis;
+            gpxLayer.srtmSummary = data.info.srtmAnalysis;
+        }
         newinfo[gpxLayer.name] = gpxLayer;
         gpxFiles[gpxLayer.name] = gpxLayer;
         setGpxFiles(newinfo);
-        updateTextInfo(gpxFiles, setAppText);
+        updateTextInfo(gpxFiles, ctx.setAppText);
     } else {
         alert("File Upload has failed");
     }

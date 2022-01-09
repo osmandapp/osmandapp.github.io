@@ -2,7 +2,7 @@ import React, {useMemo} from 'react';
 import GpxGraph from "./GpxGraph";
 import { Typography, Box } from "@mui/material";
 
-export default function Speed({ data, width}) {
+export default function Speed({ data, width }) {
     const graphData = useMemo(() => {
         let result = [];
         let min = data[0].speed;
@@ -22,7 +22,7 @@ export default function Speed({ data, width}) {
         return { res: result, min: min, max: max };
     }, [data]);
     return (
-        <GpxGraph data={data.res} xAxis={"Distance"} yAxis={"Speed"} 
-            width={width} min={0} max={data.max} />
+        <GpxGraph data={graphData.res} xAxis={"Distance"} yAxis={"Speed"} 
+            width={width} min={0} max={graphData.max} />
     );
 };
