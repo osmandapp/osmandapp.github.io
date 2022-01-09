@@ -44,6 +44,26 @@ function updateTextInfo(gpxFiles, ctx) {
             Uphill / Downhill: ${(diffUp).toFixed(0)} / ${(diffDown).toFixed(0)} m.`)
 }
 
+async function loadSrtmGpxInfo(item, ctx, layer, setProgressVisible) {
+    let srtmGpxInfoUrl = `/map/api/get-srtm-gpx-info?type=${encodeURIComponent(item.type)}&name=${encodeURIComponent(item.name)}`;
+    setProgressVisible(true);
+    const response = await fetch(srtmGpxInfoUrl, {});
+    if (response.redirected) {
+        setProgressVisible(false);
+        console.log(response.url);
+        window.location.href = response.url;
+    } else if (response.ok) {
+        let data = await response.json();
+        const newGpxFiles = Object.assign({}, ctx.gpxFiles);
+        layer.srtmSummary = data.info;
+        newGpxFiles[item.name] = layer;
+        ctx.setGpxFiles(newGpxFiles);
+        updateTextInfo(newGpxFiles, ctx);
+        setProgressVisible(false);
+    }
+}
+
+
 async function loadGpxInfo(item, ctx, layer, setProgressVisible) {
     let gpxInfoUrl = `/map/api/get-gpx-info?type=${encodeURIComponent(item.type)}&name=${encodeURIComponent(item.name)}`;
     setProgressVisible(true);
@@ -60,6 +80,7 @@ async function loadGpxInfo(item, ctx, layer, setProgressVisible) {
         ctx.setGpxFiles(newGpxFiles);
         updateTextInfo(newGpxFiles, ctx);
         setProgressVisible(false);
+        loadSrtmGpxInfo(item, ctx, layer, setProgressVisible);
     } 
 }
 
@@ -70,6 +91,7 @@ function enableLayer(item, ctx,  setProgressVisible, visible) {
         // delete newGpxFiles[item.name];
         newGpxFiles[item.name].url = null;
         ctx.setGpxFiles(newGpxFiles);
+        ctx.setSelectedGpxFile(null);
         updateTextInfo(newGpxFiles, ctx);
     } else {
         newGpxFiles[item.name] = { 'url': url, 'clienttimems': item.clienttimems };
@@ -77,6 +99,7 @@ function enableLayer(item, ctx,  setProgressVisible, visible) {
         if (item.details?.analysis) {
             newGpxFiles[item.name].summary = item.details.analysis;
             updateTextInfo(newGpxFiles, ctx);
+            loadSrtmGpxInfo(item, ctx, newGpxFiles[item.name], setProgressVisible);
         } else {
             loadGpxInfo(item, ctx, newGpxFiles[item.name], setProgressVisible);
         }

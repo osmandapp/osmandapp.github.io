@@ -1,8 +1,8 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { Typography, Box, Button } from "@mui/material";
-import { getGpxTime, toHHMMSS } from "../../context/AppContext"
+import { toHHMMSS } from "../../context/AppContext"
 
-export default function GeneralInfo({ renderedGpx, width }) {
+export default function GeneralInfo({ width, summary, url }) {
     let timeRange = '';
     let distance = '';
     let timeMoving = '';
@@ -10,42 +10,41 @@ export default function GeneralInfo({ renderedGpx, width }) {
     let speed = '';
     let elevation = '';
     // item.details?.analysis ?
-    let summary = renderedGpx?.summary;
-    if (summary?.startTime &&
-        summary?.startTime !== summary?.endTime) {
-        let stdate = new Date(summary.startTime).toDateString();
-        let edate = new Date(summary.endTime).toDateString();
-        timeRange = new Date(summary.startTime).toDateString() + " " +
-            new Date(summary.startTime).toLocaleTimeString() + " - " +
+    let info = summary;
+    if (info?.startTime &&
+        info?.startTime !== info?.endTime) {
+        let stdate = new Date(info.startTime).toDateString();
+        let edate = new Date(info.endTime).toDateString();
+        timeRange = new Date(info.startTime).toDateString() + " " +
+            new Date(info.startTime).toLocaleTimeString() + " - " +
             (edate !== stdate ? edate : '') +
-            new Date(summary.endTime).toLocaleTimeString();
+            new Date(info.endTime).toLocaleTimeString();
     }
-    if (summary?.totalDistance) {
-        distance = "Distance: " + (summary?.totalDistance / 1000).toFixed(1) + " km";
+    if (info?.totalDistance) {
+        distance = "Distance: " + (info?.totalDistance / 1000).toFixed(1) + " km";
     }
-    if (summary?.timeMoving) {
-        timeMoving = "Time moving: " + toHHMMSS(summary?.timeMoving);
+    if (info?.timeMoving) {
+        timeMoving = "Time moving: " + toHHMMSS(info?.timeMoving);
     }
-    if (summary?.hasElevationData) {
-        updownhill = "Uphill/downhill: " + summary.diffElevationUp.toFixed(0)
-            + "/" + summary?.diffElevationDown.toFixed(0) + " m";
+    if (info?.hasElevationData) {
+        updownhill = "Uphill/downhill: " + info.diffElevationUp.toFixed(0)
+            + "/" + info?.diffElevationDown.toFixed(0) + " m";
         elevation = "Elevation (min/avg/max): " +
-            (summary.minElevation).toFixed(1) + " / " +
-            (summary.avgElevation).toFixed(1) + " / " +
-            (summary.maxElevation).toFixed(1) + " m"
+            (info.minElevation).toFixed(1) + " / " +
+            (info.avgElevation).toFixed(1) + " / " +
+            (info.maxElevation).toFixed(1) + " m"
     }
-    if (summary?.hasSpeedData) {
+    if (info?.hasSpeedData) {
         speed = "Speed (min/avg/max): " +
-            (summary.minSpeed * 3.6).toFixed(0) + " / " +
-            (summary.avgSpeed * 3.6).toFixed(0) + " / " +
-            (summary.maxSpeed * 3.6).toFixed(0) + " km/h"
+            (info.minSpeed * 3.6).toFixed(0) + " / " +
+            (info.avgSpeed * 3.6).toFixed(0) + " / " +
+            (info.maxSpeed * 3.6).toFixed(0) + " km/h"
     }
-
 
     return (<Box width={width}>
         <Typography variant="subtitle1" color="inherit" >
-            {renderedGpx?.summary?.name} <Button onClick={
-                () => window.open(renderedGpx.url)}>Download</Button>
+            {info?.name} 
+            {url ? <Button onClick={() => window.open(url)}>Download</Button> : <></>}
             {timeRange ? <><br /><br />Time: </> : <></>}  {timeRange}
             {distance ? <br /> : <></>} {distance}
             {speed ? <br /> : <></>} {speed}

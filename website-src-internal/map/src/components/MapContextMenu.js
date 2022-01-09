@@ -18,7 +18,7 @@ const centerStyle = {
 
 
 export default function MapContextMenu() {
-    const [value, setValue] = useState("0");
+    const [value, setValue] = useState("general");
     const ctx = useContext(AppContext);
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -28,19 +28,26 @@ export default function MapContextMenu() {
     const graphWidth = 600;
     const tabs = { };
     if (hasAltitude) {
-        tabs.Elevation = <Elevation renderedGpx={ctx.selectedGpxFile} width={graphWidth} />
+        tabs.Elevation = <Elevation key='elevation' renderedGpx={ctx.selectedGpxFile} width={graphWidth} />
     }
     if (hasSpeed) {
-        tabs.Speed = <Speed renderedGpx={ctx.selectedGpxFile} width={graphWidth}/>;
+        tabs.Speed = <Speed key='speed' renderedGpx={ctx.selectedGpxFile} width={graphWidth}/>;
     }
-    tabs.Info = <GeneralInfo renderedGpx={ctx.selectedGpxFile} width={graphWidth} />;
+    if (ctx.selectedGpxFile?.summary) {
+        tabs.Info = <GeneralInfo key='general' summary={ctx.selectedGpxFile.summary} 
+                url={ctx.selectedGpxFile.url} width={graphWidth} />;
+    }
+    if (ctx.selectedGpxFile?.srtmSummary) {
+        tabs.SRTM = <GeneralInfo key='srtm' 
+                width={graphWidth} summary={ctx.selectedGpxFile.srtmSummary} />;
+    }
 
     let tabList = [];
-    tabList.push(<IconButton onClick={() => ctx.setSelectedGpxFile(null)}>
+    tabList.push(<IconButton key='close' onClick={() => ctx.setSelectedGpxFile(null)}>
         <Close />
     </IconButton>);
     tabList = tabList.concat(Object.keys(tabs).map((item, index) => 
-            <Tab value={index+''} label={item} key={index} /> ));
+        <Tab value={tabs[item].key + ''} label={item} key={'tab:' + item} /> ));
     
     return (
         <div className="leaflet-bottom" style={centerStyle}>
@@ -49,11 +56,10 @@ export default function MapContextMenu() {
                     <Paper >
                         <TabContext value={value} >
                         {Object.values(tabs).map((item, index) =>
-                            <TabPanel value={index + ''} key={index} > {item} </TabPanel>)
+                            <TabPanel value={item.key+''} key={'tabpanel:' + item.key} > {item} </TabPanel>)
                         }
                             <AppBar position="static" color="default">
                                 <TabList onChange={handleChange} children={tabList}>
-                                    
                                 </TabList>
                                 
                             </AppBar>
