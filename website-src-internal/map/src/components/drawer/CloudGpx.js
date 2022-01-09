@@ -76,11 +76,10 @@ async function loadGpxInfo(item, ctx, layer, setProgressVisible) {
         let data = await response.json();
         const newGpxFiles = Object.assign({}, ctx.gpxFiles);
         layer.summary = data.info;
-        newGpxFiles[item.name] = layer;
+        // newGpxFiles[item.name] = layer;
         ctx.setGpxFiles(newGpxFiles);
         updateTextInfo(newGpxFiles, ctx);
         setProgressVisible(false);
-        loadSrtmGpxInfo(item, ctx, layer, setProgressVisible);
     } 
 }
 
@@ -99,10 +98,10 @@ function enableLayer(item, ctx,  setProgressVisible, visible) {
         if (item.details?.analysis) {
             newGpxFiles[item.name].summary = item.details.analysis;
             updateTextInfo(newGpxFiles, ctx);
-            loadSrtmGpxInfo(item, ctx, newGpxFiles[item.name], setProgressVisible);
-        } else {
-            loadGpxInfo(item, ctx, newGpxFiles[item.name], setProgressVisible);
         }
+        loadSrtmGpxInfo(item, ctx, newGpxFiles[item.name], setProgressVisible);
+        loadGpxInfo(item, ctx, newGpxFiles[item.name], setProgressVisible);
+        ctx.setSelectedGpxFile(newGpxFiles[item.name]);
     }
 }
 

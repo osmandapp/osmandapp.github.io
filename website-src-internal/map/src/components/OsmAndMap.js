@@ -41,24 +41,33 @@ const updateLayerFunc = (layers, updateLayers, enable) => (event) => {
   }
 }
 
-function addTrackToMap(file, map, setSelectedGpxFile) {
+function addTrackToMap(file, map) {
+  // let ico = L.icon({
+  //   iconUrl: 'graphic/tank.png',
+  //   iconSize: [18, 9], //size of the icon in pixels
+  //   iconAnchor: [9, 9], //point of the icon which will correspond to marker's location(the center)
+  //   popupAnchor: [0, 0] //point from which the popup should open relative tothe iconAnchor
+  // });
   file.gpx = new L.GPX(file.url, {
     async: true,
     marker_options: {
-      startIcon: new L.AwesomeMarkers.icon({
+      startIcon: L.AwesomeMarkers.icon({
         icon: 'coffee',
         markerColor: 'blue',
         iconColor: 'white'
       }),
-      endIcon: new L.AwesomeMarkers.icon({
+      endIcon: L.AwesomeMarkers.icon({
         icon: 'coffee',
         markerColor: 'blue',
         iconColor: 'white'
-      })
+      }),
+      wptIcons: {
+        '': new L.marker([], {
+        })
+      }
       //shadowUrl: 'images/pin-shadow.png'
     }
   }).on('loaded', function (e) {
-    setSelectedGpxFile(file);
     map.current.fitBounds(e.target.getBounds());
   }).addTo(map.current);
 }
@@ -79,7 +88,10 @@ const OsmAndMap = () => {
     target.on('overlayadd', updateLayerFunc(ctx.weatherLayers, ctx.updateWeatherLayers, true));
     target.on('overlayremove', updateLayerFunc(ctx.weatherLayers, ctx.updateWeatherLayers, false));
     target.attributionControl.setPrefix('');
-
+    // L.marker([], {
+    //   icon: ico
+    // })
+    // L.marker([50.5, 5.5], { icon2: icon }).addTo(target);
     map.current = target;
   }
   useEffect(() => {
@@ -98,12 +110,12 @@ const OsmAndMap = () => {
     let filesMap = ctx.gpxFiles ? ctx.gpxFiles : {} ;
     Object.values(filesMap).forEach((file) => {
       if (file.url && !file.gpx) {
-        addTrackToMap(file, map, ctx.setSelectedGpxFile);
+        addTrackToMap(file, map);
       } else if (!file.url && file.gpx) {
         removeTrackFromMap(file, map);
       }
     });
-  }, [ctx.gpxFiles, ctx.setSelectedGpxFile]);
+  }, [ctx.gpxFiles]);
   // <TileLayer
   //   key="layer_white"
   //   url="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEAAQMAAABmvDolAAAAA1BMVEX///+nxBvIAAAAH0lEQVQYGe3BAQ0AAADCIPunfg43YAAAAAAAAAAA5wIhAAAB9aK9BAAAAABJRU5ErkJggg=="

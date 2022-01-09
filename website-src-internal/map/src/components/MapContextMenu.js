@@ -24,28 +24,40 @@ export default function MapContextMenu() {
         setValue(newValue);
     };
     const hasSpeed = ctx.selectedGpxFile?.summary?.hasSpeedData ;
-    // const hasAltitude = ctx.selectedGpxFile?.summary?.hasElevationData;
+    const hasAltitude = ctx.selectedGpxFile?.summary?.hasElevationData;
     const graphWidth = 600;
     const tabs = { };
-    if (ctx.selectedGpxFile?.summary?.elevationData &&
-        ctx.selectedGpxFile.summary.elevationData.length > 0) {
-        tabs.Elevation = <Elevation key='elevation' renderedGpx={ctx.selectedGpxFile} width={graphWidth} />
-    }
-    if (hasSpeed) {
-        tabs.Speed = <Speed key='speed' renderedGpx={ctx.selectedGpxFile} width={graphWidth}/>;
-    }
     if (ctx.selectedGpxFile?.summary) {
-        tabs.Info = <GeneralInfo key='general' summary={ctx.selectedGpxFile.summary} 
-                url={ctx.selectedGpxFile.url} width={graphWidth} />;
+        tabs.Info = <GeneralInfo key='general' summary={ctx.selectedGpxFile.summary}
+            url={ctx.selectedGpxFile.url} width={graphWidth} />;
     }
+    const elevationData = ctx.selectedGpxFile?.summary?.elevationData;
+    if (elevationData && elevationData.length > 0 && hasAltitude) {
+        tabs.Elevation = <Elevation key='elevation' data={elevationData} width={graphWidth} />
+    }
+    const speedData = ctx.selectedGpxFile?.summary?.speedData;
+    if (speedData && speedData.length > 0 && hasSpeed) {
+        tabs.Speed = <Speed key='speed' data={speedData} width={graphWidth}/>;
+    }
+    
     if (ctx.selectedGpxFile?.srtmSummary) {
         tabs.SRTM = <GeneralInfo key='srtm' 
                 width={graphWidth} summary={ctx.selectedGpxFile.srtmSummary} />;
     }
     if (ctx.selectedGpxFile?.srtmSummary?.elevationData && 
         ctx.selectedGpxFile.srtmSummary.elevationData.length > 0) {
-        tabs["SRTM Ele"] = <Elevation key='elevation' data={ctx.selectedGpxFile.srtmSummary.elevationData} 
+        tabs["SRTM Ele"] = <Elevation key='srtmele' data={ctx.selectedGpxFile.srtmSummary.elevationData} 
                 width={graphWidth} />
+    }
+    let presentValue = false;
+    Object.values(tabs).forEach((item) => {
+        if (item.key === value) {
+            presentValue = true;
+            return false;
+        }
+    });
+    if (!presentValue && value !== 'general') {
+        setValue('general');
     }
 
     let tabList = [];
