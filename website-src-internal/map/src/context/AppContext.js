@@ -112,6 +112,7 @@ async function loadListFiles(loginUser, listFiles, setListFiles, setGpxLoading) 
                 }
                 return 0;
             });
+            // res.uniqueFiles = res.uniqueFiles.slice(0, 300);
             setListFiles(res);
             setGpxLoading(false);
         }

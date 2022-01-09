@@ -3,6 +3,7 @@ import {
     Typography, ListItemText, Switch, Collapse, 
     IconButton, MenuItem, ListItemIcon, Tooltip, LinearProgress
 } from "@mui/material";
+import { FixedSizeList } from 'react-window';
 import {
     DirectionsWalk, ExpandLess, ExpandMore, Sort, SortByAlpha
 } from '@mui/icons-material';
@@ -105,6 +106,71 @@ function enableLayer(item, ctx,  setProgressVisible, visible) {
     }
 }
 
+const GpxItemRow = (gpxFiles, ctx) => ({index, style}) => {
+    const  item = gpxFiles[index];
+    let localLayer = ctx.gpxFiles[item.name];
+    let timeRange = '';
+    let clienttime = '';
+    let distance = '';
+    let timeMoving = '';
+    let updownhill = '';
+    let speed = '';
+    let summary = item.details?.analysis ?
+        item.details?.analysis : localLayer?.summary;
+    if (item.clienttimems) {
+        clienttime = "Upload time: " + new Date(item.clienttimems).toDateString() +
+            + " " + new Date(item.clienttimems).toLocaleTimeString();
+    }
+    if (summary?.startTime &&
+        summary?.startTime !== summary?.endTime) {
+        let stdate = new Date(summary.startTime).toDateString();
+        let edate = new Date(summary.endTime).toDateString();
+        timeRange = new Date(summary.startTime).toDateString() + " " +
+            new Date(summary.startTime).toLocaleTimeString() + " - " +
+            (edate !== stdate ? edate : '') +
+            new Date(summary.endTime).toLocaleTimeString();
+    }
+    if (summary?.totalDistance) {
+        distance = "Distance: " + (summary?.totalDistance / 1000).toFixed(1) + " km";
+    }
+    if (summary?.timeMoving) {
+        timeMoving = "Time moving: " + toHHMMSS(summary?.timeMoving);
+    }
+    if (summary?.diffElevationDown) {
+        updownhill = "Uphill/downhill: " + summary.diffElevationUp.toFixed(0)
+            + "/" + summary?.diffElevationDown.toFixed(0) + " m";
+    }
+    if (summary?.maxSpeed && summary?.maxSpeed > 0) {
+        speed = "Speed (min/avg/max): " +
+            (summary.minSpeed * 3.6).toFixed(0) + " / " +
+            (summary.avgSpeed * 3.6).toFixed(0) + " / " +
+            (summary.maxSpeed * 3.6).toFixed(0) + " km/h"
+    }
+
+    return (
+        <MenuItem style={style} key={item.name} onClick={() => ctx.setSelectedGpxFile(localLayer)}>
+            <Tooltip title={<div>
+                {item.name}
+                {timeRange ? <><br /><br />Time: </> : <></>}  {timeRange}
+                {distance ? <br /> : <></>} {distance}
+                {timeMoving ? <br /> : <></>} {timeMoving}
+                {updownhill ? <br /> : <></>} {updownhill}
+                {speed ? <br /> : <></>} {speed}
+                {clienttime ? <br /> : <></>} {clienttime}
+            </div>}>
+                <ListItemText inset>
+                    <Typography variant="inherit" noWrap>
+                        {item.name.slice(0, -4).replace('_', ' ')}
+                    </Typography>
+                </ListItemText>
+            </Tooltip>
+            <Switch
+                checked={localLayer?.url ? true : false}
+                onChange={(e) => {
+                    enableLayer(item, ctx, ctx.setGpxLoading, e.target.checked);
+                }} />
+        </MenuItem>)
+}
 
 export default function CloudGpx() {
     const ctx = useContext(AppContext);
@@ -131,9 +197,7 @@ export default function CloudGpx() {
             }
         </MenuItem>
         { ctx.gpxLoading ? <LinearProgress /> : <></> }
-        <Collapse in={gpxOpen} timeout="auto" unmountOnExit>
-            
-
+        <Collapse in={gpxOpen} timeout="auto" unmountOnExit>            
             <MenuItem disableRipple={true}>
                 <IconButton sx={{ ml: 4 }} onClick={() => {
                     let lf = Object.assign({}, ctx.listFiles);
@@ -169,72 +233,12 @@ export default function CloudGpx() {
                     <SortByAlpha fontSize="small" />
                 </IconButton>
             </MenuItem>
-            {
-                gpxFiles.map((item, index) => {
-                    let localLayer = ctx.gpxFiles[item.name];
-                    let timeRange = '';
-                    let clienttime = '';
-                    let distance = '';
-                    let timeMoving = '';
-                    let updownhill = '';
-                    let speed = '';
-                    let summary = item.details?.analysis ? 
-                        item.details?.analysis : localLayer?.summary;
-                    if (item.clienttimems) {
-                        clienttime = "Upload time: " + new Date(item.clienttimems).toDateString() + 
-                            + " " + new Date(item.clienttimems).toLocaleTimeString();
-                    }
-                    if (summary?.startTime && 
-                        summary?.startTime !== summary?.endTime) {
-                        let stdate = new Date(summary.startTime).toDateString();
-                        let edate = new Date(summary.endTime).toDateString();
-                        timeRange = new Date(summary.startTime).toDateString() + " " +
-                        new Date(summary.startTime).toLocaleTimeString() + " - " + 
-                            (edate !== stdate ? edate : '') + 
-                        new Date(summary.endTime).toLocaleTimeString();
-                    }
-                    if (summary?.totalDistance) {
-                        distance = "Distance: " + (summary?.totalDistance / 1000).toFixed(1) + " km";
-                    }
-                    if (summary?.timeMoving) {
-                        timeMoving = "Time moving: " + toHHMMSS(summary?.timeMoving );
-                    }
-                    if (summary?.diffElevationDown) {
-                        updownhill = "Uphill/downhill: " + summary.diffElevationUp.toFixed(0) 
-                            + "/" + summary?.diffElevationDown.toFixed(0) + " m";
-                    }
-                    if (summary?.maxSpeed && summary?.maxSpeed > 0) {
-                        speed = "Speed (min/avg/max): " + 
-                            (summary.minSpeed * 3.6).toFixed(0) + " / " + 
-                            (summary.avgSpeed * 3.6).toFixed(0) + " / " +
-                            (summary.maxSpeed * 3.6).toFixed(0) + " km/h"
-                    }
-
-                    return (
-                        <MenuItem key={item.name} onClick={() => ctx.setSelectedGpxFile(localLayer)}>
-                            <Tooltip title={<div>
-                                {item.name}
-                                {timeRange ? <><br /><br />Time: </> : <></>}  {timeRange}
-                                {distance ? <br /> : <></>} {distance}
-                                {timeMoving ? <br /> : <></>} {timeMoving}
-                                {updownhill ? <br /> : <></>} {updownhill}
-                                {speed ? <br /> : <></>} {speed}
-                                {clienttime ? <br /> : <></>} {clienttime}
-                            </div>}>
-                            <ListItemText inset>
-                                <Typography variant="inherit" noWrap>
-                                    {item.name.slice(0, -4).replace('_', ' ')}
-                                </Typography>
-                            </ListItemText>
-                        </Tooltip>
-                        <Switch
-                            checked={localLayer?.url ? true : false}
-                            onChange={(e) => {
-                                enableLayer(item, ctx, ctx.setGpxLoading, e.target.checked);
-                            }} />
-                    </MenuItem>)
-                })
-            }
+            <FixedSizeList 
+                height={500}
+                itemCount={gpxFiles.length}
+                itemSize={40}>
+            {GpxItemRow(gpxFiles, ctx)}
+            </FixedSizeList>
         </Collapse>
     </>;
 
