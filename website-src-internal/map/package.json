@@ -24,6 +24,7 @@
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
     "react-use-cookie": "^1.2.1",
+    "react-window": "^1.8.6",
     "recharts": "^2.1.8",
     "web-vitals": "^2.1.2"
   },
