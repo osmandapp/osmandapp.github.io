@@ -48,7 +48,7 @@ function addTrackToMap(file, map) {
   //   iconAnchor: [9, 9], //point of the icon which will correspond to marker's location(the center)
   //   popupAnchor: [0, 0] //point from which the popup should open relative tothe iconAnchor
   // });
-  file.gpx = new L.GPX(file.url, {
+  return new L.GPX(file.url, {
     async: true,
     marker_options: {
       startIcon: L.AwesomeMarkers.icon({
@@ -68,7 +68,7 @@ function addTrackToMap(file, map) {
       //shadowUrl: 'images/pin-shadow.png'
     }
   }).on('loaded', function (e) {
-    map.current.fitBounds(e.target.getBounds());
+    map.current.fitBounds(e.target.getBounds());  
   }).addTo(map.current);
 }
 
@@ -110,7 +110,9 @@ const OsmAndMap = () => {
     let filesMap = ctx.gpxFiles ? ctx.gpxFiles : {} ;
     Object.values(filesMap).forEach((file) => {
       if (file.url && !file.gpx) {
-        addTrackToMap(file, map);
+        let layer = addTrackToMap(file, map);
+        file.gpx = layer;
+        ctx.setGpxFiles(ctx.gpxFiles);
       } else if (!file.url && file.gpx) {
         removeTrackFromMap(file, map);
       }

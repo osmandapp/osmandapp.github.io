@@ -77,14 +77,14 @@ async function loadGpxInfo(item, ctx, layer, setProgressVisible) {
         let data = await response.json();
         const newGpxFiles = Object.assign({}, ctx.gpxFiles);
         layer.summary = data.info;
-        // newGpxFiles[item.name] = layer;
+        newGpxFiles[item.name] = layer;
         ctx.setGpxFiles(newGpxFiles);
         updateTextInfo(newGpxFiles, ctx);
         setProgressVisible(false);
     } 
 }
 
-function enableLayer(item, ctx,  setProgressVisible, visible) {
+async function enableLayer(item, ctx,  setProgressVisible, visible) {
     let url = `/map/api/download-file?type=${encodeURIComponent(item.type)}&name=${encodeURIComponent(item.name)}`;
     const newGpxFiles = Object.assign({}, ctx.gpxFiles);
     if (!visible) {
@@ -100,9 +100,9 @@ function enableLayer(item, ctx,  setProgressVisible, visible) {
             newGpxFiles[item.name].summary = item.details.analysis;
             updateTextInfo(newGpxFiles, ctx);
         }
-        loadSrtmGpxInfo(item, ctx, newGpxFiles[item.name], setProgressVisible);
-        loadGpxInfo(item, ctx, newGpxFiles[item.name], setProgressVisible);
         ctx.setSelectedGpxFile(newGpxFiles[item.name]);
+        await loadGpxInfo(item, ctx, newGpxFiles[item.name], setProgressVisible);
+        await loadSrtmGpxInfo(item, ctx, newGpxFiles[item.name], setProgressVisible);
     }
 }
 
@@ -233,12 +233,19 @@ export default function CloudGpx() {
                     <SortByAlpha fontSize="small" />
                 </IconButton>
             </MenuItem>
-            <FixedSizeList 
-                height={500}
-                itemCount={gpxFiles.length}
-                itemSize={40}>
-            {GpxItemRow(gpxFiles, ctx)}
-            </FixedSizeList>
+            {
+            //     <FixedSizeList 
+            //     height={500}
+            //     itemCount={gpxFiles.length}
+            //     itemSize={40}>
+            //      {GpxItemRow(gpxFiles, ctx)}
+            // </FixedSizeList>
+
+            }
+            {gpxFiles.map((item, index) => {
+                return GpxItemRow(gpxFiles, ctx)({ index: index });
+            })
+            }
         </Collapse>
     </>;
 
