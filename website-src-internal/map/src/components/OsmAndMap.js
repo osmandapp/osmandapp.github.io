@@ -6,6 +6,8 @@ import MapContextMenu from "./MapContextMenu"
 import L from 'leaflet';
 import 'leaflet-gpx';
 import 'leaflet.awesome-markers';
+import 'leaflet.awesome-markers/dist/leaflet.awesome-markers.css';
+import 'ionicons/css/ionicons.min.css'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -48,19 +50,26 @@ function addTrackToMap(file, map) {
   //   iconAnchor: [9, 9], //point of the icon which will correspond to marker's location(the center)
   //   popupAnchor: [0, 0] //point from which the popup should open relative tothe iconAnchor
   // });
+
+  let startMarker = L.AwesomeMarkers.icon({
+    icon: 'home',
+    prefix: 'ion',
+    markerColor: 'blue',
+    iconColor: 'white'
+  });
+
+  let endMarker = L.AwesomeMarkers.icon({
+    icon: 'checkmark',
+    prefix: 'ion',
+    markerColor: 'blue',
+    iconColor: 'white'
+  });
+
   file.gpx = new L.GPX(file.url, {
     async: true,
     marker_options: {
-      startIcon: L.AwesomeMarkers.icon({
-        icon: 'coffee',
-        markerColor: 'blue',
-        iconColor: 'white'
-      }),
-      endIcon: L.AwesomeMarkers.icon({
-        icon: 'coffee',
-        markerColor: 'blue',
-        iconColor: 'white'
-      }),
+      startIcon: startMarker,
+      endIcon: endMarker,
       wptIcons: {
         '': new L.marker([], {
         })

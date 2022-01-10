@@ -17,7 +17,7 @@ const StyledInput = styled('input')({
 });
 
 
-function updateTextInfo(gpxFiles, setAppText) {
+function updateTextInfo(gpxFiles, ctx) {
     // Local GPX files: undefined tracks, NaN km, undefined wpts
     let dist = 0;
     let tracks = 0;
@@ -35,7 +35,7 @@ function updateTextInfo(gpxFiles, setAppText) {
             }
         }
     });
-    setAppText(`Local GPX files: ${tracks} tracks, ${(dist / 1000.0).toFixed(1)} km, ${wpts} wpts`)
+    ctx.setAppText(`Local GPX files: ${tracks} tracks, ${(dist / 1000.0).toFixed(1)} km, ${wpts} wpts`)
 }
 
 async function loadInitialState(gpxFiles, setGpxFiles) {
@@ -58,6 +58,7 @@ async function loadInitialState(gpxFiles, setGpxFiles) {
     }
 
 }
+
 async function uploadFile(gpxFiles, setGpxFiles, ctx, gpxLayer, file) {
     let formData = new FormData();
     formData.append('file', file);
@@ -75,19 +76,20 @@ async function uploadFile(gpxFiles, setGpxFiles, ctx, gpxLayer, file) {
         newinfo[gpxLayer.name] = gpxLayer;
         gpxFiles[gpxLayer.name] = gpxLayer;
         setGpxFiles(newinfo);
-        updateTextInfo(gpxFiles, ctx.setAppText);
+        updateTextInfo(gpxFiles, ctx);
     } else {
-        alert("File Upload has failed");
+        let message = await response.text();
+        alert(message);
     }
 }
 
 
-const clearLocalGpx = (gpxFiles, setGpxFiles, setAppText) => async (e) => {
+const clearLocalGpx = (ctx) => async (e) => {
     const response = await fetch(`/gpx/clear`, { method: 'POST' });
     if (response.ok) {
         await response.json();
-        let newinfo = Object.assign({}, gpxFiles);
-        Object.values(gpxFiles).forEach((item) => {
+        let newinfo = Object.assign({}, ctx.gpxFiles);
+        Object.values(ctx.gpxFiles).forEach((item) => {
             if (item.local) {
                 // clear up but not delete
                 newinfo[item.name].local = false;
@@ -96,13 +98,13 @@ const clearLocalGpx = (gpxFiles, setGpxFiles, setAppText) => async (e) => {
                 // delete newinfo[item.name];
             }
         });
-        setAppText('');
-        setGpxFiles(newinfo);
+        ctx.setAppText('');
+        ctx.setGpxFiles(newinfo);
     }
 }
 
 
-const fileSelected = (gpxFiles, setGpxFiles, ctx) => async (e) => {
+const fileSelected = (ctx) => async (e) => {
     //    let file = e.target.files[0];
 
     Array.from(e.target.files).forEach((file) => {
@@ -113,7 +115,7 @@ const fileSelected = (gpxFiles, setGpxFiles, ctx) => async (e) => {
             gpxLayer.name = 'local:' + file.name;
             gpxLayer.localContent = src;
             gpxLayer.local = true;
-            uploadFile(gpxFiles, setGpxFiles, ctx, gpxLayer, file);
+            uploadFile(ctx.gpxFiles, ctx.setGpxFiles, ctx, gpxLayer, file);
         });
         reader.readAsText(file);
     });
@@ -151,7 +153,7 @@ export default function LocalGpx() {
                         </ListItemText>
                     </Tooltip>
                     <Switch
-                        checked={item.url ? true : false}
+                        checked={!!item.url}
                         onChange={(e) => {
                             const newGpxFiles = Object.assign({}, ctx.gpxFiles);
                             if (!e.target.checked) {
@@ -167,7 +169,7 @@ export default function LocalGpx() {
             <MenuItem disableRipple={true}>
                 <label htmlFor="contained-button-file" >
                     <StyledInput accept=".gpx" id="contained-button-file" multiple type="file"
-                        onChange={fileSelected(ctx.gpxFiles, ctx.setGpxFiles, ctx.setAppText)} />
+                        onChange={fileSelected(ctx)} />
                     <Button variant="contained" component="span" sx={{ ml: 3 }}>
                         Upload
                     </Button>
@@ -176,7 +178,7 @@ export default function LocalGpx() {
             { localGpxFiles.length === 0 ? <></> :
                 <MenuItem disableRipple={true}>
                     <Button variant="contained" component="span" sx={{ ml: 3 }}
-                        onClick={clearLocalGpx(ctx.gpxFiles, ctx.setGpxFiles, ctx.setAppText)}>
+                        onClick={clearLocalGpx(ctx)}>
                         Clear
                     </Button>
                     <Button variant="contained" component="span" sx={{ ml: 2 }}

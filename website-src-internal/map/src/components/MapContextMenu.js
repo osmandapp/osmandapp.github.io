@@ -1,5 +1,5 @@
 import {
-    Paper, Tab, AppBar, Typography, Box, IconButton,
+    Paper, Tab, AppBar, Button,
 } from "@mui/material";
 import AppContext from "../context/AppContext"
 import { useState, useContext } from "react";
@@ -61,9 +61,10 @@ export default function MapContextMenu() {
     }
 
     let tabList = [];
-    tabList.push(<IconButton key='close' onClick={() => ctx.setSelectedGpxFile(null)}>
-        <Close />
-    </IconButton>);
+    // tabList.push(<Button key='close' onClick={() => ctx.setSelectedGpxFile(null)}>
+    //     <Close />
+    // </Button>);
+
     tabList = tabList.concat(Object.keys(tabs).map((item, index) => 
         <Tab value={tabs[item].key + ''} label={item} key={'tab:' + item} /> ));
     
@@ -77,9 +78,13 @@ export default function MapContextMenu() {
                             <TabPanel value={item.key+''} key={'tabpanel:' + item.key} > {item} </TabPanel>)
                         }
                             <AppBar position="static" color="default">
+                                <div style={{display : 'inherit'}}>
+                                <Button key='close' onClick={() => ctx.setSelectedGpxFile(null)}>
+                                    <Close />
+                                </Button>
                                 <TabList onChange={handleChange} children={tabList}>
                                 </TabList>
-                                
+                                </div>
                             </AppBar>
                         </TabContext>
                     </Paper>
