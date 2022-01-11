@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import {
-    Typography, ListItemText, Switch, Collapse, 
+    Typography, ListItemText, Switch, Collapse,
     IconButton, MenuItem, ListItemIcon, Tooltip, LinearProgress
 } from "@mui/material";
 import { FixedSizeList } from 'react-window';
@@ -107,7 +107,7 @@ async function enableLayer(item, ctx,  setProgressVisible, visible) {
 }
 
 const GpxItemRow = (gpxFiles, ctx) => ({index, style}) => {
-    const  item = gpxFiles[index];
+    const item = gpxFiles[index];
     let localLayer = ctx.gpxFiles[item.name];
     let timeRange = '';
     let clienttime = '';
@@ -165,7 +165,7 @@ const GpxItemRow = (gpxFiles, ctx) => ({index, style}) => {
                 </ListItemText>
             </Tooltip>
             <Switch
-                checked={localLayer?.url ? true : false}
+                checked={!!localLayer?.url}
                 onChange={(e) => {
                     enableLayer(item, ctx, ctx.setGpxLoading, e.target.checked);
                 }} />
@@ -182,6 +182,21 @@ export default function CloudGpx() {
         });
     const [alphaUp, setAlphaUp] = useState(false);
     const [timeUp, setTimeUp] = useState(true);
+
+    const MAX_SIZE_GPX_BLOCK = 500;
+    const MAX_SIZE_GPX_ITEM = 40;
+
+    const blockSize = () => {
+        if (gpxFiles) {
+            let itemBlockSize = gpxFiles.length * MAX_SIZE_GPX_ITEM
+            if (itemBlockSize > MAX_SIZE_GPX_BLOCK) {
+                return MAX_SIZE_GPX_BLOCK;
+            } else
+                return itemBlockSize;
+        }
+        return 0;
+    }
+
     return <>
         <MenuItem onClick={(e) => setGpxOpen(!gpxOpen)}>
             <ListItemIcon>
@@ -234,17 +249,16 @@ export default function CloudGpx() {
                 </IconButton>
             </MenuItem>
             {
-            //     <FixedSizeList 
-            //     height={500}
-            //     itemCount={gpxFiles.length}
-            //     itemSize={40}>
-            //      {GpxItemRow(gpxFiles, ctx)}
-            // </FixedSizeList>
-
+//            <FixedSizeList 
+//                height={blockSize()}
+//                itemCount={gpxFiles.length}
+//                itemSize={MAX_SIZE_GPX_ITEM}>
+//           {GpxItemRow(gpxFiles, ctx)}
+//            </FixedSizeList>
             }
             {gpxFiles.map((item, index) => {
                 return GpxItemRow(gpxFiles, ctx)({ index: index });
-            })
+              })
             }
         </Collapse>
     </>;
