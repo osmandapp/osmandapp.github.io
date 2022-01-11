@@ -51,6 +51,7 @@ function addTrackToMap(file, map) {
   //   popupAnchor: [0, 0] //point from which the popup should open relative tothe iconAnchor
   // });
 
+
   let startMarker = L.AwesomeMarkers.icon({
     icon: 'home',
     prefix: 'ion',
@@ -72,7 +73,9 @@ function addTrackToMap(file, map) {
     iconColor: 'white'
   });
 
-  file.gpx = new L.GPX(file.url, {
+  //file.gpx = new L.GPX(file.url, {
+
+  return new L.GPX(file.url, {
     async: true,
     marker_options: {
       startIcon: startMarker,
@@ -82,8 +85,7 @@ function addTrackToMap(file, map) {
       },
     }
   }).on('loaded', function (e) {
-    console.log(e)
-    map.current.fitBounds(e.target.getBounds());
+    map.current.fitBounds(e.target.getBounds());  
   }).addTo(map.current);
 }
 
@@ -125,7 +127,9 @@ const OsmAndMap = () => {
     let filesMap = ctx.gpxFiles ? ctx.gpxFiles : {} ;
     Object.values(filesMap).forEach((file) => {
       if (file.url && !file.gpx) {
-        addTrackToMap(file, map);
+        let layer = addTrackToMap(file, map);
+        file.gpx = layer;
+        ctx.setGpxFiles(ctx.gpxFiles);
       } else if (!file.url && file.gpx) {
         removeTrackFromMap(file, map);
       }
