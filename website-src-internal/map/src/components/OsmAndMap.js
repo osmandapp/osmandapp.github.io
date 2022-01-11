@@ -65,18 +65,24 @@ function addTrackToMap(file, map) {
     iconColor: 'white'
   });
 
+  let wptMarker = new L.AwesomeMarkers.icon({
+    icon: 'checkmark',
+    prefix: 'ion',
+    markerColor: 'blue',
+    iconColor: 'white'
+  });
+
   file.gpx = new L.GPX(file.url, {
     async: true,
     marker_options: {
       startIcon: startMarker,
       endIcon: endMarker,
       wptIcons: {
-        '': new L.marker([], {
-        })
-      }
-      //shadowUrl: 'images/pin-shadow.png'
+        '': wptMarker,
+      },
     }
   }).on('loaded', function (e) {
+    console.log(e)
     map.current.fitBounds(e.target.getBounds());
   }).addTo(map.current);
 }
