@@ -248,25 +248,18 @@ export default function CloudGpx() {
                     <SortByAlpha fontSize="small" />
                 </IconButton>
             </MenuItem>
-            <FixedSizeList 
-                height={blockSize()}
-                itemCount={gpxFiles.length}
-                itemSize={MAX_SIZE_GPX_ITEM}>
-            {GpxItemRow(gpxFiles, ctx)}
-            </FixedSizeList>
-//             {
-//             //     <FixedSizeList 
-//             //     height={500}
-//             //     itemCount={gpxFiles.length}
-//             //     itemSize={40}>
-//             //      {GpxItemRow(gpxFiles, ctx)}
-//             // </FixedSizeList>
-
-//             }
-//             {gpxFiles.map((item, index) => {
-//                 return GpxItemRow(gpxFiles, ctx)({ index: index });
-//             })
-//             }
+            {
+//            <FixedSizeList 
+//                height={blockSize()}
+//                itemCount={gpxFiles.length}
+//                itemSize={MAX_SIZE_GPX_ITEM}>
+//           {GpxItemRow(gpxFiles, ctx)}
+//            </FixedSizeList>
+            }
+            {gpxFiles.map((item, index) => {
+                return GpxItemRow(gpxFiles, ctx)({ index: index });
+              })
+            }
         </Collapse>
     </>;
 
