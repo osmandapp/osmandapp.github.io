@@ -1,10 +1,23 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Area, Tooltip, XAxis, YAxis, AreaChart} from "recharts";
 import {Typography} from "@mui/material";
+import AppContext from "../../context/AppContext";
 
 export default function GpxGraph({ data, xAxis, yAxis, width, min, max}) {
+    const ctx = useContext(AppContext);
+
     max = Math.ceil(max / 10) * 10;
     min = Math.floor(min / 10) * 10;
+
+    function getSelectedPoint(point) {
+        ctx.setSelectedPoint(null)
+        ctx.setSelectedPoint(
+            {
+                lat: Object.values(ctx.selectedGpxFile.points)[0][point.index].lat,
+                lng: Object.values(ctx.selectedGpxFile.points)[0][point.index].lng
+            });
+    }
+
     return (<>
             <Typography component={'span'} type="title" color="inherit" sx={{p: 0}}>
                 <AreaChart
@@ -23,6 +36,7 @@ export default function GpxGraph({ data, xAxis, yAxis, width, min, max}) {
                     <YAxis type="number" tickCount={6} domain={[min, max]} />
                     <Tooltip/>
                     <Area
+                        activeDot={{ onMouseOver: (event, point) => getSelectedPoint(point) }}
                         type="monotone"
                         dataKey={yAxis}
                         stroke="#8ac827"

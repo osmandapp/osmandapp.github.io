@@ -3,6 +3,7 @@ import {
     Air, Cloud, Compress, Shower, Thermostat
 } from '@mui/icons-material';
 import useCookie from 'react-use-cookie';
+import Utils from "../util/Utils";
 
 const osmandTileURL = 'https://tile.osmand.net/hd/{z}/{x}/{y}.png';
 
@@ -101,7 +102,7 @@ async function loadListFiles(loginUser, listFiles, setListFiles, setGpxLoading) 
             setListFiles({});
         } else {
             setGpxLoading(true);
-            const response = await fetch(`/map/api/list-files`, {});
+            const response = await Utils.fetchUtil(`/map/api/list-files`, {});
             const res = await response.json();
             res.loginUser = loginUser;
             res.uniqueFiles = res.uniqueFiles.sort((f, s) => {
@@ -119,7 +120,7 @@ async function loadListFiles(loginUser, listFiles, setListFiles, setGpxLoading) 
     }
 }
 async function checkUserLogin(loginUser, setLoginUser, userEmail, setUserEmail, listFiles, setListFiles) {
-    const response = await fetch(`/map/api/auth/info`, {
+    const response = await Utils.fetchUtil(`/map/api/auth/info`, {
         method: 'GET'
     });
     if (response.ok) {
@@ -164,6 +165,7 @@ export const AppContextProvider = (props) => {
     const [listFiles, setListFiles] = useState({});
     const [gpxFiles, setGpxFiles] = useState({});
     const [selectedGpxFile, setSelectedGpxFile] = useState({});
+    const [selectedPoint, setSelectedPoint] = useState({});
     const [appText, setAppText] = useState('');
     
     useEffect(() => {
@@ -184,7 +186,7 @@ export const AppContextProvider = (props) => {
         gpxLoading: gpxLoading, setGpxLoading: setGpxLoading,
         appText: appText, setAppText: setAppText,
         selectedGpxFile: selectedGpxFile, setSelectedGpxFile: setSelectedGpxFile,
-        tileURL: osmandTileURL
+        tileURL: osmandTileURL, selectedPoint, setSelectedPoint
     }}>
         {props.children}
     </AppContext.Provider>;

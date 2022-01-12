@@ -8,6 +8,7 @@ import {
     DirectionsWalk, ExpandLess, ExpandMore, Sort, SortByAlpha
 } from '@mui/icons-material';
 import AppContext, { getGpxTime, toHHMMSS} from "../../context/AppContext"
+import Utils from "../../util/Utils";
 
 
 function updateTextInfo(gpxFiles, ctx) {
@@ -47,13 +48,8 @@ function updateTextInfo(gpxFiles, ctx) {
 
 async function loadSrtmGpxInfo(item, ctx, layer, setProgressVisible) {
     let srtmGpxInfoUrl = `/map/api/get-srtm-gpx-info?type=${encodeURIComponent(item.type)}&name=${encodeURIComponent(item.name)}`;
-    setProgressVisible(true);
-    const response = await fetch(srtmGpxInfoUrl, {});
-    if (response.redirected) {
-        setProgressVisible(false);
-        console.log(response.url);
-        window.location.href = response.url;
-    } else if (response.ok) {
+    const response = await Utils.fetchUtilLoad(srtmGpxInfoUrl, {}, setProgressVisible);
+    if (response.ok) {
         let data = await response.json();
         const newGpxFiles = Object.assign({}, ctx.gpxFiles);
         layer.srtmSummary = data.info;
@@ -67,13 +63,8 @@ async function loadSrtmGpxInfo(item, ctx, layer, setProgressVisible) {
 
 async function loadGpxInfo(item, ctx, layer, setProgressVisible) {
     let gpxInfoUrl = `/map/api/get-gpx-info?type=${encodeURIComponent(item.type)}&name=${encodeURIComponent(item.name)}`;
-    setProgressVisible(true);
-    const response = await fetch(gpxInfoUrl, {});
-    if (response.redirected) {
-        setProgressVisible(false);
-        console.log(response.url);
-        window.location.href = response.url;
-    } else if (response.ok) {
+    const response = await Utils.fetchUtilLoad(gpxInfoUrl, {}, setProgressVisible);
+    if (response.ok) {
         let data = await response.json();
         const newGpxFiles = Object.assign({}, ctx.gpxFiles);
         layer.summary = data.info;
@@ -84,7 +75,7 @@ async function loadGpxInfo(item, ctx, layer, setProgressVisible) {
     } 
 }
 
-async function enableLayer(item, ctx,  setProgressVisible, visible) {
+async function enableLayer(item, ctx, setProgressVisible, visible) {
     let url = `/map/api/download-file?type=${encodeURIComponent(item.type)}&name=${encodeURIComponent(item.name)}`;
     const newGpxFiles = Object.assign({}, ctx.gpxFiles);
     if (!visible) {
@@ -92,6 +83,7 @@ async function enableLayer(item, ctx,  setProgressVisible, visible) {
         newGpxFiles[item.name].url = null;
         ctx.setGpxFiles(newGpxFiles);
         ctx.setSelectedGpxFile(null);
+        ctx.setSelectedPoint(null);
         updateTextInfo(newGpxFiles, ctx);
     } else {
         newGpxFiles[item.name] = { 'url': url, 'clienttimems': item.clienttimems };

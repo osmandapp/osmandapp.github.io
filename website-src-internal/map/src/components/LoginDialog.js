@@ -7,9 +7,11 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import AppContext from "../context/AppContext"
 import { useNavigate } from "react-router-dom";
+import Utils from "../util/Utils";
 
 
 async function isRequestOk(response, setEmailError) {
+    console.log(response.ok)
     if (!response.ok) {
         let message = await response.text();
         if (message) {
@@ -35,7 +37,7 @@ async function isRequestOk(response, setEmailError) {
 
 
 async function userRegister(username, setEmailError, setState) {
-    const response = await fetch(`/map/api/auth/register`, {
+    const response = await Utils.fetchUtil(`/map/api/auth/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 'username': username })
@@ -47,7 +49,7 @@ async function userRegister(username, setEmailError, setState) {
 }
 
 async function userActivate(ctx, username, pwd, token, setEmailError, handleClose) {
-    const response = await fetch(`/map/api/auth/activate`, {
+    const response = await Utils.fetchUtil(`/map/api/auth/activate`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 'username': username, 'password': pwd, 'token' : token })
@@ -61,7 +63,7 @@ async function userActivate(ctx, username, pwd, token, setEmailError, handleClos
 }
 
 async function userLogout(ctx, username, setEmailError, handleClose, setState) {
-    const response = await fetch(`/map/api/auth/logout`, {
+    const response = await Utils.fetchUtil(`/map/api/auth/logout`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 'username': username })
@@ -75,11 +77,12 @@ async function userLogout(ctx, username, setEmailError, handleClose, setState) {
 }
 
 async function userLogin(ctx, username, pwd, setEmailError, handleClose) {
-    const response = await fetch(`/map/api/auth/login`, {
+    const response = await Utils.fetchUtil(`/map/api/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 'username': username, 'password': pwd })
     });
+    console.log(response)
     if (await isRequestOk(response, setEmailError)) {
         setEmailError('');
         ctx.setLoginUser(username);
