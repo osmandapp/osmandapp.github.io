@@ -10,6 +10,7 @@ import {
     DirectionsWalk, ExpandLess, ExpandMore,
 } from '@mui/icons-material';
 import AppContext from "../../context/AppContext"
+import Utils from "../../util/Utils";
 
 
 const StyledInput = styled('input')({
@@ -39,7 +40,7 @@ function updateTextInfo(gpxFiles, ctx) {
 }
 
 async function loadInitialState(gpxFiles, setGpxFiles) {
-    const response = await fetch(`/gpx/get-gpx-info`, {});
+    const response = await Utils.fetchUtil(`/gpx/get-gpx-info`, {});
     if (response.ok) {
         let data = await response.json();
         data.all.forEach((item) => {
@@ -62,7 +63,7 @@ async function loadInitialState(gpxFiles, setGpxFiles) {
 async function uploadFile(gpxFiles, setGpxFiles, ctx, gpxLayer, file) {
     let formData = new FormData();
     formData.append('file', file);
-    const response = await fetch(`/gpx/upload-session-gpx`, {
+    const response = await Utils.fetchUtil(`/gpx/upload-session-gpx`, {
         method: 'POST',
         body: formData
     });
@@ -85,7 +86,7 @@ async function uploadFile(gpxFiles, setGpxFiles, ctx, gpxLayer, file) {
 
 
 const clearLocalGpx = (ctx) => async (e) => {
-    const response = await fetch(`/gpx/clear`, { method: 'POST' });
+    const response = await Utils.fetchUtil(`/gpx/clear`, { method: 'POST' });
     if (response.ok) {
         await response.json();
         let newinfo = Object.assign({}, ctx.gpxFiles);
