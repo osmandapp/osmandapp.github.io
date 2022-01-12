@@ -84,7 +84,7 @@ async function loadGpxInfo(item, ctx, layer, setProgressVisible) {
     } 
 }
 
-async function enableLayer(item, ctx,  setProgressVisible, visible) {
+async function enableLayer(item, ctx, setProgressVisible, visible) {
     let url = `/map/api/download-file?type=${encodeURIComponent(item.type)}&name=${encodeURIComponent(item.name)}`;
     const newGpxFiles = Object.assign({}, ctx.gpxFiles);
     if (!visible) {
@@ -92,6 +92,7 @@ async function enableLayer(item, ctx,  setProgressVisible, visible) {
         newGpxFiles[item.name].url = null;
         ctx.setGpxFiles(newGpxFiles);
         ctx.setSelectedGpxFile(null);
+        ctx.setSelectedPoint(null);
         updateTextInfo(newGpxFiles, ctx);
     } else {
         newGpxFiles[item.name] = { 'url': url, 'clienttimems': item.clienttimems };

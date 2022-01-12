@@ -164,6 +164,7 @@ export const AppContextProvider = (props) => {
     const [listFiles, setListFiles] = useState({});
     const [gpxFiles, setGpxFiles] = useState({});
     const [selectedGpxFile, setSelectedGpxFile] = useState({});
+    const [selectedPoint, setSelectedPoint] = useState({});
     const [appText, setAppText] = useState('');
     
     useEffect(() => {
@@ -184,7 +185,7 @@ export const AppContextProvider = (props) => {
         gpxLoading: gpxLoading, setGpxLoading: setGpxLoading,
         appText: appText, setAppText: setAppText,
         selectedGpxFile: selectedGpxFile, setSelectedGpxFile: setSelectedGpxFile,
-        tileURL: osmandTileURL
+        tileURL: osmandTileURL, selectedPoint, setSelectedPoint
     }}>
         {props.children}
     </AppContext.Provider>;

@@ -1,6 +1,6 @@
-import React, {useEffect, useRef, useContext} from 'react';
+import React, {useEffect, useRef, useContext, useState} from 'react';
 import { makeStyles } from "@material-ui/core/styles";
-import { MapContainer, TileLayer, ZoomControl, LayersControl } from "react-leaflet";
+import {MapContainer, TileLayer, ZoomControl, LayersControl, Marker} from "react-leaflet";
 import AppContext from "../context/AppContext";
 import MapContextMenu from "./MapContextMenu"
 import L from 'leaflet';
@@ -17,6 +17,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 // initial location on map
 const position = [50, 5];
+
+let points = [];
 
 function getWeatherTime(weatherDateObj) {
   let h = weatherDateObj.getUTCHours();
@@ -43,7 +45,22 @@ const updateLayerFunc = (layers, updateLayers, enable) => (event) => {
   }
 }
 
-function addTrackToMap(file, map) {
+function getPoints(e) {
+  let trackPoints = Object.values(e.layers._layers)[0]._latlngs;
+  let result = []
+
+  trackPoints.map((point, index) => {
+    let pointObj = {
+      lat: point.lat,
+      lng: point.lng
+      // if need distFromStart:e.target._info.elevation._points[index][0]
+    }
+    result.push(pointObj);
+  })
+  return result;
+}
+
+function addTrackToMap(file, map, setPoints) {
   // let ico = L.icon({
   //   iconUrl: 'graphic/tank.png',
   //   iconSize: [18, 9], //size of the icon in pixels
@@ -85,6 +102,8 @@ function addTrackToMap(file, map) {
       },
     }
   }).on('loaded', function (e) {
+    points.splice(0, points.length)
+    points.push(getPoints(e));
     map.current.fitBounds(e.target.getBounds());  
   }).addTo(map.current);
 }
@@ -127,8 +146,8 @@ const OsmAndMap = () => {
     let filesMap = ctx.gpxFiles ? ctx.gpxFiles : {} ;
     Object.values(filesMap).forEach((file) => {
       if (file.url && !file.gpx) {
-        let layer = addTrackToMap(file, map);
-        file.gpx = layer;
+        file.gpx = addTrackToMap(file, map);
+        file.points = points;
         ctx.setGpxFiles(ctx.gpxFiles);
       } else if (!file.url && file.gpx) {
         removeTrackFromMap(file, map);
@@ -152,7 +171,8 @@ const OsmAndMap = () => {
         maxNativeZoom={18}
         url={ctx.tileURL}
       />
-
+      {ctx.selectedPoint && ctx.selectedGpxFile && ctx.selectedPoint.lat !== undefined && ctx.selectedPoint.lng !== undefined
+      && <Marker position={[ctx.selectedPoint.lat, ctx.selectedPoint.lng]}/>}
       <LayersControl position="topright" collapsed={false}>
         {ctx.weatherLayers.map((item) => (
           <LayersControl.Overlay name={item.name} checked={item.checked} key={'overlay_' + item.key}>
