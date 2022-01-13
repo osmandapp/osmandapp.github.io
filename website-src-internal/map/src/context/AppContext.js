@@ -5,7 +5,9 @@ import {
 import useCookie from 'react-use-cookie';
 import Utils from "../util/Utils";
 
-const osmandTileURL = 'https://tile.osmand.net/hd/{z}/{x}/{y}.png';
+// const osmandTileURL = 'https://tile.osmand.net/hd/{z}/{x}/{y}.png';
+const osmandTileURL = '/tile/{z}/{x}/{y}.png';
+
 
 function getWeatherUrl(layer) {
     // const urlWeatherPefix = '.';

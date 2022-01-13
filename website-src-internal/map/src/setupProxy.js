@@ -9,4 +9,5 @@ module.exports = function (app) {
     });
     app.use('/map/api/', proxy);
     app.use('/gpx/', proxy);
+    app.use('/tile/', proxy);
 };
