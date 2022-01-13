@@ -9,12 +9,12 @@ export default function GpxGraph({ data, xAxis, yAxis, width, min, max}) {
     max = Math.ceil(max / 10) * 10;
     min = Math.floor(min / 10) * 10;
 
-    function getSelectedPoint(point) {
+    function getSelectedPoint(e) {
         ctx.setSelectedPoint(null)
         ctx.setSelectedPoint(
             {
-                lat: Object.values(ctx.selectedGpxFile.points)[0][point.index].lat,
-                lng: Object.values(ctx.selectedGpxFile.points)[0][point.index].lng
+                lat: Object.values(ctx.selectedGpxFile.points)[0][e.activeTooltipIndex].lat,
+                lng: Object.values(ctx.selectedGpxFile.points)[0][e.activeTooltipIndex].lng
             });
     }
 
@@ -25,6 +25,9 @@ export default function GpxGraph({ data, xAxis, yAxis, width, min, max}) {
                     height={150}
                     data={data}
                     margin={{top: 0, right: 0, left: 0, bottom: 0}}
+                    onMouseMove={(event) => {
+                        getSelectedPoint(event)
+                    }}
                 >
                     <defs>
                         <linearGradient id="colorEl" x1="0" y1="0" x2="0" y2="1">
@@ -36,7 +39,6 @@ export default function GpxGraph({ data, xAxis, yAxis, width, min, max}) {
                     <YAxis type="number" tickCount={6} domain={[min, max]} />
                     <Tooltip/>
                     <Area
-                        activeDot={{ onMouseOver: (event, point) => getSelectedPoint(point) }}
                         type="monotone"
                         dataKey={yAxis}
                         stroke="#8ac827"
