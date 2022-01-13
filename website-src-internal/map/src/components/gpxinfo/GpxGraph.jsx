@@ -10,12 +10,14 @@ export default function GpxGraph({ data, xAxis, yAxis, width, min, max}) {
     min = Math.floor(min / 10) * 10;
 
     function getSelectedPoint(e) {
-        ctx.setSelectedPoint(null)
-        ctx.setSelectedPoint(
-            {
-                lat: Object.values(ctx.selectedGpxFile.points)[0][e.activeTooltipIndex].lat,
-                lng: Object.values(ctx.selectedGpxFile.points)[0][e.activeTooltipIndex].lng
-            });
+        if (e.isTooltipActive) {
+            ctx.setSelectedPoint(null)
+            ctx.setSelectedPoint(
+                {
+                    lat: Object.values(ctx.selectedGpxFile.points)[0][e.activeTooltipIndex].lat,
+                    lng: Object.values(ctx.selectedGpxFile.points)[0][e.activeTooltipIndex].lng
+                });
+        }
     }
 
     return (<>
