@@ -5,6 +5,7 @@ import AppContext from "../context/AppContext";
 import MapContextMenu from "./MapContextMenu"
 import L from 'leaflet';
 import 'leaflet-gpx';
+import 'leaflet-hash';
 import 'leaflet.awesome-markers';
 import 'leaflet.awesome-markers/dist/leaflet.awesome-markers.css';
 import 'ionicons/css/ionicons.min.css'
@@ -116,23 +117,25 @@ function removeTrackFromMap(file, map) {
 const OsmAndMap = () => {
 
   const classes = useStyles();
-  const map = useRef(null);
+  const mapRef = useRef(null);
   const ctx = useContext(AppContext);
 
   const whenReadyHandler = event => {
-    const { target } = event;
-    target.on('overlayadd', updateLayerFunc(ctx.weatherLayers, ctx.updateWeatherLayers, true));
-    target.on('overlayremove', updateLayerFunc(ctx.weatherLayers, ctx.updateWeatherLayers, false));
-    target.attributionControl.setPrefix('');
+    const { target: map } = event;
+    map.on('overlayadd', updateLayerFunc(ctx.weatherLayers, ctx.updateWeatherLayers, true));
+    map.on('overlayremove', updateLayerFunc(ctx.weatherLayers, ctx.updateWeatherLayers, false));
+    map.attributionControl.setPrefix('');
+    var hash = new L.Hash(map);
+    console.log(hash);
     // L.marker([], {
     //   icon: ico
     // })
     // L.marker([50.5, 5.5], { icon2: icon }).addTo(target);
-    map.current = target;
+    mapRef.current = map;
   }
   useEffect(() => {
-    if (map.current) {
-      map.current.eachLayer((layer) => {
+    if (mapRef.current) {
+      mapRef.current.eachLayer((layer) => {
         if (layer.options.tms) {
           layer.options.time = getWeatherTime(ctx.weatherDate);
           layer.redraw();
@@ -146,11 +149,11 @@ const OsmAndMap = () => {
     let filesMap = ctx.gpxFiles ? ctx.gpxFiles : {} ;
     Object.values(filesMap).forEach((file) => {
       if (file.url && !file.gpx) {
-        file.gpx = addTrackToMap(file, map);
+        file.gpx = addTrackToMap(file, mapRef);
         file.points = points;
         ctx.setGpxFiles(ctx.gpxFiles);
       } else if (!file.url && file.gpx) {
-        removeTrackFromMap(file, map);
+        removeTrackFromMap(file, mapRef);
       }
     });
   }, [ctx.gpxFiles]);
