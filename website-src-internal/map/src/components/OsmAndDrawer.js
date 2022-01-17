@@ -1,13 +1,14 @@
 import React, { useContext } from 'react';
 import { Toolbar, Typography, ListItemText, } from "@mui/material";
 import {
-    Divider, MenuItem, ListItemIcon, MenuList 
+    Divider, MenuItem, ListItemIcon, MenuList
 } from "@mui/material";
 import { ArrowBack, Person } from '@mui/icons-material';
 import AppContext from "../context/AppContext"
 import Weather from "./drawer/Weather"
 import CloudGpx from "./drawer/CloudGpx"
 import LocalGpx from "./drawer/LocalGpx"
+import MapStyle from "./drawer/MapStyle"
 import { useNavigate } from "react-router-dom";
 
 
@@ -46,6 +47,7 @@ export default function OsmAndDrawer({ mobile, toggleDrawer }) {
             <Weather />
             <CloudGpx />
             <LocalGpx />
+            <MapStyle />
         </MenuList>
     </>
     );

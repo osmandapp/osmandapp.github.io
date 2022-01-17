@@ -5,8 +5,16 @@ import {
 import useCookie from 'react-use-cookie';
 import Utils from "../util/Utils";
 
-// const osmandTileURL = 'https://tile.osmand.net/hd/{z}/{x}/{y}.png';
-const osmandTileURL = '/tile/{z}/{x}/{y}.png';
+const osmandTileURL = {
+    uiname: 'Mapnik (tiles)', 
+    key: 'mapniktile',
+    tileSize: 512, 
+    url: 'https://tile.osmand.net/hd/{z}/{x}/{y}.png'
+}
+
+// const osmandTileURL = '/tile/hd/{z}/{x}/{y}.png';
+// const osmandTileURL = '/tile/df/{z}/{x}/{y}.png';
+
 
 
 function getWeatherUrl(layer) {
@@ -137,6 +145,23 @@ async function checkUserLogin(loginUser, setLoginUser, userEmail, setUserEmail, 
     }
 }
 
+async function loadTileUrls(setAllTileURLs) {
+    const response = await fetch('/tile/styles', {});
+    if (response.ok) {
+        let data = await response.json();
+        Object.values(data).forEach((item) => {
+            item.tileSize = 256 << item.tileSizeLog;
+            item.url = '/tile/' + item.key + '/{z}/{x}/{y}.png';
+            item.uiname = item.name.charAt(0).toUpperCase() + item.name.slice(1);
+            if (item.tileSize > 256) {
+                item.uiname += ' HD';
+            }
+        });
+        data[osmandTileURL.key] = osmandTileURL;
+        setAllTileURLs(data)
+    }
+}
+
 function getWeatherDate() {
     // // "20211222_0600"
     // let [searchParams, setSearchParams] = useSearchParams();
@@ -169,6 +194,12 @@ export const AppContextProvider = (props) => {
     const [selectedGpxFile, setSelectedGpxFile] = useState({});
     const [selectedPoint, setSelectedPoint] = useState({});
     const [appText, setAppText] = useState('');
+    // 
+    const [tileURL, setTileURL] = useState(osmandTileURL);
+    const [allTileURLs, setAllTileURLs] = useState({});
+    useEffect(() => {
+        loadTileUrls(setAllTileURLs);
+    }, []);
     
     useEffect(() => {
         checkUserLogin(loginUser, setLoginUser, userEmail, setUserEmail);
@@ -179,16 +210,17 @@ export const AppContextProvider = (props) => {
     // eslint-disable-next-line
     }, [loginUser]);
     return <AppContext.Provider value={{
-        weatherLayers: weatherLayers, updateWeatherLayers: updateWeatherLayers,
-        weatherDate: weatherDate, setWeatherDate: setWeatherDate,
-        userEmail: userEmail, setUserEmail: setUserEmail,
-        listFiles: listFiles, setListFiles: setListFiles,
-        loginUser: loginUser, setLoginUser: setLoginUser,
-        gpxFiles: gpxFiles, setGpxFiles: setGpxFiles,
-        gpxLoading: gpxLoading, setGpxLoading: setGpxLoading,
-        appText: appText, setAppText: setAppText,
-        selectedGpxFile: selectedGpxFile, setSelectedGpxFile: setSelectedGpxFile,
-        tileURL: osmandTileURL, selectedPoint, setSelectedPoint
+        weatherLayers, updateWeatherLayers,
+        weatherDate, setWeatherDate,
+        userEmail, setUserEmail,
+        listFiles, setListFiles,
+        loginUser, setLoginUser,
+        gpxFiles, setGpxFiles,
+        gpxLoading, setGpxLoading,
+        appText, setAppText,
+        selectedGpxFile, setSelectedGpxFile,
+        tileURL, setTileURL, allTileURLs,
+        selectedPoint, setSelectedPoint
     }}>
         {props.children}
     </AppContext.Provider>;

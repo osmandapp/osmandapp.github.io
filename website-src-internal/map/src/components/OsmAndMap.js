@@ -118,6 +118,8 @@ const OsmAndMap = () => {
 
   const classes = useStyles();
   const mapRef = useRef(null);
+  const tileLayer = useRef(null);
+
   const ctx = useContext(AppContext);
 
   const whenReadyHandler = event => {
@@ -126,7 +128,7 @@ const OsmAndMap = () => {
     map.on('overlayremove', updateLayerFunc(ctx.weatherLayers, ctx.updateWeatherLayers, false));
     map.attributionControl.setPrefix('');
     var hash = new L.Hash(map);
-    console.log(hash);
+    // console.log(hash);
     // L.marker([], {
     //   icon: ico
     // })
@@ -163,16 +165,22 @@ const OsmAndMap = () => {
   //   minZoom={1}
   //   maxZoom={18}
   // />
+  useEffect(() => {
+    if (tileLayer.current) {
+      tileLayer.current.setUrl(ctx.tileURL.url);
+    }
+  }, [ctx.tileURL]);
   return (
     <MapContainer center={position} zoom={5} className={classes.root} minZoom={1} maxZoom={20}
       zoomControl={false} whenReady={whenReadyHandler}
       >
       <TileLayer
+        ref={tileLayer}
         attribution='&amp;copy <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
         minZoom={1}
         maxZoom={20}
         maxNativeZoom={18}
-        url={ctx.tileURL}
+        url={ctx.tileURL.url}
       />
       {ctx.selectedPoint && ctx.selectedGpxFile && ctx.selectedPoint.lat !== undefined && ctx.selectedPoint.lng !== undefined
       && <Marker position={[ctx.selectedPoint.lat, ctx.selectedPoint.lng]}/>}

@@ -11,7 +11,7 @@ import Utils from "../util/Utils";
 
 
 async function isRequestOk(response, setEmailError) {
-    console.log(response.ok)
+    // console.log(response.ok)
     if (!response.ok) {
         let message = await response.text();
         if (message) {
@@ -82,7 +82,7 @@ async function userLogin(ctx, username, pwd, setEmailError, handleClose) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 'username': username, 'password': pwd })
     });
-    console.log(response)
+    // console.log(response)
     if (await isRequestOk(response, setEmailError)) {
         setEmailError('');
         ctx.setLoginUser(username);
