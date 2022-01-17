@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Toolbar, Typography, ListItemText, } from "@mui/material";
 import {
-    Divider, MenuItem, ListItemIcon, MenuList
+    Divider, MenuItem, ListItemIcon, MenuList, Box, IconButton
 } from "@mui/material";
 import { ArrowBack, Person } from '@mui/icons-material';
 import AppContext from "../context/AppContext"
@@ -24,12 +24,20 @@ export default function OsmAndDrawer({ mobile, toggleDrawer }) {
     return (<>
         <Toolbar variant="dense">
             {mobile ?
-                <MenuItem onClick={toggleDrawer}>
-                    <ListItemIcon>
-                        <ArrowBack fontSize="small" />
-                    </ListItemIcon>
-                    <ListItemText>OsmAnd Mobile</ListItemText>
-                </MenuItem>
+                <>
+                    <IconButton size="large" edge="start" color="inherit" aria-label="menu"
+                        sx={{ mr: 2 }} onClick={toggleDrawer}>
+                        <ArrowBack />
+                    </IconButton>
+                    {ctx.loginUser ? <Typography color="inherit">{ctx.loginUser}</Typography> :
+                        <Typography variant="h6" color="inherit">Login</Typography>}
+                    <Box>
+                        <IconButton size="large" onClick={openLogin} color="inherit">
+                            <Person />
+                        </IconButton>
+                    </Box>
+                    
+                </>
                 :
 
                 <MenuItem onClick={openLogin}>
