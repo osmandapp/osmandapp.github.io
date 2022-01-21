@@ -23,9 +23,9 @@
         <li class="lang_switcher desktop-only">
           <div class="dropbtn" th:text="${#strings.isEmpty(locale_path)?'EN':#strings.substringBefore(locale_path,'/')}"></div>
           <div class="dropdown-content">
-            <a href="/" class="" th:classappend="${locale_path == 'en/' || locale_path == ''}?'current'">English</a>
-            <a href="/ru/" class="" th:classappend="${locale_path == 'ru/'}?'current'">Русский-Russian</a>
-            <a href="/de/" class="" th:classappend="${locale_path == 'de/'}?'current'">Deutsch-German</a>
+            <a th:href="${base_path}" class="" th:classappend="${locale_path == 'en/' || locale_path == ''}?'current'">English</a>
+            <a th:href="@{/ru__${base_path}__}" class="" th:classappend="${locale_path == 'ru/'}?'current'">Русский-Russian</a>
+            <a th:href="@{/de__${base_path}__}" class="" th:classappend="${locale_path == 'de/'}?'current'">Deutsch-German</a>
           </div>
         </li>
         <li class="mobile-only">
