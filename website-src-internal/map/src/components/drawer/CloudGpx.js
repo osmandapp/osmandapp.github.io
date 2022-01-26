@@ -47,7 +47,7 @@ function updateTextInfo(gpxFiles, ctx) {
 }
 
 async function loadSrtmGpxInfo(item, ctx, layer, setProgressVisible) {
-    let srtmGpxInfoUrl = `/map/api/get-srtm-gpx-info?type=${encodeURIComponent(item.type)}&name=${encodeURIComponent(item.name)}`;
+    let srtmGpxInfoUrl = `/mapapi/get-srtm-gpx-info?type=${encodeURIComponent(item.type)}&name=${encodeURIComponent(item.name)}`;
     const response = await Utils.fetchUtilLoad(srtmGpxInfoUrl, {}, setProgressVisible);
     if (response.ok) {
         let data = await response.json();
@@ -62,7 +62,7 @@ async function loadSrtmGpxInfo(item, ctx, layer, setProgressVisible) {
 
 
 async function loadGpxInfo(item, ctx, layer, setProgressVisible) {
-    let gpxInfoUrl = `/map/api/get-gpx-info?type=${encodeURIComponent(item.type)}&name=${encodeURIComponent(item.name)}`;
+    let gpxInfoUrl = `/mapapi/get-gpx-info?type=${encodeURIComponent(item.type)}&name=${encodeURIComponent(item.name)}`;
     const response = await Utils.fetchUtilLoad(gpxInfoUrl, {}, setProgressVisible);
     if (response.ok) {
         let data = await response.json();
@@ -76,7 +76,7 @@ async function loadGpxInfo(item, ctx, layer, setProgressVisible) {
 }
 
 async function enableLayer(item, ctx, setProgressVisible, visible) {
-    let url = `/map/api/download-file?type=${encodeURIComponent(item.type)}&name=${encodeURIComponent(item.name)}`;
+    let url = `/mapapi/download-file?type=${encodeURIComponent(item.type)}&name=${encodeURIComponent(item.name)}`;
     const newGpxFiles = Object.assign({}, ctx.gpxFiles);
     if (!visible) {
         // delete newGpxFiles[item.name];

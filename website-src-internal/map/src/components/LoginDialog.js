@@ -37,7 +37,7 @@ async function isRequestOk(response, setEmailError) {
 
 
 async function userRegister(username, setEmailError, setState) {
-    const response = await Utils.fetchUtil(`/map/api/auth/register`, {
+    const response = await Utils.fetchUtil(`/mapapi/auth/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 'username': username })
@@ -49,7 +49,7 @@ async function userRegister(username, setEmailError, setState) {
 }
 
 async function userActivate(ctx, username, pwd, token, setEmailError, handleClose) {
-    const response = await Utils.fetchUtil(`/map/api/auth/activate`, {
+    const response = await Utils.fetchUtil(`/mapapi/auth/activate`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 'username': username, 'password': pwd, 'token' : token })
@@ -63,7 +63,7 @@ async function userActivate(ctx, username, pwd, token, setEmailError, handleClos
 }
 
 async function userLogout(ctx, username, setEmailError, handleClose, setState) {
-    const response = await Utils.fetchUtil(`/map/api/auth/logout`, {
+    const response = await Utils.fetchUtil(`/mapapi/auth/logout`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 'username': username })
@@ -77,7 +77,7 @@ async function userLogout(ctx, username, setEmailError, handleClose, setState) {
 }
 
 async function userLogin(ctx, username, pwd, setEmailError, handleClose) {
-    const response = await Utils.fetchUtil(`/map/api/auth/login`, {
+    const response = await Utils.fetchUtil(`/mapapi/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 'username': username, 'password': pwd })
