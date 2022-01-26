@@ -9,6 +9,9 @@ import 'leaflet-hash';
 import 'leaflet.awesome-markers';
 import 'leaflet.awesome-markers/dist/leaflet.awesome-markers.css';
 import 'ionicons/css/ionicons.min.css'
+import 'leaflet-contextmenu';
+import 'leaflet-contextmenu/dist/leaflet.contextmenu.css';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -113,6 +116,13 @@ function removeTrackFromMap(file, map) {
   map.current.removeLayer(file.gpx);
   file.gpx = null;
 }
+const zoomOut = (map) => () => {
+  alert('Zoom out');
+}
+
+const zoomIn = (map) => () => {
+  alert('Zoom in');
+}
 
 const OsmAndMap = () => {
 
@@ -128,12 +138,17 @@ const OsmAndMap = () => {
     map.on('overlayremove', updateLayerFunc(ctx.weatherLayers, ctx.updateWeatherLayers, false));
     map.attributionControl.setPrefix('');
     var hash = new L.Hash(map);
-    // console.log(hash);
     // L.marker([], {
     //   icon: ico
     // })
     // L.marker([50.5, 5.5], { icon2: icon }).addTo(target);
     mapRef.current = map;
+    // map.on('contextmenu', (e) => {
+    //   L.popup()
+    //     .setLatLng(e.latlng)
+    //     .setContent('<div>Hello ??</div>')
+    //     .openOn(map);
+    // });
   }
   useEffect(() => {
     if (mapRef.current) {
@@ -173,6 +188,12 @@ const OsmAndMap = () => {
   return (
     <MapContainer center={position} zoom={5} className={classes.root} minZoom={1} maxZoom={20}
       zoomControl={false} whenReady={whenReadyHandler}
+      contextmenu={true}
+      contextmenuItems={[
+        { text: 'Set as start', callback: zoomIn(mapRef.current)},
+        { text: 'Set as via point', callback: zoomOut(mapRef.current) },
+        { text: 'Set as end', callback: zoomOut(mapRef.current)}
+      ]}
       >
       <TileLayer
         ref={tileLayer}

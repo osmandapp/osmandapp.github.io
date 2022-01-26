@@ -17,6 +17,7 @@
     "http-proxy-middleware": "^2.0.1",
     "ionicons": "^2.0.0",
     "leaflet": "^1.7.1",
+    "leaflet-contextmenu": "^1.4.0",
     "leaflet-gpx": "^1.7.0",
     "leaflet-hash": "^0.2.1",
     "leaflet.awesome-markers": "^2.0.2",
