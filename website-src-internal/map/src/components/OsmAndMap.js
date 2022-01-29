@@ -1,14 +1,17 @@
-import React, {useEffect, useRef, useContext, useState} from 'react';
+import React, {useEffect, useRef, useContext} from 'react';
 import { makeStyles } from "@material-ui/core/styles";
-import {MapContainer, TileLayer, ZoomControl, LayersControl, Marker} from "react-leaflet";
+import {MapContainer, TileLayer, ZoomControl, LayersControl} from "react-leaflet";
 import AppContext from "../context/AppContext";
 import MapContextMenu from "./MapContextMenu"
 import L from 'leaflet';
+import MarkerIcon from './MarkerIcon.js'
 import 'leaflet-gpx';
 import 'leaflet-hash';
-import 'leaflet.awesome-markers';
-import 'leaflet.awesome-markers/dist/leaflet.awesome-markers.css';
-import 'ionicons/css/ionicons.min.css'
+
+// import 'leaflet.awesome-markers';
+// import 'leaflet.awesome-markers/dist/leaflet.awesome-markers.css';
+// import 'ionicons/css/ionicons.min.css'
+
 import 'leaflet-contextmenu';
 import 'leaflet-contextmenu/dist/leaflet.contextmenu.css';
 
@@ -53,7 +56,7 @@ function getPoints(e) {
   let trackPoints = Object.values(e.layers._layers)[0]._latlngs;
   let result = []
 
-  trackPoints.map((point, index) => {
+  trackPoints.forEach((point) => {
     let pointObj = {
       lat: point.lat,
       lng: point.lng
@@ -64,45 +67,18 @@ function getPoints(e) {
   return result;
 }
 
-function addTrackToMap(file, map, setPoints) {
-  // let ico = L.icon({
-  //   iconUrl: 'graphic/tank.png',
-  //   iconSize: [18, 9], //size of the icon in pixels
-  //   iconAnchor: [9, 9], //point of the icon which will correspond to marker's location(the center)
-  //   popupAnchor: [0, 0] //point from which the popup should open relative tothe iconAnchor
-  // });
-
-
-  let startMarker = L.AwesomeMarkers.icon({
-    icon: 'home',
-    prefix: 'ion',
-    markerColor: 'blue',
-    iconColor: 'white'
-  });
-
-  let endMarker = L.AwesomeMarkers.icon({
-    icon: 'checkmark',
-    prefix: 'ion',
-    markerColor: 'blue',
-    iconColor: 'white'
-  });
-
-  let wptMarker = new L.AwesomeMarkers.icon({
-    icon: 'checkmark',
-    prefix: 'ion',
-    markerColor: 'blue',
-    iconColor: 'white'
-  });
-
+const startMarkerIcon = MarkerIcon({ bg: 'blue' });
+const endMarkerIcon = MarkerIcon({ bg: 'red' });
+const wptMarkerIcon = MarkerIcon({ bg: 'yellow' });
+function addTrackToMap(file, map) {
   //file.gpx = new L.GPX(file.url, {
-
   return new L.GPX(file.url, {
     async: true,
     marker_options: {
-      startIcon: startMarker,
-      endIcon: endMarker,
+      startIcon: startMarkerIcon,
+      endIcon: endMarkerIcon,
       wptIcons: {
-        '': wptMarker,
+        '': wptMarkerIcon,
       },
     }
   }).on('loaded', function (e) {
@@ -116,12 +92,25 @@ function removeTrackFromMap(file, map) {
   map.current.removeLayer(file.gpx);
   file.gpx = null;
 }
-const zoomOut = (map) => () => {
+const setStartPoint = (ctx, map) => () => {
   alert('Zoom out');
 }
 
-const zoomIn = (map) => () => {
+const setEndPoint = (ctx, map) => () => {
   alert('Zoom in');
+}
+
+let hoverMarker = null;
+const updateMarker = (map) => (lat, lng) => {
+  if (lat) {
+    if (hoverMarker) {
+      hoverMarker.setLatLng([lat, lng]).update();
+    } else {
+      hoverMarker = new L.Marker({ lat, lng }, { icon: startMarkerIcon }).addTo(map);
+    }
+  } else if (hoverMarker) {
+    map.removeLayer(hoverMarker);
+  }
 }
 
 const OsmAndMap = () => {
@@ -138,11 +127,10 @@ const OsmAndMap = () => {
     map.on('overlayremove', updateLayerFunc(ctx.weatherLayers, ctx.updateWeatherLayers, false));
     map.attributionControl.setPrefix('');
     var hash = new L.Hash(map);
-    // L.marker([], {
-    //   icon: ico
-    // })
-    // L.marker([50.5, 5.5], { icon2: icon }).addTo(target);
     mapRef.current = map;
+    if (!ctx.mapMarkerListener) {
+      ctx.setMapMarkerListener(() => updateMarker(map));
+    }
     // map.on('contextmenu', (e) => {
     //   L.popup()
     //     .setLatLng(e.latlng)
@@ -173,7 +161,7 @@ const OsmAndMap = () => {
         removeTrackFromMap(file, mapRef);
       }
     });
-  }, [ctx.gpxFiles]);
+  }, [ctx.gpxFiles, ctx]);
   // <TileLayer
   //   key="layer_white"
   //   url="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEAAQMAAABmvDolAAAAA1BMVEX///+nxBvIAAAAH0lEQVQYGe3BAQ0AAADCIPunfg43YAAAAAAAAAAA5wIhAAAB9aK9BAAAAABJRU5ErkJggg=="
@@ -185,14 +173,14 @@ const OsmAndMap = () => {
       tileLayer.current.setUrl(ctx.tileURL.url);
     }
   }, [ctx.tileURL]);
+  
   return (
     <MapContainer center={position} zoom={5} className={classes.root} minZoom={1} maxZoom={20}
       zoomControl={false} whenReady={whenReadyHandler}
       contextmenu={true}
       contextmenuItems={[
-        { text: 'Set as start', callback: zoomIn(mapRef.current)},
-        { text: 'Set as via point', callback: zoomOut(mapRef.current) },
-        { text: 'Set as end', callback: zoomOut(mapRef.current)}
+        { text: 'Set as start', callback: setStartPoint(ctx, mapRef.current)},
+        { text: 'Set as end', callback: setEndPoint(ctx, mapRef.current)}
       ]}
       >
       <TileLayer
@@ -203,8 +191,8 @@ const OsmAndMap = () => {
         maxNativeZoom={18}
         url={ctx.tileURL.url}
       />
-      {ctx.selectedPoint && ctx.selectedGpxFile && ctx.selectedPoint.lat !== undefined && ctx.selectedPoint.lng !== undefined
-      && <Marker position={[ctx.selectedPoint.lat, ctx.selectedPoint.lng]}/>}
+      {/* {ctx.selectedPoint && ctx.selectedGpxFile && ctx.selectedPoint.lat !== undefined && ctx.selectedPoint.lng !== undefined
+      && <Marker position={[ctx.selectedPoint.lat, ctx.selectedPoint.lng]}/>} */}
       <LayersControl position="topright" collapsed={false}>
         {ctx.weatherLayers.map((item) => (
           <LayersControl.Overlay name={item.name} checked={item.checked} key={'overlay_' + item.key}>

@@ -5,7 +5,7 @@ import {
     FormControl, InputLabel, Select
 } from "@mui/material";
 import {
-    DirectionsWalk, ExpandLess, ExpandMore, Map
+    ExpandLess, ExpandMore, Map
 } from '@mui/icons-material';
 import AppContext from "../../context/AppContext"
 // import Utils from "../../util/Utils";

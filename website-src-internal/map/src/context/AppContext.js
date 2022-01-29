@@ -192,7 +192,7 @@ export const AppContextProvider = (props) => {
     const [listFiles, setListFiles] = useState({});
     const [gpxFiles, setGpxFiles] = useState({});
     const [selectedGpxFile, setSelectedGpxFile] = useState({});
-    const [selectedPoint, setSelectedPoint] = useState({});
+    const [mapMarkerListener, setMapMarkerListener] = useState(null);
     const [appText, setAppText] = useState('');
     // 
     const [tileURL, setTileURL] = useState(osmandTileURL);
@@ -219,8 +219,8 @@ export const AppContextProvider = (props) => {
         gpxLoading, setGpxLoading,
         appText, setAppText,
         selectedGpxFile, setSelectedGpxFile,
-        tileURL, setTileURL, allTileURLs,
-        selectedPoint, setSelectedPoint
+        mapMarkerListener, setMapMarkerListener,
+        tileURL, setTileURL, allTileURLs
     }}>
         {props.children}
     </AppContext.Provider>;

@@ -13,15 +13,25 @@ import AppContext from "../../context/AppContext"
 
 function formatWeatherDate(weatherDateObj) {
     let hours = (-(new Date().getTime() - weatherDateObj.getTime()) / 3600000).toFixed(0);
-    if (hours === 0) {
-        hours = "now";
-    } else {
-        if (hours > 0) {
-            hours = "+" + hours;
+    let hourstr = "now"
+    if (hours !== 0) {
+        let day = 0;
+        while (hours > 24) {
+            day++;
+            hours -=24;
         }
-        hours += " hours";
+        if (day > 0) {
+            hourstr = "+ " + day + " days ";
+        } else  {
+            hourstr = "+";
+        }
+        if (hours > 0) {
+            hourstr +=  hours + " hours";
+        } else {
+            hourstr = hours + " hours";
+        }
     }
-    let text = weatherDateObj.toDateString() + "  " + weatherDateObj.getHours() + ":00 [" + hours + "]";
+    let text = weatherDateObj.toDateString() + "  " + weatherDateObj.getHours() + ":00 [" + hourstr + "]";
     return text;
 }
 
@@ -44,6 +54,8 @@ const switchLayer = (ctx, index) => (e) => {
 
 export default function Weather() {
     const ctx = useContext(AppContext);
+    let hours = (-(new Date().getTime() - ctx.weatherDate.getTime()) / 3600000).toFixed(0);
+    let gmt30Hours = 30; // here we need to align to GMT hours
     const [weatherOpen, setWeatherOpen] = useState(false);
     return <>
         <MenuItem onClick={() => {
@@ -75,11 +87,11 @@ export default function Weather() {
                 </MenuItem>
             ))}
             <MenuItem disableRipple={true}>
-                <IconButton sx={{ ml: 1 }} onClick={addWeatherHours(ctx, -1)}>
+                <IconButton sx={{ ml: 1 }} onClick={addWeatherHours(ctx, hours > gmt30Hours ? -3 : -1)}>
                     <NavigateBefore />
                 </IconButton>
                 <Typography>{ctx.weatherDate.toLocaleDateString() + " " + ctx.weatherDate.getHours() + ":00"}</Typography>
-                <IconButton onClick={addWeatherHours(ctx, 1)} >
+                <IconButton onClick={addWeatherHours(ctx, hours >= gmt30Hours ? 3 : 1)} >
                     <NavigateNext />
                 </IconButton>
             </MenuItem>

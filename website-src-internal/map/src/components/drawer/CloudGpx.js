@@ -82,8 +82,12 @@ async function enableLayer(item, ctx, setProgressVisible, visible) {
         // delete newGpxFiles[item.name];
         newGpxFiles[item.name].url = null;
         ctx.setGpxFiles(newGpxFiles);
-        ctx.setSelectedGpxFile(null);
-        ctx.setSelectedPoint(null);
+        if (ctx.selectedGpxFile?.name === item.name) {
+            ctx.setSelectedGpxFile(null);
+            if (ctx.mapMarkerListener) {
+                ctx.mapMarkerListener(null, null);
+            }
+        }
         updateTextInfo(newGpxFiles, ctx);
     } else {
         newGpxFiles[item.name] = { 'url': url, 'clienttimems': item.clienttimems };

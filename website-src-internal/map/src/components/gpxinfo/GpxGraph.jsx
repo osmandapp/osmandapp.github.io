@@ -9,14 +9,13 @@ export default function GpxGraph({ data, xAxis, yAxis, width, min, max}) {
     max = Math.ceil(max / 10) * 10;
     min = Math.floor(min / 10) * 10;
 
-    function getSelectedPoint(e) {
+    function onMouseMoveGraph(e) {
         if (e.isTooltipActive) {
-            ctx.setSelectedPoint(null)
-            ctx.setSelectedPoint(
-                {
-                    lat: Object.values(ctx.selectedGpxFile.points)[0][e.activeTooltipIndex].lat,
-                    lng: Object.values(ctx.selectedGpxFile.points)[0][e.activeTooltipIndex].lng
-                });
+            if (ctx.mapMarkerListener) {
+                const lat = Object.values(ctx.selectedGpxFile.points)[0][e.activeTooltipIndex].lat;
+                const lng = Object.values(ctx.selectedGpxFile.points)[0][e.activeTooltipIndex].lng;
+                ctx.mapMarkerListener(lat, lng);
+            }
         }
     }
 
@@ -27,9 +26,7 @@ export default function GpxGraph({ data, xAxis, yAxis, width, min, max}) {
                     height={150}
                     data={data}
                     margin={{top: 0, right: 0, left: 0, bottom: 0}}
-                    onMouseMove={(event) => {
-                        getSelectedPoint(event)
-                    }}
+                    onMouseMove={onMouseMoveGraph}
                 >
                     <defs>
                         <linearGradient id="colorEl" x1="0" y1="0" x2="0" y2="1">

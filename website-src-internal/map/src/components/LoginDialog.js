@@ -91,7 +91,7 @@ async function userLogin(ctx, username, pwd, setEmailError, handleClose) {
 }
 
 
-export default function LoginDialog({}) {
+export default function LoginDialog() {
     const ctx = useContext(AppContext);
     const [userEmail, setUserEmail] = useState(ctx.userEmail);
     const [pwd, setPwd] = useState();
