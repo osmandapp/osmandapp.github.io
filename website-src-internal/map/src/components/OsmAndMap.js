@@ -1,6 +1,6 @@
-import React, {useEffect, useRef, useContext} from 'react';
+import React, {useEffect, useRef, useContext, useState} from 'react';
 import { makeStyles } from "@material-ui/core/styles";
-import {MapContainer, TileLayer, ZoomControl, LayersControl} from "react-leaflet";
+import {MapContainer, TileLayer, ZoomControl, LayersControl, CircleMarker} from "react-leaflet";
 import AppContext from "../context/AppContext";
 import MapContextMenu from "./MapContextMenu"
 import L from 'leaflet';
@@ -25,7 +25,17 @@ const useStyles = makeStyles((theme) => ({
 // initial location on map
 const position = [50, 5];
 
+// TODO implement in react way?
 let points = [];
+// TODO implement in react way?
+let hoverMarker = null;
+// TODO implement in react way?
+let geoJson = null;
+
+// TODO move to constants
+const startMarkerIcon = MarkerIcon({ bg: 'blue' });
+const endMarkerIcon = MarkerIcon({ bg: 'red' });
+const wptMarkerIcon = MarkerIcon({ bg: 'yellow' });
 
 function getWeatherTime(weatherDateObj) {
   let h = weatherDateObj.getUTCHours();
@@ -43,6 +53,34 @@ function getWeatherTime(weatherDateObj) {
   return weatherDateObj.getUTCFullYear() + '' + m + '' + d + "_" + h + "00";
 }
 
+async function calcRoute(startPoint, endPoint, map) {
+  // encodeURIComponent(startPoint.lat)
+  const starturl = `points=${startPoint.lat.toFixed(6)},${startPoint.lng.toFixed(6)}`;
+  const endurl = `points=${endPoint.lat.toFixed(6)},${endPoint.lng.toFixed(6)}`;
+  const response = await fetch(`/routing/route?${starturl}&${endurl}`, {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' }
+  });
+  if (response.ok) {
+    let data = await response.json();
+    if (geoJson) {
+      map.removeLayer(geoJson);
+    }
+    geoJson = L.geoJSON(data).addTo(map);
+  }
+}
+const setRoutePoints = (setStartPoint, setEndPoint, startPoint, endPoint, map) => (e) => {
+  if (setStartPoint) {
+    setStartPoint(e.latlng);
+    startPoint = e.latlng;
+  } else if (setEndPoint) {
+    setEndPoint(e.latlng);
+    endPoint = e.latlng;
+  }
+  if (startPoint && endPoint) {
+    calcRoute(startPoint, endPoint, map)
+  }
+}
 const updateLayerFunc = (layers, updateLayers, enable) => (event) => {
   const ind = layers.findIndex(l => l.name === event.name);
   if (ind >= 0 && layers[ind].checked !== enable) {
@@ -67,9 +105,6 @@ function getPoints(e) {
   return result;
 }
 
-const startMarkerIcon = MarkerIcon({ bg: 'blue' });
-const endMarkerIcon = MarkerIcon({ bg: 'red' });
-const wptMarkerIcon = MarkerIcon({ bg: 'yellow' });
 function addTrackToMap(file, map) {
   //file.gpx = new L.GPX(file.url, {
   return new L.GPX(file.url, {
@@ -92,15 +127,7 @@ function removeTrackFromMap(file, map) {
   map.current.removeLayer(file.gpx);
   file.gpx = null;
 }
-const setStartPoint = (ctx, map) => () => {
-  alert('Zoom out');
-}
 
-const setEndPoint = (ctx, map) => () => {
-  alert('Zoom in');
-}
-
-let hoverMarker = null;
 const updateMarker = (map) => (lat, lng) => {
   if (lat) {
     if (hoverMarker) {
@@ -118,15 +145,18 @@ const OsmAndMap = () => {
   const classes = useStyles();
   const mapRef = useRef(null);
   const tileLayer = useRef(null);
-
+  let hash = null;
   const ctx = useContext(AppContext);
+
+  const [startPoint, setStartPoint] = useState(null);
+  const [endPoint, setEndPoint] = useState(null);
 
   const whenReadyHandler = event => {
     const { target: map } = event;
     map.on('overlayadd', updateLayerFunc(ctx.weatherLayers, ctx.updateWeatherLayers, true));
     map.on('overlayremove', updateLayerFunc(ctx.weatherLayers, ctx.updateWeatherLayers, false));
     map.attributionControl.setPrefix('');
-    var hash = new L.Hash(map);
+    hash = new L.Hash(map);
     mapRef.current = map;
     if (!ctx.mapMarkerListener) {
       ctx.setMapMarkerListener(() => updateMarker(map));
@@ -161,28 +191,35 @@ const OsmAndMap = () => {
         removeTrackFromMap(file, mapRef);
       }
     });
-  }, [ctx.gpxFiles, ctx]);
-  // <TileLayer
-  //   key="layer_white"
-  //   url="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEAAQMAAABmvDolAAAAA1BMVEX///+nxBvIAAAAH0lEQVQYGe3BAQ0AAADCIPunfg43YAAAAAAAAAAA5wIhAAAB9aK9BAAAAABJRU5ErkJggg=="
-  //   minZoom={1}
-  //   maxZoom={18}
-  // />
+  }, [ctx.gpxFiles, ctx.setGpxFiles]);
+  
   useEffect(() => {
     if (tileLayer.current) {
       tileLayer.current.setUrl(ctx.tileURL.url);
     }
   }, [ctx.tileURL]);
+  useEffect(() => {
+    if (mapRef.current) {
+      const map = mapRef.current;
+      map.contextmenu.removeAllItems();
+      map.contextmenu.addItem({ text: 'Set as start', 
+        callback: setRoutePoints(setStartPoint, null, startPoint, endPoint, map) });
+      map.contextmenu.addItem({
+         text: 'Set as end',
+        callback: setRoutePoints(null, setEndPoint, startPoint, endPoint, map)
+      });
+    }
+  }, [startPoint, endPoint, mapRef]);
   
   return (
     <MapContainer center={position} zoom={5} className={classes.root} minZoom={1} maxZoom={20}
       zoomControl={false} whenReady={whenReadyHandler}
       contextmenu={true}
       contextmenuItems={[
-        { text: 'Set as start', callback: setStartPoint(ctx, mapRef.current)},
-        { text: 'Set as end', callback: setEndPoint(ctx, mapRef.current)}
       ]}
       >
+      {startPoint && <CircleMarker center={startPoint} radius={5} pathOptions={{ color: 'green' }} opacity={1}/>}
+      {endPoint && <CircleMarker center={endPoint} radius={5} pathOptions={{ color: 'red' }} opacity={1}/>}
       <TileLayer
         ref={tileLayer}
         attribution='&amp;copy <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
