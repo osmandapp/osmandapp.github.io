@@ -61,7 +61,7 @@ async function calcRoute(startPoint, endPoint, setRouteData) {
   });
   if (response.ok) {
     let data = await response.json();
-    setRouteData(data);
+    setRouteData({geojson: data, id : new Date().getTime()});
   }
 }
 const setRoutePoints = (setStartPoint, setEndPoint, startPoint, endPoint, setRouteData) => (e) => {
@@ -195,7 +195,7 @@ const OsmAndMap = () => {
       contextmenuItems={[
       ]}
       >
-      {routeData && <GeoJSON data={routeData} />}
+      {routeData && <GeoJSON key={routeData.id} data={routeData.geojson} />}
       {hoverPoint // && <CircleMarker ref={hoverPointRef} center={hoverPoint} radius={5} pathOptions={{ color: 'blue' }} opacity={1} />
               && <Marker ref={hoverPointRef} position={hoverPoint} icon={MarkerIcon({ bg: 'blue' })} /> }
       {startPoint && <CircleMarker center={startPoint} radius={5} pathOptions={{ color: 'green' }} opacity={1}/>}
