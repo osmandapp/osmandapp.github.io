@@ -11,9 +11,9 @@ export default function GpxGraph({ data, xAxis, yAxis, width, min, max}) {
 
     function onMouseMoveGraph(e) {
         if (e.isTooltipActive) {
-            if (ctx.mapMarkerListener) {
-                const lat = Object.values(ctx.selectedGpxFile.points)[0][e.activeTooltipIndex].lat;
-                const lng = Object.values(ctx.selectedGpxFile.points)[0][e.activeTooltipIndex].lng;
+            if (ctx.mapMarkerListener && ctx.selectedGpxFile.points) {
+                const lat = Object.values(ctx.selectedGpxFile.points)[e.activeTooltipIndex].lat;
+                const lng = Object.values(ctx.selectedGpxFile.points)[e.activeTooltipIndex].lng;
                 ctx.mapMarkerListener(lat, lng);
             }
         }

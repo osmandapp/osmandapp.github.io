@@ -90,7 +90,7 @@ async function enableLayer(item, ctx, setProgressVisible, visible) {
         }
         updateTextInfo(newGpxFiles, ctx);
     } else {
-        newGpxFiles[item.name] = { 'url': url, 'clienttimems': item.clienttimems };
+        newGpxFiles[item.name] = { 'url': url, 'clienttimems': item.clienttimems, 'name' : item.name };
         ctx.setGpxFiles(newGpxFiles);
         if (item.details?.analysis) {
             newGpxFiles[item.name].summary = item.details.analysis;
@@ -162,9 +162,8 @@ const GpxItemRow = (gpxFiles, ctx) => ({index, style}) => {
             </Tooltip>
             <Switch
                 checked={!!localLayer?.url}
-                onChange={(e) => {
-                    enableLayer(item, ctx, ctx.setGpxLoading, e.target.checked);
-                }} />
+                onClick={(e) => e.stopPropagation()}
+                onChange={(e) => enableLayer(item, ctx, ctx.setGpxLoading, e.target.checked)} />
         </MenuItem>)
 }
 

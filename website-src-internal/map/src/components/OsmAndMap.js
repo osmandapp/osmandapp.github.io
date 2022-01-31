@@ -26,8 +26,6 @@ const useStyles = makeStyles((theme) => ({
 const position = [50, 5];
 
 // TODO implement in react way?
-let points = [];
-// TODO implement in react way?
 let hoverMarker = null;
 // TODO implement in react way?
 let geoJson = null;
@@ -90,24 +88,10 @@ const updateLayerFunc = (layers, updateLayers, enable) => (event) => {
   }
 }
 
-function getPoints(e) {
-  let trackPoints = Object.values(e.layers._layers)[0]._latlngs;
-  let result = []
-
-  trackPoints.forEach((point) => {
-    let pointObj = {
-      lat: point.lat,
-      lng: point.lng
-      // if need distFromStart:e.target._info.elevation._points[index][0]
-    }
-    result.push(pointObj);
-  })
-  return result;
-}
 
 function addTrackToMap(file, map) {
   //file.gpx = new L.GPX(file.url, {
-  return new L.GPX(file.url, {
+  file.gpx = new L.GPX(file.url, {
     async: true,
     marker_options: {
       startIcon: startMarkerIcon,
@@ -117,10 +101,16 @@ function addTrackToMap(file, map) {
       },
     }
   }).on('loaded', function (e) {
-    points.splice(0, points.length)
-    points.push(getPoints(e));
+    let trackPoints = Object.values(e.layers._layers)[0]._latlngs;
+    trackPoints.forEach((point) => {
+      let pointObj = { lat: point.lat, lng: point.lng };
+      // if need distFromStart:e.target._info.elevation._points[index][0]
+      file.points.push(pointObj);
+    })
+    //file.points.push(getPoints(e));
     map.current.fitBounds(e.target.getBounds());  
   }).addTo(map.current);
+  file.points = []; 
 }
 
 function removeTrackFromMap(file, map) {
@@ -184,8 +174,8 @@ const OsmAndMap = () => {
     let filesMap = ctx.gpxFiles ? ctx.gpxFiles : {} ;
     Object.values(filesMap).forEach((file) => {
       if (file.url && !file.gpx) {
-        file.gpx = addTrackToMap(file, mapRef);
-        file.points = points;
+        addTrackToMap(file, mapRef);
+        
         ctx.setGpxFiles(ctx.gpxFiles);
       } else if (!file.url && file.gpx) {
         removeTrackFromMap(file, mapRef);

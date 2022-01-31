@@ -145,7 +145,7 @@ export default function LocalGpx() {
 
         <Collapse in={localGpxOpen} timeout="auto" unmountOnExit>
             {localGpxFiles.map((item) => (
-                <MenuItem key={item.name} onClick={() => ctx.setSelectedGpxFile(item)}>
+                <MenuItem key={item.name} onClick={(e) => ctx.setSelectedGpxFile(item)}>
                     <Tooltip title={item.name}>
                         <ListItemText inset>
                             <Typography variant="inherit" noWrap>
@@ -155,6 +155,7 @@ export default function LocalGpx() {
                     </Tooltip>
                     <Switch
                         checked={!!item.url}
+                        onClick={(e) => e.stopPropagation()}
                         onChange={(e) => {
                             const newGpxFiles = Object.assign({}, ctx.gpxFiles);
                             if (!e.target.checked) {
@@ -168,6 +169,7 @@ export default function LocalGpx() {
                                 }
                             } else {
                                 newGpxFiles[item.name].url = item.localContent;
+                                ctx.setSelectedGpxFile(item);
                             }
                             ctx.setGpxFiles(newGpxFiles);
                         }} />
