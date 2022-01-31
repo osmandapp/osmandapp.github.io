@@ -79,7 +79,12 @@ export default function MapContextMenu() {
                         }
                             <AppBar position="static" color="default">
                                 <div style={{display : 'inherit'}}>
-                                <Button key='close' onClick={() => ctx.setSelectedGpxFile(null)}>
+                                <Button key='close' onClick={() => {
+                                        ctx.setSelectedGpxFile(null);
+                                        if (ctx.mapMarkerListener) {
+                                            ctx.mapMarkerListener();
+                                        }
+                                }}>
                                     <Close />
                                 </Button>
                                 <TabList onChange={handleChange} children={tabList}>

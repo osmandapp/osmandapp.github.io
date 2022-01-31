@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useContext, useState} from 'react';
 import { makeStyles } from "@material-ui/core/styles";
-import {MapContainer, TileLayer, ZoomControl, LayersControl, CircleMarker} from "react-leaflet";
+import { MapContainer, TileLayer, ZoomControl, LayersControl, CircleMarker, Marker, GeoJSON} from "react-leaflet";
 import AppContext from "../context/AppContext";
 import MapContextMenu from "./MapContextMenu"
 import L from 'leaflet';
@@ -22,18 +22,18 @@ const useStyles = makeStyles((theme) => ({
     height: "100%"
   },
 }));
+
+const markerOptions = {
+  startIcon: MarkerIcon({ bg: 'blue' }),
+  endIcon: MarkerIcon({ bg: 'red' }),
+  wptIcons: {
+    '': MarkerIcon({ bg: 'yellow' }),
+  }
+};
+
+
 // initial location on map
 const position = [50, 5];
-
-// TODO implement in react way?
-let hoverMarker = null;
-// TODO implement in react way?
-let geoJson = null;
-
-// TODO move to constants
-const startMarkerIcon = MarkerIcon({ bg: 'blue' });
-const endMarkerIcon = MarkerIcon({ bg: 'red' });
-const wptMarkerIcon = MarkerIcon({ bg: 'yellow' });
 
 function getWeatherTime(weatherDateObj) {
   let h = weatherDateObj.getUTCHours();
@@ -51,7 +51,7 @@ function getWeatherTime(weatherDateObj) {
   return weatherDateObj.getUTCFullYear() + '' + m + '' + d + "_" + h + "00";
 }
 
-async function calcRoute(startPoint, endPoint, map) {
+async function calcRoute(startPoint, endPoint, setRouteData) {
   // encodeURIComponent(startPoint.lat)
   const starturl = `points=${startPoint.lat.toFixed(6)},${startPoint.lng.toFixed(6)}`;
   const endurl = `points=${endPoint.lat.toFixed(6)},${endPoint.lng.toFixed(6)}`;
@@ -61,13 +61,10 @@ async function calcRoute(startPoint, endPoint, map) {
   });
   if (response.ok) {
     let data = await response.json();
-    if (geoJson) {
-      map.removeLayer(geoJson);
-    }
-    geoJson = L.geoJSON(data).addTo(map);
+    setRouteData(data);
   }
 }
-const setRoutePoints = (setStartPoint, setEndPoint, startPoint, endPoint, map) => (e) => {
+const setRoutePoints = (setStartPoint, setEndPoint, startPoint, endPoint, setRouteData) => (e) => {
   if (setStartPoint) {
     setStartPoint(e.latlng);
     startPoint = e.latlng;
@@ -76,7 +73,7 @@ const setRoutePoints = (setStartPoint, setEndPoint, startPoint, endPoint, map) =
     endPoint = e.latlng;
   }
   if (startPoint && endPoint) {
-    calcRoute(startPoint, endPoint, map)
+    calcRoute(startPoint, endPoint, setRouteData)
   }
 }
 const updateLayerFunc = (layers, updateLayers, enable) => (event) => {
@@ -89,17 +86,10 @@ const updateLayerFunc = (layers, updateLayers, enable) => (event) => {
 }
 
 
-function addTrackToMap(file, map) {
-  //file.gpx = new L.GPX(file.url, {
+function addTrackToMap(file, map) { 
   file.gpx = new L.GPX(file.url, {
     async: true,
-    marker_options: {
-      startIcon: startMarkerIcon,
-      endIcon: endMarkerIcon,
-      wptIcons: {
-        '': wptMarkerIcon,
-      },
-    }
+    marker_options: markerOptions
   }).on('loaded', function (e) {
     let trackPoints = Object.values(e.layers._layers)[0]._latlngs;
     trackPoints.forEach((point) => {
@@ -118,15 +108,15 @@ function removeTrackFromMap(file, map) {
   file.gpx = null;
 }
 
-const updateMarker = (map) => (lat, lng) => {
+const updateMarker = (lat, lng, setHoverPoint, hoverPointRef) => {
   if (lat) {
-    if (hoverMarker) {
-      hoverMarker.setLatLng([lat, lng]).update();
+    if (hoverPointRef.current) {
+      hoverPointRef.current.setLatLng([lat, lng]);
     } else {
-      hoverMarker = new L.Marker({ lat, lng }, { icon: startMarkerIcon }).addTo(map);
+      setHoverPoint({ lat: lat, lng: lng });
     }
-  } else if (hoverMarker) {
-    map.removeLayer(hoverMarker);
+  } else {
+    setHoverPoint(null);
   }
 }
 
@@ -135,9 +125,12 @@ const OsmAndMap = () => {
   const classes = useStyles();
   const mapRef = useRef(null);
   const tileLayer = useRef(null);
+  const hoverPointRef = useRef(null);
   let hash = null;
   const ctx = useContext(AppContext);
 
+  const [routeData, setRouteData] = useState(null);
+  const [hoverPoint, setHoverPoint] = useState(null);
   const [startPoint, setStartPoint] = useState(null);
   const [endPoint, setEndPoint] = useState(null);
 
@@ -149,14 +142,8 @@ const OsmAndMap = () => {
     hash = new L.Hash(map);
     mapRef.current = map;
     if (!ctx.mapMarkerListener) {
-      ctx.setMapMarkerListener(() => updateMarker(map));
+      ctx.setMapMarkerListener(() => (lat, lng) => updateMarker(lat, lng, setHoverPoint, hoverPointRef));
     }
-    // map.on('contextmenu', (e) => {
-    //   L.popup()
-    //     .setLatLng(e.latlng)
-    //     .setContent('<div>Hello ??</div>')
-    //     .openOn(map);
-    // });
   }
   useEffect(() => {
     if (mapRef.current) {
@@ -173,33 +160,33 @@ const OsmAndMap = () => {
     // var gpx = 'https://www.openstreetmap.org/trace/4020415/data'; // URL to your GPX file or the GPX itself
     let filesMap = ctx.gpxFiles ? ctx.gpxFiles : {} ;
     Object.values(filesMap).forEach((file) => {
+      // could be done in react style ?
       if (file.url && !file.gpx) {
         addTrackToMap(file, mapRef);
-        
         ctx.setGpxFiles(ctx.gpxFiles);
       } else if (!file.url && file.gpx) {
         removeTrackFromMap(file, mapRef);
       }
     });
   }, [ctx.gpxFiles, ctx.setGpxFiles]);
-  
+
   useEffect(() => {
     if (tileLayer.current) {
       tileLayer.current.setUrl(ctx.tileURL.url);
     }
   }, [ctx.tileURL]);
+
   useEffect(() => {
     if (mapRef.current) {
       const map = mapRef.current;
       map.contextmenu.removeAllItems();
       map.contextmenu.addItem({ text: 'Set as start', 
-        callback: setRoutePoints(setStartPoint, null, startPoint, endPoint, map) });
-      map.contextmenu.addItem({
-         text: 'Set as end',
-        callback: setRoutePoints(null, setEndPoint, startPoint, endPoint, map)
+        callback: setRoutePoints(setStartPoint, null, startPoint, endPoint, setRouteData) });
+      map.contextmenu.addItem({ text: 'Set as end',
+        callback: setRoutePoints(null, setEndPoint, startPoint, endPoint, setRouteData)
       });
     }
-  }, [startPoint, endPoint, mapRef]);
+  }, [startPoint, endPoint, mapRef, setRouteData]);
   
   return (
     <MapContainer center={position} zoom={5} className={classes.root} minZoom={1} maxZoom={20}
@@ -208,6 +195,9 @@ const OsmAndMap = () => {
       contextmenuItems={[
       ]}
       >
+      {routeData && <GeoJSON data={routeData} />}
+      {hoverPoint // && <CircleMarker ref={hoverPointRef} center={hoverPoint} radius={5} pathOptions={{ color: 'blue' }} opacity={1} />
+              && <Marker ref={hoverPointRef} position={hoverPoint} icon={MarkerIcon({ bg: 'blue' })} /> }
       {startPoint && <CircleMarker center={startPoint} radius={5} pathOptions={{ color: 'green' }} opacity={1}/>}
       {endPoint && <CircleMarker center={endPoint} radius={5} pathOptions={{ color: 'red' }} opacity={1}/>}
       <TileLayer
@@ -218,8 +208,6 @@ const OsmAndMap = () => {
         maxNativeZoom={18}
         url={ctx.tileURL.url}
       />
-      {/* {ctx.selectedPoint && ctx.selectedGpxFile && ctx.selectedPoint.lat !== undefined && ctx.selectedPoint.lng !== undefined
-      && <Marker position={[ctx.selectedPoint.lat, ctx.selectedPoint.lng]}/>} */}
       <LayersControl position="topright" collapsed={false}>
         {ctx.weatherLayers.map((item) => (
           <LayersControl.Overlay name={item.name} checked={item.checked} key={'overlay_' + item.key}>
