@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useContext, useState} from 'react';
+import React, {useEffect, useRef, useContext, useState, useMemo} from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 import { MapContainer, TileLayer, ZoomControl, LayersControl, CircleMarker, Marker, GeoJSON} from "react-leaflet";
 import AppContext from "../context/AppContext";
@@ -51,29 +51,30 @@ function getWeatherTime(weatherDateObj) {
   return weatherDateObj.getUTCFullYear() + '' + m + '' + d + "_" + h + "00";
 }
 
-async function calcRoute(startPoint, endPoint, setRouteData) {
+async function calcRoute(ctx) {
   // encodeURIComponent(startPoint.lat)
-  const starturl = `points=${startPoint.lat.toFixed(6)},${startPoint.lng.toFixed(6)}`;
-  const endurl = `points=${endPoint.lat.toFixed(6)},${endPoint.lng.toFixed(6)}`;
-  const response = await fetch(`/routing/route?${starturl}&${endurl}`, {
+  ctx.setRouteData(null);
+  const starturl = `points=${ctx.startPoint.lat.toFixed(6)},${ctx.startPoint.lng.toFixed(6)}`;
+  const endurl = `points=${ctx.endPoint.lat.toFixed(6)},${ctx.endPoint.lng.toFixed(6)}`;
+  const response = await fetch(`/routing/route?routeMode=${ctx.routeMode.mode}&${starturl}&${endurl}`, {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' }
   });
   if (response.ok) {
     let data = await response.json();
-    setRouteData({geojson: data, id : new Date().getTime()});
+    ctx.setRouteData({geojson: data, id : new Date().getTime()});
   }
 }
-const setRoutePoints = (setStartPoint, setEndPoint, startPoint, endPoint, setRouteData) => (e) => {
+const setRoutePoints = (setStartPoint, setEndPoint, ctx) => (e) => {
   if (setStartPoint) {
     setStartPoint(e.latlng);
-    startPoint = e.latlng;
+    ctx.startPoint = e.latlng;
   } else if (setEndPoint) {
     setEndPoint(e.latlng);
-    endPoint = e.latlng;
+    ctx.endPoint = e.latlng;
   }
-  if (startPoint && endPoint) {
-    calcRoute(startPoint, endPoint, setRouteData)
+  if (ctx.startPoint && ctx.endPoint) {
+   // calcRoute(ctx);
   }
 }
 const updateLayerFunc = (layers, updateLayers, enable) => (event) => {
@@ -129,10 +130,7 @@ const OsmAndMap = () => {
   let hash = null;
   const ctx = useContext(AppContext);
 
-  const [routeData, setRouteData] = useState(null);
   const [hoverPoint, setHoverPoint] = useState(null);
-  const [startPoint, setStartPoint] = useState(null);
-  const [endPoint, setEndPoint] = useState(null);
 
   const whenReadyHandler = event => {
     const { target: map } = event;
@@ -155,6 +153,12 @@ const OsmAndMap = () => {
       });
     }
   }, [ctx.weatherDate]);
+
+  useEffect(() => {
+    if (ctx.startPoint && ctx.endPoint) {
+      calcRoute(ctx);
+    }
+  }, [ctx.routeMode, ctx.startPoint, ctx.endPoint])
 
   useEffect(() => {
     // var gpx = 'https://www.openstreetmap.org/trace/4020415/data'; // URL to your GPX file or the GPX itself
@@ -181,12 +185,12 @@ const OsmAndMap = () => {
       const map = mapRef.current;
       map.contextmenu.removeAllItems();
       map.contextmenu.addItem({ text: 'Set as start', 
-        callback: setRoutePoints(setStartPoint, null, startPoint, endPoint, setRouteData) });
+        callback: setRoutePoints(ctx.setStartPoint, null, ctx.startPoint, ctx.endPoint, ctx.setRouteData) });
       map.contextmenu.addItem({ text: 'Set as end',
-        callback: setRoutePoints(null, setEndPoint, startPoint, endPoint, setRouteData)
+        callback: setRoutePoints(null, ctx.setEndPoint, ctx.startPoint, ctx.endPoint, ctx.setRouteData)
       });
     }
-  }, [startPoint, endPoint, mapRef, setRouteData]);
+  }, [ctx.startPoint, ctx.endPoint, mapRef, ctx.setRouteData]);
   
   return (
     <MapContainer center={position} zoom={5} className={classes.root} minZoom={1} maxZoom={20}
@@ -195,11 +199,11 @@ const OsmAndMap = () => {
       contextmenuItems={[
       ]}
       >
-      {routeData && <GeoJSON key={routeData.id} data={routeData.geojson} />}
+      {ctx.routeData && <GeoJSON key={ctx.routeData.id} data={ctx.routeData.geojson} />}
       {hoverPoint // && <CircleMarker ref={hoverPointRef} center={hoverPoint} radius={5} pathOptions={{ color: 'blue' }} opacity={1} />
               && <Marker ref={hoverPointRef} position={hoverPoint} icon={MarkerIcon({ bg: 'blue' })} /> }
-      {startPoint && <CircleMarker center={startPoint} radius={5} pathOptions={{ color: 'green' }} opacity={1}/>}
-      {endPoint && <CircleMarker center={endPoint} radius={5} pathOptions={{ color: 'red' }} opacity={1}/>}
+      {ctx.startPoint && <CircleMarker center={ctx.startPoint} radius={5} pathOptions={{ color: 'green' }} opacity={1}/>}
+      {ctx.endPoint && <CircleMarker center={ctx.endPoint} radius={5} pathOptions={{ color: 'red' }} opacity={1}/>}
       <TileLayer
         ref={tileLayer}
         attribution='&amp;copy <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'

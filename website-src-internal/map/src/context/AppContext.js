@@ -197,6 +197,12 @@ export const AppContextProvider = (props) => {
     // 
     const [tileURL, setTileURL] = useState(osmandTileURL);
     const [allTileURLs, setAllTileURLs] = useState({});
+    // route
+    const [routeData, setRouteData] = useState(null);
+    const [routeMode, setRouteMode] = useState({'mode' : 'car'});
+    const [startPoint, setStartPoint] = useState(null);
+    const [endPoint, setEndPoint] = useState(null);
+    const [interPoints, setInterPoints] = useState({});
     useEffect(() => {
         loadTileUrls(setAllTileURLs);
     }, []);
@@ -220,7 +226,12 @@ export const AppContextProvider = (props) => {
         appText, setAppText,
         selectedGpxFile, setSelectedGpxFile,
         mapMarkerListener, setMapMarkerListener,
-        tileURL, setTileURL, allTileURLs
+        tileURL, setTileURL, allTileURLs,
+        startPoint, setStartPoint, 
+        endPoint, setEndPoint,
+        interPoints, setInterPoints,
+        routeData, setRouteData,
+        routeMode, setRouteMode
     }}>
         {props.children}
     </AppContext.Provider>;
