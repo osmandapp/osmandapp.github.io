@@ -207,6 +207,22 @@ const OsmAndMap = () => {
       });
     }
   }, [ctx.startPoint, ctx.endPoint, ctx.setStartPoint, ctx.setEndPoint, mapRef, ctx.setRouteData]);
+  const geojsonMarkerOptions = {
+    radius: 8,
+    fillColor: "#ff7800",
+    color: "#000",
+    weight: 1,
+    opacity: 1,
+    fillOpacity: 0.8
+  };
+  const onEachFeature = (feature, layer) => {
+    if (feature.properties && feature.properties.description) {
+      layer.bindPopup(feature.properties.description);
+    }
+  }
+  const pointToLayer = (feature, latlng) => {
+    return L.circleMarker(latlng, geojsonMarkerOptions);
+  };
   
   return (
     <MapContainer center={position} zoom={5} className={classes.root} minZoom={1} maxZoom={20}
@@ -215,7 +231,8 @@ const OsmAndMap = () => {
       contextmenuItems={[
       ]}
       >
-      {ctx.routeData && <GeoJSON key={ctx.routeData.id} data={ctx.routeData.geojson} />}
+      {ctx.routeData && <GeoJSON key={ctx.routeData.id} data={ctx.routeData.geojson} 
+        pointToLayer={pointToLayer} onEachFeature={onEachFeature}/>}
       {hoverPoint // && <CircleMarker ref={hoverPointRef} center={hoverPoint} radius={5} pathOptions={{ color: 'blue' }} opacity={1} />
               && <Marker ref={hoverPointRef} position={hoverPoint} icon={MarkerIcon({ bg: 'yellow' })} /> }
       {ctx.startPoint && //<CircleMarker center={ctx.startPoint} radius={5} pathOptions={{ color: 'green' }} opacity={1}
