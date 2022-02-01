@@ -25,7 +25,7 @@ export default function MapStyle() {
         return <></>;
     }
     return <>
-        <MenuItem onClick={(e) => setOpen(!open)}>
+        <MenuItem sx={{ mb: 1 }} onClick={(e) => setOpen(!open)}>
             <ListItemIcon>
                 <Directions fontSize="small" />
             </ListItemIcon>
@@ -34,7 +34,7 @@ export default function MapStyle() {
         </MenuItem>
 
         <Collapse in={open} timeout="auto" unmountOnExit>        
-            <MenuItem disableRipple={true}>
+            <MenuItem sx={{ ml: 2, mr: 2 }} disableRipple={true}>
                 <FormControl fullWidth>
                     <InputLabel id="rendering-style-selector-label">Route profile</InputLabel>
                     <Select
@@ -52,7 +52,7 @@ export default function MapStyle() {
                     </Select>
                 </FormControl>
             </MenuItem>
-            <MenuItem disableRipple={true}>
+            <MenuItem sx={{ ml: 2, mr: 2, mt: 1 }} disableRipple={true}>
                 <FormControl fullWidth>
                     <InputLabel id="rendering-style-selector-label">Start point</InputLabel>
                     <Input
@@ -62,7 +62,7 @@ export default function MapStyle() {
                     </Input>
                 </FormControl>
             </MenuItem>
-            <MenuItem disableRipple={true}>
+            <MenuItem sx={{ ml: 2, mr: 2, mt: 1 }} disableRipple={true}>
                 <FormControl fullWidth>
                     <InputLabel id="rendering-style-selector-label">End point</InputLabel>
                     <Input

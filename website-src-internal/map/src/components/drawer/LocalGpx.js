@@ -135,7 +135,7 @@ export default function LocalGpx() {
         Object.values(ctx.gpxFiles).filter((item) => item.local === true));
 
     return <>
-        <MenuItem onClick={(e) => setLocalGpxOpen(!localGpxOpen)}>
+        <MenuItem sx={{ mb: 1 }} onClick={(e) => setLocalGpxOpen(!localGpxOpen)}>
             <ListItemIcon>
                 <DirectionsWalk fontSize="small" />
             </ListItemIcon>

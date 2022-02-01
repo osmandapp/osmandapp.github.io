@@ -16,7 +16,7 @@ export default function MapStyle() {
     const [open, setOpen] = useState(false);
 
     return <>
-        <MenuItem onClick={(e) => setOpen(!open)}>
+        <MenuItem sx={{ mb: 1 }} onClick={(e) => setOpen(!open)}>
             <ListItemIcon>
                 <Map fontSize="small" />
             </ListItemIcon>

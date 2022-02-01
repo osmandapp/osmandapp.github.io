@@ -193,7 +193,7 @@ export default function CloudGpx() {
     }
 
     return <>
-        <MenuItem onClick={(e) => setGpxOpen(!gpxOpen)}>
+        <MenuItem sx={{ mb: 1 }} onClick={(e) => setGpxOpen(!gpxOpen)}>
             <ListItemIcon>
                 <DirectionsWalk fontSize="small" />
             </ListItemIcon>

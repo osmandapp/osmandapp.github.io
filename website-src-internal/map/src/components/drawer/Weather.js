@@ -58,7 +58,7 @@ export default function Weather() {
     let gmt30Hours = 30; // here we need to align to GMT hours
     const [weatherOpen, setWeatherOpen] = useState(false);
     return <>
-        <MenuItem onClick={() => {
+        <MenuItem sx={{ mb: 1 }} onClick={() => {
                 setWeatherOpen(!weatherOpen);
                 if (!weatherOpen) {
                     updateTextLayer(ctx, ctx.weatherDate);
