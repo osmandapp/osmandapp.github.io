@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useContext, useState, useMemo, useCallback} from 'react';
 import { makeStyles } from "@material-ui/core/styles";
-import { MapContainer, TileLayer, ZoomControl, Marker} from "react-leaflet";
+import { MapContainer, TileLayer, ZoomControl, Marker, ScaleControl} from "react-leaflet";
 import AppContext from "../context/AppContext";
 import MapContextMenu from "./MapContextMenu"
 // import { RouteLayer, WeatherLayer } from "./layers/"
@@ -119,6 +119,7 @@ const OsmAndMap = () => {
     <MapContainer center={position} zoom={5} className={classes.root} minZoom={1} maxZoom={20}
       zoomControl={false} whenReady={whenReadyHandler} contextmenu={true} contextmenuItems={[]}
       >
+      
       <RouteLayer />
       <WeatherLayer />
       <TileLayer
@@ -134,6 +135,7 @@ const OsmAndMap = () => {
         && <Marker ref={hoverPointRef} position={hoverPoint} icon={MarkerIcon({ bg: 'yellow' })} />}
       <MapContextMenu />
       <ZoomControl position="bottomleft" />
+      <ScaleControl imperial={false} position="bottomright"/>
     </MapContainer>
   );
 };
