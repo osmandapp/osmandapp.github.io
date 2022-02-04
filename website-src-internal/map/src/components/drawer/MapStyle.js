@@ -29,7 +29,7 @@ export default function MapStyle() {
                 <FormControl fullWidth>
                     <InputLabel id="rendering-style-selector-label">Map Style</InputLabel>
                     <Select
-                        labelId="rendering-style-selector-label"
+                        labelid="rendering-style-selector-label"
                         label="Map Style"
                         value={ctx.tileURL.key}
                         onChange={(e) => ctx.setTileURL(ctx.allTileURLs[e.target.value])}

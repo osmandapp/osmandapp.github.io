@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Toolbar, Typography, ListItemText, } from "@mui/material";
+import { Toolbar, Typography } from "@mui/material";
 import {
     Divider, MenuItem, ListItemIcon, MenuList, Box, IconButton
 } from "@mui/material";
@@ -40,7 +40,6 @@ export default function OsmAndDrawer({ mobile, toggleDrawer }) {
                     
                 </>
                 :
-
                 <MenuItem onClick={openLogin}>
                     <ListItemIcon>
                         <Person fontSize="small" />

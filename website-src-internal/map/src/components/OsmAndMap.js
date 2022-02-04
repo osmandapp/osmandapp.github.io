@@ -1,9 +1,11 @@
 import React, {useEffect, useRef, useContext, useState, useMemo, useCallback} from 'react';
 import { makeStyles } from "@material-ui/core/styles";
-import { MapContainer, TileLayer, ZoomControl, LayersControl, CircleMarker, Marker, GeoJSON} from "react-leaflet";
+import { MapContainer, TileLayer, ZoomControl, Marker} from "react-leaflet";
 import AppContext from "../context/AppContext";
 import MapContextMenu from "./MapContextMenu"
+// import { RouteLayer, WeatherLayer } from "./layers/"
 import RouteLayer from "./layers/RouteLayer"
+import WeatherLayer from "./layers/WeatherLayer"
 import L from 'leaflet';
 import MarkerIcon from './MarkerIcon.js'
 import 'leaflet-gpx';
@@ -35,31 +37,6 @@ const markerOptions = {
 
 // initial location on map
 const position = [50, 5];
-
-function getWeatherTime(weatherDateObj) {
-  let h = weatherDateObj.getUTCHours();
-  if (h < 10) {
-    h = '0' + h;
-  }
-  let m = weatherDateObj.getUTCMonth() + 1;
-  if (m < 10) {
-    m = '0' + m;
-  }
-  let d = weatherDateObj.getUTCDate();
-  if (d < 10) {
-    d = '0' + d;
-  }
-  return weatherDateObj.getUTCFullYear() + '' + m + '' + d + "_" + h + "00";
-}
-
-const updateLayerFunc = (layers, updateLayers, enable) => (event) => {
-  const ind = layers.findIndex(l => l.name === event.name);
-  if (ind >= 0 && layers[ind].checked !== enable) {
-    let newlayers = [...layers];
-    newlayers[ind].checked = enable;
-    updateLayers(newlayers);
-  }
-}
 
 
 function addTrackToMap(file, map) { 
@@ -109,8 +86,6 @@ const OsmAndMap = () => {
 
   const whenReadyHandler = event => {
     const { target: map } = event;
-    map.on('overlayadd', updateLayerFunc(ctx.weatherLayers, ctx.updateWeatherLayers, true));
-    map.on('overlayremove', updateLayerFunc(ctx.weatherLayers, ctx.updateWeatherLayers, false));
     map.attributionControl.setPrefix('');
     hash = new L.Hash(map);
     mapRef.current = map;
@@ -119,17 +94,6 @@ const OsmAndMap = () => {
     }
   }
   
-  useEffect(() => {
-    if (mapRef.current) {
-      mapRef.current.eachLayer((layer) => {
-        if (layer.options.tms) {
-          layer.options.time = getWeatherTime(ctx.weatherDate);
-          layer.redraw();
-        }
-      });
-    }
-  }, [ctx.weatherDate]);
-
 
   useEffect(() => {
     // var gpx = 'https://www.openstreetmap.org/trace/4020415/data'; // URL to your GPX file or the GPX itself
@@ -151,17 +115,12 @@ const OsmAndMap = () => {
     }
   }, [ctx.tileURL]);
 
- 
   return (
     <MapContainer center={position} zoom={5} className={classes.root} minZoom={1} maxZoom={20}
-      zoomControl={false} whenReady={whenReadyHandler}
-      contextmenu={true}
-      contextmenuItems={[
-      ]}
+      zoomControl={false} whenReady={whenReadyHandler} contextmenu={true} contextmenuItems={[]}
       >
       <RouteLayer />
-      {hoverPoint // && <CircleMarker ref={hoverPointRef} center={hoverPoint} radius={5} pathOptions={{ color: 'blue' }} opacity={1} />
-              && <Marker ref={hoverPointRef} position={hoverPoint} icon={MarkerIcon({ bg: 'yellow' })} /> }
+      <WeatherLayer />
       <TileLayer
         ref={tileLayer}
         attribution='&amp;copy <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -170,23 +129,11 @@ const OsmAndMap = () => {
         maxNativeZoom={18}
         url={ctx.tileURL.url}
       />
-      <LayersControl position="topright" collapsed={false}>
-        {ctx.weatherLayers.map((item) => (
-          <LayersControl.Overlay name={item.name} checked={item.checked} key={'overlay_' + item.key}>
-            <TileLayer
-              url={item.url}
-              time={getWeatherTime(ctx.weatherDate)}
-              tms={true}
-              minZoom={1}
-              opacity={item.opacity}
-              maxNativeZoom={item.maxNativeZoom}
-              maxZoom={item.maxZoom}
-            />
-          </LayersControl.Overlay>
-        ))}
-      </LayersControl>
-      <ZoomControl position="bottomleft" />
+   
+      {hoverPoint // && <CircleMarker ref={hoverPointRef} center={hoverPoint} radius={5} pathOptions={{ color: 'blue' }} opacity={1} />
+        && <Marker ref={hoverPointRef} position={hoverPoint} icon={MarkerIcon({ bg: 'yellow' })} />}
       <MapContextMenu />
+      <ZoomControl position="bottomleft" />
     </MapContainer>
   );
 };

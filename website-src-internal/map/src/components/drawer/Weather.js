@@ -16,18 +16,18 @@ function formatWeatherDate(weatherDateObj) {
     let hourstr = "now"
     if (hours !== 0) {
         let day = 0;
-        while (hours > 24) {
+        while (hours >=  24) {
             day++;
-            hours -=24;
+            hours -= 24;
         }
         if (day > 0) {
             hourstr = "+ " + day + " days ";
-        } else  {
+        } else if (hours > 0) {
             hourstr = "+";
         }
         if (hours > 0) {
             hourstr +=  hours + " hours";
-        } else {
+        } else if (hours < 0) {
             hourstr = hours + " hours";
         }
     }

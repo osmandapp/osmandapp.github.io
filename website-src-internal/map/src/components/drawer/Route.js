@@ -36,9 +36,9 @@ export default function MapStyle() {
         <Collapse in={open} timeout="auto" unmountOnExit>        
             <MenuItem sx={{ ml: 2, mr: 2 }} disableRipple={true}>
                 <FormControl fullWidth>
-                    <InputLabel id="rendering-style-selector-label">Route profile</InputLabel>
+                    <InputLabel id="route-mode-label">Route profile</InputLabel>
                     <Select
-                        labelId="rendering-style-selector-label"
+                        labelid="route-mode-label"
                         label="Route profile"
                         value={ctx.routeMode.mode}
                         onChange={(e) => ctx.setRouteMode({'mode': e.target.value})}
@@ -54,19 +54,31 @@ export default function MapStyle() {
             </MenuItem>
             <MenuItem sx={{ ml: 2, mr: 2, mt: 1 }} disableRipple={true}>
                 <FormControl fullWidth>
-                    <InputLabel id="rendering-style-selector-label">Start point</InputLabel>
+                    <InputLabel id="start-point-label">Start point</InputLabel>
                     <Input
-                        labelId="rendering-style-selector-label"
+                        labelid="start-point-label"
                         label="Start"
                         value={formatLatLon(ctx.startPoint)} >
                     </Input>
                 </FormControl>
             </MenuItem>
+            {ctx.interPoints.map((item, ind) => (
+                <MenuItem key={"inter"+(ind+1)} sx={{ ml: 2, mr: 2, mt: 1 }} disableRipple={true}>
+                    <FormControl fullWidth>
+                        <InputLabel id="end-point-label">Intermediate {ind+1}</InputLabel>
+                        <Input
+                            labelid="end-point-label"
+                            label="End"
+                            value={formatLatLon(item)} >
+                        </Input>
+                    </FormControl>
+                </MenuItem>
+            ))}
             <MenuItem sx={{ ml: 2, mr: 2, mt: 1 }} disableRipple={true}>
                 <FormControl fullWidth>
-                    <InputLabel id="rendering-style-selector-label">End point</InputLabel>
+                    <InputLabel id="end-point-label">End point</InputLabel>
                     <Input
-                        labelId="rendering-style-selector-label"
+                        labelid="end-point-label"
                         label="End"
                         value={formatLatLon(ctx.endPoint)} >
                     </Input>

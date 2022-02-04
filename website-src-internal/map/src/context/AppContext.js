@@ -202,7 +202,7 @@ export const AppContextProvider = (props) => {
     const [routeMode, setRouteMode] = useState({'mode' : 'car'});
     const [startPoint, setStartPoint] = useState(null);
     const [endPoint, setEndPoint] = useState(null);
-    const [interPoints, setInterPoints] = useState({});
+    const [interPoints, setInterPoints] = useState([]);
     useEffect(() => {
         loadTileUrls(setAllTileURLs);
     }, []);
