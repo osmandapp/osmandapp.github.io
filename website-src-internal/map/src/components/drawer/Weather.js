@@ -21,7 +21,12 @@ function formatWeatherDate(weatherDateObj) {
             hours -= 24;
         }
         if (day > 0) {
-            hourstr = "+ " + day + " days ";
+            if (day === 1) {
+                hourstr = "+ " + day + " day ";
+            } else {
+                hourstr = "+ " + day + " days ";
+            }
+            hours = hours - hours % 3;
         } else if (hours > 0) {
             hourstr = "+";
         }
@@ -55,7 +60,8 @@ const switchLayer = (ctx, index) => (e) => {
 export default function Weather() {
     const ctx = useContext(AppContext);
     let hours = (-(new Date().getTime() - ctx.weatherDate.getTime()) / 3600000).toFixed(0);
-    let gmt30Hours = 30; // here we need to align to GMT hours
+    let utcHours = new Date().getUTCHours();
+    let gmt30Hours = 24 - (utcHours % 3); // here we need to align to GMT hours
     const [weatherOpen, setWeatherOpen] = useState(false);
     return <>
         <MenuItem sx={{ mb: 1 }} onClick={() => {
