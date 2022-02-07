@@ -29,7 +29,7 @@ async function displayWeather(setWeatherPoint) {
     if (response.ok) {
         data.day = await response.json();
     }
-    const responseWeek = await fetch(`/weather-api/point-info?lat=${data.lat}&lon=${data.lon}&week=true`, {
+    const responseWeek = await fetch(`${process.env.REACT_APP_WEATHER_API_SITE}/weather-api/point-info?lat=${data.lat}&lon=${data.lon}&week=true`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' }
     });
