@@ -22,7 +22,7 @@ async function displayWeather(setWeatherPoint) {
         }
     }
     let data = { lat : lat, lon: lon }
-    const response = await fetch(`/weather-api/point-info?lat=${data.lat}&lon=${data.lon}&week=false`, {
+    const response = await fetch(`${process.env.REACT_APP_WEATHER_API_SITE}/weather-api/point-info?lat=${data.lat}&lon=${data.lon}&week=false`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' }
     });

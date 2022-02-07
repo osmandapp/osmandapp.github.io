@@ -37,7 +37,7 @@ const OsmAndMapFrame = () => {
                         </IconButton>
                         <Box sx={{ ml: 1 }}>
                             <Typography variant="h6" color="inherit" >
-                                {ctx.appText ? ctx.appText : 'Welcome to OsmAnd.'}
+                                {ctx.appText ? ctx.appText : process.env.REACT_APP_WEBSITE_NAME }
                             </Typography>
                         </Box>
                     </Toolbar>
