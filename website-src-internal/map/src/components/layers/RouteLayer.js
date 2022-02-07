@@ -15,7 +15,7 @@ async function calcRoute(startPoint, endPoint, interPoints, routeMode, setRouteD
     });
     const endurl = `points=${endPoint.lat.toFixed(6)},${endPoint.lng.toFixed(6)}`;
 
-    const response = await fetch(`/routing/route?routeMode=${routeMode.mode}&${starturl}${inter}&${endurl}`, {
+    const response = await fetch(`${process.env.REACT_APP_ROUTING_API_SITE}/routing/route?routeMode=${routeMode.mode}&${starturl}${inter}&${endurl}`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' }
     });

@@ -19,8 +19,7 @@ const osmandTileURL = {
 
 function getWeatherUrl(layer) {
     // const urlWeatherPefix = '.';
-    const urlWeatherPefix = 'https://test.osmand.net/weather/gfs';
-    return urlWeatherPefix + '/tiles/' + layer + '/{time}/{z}/{x}/{y}.png';
+    return process.env.REACT_APP_WEATHER_TILES_URL + '/' + layer + '/{time}/{z}/{x}/{y}.png';
 }
 
 function getLayers() {
@@ -146,12 +145,12 @@ async function checkUserLogin(loginUser, setLoginUser, userEmail, setUserEmail, 
 }
 
 async function loadTileUrls(setAllTileURLs) {
-    const response = await fetch('/tile/styles', {});
+    const response = await fetch(`${process.env.REACT_APP_TILES_API_SITE}/tile/styles`, {});
     if (response.ok) {
         let data = await response.json();
         Object.values(data).forEach((item) => {
             item.tileSize = 256 << item.tileSizeLog;
-            item.url = '/tile/' + item.key + '/{z}/{x}/{y}.png';
+            item.url = process.env.REACT_APP_TILES_API_SITE + '/tile/' + item.key + '/{z}/{x}/{y}.png';
             item.uiname = item.name.charAt(0).toUpperCase() + item.name.slice(1);
             if (item.tileSize > 256) {
                 item.uiname += ' HD';
