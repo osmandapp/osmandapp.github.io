@@ -7,7 +7,7 @@ import { TabContext, TabList, TabPanel } from "@mui/lab";
 import GeneralInfo from "./contextmenu/GeneralInfo";
 import Elevation from "./contextmenu/Elevation";
 import Speed from "./contextmenu/Speed";
-import WeatherDay from "./contextmenu/WeatherDay";
+import WeatherForecast from "./contextmenu/WeatherForecast";
 import {
     Close
 } from '@mui/icons-material';
@@ -26,7 +26,7 @@ export default function MapContextMenu() {
     };
     const hasSpeed = ctx.selectedGpxFile?.summary?.hasSpeedData ;
     const hasAltitude = ctx.selectedGpxFile?.summary?.hasElevationData;
-    const graphWidth = 600;
+    const graphWidth = 800;
     const tabs = { };
     let defaultTab = 'general';
     if (ctx.selectedGpxFile?.summary) {
@@ -51,10 +51,11 @@ export default function MapContextMenu() {
         tabs["SRTM Ele"] = <Elevation key='srtmele' data={ctx.selectedGpxFile.srtmSummary.elevationData} 
                 width={graphWidth} />
     }
-    if (ctx.weatherPoint) {
+    if (ctx.weatherPoint?.day && ctx.weatherPoint?.week) {
         defaultTab = 'weatherday';
-        tabs["Day forecast"] = <WeatherDay key="weatherday" width={graphWidth} data={ctx.weatherPoint}/>
-        tabs["Week forecast"] = <WeatherDay key="weatherweek" width={graphWidth} data={ctx.weatherPoint}/>
+        let loc = ctx.weatherPoint.lat.toFixed(2) + ' ' + ctx.weatherPoint.lon.toFixed(2);
+        tabs["Day forecast"] = <WeatherForecast key="weatherday" width={graphWidth} data={ctx.weatherPoint.day} loc={loc}/>
+        tabs["Week forecast"] = <WeatherForecast key="weatherweek" width={graphWidth} data={ctx.weatherPoint.week} loc={loc}/>
     }
     let presentValue = false;
     Object.values(tabs).forEach((item) => {

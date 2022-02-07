@@ -22,13 +22,20 @@ const rows = [
     createData('Wind', 'm/s', 5),
 ];
 
-export default function WeatherDay({ width, data }) {
+export default function WeatherForecast({ width, data, loc }) {
+    let stickyClass = {
+        position: '-webkit-sticky',
+        position: 'sticky',
+        background: '#fff',
+        left: 0,
+        zIndex: 1
+    };
     return (
         <TableContainer component={Paper} style={{ width: width, overflowX: 'auto' }}>
-            <Table >
+            <Table size="small">
                 <TableHead >
                     <TableRow>
-                        <TableCell>Weather</TableCell>
+                        <TableCell style={stickyClass}>{'Weather ' + loc}</TableCell>
                         {data.map((rw) => 
                             <TableCell key={rw[1]}>{rw[1]}</TableCell>
                         )}
@@ -36,11 +43,11 @@ export default function WeatherDay({ width, data }) {
                 </TableHead>
                 <TableBody >
                     {rows.map((row) => (
-                        <TableRow
+                        <TableRow 
                             key={row.name}
                             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
-                            <TableCell component="th" scope="row">
+                            <TableCell component="th" scope="row" style={stickyClass}> 
                                 {row.name + ' (' + row.label + ')'} 
                             </TableCell>
                             

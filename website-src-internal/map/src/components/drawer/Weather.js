@@ -12,16 +12,31 @@ import AppContext from "../../context/AppContext"
 
 
 async function displayWeather(setWeatherPoint) {
-    const lat = 51;
-    const lon = 4.5;
-    const response = await fetch(`/weather/point-info?lat=${lat}&lon=${lon}`, {
+    let lat = 0;
+    let lon = 0;
+    if (window.location.hash) {
+        let spl = window.location.hash.split('/');
+        if (spl.length > 1) {
+            lon = parseFloat(spl[spl.length - 1]);
+            lat = parseFloat(spl[spl.length - 2]);
+        }
+    }
+    let data = { lat : lat, lon: lon }
+    const response = await fetch(`/weather-api/point-info?lat=${data.lat}&lon=${data.lon}&week=false`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' }
     });
     if (response.ok) {
-        let data = await response.json();
-        setWeatherPoint(data);
+        data.day = await response.json();
     }
+    const responseWeek = await fetch(`/weather-api/point-info?lat=${data.lat}&lon=${data.lon}&week=true`, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+    });
+    if (responseWeek.ok) {
+        data.week = await responseWeek.json();
+    }
+    setWeatherPoint(data);
 }
 
 function formatWeatherDate(weatherDateObj) {
@@ -117,7 +132,7 @@ export default function Weather() {
             <MenuItem>
                 <Button variant="contained" component="span" sx={{ ml: 3 }}
                     onClick={() => displayWeather(ctx.setWeatherPoint)}>
-                    Display weather
+                    Weather Forecast
                 </Button>
             </MenuItem>
             <Divider />
