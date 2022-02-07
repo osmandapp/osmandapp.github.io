@@ -24,7 +24,6 @@ const rows = [
 
 export default function WeatherForecast({ width, data, loc }) {
     let stickyClass = {
-        position: '-webkit-sticky',
         position: 'sticky',
         background: '#fff',
         left: 0,

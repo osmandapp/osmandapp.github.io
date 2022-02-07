@@ -2,12 +2,14 @@ import {
     Paper, Tab, AppBar, Button,
 } from "@mui/material";
 import AppContext from "../context/AppContext"
-import { useState, useContext } from "react";
+import { useState, useContext, useRef, useEffect } from "react";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import GeneralInfo from "./contextmenu/GeneralInfo";
 import Elevation from "./contextmenu/Elevation";
 import Speed from "./contextmenu/Speed";
 import WeatherForecast from "./contextmenu/WeatherForecast";
+import L from 'leaflet';
+
 import {
     Close
 } from '@mui/icons-material';
@@ -75,9 +77,15 @@ export default function MapContextMenu() {
 
     tabList = tabList.concat(Object.keys(tabs).map((item, index) => 
         <Tab value={tabs[item].key + ''} label={item} key={'tab:' + item} /> ));
-    
+    const divContainer = useRef(null);
+    useEffect(() => {
+        if (divContainer.current) {
+            L.DomEvent.disableClickPropagation(divContainer.current);
+            L.DomEvent.disableScrollPropagation(divContainer.current);
+        }
+    });
     return (
-        <div className="leaflet-bottom" style={centerStyle}>
+        <div className="leaflet-bottom" style={centerStyle} ref={divContainer}>
             <div className="leaflet-control leaflet-bar padding-container" >
                 {tabList.length > 0 &&  
                     <Paper >
