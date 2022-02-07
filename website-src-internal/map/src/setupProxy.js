@@ -11,4 +11,5 @@ module.exports = function (app) {
     app.use('/routing/', proxy);
     app.use('/gpx/', proxy);
     app.use('/tile/', proxy);
+    app.use('/weather/', proxy);
 };

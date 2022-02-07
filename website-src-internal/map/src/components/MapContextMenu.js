@@ -4,9 +4,10 @@ import {
 import AppContext from "../context/AppContext"
 import { useState, useContext } from "react";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
-import GeneralInfo from "./gpxinfo/GeneralInfo";
-import Elevation from "./gpxinfo/Elevation";
-import Speed from "./gpxinfo/Speed";
+import GeneralInfo from "./contextmenu/GeneralInfo";
+import Elevation from "./contextmenu/Elevation";
+import Speed from "./contextmenu/Speed";
+import WeatherDay from "./contextmenu/WeatherDay";
 import {
     Close
 } from '@mui/icons-material';
@@ -27,6 +28,7 @@ export default function MapContextMenu() {
     const hasAltitude = ctx.selectedGpxFile?.summary?.hasElevationData;
     const graphWidth = 600;
     const tabs = { };
+    let defaultTab = 'general';
     if (ctx.selectedGpxFile?.summary) {
         tabs.Info = <GeneralInfo key='general' summary={ctx.selectedGpxFile.summary}
             url={ctx.selectedGpxFile.url} width={graphWidth} />;
@@ -49,6 +51,11 @@ export default function MapContextMenu() {
         tabs["SRTM Ele"] = <Elevation key='srtmele' data={ctx.selectedGpxFile.srtmSummary.elevationData} 
                 width={graphWidth} />
     }
+    if (ctx.weatherPoint) {
+        defaultTab = 'weatherday';
+        tabs["Day forecast"] = <WeatherDay key="weatherday" width={graphWidth} data={ctx.weatherPoint}/>
+        tabs["Week forecast"] = <WeatherDay key="weatherweek" width={graphWidth} data={ctx.weatherPoint}/>
+    }
     let presentValue = false;
     Object.values(tabs).forEach((item) => {
         if (item.key === value) {
@@ -56,8 +63,8 @@ export default function MapContextMenu() {
             return false;
         }
     });
-    if (!presentValue && value !== 'general') {
-        setValue('general');
+    if (!presentValue && value !== defaultTab) {
+        setValue(defaultTab);
     }
 
     let tabList = [];
@@ -71,7 +78,7 @@ export default function MapContextMenu() {
     return (
         <div className="leaflet-bottom" style={centerStyle}>
             <div className="leaflet-control leaflet-bar padding-container" >
-                {ctx.selectedGpxFile?.summary ? 
+                {tabList.length > 0 &&  
                     <Paper >
                         <TabContext value={value} >
                         {Object.values(tabs).map((item, index) =>
@@ -81,6 +88,7 @@ export default function MapContextMenu() {
                                 <div style={{display : 'inherit'}}>
                                 <Button key='close' onClick={() => {
                                         ctx.setSelectedGpxFile(null);
+                                        ctx.setWeatherPoint(null);
                                         if (ctx.mapMarkerListener) {
                                             ctx.mapMarkerListener();
                                         }
@@ -93,8 +101,6 @@ export default function MapContextMenu() {
                             </AppBar>
                         </TabContext>
                     </Paper>
-                    :
-                    <></>
                 }
             </div>
         </div>

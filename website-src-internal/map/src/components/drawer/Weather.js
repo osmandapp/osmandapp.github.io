@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import {
-    Typography, ListItemText, Switch, Collapse,
+    Typography, ListItemText, Switch, Collapse, Button,
 } from "@mui/material";
 import {
     IconButton, Divider, MenuItem, ListItemIcon
@@ -10,6 +10,19 @@ import {
 } from '@mui/icons-material';
 import AppContext from "../../context/AppContext"
 
+
+async function displayWeather(setWeatherPoint) {
+    const lat = 51;
+    const lon = 4.5;
+    const response = await fetch(`/weather/point-info?lat=${lat}&lon=${lon}`, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+    });
+    if (response.ok) {
+        let data = await response.json();
+        setWeatherPoint(data);
+    }
+}
 
 function formatWeatherDate(weatherDateObj) {
     let hours = (-(new Date().getTime() - weatherDateObj.getTime()) / 3600000).toFixed(0);
@@ -101,7 +114,12 @@ export default function Weather() {
                     <NavigateNext />
                 </IconButton>
             </MenuItem>
-
+            <MenuItem>
+                <Button variant="contained" component="span" sx={{ ml: 3 }}
+                    onClick={() => displayWeather(ctx.setWeatherPoint)}>
+                    Display weather
+                </Button>
+            </MenuItem>
             <Divider />
         </Collapse>
     </>

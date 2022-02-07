@@ -203,6 +203,8 @@ export const AppContextProvider = (props) => {
     const [startPoint, setStartPoint] = useState(null);
     const [endPoint, setEndPoint] = useState(null);
     const [interPoints, setInterPoints] = useState([]);
+    const [weatherPoint, setWeatherPoint] = useState(null);
+    
     useEffect(() => {
         loadTileUrls(setAllTileURLs);
     }, []);
@@ -231,7 +233,8 @@ export const AppContextProvider = (props) => {
         endPoint, setEndPoint,
         interPoints, setInterPoints,
         routeData, setRouteData,
-        routeMode, setRouteMode
+        routeMode, setRouteMode,
+        weatherPoint, setWeatherPoint
     }}>
         {props.children}
     </AppContext.Provider>;
