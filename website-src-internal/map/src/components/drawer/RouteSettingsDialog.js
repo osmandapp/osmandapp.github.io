@@ -23,21 +23,17 @@ export default function RouteSettingsDialog({setOpenSettings}) {
         <Dialog open={true} onClose={handleClose}>
             <DialogTitle>Additional Route Settings</DialogTitle>
             <DialogContent>
-                <FormControlLabel control={
-                    <Checkbox checked={opts.nativerouting} onChange={(e) => {
-                        let nopts = Object.assign({}, opts)
-                        nopts.nativerouting = !nopts.nativerouting;
-                        setOpts(nopts);
-                    }} />}
-                    label="[Dev] Native routing " />
-                <br></br>
-                <FormControlLabel control={
-                    <Checkbox checked={opts.nativeapproximation} onChange={(e) => {
-                        let nopts = Object.assign({}, opts)
-                        nopts.nativeapproximation = !nopts.nativeapproximation;
-                        setOpts(nopts);
-                    }} />}
-                    label="[Dev] Native track approximation " />
+                {Object.entries(opts).map(([key, opt]) => 
+                    <>
+                        <FormControlLabel key={key} control={
+                            <Checkbox key={'check_' + key} checked={opt.value} onChange={(e) => {
+                                let nopts = Object.assign({}, opts)
+                                nopts[key].value = !nopts[key].value;
+                                setOpts(nopts);
+                            }} />} label={opt.label} />
+                        <br></br>
+                    </>
+                )}
 
             </DialogContent>
             <DialogActions>

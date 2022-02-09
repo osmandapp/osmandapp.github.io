@@ -182,10 +182,15 @@ function getWeatherDate() {
 function formatRouteMode(routeMode) {
     let routeModeStr = routeMode.mode;
     Object.keys(routeMode.opts).forEach(o => {
-        if (routeMode.opts[o] === true) {
+        if (!routeMode.opts[o]?.mode?.includes('dev') && 
+            !routeMode.opts[o]?.mode?.includes(routeMode.mode) ) {
+            // skip
+        } else if (routeMode.opts[o]?.value === true) {
             routeModeStr += ',' + o;
+        } else if (routeMode.opts[o]?.value === false) {
+            // skip
         } else {
-            routeModeStr += ',' + o + '=' + routeMode.opts[o];
+            routeModeStr += ',' + o + '=' + routeMode.opts[o].value;
         }
     });
     return routeModeStr;
@@ -260,7 +265,10 @@ export const AppContextProvider = (props) => {
     // route
     const [routeData, setRouteData] = useState(null);
     const [routeTrackFile, setRouteTrackFile] = useState(null);
-    const [routeMode, setRouteMode] = useState({ 'mode': 'car', 'opts': { nativerouting: true, nativeapproximation: true } });
+    const [routeMode, setRouteMode] = useState({ 'mode': 'car', 'opts': { 
+            nativerouting: { value: true, mode: ['dev'], label: '[Dev] Native routing'}, 
+            nativeapproximation: { value: true, mode: ['dev'], label: '[Dev] Native track approximation' },
+         }});
     const [startPoint, setStartPoint] = useState(null);
     const [endPoint, setEndPoint] = useState(null);
     const [interPoints, setInterPoints] = useState([]);
