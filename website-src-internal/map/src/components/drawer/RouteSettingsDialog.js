@@ -3,8 +3,19 @@ import { Button, Checkbox, FormControlLabel } from '@mui/material/';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import AppContext from "../../context/AppContext"
+
+let section = '';
+function checkSection(newSection) {
+    if(newSection === section) {
+        return false;
+    }
+    section = newSection;
+    return true;
+}
+
 
 export default function RouteSettingsDialog({setOpenSettings}) {
     const ctx = useContext(AppContext);
@@ -19,19 +30,20 @@ export default function RouteSettingsDialog({setOpenSettings}) {
         newRouteMode.opts = opts;
         ctx.setRouteMode(newRouteMode);
     };
+    section = '';
     return (
         <Dialog open={true} onClose={handleClose}>
             <DialogTitle>Additional Route Settings</DialogTitle>
             <DialogContent>
-                {Object.entries(opts).map(([key, opt]) => 
+                { Object.entries(opts).map(([key, opt]) => 
                     <>
+                        {checkSection(opt.section) && <DialogContentText>{section}</DialogContentText>}
                         <FormControlLabel key={key} control={
                             <Checkbox key={'check_' + key} checked={opt.value} onChange={(e) => {
                                 let nopts = Object.assign({}, opts)
                                 nopts[key].value = !nopts[key].value;
                                 setOpts(nopts);
                             }} />} label={opt.label} />
-                        <br></br>
                     </>
                 )}
 

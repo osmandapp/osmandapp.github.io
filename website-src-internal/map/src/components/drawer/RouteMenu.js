@@ -58,14 +58,13 @@ export default function RouteMenu() {
                         labelid="route-mode-label"
                         label="Route profile"
                         value={ctx.routeMode.mode}
-                        onChange={(e) => ctx.setRouteMode({ 'mode': e.target.value, 'opts': ctx.routeMode.opts})}
+                        onChange={(e) => ctx.setRouteMode({ 
+                            mode: e.target.value, modes: ctx.routeMode.modes,
+                            opts: ctx.routeMode.modes[e.target.value]?.params})}
                     >
-                        <MenuItem value='car'>Auto</MenuItem>
-                        <MenuItem value='bicycle'>Bicycle</MenuItem>
-                        <MenuItem value='pedestrian'>Pedestrian</MenuItem>
-                        <MenuItem value='boat'>Boat</MenuItem>
-                        <MenuItem value='ski'>Ski</MenuItem>
-                        <MenuItem value='horsebackriding'>Horse</MenuItem>
+                        {Object.entries(ctx.routeMode.modes).map(([key, vl]) => 
+                            <MenuItem key={key} value={key}>{vl.name}</MenuItem>
+                        )}
                     </Select>
                 </FormControl>
                 <IconButton sx={{ ml: 1 }} onClick={() => {setOpenSettings(true)}} >

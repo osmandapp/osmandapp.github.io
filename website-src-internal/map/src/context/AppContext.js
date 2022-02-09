@@ -196,6 +196,18 @@ function formatRouteMode(routeMode) {
     return routeModeStr;
 }
 
+async function loadRouteModes(routeMode, setRouteMode) {
+    const response = await fetch(`${process.env.REACT_APP_ROUTING_API_SITE}/routing/routing-modes`, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+    });
+    if (response.ok) {
+        let data = await response.json();
+        setRouteMode({ mode: routeMode.mode, modes: data, opts: data[routeMode.mode]?.params });
+    }
+}
+
+
 async function calculateRoute(startPoint, endPoint, interPoints, routeMode, setRouteData) {
     // encodeURIComponent(startPoint.lat)
     setRouteData(null);
@@ -265,15 +277,16 @@ export const AppContextProvider = (props) => {
     // route
     const [routeData, setRouteData] = useState(null);
     const [routeTrackFile, setRouteTrackFile] = useState(null);
-    const [routeMode, setRouteMode] = useState({ 'mode': 'car', 'opts': { 
-            nativerouting: { value: true, mode: ['dev'], label: '[Dev] Native routing'}, 
-            nativeapproximation: { value: true, mode: ['dev'], label: '[Dev] Native track approximation' },
-         }});
+    const [routeMode, setRouteMode] = useState({ mode: 'car', opts: {}, 
+        modes: { 'car': { name: 'Car', params: {} } } });
     const [startPoint, setStartPoint] = useState(null);
     const [endPoint, setEndPoint] = useState(null);
     const [interPoints, setInterPoints] = useState([]);
     const [weatherPoint, setWeatherPoint] = useState(null);
 
+    useEffect(() => {
+        loadRouteModes(routeMode, setRouteMode);
+    }, []);
 
     useEffect(() => {
         if (routeTrackFile) {
