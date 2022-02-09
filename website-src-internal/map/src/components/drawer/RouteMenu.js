@@ -1,14 +1,20 @@
 import React, { useState, useContext } from 'react';
+import { styled } from '@mui/material/styles';
+
 import {
     ListItemText, Collapse,
     MenuItem, ListItemIcon,
-    FormControl, InputLabel, Input, Select
+    FormControl, InputLabel, Input, Select, Button
 } from "@mui/material";
 import {
     ExpandLess, ExpandMore, Directions
 } from '@mui/icons-material';
 import AppContext from "../../context/AppContext"
 // import Utils from "../../util/Utils";
+
+const StyledInput = styled('input')({
+    display: 'none',
+});
 
 
 function formatLatLon(pnt) {
@@ -17,7 +23,32 @@ function formatLatLon(pnt) {
     }
     return pnt.lat.toFixed(5) + ", " + pnt.lng.toFixed(5);
 }
-export default function MapStyle() {
+
+async function uploadFile(file, routeMode, setRouteData) {
+    let formData = new FormData();
+    formData.append('file', file);
+    const response = await fetch(`${process.env.REACT_APP_ROUTING_API_SITE}/routing/gpx-approximate?routeMode=${routeMode.mode}`, {
+        method: 'POST',
+        body: formData
+    });
+    if (response.ok) {
+        let data = await response.json();
+        setRouteData({ geojson: data, id: new Date().getTime() });
+    } else {
+        let message = await response.text();
+        alert(message);
+    }
+}
+
+const fileSelected = (routeMode, setRouteData) => async (e) => {
+    //    let file = e.target.files[0];
+    Array.from(e.target.files).forEach((file) => {
+        const reader = new FileReader();
+        uploadFile(file, routeMode, setRouteData);
+    });
+}
+
+export default function RouteMenu() {
     const ctx = useContext(AppContext);
     const [open, setOpen] = useState(true);
 
@@ -83,6 +114,14 @@ export default function MapStyle() {
                         value={formatLatLon(ctx.endPoint)} >
                     </Input>
                 </FormControl>
+            </MenuItem>
+            <MenuItem disableRipple={true}>
+                <label htmlFor="contained-button-file" >
+                    <StyledInput accept=".gpx" id="contained-button-file" type="file" onChange={fileSelected(ctx.routeMode, ctx.setRouteData)} />
+                    <Button variant="contained" component="span" sx={{ ml: 3 }}>
+                        Upload Track
+                    </Button>
+                </label>
             </MenuItem>
         </Collapse>
     </>;

@@ -9,7 +9,7 @@ import Weather from "./drawer/Weather"
 import CloudGpx from "./drawer/CloudGpx"
 import LocalGpx from "./drawer/LocalGpx"
 import MapStyle from "./drawer/MapStyle"
-import Route from "./drawer/Route"
+import RouteMenu from "./drawer/RouteMenu"
 import { useNavigate } from "react-router-dom";
 
 
@@ -56,7 +56,7 @@ export default function OsmAndDrawer({ mobile, toggleDrawer }) {
             <CloudGpx />
             <LocalGpx />
             <MapStyle />
-            <Route />
+            <RouteMenu />
         </MenuList>
     </>
     );
