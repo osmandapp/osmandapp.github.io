@@ -177,6 +177,67 @@ function getWeatherDate() {
     weatherDateObj.setUTCSeconds(0);
     return weatherDateObj;
 }
+
+
+function formatRouteMode(routeMode) {
+    let routeModeStr = routeMode.mode;
+    Object.keys(routeMode.opts).forEach(o => {
+        if (routeMode.opts[o] === true) {
+            routeModeStr += ',' + o;
+        } else {
+            routeModeStr += ',' + o + '=' + routeMode.opts[o];
+        }
+    });
+    return routeModeStr;
+}
+
+async function calculateRoute(startPoint, endPoint, interPoints, routeMode, setRouteData) {
+    // encodeURIComponent(startPoint.lat)
+    setRouteData(null);
+    const starturl = `points=${startPoint.lat.toFixed(6)},${startPoint.lng.toFixed(6)}`;
+    let inter = '';
+    interPoints.forEach((i) => {
+        inter += `&points=${i.lat.toFixed(6)},${i.lng.toFixed(6)}`;
+    });
+    const endurl = `points=${endPoint.lat.toFixed(6)},${endPoint.lng.toFixed(6)}`;
+
+    const response = await fetch(`${process.env.REACT_APP_ROUTING_API_SITE}/routing/route?routeMode=${formatRouteMode(routeMode)}&${starturl}${inter}&${endurl}`, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+    });
+    if (response.ok) {
+        let data = await response.json();
+        setRouteData({ geojson: data, id: new Date().getTime() });
+    }
+}
+
+async function calculateGpxRoute(routeMode, routeTrackFile, setRouteData, setStartPoint, setEndPoint, setInterPoints) {
+    let formData = new FormData();
+    formData.append('file', routeTrackFile);
+    const response = await fetch(`${process.env.REACT_APP_ROUTING_API_SITE}/routing/gpx-approximate?routeMode=${formatRouteMode(routeMode)}`, {
+        method: 'POST',
+        body: formData
+    });
+    if (response.ok) {
+        let data = await response.json();
+        let start, end;
+        if (data?.features?.length > 0) {
+            let coords = data?.features[0].geometry.coordinates;
+            if (coords.length > 0) {
+                start = { lat: coords[0][1], lng: coords[0][0] };
+                end = { lat: coords[coords.length - 1][1], lng: coords[coords.length - 1][0] };
+            }
+        }
+        setStartPoint(start);
+        setEndPoint(end);
+        setInterPoints([]);
+        setRouteData({ geojson: data, id: new Date().getTime() });
+    } else {
+        let message = await response.text();
+        alert(message);
+    }
+}
+
 // var originalDateObj = new Date(weatherDateObj);
 const AppContext = React.createContext();
 
@@ -198,11 +259,26 @@ export const AppContextProvider = (props) => {
     const [allTileURLs, setAllTileURLs] = useState({});
     // route
     const [routeData, setRouteData] = useState(null);
-    const [routeMode, setRouteMode] = useState({'mode' : 'car'});
+    const [routeTrackFile, setRouteTrackFile] = useState(null);
+    const [routeMode, setRouteMode] = useState({ 'mode': 'car', 'opts': { nativerouting: true, nativeapproximation: true } });
     const [startPoint, setStartPoint] = useState(null);
     const [endPoint, setEndPoint] = useState(null);
     const [interPoints, setInterPoints] = useState([]);
     const [weatherPoint, setWeatherPoint] = useState(null);
+
+
+    useEffect(() => {
+        if (routeTrackFile) {
+            calculateGpxRoute(routeMode, routeTrackFile, setRouteData, setStartPoint, setEndPoint, setInterPoints);
+        }
+    }, [routeMode, routeTrackFile, setRouteData, setStartPoint, setEndPoint]);
+
+    useEffect(() => {
+        if (!routeTrackFile && startPoint && endPoint) {
+            calculateRoute(startPoint, endPoint, interPoints, routeMode, setRouteData);
+        }
+        // ! routeTrackFile is not part of dependency ! 
+    }, [routeMode, startPoint, endPoint, routeTrackFile, interPoints, setRouteData]);
     
     useEffect(() => {
         loadTileUrls(setAllTileURLs);
@@ -233,7 +309,9 @@ export const AppContextProvider = (props) => {
         interPoints, setInterPoints,
         routeData, setRouteData,
         routeMode, setRouteMode,
-        weatherPoint, setWeatherPoint
+        weatherPoint, setWeatherPoint,
+        routeTrackFile, setRouteTrackFile
+
     }}>
         {props.children}
     </AppContext.Provider>;

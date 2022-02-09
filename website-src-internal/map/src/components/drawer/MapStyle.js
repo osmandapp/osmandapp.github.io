@@ -1,12 +1,10 @@
 import React, { useState, useContext } from 'react';
 import {
-    ListItemText, Collapse,
-    MenuItem, ListItemIcon,
+    ListItemText, Collapse, MenuItem, ListItemIcon, IconButton,
     FormControl, InputLabel, Select
 } from "@mui/material";
-import {
-    ExpandLess, ExpandMore, Map
-} from '@mui/icons-material';
+import { Settings } from '@mui/icons-material';
+import { ExpandLess, ExpandMore, Map } from '@mui/icons-material';
 import AppContext from "../../context/AppContext"
 // import Utils from "../../util/Utils";
 
@@ -25,7 +23,7 @@ export default function MapStyle() {
         </MenuItem>
 
         <Collapse in={open} timeout="auto" unmountOnExit>        
-            <MenuItem disableRipple={true}>
+            <MenuItem sx={{ ml: 1, mr: 2 }} disableRipple={true}>
                 <FormControl fullWidth>
                     <InputLabel id="rendering-style-selector-label">Map Style</InputLabel>
                     <Select
@@ -39,6 +37,9 @@ export default function MapStyle() {
                         })}
                     </Select>
                 </FormControl>
+                <IconButton sx={{ ml: 1 }} onClick={() => { }} >
+                    <Settings fontSize="small" />
+                </IconButton>
             </MenuItem>
         </Collapse>
     </>;

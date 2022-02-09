@@ -5,25 +5,7 @@ import MarkerIcon from '../MarkerIcon.js'
 import AppContext from "../../context/AppContext";
 
 
-async function calcRoute(startPoint, endPoint, interPoints, routeMode, setRouteData) {
-    // encodeURIComponent(startPoint.lat)
-    setRouteData(null);
-    const starturl = `points=${startPoint.lat.toFixed(6)},${startPoint.lng.toFixed(6)}`;
-    let inter = '';
-    interPoints.forEach((i) => {
-        inter += `&points=${i.lat.toFixed(6)},${i.lng.toFixed(6)}`;
-    });
-    const endurl = `points=${endPoint.lat.toFixed(6)},${endPoint.lng.toFixed(6)}`;
 
-    const response = await fetch(`${process.env.REACT_APP_ROUTING_API_SITE}/routing/route?routeMode=${routeMode.mode}&${starturl}${inter}&${endurl}`, {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' }
-    });
-    if (response.ok) {
-        let data = await response.json();
-        setRouteData({ geojson: data, id: new Date().getTime() });
-    }
-}
 
 function moveableMarker(ctx, map, marker) {
     let moved ;
@@ -58,6 +40,7 @@ const RouteLayer = () => {
             const marker = startPointRef.current;
             if (marker != null) {
                 ctx.setStartPoint(marker.getLatLng());
+                ctx.setRouteTrackFile(null);
             }
         }
     }, [ctx.setStartPoint, startPointRef]);
@@ -66,15 +49,11 @@ const RouteLayer = () => {
             const marker = endPointRef.current;
             if (marker != null) {
                 ctx.setEndPoint(marker.getLatLng());
+                ctx.setRouteTrackFile(null);
             }
         }
     }, [ctx.setEndPoint, endPointRef]);
 
-    useEffect(() => {
-        if (ctx.startPoint && ctx.endPoint) {
-            calcRoute(ctx.startPoint, ctx.endPoint, ctx.interPoints, ctx.routeMode, ctx.setRouteData);
-        }
-    }, [ctx.routeMode, ctx.startPoint, ctx.endPoint, ctx.interPoints, ctx.setRouteData])
 
     useEffect(() => {
         if (map) {
