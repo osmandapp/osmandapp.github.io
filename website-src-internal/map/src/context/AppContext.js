@@ -182,10 +182,7 @@ function getWeatherDate() {
 function formatRouteMode(routeMode) {
     let routeModeStr = routeMode.mode;
     Object.keys(routeMode.opts).forEach(o => {
-        if (!routeMode.opts[o]?.mode?.includes('dev') && 
-            !routeMode.opts[o]?.mode?.includes(routeMode.mode) ) {
-            // skip
-        } else if (routeMode.opts[o]?.value === true) {
+        if (routeMode.opts[o]?.value === true) {
             routeModeStr += ',' + o;
         } else if (routeMode.opts[o]?.value === false) {
             // skip
