@@ -134,7 +134,7 @@ async function checkUserLogin(loginUser, setLoginUser, userEmail, setUserEmail, 
     });
     if (response.ok) {
         const user = await response.json();
-        let newUser = user && user.principal ? user.principal.username : null;
+        let newUser = user?.username;
         if (loginUser !== newUser) {
             if (newUser) {
                 setUserEmail(newUser, { days: 30 });
