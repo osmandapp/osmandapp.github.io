@@ -111,7 +111,7 @@ async function loadListFiles(loginUser, listFiles, setListFiles, setGpxLoading) 
             setListFiles({});
         } else {
             setGpxLoading(true);
-            const response = await Utils.fetchUtil(`/mapapi/list-files`, {});
+            const response = await Utils.fetchUtil(`${process.env.REACT_APP_USER_API_SITE}/mapapi/list-files`, {});
             const res = await response.json();
             res.loginUser = loginUser;
             res.uniqueFiles = res.uniqueFiles.sort((f, s) => {
@@ -129,7 +129,7 @@ async function loadListFiles(loginUser, listFiles, setListFiles, setGpxLoading) 
     }
 }
 async function checkUserLogin(loginUser, setLoginUser, userEmail, setUserEmail, listFiles, setListFiles) {
-    const response = await Utils.fetchUtil(`/mapapi/auth/info`, {
+    const response = await Utils.fetchUtil(`${process.env.REACT_APP_USER_API_SITE}/mapapi/auth/info`, {
         method: 'GET'
     });
     if (response.ok) {

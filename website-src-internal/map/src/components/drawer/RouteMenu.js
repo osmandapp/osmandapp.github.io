@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect, useRef } from 'react';
 import { styled } from '@mui/material/styles';
-import { Settings } from '@mui/icons-material';
+import { Settings, Delete, RemoveCircle, RemoveDone } from '@mui/icons-material';
 import {
     ListItemText, Collapse, MenuItem, ListItemIcon, IconButton,
     FormControl, InputLabel, Input, Select, Button
@@ -74,12 +74,15 @@ export default function RouteMenu() {
             {!ctx.routeTrackFile && ctx.startPoint && <MenuItem sx={{ ml: 2, mr: 2, mt: 1 }} disableRipple={true}>
                 <FormControl fullWidth>
                     <InputLabel id="start-point-label">Start point</InputLabel>
-                    <Input
+                    <Input 
                         labelid="start-point-label"
                         label="Start"
                         value={formatLatLon(ctx.startPoint)} >
                     </Input>
                 </FormControl>
+                <IconButton sx={{ ml: 1 }} onClick={() => { { ctx.setStartPoint(null); ctx.setRouteData(null); } }} >
+                    <RemoveCircle fontSize="small" />
+                </IconButton>
             </MenuItem>}
             {ctx.interPoints.map((item, ind) => (
                 <MenuItem key={"inter"+(ind+1)} sx={{ ml: 2, mr: 2, mt: 1 }} disableRipple={true}>
@@ -91,6 +94,13 @@ export default function RouteMenu() {
                             value={formatLatLon(item)} >
                         </Input>
                     </FormControl>
+                    <IconButton sx={{ ml: 1 }} onClick={() => {
+                        let newinter = Object.assign([], ctx.interPoints);
+                        newinter.splice(ind, 1);
+                        ctx.setInterPoints(newinter);
+                    }} >
+                        <RemoveCircle fontSize="small" />
+                    </IconButton>
                 </MenuItem>
             ))}
             {!ctx.routeTrackFile && ctx.endPoint && <MenuItem sx={{ ml: 2, mr: 2, mt: 1 }} disableRipple={true}>
@@ -102,6 +112,9 @@ export default function RouteMenu() {
                         value={formatLatLon(ctx.endPoint)} >
                     </Input>
                 </FormControl>
+                <IconButton sx={{ ml: 1 }} onClick={() => { ctx.setEndPoint(null); ctx.setRouteData(null); }} >
+                    <RemoveCircle fontSize="small" />
+                </IconButton>
             </MenuItem>}
             {ctx.routeTrackFile && <MenuItem sx={{ ml: 2, mr: 2, mt: 1 }} disableRipple={true}>
                 <FormControl fullWidth>
@@ -112,6 +125,14 @@ export default function RouteMenu() {
                         value={ctx.routeTrackFile.name} >
                     </Input>
                 </FormControl>
+                <IconButton sx={{ ml: 1 }} onClick={() => { 
+                    ctx.setRouteTrackFile(null); 
+                    ctx.setRouteData(null); 
+                    ctx.setEndPoint(null);
+                    ctx.setStartPoint(null);
+                    }} >
+                    <RemoveCircle fontSize="small" />
+                </IconButton>
             </MenuItem>}
             <MenuItem disableRipple={true}>
                 <label htmlFor="contained-button-file" >

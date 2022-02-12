@@ -12,8 +12,10 @@ module.exports = function (app) {
         hostRewrite: 'localhost:3000',
         logLevel: 'debug'
     });
+    // app.use('/mapapi/', testProxy);
     app.use('/mapapi/', proxy);
     app.use('/routing/', proxy);
+    // app.use('/gpx/', testProxy);
     app.use('/gpx/', proxy);
     app.use('/tile/', proxy);
     app.use('/weather-api/', proxy);

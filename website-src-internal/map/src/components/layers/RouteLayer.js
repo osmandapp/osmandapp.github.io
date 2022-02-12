@@ -23,7 +23,9 @@ function moveableMarker(ctx, map, marker) {
         map.dragging.enable();
         map.off("mousemove", trackCursor);
         if (moved && Math.abs(moved.x - marker._point.x) + Math.abs(moved.y - marker._point.y) > 10) {
-            ctx.setInterPoints([marker.getLatLng()]);
+            let newInterPoints = Object.assign([], ctx.interPoints);
+            newInterPoints.push(marker.getLatLng());
+            ctx.setInterPoints(newInterPoints);
         }
     })
 
@@ -42,6 +44,10 @@ const RouteLayer = () => {
                 ctx.setStartPoint(marker.getLatLng());
                 ctx.setRouteTrackFile(null);
             }
+        },
+        click() {
+            ctx.setStartPoint(null);
+            ctx.setRouteData(null);
         }
     }, [ctx.setStartPoint, startPointRef]);
     const endEventHandlers = useCallback({
@@ -53,6 +59,24 @@ const RouteLayer = () => {
             }
         }
     }, [ctx.setEndPoint, endPointRef]);
+
+    const intermediatEventHandlers = useCallback({
+        // TODO click called after dragend
+        clicknotworking(event) {
+            console.log('Marker clicked');
+            let ind = event.target.options['data-index'];
+            let newinter = Object.assign([], ctx.interPoints);
+            newinter.splice(ind, 1);
+            ctx.setInterPoints(newinter);
+        },
+        dragend(event) {
+            console.log('Marker dragged');
+            let ind = event.target.options['data-index'];
+            let newinter = Object.assign([], ctx.interPoints);
+            newinter[ind] = event.target.getLatLng();
+            ctx.setInterPoints(newinter);
+        }
+    }, [ctx.setInterPoints, ctx.interPoints]);
 
 
     useEffect(() => {
@@ -99,9 +123,10 @@ const RouteLayer = () => {
             <Marker position={ctx.startPoint} icon={MarkerIcon({ bg: 'blue' })}
                 ref={startPointRef} draggable={true} eventHandlers={startEventHandlers} />}
         {ctx.interPoints.map((it, ind) => 
-            //<CircleMarker key={'mark'+ind} center={it} radius={5} pathOptions={{ color: 'green' }} opacity={1}
-            <Marker key={'mark' + ind} position={it} icon={MarkerIcon({ bg: 'blue' })} draggable={true}
-                 />)}
+            // <CircleMarker key={'mark'+ind} center={it} radius={5} pathOptions={{ color: 'green', 
+            //     radius: 8, fillOpacity: 0.8 }} opacity={1} on
+            <Marker key={'mark' + ind} data-index={ind} position={it} icon={MarkerIcon({ bg: 'blue' })}
+                    draggable={true} eventHandlers={intermediatEventHandlers}/>)}
         {ctx.endPoint && <Marker position={ctx.endPoint} icon={MarkerIcon({ bg: 'red' })}
             ref={endPointRef} draggable={true} eventHandlers={endEventHandlers} />}
     </>;

@@ -6,14 +6,18 @@ import {
 import { Settings } from '@mui/icons-material';
 import { ExpandLess, ExpandMore, Map } from '@mui/icons-material';
 import AppContext from "../../context/AppContext"
+import RenderingSettingsDialog from './RenderingSettingsDialog';
 // import Utils from "../../util/Utils";
 
 
 export default function MapStyle() {
     const ctx = useContext(AppContext);
     const [open, setOpen] = useState(false);
+    const [openSettings, setOpenSettings] = useState(false);
 
     return <>
+        {openSettings && <RenderingSettingsDialog setOpenSettings={setOpenSettings} />}
+
         <MenuItem sx={{ mb: 1 }} onClick={(e) => setOpen(!open)}>
             <ListItemIcon>
                 <Map fontSize="small" />
@@ -37,7 +41,7 @@ export default function MapStyle() {
                         })}
                     </Select>
                 </FormControl>
-                <IconButton sx={{ ml: 1 }} onClick={() => { }} >
+                <IconButton sx={{ ml: 1 }} onClick={() => setOpenSettings(true)} >
                     <Settings fontSize="small" />
                 </IconButton>
             </MenuItem>

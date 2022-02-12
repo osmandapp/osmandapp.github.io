@@ -47,7 +47,7 @@ function updateTextInfo(gpxFiles, ctx) {
 }
 
 async function loadSrtmGpxInfo(item, ctx, layer, setProgressVisible) {
-    let srtmGpxInfoUrl = `/mapapi/get-srtm-gpx-info?type=${encodeURIComponent(item.type)}&name=${encodeURIComponent(item.name)}`;
+    let srtmGpxInfoUrl = `${process.env.REACT_APP_USER_API_SITE}/mapapi/get-srtm-gpx-info?type=${encodeURIComponent(item.type)}&name=${encodeURIComponent(item.name)}`;
     const response = await Utils.fetchUtilLoad(srtmGpxInfoUrl, {}, setProgressVisible);
     if (response.ok) {
         let data = await response.json();
@@ -62,7 +62,7 @@ async function loadSrtmGpxInfo(item, ctx, layer, setProgressVisible) {
 
 
 async function loadGpxInfo(item, ctx, layer, setProgressVisible) {
-    let gpxInfoUrl = `/mapapi/get-gpx-info?type=${encodeURIComponent(item.type)}&name=${encodeURIComponent(item.name)}`;
+    let gpxInfoUrl = `${process.env.REACT_APP_USER_API_SITE}/mapapi/get-gpx-info?type=${encodeURIComponent(item.type)}&name=${encodeURIComponent(item.name)}`;
     const response = await Utils.fetchUtilLoad(gpxInfoUrl, {}, setProgressVisible);
     if (response.ok) {
         let data = await response.json();
@@ -76,7 +76,7 @@ async function loadGpxInfo(item, ctx, layer, setProgressVisible) {
 }
 
 async function enableLayer(item, ctx, setProgressVisible, visible) {
-    let url = `/mapapi/download-file?type=${encodeURIComponent(item.type)}&name=${encodeURIComponent(item.name)}`;
+    let url = `${process.env.REACT_APP_USER_API_SITE}/mapapi/download-file?type=${encodeURIComponent(item.type)}&name=${encodeURIComponent(item.name)}`;
     const newGpxFiles = Object.assign({}, ctx.gpxFiles);
     if (!visible) {
         // delete newGpxFiles[item.name];
@@ -244,14 +244,12 @@ export default function CloudGpx() {
                 </IconButton>
             </MenuItem>
             {
-//            <FixedSizeList 
-//                height={blockSize()}
-//                itemCount={gpxFiles.length}
-//                itemSize={MAX_SIZE_GPX_ITEM}>
-//           {GpxItemRow(gpxFiles, ctx)}
+//            <FixedSizeList height={blockSize()} itemCount={gpxFiles.length} itemSize={MAX_SIZE_GPX_ITEM}>
+//                  {GpxItemRow(gpxFiles, ctx)}
 //            </FixedSizeList>
             }
-            {gpxFiles.map((item, index) => {
+            {
+              gpxFiles.map((item, index) => {
                 return GpxItemRow(gpxFiles, ctx)({ index: index });
               })
             }
