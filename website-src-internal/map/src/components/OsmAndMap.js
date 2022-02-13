@@ -45,7 +45,8 @@ async function addTrackToMap(ctx, file, map) {
   if (file.url.substr(0, 1) === '<') { // direct XML has to start with a <
     trackData = file.url;
   } else {
-    let response = await Utils.fetchUtil(file.url, { crentials: 'include ' });
+    // file.urlopts
+    let response = await Utils.fetchUtil(file.url, file.urlopts ? file.urlopts : {});
     if (response.ok) {
       trackData = await response.text();
     } else {
