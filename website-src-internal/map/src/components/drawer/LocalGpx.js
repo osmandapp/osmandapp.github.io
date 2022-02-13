@@ -40,7 +40,7 @@ function updateTextInfo(gpxFiles, ctx) {
 }
 
 async function loadInitialState(gpxFiles, setGpxFiles) {
-    const response = await Utils.fetchUtil(`${process.env.REACT_APP_GPX_API}/gpx/get-gpx-info`, { credentials: 'include' });
+    const response = await Utils.fetchUtil(`${process.env.REACT_APP_GPX_API}/gpx/get-gpx-info`, { });
     if (response.ok) {
         let data = await response.json();
         data.all.forEach((item) => {
@@ -170,6 +170,7 @@ export default function LocalGpx() {
                                 }
                             } else {
                                 newGpxFiles[item.name].url = item.localContent;
+                                newGpxFiles[item.name].urlopts = { credentials: 'include' }
                                 ctx.setSelectedGpxFile(item);
                             }
                             ctx.setGpxFiles(newGpxFiles);
