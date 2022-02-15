@@ -221,7 +221,11 @@ async function calculateRoute(startPoint, endPoint, interPoints, routeMode, setR
     });
     if (response.ok) {
         let data = await response.json();
-        setRouteData({ geojson: data, id: new Date().getTime() });
+        let props = {}; 
+        if (data.features.length > 0) {
+            props = data.features[0]?.properties;
+        }
+        setRouteData({ geojson: data, id: new Date().getTime(), props: props });
     }
 }
 
@@ -235,17 +239,19 @@ async function calculateGpxRoute(routeMode, routeTrackFile, setRouteData, setSta
     if (response.ok) {
         let data = await response.json();
         let start, end;
+        let props = {};
         if (data?.features?.length > 0) {
             let coords = data?.features[0].geometry.coordinates;
             if (coords.length > 0) {
                 start = { lat: coords[0][1], lng: coords[0][0] };
                 end = { lat: coords[coords.length - 1][1], lng: coords[coords.length - 1][0] };
             }
+            props = data.features[0]?.properties;
         }
         setStartPoint(start);
         setEndPoint(end);
         setInterPoints([]);
-        setRouteData({ geojson: data, id: new Date().getTime() });
+        setRouteData({ geojson: data, id: new Date().getTime(), props: props });
     } else {
         let message = await response.text();
         alert(message);

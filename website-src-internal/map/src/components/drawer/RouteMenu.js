@@ -1,9 +1,9 @@
 import React, { useState, useContext, useEffect, useRef } from 'react';
 import { styled } from '@mui/material/styles';
-import { Settings, Delete, RemoveCircle, RemoveDone } from '@mui/icons-material';
+import { Settings, RemoveCircle } from '@mui/icons-material';
 import {
     ListItemText, Collapse, MenuItem, ListItemIcon, IconButton,
-    FormControl, InputLabel, Input, Select, Button
+    FormControl, InputLabel, Input, Select, Button, Typography
 } from "@mui/material";
 import {
     ExpandLess, ExpandMore, Directions
@@ -17,6 +17,29 @@ const StyledInput = styled('input')({
 });
 
 
+function formatRouteInfo(props) {
+    let res = ['Route: '];
+    if (props?.overall?.distance) {
+        let dst = (props.overall.distance / 1000).toFixed(1);
+        res.push(<b>{dst + ' km'}</b>);
+        res.push(', ');
+    }
+    if (props?.overall?.time) {
+        let hours = (props.overall.time / 3600.0);
+        let min = ((hours - Math.floor(hours)) * 60).toFixed(0);
+        if (min < 10) {
+            min = '0' + min;
+        }
+        res.push(<b>{Math.floor(hours).toFixed(0) + ':' + min}</b>);
+        res.push(', ');
+    }
+    res[res.length - 1] = '.';
+    if (props?.overall?.routingTime) {
+        res.push(' Cost: ');
+        res.push(props.overall.routingTime.toFixed(1));
+    }
+    return <>{res}</>;
+}
 function formatLatLon(pnt) {
     if (!pnt) {
         return '';
@@ -71,6 +94,10 @@ export default function RouteMenu() {
                     <Settings fontSize="small" />
                 </IconButton>
             </MenuItem>
+            {ctx?.routeData?.props && <MenuItem sx={{ ml: 1, mr: 1 }} disableRipple={true}>
+                <Typography>{formatRouteInfo(ctx?.routeData?.props)}</Typography>
+            </MenuItem>
+            }
             {!ctx.routeTrackFile && ctx.startPoint && <MenuItem sx={{ ml: 2, mr: 2, mt: 1 }} disableRipple={true}>
                 <FormControl fullWidth>
                     <InputLabel id="start-point-label">Start point</InputLabel>

@@ -5,16 +5,22 @@ import MarkerIcon from '../MarkerIcon.js'
 import AppContext from "../../context/AppContext";
 
 
-
+function dist(a1, a2) {
+    // distance is not correct
+    return (a1.lat - a2.lat) * (a1.lat - a2.lat) +
+        (a1.lng - a2.lng) * (a1.lng - a2.lng);
+}
 
 function moveableMarker(ctx, map, marker) {
     let moved ;
+    let mv;
     function trackCursor(evt) {
         marker.setLatLng(evt.latlng)
     }
 
     marker.on("mousedown", () => {
-        moved = marker._point;//marker.getLatLng();
+        moved = marker._point;
+        mv = marker.getLatLng();
         map.dragging.disable()
         map.on("mousemove", trackCursor)
     })
@@ -24,7 +30,24 @@ function moveableMarker(ctx, map, marker) {
         map.off("mousemove", trackCursor);
         if (moved && Math.abs(moved.x - marker._point.x) + Math.abs(moved.y - marker._point.y) > 10) {
             let newInterPoints = Object.assign([], ctx.interPoints);
-            newInterPoints.push(marker.getLatLng());
+            let minInd = -1;
+            if (ctx.interPoints.length > 0) {
+                let minDist = dist(ctx.endPoint, mv) +
+                    dist(ctx.interPoints[ctx.interPoints.length - 1], mv);
+                for (let i = 0; i < ctx.interPoints.length; i++) {
+                    let dst = dist(i == 0 ? ctx.startPoint : ctx.interPoints[i - 1], mv) +
+                        dist(ctx.interPoints[i], mv);
+                    if (dst < minDist) {
+                        minInd = i;
+                        minDist = dst;
+                    }
+                }
+            }
+            if (minInd < 0) {
+                newInterPoints.push(marker.getLatLng());
+            } else {
+                newInterPoints.splice(minInd, 0, marker.getLatLng());
+            }
             ctx.setInterPoints(newInterPoints);
         }
     })
@@ -61,16 +84,16 @@ const RouteLayer = () => {
     }, [ctx.setEndPoint, endPointRef]);
 
     const intermediatEventHandlers = useCallback({
-        // TODO click called after dragend
+        // click called after dragend
         clicknotworking(event) {
-            console.log('Marker clicked');
+           // console.log('Marker clicked');
             let ind = event.target.options['data-index'];
             let newinter = Object.assign([], ctx.interPoints);
             newinter.splice(ind, 1);
             ctx.setInterPoints(newinter);
         },
         dragend(event) {
-            console.log('Marker dragged');
+            // console.log('Marker dragged');
             let ind = event.target.options['data-index'];
             let newinter = Object.assign([], ctx.interPoints);
             newinter[ind] = event.target.getLatLng();
