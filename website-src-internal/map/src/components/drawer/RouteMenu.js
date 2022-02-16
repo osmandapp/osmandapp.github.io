@@ -36,7 +36,7 @@ function formatRouteInfo(props) {
     res[res.length - 1] = '.';
     if (props?.overall?.routingTime) {
         res.push(' Cost: ');
-        res.push(props.overall.routingTime.toFixed(1));
+        res.push(props.overall.routingTime.toFixed(0));
     }
     return <>{res}</>;
 }
@@ -65,7 +65,7 @@ export default function RouteMenu() {
     }
     return <>
         {openSettings && <RouteSettingsDialog setOpenSettings={setOpenSettings}/>}
-        <MenuItem sx={{ mb: 1 }} onClick={(e) => setOpen(!open)}>
+        <MenuItem key='routeTop' sx={{ mb: 1 }} onClick={(e) => setOpen(!open)}>
             <ListItemIcon>
                 <Directions fontSize="small" />
             </ListItemIcon>
@@ -74,7 +74,7 @@ export default function RouteMenu() {
         </MenuItem>
 
         <Collapse in={open} timeout="auto" unmountOnExit>        
-            <MenuItem sx={{ ml: 1, mr: 2 }} disableRipple={true}>
+            <MenuItem key='routeprofile' sx={{ ml: 1, mr: 2 }} disableRipple={true}>
                 <FormControl fullWidth>
                     <InputLabel id="route-mode-label">Route profile</InputLabel>
                     <Select
@@ -94,11 +94,11 @@ export default function RouteMenu() {
                     <Settings fontSize="small" />
                 </IconButton>
             </MenuItem>
-            {ctx?.routeData?.props && <MenuItem sx={{ ml: 1, mr: 1 }} disableRipple={true}>
+            {ctx?.routeData?.props && <MenuItem key='routeinfo' sx={{ ml: 1, mr: 1 }} disableRipple={true}>
                 <Typography>{formatRouteInfo(ctx?.routeData?.props)}</Typography>
             </MenuItem>
             }
-            {!ctx.routeTrackFile && ctx.startPoint && <MenuItem sx={{ ml: 2, mr: 2, mt: 1 }} disableRipple={true}>
+            {!ctx.routeTrackFile && ctx.startPoint && <MenuItem key='start' sx={{ ml: 2, mr: 2, mt: 1 }} disableRipple={true}>
                 <FormControl fullWidth>
                     <InputLabel id="start-point-label">Start point</InputLabel>
                     <Input 
@@ -130,7 +130,7 @@ export default function RouteMenu() {
                     </IconButton>
                 </MenuItem>
             ))}
-            {!ctx.routeTrackFile && ctx.endPoint && <MenuItem sx={{ ml: 2, mr: 2, mt: 1 }} disableRipple={true}>
+            {!ctx.routeTrackFile && ctx.endPoint && <MenuItem key='end' sx={{ ml: 2, mr: 2, mt: 1 }} disableRipple={true}>
                 <FormControl fullWidth>
                     <InputLabel id="end-point-label">End point</InputLabel>
                     <Input
@@ -143,7 +143,7 @@ export default function RouteMenu() {
                     <RemoveCircle fontSize="small" />
                 </IconButton>
             </MenuItem>}
-            {ctx.routeTrackFile && <MenuItem sx={{ ml: 2, mr: 2, mt: 1 }} disableRipple={true}>
+            {ctx.routeTrackFile && <MenuItem key='routetrack' sx={{ ml: 2, mr: 2, mt: 1 }} disableRipple={true}>
                 <FormControl fullWidth>
                     <InputLabel id="track-file-label">Selected track</InputLabel>
                     <Input
@@ -161,7 +161,7 @@ export default function RouteMenu() {
                     <RemoveCircle fontSize="small" />
                 </IconButton>
             </MenuItem>}
-            <MenuItem disableRipple={true}>
+            <MenuItem key='uploadroute' disableRipple={true}>
                 <label htmlFor="contained-button-file" >
                     <StyledInput ref={btnFile} accept=".gpx" id="contained-button-file" type="file" 
                         onChange={(e) => ctx.setRouteTrackFile(e.target.files[0])} />

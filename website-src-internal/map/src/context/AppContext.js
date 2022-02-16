@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import {
     Air, Cloud, Compress, Shower, Thermostat
 } from '@mui/icons-material';
@@ -262,6 +263,8 @@ async function calculateGpxRoute(routeMode, routeTrackFile, setRouteData, setSta
 const AppContext = React.createContext();
 
 export const AppContextProvider = (props) => {
+    // const [searchParams, setSearchParams] = useSearchParams({});
+    const searchParams = new URLSearchParams(window.location.search);
     const [weatherLayers, updateWeatherLayers] = useState(getLayers());
     const [weatherDate, setWeatherDate] = useState(getWeatherDate());
     const [gpxLoading, setGpxLoading] = useState(false);
@@ -280,12 +283,23 @@ export const AppContextProvider = (props) => {
     // route
     const [routeData, setRouteData] = useState(null);
     const [routeTrackFile, setRouteTrackFile] = useState(null);
-    const [routeMode, setRouteMode] = useState({ mode: 'car', opts: {}, 
+    let modeParam = searchParams.get('mode') ? searchParams.get('mode') : 'car';
+    let startInit, endInit;
+    if (searchParams.get('start')) {
+        let arr = searchParams.get('start').split(',');
+        startInit = { lat: parseFloat(arr[0]), lng: parseFloat(arr[1]) };
+    } 
+    if (searchParams.get('end')) {
+        let arr = searchParams.get('end').split(',');
+        endInit = { lat: parseFloat(arr[0]), lng: parseFloat(arr[1]) };
+    } 
+    const [routeMode, setRouteMode] = useState({mode: modeParam, opts: {}, 
         modes: { 'car': { name: 'Car', params: {} } } });
-    const [startPoint, setStartPoint] = useState(null);
-    const [endPoint, setEndPoint] = useState(null);
+    const [startPoint, setStartPoint] = useState(startInit);
+    const [endPoint, setEndPoint] = useState(endInit);
     const [interPoints, setInterPoints] = useState([]);
     const [weatherPoint, setWeatherPoint] = useState(null);
+
 
     useEffect(() => {
         loadRouteModes(routeMode, setRouteMode);

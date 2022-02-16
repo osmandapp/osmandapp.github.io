@@ -3,7 +3,7 @@ import { Marker, CircleMarker, GeoJSON, useMap } from "react-leaflet";
 import L from 'leaflet';
 import MarkerIcon from '../MarkerIcon.js'
 import AppContext from "../../context/AppContext";
-
+import { useSearchParams } from 'react-router-dom';
 
 function dist(a1, a2) {
     // distance is not correct
@@ -58,6 +58,34 @@ function moveableMarker(ctx, map, marker) {
 const RouteLayer = () => {
     const map = useMap();
     const ctx = useContext(AppContext);
+    
+    const [searchParams, setSearchParams] = useSearchParams({});
+    useEffect(() => {
+        let obj = {};
+        if (ctx.startPoint) {
+            obj['start'] = ctx.startPoint.lat.toFixed(6) + ',' + ctx.startPoint.lng.toFixed(6);
+        }
+        if (ctx.interPoints?.length > 0) {
+            let r = '';
+            ctx.interPoints.forEach((it, ind) => {
+                r += ',' + ctx.endPoint.lat.toFixed(6) + ',' + ctx.endPoint.lng.toFixed(6);
+            })
+            obj['ipoints'] = r.substring(1);
+        }
+        if (ctx.endPoint) {
+            obj['end'] = ctx.endPoint.lat.toFixed(6) + ',' + ctx.endPoint.lng.toFixed(6);
+        }
+        if (Object.keys(obj).length > 0) {
+            if (ctx.routeMode?.mode) {
+                obj['mode'] = ctx.routeMode.mode;
+            }
+            if (obj['start'] !== searchParams.get('start') || obj['end'] !== searchParams.get('end') ||
+                obj['mode'] !== searchParams.get('mode')) {
+                setSearchParams(obj);
+            }
+        }
+    }, [ctx.startPoint, ctx.endPoint, ctx.routeMode]);
+
     const startPointRef = useRef(null);
     const endPointRef = useRef(null);
     const startEventHandlers = useCallback({
