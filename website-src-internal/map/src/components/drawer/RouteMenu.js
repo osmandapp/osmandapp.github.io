@@ -1,9 +1,9 @@
 import React, { useState, useContext, useEffect, useRef } from 'react';
 import { styled } from '@mui/material/styles';
-import { Settings } from '@mui/icons-material';
+import { Settings, RemoveCircle } from '@mui/icons-material';
 import {
     ListItemText, Collapse, MenuItem, ListItemIcon, IconButton,
-    FormControl, InputLabel, Input, Select, Button
+    FormControl, InputLabel, Input, Select, Button, Typography
 } from "@mui/material";
 import {
     ExpandLess, ExpandMore, Directions
@@ -17,6 +17,29 @@ const StyledInput = styled('input')({
 });
 
 
+function formatRouteInfo(props) {
+    let res = ['Route: '];
+    if (props?.overall?.distance) {
+        let dst = (props.overall.distance / 1000).toFixed(1);
+        res.push(<b>{dst + ' km'}</b>);
+        res.push(', ');
+    }
+    if (props?.overall?.time) {
+        let hours = (props.overall.time / 3600.0);
+        let min = ((hours - Math.floor(hours)) * 60).toFixed(0);
+        if (min < 10) {
+            min = '0' + min;
+        }
+        res.push(<b>{Math.floor(hours).toFixed(0) + ':' + min}</b>);
+        res.push(', ');
+    }
+    res[res.length - 1] = '.';
+    if (props?.overall?.routingTime) {
+        res.push(' Cost: ');
+        res.push(props.overall.routingTime.toFixed(0));
+    }
+    return <>{res}</>;
+}
 function formatLatLon(pnt) {
     if (!pnt) {
         return '';
@@ -42,7 +65,7 @@ export default function RouteMenu() {
     }
     return <>
         {openSettings && <RouteSettingsDialog setOpenSettings={setOpenSettings}/>}
-        <MenuItem sx={{ mb: 1 }} onClick={(e) => setOpen(!open)}>
+        <MenuItem key='routeTop' sx={{ mb: 1 }} onClick={(e) => setOpen(!open)}>
             <ListItemIcon>
                 <Directions fontSize="small" />
             </ListItemIcon>
@@ -51,7 +74,7 @@ export default function RouteMenu() {
         </MenuItem>
 
         <Collapse in={open} timeout="auto" unmountOnExit>        
-            <MenuItem sx={{ ml: 1, mr: 2 }} disableRipple={true}>
+            <MenuItem key='routeprofile' sx={{ ml: 1, mr: 2 }} disableRipple={true}>
                 <FormControl fullWidth>
                     <InputLabel id="route-mode-label">Route profile</InputLabel>
                     <Select
@@ -71,15 +94,22 @@ export default function RouteMenu() {
                     <Settings fontSize="small" />
                 </IconButton>
             </MenuItem>
-            {!ctx.routeTrackFile && ctx.startPoint && <MenuItem sx={{ ml: 2, mr: 2, mt: 1 }} disableRipple={true}>
+            {ctx?.routeData?.props && <MenuItem key='routeinfo' sx={{ ml: 1, mr: 1 }} disableRipple={true}>
+                <Typography>{formatRouteInfo(ctx?.routeData?.props)}</Typography>
+            </MenuItem>
+            }
+            {!ctx.routeTrackFile && ctx.startPoint && <MenuItem key='start' sx={{ ml: 2, mr: 2, mt: 1 }} disableRipple={true}>
                 <FormControl fullWidth>
                     <InputLabel id="start-point-label">Start point</InputLabel>
-                    <Input
+                    <Input 
                         labelid="start-point-label"
                         label="Start"
                         value={formatLatLon(ctx.startPoint)} >
                     </Input>
                 </FormControl>
+                <IconButton sx={{ ml: 1 }} onClick={() => { { ctx.setStartPoint(null); ctx.setRouteData(null); } }} >
+                    <RemoveCircle fontSize="small" />
+                </IconButton>
             </MenuItem>}
             {ctx.interPoints.map((item, ind) => (
                 <MenuItem key={"inter"+(ind+1)} sx={{ ml: 2, mr: 2, mt: 1 }} disableRipple={true}>
@@ -91,9 +121,16 @@ export default function RouteMenu() {
                             value={formatLatLon(item)} >
                         </Input>
                     </FormControl>
+                    <IconButton sx={{ ml: 1 }} onClick={() => {
+                        let newinter = Object.assign([], ctx.interPoints);
+                        newinter.splice(ind, 1);
+                        ctx.setInterPoints(newinter);
+                    }} >
+                        <RemoveCircle fontSize="small" />
+                    </IconButton>
                 </MenuItem>
             ))}
-            {!ctx.routeTrackFile && ctx.endPoint && <MenuItem sx={{ ml: 2, mr: 2, mt: 1 }} disableRipple={true}>
+            {!ctx.routeTrackFile && ctx.endPoint && <MenuItem key='end' sx={{ ml: 2, mr: 2, mt: 1 }} disableRipple={true}>
                 <FormControl fullWidth>
                     <InputLabel id="end-point-label">End point</InputLabel>
                     <Input
@@ -102,8 +139,11 @@ export default function RouteMenu() {
                         value={formatLatLon(ctx.endPoint)} >
                     </Input>
                 </FormControl>
+                <IconButton sx={{ ml: 1 }} onClick={() => { ctx.setEndPoint(null); ctx.setRouteData(null); }} >
+                    <RemoveCircle fontSize="small" />
+                </IconButton>
             </MenuItem>}
-            {ctx.routeTrackFile && <MenuItem sx={{ ml: 2, mr: 2, mt: 1 }} disableRipple={true}>
+            {ctx.routeTrackFile && <MenuItem key='routetrack' sx={{ ml: 2, mr: 2, mt: 1 }} disableRipple={true}>
                 <FormControl fullWidth>
                     <InputLabel id="track-file-label">Selected track</InputLabel>
                     <Input
@@ -112,8 +152,16 @@ export default function RouteMenu() {
                         value={ctx.routeTrackFile.name} >
                     </Input>
                 </FormControl>
+                <IconButton sx={{ ml: 1 }} onClick={() => { 
+                    ctx.setRouteTrackFile(null); 
+                    ctx.setRouteData(null); 
+                    ctx.setEndPoint(null);
+                    ctx.setStartPoint(null);
+                    }} >
+                    <RemoveCircle fontSize="small" />
+                </IconButton>
             </MenuItem>}
-            <MenuItem disableRipple={true}>
+            <MenuItem key='uploadroute' disableRipple={true}>
                 <label htmlFor="contained-button-file" >
                     <StyledInput ref={btnFile} accept=".gpx" id="contained-button-file" type="file" 
                         onChange={(e) => ctx.setRouteTrackFile(e.target.files[0])} />

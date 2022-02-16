@@ -40,13 +40,13 @@ function updateTextInfo(gpxFiles, ctx) {
 }
 
 async function loadInitialState(gpxFiles, setGpxFiles) {
-    const response = await Utils.fetchUtil(`/gpx/get-gpx-info`, {});
+    const response = await Utils.fetchUtil(`${process.env.REACT_APP_GPX_API}/gpx/get-gpx-info`, { credentials: 'include' });
     if (response.ok) {
         let data = await response.json();
         data.all.forEach((item) => {
             let gpxLayer = {};
             gpxLayer.name = 'local:' + item.analysis.name;
-            gpxLayer.localContent = '/gpx/get-gpx-file?name=' + encodeURIComponent(item.analysis.name);
+            gpxLayer.localContent = `${process.env.REACT_APP_GPX_API}/gpx/get-gpx-file?name=` + encodeURIComponent(item.analysis.name);
             // gpxLayer.url 
             gpxLayer.local = true;
             let newinfo = Object.assign({}, gpxFiles);
@@ -63,8 +63,9 @@ async function loadInitialState(gpxFiles, setGpxFiles) {
 async function uploadFile(gpxFiles, setGpxFiles, ctx, gpxLayer, file) {
     let formData = new FormData();
     formData.append('file', file);
-    const response = await Utils.fetchUtil(`/gpx/upload-session-gpx`, {
+    const response = await Utils.fetchUtil(`${process.env.REACT_APP_GPX_API}/gpx/upload-session-gpx`, {
         method: 'POST',
+        credentials: 'include',
         body: formData
     });
     if (response.ok) {
@@ -86,7 +87,7 @@ async function uploadFile(gpxFiles, setGpxFiles, ctx, gpxLayer, file) {
 
 
 const clearLocalGpx = (ctx) => async (e) => {
-    const response = await Utils.fetchUtil(`/gpx/clear`, { method: 'POST' });
+    const response = await Utils.fetchUtil(`${process.env.REACT_APP_GPX_API}/gpx/clear`, { method: 'POST', credentials: 'include' });
     if (response.ok) {
         await response.json();
         let newinfo = Object.assign({}, ctx.gpxFiles);
@@ -169,6 +170,7 @@ export default function LocalGpx() {
                                 }
                             } else {
                                 newGpxFiles[item.name].url = item.localContent;
+                                newGpxFiles[item.name].urlopts = { credentials: 'include' }
                                 ctx.setSelectedGpxFile(item);
                             }
                             ctx.setGpxFiles(newGpxFiles);
@@ -191,7 +193,7 @@ export default function LocalGpx() {
                         Clear
                     </Button>
                     <Button variant="contained" component="span" sx={{ ml: 2 }}
-                            onClick={() => window.open("/gpx/download-obf")}>
+                        onClick={() => window.open(`${process.env.REACT_APP_GPX_API}/gpx/download-obf`)}>
                         Get OBF
                     </Button>
                 </MenuItem>

@@ -10,6 +10,7 @@ import L from 'leaflet';
 import MarkerIcon from './MarkerIcon.js'
 import 'leaflet-gpx';
 import 'leaflet-hash';
+import Utils from "../util/Utils";
 
 // import 'leaflet.awesome-markers';
 // import 'leaflet.awesome-markers/dist/leaflet.awesome-markers.css';
@@ -39,8 +40,20 @@ const markerOptions = {
 const position = [50, 5];
 
 
-function addTrackToMap(file, map) { 
-  file.gpx = new L.GPX(file.url, {
+async function addTrackToMap(ctx, file, map) {
+  let trackData;
+  if (file.url.substr(0, 1) === '<') { // direct XML has to start with a <
+    trackData = file.url;
+  } else {
+    // file.urlopts
+    let response = await Utils.fetchUtil(file.url, file.urlopts ? file.urlopts : {});
+    if (response.ok) {
+      trackData = await response.text();
+    } else {
+      trackData = '<gpx version="1.1" />'
+    }
+  }
+  file.gpx = new L.GPX(trackData, {
     async: true,
     marker_options: markerOptions
   }).on('loaded', function (e) {
@@ -51,9 +64,10 @@ function addTrackToMap(file, map) {
       file.points.push(pointObj);
     })
     //file.points.push(getPoints(e));
-    map.current.fitBounds(e.target.getBounds());  
+    map.current.fitBounds(e.target.getBounds());
   }).addTo(map.current);
-  file.points = []; 
+  file.points = [];
+  ctx.setGpxFiles(ctx.gpxFiles);
 }
 
 function removeTrackFromMap(file, map) {
@@ -101,8 +115,7 @@ const OsmAndMap = () => {
     Object.values(filesMap).forEach((file) => {
       // could be done in react style ?
       if (file.url && !file.gpx) {
-        addTrackToMap(file, mapRef);
-        ctx.setGpxFiles(ctx.gpxFiles);
+        addTrackToMap(ctx, file, mapRef);
       } else if (!file.url && file.gpx) {
         removeTrackFromMap(file, mapRef);
       }

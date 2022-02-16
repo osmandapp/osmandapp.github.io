@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import {
     Air, Cloud, Compress, Shower, Thermostat
 } from '@mui/icons-material';
@@ -111,7 +112,7 @@ async function loadListFiles(loginUser, listFiles, setListFiles, setGpxLoading) 
             setListFiles({});
         } else {
             setGpxLoading(true);
-            const response = await Utils.fetchUtil(`/mapapi/list-files`, {});
+            const response = await Utils.fetchUtil(`${process.env.REACT_APP_USER_API_SITE}/mapapi/list-files`, {});
             const res = await response.json();
             res.loginUser = loginUser;
             res.uniqueFiles = res.uniqueFiles.sort((f, s) => {
@@ -129,12 +130,12 @@ async function loadListFiles(loginUser, listFiles, setListFiles, setGpxLoading) 
     }
 }
 async function checkUserLogin(loginUser, setLoginUser, userEmail, setUserEmail, listFiles, setListFiles) {
-    const response = await Utils.fetchUtil(`/mapapi/auth/info`, {
+    const response = await Utils.fetchUtil(`${process.env.REACT_APP_USER_API_SITE}/mapapi/auth/info`, {
         method: 'GET'
     });
     if (response.ok) {
         const user = await response.json();
-        let newUser = user && user.principal ? user.principal.username : null;
+        let newUser = user?.username;
         if (loginUser !== newUser) {
             if (newUser) {
                 setUserEmail(newUser, { days: 30 });
@@ -221,7 +222,11 @@ async function calculateRoute(startPoint, endPoint, interPoints, routeMode, setR
     });
     if (response.ok) {
         let data = await response.json();
-        setRouteData({ geojson: data, id: new Date().getTime() });
+        let props = {}; 
+        if (data.features.length > 0) {
+            props = data.features[0]?.properties;
+        }
+        setRouteData({ geojson: data, id: new Date().getTime(), props: props });
     }
 }
 
@@ -235,17 +240,19 @@ async function calculateGpxRoute(routeMode, routeTrackFile, setRouteData, setSta
     if (response.ok) {
         let data = await response.json();
         let start, end;
+        let props = {};
         if (data?.features?.length > 0) {
             let coords = data?.features[0].geometry.coordinates;
             if (coords.length > 0) {
                 start = { lat: coords[0][1], lng: coords[0][0] };
                 end = { lat: coords[coords.length - 1][1], lng: coords[coords.length - 1][0] };
             }
+            props = data.features[0]?.properties;
         }
         setStartPoint(start);
         setEndPoint(end);
         setInterPoints([]);
-        setRouteData({ geojson: data, id: new Date().getTime() });
+        setRouteData({ geojson: data, id: new Date().getTime(), props: props });
     } else {
         let message = await response.text();
         alert(message);
@@ -256,6 +263,8 @@ async function calculateGpxRoute(routeMode, routeTrackFile, setRouteData, setSta
 const AppContext = React.createContext();
 
 export const AppContextProvider = (props) => {
+    // const [searchParams, setSearchParams] = useSearchParams({});
+    const searchParams = new URLSearchParams(window.location.search);
     const [weatherLayers, updateWeatherLayers] = useState(getLayers());
     const [weatherDate, setWeatherDate] = useState(getWeatherDate());
     const [gpxLoading, setGpxLoading] = useState(false);
@@ -274,12 +283,23 @@ export const AppContextProvider = (props) => {
     // route
     const [routeData, setRouteData] = useState(null);
     const [routeTrackFile, setRouteTrackFile] = useState(null);
-    const [routeMode, setRouteMode] = useState({ mode: 'car', opts: {}, 
+    let modeParam = searchParams.get('mode') ? searchParams.get('mode') : 'car';
+    let startInit, endInit;
+    if (searchParams.get('start')) {
+        let arr = searchParams.get('start').split(',');
+        startInit = { lat: parseFloat(arr[0]), lng: parseFloat(arr[1]) };
+    } 
+    if (searchParams.get('end')) {
+        let arr = searchParams.get('end').split(',');
+        endInit = { lat: parseFloat(arr[0]), lng: parseFloat(arr[1]) };
+    } 
+    const [routeMode, setRouteMode] = useState({mode: modeParam, opts: {}, 
         modes: { 'car': { name: 'Car', params: {} } } });
-    const [startPoint, setStartPoint] = useState(null);
-    const [endPoint, setEndPoint] = useState(null);
+    const [startPoint, setStartPoint] = useState(startInit);
+    const [endPoint, setEndPoint] = useState(endInit);
     const [interPoints, setInterPoints] = useState([]);
     const [weatherPoint, setWeatherPoint] = useState(null);
+
 
     useEffect(() => {
         loadRouteModes(routeMode, setRouteMode);
