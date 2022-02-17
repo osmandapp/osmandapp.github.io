@@ -2,6 +2,9 @@ indexes
 gen
 .proc_timestamp
 
+# new website
+website/map
+website/v2
 
 
 night-builds
@@ -28,6 +31,14 @@ basemap
 osm-extract
 terrain-aster-srtm-eudem
 wikivoyage
+
+hillshade-work
+rendering-tests
+slope
+terrain
+travel
+weather
+wikivoyage-gen
 
 # js
 node_modules
