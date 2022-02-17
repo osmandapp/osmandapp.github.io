@@ -97,8 +97,8 @@ const RouteLayer = () => {
             }
         },
         click() {
-            ctx.setStartPoint(null);
-            ctx.setRouteData(null);
+            // ctx.setStartPoint(null);
+            // ctx.setRouteData(null);
         }
     }, [ctx.setStartPoint, startPointRef]);
     const endEventHandlers = useCallback({

@@ -64,7 +64,7 @@ export default function RouteMenu() {
         return <></>;
     }
     return <>
-        {openSettings && <RouteSettingsDialog setOpenSettings={setOpenSettings}/>}
+        {openSettings && <RouteSettingsDialog key='routesettingsdialog' setOpenSettings={setOpenSettings}/>}
         <MenuItem key='routeTop' sx={{ mb: 1 }} onClick={(e) => setOpen(!open)}>
             <ListItemIcon>
                 <Directions fontSize="small" />
