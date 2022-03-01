@@ -1,6 +1,6 @@
 {
-  "message" : "Vidéo d'instruction OsmAnd",
-  "description" : "Tout ce que vous vouliez savoir sur OsmAnd",
+				"message": "Мы с Украиной! Нет Войне!",
+				"description": "ОСТАНОВИТЕ ПУТИНА!"
   "show_start_frequency" : 10,
   "show_day_frequency" : 10,
   "max_total_show" : 10,
@@ -10,7 +10,7 @@
   "bg_color" : "#fec601",
   "title_color" : "#000000",
   "description_color" : "#000000", 
-  "url" : "https://www.youtube.com/channel/UCxnJs4DLL07NCvtpdzI6zBA/videos",
+  "url" : "https://www.youtube.com/watch?v=vyWxrgdYDsc&ab_channel=RostysloveProduction",
   "application" : {
     "net.osmand" : true,
     "net.osmand.plus" : true
