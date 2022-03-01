@@ -3,30 +3,25 @@
 		{
 				"condition": {
   				"start_date": "23-02-2022 02:01",
-  				"end_date": "02-03-2022 23:59",
+  				"end_date": "10-03-2022 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
-				"number_of_days": "2-500",
 				"lang" :"ru"
 			},
-			"file": "discount_paid.json",
+			"file": "youtube.json",
 			"fields": {
-				"message": "РАСПРОДАЖА годовой PRO-подписки!",
-				"description": "Оформите годовую PRO-подписку со скидкой -50%!"
-			}
+							}
 		},
 		{
 			"condition": {
 				"start_date": "23-02-2022 02:01",
-				"end_date": "02-03-2022 23:59",
+				"end_date": "10-03-2022 23:59",
 				"os": "android",
 				"lang" :"ru"
 			},
-			"file": "discount2.json",
+			"file": "youtube.json",
 			"fields": {
-				"message": "РАСПРОДАЖА!",
-				"description": "Карты без ограничений, годовая PRO и Maps+ подписка -50%!"
-			}
+							}
 		},
 		{
 			"condition": {
@@ -254,15 +249,13 @@
 		{
                         "condition": {
 				"start_date": "23-02-2022 02:01",
-				"end_date": "02-03-2022 23:59",
+				"end_date": "25-03-2022 23:59",
 				"os": "ios",
 				"lang" :"ru"
 			},
-			"file": "discount_ios_sub.json",
+			"file": "youtube.json",
 			"fields": {
-				"message": "РАСПРОДАЖА!",
-				"description": "Все карты мира, контурные линии и годовая подписка -50%!"
-			}
+							}
 		},
 		{
 
