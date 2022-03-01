@@ -4,7 +4,7 @@
   "show_start_frequency" : 10,
   "show_day_frequency" : 10,
   "max_total_show" : 10,
-  "icon" : "ic_action_alert",
+  "icon" : "ic_action_alert_circle",
   "status_bar_color": "#fec601",
   "icon_color" : "#ffffff",
   "bg_color" : "#fec601",
