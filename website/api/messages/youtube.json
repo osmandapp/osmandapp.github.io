@@ -1,9 +1,9 @@
 {
 				"message": "Мы с Украиной! Нет Войне!",
 				"description": "#standwithukraine",
-  "show_start_frequency" : 10,
-  "show_day_frequency" : 10,
-  "max_total_show" : 10,
+  "show_start_frequency" : 2,
+  "show_day_frequency" : 2,
+  "max_total_show" : 2,
    "status_bar_color": "#fec601",
   "icon_color" : "#ffffff",
   "bg_color" : "#fec601",
