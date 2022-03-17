@@ -13,7 +13,7 @@
 			"file": "discount_paid.json",
 			"fields": {
 				"message": "РАСПРОДАЖА годовой подписки!",
-				"description": "Оформите годовую PRO подписку со скидкой -50%!"
+				"description": "Оформите годовую PRO подписку со скидкой -70%!"
 			}
 		},
 		{
@@ -41,7 +41,7 @@
 			"file": "discount_paid.json",
 			"fields": {
 				"message": "Wyprzedaż rocznej subskrybcji!",
-				"description": "Sprawdź naszą wyprzedaż rocznej PRO subskrybcji - 50%!"
+				"description": "Sprawdź naszą wyprzedaż rocznej PRO subskrybcji - 70%!"
 			}
 		},
 		{
@@ -69,7 +69,7 @@
 			"file": "discount_paid.json",
 			"fields": {
 				"message": "¡Suscripción anual de VENTA!",
-				"description": "Obtenga su PRO suscripción anual con un -50% de descuento!"
+				"description": "Obtenga su PRO suscripción anual con un -70% de descuento!"
 			}
 		},
 		{
@@ -97,7 +97,7 @@
 			"file": "discount_paid.json",
 			"fields": {
 				"message": "Abonnement annuel à la VENTE!",
-				"description": "Obtenez votre PRO abonnement annuel avec un rabais de -50%!"
+				"description": "Obtenez votre PRO abonnement annuel avec un rabais de -70%!"
 			}
 		},
 		{
@@ -125,7 +125,7 @@
 			"file": "discount_paid.json",
 			"fields": {
 				"message": "Jaarabonnement VERKOOP!",
-				"description": "Krijg uw PRO jaarabonnement met een korting van -50%!"
+				"description": "Krijg uw PRO jaarabonnement met een korting van -70%!"
 			}
 		},
 		{
@@ -153,7 +153,7 @@
 			"file": "discount_paid.json",
 			"fields": {
 				"message": "Abbonamento annuale di VENDITA!",
-				"description": "Ottieni il tuo PRO abbonamento annuale con uno sconto del -50%!"
+				"description": "Ottieni il tuo PRO abbonamento annuale con uno sconto del -70%!"
 			}
 		},
 		{
@@ -181,7 +181,7 @@
 			"file": "discount_paid.json",
 			"fields": {
 				"message": "Jahresabonnement SALE!",
-				"description": "Erhalten Sie Ihr PRO Jahresabonnement mit einem Rabatt von -50%!"
+				"description": "Erhalten Sie Ihr PRO Jahresabonnement mit einem Rabatt von -70%!"
 			}
 		},
 		{
@@ -209,7 +209,7 @@
 			"file": "discount_paid.json",
 			"fields": {
 				"message": " تخفيظات !",
-				"description": " على الإشتراكات السنوية -50% ."
+				"description": " على الإشتراكات السنوية -70% ."
 			}
 		},
 		{
@@ -236,7 +236,7 @@
 			"file": "discount_paid.json",
 			"fields": {
 				"message": "Annual PRO subscription SALE!",
-				"description": "Checkout our -50% sales for year subscription!"
+				"description": "Checkout our -70% sales for year subscription!"
 			}
 		},
 		{
