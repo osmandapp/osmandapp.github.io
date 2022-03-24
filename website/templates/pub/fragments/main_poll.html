@@ -1,11 +1,76 @@
-<!--       <h1>TWITTER</h1>
-                    <a class="twitter-timeline" href="https://twitter.com/osmandapp" data-widget-id="598236050113372160">Tweets by @osmandapp</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
--->
- <h2>Poll</h2>
-
- <script type="text/javascript" charset="utf-8" 
-th:src="'https://secure.polldaddy.com/p/'+${poll.polldaddyid}+'.js'" src="http://static.polldaddy.com/p/10012432.js"></script>
-<noscript>
-	<a th:href="'https://polldaddy.com/poll/'+${poll.polldaddyid}" th:text="${poll.title}">Have you tried the 'Travel' feature? Please share your thoughts</a></noscript>
-</html>
+<div style="max-width:320px;border: 1px solid #ccc;border-radius: 12px;text-align: left;padding: 14px;" 
+        th:data-pollid="${poll.id}">
+    <h3 th:text="${poll.title}">Question</h3>
+    <hr>
+    <div>
+        <div th:each="answer: ${poll.answers}" style="margin: 10px 0px;">
+            <span class="poll-radio-button">
+                <input type="radio" th:id="${answer.id}" th:value="${answer.ind}" th:name="${poll.id}"/>
+            </span>
+            <label th:for="${answer.id}">
+                <span th:text="${answer.value}">Answer 1</span>
+                <br>
+                <span class="poll-vote" style="display: none;" th:data-answerid="${answer.id}">
+                    <span style="font-weight: bold;">&nbsp;0%</span>
+                    <span>&nbsp;(0 votes)</span>
+                </span>
+            </label>
+            <div style="background-color: #fff; border: 1px solid #ddd; display: none;" 
+                    class="poll-vote-progress" th:data-answerid="${answer.id}">
+                <div style="background-color: #3377ee; height: 18px; width: 33%"></div>
+            </div>
+        </div>
+    </div>
+    <div style="display: flex;  flex-direction:row; justify-content: space-between; padding: 15px">
+        <input style="flex:0 0 auto;" type="button" class="poll-submit" value="Submit" />
+        <input style="flex:0 0 auto;" type="button" class="poll-results" value="Results" />
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    let pollTitle = "[[${poll.title}]]";
+    let pollId = "[[${poll.id}]]";
+    let pollDiv = $('[data-pollid~="'+pollId+'"]');
+    // pollDiv.find('h3').text("Update " + pollDiv.find('h3').text());
+    const loadResults = function(votes) {
+        let allVotes = 0;
+        Object.values(votes).forEach(e => {
+            allVotes += e;
+        });
+        if (allVotes == 0) {
+            allVotes = 1;
+        }
+        pollDiv.find('.poll-submit').css('display', 'none');
+        pollDiv.find('.poll-radio-button').css('display', 'none');
+        pollDiv.find('.poll-vote').css('display', '');
+        pollDiv.find('.poll-vote').each(function (ind, e) {
+            let aid = $(e).attr('data-answerid');
+            let mv = votes[aid] ? votes[aid] : 0;
+            $(e).children('span').eq(0).html('&nbsp;' + Math.round(mv * 100 / allVotes) + '%');
+            $(e).children('span').eq(1).html('&nbsp;(' + mv + ' votes)');
+        });
+        pollDiv.find('.poll-vote-progress').css('display', '');
+        pollDiv.find('.poll-vote-progress').each(function (ind, e) {
+            let aid = $(e).attr('data-answerid');
+            let mv = votes[aid] ? votes[aid] : 0;
+            $(e).children('div').eq(0).css('width', Math.round(mv * 100 / allVotes) + '%');
+        });
+    };
+    pollDiv.find('.poll-submit').click(function() {
+        // pollDiv.find('.poll-submit').css('display', 'none');
+        let ansId = $('input[type="radio"][name="' + pollId + '"]:checked').val();
+        $.ajax({
+            url: "/api/poll-submit?pollId=" + pollId + "&ansId=" + ansId,
+            method: 'POST'
+        }).done(function (data) {
+            loadResults(data);
+        });
+    });
+    pollDiv.find('.poll-results').click(function () {
+        $.ajax({
+            url: "/api/poll-results?pollId="+pollId,
+        }).done(function (data) {
+            loadResults(data);
+        });
+    });
+</script>

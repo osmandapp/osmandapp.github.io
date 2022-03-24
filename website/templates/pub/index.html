@@ -7,7 +7,6 @@
   <script th:replace="pub/fragments/default_links"></script>
   <script type="text/javascript" src="/scripts/slick.min.js"></script>
   <script type="text/javascript" src="/scripts/mapselector.js"></script>
-  <script type="text/javascript" src="/scripts/poll.js"></script>
   <link rel="stylesheet" type="text/css" href="/css/slick.css"/>
 </head>
 <body>
@@ -30,7 +29,9 @@
           !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
         </script>
       </div>
-      <div th:include="pub/fragments/main_poll">
+      <div>
+        <h2>Poll</h2>
+        <div th:include="pub/fragments/main_poll" />
       </div>
     </div>
   </div>
