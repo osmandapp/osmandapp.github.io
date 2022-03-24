@@ -286,12 +286,14 @@
 					<th>Publish date</th>
 					<th>Id</th>
 					<th>Title</th>
+					<th>Total votes</th>
 				</tr>
 				<tr th:each="di : ${polls}">
-					<td th:text="${di.key}">website</td>
-					<td th:text="${di.value.pubdate}">01.01.2018</td>
-					<td th:text="${di.value.polldaddyid}"></td>
-					<td >
+					<td th:text="${di.pub}">website</td>
+					<td th:text="${di.pubdate}">01.01.2018</td>
+					<td th:text="${di.id}"></td>
+					<td th:text="${di.title}"></td>
+					<td th:text="${di.totalVotes}"></td>
 				<a th:text="${di.value.title}" th:href="'https://app.crowdsignal.com/polls/'+${di.value.	polldaddyid}+'/results'"></a></td>
 				</tr>
 			</table>
