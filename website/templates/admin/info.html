@@ -332,7 +332,7 @@
 					</uL>
 				</form>
 			</div>
-			
+
 			<table border="1" th:if="${emailSearch != null}">
 				<tr>
 					<th>Email</th>
@@ -347,9 +347,17 @@
 					<td th:text="${di.date}">1000</td>
 					<td th:text="${di.table}">1000</td>
 					<td th:text="${di.source}">1000</td>
+					<td th:if="${di.table == 'osm_recipients'}">
+						<form action="/admin/delete-email" method="post">
+							<button type="submit" name="email" th:value="${di.email}">Delete</button>
+							<input type="checkbox" name="isSendEmail" th:checked="${isSendEmail}"/>
+							<label for="checkbox">Send email</label>
+						</form>
+					</td>
 				</tr>
 			</table>
-			
+
+
 			<h3>Subscriptions & promo</h3>
 			<div class="form-table-input">
 				<form action="/admin/register-promo" method="post">
