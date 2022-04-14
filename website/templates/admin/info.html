@@ -333,6 +333,21 @@
 				</form>
 			</div>
 
+			<div class="form-table-input">
+				<form action="/admin/delete-emails" method="post">
+					<ul class="wrapper">
+						<li class="form-row">
+							<label for="name">Ban by OSM IDs:</label>
+							<input type="text" name="osmidList">
+						</li>
+						<li class="form-row">
+							<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+							<button type="submit">Ban</button>
+						</li>
+					</uL>
+				</form>
+			</div>
+
 			<table border="1" th:if="${emailSearch != null}">
 				<tr>
 					<th>Email</th>
@@ -350,8 +365,6 @@
 					<td th:if="${di.table == 'osm_recipients'}">
 						<form action="/admin/delete-email" method="post">
 							<button type="submit" name="email" th:value="${di.email}">Delete</button>
-							<input type="checkbox" name="isSendEmail" th:checked="${isSendEmail}"/>
-							<label for="checkbox">Send email</label>
 						</form>
 					</td>
 				</tr>
