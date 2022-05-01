@@ -32,7 +32,7 @@
 		{
 			"condition": {
   				"start_date": "29-04-2022 00:20",
-  				"end_date": "01-05-2022 23:59",
+  				"end_date": "03-05-2022 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "2-500",
@@ -47,7 +47,7 @@
 		{
 			"condition": {
   				"start_date": "29-04-2022 00:20",
-  				"end_date": "01-05-2022 23:59",
+  				"end_date": "03-05-2022 23:59",
 				"os": "android",
 				"lang" :"pl"
 			},
@@ -60,7 +60,7 @@
 		{
 			"condition": {
   				"start_date": "29-04-2022 00:20",
-  				"end_date": "01-05-2022 23:59",
+  				"end_date": "03-05-2022 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "2-500",
@@ -75,7 +75,7 @@
 		{
 			"condition": {
   				"start_date": "29-04-2022 00:20",
-  				"end_date": "01-05-2022 23:59",
+  				"end_date": "03-05-2022 23:59",
 				"os": "android",
 				"lang" :"es"
 			},
@@ -89,7 +89,7 @@
 			"condition": {
 
   				"start_date": "29-04-2022 00:20",
-  				"end_date": "01-05-2022 23:59",
+  				"end_date": "03-05-2022 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "2-500",
@@ -104,7 +104,7 @@
 		{
 			"condition": {
   				"start_date": "29-04-2022 00:20",
-  				"end_date": "01-05-2022 23:59",
+  				"end_date": "03-05-2022 23:59",
 				"os": "android",
 				"lang" :"fr"
 			},
@@ -117,7 +117,7 @@
 		{
 			"condition": {
   				"start_date": "29-04-2022 00:20",
-  				"end_date": "01-05-2022 23:59",
+  				"end_date": "03-05-2022 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "2-500",
@@ -132,7 +132,7 @@
 		{
 			"condition": {
   				"start_date": "29-04-2022 00:20",
-  				"end_date": "01-05-2022 23:59",
+  				"end_date": "03-05-2022 23:59",
 				"os": "android",
 				"lang" :"nl"
 			},
@@ -145,7 +145,7 @@
 		{
 			"condition": {
   				"start_date": "29-04-2022 00:20",
-  				"end_date": "01-05-2022 23:59",
+  				"end_date": "03-05-2022 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "2-500",
@@ -161,7 +161,7 @@
 		{
 			"condition": {
   				"start_date": "29-04-2022 00:20",
-  				"end_date": "01-05-2022 23:59",
+  				"end_date": "03-05-2022 23:59",
 				"os": "android",
 				"lang" :"it"
 			},
@@ -174,7 +174,7 @@
 		{
 			"condition": {
   				"start_date": "29-04-2022 00:20",
-  				"end_date": "01-05-2022 23:59",
+  				"end_date": "03-05-2022 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "2-500",
@@ -189,7 +189,7 @@
 		{
 			"condition": {
   				"start_date": "29-04-2022 00:20",
-  				"end_date": "01-05-2022 23:59",
+  				"end_date": "03-05-2022 23:59",
 				"os": "android",
 				"lang" :"de"
 			},
@@ -202,7 +202,7 @@
 		{
 			"condition": {
   				"start_date": "29-04-2022 00:20",
-  				"end_date": "01-05-2022 23:59",
+  				"end_date": "03-05-2022 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "2-500",
@@ -217,7 +217,7 @@
 		{
 			"condition": {
   				"start_date": "29-04-2022 00:20",
-  				"end_date": "01-05-2022 23:59",
+  				"end_date": "03-05-2022 23:59",
 				"os": "android",
 				"lang" :"ar"
 			},
@@ -230,7 +230,7 @@
 		{
 			"condition": {
   				"start_date": "29-04-2022 00:20",
-  				"end_date": "01-05-2022 23:59",
+  				"end_date": "03-05-2022 23:59",
 				"app_version": "OsmAnd+",
 				"number_of_days": "2-500",
 				"os": "android"
@@ -244,7 +244,7 @@
 		{
 			"condition": {
   				"start_date": "29-04-2022 00:20",
-  				"end_date": "01-05-2022 23:59",
+  				"end_date": "03-05-2022 23:59",
 				"os": "android"
 			},
 			"file": "discount2.json",
@@ -269,7 +269,7 @@
 		{
 			      "condition": {
   				"start_date": "29-04-2022 00:20",
-  				"end_date": "01-05-2022 23:59",
+  				"end_date": "03-05-2022 23:59",
 				"os": "ios",
 				"lang" :"fr"
 			},
@@ -282,7 +282,7 @@
 		{
 				"condition": {
   				"start_date": "29-04-2022 00:20",
-  				"end_date": "01-05-2022 23:59",
+  				"end_date": "03-05-2022 23:59",
 				"os": "ios",
 				"lang" :"de"
 			},
@@ -295,7 +295,7 @@
 		{
 				"condition": {
   				"start_date": "29-04-2022 00:20",
-  				"end_date": "01-05-2022 23:59",
+  				"end_date": "03-05-2022 23:59",
 				"os": "ios",
 				"lang" :"it"
 			},
@@ -308,7 +308,7 @@
 		{
 				"condition": {
   				"start_date": "29-04-2022 00:20",
-  				"end_date": "01-05-2022 23:59",
+  				"end_date": "03-05-2022 23:59",
 				"os": "ios",
 				"lang" :"es"
 			},
@@ -321,7 +321,7 @@
 		{
 				"condition": {
   				"start_date": "29-04-2022 00:20",
-  				"end_date": "01-05-2022 23:59",
+  				"end_date": "03-05-2022 23:59",
 				"os": "ios",
 				"lang" :"nl"
 			},
@@ -334,7 +334,7 @@
 		{
 			"condition": {
   				"start_date": "29-04-2022 00:20",
-  				"end_date": "01-05-2022 23:59",
+  				"end_date": "03-05-2022 23:59",
 				"os": "ios",
 				"lang" :"pl"
 			},
@@ -347,7 +347,7 @@
 		{
 			"condition": {
   				"start_date": "29-04-2022 00:20",
-  				"end_date": "01-05-2022 23:59",
+  				"end_date": "03-05-2022 23:59",
 				"os": "ios",
 				"lang" :"ar"
 			},
@@ -360,7 +360,7 @@
 		{
 			      "condition": {
   				"start_date": "29-04-2022 00:20",
-  				"end_date": "01-05-2022 23:59",
+  				"end_date": "03-05-2022 23:59",
 				"os": "ios"
 			},
 			"file": "discount_ios_sub.json",
