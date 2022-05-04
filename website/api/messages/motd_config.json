@@ -2,8 +2,8 @@
 	"settings": [
 		{
 			"condition": {
-  				"start_date": "22-04-2022 00:20",
-  				"end_date": "22-04-2022 00:21",
+  				"start_date": "20-04-2022 00:20",
+  				"end_date": "20-04-2022 00:21",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "2-500",
