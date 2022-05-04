@@ -2,31 +2,25 @@
 <html>
 
 <head>
-<meta http-equiv="cache-control" content="max-age=0" />
-<meta http-equiv="cache-control" content="no-cache" />
-<meta http-equiv="expires" content="0" />
-<meta http-equiv="pragma" content="no-cache" />
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<meta http-equiv="cache-control" content="max-age=0" />
+	<meta http-equiv="cache-control" content="no-cache" />
+	<meta http-equiv="expires" content="0" />
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<!-- <meta http-equiv="refresh"
- 	th:content="'0; url=https://poll.fm/'+ ${poll.polldaddyid}+'/embed'"
-  content="0; url=http://poll.fm/10012432" /> -->
-<title>OsmAnd - Offline Mobile Maps and Navigation
-</title>
+	<title>OsmAnd - Offline Mobile Maps and Navigation
+	</title>
 </head>
-<body style="background: #fff;">
-	<br/>
-	<table style="width:100%;border: 0px;" summary="poll">
-			<tr>
-				<td align="center">
-<script type="text/javascript" charset="utf-8" 
-th:src="'https://static.polldaddy.com/p/'+${poll.polldaddyid}+'.js'" src="https://static.polldaddy.com/p/10012432.js"></script>
-<noscript>
-	<a th:href="'https://polldaddy.com/poll/'+${poll.polldaddyid}" th:text="${poll.title}">Have you tried the 'Travel' feature? Please share your thoughts</a></noscript>
-	</td>
-			</tr>
-	</table>
 
+<body style="background: #fff;">
+	<br />
+	<table style="width:100%;border: 0px;" summary="poll">
+		<tr>
+			<td align="center">
+				<div th:include="pub/fragments/main_poll" />
+			</td>
+		</tr>
+	</table>
 </body>
 </html>

@@ -2,24 +2,24 @@
 	"settings": [
 		{
 			"condition": {
-  				"start_date": "14-05-2021 10:20",
-  				"end_date": "16-05-2021 23:59",
+  				"start_date": "22-04-2022 00:20",
+  				"end_date": "22-04-2022 00:21",
 				"app_version": "OsmAnd+",
 				"os": "android",
-				"number_of_days": "2-100",
+				"number_of_days": "2-500",
 				"lang" :"ru"
 
 			},
 			"file": "discount_paid.json",
 			"fields": {
 				"message": "РАСПРОДАЖА годовой подписки!",
-				"description": "Оформите годовую PRO подписку со скидкой -70%!"
+				"description": "Оформите годовую PRO подписку со скидкой -50%!"
 			}
 		},
 		{
 			"condition": {
-  				"start_date": "14-05-2021 10:20",
-  				"end_date": "16-05-2021 13:59",
+				"start_date": "22-04-2022 00:20",
+				"end_date": "22-04-2022 00:21",
 				"os": "android",
 				"lang" :"ru"
 			},
@@ -31,11 +31,11 @@
 		},
 		{
 			"condition": {
-  				"start_date": "18-03-2022 00:10",
-  				"end_date": "20-03-2022 13:59",
+  				"start_date": "29-04-2022 00:20",
+  				"end_date": "03-05-2022 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
-				"number_of_days": "2-400",
+				"number_of_days": "2-500",
 				"lang" :"pl"
 			},
 			"file": "discount_paid.json",
@@ -46,24 +46,24 @@
 		},
 		{
 			"condition": {
-  				"start_date": "18-03-2022 00:10",
-  				"end_date": "20-03-2022 13:59",
+  				"start_date": "29-04-2022 00:20",
+  				"end_date": "03-05-2022 23:59",
 				"os": "android",
 				"lang" :"pl"
 			},
 			"file": "discount2.json",
 			"fields": {
 				"message": "Wyprzedaż rocznej subskrybcji!",
-				"description": "Sprawdź naszą wyprzedaż rocznej Maps+, PRO subskrybcji - 50%!"
+				"description": "Sprawdź naszą wyprzedaż rocznej Maps+ subskrybcji - 50%!"
 			}
 		},
 		{
 			"condition": {
-  				"start_date": "18-03-2022 00:10",
-  				"end_date": "20-03-2022 13:59",
+  				"start_date": "29-04-2022 00:20",
+  				"end_date": "03-05-2022 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
-				"number_of_days": "2-400",
+				"number_of_days": "2-500",
 				"lang" :"es"
 			},
 			"file": "discount_paid.json",
@@ -74,24 +74,25 @@
 		},
 		{
 			"condition": {
-  				"start_date": "18-03-2022 00:10",
-  				"end_date": "20-03-2022 13:59",
+  				"start_date": "29-04-2022 00:20",
+  				"end_date": "03-05-2022 23:59",
 				"os": "android",
 				"lang" :"es"
 			},
 			"file": "discount2.json",
 			"fields": {
 				"message": "¡Suscripción anual de VENTA!",
-				"description": "Obtenga su Maps+, PRO suscripción anual con un -50% de descuento!"
+				"description": "Obtenga su Maps+ suscripción anual con un -50% de descuento!"
 			}
 		},
 		{
 			"condition": {
-  				"start_date": "18-03-2022 00:10",
-  				"end_date": "20-03-2022 13:59",
+
+  				"start_date": "29-04-2022 00:20",
+  				"end_date": "03-05-2022 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
-				"number_of_days": "2-400",
+				"number_of_days": "2-500",
 				"lang" :"fr"
 			},
 			"file": "discount_paid.json",
@@ -102,24 +103,24 @@
 		},
 		{
 			"condition": {
-  				"start_date": "18-03-2022 00:10",
-  				"end_date": "20-03-2022 13:59",
+  				"start_date": "29-04-2022 00:20",
+  				"end_date": "03-05-2022 23:59",
 				"os": "android",
 				"lang" :"fr"
 			},
 			"file": "discount2.json",
 			"fields": {
 				"message": "Abonnement annuel à la VENTE!",
-				"description": "Obtenez votre Maps+, PRO abonnement annuel avec un rabais de -50%!"
+				"description": "Obtenez votre Maps+ abonnement annuel avec un rabais de -50%!"
 			}
 		},
 		{
 			"condition": {
-  				"start_date": "18-03-2022 00:10",
-  				"end_date": "20-03-2022 13:59",
+  				"start_date": "29-04-2022 00:20",
+  				"end_date": "03-05-2022 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
-				"number_of_days": "2-400",
+				"number_of_days": "2-500",
 				"lang" :"nl"
 			},
 			"file": "discount_paid.json",
@@ -130,24 +131,24 @@
 		},
 		{
 			"condition": {
-  				"start_date": "18-03-2022 00:10",
-  				"end_date": "20-03-2022 13:59",
+  				"start_date": "29-04-2022 00:20",
+  				"end_date": "03-05-2022 23:59",
 				"os": "android",
 				"lang" :"nl"
 			},
 			"file": "discount2.json",
 			"fields": {
 				"message": "Jaarabonnement VERKOOP!",
-				"description": "Krijg uw Maps+, PRO jaarabonnement met een korting van -50%!"
+				"description": "Krijg uw Maps+ jaarabonnement met een korting van -50%!"
 			}
 		},
 		{
 			"condition": {
-  				"start_date": "18-03-2022 00:10",
-  				"end_date": "20-03-2022 13:59",
+  				"start_date": "29-04-2022 00:20",
+  				"end_date": "03-05-2022 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
-				"number_of_days": "2-400",
+				"number_of_days": "2-500",
 				"lang" :"it"
 			},
 			"file": "discount_paid.json",
@@ -156,26 +157,27 @@
 				"description": "Ottieni il tuo PRO abbonamento annuale con uno sconto del -70%!"
 			}
 		},
+
 		{
 			"condition": {
-  				"start_date": "18-03-2022 00:10",
-  				"end_date": "20-03-2022 13:59",
+  				"start_date": "29-04-2022 00:20",
+  				"end_date": "03-05-2022 23:59",
 				"os": "android",
 				"lang" :"it"
 			},
 			"file": "discount2.json",
 			"fields": {
 				"message": "Abbonamento annuale di VENDITA!",
-				"description": "Ottieni il tuo Maps+, PRO abbonamento annuale con uno sconto del -50%!"
+				"description": "Ottieni il tuo Maps+ abbonamento annuale con uno sconto del -50%!"
 			}
 		},
 		{
 			"condition": {
-  				"start_date": "18-03-2022 00:10",
-  				"end_date": "20-03-2022 13:59",
+  				"start_date": "29-04-2022 00:20",
+  				"end_date": "03-05-2022 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
-				"number_of_days": "2-400",
+				"number_of_days": "2-500",
 				"lang" :"de"
 			},
 			"file": "discount_paid.json",
@@ -186,24 +188,24 @@
 		},
 		{
 			"condition": {
-  				"start_date": "18-03-2022 00:10",
-  				"end_date": "20-03-2022 13:59",
+  				"start_date": "29-04-2022 00:20",
+  				"end_date": "03-05-2022 23:59",
 				"os": "android",
 				"lang" :"de"
 			},
 			"file": "discount2.json",
 			"fields": {
 				"message": "Jahresabonnement SALE!",
-				"description": "Erhalten Sie Ihr Maps+, PRO Jahresabonnement mit einem Rabatt von -50%!"
+				"description": "Erhalten Sie Ihr Maps+ Jahresabonnement mit einem Rabatt von -50%!"
 			}
 		},
 		{
 			"condition": {
-  				"start_date": "18-03-2022 00:10",
-  				"end_date": "20-03-2022 13:59",
+  				"start_date": "29-04-2022 00:20",
+  				"end_date": "03-05-2022 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
-				"number_of_days": "2-400",
+				"number_of_days": "2-500",
 				"lang" :"ar"
 			},
 			"file": "discount_paid.json",
@@ -214,8 +216,8 @@
 		},
 		{
 			"condition": {
-  				"start_date": "18-03-2022 00:10",
-  				"end_date": "20-03-2022 13:59",
+  				"start_date": "29-04-2022 00:20",
+  				"end_date": "03-05-2022 23:59",
 				"os": "android",
 				"lang" :"ar"
 			},
@@ -227,10 +229,10 @@
 		},
 		{
 			"condition": {
-  				"start_date": "18-03-2022 00:10",
-  				"end_date": "20-03-2022 13:59",
+  				"start_date": "29-04-2022 00:20",
+  				"end_date": "03-05-2022 23:59",
 				"app_version": "OsmAnd+",
-				"number_of_days": "2-400",
+				"number_of_days": "2-500",
 				"os": "android"
 			},
 			"file": "discount_paid.json",
@@ -241,20 +243,20 @@
 		},
 		{
 			"condition": {
-  				"start_date": "18-03-2022 00:10",
-  				"end_date": "20-03-2022 13:59",
+  				"start_date": "29-04-2022 00:20",
+  				"end_date": "03-05-2022 23:59",
 				"os": "android"
 			},
 			"file": "discount2.json",
 			"fields": {
 				"message": "Annual subscription SALE!",
-				"description": "Checkout our -50% sales for year Maps+, PRO subscription!"
+				"description": "Checkout our -50% sales for year Maps+ subscription!"
 			}
 		},
 		{
                        "condition": {
-  				"start_date": "14-05-2021 10:20",
-  				"end_date": "16-05-2021 13:59",
+						"start_date": "22-04-2022 00:20",
+						"end_date": "22-04-2022 00:21",
 				"os": "ios",
 				"lang" :"ru"
 			},
@@ -266,8 +268,8 @@
 		},
 		{
 			      "condition": {
-  				"start_date": "18-03-2022 00:10",
-  				"end_date": "20-03-2022 13:59",
+  				"start_date": "29-04-2022 00:20",
+  				"end_date": "03-05-2022 23:59",
 				"os": "ios",
 				"lang" :"fr"
 			},
@@ -279,8 +281,8 @@
 		},
 		{
 				"condition": {
-  				"start_date": "18-03-2022 00:10",
-  				"end_date": "20-03-2022 13:59",
+  				"start_date": "29-04-2022 00:20",
+  				"end_date": "03-05-2022 23:59",
 				"os": "ios",
 				"lang" :"de"
 			},
@@ -292,8 +294,8 @@
 		},
 		{
 				"condition": {
-  				"start_date": "18-03-2022 00:10",
-  				"end_date": "20-03-2022 13:59",
+  				"start_date": "29-04-2022 00:20",
+  				"end_date": "03-05-2022 23:59",
 				"os": "ios",
 				"lang" :"it"
 			},
@@ -305,8 +307,8 @@
 		},
 		{
 				"condition": {
-  				"start_date": "18-03-2022 00:10",
-  				"end_date": "20-03-2022 13:59",
+  				"start_date": "29-04-2022 00:20",
+  				"end_date": "03-05-2022 23:59",
 				"os": "ios",
 				"lang" :"es"
 			},
@@ -318,8 +320,8 @@
 		},
 		{
 				"condition": {
-  				"start_date": "18-03-2022 00:10",
-  				"end_date": "20-03-2022 13:59",
+  				"start_date": "29-04-2022 00:20",
+  				"end_date": "03-05-2022 23:59",
 				"os": "ios",
 				"lang" :"nl"
 			},
@@ -331,8 +333,8 @@
 		},
 		{
 			"condition": {
-  				"start_date": "18-03-2022 00:10",
-  				"end_date": "20-03-2022 13:59",
+  				"start_date": "29-04-2022 00:20",
+  				"end_date": "03-05-2022 23:59",
 				"os": "ios",
 				"lang" :"pl"
 			},
@@ -344,8 +346,8 @@
 		},
 		{
 			"condition": {
-  				"start_date": "18-03-2022 00:10",
-  				"end_date": "20-03-2022 13:59",
+  				"start_date": "29-04-2022 00:20",
+  				"end_date": "03-05-2022 23:59",
 				"os": "ios",
 				"lang" :"ar"
 			},
@@ -357,8 +359,8 @@
 		},
 		{
 			      "condition": {
-  				"start_date": "18-03-2022 00:10",
-  				"end_date": "20-03-2022 13:59",
+  				"start_date": "29-04-2022 00:20",
+  				"end_date": "03-05-2022 23:59",
 				"os": "ios"
 			},
 			"file": "discount_ios_sub.json",

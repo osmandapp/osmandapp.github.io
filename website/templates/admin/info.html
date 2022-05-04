@@ -286,13 +286,14 @@
 					<th>Publish date</th>
 					<th>Id</th>
 					<th>Title</th>
+					<th>Total votes</th>
 				</tr>
 				<tr th:each="di : ${polls}">
-					<td th:text="${di.key}">website</td>
-					<td th:text="${di.value.pubdate}">01.01.2018</td>
-					<td th:text="${di.value.polldaddyid}"></td>
-					<td >
-				<a th:text="${di.value.title}" th:href="'https://app.crowdsignal.com/polls/'+${di.value.	polldaddyid}+'/results'"></a></td>
+					<td th:text="${di.pub}">website</td>
+					<td th:text="${di.pubdate}">01.01.2018</td>
+					<td th:text="${di.id}"></td>
+					<td th:text="${di.title}"></td>
+					<td th:text="${di.totalVotes}"></td>
 				</tr>
 			</table>
 
@@ -331,7 +332,22 @@
 					</uL>
 				</form>
 			</div>
-			
+
+			<div class="form-table-input">
+				<form action="/admin/ban-by-osmids" method="post">
+					<ul class="wrapper">
+						<li class="form-row">
+							<label for="name">Ban by OSM IDs:</label>
+							<input type="text" name="osmidList">
+						</li>
+						<li class="form-row">
+							<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+							<button type="submit">Ban</button>
+						</li>
+					</uL>
+				</form>
+			</div>
+
 			<table border="1" th:if="${emailSearch != null}">
 				<tr>
 					<th>Email</th>
@@ -346,9 +362,15 @@
 					<td th:text="${di.date}">1000</td>
 					<td th:text="${di.table}">1000</td>
 					<td th:text="${di.source}">1000</td>
+					<td th:if="${di.table == 'osm_recipients'}">
+						<form action="/admin/delete-email" method="post">
+							<button type="submit" name="email" th:value="${di.email}">Delete</button>
+						</form>
+					</td>
 				</tr>
 			</table>
-			
+
+
 			<h3>Subscriptions & promo</h3>
 			<div class="form-table-input">
 				<form action="/admin/register-promo" method="post">
