@@ -373,18 +373,6 @@
 
 			<h3>Subscriptions & promo</h3>
 			<div class="form-table-input">
-				<form action="/admin/register-promo" method="post">
-					<ul class="wrapper">
-						<li class="form-row">
-							<label for="name">Register promo subscription <br>(enter email or description):</label>
-							<input type="text" name="comment">
-						</li>
-						<li class="form-row">
-							<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-							<button type="submit">Register</button>
-						</li>
-					</uL>
-				</form>
 				<form action="/admin/search-subscription" method="post">
 					<ul class="wrapper">
 						<li class="form-row">
@@ -394,6 +382,19 @@
 						<li class="form-row">
 							<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 							<button type="submit">Search</button>
+						</li>
+					</uL>
+				</form>
+				
+				<form action="/admin/register-promo" method="post">
+					<ul class="wrapper">
+						<li class="form-row">
+							<label for="name">Register promo PRO-subscription (email):</label>
+							<input type="text" name="comment">
+						</li>
+						<li class="form-row">
+							<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+							<button type="submit">Register</button>
 						</li>
 					</uL>
 				</form>
