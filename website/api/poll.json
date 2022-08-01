@@ -3,11 +3,11 @@
 		{
 			"active": true,
 			"pub": ["android","ios","website"],
-			"title": "Do you use Travel Routes in OsmAnd?",
+			"title": "Do you use Routes layer in OsmAnd?",
 			"pubdate": "01.08.2022",
 			"answers": [
-				"No, I don't need Travel Routes on the map",
-				"Yes, I use Travel Routes on the map",
+				"No, I don't need Routes on the map",
+				"Yes, I use Routes on the map",
 				"I only use GPX Tracks",
 				"Other"
 			]
@@ -15,22 +15,22 @@
 	],
 	"website_1" : {
 		"pubdate": "01.08.2022",
-		"title" : "Do you use Travel Routes in OsmAnd?",
+		"title" : "Do you use Routes layer in OsmAnd?",
 		"polldaddyid" : "10890124"
 	},
 	"website_2" : {
 		"pubdate": "01.08.2022",
-		"title" : "Do you use Travel Routes in OsmAnd?",
+		"title" : "Do you use Routes layer in OsmAnd?",
 		"polldaddyid" : "10890124"
 	},
 	"android" : {
 		"pubdate": "01.08.2022",
-		"title" : "Do you use Travel Routes in OsmAnd?",
+		"title" : "Do you use Routes layer in OsmAnd?",
 		"polldaddyid" : "10890124"
 	},
 	"ios" : {
 		"pubdate": "01.08.2022",
-		"title" : "Do you use Travel Routes in OsmAnd?",
+		"title" : "Do you use Routes layer in OsmAnd?",
 		"polldaddyid" : "10890124"
 	}
 }
