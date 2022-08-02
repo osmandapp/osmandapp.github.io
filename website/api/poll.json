@@ -11,6 +11,19 @@
 				"I only use GPX Tracks",
 				"Other"
 			]
+		},
+		{
+			"active": false,
+			"pub": ["android","ios","website"],
+			"title": "Do you use Wikivoyage and Wikipedia in OsmAnd?",
+			"pubdate": "09.08.2021",
+			"answers": [
+				"No, I don't need guides and articles on the map",
+				"Yes, I use guides and articles on the map",
+				"I only use Wikipedia articles",
+				"I am using these features to improve search in OsmAnd",
+				"Other"
+			]
 		}
 	],
 	"website_1" : {
