@@ -1,5 +1,29 @@
 {
+	"website_1" : {
+		"pubdate": "01.08.2022",
+		"title" : "Do you use Routes layer in OsmAnd?"
+	},
+	"android" : {
+		"pubdate": "01.08.2022",
+		"title" : "Do you use Routes layer in OsmAnd?"
+	},
+	"ios" : {
+		"pubdate": "01.08.2022",
+		"title" : "Do you use Routes layer in OsmAnd?"
+	},
 	"questions": [
+		{
+			"active": true,
+			"pub": ["android","ios","website"],
+			"title": "Do you use Routes layer in OsmAnd?",
+			"pubdate": "01.08.2022",
+			"answers": [
+				"No, I don't need Routes on the map",
+				"Yes, I use Routes on the map",
+				"I only use GPX Tracks",
+				"Other"
+			]
+		},
 		{
 			"active": true,
 			"pub": ["android","ios","website"],
@@ -13,26 +37,6 @@
 				"Other"
 			]
 		}
-	],
-	"website_1" : {
-		"pubdate" : "09.08.2021",
-		"title" : "Do you use Wikivoyage and Wikipedia in OsmAnd?",
-		"polldaddyid" : "10890124"
-	},
-	"website_2" : {
-		"pubdate" : "09.08.2021",
-		"title" : "Do you use Wikivoyage and Wikipedia in OsmAnd?",
-		"polldaddyid" : "10890124"
-	},
-	"android" : {
-		"pubdate" : "09.08.2021",
-		"title" : "Do you use Wikivoyage and Wikipedia in OsmAnd?",
-		"polldaddyid" : "10890124"
-	},
-	"ios" : {
-		"pubdate" : "09.08.2021",
-		"title" : "Do you use Wikivoyage and Wikipedia in OsmAnd?",
-		"polldaddyid" : "10890124"
-	}
+	]
 }
 
