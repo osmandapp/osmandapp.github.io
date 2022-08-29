@@ -6,6 +6,7 @@
 		"osmlive" : { "dl2.osmand.net":3, "dl9.osmand.net":3},
 		"srtm" : { "dl2.osmand.net":3, "maptile.osmand.net":2},
 		"hillshade" : { "dl2.osmand.net":3, "maptile.osmand.net":2},
+		"heightmap" : { "dl2.osmand.net":3, "maptile.osmand.net":2},
 		"slope" : { "dl2.osmand.net":3, "maptile.osmand.net":2}
 	}
 }
