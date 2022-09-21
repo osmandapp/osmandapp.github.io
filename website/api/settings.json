@@ -7,6 +7,7 @@
 		"srtm" : { "dl2.osmand.net":3, "maptile.osmand.net":2},
 		"hillshade" : { "dl2.osmand.net":3, "maptile.osmand.net":2},
 		"heightmap" : { "dl2.osmand.net":3, "maptile.osmand.net":2},
+		"depth" : {"dl2.osmand.net":1, "maptile.osmand.net":1},
 		"slope" : { "dl2.osmand.net":3, "maptile.osmand.net":2}
 	}
 }
