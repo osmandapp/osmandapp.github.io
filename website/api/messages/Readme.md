@@ -124,6 +124,7 @@ After true condition is found, the 'fields' property is tested for presence of a
    	- "url" : "show-choose-plan:combined-wiki" - to show choose plan (Combined wiki type)
    	- "url" : "show-choose-plan:osmand-pro" - to show choose plan (OsmAnd Pro type)
    	- "url" : "show-choose-plan:osmand-maps-plus" - to show choose plan (OsmAnd Maps+ type)	
+   	- "url" : "show-choose-plan:external-sensors-support" - to show choose plan (External sensors support type)
   - **iOS**
   	- "url" : "in-app:plugin" - to open available plugin of in-app defined in "in-app:" field
   	- "url" : "in-app:map" - to open Maps & Resources screen
