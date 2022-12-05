@@ -1,0 +1,29 @@
+{
+	"website_1" : {
+		"pubdate": "04.12.2022",
+		"title" : "What do you think about the weather plugin in OsmAnd?"
+	},
+	"android" : {
+		"pubdate": "04.12.2022",
+		"title" : "What do you think about the weather plugin in OsmAnd?"
+	},
+	"ios" : {
+		"pubdate": "04.12.2022",
+		"title" : "What do you think about the weather plugin in OsmAnd?"
+	},
+	"questions": [
+		{
+			"active": true,
+			"pub": ["android","ios","website"],
+			"title": "What do you think about the weather plugin in OsmAnd?",
+			"pubdate": "04.12.2022",
+			"answers": [
+				"I use weather info in OsmAnd",
+				"I use others weather apps",
+				"Other"
+			]
+		}
+
+	]
+}
+
