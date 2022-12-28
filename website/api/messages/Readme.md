@@ -130,7 +130,21 @@ After true condition is found, the 'fields' property is tested for presence of a
   	- "url" : "in-app:map" - to open Maps & Resources screen
 	- "url" : "osmand-search-query:test query" - to open search with "test query" phrase
    	- "url" : "osmand-show-poi:bank,tourism" - to show poi overlay on the map
-	- "url" : "show-choose-plan:osmlive" - to show choose plan (OsmAnd Live version type). The all available types: osmlive, skimap, nautical, track_recording, parking, wiki, srtm, allworld, africa, russia, asia, australia, europe, centralamerica, northamerica, southamerica.
+   	- "url" : "show-choose-plan:free-version" - to show choose plan (Free version type)
+   	- "url" : "show-choose-plan:sea-depth" - to show choose plan (Sea depth type)
+   	- "url" : "show-choose-plan:hillshade" - to show choose plan (Hillshade type)
+   	- "url" : "show-choose-plan:wikipedia" - to show choose plan (Wikipedia type)
+   	- "url" : "show-choose-plan:wikivoyage" - to show choose plan (Wikivoyage type)
+   	- "url" : "show-choose-plan:osmand-cloud" - to show choose plan (OsmAnd Cloud type)
+   	- "url" : "show-choose-plan:advanced-widgets" - to show choose plan (Advanced widgets type)
+   	- "url" : "show-choose-plan:hourly-map-updates" - to show choose plan (Hourly map updates type)
+   	- "url" : "show-choose-plan:monthly-map-updates" - to show choose plan (Monthly map updates type)
+   	- "url" : "show-choose-plan:unlimited-map-downloads" - to show choose plan (Unlimited map downloads type)
+   	- "url" : "show-choose-plan:combined-wiki" - to show choose plan (Combined wiki type)
+   	- "url" : "show-choose-plan:osmand-pro" - to show choose plan (OsmAnd Pro type)
+   	- "url" : "show-choose-plan:carplay" - to show choose plan (Carplay type)
+   	- "url" : "show-choose-plan:weather" - to show choose plan (Weather type)
+   	- "url" : "show-choose-plan:osmand-maps-plus" - to show choose plan (OsmAnd Maps+ type)	
 - **application** - JSON object that specifies which applications must show notification.
   -   "application" : { "net.osmand" : true, "net.osmand.plus" : false } - notification will be shown only in the free app
 - **show_christmas_dialog** - specify if the Christmas dialog should be displayed instead of notification. Optional parameter.
