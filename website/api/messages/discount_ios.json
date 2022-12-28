@@ -10,13 +10,12 @@
      {
        "condition" : [
         
-               { "not_purchased_subscription" : "net.osmand.maps.subscription.plus.annual_v1" }, //Maps+ annual
+               { "not_purchased_subscription" : "net.osmand.maps.subscription.plus.annual_v1" }, 
 
-               { "not_purchased_subscription" : "net.osmand.maps.subscription.pro.annual_v1" }, //Pro annual
+               { "not_purchased_subscription" : "net.osmand.maps.subscription.pro.annual_v1" }, 
 
-               { "not_purchased_subscription" : "net.osmand.maps.subscription.pro.monthly_v1" }, //Pro monthly
-
-               { "not_purchased_inapp" : "net.osmand.maps.inapp.maps.plus" }, //Maps+ in-app
+               { "not_purchased_subscription" : "net.osmand.maps.subscription.pro.monthly_v1" },
+               { "not_purchased_inapp" : "net.osmand.maps.inapp.maps.plus" },
         
                { "not_purchased_inapp" : "net.osmand.maps.inapp.region.allworld" }
 ]
