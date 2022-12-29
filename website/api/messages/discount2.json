@@ -5,27 +5,18 @@
   "show_day_frequency" : 1,
   "max_total_show" : 3,
   "icon" : "ic_action_gift",
-  "url" : "show-choose-plan:osmand-maps-plus",
-  "url_params":{
-      "selected_choose_plan_btn":"osmand_maps_annual_free_v1"},
+  "url" : "show-choose-plan:monthly-map-updates",
   "oneOfConditions" : [
       { 
         "condition" : [ 
                 { "not_purchased_inapp" : "osmand_full_version_price" }, 
-                { "not_purchased_subscription" : "osm_free_live_subscription_2" },
-                { "not_purchased_subscription" : "osm_live_subscription_3_months_free_v1" },
                 { "not_purchased_subscription" : "osm_live_subscription_annual_free_v1" },
-                { "not_purchased_subscription" : "osm_live_subscription_annual_free_v2" },
-                { "not_purchased_subscription" : "osm_live_subscription_monthly_free_v1" },
                 { "not_purchased_subscription" : "osmand_pro_monthly_free_v1" },
                 { "not_purchased_subscription" : "osmand_maps_annual_free_v1" },
                 { "not_purchased_subscription" : "osmand_pro_annual_free_v1" }
          ] 
       }
 ],
-  "url_1" :  "osmand-market-app:net.osmand.plus",
-  "url_2" : "osmand-in-app:osmand_full_version_price",
-  "url_3" : "osmand-in-app:osm_live_subscription_2,osm_free_live_subscription_2",
   "application" : {
     "net.osmand" : true
   }

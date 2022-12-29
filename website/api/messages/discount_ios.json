@@ -6,7 +6,7 @@
  "max_total_show" : 3,
  "icon" : "ic_action_gift",
  "url" : "show-choose-plan:allworld",
-"oneOfConditions" : [
+ "oneOfConditions" : [
      {
        "condition" : [
         
@@ -15,6 +15,7 @@
                { "not_purchased_subscription" : "net.osmand.maps.subscription.pro.annual_v1" }, 
 
                { "not_purchased_subscription" : "net.osmand.maps.subscription.pro.monthly_v1" },
+               
                { "not_purchased_inapp" : "net.osmand.maps.inapp.maps.plus" },
         
                { "not_purchased_inapp" : "net.osmand.maps.inapp.region.allworld" }
