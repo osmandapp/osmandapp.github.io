@@ -29,6 +29,8 @@
 			}
 		},
 		{
+
+
 			"condition": {
 				"start_date": "29-12-2022 00:20",
 				"end_date": "30-12-2022 23:59",
@@ -42,6 +44,21 @@
 		  }
 	  },
 	  {
+		"condition": {
+			"start_date": "29-12-2022 00:20",
+			"end_date": "30-12-2022 23:59",
+		  "os": "ios",
+		  "ip" : "91.146.245.194"
+	  },
+	  "file": "discount_test_ios.json",
+	  "fields": {
+		  "message": "РАСПРОДАЖА!",
+		  "description": "Карты без ограничений и годовая PRO и Maps+ подписка -50%!"
+	  }
+  },
+  {
+
+
 			"condition": {
   				"start_date": "21-12-2022 00:20",
   				"end_date": "25-12-2022 23:59",
