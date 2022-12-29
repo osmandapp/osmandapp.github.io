@@ -1,0 +1,25 @@
+{
+    "message" : "Discount message (DEFINED in motd_config)",
+    "description" : "Discount description (DEFINED in motd_config)",
+    "show_start_frequency" : 40,
+    "show_day_frequency" : 10,
+    "max_total_show" : 20,
+    "icon" : "ic_action_gift",
+    "url" : "show-choose-plan:osmand-pro",
+    "url_params":{
+      "selected_choose_plan_btn":"osmand_pro_annual_full_v1"},
+    "oneOfConditions" : [
+        { 
+          "condition" : [ 
+       
+                     ] 
+        }
+  ],
+    "url_1" :  "show-choose-plan:unlimited-map-downloads",
+    "url_2" : "show-choose-plan:external-sensors-support",
+    "url_3" : "show-choose-plan:osmand-cloud",
+    "application" : {
+      "net.osmand.plus" : true
+    }
+  }
+  
