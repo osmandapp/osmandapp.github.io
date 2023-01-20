@@ -147,9 +147,11 @@
 						<th>Android</th>
 						<th>iOS Full</th>
 						<th>iOS %</th>
+						<th>iOS Pro</th>
 						<th>And v1 Full</th>
 						<th>And v1 %</th>
 						<th>And v2</th>
+						<th>And Pro</th>
 					</tr>
 					<tr th:each="di : ${yearSubscriptionsReport}">
 						<td th:utext="${di.month}">01.01.2018 00:00</td>
@@ -158,9 +160,11 @@
 						<td th:utext="${di.android.html()}">1000</td>
 						<td th:utext="${di.iosFull.html()}">1000</td>
 						<td th:utext="${di.iosIntro.html()}">1000</td>
+						<td th:utext="${di.iosPro.html()}">1000</td>
 						<td th:utext="${di.androidFull.html()}">1000</td>
 						<td th:utext="${di.androidIntro.html()}">1000</td>
 						<td th:utext="${di.androidV2.html()}">1000</td>
+						<td th:utext="${di.androidPro.html()}">1000</td>
 					</tr>
 				</table>
 			</div>
