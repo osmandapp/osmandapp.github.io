@@ -1,6 +1,6 @@
 {
 	"servers" : {
-		"main" : {"maptile.osmand.net":5, "dl8.osmand.net":5,  "dl9.osmand.net":5, "dl2.osmand.net":5, "dl7.osmand.net":5},
+		"main" : {"maptile.osmand.net":5, "dl8.osmand.net":5,  "dl9.osmand.net":5, "dl2.osmand.net":2, "dl7.osmand.net":2},
 		"roads" : {"dl2.osmand.net":3, "maptile.osmand.net":1, "dl8.osmand.net":3},
 		"wiki" : { "dl2.osmand.net":3, "maptile.osmand.net":1, "dl8.osmand.net":3},		
 		"osmlive" : { "dl2.osmand.net":3, "dl9.osmand.net":3},
