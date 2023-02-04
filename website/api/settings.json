@@ -5,10 +5,10 @@
 		"wiki" : {"dl2.osmand.net":1, "dl3.osmand.net":1, "dl4.osmand.net":1, "maptile.osmand.net":1},		
 		"osmlive" : { "dl2.osmand.net":1, "dl3.osmand.net":1, "dl4.osmand.net":1 },
 		"depth" : {"dl2.osmand.net":1, "dl3.osmand.net":1, "dl4.osmand.net":1, "maptile.osmand.net":1},
-		"hillshade" : {"dl2.osmand.net":1, "dl3.osmand.net":1, "maptile.osmand.net":1},
-		"slope" : {"dl2.osmand.net":1, "dl3.osmand.net":1 , "maptile.osmand.net":1},
-		"srtm" : { "dl2.osmand.net":1, "maptile.osmand.net":1},
-		"heightmap" : { "dl2.osmand.net":1, "maptile.osmand.net":1}
+		"hillshade" : {"dl2.osmand.net":1, "dl3.osmand.net":1, "dl4.osmand.net":1, "maptile.osmand.net":1},
+		"slope" : {"dl2.osmand.net":1, "dl3.osmand.net":1 , "dl4.osmand.net":1, "maptile.osmand.net":1},
+		"srtm" : { "dl2.osmand.net":1, "dl4.osmand.net":1, "maptile.osmand.net":1},
+		"heightmap" : { "dl2.osmand.net":1,  "dl4.osmand.net":1, "maptile.osmand.net":1}
 
 	}
 }
