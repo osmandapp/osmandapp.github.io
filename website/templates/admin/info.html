@@ -39,23 +39,15 @@
 			<table border="1">
 				<tr>
 					<th>Name</th>
-					<th>Maps 90G</th>
-					<th>Live 90G</th>
-					<th>SRTM 100G</th>
-					<th>Hillshade 40G</th>
-					<th>Slope 50G</th>
-					<th>Roads 40G</th>
-					<th>Wiki 30G</th>
+					<th:block th:each="type: ${downloadServers.types}">
+						<th th:text="${type}"></td>
+					</th:block>
 				</tr>
-				<tr th:each="di : ${downloadServers}">
+				<tr th:each="di : ${downloadServers.servers}">
 					<td th:text="${di.name}"></td>
-					<td th:text="${di.main}"></td>
-					<td th:text="${di.osmlive}"></td>
-					<td th:text="${di.srtm}"></td>
-					<td th:text="${di.hillshade}"></td>
-					<td th:text="${di.slope}"></td>
-					<td th:text="${di.roads}"></td>
-					<td th:text="${di.wiki}"></td>
+					<th:block th:each="type: ${downloadServers.types}">
+						<td th:text="${di[type.toString()]}"></td>
+					</th:block>
 				</tr>
 			</table>
   		</div>
