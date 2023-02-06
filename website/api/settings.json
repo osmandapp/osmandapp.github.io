@@ -11,14 +11,6 @@
 		"heightmap" : { "dl2.osmand.net":1,  "dl4.osmand.net":1, "maptile.osmand.net":1}
 	},
     "regions": [
-	    
-        {
-            "name": "test",
-            "servers": [
-                "dl2.osmand.net"
-            ],
-            "zones": ["83.85.0.0/16"]
-	},
         {
             "name": "de_telekom",
             "servers": [
