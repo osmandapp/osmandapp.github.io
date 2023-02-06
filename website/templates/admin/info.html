@@ -36,20 +36,25 @@
 
 			<h3>Download servers:</h3>
 			<span>You can change it by modifying json file at <a href="https://github.com/osmandapp/osmandapp.github.io/blob/master/website/api/settings.json">Github</a> and don't forget to click button reload configuration.</span>
-			<table border="1">
-				<tr>
-					<th>Name</th>
-					<th:block th:each="type: ${downloadServers.types}">
-						<th th:text="${type}"></td>
-					</th:block>
-				</tr>
-				<tr th:each="di : ${downloadServers.servers}">
-					<td th:text="${di.name}"></td>
-					<th:block th:each="type: ${downloadServers.types}">
-						<td th:text="${di[type.toString()]}"></td>
-					</th:block>
-				</tr>
-			</table>
+			<th:block th:each="region: ${downloadServers.regions}">
+				<p>
+				<table border="1">
+					<tr>
+						<th th:text="${region.name}"></th>
+						<th:block th:each="type: ${downloadServers.types}">
+							<th th:text="${type}">
+								</td>
+						</th:block>
+					</tr>
+					<tr th:each="di : ${region.servers}">
+						<td th:text="${di.name}"></td>
+						<th:block th:each="type: ${downloadServers.types}">
+							<td th:text="${di[type.toString()]}"></td>
+						</th:block>
+					</tr>
+				</table>
+			</p>
+			</th:block>
   		</div>
   		
   		<div id="motd" class="tab-pane fade">
