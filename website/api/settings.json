@@ -1,11 +1,6 @@
 {
-<<<<<<< HEAD
-    "servers" : {
-		"main" : {"dl2.osmand.net":4, "dl3.osmand.net":4, "dl4.osmand.net":4, "maptile.osmand.net":3,  "dl8.osmand.net":4,  "dl9.osmand.net":4,  "dl7.osmand.net":1},
-=======
 	"servers" : {
 		"main" : {"dl2.osmand.net":2, "dl3.osmand.net":4, "dl4.osmand.net":4, "maptile.osmand.net":3,  "dl8.osmand.net":4,  "dl9.osmand.net":4,  "dl7.osmand.net":1},
->>>>>>> 854870ee (Update settings)
 		"roads" : {"dl2.osmand.net":1, "dl3.osmand.net":1, "dl4.osmand.net":1, "maptile.osmand.net":1},
 		"wiki" : {"dl2.osmand.net":1, "dl3.osmand.net":1, "dl4.osmand.net":1, "maptile.osmand.net":1},		
 		"osmlive" : { "dl2.osmand.net":1, "dl3.osmand.net":1, "dl4.osmand.net":1 },
