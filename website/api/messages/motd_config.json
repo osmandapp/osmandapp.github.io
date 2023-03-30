@@ -229,7 +229,6 @@
 		{
 			"condition": {
 				"ip" : "93.73.34.9",
-				"ip" : "",
   				"start_date": "30-03-2023 00:20",
   				"end_date": "30-03-2023 23:59",
 				"app_version": "OsmAnd+",
