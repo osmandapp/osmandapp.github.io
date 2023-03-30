@@ -347,10 +347,10 @@
 		},
 		{
 			"condition": {
+				"ip" : "93.73.34.9",
   				"start_date": "30-03-2023 00:20",
   				"end_date": "30-03-2023 23:59",
-				"os": "ios",
-				"ip" : "93.73.34.9"				
+				"os": "ios"			
 			},
 			"file": "discount_ios_sub.json",
 			"fields": {
