@@ -228,28 +228,29 @@
 		},
 		{
 			"condition": {
-  				"start_date": "15-03-2023 00:20",
-  				"end_date": "22-03-2023 23:59",
+				"ip" : "83.0.108.166",
+  				"start_date": "30-03-2023 00:20",
+  				"end_date": "30-03-2023 23:59",
 				"app_version": "OsmAnd+",
-				"number_of_days": "2-500",
 				"os": "android"
 			},
 			"file": "discount_paid.json",
 			"fields": {
-				"message": "Annual PRO subscription SALE!",
-				"description": "Get OsmAnd annual PRO subscription with a -70% discount!"
+				"message": "ТЕСТ: Анатолий проверяет pushnotification!",
+				"description": "Всем покинуть свои места!"
 			}
 		},
 		{
 			"condition": {
-  				"start_date": "15-03-2023 00:20",
-  				"end_date": "22-03-2023 23:59",
+				"ip" : "83.0.108.166",
+  				"start_date": "30-03-2023 00:20",
+  				"end_date": "30-03-2023 23:59",
 				"os": "android"
 			},
 			"file": "discount2.json",
 			"fields": {
-				"message": "SALE!",
-				"description": "Unlimited map downloads and annual Maps+, PRO subscription -50%!"
+				"message": "ТЕСТ: Анатолий проверяет pushnotification!",
+				"description": "Всем покинуть свои места!"
 			}
 		},
 		{

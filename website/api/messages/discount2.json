@@ -1,9 +1,9 @@
 {
   "message" : "Discount message (DEFINED in motd_config)",
   "description" : "Discount description (DEFINED in motd_config)",
-  "show_start_frequency" : 4,
-  "show_day_frequency" : 1,
-  "max_total_show" : 3,
+  "show_start_frequency" : 2,
+  "show_day_frequency" : 2,
+  "max_total_show" : 5,
   "icon" : "ic_action_gift",
   "url" : "show-choose-plan:monthly-map-updates",
   "oneOfConditions" : [
