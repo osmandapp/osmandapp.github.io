@@ -2,8 +2,8 @@
 	"settings": [
 		{
 			"condition": {
-				"start_date": "07-04-2023 00:20",
-				"end_date": "09-04-2023 20:59",
+				"start_date": "14-04-2023 00:20",
+				"end_date": "16-04-2023 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "2-500",
@@ -17,8 +17,8 @@
 		},
 		{
 			"condition": {
-				"start_date": "07-04-2023 00:20",
-				"end_date": "09-04-2023 20:59",
+				"start_date": "14-04-2023 00:20",
+				"end_date": "16-04-2023 23:59",
 				"os": "android",
 				"lang" :"ru"
 			},
@@ -30,8 +30,8 @@
 		},
 		{
 			"condition": {
-				"start_date": "07-04-2023 00:20",
-				"end_date": "09-04-2023 20:59",
+				"start_date": "14-04-2023 00:20",
+				"end_date": "16-04-2023 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "2-500",
@@ -45,8 +45,8 @@
 		},
 		{
 			"condition": {
-				"start_date": "07-04-2023 00:20",
-				"end_date": "09-04-2023 20:59",
+				"start_date": "14-04-2023 00:20",
+				"end_date": "16-04-2023 23:59",
 				"os": "android",
 				"lang" :"pl"
 			},
@@ -58,8 +58,8 @@
 		},
 		{
 			"condition": {
-				"start_date": "07-04-2023 00:20",
-				"end_date": "09-04-2023 20:59",
+				"start_date": "14-04-2023 00:20",
+				"end_date": "16-04-2023 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "2-500",
@@ -73,8 +73,8 @@
 		},
 		{
 			"condition": {
-				"start_date": "07-04-2023 00:20",
-				"end_date": "09-04-2023 20:59",
+				"start_date": "14-04-2023 00:20",
+				"end_date": "16-04-2023 23:59",
 				"os": "android",
 				"lang" :"es"
 			},
@@ -87,8 +87,8 @@
 		{
 			"condition": {
 
-				"start_date": "07-04-2023 00:20",
-				"end_date": "09-04-2023 20:59",
+				"start_date": "14-04-2023 00:20",
+				"end_date": "16-04-2023 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "2-500",
@@ -102,8 +102,8 @@
 		},
 		{
 			"condition": {
-				"start_date": "07-04-2023 00:20",
-				"end_date": "09-04-2023 20:59",
+				"start_date": "14-04-2023 00:20",
+				"end_date": "16-04-2023 23:59",
 				"os": "android",
 				"lang" :"fr"
 			},
@@ -115,8 +115,8 @@
 		},
 		{
 			"condition": {
-				"start_date": "07-04-2023 00:20",
-				"end_date": "09-04-2023 20:59",
+				"start_date": "14-04-2023 00:20",
+				"end_date": "16-04-2023 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "2-500",
@@ -130,8 +130,8 @@
 		},
 		{
 			"condition": {
-				"start_date": "07-04-2023 00:20",
-				"end_date": "09-04-2023 20:59",
+				"start_date": "14-04-2023 00:20",
+				"end_date": "16-04-2023 23:59",
 				"os": "android",
 				"lang" :"nl"
 			},
@@ -143,8 +143,8 @@
 		},
 		{
 			"condition": {
-				"start_date": "07-04-2023 00:20",
-				"end_date": "09-04-2023 20:59",
+				"start_date": "14-04-2023 00:20",
+				"end_date": "16-04-2023 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "2-500",
@@ -159,8 +159,8 @@
 
 		{
 			"condition": {
-				"start_date": "07-04-2023 00:20",
-				"end_date": "09-04-2023 20:59",
+				"start_date": "14-04-2023 00:20",
+				"end_date": "16-04-2023 23:59",
 				"os": "android",
 				"lang" :"it"
 			},
@@ -172,8 +172,8 @@
 		},
 		{
 			"condition": {
-				"start_date": "07-04-2023 00:20",
-				"end_date": "09-04-2023 20:59",
+				"start_date": "14-04-2023 00:20",
+				"end_date": "16-04-2023 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "2-500",
@@ -187,8 +187,8 @@
 		},
 		{
 			"condition": {
-				"start_date": "07-04-2023 00:20",
-				"end_date": "09-04-2023 20:59",
+				"start_date": "14-04-2023 00:20",
+				"end_date": "16-04-2023 23:59",
 				"os": "android",
 				"lang" :"de"
 			},
@@ -200,8 +200,8 @@
 		},
 		{
 			"condition": {
-				"start_date": "07-04-2023 00:20",
-				"end_date": "09-04-2023 20:59",
+				"start_date": "14-04-2023 00:20",
+				"end_date": "16-04-2023 23:59",
 				"app_version": "OsmAnd+",
 				"os": "android",
 				"number_of_days": "2-500",
@@ -215,8 +215,8 @@
 		},
 		{
 			"condition": {
-				"start_date": "07-04-2023 00:20",
-				"end_date": "09-04-2023 20:59",
+				"start_date": "14-04-2023 00:20",
+				"end_date": "16-04-2023 23:59",
 				"os": "android",
 				"lang" :"ar"
 			},
@@ -228,8 +228,8 @@
 		},
 		{
 			"condition": {
-				"start_date": "07-04-2023 00:20",
-				"end_date": "09-04-2023 20:59",
+				"start_date": "14-04-2023 00:20",
+				"end_date": "16-04-2023 23:59",
 				"app_version": "OsmAnd+",
 				"number_of_days": "2-500",
 				"os": "android"
@@ -242,8 +242,8 @@
 		},
 		{
 			"condition": {
-				"start_date": "07-04-2023 00:20",
-				"end_date": "09-04-2023 20:59",
+				"start_date": "14-04-2023 00:20",
+				"end_date": "16-04-2023 23:59",
 				"os": "android"
 			},
 			"file": "discount2.json",
@@ -254,8 +254,8 @@
 		},
 		{
              "condition": {
-				"start_date": "07-04-2023 00:20",
-				"end_date": "09-04-2023 20:59",
+				"start_date": "14-04-2023 00:20",
+				"end_date": "16-04-2023 23:59",
 				"os": "ios",
 				"lang" :"ru"
 			},
@@ -267,8 +267,8 @@
 		},
 		{
 			      "condition": {
-				"start_date": "07-04-2023 00:20",
-				"end_date": "09-04-2023 20:59",
+				"start_date": "14-04-2023 00:20",
+				"end_date": "16-04-2023 23:59",
 				"os": "ios",
 				"lang" :"fr"
 			},
@@ -280,8 +280,8 @@
 		},
 		{
 				"condition": {
-				"start_date": "07-04-2023 00:20",
-				"end_date": "09-04-2023 20:59",
+				"start_date": "14-04-2023 00:20",
+				"end_date": "16-04-2023 23:59",
 				"os": "ios",
 				"lang" :"de"
 			},
@@ -293,8 +293,8 @@
 		},
 		{
 				"condition": {
-				"start_date": "07-04-2023 00:20",
-				"end_date": "09-04-2023 20:59",
+				"start_date": "14-04-2023 00:20",
+				"end_date": "16-04-2023 23:59",
 				"os": "ios",
 				"lang" :"it"
 			},
@@ -306,8 +306,8 @@
 		},
 		{
 				"condition": {
-				"start_date": "07-04-2023 00:20",
-				"end_date": "09-04-2023 20:59",
+				"start_date": "14-04-2023 00:20",
+				"end_date": "16-04-2023 23:59",
 				"os": "ios",
 				"lang" :"es"
 			},
@@ -319,8 +319,8 @@
 		},
 		{
 				"condition": {
-				"start_date": "07-04-2023 00:20",
-				"end_date": "09-04-2023 20:59",
+				"start_date": "14-04-2023 00:20",
+				"end_date": "16-04-2023 23:59",
 				"os": "ios",
 				"lang" :"nl"
 			},
@@ -332,8 +332,8 @@
 		},
 		{
 			"condition": {
-				"start_date": "07-04-2023 00:20",
-				"end_date": "09-04-2023 20:59",
+				"start_date": "14-04-2023 00:20",
+				"end_date": "16-04-2023 23:59",
 				"os": "ios",
 				"lang" :"pl"
 			},
@@ -345,8 +345,8 @@
 		},
 		{
 			"condition": {
-				"start_date": "07-04-2023 00:20",
-				"end_date": "09-04-2023 20:59",
+				"start_date": "14-04-2023 00:20",
+				"end_date": "16-04-2023 23:59",
 				"os": "ios",
 				"lang" :"ar"
 			},
@@ -358,8 +358,8 @@
 		},
 		{
 			      "condition": {
-				"start_date": "07-04-2023 00:20",
-				"end_date": "09-04-2023 20:59",
+				"start_date": "14-04-2023 00:20",
+				"end_date": "16-04-2023 23:59",
 				"os": "ios"
 			},
 			"file": "discount_ios_sub.json",
