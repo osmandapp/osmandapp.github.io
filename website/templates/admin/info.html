@@ -213,10 +213,16 @@
 				<tr>
 					<th>Name</th>
 					<th>Used</th>
+					<th>Start</th>
+					<th>End</th>
+					<th>Active period (month)</th>
 				</tr>
 				<tr th:each="di : ${promos}">
 					<td th:text="${di.name}"></td>
 					<td th:text="${di.used + ' / ' + di.numberLimit}"></td>
+					<td th:text="${di.startTime}"></td>
+					<td th:text="${di.endTime}"></td>
+					<td th:text="${di.subActiveMonths}"></td>
 				</tr>
 			</table>
 		</div>
