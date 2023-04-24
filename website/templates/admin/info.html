@@ -216,6 +216,7 @@
 					<th>Start</th>
 					<th>End</th>
 					<th>Active period (month)</th>
+					<th>5 last registered</th>
 				</tr>
 				<tr th:each="di : ${promos}">
 					<td th:text="${di.name}"></td>
@@ -223,6 +224,7 @@
 					<td th:text="${di.startTime}"></td>
 					<td th:text="${di.endTime}"></td>
 					<td th:text="${di.subActiveMonths}"></td>
+					<td th:text="${emails.get(di.name)}"></td>
 				</tr>
 			</table>
 		</div>
