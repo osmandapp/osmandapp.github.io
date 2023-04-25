@@ -3,7 +3,7 @@
   "description" : "Discount description (DEFINED in motd_config)",
   "show_start_frequency" : 2,
   "show_day_frequency" : 2,
-  "max_total_show" : 5,
+  "max_total_show" : 4,
   "icon" : "ic_action_gift",
   "url" : "show-choose-plan:osmand-pro",
   "url_params":{
