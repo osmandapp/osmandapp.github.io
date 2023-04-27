@@ -12,19 +12,13 @@
         
         { "not_purchased_inapp" : "net.osmand.maps.inapp.maps.plus" },
 
-        { "not_purchased_inapp" : "net.osmand.maps.inapp.region.allworld" },
+   
 
         { "not_purchased_subscription" : "net.osmand.maps.subscription.plus.annual_v1" },
 
         { "not_purchased_subscription" : "net.osmand.maps.subscription.pro.annual_v1" },
 
-        { "not_purchased_subscription" : "net.osmand.maps.subscription.pro.monthly_v1" },
-
-        { "not_purchased_subscription" : "net.osmand.maps.subscription.annual_v1" },  
-
-        { "not_purchased_subscription" : "net.osmand.maps.subscription.3months_v1" },
-
-        { "not_purchased_subscription" : "net.osmand.maps.subscription.monthly_v1" }
+        { "not_purchased_subscription" : "net.osmand.maps.subscription.pro.monthly_v1" }
 
 ]
 }

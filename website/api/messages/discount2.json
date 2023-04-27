@@ -9,8 +9,8 @@
   "oneOfConditions" : [
       { 
         "condition" : [ 
-                { "not_purchased_inapp" : "osmand_full_version_price" }, 
-                { "not_purchased_subscription" : "osm_live_subscription_annual_free_v1" },
+               
+               
                 { "not_purchased_subscription" : "osmand_pro_monthly_free_v1" },
                 { "not_purchased_subscription" : "osmand_maps_annual_free_v1" },
                 { "not_purchased_subscription" : "osmand_pro_annual_free_v1" }

@@ -11,7 +11,7 @@
   "oneOfConditions" : [
       { 
         "condition" : [ 
-                { "not_purchased_subscription" : "osm_live_subscription_annual_full_v1" },
+                
                 { "not_purchased_subscription" : "osmand_pro_monthly_full_v1" },
                 { "not_purchased_subscription" : "osmand_pro_annual_full_v1" }         
                    ] 
