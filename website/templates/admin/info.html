@@ -185,7 +185,7 @@
 		<div id="promo" class="tab-pane fade">
 			<h3>Promo:</h3>
 			<div class="register-promo-pro">
-				<form action="register-promo-pro" method="post">
+				<form action="register-promo-campaign" method="post">
 					<ul class="wrapper">
 						<li class="form-row">
 							<label for="name">Name (suffix):</label>
@@ -224,7 +224,7 @@
 					<td th:text="${di.startTime}"></td>
 					<td th:text="${di.endTime}"></td>
 					<td th:text="${di.subActiveMonths}"></td>
-					<td th:text="${emails.get(di.name)}"></td>
+					<td th:text="${di.lastUsers}"></td>
 				</tr>
 			</table>
 		</div>
