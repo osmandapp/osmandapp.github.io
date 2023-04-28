@@ -3,7 +3,7 @@
  "description" : "Discount_ios description (DEFINED in motd_config)",
  "show_start_frequency" : 2,
  "show_day_frequency" : 2,
- "max_total_show" : 8,
+ "max_total_show" : 5,
  "icon" : "ic_action_gift",
  "url" : "show-choose-plan:unlimited-map-downloads",
 "oneOfConditions" : [
@@ -12,13 +12,19 @@
         
         { "not_purchased_inapp" : "net.osmand.maps.inapp.maps.plus" },
 
-   
+        { "not_purchased_inapp" : "net.osmand.maps.inapp.region.allworld" },
 
         { "not_purchased_subscription" : "net.osmand.maps.subscription.plus.annual_v1" },
 
         { "not_purchased_subscription" : "net.osmand.maps.subscription.pro.annual_v1" },
 
-        { "not_purchased_subscription" : "net.osmand.maps.subscription.pro.monthly_v1" }
+        { "not_purchased_subscription" : "net.osmand.maps.subscription.pro.monthly_v1" },
+
+        { "not_purchased_subscription" : "net.osmand.maps.subscription.annual_v1" },  
+
+        { "not_purchased_subscription" : "net.osmand.maps.subscription.3months_v1" },
+
+        { "not_purchased_subscription" : "net.osmand.maps.subscription.monthly_v1" }
 
 ]
 }
