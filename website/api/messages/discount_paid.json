@@ -1,8 +1,8 @@
 {
   "message" : "Discount message (DEFINED in motd_config)",
   "description" : "Discount description (DEFINED in motd_config)",
-  "show_start_frequency" : 2,
-  "show_day_frequency" : 2,
+  "show_start_frequency" : 1,
+  "show_day_frequency" : 1,
   "max_total_show" : 1,
   "icon" : "ic_action_gift",
   "url" : "show-choose-plan:osmand-pro",
@@ -12,6 +12,13 @@
       { 
         "condition" : [ 
                 { "not_purchased_subscription" : "osm_live_subscription_annual_full_v1" },
+                { "not_purchased_subscription" : "osm_live_subscription_annual_full_v2" },
+                { "not_purchased_subscription" : "osm_live_subscription_3_months_full_v1" },
+                { "not_purchased_subscription" : "osm_live_subscription_monthly_full_v1" },
+
+                { "not_purchased_subscription" : "osm_live_subscription_2" },
+                { "not_purchased_subscription" : "osm_live_subscription_1" },
+                
                 { "not_purchased_subscription" : "osmand_pro_monthly_full_v1" },
                 { "not_purchased_subscription" : "osmand_pro_annual_full_v1" }         
                    ] 
